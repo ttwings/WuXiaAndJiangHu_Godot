@@ -1,0 +1,112 @@
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+extents = Vector2( 16, 16 )
+
+[sub_resource type="Animation" id=2]
+
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "left"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=4]
+
+resource_name = "right"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 11 ]
+}
+
+[sub_resource type="Animation" id=5]
+
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 12, 13, 14, 15 ]
+}
+
+[node name="Character" type="Area2D"]
+position = Vector2( 341.953, 202.379 )
+input_pickable = false
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -16 )
+vframes = 4
+hframes = 4
+frame = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/down = SubResource( 2 )
+anims/left = SubResource( 3 )
+anims/right = SubResource( 4 )
+anims/up = SubResource( 5 )
+
+[node name="MoveTween" type="Tween" parent="."]
+
+[node name="RayCastDown" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 32 )
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( -32, 0 )
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 32, 0 )
+
+[node name="RayCastUp" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, -32 )
+
+[node name="AttackTween" type="Tween" parent="."]
+
+[connection signal="tween_completed" from="MoveTween" to="." method="_on_MoveTween_tween_completed"]
