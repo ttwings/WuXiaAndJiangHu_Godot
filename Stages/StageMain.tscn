@@ -7,6 +7,7 @@
 
 size = 80
 outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
 font_data = ExtResource( 2 )
 
 [node name="StageMain" type="Control"]
@@ -31,24 +32,24 @@ custom_constants/margin_bottom = 80
 [node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer"]
 margin_left = 120.0
 margin_top = 80.0
-margin_right = 320.0
+margin_right = 1160.0
 margin_bottom = 640.0
 rect_min_size = Vector2( 200, 40 )
 alignment = 2
 
 [node name="Button" type="Button" parent="TextureRect/MarginContainer/VBoxContainer"]
 margin_top = 492.0
-margin_right = 200.0
+margin_right = 1040.0
 margin_bottom = 512.0
 
 [node name="Button2" type="Button" parent="TextureRect/MarginContainer/VBoxContainer"]
 margin_top = 516.0
-margin_right = 200.0
+margin_right = 1040.0
 margin_bottom = 536.0
 
 [node name="Button3" type="Button" parent="TextureRect/MarginContainer/VBoxContainer"]
 margin_top = 540.0
-margin_right = 200.0
+margin_right = 1040.0
 margin_bottom = 560.0
 
 [node name="Label" type="Label" parent="TextureRect"]
@@ -67,4 +68,9 @@ custom_colors/font_color_shadow = Color( 0.00392157, 0.00392157, 0.00392157, 1 )
 text = "武侠与江湖"
 align = 1
 valign = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_right = 905.0
+margin_bottom = 306.0
+text = "[color=#ff00ff]white[/color]"
 
