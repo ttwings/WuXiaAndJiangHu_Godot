@@ -2,12 +2,12 @@
 
 [ext_resource path="res://assets/fonts/myfont.ttf" type="DynamicFontData" id=1]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 
 size = 48
 font_data = ExtResource( 1 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 
 extents = Vector2( 121.094, 96.9182 )
 
@@ -22,7 +22,7 @@ margin_left = -49.5356
 margin_top = -120.332
 margin_right = 46.4644
 margin_bottom = -69.3318
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "洛阳"
 align = 1
 valign = 1
@@ -33,5 +33,5 @@ valign = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0, -0.698349 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
