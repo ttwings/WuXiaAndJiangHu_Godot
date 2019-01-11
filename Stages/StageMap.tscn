@@ -1,9 +1,30 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/graphics/maps/map.png" type="Texture" id=1]
 [ext_resource path="res://objs/LuoYang.tscn" type="PackedScene" id=2]
 [ext_resource path="res://characters/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://characters/NPC.tscn" type="PackedScene" id=4]
+
+[sub_resource type="NavigationPolygon" id=1]
+
+
+[sub_resource type="Curve2D" id=2]
+
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 4422.35, 2683.76, 65.9102, 8.8121, -65.9102, -8.8121, 3955.81, 2792.21, 0, 0, 0, 0, 3889.9, 2759.68 )
+}
+
+[sub_resource type="Curve2D" id=3]
+
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1414.34, 622.475, -141.488, -18.4549, 141.488, 18.4549, 1672.71, 747.558, 0, 0, 0, 0, 1933.13, 673.739 )
+}
+
+[sub_resource type="Curve2D" id=4]
+
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 4417.35, 2676.79, 0, 0, 0, 0, 4267.44, 2569.53, 66.8935, 17.6422, -66.8935, -17.6422, 4158.88, 2491.99, 58.8075, 11.7615, -58.8075, -11.7615, 3958.56, 2497.16, 0, 0, 0, 0, 3922.38, 2482.94 )
+}
 
 [node name="StageMap" type="Control"]
 __meta__ = {
@@ -32,9 +53,12 @@ position = Vector2( 60.0001, 29.3017 )
 
 [node name="YSort" type="YSort" parent="TextureRect"]
 position = Vector2( 1244.73, 1.75812 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Player" parent="TextureRect/YSort" instance=ExtResource( 3 )]
-position = Vector2( -647.694, 321.655 )
+position = Vector2( 2824.49, 2871.84 )
 
 [node name="Camera2D2" type="Camera2D" parent="TextureRect/YSort/Player"]
 current = true
@@ -42,19 +66,41 @@ limit_left = 0
 limit_top = 0
 
 [node name="NPC" parent="TextureRect/YSort" instance=ExtResource( 4 )]
-position = Vector2( -421.777, 200.621 )
+position = Vector2( 2789.73, 2846.99 )
 
 [node name="NPC2" parent="TextureRect/YSort" instance=ExtResource( 4 )]
-position = Vector2( -533.777, 463.621 )
+position = Vector2( 2677.73, 3109.99 )
 
 [node name="NPC3" parent="TextureRect/YSort" instance=ExtResource( 4 )]
-position = Vector2( -872.777, 451.621 )
+position = Vector2( 2338.73, 3097.99 )
 
 [node name="NPC4" parent="TextureRect/YSort" instance=ExtResource( 4 )]
-position = Vector2( -232.78, 477.621 )
+position = Vector2( 2978.73, 3123.99 )
 
 [node name="NPC5" parent="TextureRect/YSort" instance=ExtResource( 4 )]
-position = Vector2( -705.777, 156.621 )
+position = Vector2( 2505.73, 2802.99 )
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
+navpoly = SubResource( 1 )
+
+[node name="path" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="path"]
+position = Vector2( -4.1012, -2430.89 )
+scale = Vector2( 1, 1.90654 )
+curve = SubResource( 2 )
+
+[node name="Path2D2" type="Path2D" parent="path"]
+position = Vector2( -4.1012, 2.0506 )
+curve = SubResource( 3 )
+
+[node name="Path2D3" type="Path2D" parent="path"]
+curve = SubResource( 4 )
 
 
 [editable path="TextureRect/LuoYang"]

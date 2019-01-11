@@ -1,4 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://characters/Character.gd" type="Script" id=1]
+[ext_resource path="res://assets/graphics/faces/0.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -73,6 +76,7 @@ tracks/0/keys = {
 [node name="Character" type="Area2D"]
 position = Vector2( 341.953, 202.379 )
 input_pickable = false
+script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -16 )
@@ -108,5 +112,9 @@ enabled = true
 cast_to = Vector2( 0, -32 )
 
 [node name="AttackTween" type="Tween" parent="."]
+
+[node name="HeadImage" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 2 )
 
 [connection signal="tween_completed" from="MoveTween" to="." method="_on_MoveTween_tween_completed"]
