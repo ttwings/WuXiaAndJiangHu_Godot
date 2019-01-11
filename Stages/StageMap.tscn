@@ -1,15 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/graphics/maps/map.png" type="Texture" id=1]
 [ext_resource path="res://objs/LuoYang.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/graphics/maps/city1.png" type="Texture" id=3]
-[ext_resource path="res://characters/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://characters/NPC.tscn" type="PackedScene" id=5]
+[ext_resource path="res://characters/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://characters/NPC.tscn" type="PackedScene" id=4]
 
 [node name="StageMap" type="Control"]
 __meta__ = {
-"_edit_horizontal_guides_": [  ],
-"_edit_lock_": true
+"_edit_horizontal_guides_": [  ]
 }
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -18,9 +16,6 @@ anchor_bottom = 1.0
 margin_right = 6144.0
 margin_bottom = 5120.0
 texture = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="LuoYang" parent="TextureRect" instance=ExtResource( 2 )]
 editor/display_folded = true
@@ -35,79 +30,30 @@ margin_bottom = -70.3318
 [node name="CollisionShape2D" parent="TextureRect/LuoYang/Area2D" index="0"]
 position = Vector2( 60.0001, 29.3017 )
 
-[node name="Panel" type="Panel" parent="."]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="YSort" type="YSort" parent="TextureRect"]
+position = Vector2( 1244.73, 1.75812 )
 
-[node name="TextureRect2" type="TextureRect" parent="Panel"]
-visible = false
-margin_right = 1280.0
-margin_bottom = 960.0
-texture = ExtResource( 3 )
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="Player" parent="TextureRect/YSort" instance=ExtResource( 3 )]
+position = Vector2( -647.694, 321.655 )
 
-[node name="HScrollBar" type="HScrollBar" parent="Panel"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -5.03235
-margin_top = 688.9
-margin_right = 1274.97
-margin_bottom = 708.9
-rect_min_size = Vector2( 100, 20 )
-rect_scale = Vector2( 1, 1.5863 )
-size_flags_horizontal = 3
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="VScrollBar" type="VScrollBar" parent="Panel"]
-visible = false
-margin_left = 1244.73
-margin_top = 1.75812
-margin_right = 1274.73
-margin_bottom = 688.758
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="YSort" type="YSort" parent="Panel/VScrollBar"]
-visible = false
-
-[node name="Player" parent="Panel/VScrollBar/YSort" instance=ExtResource( 4 )]
-editor/display_folded = true
-visible = false
-position = Vector2( -828.777, 205.621 )
-
-[node name="Camera2D2" type="Camera2D" parent="Panel/VScrollBar/YSort/Player"]
-position = Vector2( 828.777, -205.621 )
+[node name="Camera2D2" type="Camera2D" parent="TextureRect/YSort/Player"]
+current = true
 limit_left = 0
 limit_top = 0
 
-[node name="NPC" parent="Panel/VScrollBar/YSort" instance=ExtResource( 5 )]
-visible = false
+[node name="NPC" parent="TextureRect/YSort" instance=ExtResource( 4 )]
 position = Vector2( -421.777, 200.621 )
 
-[node name="NPC2" parent="Panel/VScrollBar/YSort" instance=ExtResource( 5 )]
-visible = false
+[node name="NPC2" parent="TextureRect/YSort" instance=ExtResource( 4 )]
 position = Vector2( -533.777, 463.621 )
 
-[node name="NPC3" parent="Panel/VScrollBar/YSort" instance=ExtResource( 5 )]
-visible = false
+[node name="NPC3" parent="TextureRect/YSort" instance=ExtResource( 4 )]
 position = Vector2( -872.777, 451.621 )
 
-[node name="NPC4" parent="Panel/VScrollBar/YSort" instance=ExtResource( 5 )]
-visible = false
+[node name="NPC4" parent="TextureRect/YSort" instance=ExtResource( 4 )]
 position = Vector2( -232.78, 477.621 )
 
-[node name="NPC5" parent="Panel/VScrollBar/YSort" instance=ExtResource( 5 )]
-visible = false
+[node name="NPC5" parent="TextureRect/YSort" instance=ExtResource( 4 )]
 position = Vector2( -705.777, 156.621 )
 
 
