@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/graphics/ui/Balloon.png" type="Texture" id=1]
+[ext_resource path="res://objs/Balloon.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=1]
 
@@ -167,6 +168,7 @@ texture = ExtResource( 1 )
 vframes = 10
 hframes = 8
 frame = 24
+script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/ballon01 = SubResource( 1 )
@@ -180,3 +182,5 @@ anims/ballon08 = SubResource( 8 )
 anims/ballon09 = SubResource( 9 )
 anims/ballon10 = SubResource( 10 )
 
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]

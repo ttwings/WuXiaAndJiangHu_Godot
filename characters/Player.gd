@@ -14,7 +14,7 @@ func _process(delta):
 	
 	if Input.is_action_pressed("A"):
 		#attack(facing)
-		#$"Balloon/AnimationPlayer".play("ballon05")
+		$"Balloon/AnimationPlayer".play("ballon05")
 		$"Skill/AnimatedSprite".play('default')
 		# $Balloon.hide()
 
