@@ -24,6 +24,10 @@ window/size/width=1280
 window/size/height=720
 window/stretch/mode="2d"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "vnen.tiled_importer" )
+
 [importer_defaults]
 
 texture={
@@ -79,3 +83,7 @@ A={
 
 quality/2d/use_pixel_snap=true
 environment/default_environment="res://default_env.tres"
+
+[tiled_importer]
+
+enable_json_format=true

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://maps/wuguan.tmx" type="PackedScene" id=1]
+
+[node name="MapWuguan" type="Node2D"]
+
+[node name="wuguan" parent="." instance=ExtResource( 1 )]
+

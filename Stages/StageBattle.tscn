@@ -1,0 +1,6 @@
+[gd_scene format=2]
+
+[node name="StageBattle" type="Node2D"]
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
