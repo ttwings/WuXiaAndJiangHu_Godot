@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.0.2" orientation="orthogonal" renderorder="left-up" width="16" height="16" tilewidth="16" tileheight="16" nextobjectid="1">
+ <tileset firstgid="1" name="roguelikeSheet_transparent" tilewidth="16" tileheight="16" spacing="1" margin="1" tilecount="1767" columns="57">
+  <image source="../assets/graphics/kenney_tiles/roguelikeSheet_transparent.png" width="969" height="527"/>
+  <terraintypes>
+   <terrain name="water" tile="0"/>
+   <terrain name="soil" tile="0"/>
+   <terrain name="stone" tile="0"/>
+   <terrain name="sand" tile="0"/>
+  </terraintypes>
+  <tile id="2" terrain=",,,0"/>
+  <tile id="3" terrain=",,0,0"/>
+  <tile id="4" terrain=",,0,"/>
+  <tile id="57" terrain="0,0,0,"/>
+  <tile id="58" terrain="0,0,,0"/>
+  <tile id="59" terrain=",0,,0"/>
+  <tile id="60" terrain="0,0,0,0"/>
+  <tile id="61" terrain="0,,0,"/>
+  <tile id="114" terrain="0,,0,0"/>
+  <tile id="115" terrain=",0,0,0"/>
+  <tile id="116" terrain=",0,,"/>
+  <tile id="117" terrain="0,0,,"/>
+  <tile id="118" terrain="0,,,"/>
+  <tile id="171" terrain="0,0,0,"/>
+  <tile id="172" terrain="0,0,,0"/>
+  <tile id="173" terrain=",,,0"/>
+  <tile id="174" terrain=",,0,0"/>
+  <tile id="175" terrain=",,0,"/>
+  <tile id="228" terrain="0,,0,0"/>
+  <tile id="229" terrain=",0,0,0"/>
+  <tile id="230" terrain=",0,,0"/>
+  <tile id="231" terrain="0,0,0,0"/>
+  <tile id="232" terrain="0,,0,"/>
+  <tile id="287" terrain=",0,,"/>
+  <tile id="288" terrain="0,0,,"/>
+  <tile id="289" terrain="0,,,"/>
+  <tile id="518" terrain="1,1,1,"/>
+  <tile id="519" terrain="1,1,,1"/>
+  <tile id="520" terrain=",,,1"/>
+  <tile id="521" terrain=",,1,1"/>
+  <tile id="522" terrain=",,1,"/>
+  <tile id="575" terrain="1,,1,1"/>
+  <tile id="576" terrain=",1,1,1"/>
+  <tile id="577" terrain=",1,,1"/>
+  <tile id="578" terrain="1,1,1,1"/>
+  <tile id="579" terrain="1,,1,"/>
+  <tile id="634" terrain=",1,,"/>
+  <tile id="635" terrain="1,1,,"/>
+  <tile id="636" terrain="1,,,"/>
+  <tile id="860" terrain="2,2,2,"/>
+  <tile id="861" terrain="2,2,,2"/>
+  <tile id="862" terrain=",,,2"/>
+  <tile id="863" terrain=",,2,2"/>
+  <tile id="864" terrain=",,2,"/>
+  <tile id="917" terrain="2,,2,2"/>
+  <tile id="918" terrain=",2,2,2"/>
+  <tile id="919" terrain=",2,,2"/>
+  <tile id="920" terrain="2,2,2,2"/>
+  <tile id="921" terrain="2,,2,"/>
+  <tile id="976" terrain=",2,,"/>
+  <tile id="977" terrain="2,2,,"/>
+  <tile id="978" terrain="2,,,"/>
+  <tile id="1202" terrain="3,3,3,"/>
+  <tile id="1203" terrain="3,3,,3"/>
+  <tile id="1204" terrain=",,,3"/>
+  <tile id="1205" terrain=",,3,3"/>
+  <tile id="1206" terrain=",,3,"/>
+  <tile id="1259" terrain="3,,3,3"/>
+  <tile id="1260" terrain=",3,3,3"/>
+  <tile id="1261" terrain=",3,,3"/>
+  <tile id="1262" terrain="3,3,3,3"/>
+  <tile id="1263" terrain="3,,3,"/>
+  <tile id="1318" terrain=",3,,"/>
+  <tile id="1319" terrain="3,3,,"/>
+  <tile id="1320" terrain="3,,,"/>
+ </tileset>
+ <layer name="floor" width="16" height="16">
+  <data encoding="base64">
+   QwAAAD8AAAAGAAAAPwAAAD8AAABDAAAAQwAAAD8AAAA/AAAABgAAAD8AAAA/AAAABgAAAEMAAABDAAAABgAAAEMAAABDAAAAQwAAAEMAAAA/AAAABgAAAD8AAAAGAAAAPwAAAAYAAABDAAAAPwAAAD8AAAAGAAAAPwAAAD8AAAA/AAAABgAAAD8AAABDAAAAQwAAAAYAAABDAAAABgAAAAYAAAA/AAAABgAAAD8AAAA/AAAAPwAAAD8AAAAGAAAAQwAAAAYAAAAGAAAAPwAAAD8AAAA/AAAAQwAAAEMAAAA/AAAAQwAAAD8AAAAGAAAAPwAAAD8AAABDAAAABgAAAD8AAAA/AAAAQwAAAAYAAAA/AAAAQwAAAD8AAABDAAAAPwAAAAYAAAAGAAAAQwAAAAYAAAA/AAAABgAAAAYAAAAGAAAAQwAAAAYAAAA/AAAABgAAAAYAAABDAAAAPwAAAEMAAABDAAAABgAAAEMAAAA/AAAABgAAAEMAAAAGAAAAPwAAAEMAAAA/AAAAPwAAAEMAAABDAAAABgAAAD8AAABDAAAAPwAAAAYAAABDAAAABgAAAAYAAAA/AAAAQwAAAAYAAAA/AAAAQwAAAD8AAAA/AAAABgAAAAYAAAA/AAAAPwAAAAYAAABDAAAAPwAAAD8AAAA/AAAABgAAAAYAAABDAAAABgAAAD8AAAA/AAAABgAAAAYAAAAGAAAAQwAAAEMAAABDAAAAQwAAAEMAAAAGAAAABgAAAEMAAAA/AAAAPwAAAEMAAAA/AAAAPwAAAEMAAAAGAAAABgAAAD8AAAAGAAAAPwAAAAYAAAAGAAAAQwAAAD8AAAA/AAAAQwAAAAYAAABDAAAAQwAAAEMAAAAGAAAABgAAAAYAAABDAAAAPwAAAEMAAABDAAAABgAAAEMAAABDAAAAPwAAAAYAAAA/AAAAQwAAAD8AAAA/AAAAQwAAAEMAAAAGAAAABgAAAEMAAAA/AAAAQwAAAD8AAABDAAAABgAAAD8AAABDAAAAPwAAAAYAAABDAAAAPwAAAEMAAAA/AAAAQwAAAAYAAAAGAAAABgAAAAYAAABDAAAAQwAAAAYAAAAGAAAAQwAAAD8AAABDAAAAPwAAAD8AAABDAAAAQwAAAAYAAAAGAAAAPwAAAD8AAABDAAAAPwAAAAYAAABDAAAAQwAAAEMAAAAGAAAABgAAAD8AAAAGAAAABgAAAD8AAAAGAAAABgAAAAYAAAAGAAAAQwAAAAYAAAA/AAAAPwAAAAYAAAAGAAAAQwAAAEMAAABDAAAABgAAAD8AAAA/AAAAQwAAAAYAAAAGAAAABgAAAAYAAAA/AAAAQwAAAAYAAAA/AAAAQwAAAA==
+  </data>
+ </layer>
+</map>
