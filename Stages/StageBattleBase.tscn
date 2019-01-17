@@ -10,7 +10,6 @@
 
 size = 20
 use_mipmaps = false
-use_filter = false
 font_data = ExtResource( 5 )
 
 [node name="StageBattleBase" type="Node2D"]
