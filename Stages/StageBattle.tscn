@@ -1,6 +1,8 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://maps/map003.tscn" type="PackedScene" id=1]
 
 [node name="StageBattle" type="Node2D"]
 
-[node name="Navigation2D" type="Navigation2D" parent="."]
+[node name="map003" parent="." instance=ExtResource( 1 )]
 
