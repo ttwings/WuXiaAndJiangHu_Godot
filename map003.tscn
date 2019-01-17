@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://maps/map003.tmx" type="PackedScene" id=1]
 [ext_resource path="res://characters/NPC.tscn" type="PackedScene" id=2]
 [ext_resource path="res://characters/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Stages/TimeLine.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Stages/SkillContainer.tscn" type="PackedScene" id=5]
 
 [node name="map003" instance=ExtResource( 1 )]
 
@@ -12,9 +14,14 @@ editor/display_folded = false
 [node name="YSort" type="YSort" parent="." index="3"]
 
 [node name="NPC" parent="YSort" index="0" instance=ExtResource( 2 )]
+position = Vector2( 1044.37, 405.87 )
 
 [node name="Player" parent="YSort" index="1" instance=ExtResource( 3 )]
-position = Vector2( 110.591, 220.176 )
+position = Vector2( 365.332, 437.233 )
 
 [node name="actors" type="Node2D" parent="YSort" index="2"]
+
+[node name="TimeLine" parent="." index="4" instance=ExtResource( 4 )]
+
+[node name="SkillContainer" parent="." index="5" instance=ExtResource( 5 )]
 
