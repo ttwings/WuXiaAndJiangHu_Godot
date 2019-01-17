@@ -1,0 +1,101 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/graphics/kenney_ui/buttonSquare_beige.png" type="Texture" id=1]
+[ext_resource path="res://assets/graphics/faces/0.png" type="Texture" id=2]
+
+[node name="ActorInfo" type="Node2D"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 526.0
+margin_bottom = 692.0
+rect_min_size = Vector2( 100, 100 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.59442
+margin_top = 1.59442
+margin_right = 1.59442
+margin_bottom = 1.59442
+texture = ExtResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.46992
+margin_top = -3.17751
+margin_right = 4.46991
+margin_bottom = -3.17749
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="head" type="Sprite" parent="Panel/VBoxContainer"]
+position = Vector2( 88.6179, 105.018 )
+texture = ExtResource( 2 )
+
+[node name="Line2D" type="Line2D" parent="Panel/VBoxContainer"]
+position = Vector2( 43.6073, 55.8053 )
+scale = Vector2( 0.83255, 1 )
+points = PoolVector2Array( 13.3291, 106.892, 224.681, 106.892, 507.511, 106.892 )
+texture_mode = -883764087
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+margin_right = 526.0
+margin_bottom = 84.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="params" type="GridContainer" parent="Panel/VBoxContainer/HBoxContainer"]
+margin_right = 70.0
+margin_bottom = 84.0
+columns = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer/params"]
+margin_top = 8.0
+margin_right = 33.0
+margin_bottom = 22.0
+text = "test1"
+
+[node name="Label2" type="Label" parent="Panel/VBoxContainer/HBoxContainer/params"]
+margin_left = 37.0
+margin_right = 70.0
+margin_bottom = 31.0
+text = "test2
+"
+
+[node name="Label3" type="Label" parent="Panel/VBoxContainer/HBoxContainer/params"]
+margin_top = 35.0
+margin_right = 33.0
+margin_bottom = 66.0
+text = "test3
+"
+
+[node name="Label4" type="Label" parent="Panel/VBoxContainer/HBoxContainer/params"]
+margin_left = 37.0
+margin_top = 35.0
+margin_right = 70.0
+margin_bottom = 66.0
+text = "test4
+"
+
+[node name="Label5" type="Label" parent="Panel/VBoxContainer/HBoxContainer/params"]
+margin_top = 70.0
+margin_right = 33.0
+margin_bottom = 84.0
+
+[node name="Label6" type="Label" parent="Panel/VBoxContainer/HBoxContainer/params"]
+margin_left = 37.0
+margin_top = 70.0
+margin_right = 70.0
+margin_bottom = 84.0
+
