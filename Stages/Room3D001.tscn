@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Stages/room001.dae" type="PackedScene" id=1]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Scene Root" parent="." instance=ExtResource( 1 )]
+
+[node name="Camera" parent="Scene Root" index="0"]
+transform = Transform( -0.784689, -0.276019, 0.555046, 0, 0.895396, 0.445271, -0.619889, 0.3494, -0.702607, 7.48113, 5.34367, -3.49236 )
+fov = 98.4375
+
+
+[editable path="Scene Root"]
