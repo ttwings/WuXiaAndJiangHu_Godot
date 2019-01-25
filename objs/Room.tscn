@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://objs/Room.gd" type="Script" id=1]
+
+[node name="Room" type="Node2D"]
+script = ExtResource( 1 )
+pos_2 = Vector2( 100, 100 )
+
+[node name="Lines" type="Node2D" parent="."]
+
+[node name="Positions" type="Node2D" parent="."]
+
+[node name="Button" type="Button" parent="."]
+margin_left = 306.522
+margin_top = 147.023
+margin_right = 464.522
+margin_bottom = 216.023
+
+[node name="WindowDialog" type="WindowDialog" parent="."]
+margin_left = 472.321
+margin_top = 146.036
+margin_right = 660.321
+margin_bottom = 352.036
+

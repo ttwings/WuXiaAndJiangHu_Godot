@@ -1,8 +1,10 @@
 extends "res://characters/Character.gd"
 
 var skill_anim = null
+var actor_data = Global.player_data
 func _ready():
 	# $Balloon.hide()
+	print(actor_data.name)
 	pass
 	
 func _process(delta):

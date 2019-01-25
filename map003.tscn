@@ -8,9 +8,6 @@
 
 [node name="map003" instance=ExtResource( 1 )]
 
-[node name="对象层1" parent="." index="1"]
-editor/display_folded = false
-
 [node name="YSort" type="YSort" parent="." index="3"]
 
 [node name="NPC" parent="YSort" index="0" instance=ExtResource( 2 )]
