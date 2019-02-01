@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://skills/Skill.gd" type="Script" id=1]
 [ext_resource path="res://assets/graphics/skills/Blast/blast-001/blast-001_000.png" type="Texture" id=2]
@@ -34,6 +34,17 @@
 [ext_resource path="res://assets/graphics/skills/Blast/blast-003/blast-003_008.png" type="Texture" id=32]
 [ext_resource path="res://assets/graphics/skills/Blast/blast-003/blast-003_009.png" type="Texture" id=33]
 [ext_resource path="res://assets/graphics/skills/Blast/blast-003/blast-003_010.png" type="Texture" id=34]
+[ext_resource path="res://assets/graphics/skills/Blast/blast-064/blast-064_000.png" type="Texture" id=35]
+[ext_resource path="res://assets/graphics/skills/Blast/blast-064/blast-064_001.png" type="Texture" id=36]
+[ext_resource path="res://assets/graphics/skills/Blast/blast-064/blast-064_002.png" type="Texture" id=37]
+[ext_resource path="res://assets/graphics/skills/Blast/blast-064/blast-064_003.png" type="Texture" id=38]
+[ext_resource path="res://assets/graphics/skills/Blast/blast-064/blast-064_004.png" type="Texture" id=39]
+[ext_resource path="res://assets/graphics/skills/Blast/blast-064/blast-064_005.png" type="Texture" id=40]
+[ext_resource path="res://assets/graphics/skills/Blast/blast-064/blast-064_006.png" type="Texture" id=41]
+
+[sub_resource type="CircleShape2D" id=2]
+
+radius = 16.0
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -41,7 +52,7 @@ animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
 "loop": false,
 "name": "default",
-"speed": 60.0
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ) ],
 "loop": false,
@@ -54,22 +65,24 @@ animations = [ {
 "speed": 60.0
 } ]
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="SpriteFrames" id=3]
 
-radius = 16.0
+animations = [ {
+"frames": [ ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ) ],
+"loop": true,
+"name": "New Anim",
+"speed": 5.0
+} ]
 
 [node name="Skill" type="Node2D"]
 script = ExtResource( 1 )
+path = "res://assets/graphics/skills/Blast/blast-001"
+suffix = "png"
 
 [node name="Area2D" type="Area2D" parent="."]
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D"]
-frames = SubResource( 1 )
-animation = "New Anim 1"
-frame = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 2 )
@@ -77,4 +90,15 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[connection signal="animation_finished" from="Area2D/AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 263.874, 128.572 )
+frames = SubResource( 1 )
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+position = Vector2( 483.104, 162.881 )
+frames = SubResource( 3 )
+animation = "New Anim"
+frame = 2
+

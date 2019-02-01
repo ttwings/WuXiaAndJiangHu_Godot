@@ -9,13 +9,13 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node",
-"class": "Global",
+"base": "Node2D",
+"class": "Room",
 "language": "GDScript",
-"path": "res://Global.gd"
+"path": "res://objs/Room.gd"
 } ]
 _global_script_class_icons={
-"Global": ""
+"Room": ""
 }
 
 [application]

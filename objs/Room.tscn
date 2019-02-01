@@ -1,24 +1,123 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://objs/Room.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/SourceHanSerifCN-Medium.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://new_theme.tres" type="Theme" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=2]
+
+default_font = SubResource( 1 )
 
 [node name="Room" type="Node2D"]
 script = ExtResource( 1 )
 pos_2 = Vector2( 100, 100 )
 
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 32, 32 )
+
 [node name="Lines" type="Node2D" parent="."]
+visible = false
 
-[node name="Positions" type="Node2D" parent="."]
+[node name="LineN" type="Line2D" parent="Lines"]
+visible = false
+texture_mode = 2670
 
-[node name="Button" type="Button" parent="."]
-margin_left = 306.522
-margin_top = 147.023
-margin_right = 464.522
-margin_bottom = 216.023
+[node name="DoorPositions" type="Node2D" parent="."]
+visible = false
 
-[node name="WindowDialog" type="WindowDialog" parent="."]
-margin_left = 472.321
-margin_top = 146.036
-margin_right = 660.321
-margin_bottom = 352.036
+[node name="PositionN" type="Position2D" parent="DoorPositions"]
+position = Vector2( 32, 0 )
+
+[node name="PositionE" type="Position2D" parent="DoorPositions"]
+position = Vector2( 64, 32 )
+
+[node name="PositionS" type="Position2D" parent="DoorPositions"]
+position = Vector2( 32, 64 )
+
+[node name="PositionW" type="Position2D" parent="DoorPositions"]
+position = Vector2( 0, 32 )
+
+[node name="Button" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_top = -0.663422
+margin_right = 64.0
+margin_bottom = 63.3366
+rect_min_size = Vector2( 64, 64 )
+color = Color( 0.160784, 0.560784, 0.262745, 1 )
+
+[node name="Panel" type="Panel" parent="Button"]
+visible = false
+margin_left = 69.0
+margin_top = 1.0
+margin_right = 303.0
+margin_bottom = 224.0
+theme = SubResource( 2 )
+
+[node name="Description" type="RichTextLabel" parent="Button/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "这里是一座极大的菜园，种满了油菜，萝卜，茄子，丝瓜之类。周围的篱笆都破了，看来要整修了。菜园旁有几口大缸，里面盛满了水，可是菜地看起来都干裂了，几棵菜蔫蔫的长着，是缺水太多了"
+
+[node name="Actions" type="HBoxContainer" parent="Button/Panel"]
+margin_left = 2.0
+margin_top = 192.0
+margin_right = 234.0
+margin_bottom = 222.0
+alignment = 1
+
+[node name="Action1" type="Button" parent="Button/Panel/Actions"]
+margin_left = 94.0
+margin_right = 138.0
+margin_bottom = 30.0
+theme = ExtResource( 3 )
+text = "浇水"
+
+[node name="Action2" type="Button" parent="Button/Panel/Actions"]
+visible = false
+margin_left = 48.0
+margin_right = 92.0
+margin_bottom = 30.0
+theme = ExtResource( 3 )
+text = "浇水"
+
+[node name="Action3" type="Button" parent="Button/Panel/Actions"]
+visible = false
+margin_left = 48.0
+margin_right = 92.0
+margin_bottom = 30.0
+theme = ExtResource( 3 )
+text = "浇水"
+
+[node name="Action4" type="Button" parent="Button/Panel/Actions"]
+visible = false
+margin_left = 48.0
+margin_right = 92.0
+margin_bottom = 30.0
+theme = ExtResource( 3 )
+text = "浇水"
+
+[node name="ItemList" type="ItemList" parent="Button"]
+visible = false
+margin_left = 305.663
+margin_top = 1.0
+margin_right = 395.663
+margin_bottom = 223.0
+theme = ExtResource( 3 )
+items = [ "大缸", null, false ]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 12.2602
+margin_top = 3.0
+margin_right = 52.2602
+margin_bottom = 27.0
+theme = ExtResource( 3 )
+text = "菜园"
+align = 1
 

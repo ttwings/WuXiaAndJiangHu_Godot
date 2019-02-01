@@ -59,6 +59,7 @@ __meta__ = {
 
 [node name="Player" parent="TextureRect/YSort" instance=ExtResource( 3 )]
 position = Vector2( 2824.49, 2871.84 )
+head_id = 0
 
 [node name="Camera2D2" type="Camera2D" parent="TextureRect/YSort/Player"]
 current = true

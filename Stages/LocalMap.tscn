@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://objs/Room.tscn" type="PackedScene" id=1]
+
+[node name="LocalMap" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="base_cai_yuan" parent="." instance=ExtResource( 1 )]
+editor/display_folded = true
+position = Vector2( 94.2239, 34.9402 )
+
+[node name="base_cai_yuan2" parent="." instance=ExtResource( 1 )]
+editor/display_folded = true
+position = Vector2( 98.305, 184.581 )
+
+[node name="base_cai_yuan3" parent="." instance=ExtResource( 1 )]
+editor/display_folded = true
+position = Vector2( 241.144, 41.742 )
+

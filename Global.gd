@@ -1,6 +1,4 @@
 extends Node
-
-class_name Global
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -11,9 +9,13 @@ var deffence_skills
 var foods
 var herbs
 
+func _init():
+	pass
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print("test")
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -71,4 +73,52 @@ func load_data(path:String):
 	var data_str = load_data.get_as_text()
 	var p = JSON.parse(data_str)
 	return p.result
-				
+	
+
+func dir_contents(path):
+    var dir = Directory.new()
+    if dir.open(path) == OK:
+        dir.list_dir_begin()
+        var file_name = dir.get_next()
+        while (file_name != ""):
+            if dir.current_is_dir():
+                print("Found directory: " + file_name)
+            else:
+                print("Found file: " + file_name)
+            file_name = dir.get_next()
+    else:
+        print("An error occurred when trying to access the path.")
+
+# 获取目录下特定后缀文件
+
+func dir_files(path,suffix):
+	var dir = Directory.new()
+	var files = []
+	if dir.open(path) == OK:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while (file_name!= ""):
+			if dir.current_is_dir():
+				print("Found directory" + file_name)
+			elif file_name.split(".")[-1] == suffix:
+				files.append(file_name)
+				print("Found file: " + file_name)
+			else:
+				pass
+				#print("Found file: " + file_name)
+			file_name = dir.get_next()
+	else:
+		print("An error ccurred when trying to access the path.")
+	return files	
+		
+func creat_sprite_frames_from_path(anim,path,suffix):
+	var sprite_frames = SpriteFrames.new()
+	var texture
+	sprite_frames.add_animation(anim)
+	for i in dir_files(path,suffix) :
+		texture = load(i)
+		sprite_frames.add_frame(anim,texture)
+	return sprite_frames
+						
+						
+						

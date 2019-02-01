@@ -7,6 +7,8 @@ func _ready():
 	print(actor_data.name)
 	pass
 	
+
+	
 func _process(delta):
 	if can_move:
 		for dir in moves.keys():
@@ -25,6 +27,7 @@ func _process(delta):
 	
 	if Input.is_action_pressed("A"):
 		#attack(facing)
+#		var sprite_frames = Global.creat_sprite_frames_from_path()
 		$"Balloon/AnimationPlayer".play("ballon05")
 		#$"Skill/AnimatedSprite".play('default')
 		# $Balloon.hide()
