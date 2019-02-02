@@ -44,10 +44,7 @@ func _ready():
 	$Label.text = name_cn
 	position.x = x
 	position.y = y
-	$ColorRect/Panel/Description.text = description
-	for i in objs:
-		$ColorRect/Panel/ItemList.add_item(i)
-		
+	$NinePatchRect/Description.text = description
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

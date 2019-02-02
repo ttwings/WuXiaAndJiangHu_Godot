@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/graphics/ui/ui_p.png" type="Texture" id=1]
 [ext_resource path="res://assets/fonts/SourceHanSerifCN-Medium.otf" type="DynamicFontData" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/graphics/faces/111.png" type="Texture" id=4]
 [ext_resource path="res://assets/graphics/icons/052.png" type="Texture" id=5]
 [ext_resource path="res://assets/graphics/icons/007.png" type="Texture" id=6]
+[ext_resource path="res://new_theme.tres" type="Theme" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -24,7 +25,8 @@ self_modulate = Color( 1, 1, 1, 0 )
 margin_right = 391.0
 margin_bottom = 71.0
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_lock_": true
 }
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
@@ -54,7 +56,8 @@ margin_top = -0.395447
 margin_right = -0.707031
 margin_bottom = 68.6046
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_lock_": true
 }
 
 [node name="NinePatchRect" type="NinePatchRect" parent="HeadTexture"]
@@ -69,11 +72,28 @@ scale = Vector2( 0.929968, 0.760546 )
 texture = ExtResource( 4 )
 centered = false
 
-[node name="ItemList" type="ItemList" parent="."]
-margin_left = 57.3881
-margin_top = 74.0013
-margin_right = 303.388
-margin_bottom = 190.001
+[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 72.0
+margin_bottom = 202.0
+texture = ExtResource( 1 )
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="ItemList" type="ItemList" parent="NinePatchRect2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
 custom_styles/bg = SubResource( 2 )
 custom_fonts/font = SubResource( 3 )
 custom_colors/guide_color = Color( 1, 1, 1, 1 )
@@ -82,16 +102,57 @@ custom_colors/font_color = Color( 1, 0.992157, 0.992157, 1 )
 items = [ "《梯云纵秘籍》   5000钱", ExtResource( 5 ), false, "《修罗刀法》   1000钱", ExtResource( 6 ), false ]
 max_columns = 2
 same_column_width = true
-__meta__ = {
-"_edit_group_": true
-}
 
-[node name="NinePatchRect" type="NinePatchRect" parent="ItemList"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = -1.0
+margin_top = 273.0
+margin_right = 392.0
+margin_bottom = 336.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HBoxContainer"]
+margin_right = 194.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
 texture = ExtResource( 1 )
 patch_margin_left = 8
 patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
+
+[node name="Button" type="Button" parent="HBoxContainer/NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 7 )
+text = "购买"
+flat = true
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="HBoxContainer"]
+margin_left = 198.0
+margin_right = 393.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+texture = ExtResource( 1 )
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Button" type="Button" parent="HBoxContainer/NinePatchRect2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 7 )
+text = "离开"
+flat = true
 

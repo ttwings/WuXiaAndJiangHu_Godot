@@ -167,7 +167,7 @@ tracks/0/keys = {
 texture = ExtResource( 1 )
 vframes = 10
 hframes = 8
-frame = 24
+frame = 79
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

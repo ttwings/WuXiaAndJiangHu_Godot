@@ -1,16 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://objs/Item.gd" type="Script" id=1]
 [ext_resource path="res://assets/graphics/tiles.png" type="Texture" id=2]
 [ext_resource path="res://assets/fonts/SourceHanSerifCN-Medium.otf" type="DynamicFontData" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="DynamicFont" id=1]
 
-extents = Vector2( 14.7107, 6.00755 )
-
-[sub_resource type="DynamicFont" id=2]
-
-size = 64
 use_mipmaps = true
 font_data = ExtResource( 3 )
 
@@ -18,65 +13,31 @@ font_data = ExtResource( 3 )
 position = Vector2( 24.3254, 20.0332 )
 script = ExtResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -1.18251, 3.31061 )
-texture = ExtResource( 2 )
-region_enabled = true
-region_rect = Rect2( 544, 768, 32, 32 )
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 1 )
-
-[node name="Label" type="Label" parent="."]
-margin_left = -19.7772
-margin_top = -23.5323
-margin_right = 124.223
-margin_bottom = 69.4677
-rect_scale = Vector2( 0.2, 0.2 )
-custom_fonts/font = SubResource( 2 )
-text = " 菜板"
-align = 1
-valign = 1
-
-[node name="Panel" type="Panel" parent="."]
-margin_left = 19.0
-margin_top = -16.0
-margin_right = 86.0
-margin_bottom = 87.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 1.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
-editor/display_folded = true
-margin_right = 68.0
-margin_bottom = 20.0
+[node name="Sprite" type="Sprite" parent="VBoxContainer"]
+position = Vector2( 155.07, -305.559 )
+scale = Vector2( 3.45587, 3.45716 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 897, 803, 30, 52 )
 
-[node name="ColorPickerButton" type="ColorPickerButton" parent="Panel/VBoxContainer/HBoxContainer"]
-margin_right = 12.0
-margin_bottom = 20.0
-rect_pivot_offset = Vector2( -133.325, 35.9668 )
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Sprite"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -49.0
+margin_top = -41.0
+margin_right = -49.0
+margin_bottom = -41.0
+color = Color( 1, 1, 1, 0 )
 
-[node name="ColorPickerButton2" type="ColorPickerButton" parent="Panel/VBoxContainer/HBoxContainer"]
-margin_left = 16.0
-margin_right = 28.0
-margin_bottom = 20.0
-rect_pivot_offset = Vector2( -133.325, 35.9668 )
+[node name="Label" type="Label" parent="VBoxContainer/Sprite"]
+margin_left = -20.0
+margin_top = 21.0
+margin_right = 19.0
+margin_bottom = 45.0
+custom_fonts/font = SubResource( 1 )
+text = " 菜板"
 
-[node name="GraphEdit" type="GraphEdit" parent="Panel/VBoxContainer"]
-margin_top = 24.0
-margin_right = 68.0
-margin_bottom = 24.0
-
-[node name="GraphNode" type="GraphNode" parent="Panel/VBoxContainer/GraphEdit"]
-margin_right = 67.0
-margin_bottom = 79.0
-mouse_filter = 1
-title = "test"
-
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_Area2D_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_Area2D_mouse_exited"]

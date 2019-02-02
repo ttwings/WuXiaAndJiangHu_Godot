@@ -1,17 +1,18 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Stages/StageBattleBase.gd" type="Script" id=1]
 [ext_resource path="res://maps/map003.tmx" type="PackedScene" id=2]
 [ext_resource path="res://Stages/TimeLine.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Stages/SkillContainer.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/fonts/SourceHanSerifCN-Medium.otf" type="DynamicFontData" id=5]
-[ext_resource path="res://controls/ChatPanel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/fonts/SourceHanSerifCN-Medium.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://controls/ChatPanel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/graphics/ui/ui_p.png" type="Texture" id=6]
+[ext_resource path="res://Stages/SkillContainer.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 20
 use_mipmaps = true
-font_data = ExtResource( 5 )
+font_data = ExtResource( 4 )
 
 [node name="StageBattleBase" type="Node2D"]
 script = ExtResource( 1 )
@@ -22,8 +23,6 @@ __meta__ = {
 [node name="map003" parent="." instance=ExtResource( 2 )]
 
 [node name="TimeLine" parent="." instance=ExtResource( 3 )]
-
-[node name="SkillContainer" parent="." instance=ExtResource( 4 )]
 
 [node name="Weather" type="Label" parent="."]
 anchor_right = 1.0
@@ -113,9 +112,32 @@ position = Vector2( 20.1403, 424.91 )
 [node name="Position2D24" type="Position2D" parent="Positions"]
 position = Vector2( 21.368, 284.948 )
 
-[node name="ChatPanel" parent="." instance=ExtResource( 6 )]
-margin_left = 465.248
-margin_top = 431.239
-margin_right = 856.248
-margin_bottom = 502.239
+[node name="ChatPanel" parent="." instance=ExtResource( 5 )]
+margin_left = 444.408
+margin_top = 226.597
+margin_right = 835.408
+margin_bottom = 297.597
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+margin_left = 68.9926
+margin_top = 655.24
+margin_right = 1210.99
+margin_bottom = 716.24
+texture = ExtResource( 6 )
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="SkillContainer" parent="NinePatchRect" instance=ExtResource( 7 )]
+anchor_top = 0.0
+anchor_right = 1.0
+margin_left = 10.0
+margin_top = 8.0
+margin_right = -10.0
+margin_bottom = -10.0
+rect_min_size = Vector2( 0, 0 )
 
