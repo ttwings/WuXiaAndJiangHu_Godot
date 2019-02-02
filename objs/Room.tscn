@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://objs/Room.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/SourceHanSerifCN-Medium.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://new_theme.tres" type="Theme" id=3]
+[ext_resource path="res://controls/ProgressButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/graphics/faces/297.png" type="Texture" id=5]
+[ext_resource path="res://assets/graphics/faces/2.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -27,7 +30,6 @@ visible = false
 texture_mode = 2670
 
 [node name="DoorPositions" type="Node2D" parent="."]
-visible = false
 
 [node name="PositionN" type="Position2D" parent="DoorPositions"]
 position = Vector2( 32, 0 )
@@ -41,7 +43,7 @@ position = Vector2( 32, 64 )
 [node name="PositionW" type="Position2D" parent="DoorPositions"]
 position = Vector2( 0, 32 )
 
-[node name="Button" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -52,65 +54,78 @@ margin_bottom = 63.3366
 rect_min_size = Vector2( 64, 64 )
 color = Color( 0.160784, 0.560784, 0.262745, 1 )
 
-[node name="Panel" type="Panel" parent="Button"]
-visible = false
+[node name="Panel" type="Panel" parent="ColorRect"]
 margin_left = 69.0
 margin_top = 1.0
 margin_right = 303.0
 margin_bottom = 224.0
 theme = SubResource( 2 )
 
-[node name="Description" type="RichTextLabel" parent="Button/Panel"]
+[node name="Description" type="RichTextLabel" parent="ColorRect/Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 text = "这里是一座极大的菜园，种满了油菜，萝卜，茄子，丝瓜之类。周围的篱笆都破了，看来要整修了。菜园旁有几口大缸，里面盛满了水，可是菜地看起来都干裂了，几棵菜蔫蔫的长着，是缺水太多了"
 
-[node name="Actions" type="HBoxContainer" parent="Button/Panel"]
+[node name="Actions" type="HBoxContainer" parent="ColorRect/Panel"]
 margin_left = 2.0
 margin_top = 192.0
 margin_right = 234.0
 margin_bottom = 222.0
 alignment = 1
 
-[node name="Action1" type="Button" parent="Button/Panel/Actions"]
-margin_left = 94.0
-margin_right = 138.0
+[node name="Action1" type="Button" parent="ColorRect/Panel/Actions"]
+margin_left = 70.0
+margin_right = 114.0
 margin_bottom = 30.0
 theme = ExtResource( 3 )
 text = "浇水"
 
-[node name="Action2" type="Button" parent="Button/Panel/Actions"]
+[node name="Action2" type="Button" parent="ColorRect/Panel/Actions"]
 visible = false
-margin_left = 48.0
-margin_right = 92.0
+margin_left = 118.0
+margin_right = 162.0
 margin_bottom = 30.0
 theme = ExtResource( 3 )
 text = "浇水"
 
-[node name="Action3" type="Button" parent="Button/Panel/Actions"]
+[node name="Action3" type="Button" parent="ColorRect/Panel/Actions"]
 visible = false
-margin_left = 48.0
-margin_right = 92.0
+margin_left = 142.0
+margin_right = 186.0
 margin_bottom = 30.0
 theme = ExtResource( 3 )
 text = "浇水"
 
-[node name="Action4" type="Button" parent="Button/Panel/Actions"]
+[node name="Action4" type="Button" parent="ColorRect/Panel/Actions"]
 visible = false
-margin_left = 48.0
-margin_right = 92.0
+margin_left = 166.0
+margin_right = 210.0
 margin_bottom = 30.0
 theme = ExtResource( 3 )
 text = "浇水"
 
-[node name="ItemList" type="ItemList" parent="Button"]
-visible = false
-margin_left = 305.663
-margin_top = 1.0
-margin_right = 395.663
-margin_bottom = 223.0
+[node name="ProgressButton" parent="ColorRect/Panel/Actions" instance=ExtResource( 4 )]
+margin_left = 118.0
+margin_right = 162.0
+margin_bottom = 30.0
+text = "浇水"
+
+[node name="ItemList" type="ItemList" parent="ColorRect/Panel"]
+margin_left = 236.663
+margin_right = 326.663
+margin_bottom = 222.0
 theme = ExtResource( 3 )
 items = [ "大缸", null, false ]
+
+[node name="ActorList" type="ItemList" parent="ColorRect/Panel"]
+margin_left = 1.629
+margin_top = 223.767
+margin_right = 409.629
+margin_bottom = 350.767
+items = [ "管家", ExtResource( 5 ), false, "采药妹子", ExtResource( 6 ), false ]
+max_columns = 6
+same_column_width = true
+icon_mode = 0
 
 [node name="Label" type="Label" parent="."]
 margin_left = 12.2602
@@ -121,3 +136,6 @@ theme = ExtResource( 3 )
 text = "菜园"
 align = 1
 
+[connection signal="mouse_entered" from="ColorRect" to="." method="_on_ColorRect_mouse_entered"]
+[connection signal="mouse_exited" from="ColorRect/Panel" to="." method="_on_Panel_mouse_exited"]
+[connection signal="pressed" from="ColorRect/Panel/Actions/Action1" to="." method="_on_Action1_pressed"]

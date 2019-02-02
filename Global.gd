@@ -114,10 +114,10 @@ func dir_files(path,suffix):
 func creat_sprite_frames_from_path(anim,path,suffix):
 	var sprite_frames = SpriteFrames.new()
 	var texture
-	sprite_frames.add_animation(anim)
+	#sprite_frames.add_animation(anim)
 	for i in dir_files(path,suffix) :
 		texture = load(i)
-		sprite_frames.add_frame(anim,texture)
+		sprite_frames.add_frame(anim,texture,-1)
 	return sprite_frames
 						
 						

@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Stages/StageBattleBase.gd" type="Script" id=1]
 [ext_resource path="res://maps/map003.tmx" type="PackedScene" id=2]
 [ext_resource path="res://Stages/TimeLine.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Stages/SkillContainer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/fonts/SourceHanSerifCN-Medium.otf" type="DynamicFontData" id=5]
+[ext_resource path="res://controls/ChatPanel.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -14,6 +15,9 @@ font_data = ExtResource( 5 )
 
 [node name="StageBattleBase" type="Node2D"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="map003" parent="." instance=ExtResource( 2 )]
 
@@ -30,11 +34,88 @@ custom_fonts/font = SubResource( 1 )
 text = "冬月十一日子时一刻"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="SkillPanel" type="Panel" parent="."]
-modulate = Color( 0.0235294, 0.0235294, 0.0235294, 0.568627 )
-margin_left = 733.961
-margin_top = 420.0
-margin_right = 937.961
-margin_bottom = 710.0
+[node name="Positions" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="Position2D01" type="Position2D" parent="Positions"]
+position = Vector2( 941.379, 677.467 )
+
+[node name="Position2D02" type="Position2D" parent="Positions"]
+position = Vector2( 994.434, 568.637 )
+
+[node name="Position2D03" type="Position2D" parent="Positions"]
+position = Vector2( 1024.36, 399.95 )
+
+[node name="Position2D04" type="Position2D" parent="Positions"]
+position = Vector2( 934.577, 272.075 )
+
+[node name="Position2D05" type="Position2D" parent="Positions"]
+position = Vector2( 693.791, 53.0546 )
+
+[node name="Position2D06" type="Position2D" parent="Positions"]
+position = Vector2( 453.005, 48.9735 )
+
+[node name="Position2D07" type="Position2D" parent="Positions"]
+position = Vector2( 258.471, 300.643 )
+
+[node name="Position2D08" type="Position2D" parent="Positions"]
+position = Vector2( 223.101, 439.401 )
+
+[node name="Position2D09" type="Position2D" parent="Positions"]
+position = Vector2( 282.958, 579.52 )
+
+[node name="Position2D10" type="Position2D" parent="Positions"]
+position = Vector2( 410.833, 680.187 )
+
+[node name="Position2D11" type="Position2D" parent="Positions"]
+position = Vector2( 725.079, 525.105 )
+
+[node name="Position2D12" type="Position2D" parent="Positions"]
+position = Vector2( 731.881, 398.59 )
+
+[node name="Position2D13" type="Position2D" parent="Positions"]
+position = Vector2( 734.602, 299.282 )
+
+[node name="Position2D14" type="Position2D" parent="Positions"]
+position = Vector2( 504.699, 533.267 )
+
+[node name="Position2D15" type="Position2D" parent="Positions"]
+position = Vector2( 504.699, 398.59 )
+
+[node name="Position2D16" type="Position2D" parent="Positions"]
+position = Vector2( 508.78, 303.364 )
+
+[node name="Position2D17" type="Position2D" parent="Positions"]
+position = Vector2( 1247.88, 659.408 )
+
+[node name="Position2D18" type="Position2D" parent="Positions"]
+position = Vector2( 1252.79, 551.367 )
+
+[node name="Position2D19" type="Position2D" parent="Positions"]
+position = Vector2( 1255.24, 422.454 )
+
+[node name="Position2D20" type="Position2D" parent="Positions"]
+position = Vector2( 1239.28, 286.175 )
+
+[node name="Position2D21" type="Position2D" parent="Positions"]
+position = Vector2( 28.7345, 664.318 )
+
+[node name="Position2D22" type="Position2D" parent="Positions"]
+position = Vector2( 18.9125, 557.505 )
+
+[node name="Position2D23" type="Position2D" parent="Positions"]
+position = Vector2( 20.1403, 424.91 )
+
+[node name="Position2D24" type="Position2D" parent="Positions"]
+position = Vector2( 21.368, 284.948 )
+
+[node name="ChatPanel" parent="." instance=ExtResource( 6 )]
+margin_left = 465.248
+margin_top = 431.239
+margin_right = 856.248
+margin_bottom = 502.239
 

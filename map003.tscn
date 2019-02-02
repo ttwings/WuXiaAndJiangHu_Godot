@@ -11,10 +11,10 @@
 [node name="YSort" type="YSort" parent="." index="3"]
 
 [node name="NPC" parent="YSort" index="0" instance=ExtResource( 2 )]
-position = Vector2( 1044.37, 405.87 )
+position = Vector2( 230.183, 433.01 )
 
 [node name="Player" parent="YSort" index="1" instance=ExtResource( 3 )]
-position = Vector2( 365.332, 437.233 )
+position = Vector2( 950.771, 377.784 )
 
 [node name="actors" type="Node2D" parent="YSort" index="2"]
 

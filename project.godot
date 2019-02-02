@@ -9,12 +9,24 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Reference",
+"class": "DmgObj",
+"language": "GDScript",
+"path": "res://DmgObj.gd"
+}, {
+"base": "Reference",
+"class": "HealObj",
+"language": "GDScript",
+"path": "res://HealObj.gd"
+}, {
 "base": "Node2D",
 "class": "Room",
 "language": "GDScript",
 "path": "res://objs/Room.gd"
 } ]
 _global_script_class_icons={
+"DmgObj": "",
+"HealObj": "",
 "Room": ""
 }
 
