@@ -117,7 +117,7 @@ func creat_sprite_frames_from_path(anim,path,suffix):
 	#sprite_frames.add_animation(anim)
 	for i in dir_files(path,suffix) :
 		texture = load(i)
-		sprite_frames.add_frame(anim,texture,-1)
+		sprite_frames.add_frame(anim,texture)
 	return sprite_frames
 						
 						

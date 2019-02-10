@@ -12,12 +12,12 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "DmgObj",
 "language": "GDScript",
-"path": "res://DmgObj.gd"
+"path": "res://objs/DmgObj.gd"
 }, {
 "base": "Reference",
 "class": "HealObj",
 "language": "GDScript",
-"path": "res://HealObj.gd"
+"path": "res://objs/HealObj.gd"
 }, {
 "base": "Node2D",
 "class": "Room",
