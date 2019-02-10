@@ -6,7 +6,7 @@
 [ext_resource path="res://Stages/TimeLine.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Stages/SkillContainer.tscn" type="PackedScene" id=5]
 
-[node name="map003" index="0" instance=ExtResource( 1 )]
+[node name="map003" instance=ExtResource( 1 )]
 
 [node name="YSort" type="YSort" parent="." index="3"]
 

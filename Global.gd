@@ -89,7 +89,7 @@ func dir_contents(path):
     else:
         print("An error occurred when trying to access the path.")
 
-# 获取目录下特定后缀文件
+# 获取path目录下特定后缀suffix文件
 
 func dir_files(path,suffix):
 	var dir = Directory.new()
@@ -110,13 +110,15 @@ func dir_files(path,suffix):
 	else:
 		print("An error ccurred when trying to access the path.")
 	return files	
-		
-func creat_sprite_frames_from_path(anim,path,suffix):
+
+# 获取目录path下的suffix后缀图片文件生成anim名称的 sprite frames	
+func creat_sprite_frames_from_path(anim:String,path:String,suffix:String):
+	var sprite_files = dir_files(path,suffix)
 	var sprite_frames = SpriteFrames.new()
 	var texture
 	#sprite_frames.add_animation(anim)
-	for i in dir_files(path,suffix) :
-		texture = load(i)
+	for i in sprite_files.size() :
+		texture = load(path + "/" + sprite_files[i])
 		sprite_frames.add_frame(anim,texture)
 	return sprite_frames
 						

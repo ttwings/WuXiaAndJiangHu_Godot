@@ -65,8 +65,7 @@ func dir_files(path,suffix):
 				files.append(file_name)
 				print("Found file: " + file_name)
 			else:
-				pass
-				#print("Found file: " + file_name)
+				print("Found file: " + file_name)
 			file_name = dir.get_next()
 	else:
 		print("An error ccurred when trying to access the path.")
@@ -85,7 +84,7 @@ func _ready():
     $AnimatedSprite.frames = creatAnimation(path)
     $AnimatedSprite.speed_scale = 4
     $AnimatedSprite.play("default")
-    pass # Replace with function body.
+    pass
 
 func dir_contents(path):
     var dir = Directory.new()
@@ -99,7 +98,7 @@ func dir_contents(path):
             else:
                 if file_name.split(".")[-1] == "png":
                     file_list.append(file_name)
-#                    print("Found file: " + file_name)
+                    print("Found file: " + file_name)
             file_name = dir.get_next()
     else:
         print("An Error occurred when trying to access the path.")
