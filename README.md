@@ -14,7 +14,7 @@
 
 ## 开发随笔
 1. 基本保存
-```lua
+```JavaScript
 func save(content):
     var file = File.new()
     file.open("user://save_game.dat", file.WRITE)
@@ -29,15 +29,15 @@ func load():
     return content
 ```
 2. json的基本使用
-```javascript
-var p = JSON.parse('["hello", "world", "!"]’)
+```JavaScript
+var p = JSON.parse('["hello", "world", "!"]')
 if typeof(p.result) == TYPE_ARRAY:
     print(p.result[0]) # prints 'hello'
 else:
     print("unexpected results")
 ```
 3. 读取json数据
-```javascript
+```JavaScript
 func load_data(path:String):
 	var load_data = File.new()
 	if not load_data.file_exists(path):
@@ -75,7 +75,7 @@ func dir_files(path,suffix):
 
 5. 读取文件夹下图片素材生成动画
 
-```R
+```JavaScript
 extends Node2D
 # 选择目录下的png
 export(String,DIR) var path
