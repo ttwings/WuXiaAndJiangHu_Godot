@@ -61,7 +61,7 @@ func load_game():
 			new_object.set(i,current_line[i])
 	save_game.close()
 	
-	
+# 读取JSON格式的数据文件	
 func load_data(path:String):
 	var load_data = File.new()
 	if not load_data.file_exists(path):
