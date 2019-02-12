@@ -7,7 +7,9 @@ var textures = ['actor_001.png', 'actor_005.png',
 func _ready():
 	randomize()
 	var texture = textures[randi() % textures.size()]
+	print(typeof(texture))
 	texture = load("res://assets/graphics/characters/%s" % texture)
+	print(typeof(texture))
 	$Sprite.texture = texture
 	facing = moves.keys()[randi() % 4]
 

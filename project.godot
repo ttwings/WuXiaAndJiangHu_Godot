@@ -9,6 +9,7 @@
 config_version=4
 
 _global_script_classes=[ {
+<<<<<<< HEAD
 "base": "Node",
 "class": "Battler",
 "language": "GDScript",
@@ -16,12 +17,32 @@ _global_script_classes=[ {
 }, {
 "base": "Node",
 "class": "Global",
+=======
+"base": "Reference",
+"class": "DmgObj",
+>>>>>>> 8c37ad7856a2d26e741d01e9daa22a693e4d3008
 "language": "GDScript",
-"path": "res://Global.gd"
+"path": "res://objs/DmgObj.gd"
+}, {
+"base": "Reference",
+"class": "HealObj",
+"language": "GDScript",
+"path": "res://objs/HealObj.gd"
+}, {
+"base": "Node2D",
+"class": "Room",
+"language": "GDScript",
+"path": "res://objs/Room.gd"
 } ]
 _global_script_class_icons={
+<<<<<<< HEAD
 "Battler": "",
 "Global": ""
+=======
+"DmgObj": "",
+"HealObj": "",
+"Room": ""
+>>>>>>> 8c37ad7856a2d26e741d01e9daa22a693e4d3008
 }
 
 [application]

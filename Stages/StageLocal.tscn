@@ -17,6 +17,7 @@ texture = ExtResource( 1 )
 
 [node name="Player" parent="Actors/YSort" instance=ExtResource( 2 )]
 position = Vector2( 708.474, 476.477 )
+head_id = 0
 
 [node name="Camera2D2" type="Camera2D" parent="Actors/YSort/Player"]
 position = Vector2( -703.714, -481.237 )

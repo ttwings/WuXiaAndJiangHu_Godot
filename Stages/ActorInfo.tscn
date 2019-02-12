@@ -26,6 +26,10 @@ margin_top = 1.59442
 margin_right = 1.59442
 margin_bottom = 1.59442
 texture = ExtResource( 1 )
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 15
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 anchor_right = 1.0
