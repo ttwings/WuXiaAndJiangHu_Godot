@@ -10,11 +10,17 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node",
+"class": "Battler",
+"language": "GDScript",
+"path": "res://battler.gd"
+}, {
+"base": "Node",
 "class": "Global",
 "language": "GDScript",
 "path": "res://Global.gd"
 } ]
 _global_script_class_icons={
+"Battler": "",
 "Global": ""
 }
 
