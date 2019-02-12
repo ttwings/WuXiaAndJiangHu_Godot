@@ -4,7 +4,7 @@ var skill_anim = null
 var actor_data = Global.player_data
 func _ready():
 	# $Balloon.hide()
-	print(actor_data.name)
+	print(actor_data)
 	pass
 	
 

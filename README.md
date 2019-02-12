@@ -13,14 +13,76 @@
 * godot引擎，目前用起来，感觉不错。很顺手。
 
 ## 开发随笔
-1. 基本保存
+* RPGmaker类行走图素材处理
+  
+  含金量不高，只是作为自己的一点记录。
+
+  1. 心走图素材（各类素材来源于网络，仅为学习使用）
+   
+   ![](doc/img/行走图.png)
+
+  2. 新建Sprite，将序列图纹理素材导入
+   ![](doc/img/行走图类序列图处理.png)
+  3. 新建AnimationPlayer，新建4个方向的行走动画
+  4. 点击frame右边的钥匙标记，可以快速添加动画 
+   ![](doc/img/行走图类序列图处理2.png)
+  5. 添加RayCast射线检测，用于简单碰撞
+   ![](doc/img/用射线来做碰撞检测.png)
+  6. 添加脚本，实现控制，脚本未做清理
+   
+   ```JavaScript
+    extends Area2D
+    export(int) var head_id = 0
+    var tile_size = 32
+    var can_move = true
+    var facing = 'right'
+    var moves = {'right': Vector2(1, 0),
+    			 'left': Vector2(-1, 0),
+    			 'up': Vector2(0, -1),
+    			 'down': Vector2(0, 1)}
+    var raycasts = {'right': 'RayCastRight',
+    				'left' : 'RayCastLeft',
+    				'up': 'RayCastUp',
+    				'down': 'RayCastDown'}
+
+    func move(dir):
+    	if get_node(raycasts[facing]).is_colliding():
+    		return
+    	facing = dir
+    	can_move = false
+    	$AnimationPlayer.play(facing)
+    	$MoveTween.interpolate_property(self, "position", position,
+    								position + moves[facing] * tile_size, 0.6,
+    								Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+    	$MoveTween.start()
+    	return true
+
+    func _on_MoveTween_tween_completed( object, key ):
+    	can_move = true
+
+    ```
+
+* RPGmaker类自动地图在godot中使用
+  
+  1. 新建Tiledmap，新建TileSet，设置合适的cell大小
+  2. 注意：rpgmaker类，自动地图，表面是32*32大小，但在实际处理时，底层是再次分解为16*16计算的，因此这里需要设置为16*16
+  3.  点击tilemap里面的tileset下面的"打开编辑器"
+  4.  新建autotile，设置snap options里面的 step为16*16，设置bitmask(这里是自动地图的关键)，如图测试，如果不对可以重新编辑
+
+        ![](doc/img/autotile设置.png)
+  5.  注意图中的例子并不完整，剩下的需要自己摸索，下面给点提醒
+  6.  自动地图，需要底层和表层同时设置才行。像例子中并没有弄底层，只考虑了表层，而且图中的素材为网络拼凑而成，缺少合适的底层，并不可取。
+  7.  简单图形的自动地图，如矩形类地毯，可以只管下面的部分，这个时候，cell大小可以设置为32*32，同理snap options里面的 step也可以设置为 32*32。
+
+  
+
+* 基本保存
 ```JavaScript
 func save(content):
     var file = File.new()
     file.open("user://save_game.dat", file.WRITE)
     file.store_string(content)
     file.close()
-
 func load():
     var file = File.new()
     file.open("user://save_game.dat", file.READ)
@@ -28,7 +90,7 @@ func load():
     file.close()
     return content
 ```
-2. json的基本使用
+* json的基本使用
 ```JavaScript
 var p = JSON.parse('["hello", "world", "!"]')
 if typeof(p.result) == TYPE_ARRAY:
@@ -36,7 +98,16 @@ if typeof(p.result) == TYPE_ARRAY:
 else:
     print("unexpected results")
 ```
-3. 读取json数据
+* 读取json数据
+  
+  假如我们有如下数据，并转为JSON。
+
+  ![](doc/img/角色数据表.png)
+
+  PS：这里推荐国人制作的excel转lua json等的一个强大工具
+
+    https://github.com/zhangqi-ulua/XlsxToLua
+
 ```JavaScript
 func load_data(path:String):
 	var load_data = File.new()
@@ -50,7 +121,7 @@ func load_data(path:String):
 	var p = JSON.parse(data_str)
 	return p.result
 ```
-4. 获取目录下特定后缀文件
+* 获取目录下特定后缀文件
 ```JavaScript
 func dir_files(path,suffix):
 	var dir = Directory.new()
@@ -72,7 +143,11 @@ func dir_files(path,suffix):
 	return files	
 ```
 
-5. 读取文件夹下图片素材生成动画
+* 读取文件夹下图片素材生成动画
+
+    假如我们的动画文件在单个文件夹中
+
+![](doc/img/skillanim.png)
 
 ```JavaScript
 extends Node2D
@@ -112,3 +187,20 @@ func creatAnimation(path:String):
         sprite_frames.add_frame("default",frame)
     return sprite_frames
 ```
+
+* 利用ninepach简单风格的对话框
+  
+  一些国产游戏会用到的内圆弧的风格
+  ![](doc/img/太污绘卷.png)
+  ![](doc/img/金庸群侠传风格.png)
+  ![](doc/img/chineseui.png)
+
+  做这个效果很简单
+  1. 准备素材
+  ![](assets/graphics/ui/ui_p.png)
+  
+  2. 新建NinePatchRect然后设置合适的pachmargin
+   ![](doc/img/patchmargin.png)
+  3. 将其他的控件放到NinePatchRect下。按钮类，可能需要设置flat为true。否则会调用按钮的风格。 也可以以此风格为主，深入修改Theme，那样需要较多的绘制，不擅长，不做累述。
+    ![](doc/img/buttonflat.png)
+

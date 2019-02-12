@@ -13,17 +13,10 @@
 [node name="YSort" type="YSort" parent="." index="3"]
 
 [node name="NPC" parent="YSort" index="0" instance=ExtResource( 2 )]
-<<<<<<< HEAD
-position = Vector2( 208.098, 395.846 )
-
-[node name="Player" parent="YSort" index="1" instance=ExtResource( 3 )]
-position = Vector2( 1024.04, 401.434 )
-=======
 position = Vector2( 230.183, 433.01 )
 
 [node name="Player" parent="YSort" index="1" instance=ExtResource( 3 )]
 position = Vector2( 950.771, 377.784 )
->>>>>>> 8c37ad7856a2d26e741d01e9daa22a693e4d3008
 
 [node name="actors" type="Node2D" parent="YSort" index="2"]
 
