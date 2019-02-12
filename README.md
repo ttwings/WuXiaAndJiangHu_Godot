@@ -16,8 +16,9 @@
 * RPGmaker类行走图素材处理
   
   含金量不高，只是作为自己的一点记录。
+  注：绝大数素材来源于网络，仅为学习使用（极个别是自己绘制的）
 
-  1. 心走图素材（各类素材来源于网络，仅为学习使用）
+  1. 行走图素材
    
    ![](doc/img/行走图.png)
 
@@ -204,3 +205,77 @@ func creatAnimation(path:String):
   3. 将其他的控件放到NinePatchRect下。按钮类，可能需要设置flat为true。否则会调用按钮的风格。 也可以以此风格为主，深入修改Theme，那样需要较多的绘制，不擅长，不做累述。
     ![](doc/img/buttonflat.png)
 
+* 用richtextlabel生成物品信息面板
+ 
+  ![](doc/img/物品信息1.png)
+  
+  利用到上面的知识，结合richtextlabel
+  
+  ![](doc/img/物品信息.png)
+
+  ```JavaScript
+  extends Node2D
+
+    func _ready():
+    	$Panel/NinePatchRect/RichTextLabel.bbcode_text = creat_food_bbc()
+    	pass # Replace with function body.
+
+    func creat_food_bbc():
+    // 用字典模拟物品数据
+    	var dict = {}
+    	dict.name_cn = "大米饭"
+    	dict.direction = "一碗刚从锅里盛出来的大米饭，还冒着热气～～～"
+    	dict.unit = "碗"
+    	dict.number = "1"
+    	dict.type = "食物"
+    	dict.pice = 1
+    	dict.pice_max = 5
+    	dict.food = 50
+    	dict.water = -20
+    	dict.happy = 10
+    	dict.value = 2548
+    	
+        var bbc ="""[center][color=#ffff00]""" + dict.name_cn + """[/color][/center]
+    color=gray]【描述】[/color]
+    	""" + dict.direction + """
+    color=yellow]【物品信息】[/color]
+    	单位："""+ dict.unit +"""
+    	数量："""+ str(dict.number) +"""
+    	类别："""+ dict.type + """
+    	分量：[color=red]""" + str(dict.pice) +"""[/color]/"""+ str(dict.pice_max) +"""
+    color=fuchsia]【使用效果】[/color]
+    	果腹：[color="""+ get_number_color(dict.food) +"""]"""+ str(dict.food) +"""[/color]
+    	解渴：[color="""+ get_number_color(dict.water) +"""]"""+ str(dict.water) +"""[/color]
+    	享受：[color="""+ get_number_color(dict.happy) +"""]"""+ str(dict.happy) +"""[/color]
+    	[right][color=yellow]价钱："""+ get_chinese_number(dict.value) +"""文[/color][/right]
+    	"""
+    	return bbc
+    // 用于根据数字输出颜色string，这里可以按需要深度更改
+    func get_number_color(number):
+    	if number < 0: return "red" 
+    	else:return "green"
+    
+    // 用于将数字转化为文字
+
+    func get_chinese_number(n:int):
+    	var number_str = str(n)
+    	var l = number_str.length()
+    	var output = []
+    	for i in range(l):
+    		number_str[i] = swap_to_font(number_str[i])
+    	return number_str
+    
+    func swap_to_font(number):
+    	match number:
+    		"1":return "一"
+    		"2":return "二"
+    		"3":return "三"
+    		"4":return "四"
+    		"5":return "五"
+    		"6":return "六"
+    		"7":return "七"
+    		"8":return "八"
+    		"9":return "九"
+    		"0":return "〇"
+    		_:return "X"
+  ```

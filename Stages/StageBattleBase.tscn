@@ -11,6 +11,8 @@
 [sub_resource type="DynamicFont" id=1]
 
 size = 20
+use_mipmaps = false
+use_filter = false
 font_data = ExtResource( 4 )
 
 [node name="StageBattleBase" type="Node2D"]
