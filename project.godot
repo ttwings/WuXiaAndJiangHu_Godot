@@ -111,6 +111,10 @@ B={
  ]
 }
 
+[physics]
+
+2d/cell_size=32
+
 [rendering]
 
 quality/2d/use_pixel_snap=true
