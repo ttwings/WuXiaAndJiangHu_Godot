@@ -38,7 +38,7 @@ func creat_food_bbc():
 	果腹：[color="""+ get_number_color(dict.food) +"""]"""+ str(dict.food) +"""[/color]
 	解渴：[color="""+ get_number_color(dict.water) +"""]"""+ str(dict.water) +"""[/color]
 	享受：[color="""+ get_number_color(dict.happy) +"""]"""+ str(dict.happy) +"""[/color]
-	[right][color=yellow]价钱："""+ get_chinese_number(dict.value) +"""文[/color][/right]
+	[right][color=yellow]价钱："""+ get_chinese_number(dict.value) +"""钱[/color][/right]
 	"""
 	return bbc
 
