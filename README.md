@@ -279,3 +279,213 @@ func creatAnimation(path:String):
     		"0":return "〇"
     		_:return "X"
   ```
+* 仿《太吾绘卷》绘制人物关系面板
+  ![](doc/img/relationship_panel.png)
+
+* 制作中国风格时间显示
+    
+    ![](doc/img/clock.png)
+    
+```JavaScript
+    extends Node2D
+
+    var Date = {year=0,month=0,week=0,day=0,hour=0,minute=0,second=0,   turn=0}
+    var animals = ["鼠","牛","虎","兔","龙","蛇","马","羊","猴","鸡","狗    ","猪"]
+    var weeks 	= ["上旬","中旬","下旬"]
+    var days 	= ["月曜日","火曜日","水曜日","木曜日","金曜日","土曜日","  日曜日"]
+    var hours 	= ["子","丑","寅","卯","辰","巳","午","未","申","酉","戌    ","亥"]
+    var minutes = ["一刻","二刻","三刻","四刻","五刻","六刻","七刻","八刻   ","九刻"]
+    var months  = ["正","二","三","四","五","六","七","八","九","十","冬    ","腊"]
+    var numbers = ["〇","一","二","三","四","五","六","七","八","九"]
+    var season	= ["春","夏","秋","冬"]
+    var monthMsgOut = [	"春天悄悄地走来了，","春风轻轻地拂过你的脸庞，","   天气逐渐变暖了，",
+    				"已经是初夏时节了，","知了的叫声让你感觉到了盛夏的气    息，","天气变得非常闷热，",
+    				"虽然是秋天了，天气还是有些热，","中秋佳节快到了，","一 阵秋风吹来，卷起了地上的落叶，",
+    				"秋去冬来，","寒风凛冽，","快到年关了，"]
+    func _ready():
+    #	$Label.text = "戊戌年九月二十三日 子时一刻"
+    	$Label.text = print_date()
+    
+    func date_change():
+    	Date.second	= Date.second + 6
+    	Date.minute = Date.second/60
+    	Date.hour 	= Date.minute/120
+    	Date.day 	= Date.hour/12
+    	Date.week 	= Date.day/7
+    	Date.month 	= Date.week/3
+    	Date.year 	= Date.month/12
+    
+    	Date.minute = Date.minute%120
+    	Date.hour 	= Date.hour%12
+    	Date.day 	= Date.day%7
+    	Date.week 	= Date.week%3
+    	Date.month 	= Date.month%12
+    	Date.year 	= Date.year%12
+    	return Date
+    
+    func _process(delta):
+    	# -- 1年 = 12 月 * 3 旬 * 7 天 * 12 时辰 * 120 分 * 60 秒 * 60  帧 = 15552000
+    	# -- 计算年月日
+    	# -- 6 秒一回合
+    	date_change()
+    	$Label.text = print_date()
+    	pass
+    
+    func print_date():
+    	var yearStr = hours[Date.year] + animals[Date.year]
+    	var monthStr = months[Date.month]
+    	var weekStr = weeks[Date.week]
+    	var dayStr = days[Date.day]
+    	var hourStr = hours[Date.hour]
+    	var minuteStr = minutes[Date.minute/15%8]
+    	var dateStr = ""
+    	var dateStr1 = ""
+    	dateStr = "{0}年{1}月{2}{3}{4}时{5}".format([yearStr,monthStr,  weekStr,dayStr,hourStr,minuteStr])
+    	dateStr1 = "{0}年{1}月{2}日 {3}：{4}".format([str(Date.year),   str(Date.month),str(Date.day),str(Date.hour),str(Date.minute)])
+    	return dateStr
+```
+
+* 学习武侠MUD，制作room,和room中的任务事件
+    ![](doc/img/room_caiyuan.png)
+    
+    ```JavaScript
+        extends Node2D
+        class_name Room
+        # Declare member variables here. Examples:
+        # var a = 2
+        # var b = "text"
+        var pos_n = Vector2()
+        var pos_en = Vector2()
+        var pos_e = Vector2()
+        var pos_es = Vector2()
+        var pos_s = Vector2()
+        var pos_ws = Vector2()
+        var pos_w = Vector2()
+        var pos_wn = Vector2()
+
+        export var pos_1 = Vector2()
+        export var pos_2 = Vector2()
+
+        var id:String
+        var name_cn:String
+        var description:String
+        var x:int
+        var y:int
+        var inside:bool
+        var safe:bool
+        var actions:Array
+        var objs:Array
+        var actors:Array
+        var exits = {}
+        # person
+        var weapon1 = {id = "piao",name = "瓢"}
+        var mark1 = { jiao = 0}
+        var me = {
+        	name_cn = "孙悟",
+        	weapon = weapon1,
+        	mark = mark1,
+        	job_name = "浇灌菜地",
+        	is_busy = false,
+        	is_fighting = false,
+        	Con = 8,
+        	Str = 3,
+        	Int = 12,
+        	jingli = 10,
+        	qi = 2,
+        	force = 10
+        		}
+        # Called when the node enters the scene tree for the first time.
+
+        func create():
+        	id = "wuguan_cai_yuan"
+        	name_cn = "菜园"
+        	x = 32
+        	y = 32
+        	inside = false
+        	safe = true
+        	actions = ["浇水"]
+        	objs = ["水缸"]
+        	actors = ["管家"]
+        	description = """这里是一座极大的菜园，种满了油菜，萝卜，茄子，丝瓜     之类。
+        	周围的篱笆都破了，看来要整修了。菜园旁有几口大缸，里面盛满了水，可是        菜地看起来都干裂了，几棵菜蔫蔫的长着，是缺水太多了"""
+        	# test 
+
+        func _ready():
+        	$Label.text = name_cn
+        	position.x = x
+        	position.y = y
+        	create()
+        	$Label.text = name_cn
+        	$NinePatchRect/Description.text = description
+        	$NinePatchRect4/VBoxContainer/ActionButton01.text = "浇水"
+
+        	pass # Replace with function body.
+
+        func do_jiao():
+        	var me = self.me
+        	var weapon
+        	var costj
+        	var costq
+        	if me.job_name != "浇灌菜地" :
+        		return notify_fail("你必须跟馆主领了这工作才能在这里干!")
+        	if me.is_busy :
+        		return notify_fail("你现在正忙着呢!")
+        	if me.is_fighting :
+        		return notify_fail("你正在战斗中！")
+        	weapon = me.weapon
+        	if me.weapon.id != "piao" :
+        		return notify_fail("你想用什么来舀水浇，用手吗？")
+        	costj = int(rand_range(1,(me.Con/3)))
+        	costq = int(rand_range(1,(me.Str/3)))
+        	if me.jingli < costj or me.qi < costq :
+        		message_vision("[color=red]{name_cn}弯腰到大缸里舀水，结果失        足栽到缸里。[/color]".format(me))
+        		return
+        	me.jingli = max(0,me.jingli - costj)
+        	me.qi = max(0,me.qi - costq)
+        	if me.mark.jiao and me.mark.jiao > 15 + int(rand_range(0,5)) :
+        		me.mark.wanle = 1
+        		message_vision("[color=red]菜园管事说：干的不错，好了，你可以       到大师兄鲁坤那里去覆命了！[/color]")
+        		return 1
+        	message_vision("[color=green]你用瓢从缸里舀起水，在菜地里浇起水     来。[/color]")
+        	add_busy(2.0)
+        	me.mark.jiao += 1
+        	if me.force < 20 and rand_range(0,10) < 6 :
+        		message_vision("[color=yellow]你在浇水中对于内功的用法有些体        会[/color]")
+        		me.force = me.force + int(me.Int/10)
+        		return 1
+
+        func notify_fail(message:String):
+        	$AcceptDialog.show()
+        	$AcceptDialog.dialog_text = message
+        	pass
+
+        func message_vision(message:String):
+        	$RichTextLabel.bbcode_enabled = true
+        	$RichTextLabel.bbcode_text = message
+        	pass	
+
+        func character_panel(me):
+        	var msg:String
+        	msg = """	名字:""" + me.name_cn + """
+        	手持:""" + me.weapon.name + """
+        	精力:""" + str(me.jingli) + """
+        	气血:""" + str(me.qi) + """
+        	内力:""" + str(me.force) + """
+        	臂力:""" + str(me.Str) + """
+        	悟性:""" + str(me.Int) + """
+        	体质:""" + str(me.Con) + """
+        	工作:""" + me.job_name
+        	return msg
+
+        func add_busy(time:float):
+        	yield(get_tree().create_timer(time),"timeout")
+
+        func _process(delta):
+        	$RichTextLabelCharacter.bbcode_text = character_panel(me)
+        	pass	
+
+        func _on_ActionButton01_pressed():
+        	do_jiao()
+        	pass # Replace with function body.
+   ```
+  

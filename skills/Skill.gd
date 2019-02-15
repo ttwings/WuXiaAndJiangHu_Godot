@@ -1,3 +1,4 @@
+tool
 extends Node2D
 
 export(String,DIR) var path

@@ -38,7 +38,6 @@ func _process(delta):
 	# -- 1年 = 12 月 * 3 旬 * 7 天 * 12 时辰 * 120 分 * 60 秒 * 60 帧 = 15552000
 	# -- 计算年月日
 	# -- 6 秒一回合
-	$ProgressBar.value = Date.second%1200
 	date_change()
 	$Label.text = print_date()
 	pass

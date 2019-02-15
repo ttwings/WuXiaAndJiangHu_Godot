@@ -6,7 +6,6 @@
 
 [sub_resource type="DynamicFont" id=1]
 
-use_filter = false
 font_data = ExtResource( 3 )
 
 [node name="Item" type="Node2D"]
