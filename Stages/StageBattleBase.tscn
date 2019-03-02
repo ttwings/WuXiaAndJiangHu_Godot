@@ -9,10 +9,7 @@
 [ext_resource path="res://Stages/SkillContainer.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=1]
-
 size = 20
-use_mipmaps = false
-use_filter = false
 font_data = ExtResource( 4 )
 
 [node name="StageBattleBase" type="Node2D"]
@@ -114,6 +111,7 @@ position = Vector2( 20.1403, 424.91 )
 position = Vector2( 21.368, 284.948 )
 
 [node name="ChatPanel" parent="." instance=ExtResource( 5 )]
+visible = false
 margin_left = 444.408
 margin_top = 226.597
 margin_right = 835.408

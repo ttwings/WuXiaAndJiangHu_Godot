@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tileset.png-3e5e8e46f8f7de3340baacc0acb395b0.stex"
+path="res://.import/skill_010001.png-257a7bec6a03155836d57efb6cf6effe.stex"
 
 [deps]
 
-source_file="res://Stages/tileset.png"
-dest_files=[ "res://.import/tileset.png-3e5e8e46f8f7de3340baacc0acb395b0.stex" ]
+source_file="res://assets/graphics/skill_action/skill_010001.png"
+dest_files=[ "res://.import/skill_010001.png-257a7bec6a03155836d57efb6cf6effe.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ flags/repeat=0
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
-flags/srgb=1
+flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false

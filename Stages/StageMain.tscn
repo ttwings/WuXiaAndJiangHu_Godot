@@ -5,14 +5,12 @@
 [ext_resource path="res://assets/fonts/SourceHanSerifCN-Medium.otf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
-
 size = 80
 outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
-
 size = 32
 outline_size = 3
 outline_color = Color( 0.439216, 0.482353, 0.596078, 1 )

@@ -9,7 +9,6 @@
 [ext_resource path="res://uis/TimeLine.tscn" type="PackedScene" id=7]
 
 [sub_resource type="TileSet" id=1]
-
 0/name = "tiles.png 0"
 0/texture = ExtResource( 2 )
 0/tex_offset = Vector2( 0, 0 )

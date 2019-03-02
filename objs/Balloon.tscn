@@ -4,7 +4,6 @@
 [ext_resource path="res://objs/Balloon.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=1]
-
 resource_name = "ballon01"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -20,7 +19,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=2]
-
 resource_name = "ballon02"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -36,7 +34,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=3]
-
 resource_name = "ballon03"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -52,7 +49,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-
 resource_name = "ballon04"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -68,7 +64,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=5]
-
 resource_name = "ballon05"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -84,7 +79,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=6]
-
 resource_name = "ballon06"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -100,7 +94,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=7]
-
 resource_name = "ballon07"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -116,7 +109,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=8]
-
 resource_name = "ballon08"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -132,7 +124,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=9]
-
 resource_name = "ballon09"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -148,7 +139,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=10]
-
 resource_name = "ballon10"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")

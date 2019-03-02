@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://battler.gd"
 }, {
+"base": "Node",
+"class": "Char",
+"language": "GDScript",
+"path": "res://inherit/char/Char.gd"
+}, {
 "base": "Reference",
 "class": "DmgObj",
 "language": "GDScript",
@@ -28,12 +33,19 @@ _global_script_classes=[ {
 "class": "Room",
 "language": "GDScript",
 "path": "res://objs/Room.gd"
+}, {
+"base": "Node",
+"class": "Weapon",
+"language": "GDScript",
+"path": "res://inherit/weapon/Weapon.gd"
 } ]
 _global_script_class_icons={
 "Battler": "",
+"Char": "",
 "DmgObj": "",
 "HealObj": "",
-"Room": ""
+"Room": "",
+"Weapon": ""
 }
 
 [application]

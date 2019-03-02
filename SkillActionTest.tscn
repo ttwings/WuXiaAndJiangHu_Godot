@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Node2D.gd" type="Script" id=1]
+[ext_resource path="res://assets/graphics/skill_action/skill_010001.png" type="Texture" id=2]
+[ext_resource path="res://assets/graphics/skill_action/skill_0001.png" type="Texture" id=3]
+[ext_resource path="res://assets/graphics/skill_action/skill_0002.png" type="Texture" id=4]
+[ext_resource path="res://assets/graphics/skill_action/skill_0000.png" type="Texture" id=5]
+[ext_resource path="res://assets/graphics/skill_action/skill_qi_0001.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "act_qing_gong",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "act_quan_fa",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": false,
+"name": "act_zhun_bei",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=2]
+resource_name = "skill_qi_0001"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 2 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../ActorAnimatedSprite:frames")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ SubResource( 1 ), SubResource( 1 ), SubResource( 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "skill_qing_gong"
+tracks/0/type = "value"
+tracks/0/path = NodePath("../ActorAnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "New Anim", "New Anim" ]
+}
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 475.923, 300.16 )
+script = ExtResource( 1 )
+
+[node name="ActorAnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "act_quan_fa"
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 138.943, -5.98172 )
+texture = ExtResource( 6 )
+hframes = 3
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+anims/skill_qi_0001 = SubResource( 2 )
+anims/skill_qing_gong = SubResource( 3 )
+
+[node name="Shadow" type="Sprite" parent="."]
+

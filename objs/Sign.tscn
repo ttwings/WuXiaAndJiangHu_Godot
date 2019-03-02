@@ -8,7 +8,7 @@
 [node name="Sign" type="Control"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-self_modulate = Color( 1, 0.984314, 0.827451, 1 )
+self_modulate = Color( 0.87451, 0.87451, 0.87451, 1 )
 margin_right = 207.0
 margin_bottom = 201.0
 texture = ExtResource( 1 )
