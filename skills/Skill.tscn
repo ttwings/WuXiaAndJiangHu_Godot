@@ -32,6 +32,7 @@ animations = [ {
 } ]
 
 [node name="Skill" type="Node2D"]
+position = Vector2( 616.454, 292.073 )
 script = ExtResource( 1 )
 path = "res://assets/graphics/skills/Blast/blast-043"
 suffix = "png"

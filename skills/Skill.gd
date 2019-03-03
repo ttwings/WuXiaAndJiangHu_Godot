@@ -1,5 +1,6 @@
-tool
-extends Node2D
+extends GameObject
+
+class_name Skill
 
 export(String,DIR) var path
 export(String,"png","jpg","jpeg") var suffix
@@ -15,6 +16,7 @@ func _input(event):
 		can_play_anim = false
 		$AnimatedSprite.frames = Global.creat_sprite_frames_from_path("default",path,"png")
 		$AnimatedSprite.frame = 1
+		$AnimatedSprite.speed_scale = 5
 		$AnimatedSprite.show()
 		$AnimatedSprite.play("default")
 		yield($AnimatedSprite,"animation_finished")

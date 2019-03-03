@@ -24,15 +24,40 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://objs/DmgObj.gd"
 }, {
+"base": "Node",
+"class": "Food",
+"language": "GDScript",
+"path": "res://inherit/item/Food.gd"
+}, {
+"base": "Node",
+"class": "GameObject",
+"language": "GDScript",
+"path": "res://inherit/GameObject.gd"
+}, {
 "base": "Reference",
 "class": "HealObj",
 "language": "GDScript",
 "path": "res://objs/HealObj.gd"
 }, {
+"base": "Node",
+"class": "Item",
+"language": "GDScript",
+"path": "res://inherit/item/Item.gd"
+}, {
+"base": "Node",
+"class": "Npc",
+"language": "GDScript",
+"path": "res://inherit/char/Npc.gd"
+}, {
 "base": "Node2D",
 "class": "Room",
 "language": "GDScript",
 "path": "res://objs/Room.gd"
+}, {
+"base": "Node",
+"class": "Skill",
+"language": "GDScript",
+"path": "res://skills/Skill.gd"
 }, {
 "base": "Node",
 "class": "Weapon",
@@ -43,8 +68,13 @@ _global_script_class_icons={
 "Battler": "",
 "Char": "",
 "DmgObj": "",
+"Food": "",
+"GameObject": "",
 "HealObj": "",
+"Item": "",
+"Npc": "",
 "Room": "",
+"Skill": "",
 "Weapon": ""
 }
 
@@ -61,6 +91,7 @@ Global="*res://Global.gd"
 
 window/size/width=1280
 window/size/height=720
+window/dpi/allow_hidpi=true
 window/stretch/mode="2d"
 
 [editor_plugins]

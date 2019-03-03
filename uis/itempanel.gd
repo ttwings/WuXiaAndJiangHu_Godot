@@ -3,35 +3,46 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+var food = load("res://clone/food/apple.gd")
+var apple = food.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Panel/NinePatchRect/RichTextLabel.bbcode_text = creat_food_bbc()
+#	apple.create()
+	print(apple.name())
+	var test1 = """diyihang111
+	"""
+	var test2 = """dierhang222
+	"""
+	var test3 = """[br]disanhang333[br/]
+	"""
+	$Panel/NinePatchRect/RichTextLabel.bbcode_text = creat_food_bbc(apple)
+#	$Panel/NinePatchRect/RichTextLabel.bbcode_text = test1 + test2 + test3
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
-func creat_food_bbc():
+func creat_food_bbc(food:Food):
+	print(food.name())
 	var dict = {}
-	dict.name_cn = "大米饭"
-	dict.direction = "一碗刚从锅里盛出来的大米饭，还冒着热气～～～"
-	dict.unit = "碗"
-	dict.number = "1"
+	dict.name_cn = food.name()
+	dict.direction = str(food.query("long"))
+	dict.unit = food.query("unit")
+	dict.food_remaining = food.query("food_remaining")
 	dict.type = "食物"
 	dict.pice = 1
 	dict.pice_max = 5
-	dict.food = 50
+	dict.food = food.query("food_supply")
 	dict.water = -20
 	dict.happy = 10
-	dict.value = 2548
+	dict.value = food.query("value")
 	var bbc ="""[center][color=#ffff00]""" + dict.name_cn + """[/color][/center]
 [color=gray]【描述】[/color]
 	""" + dict.direction + """
 [color=yellow]【物品信息】[/color]
 	单位："""+ dict.unit +"""
-	数量："""+ str(dict.number) +"""
+	分量："""+ str(dict.food_remaining ) +"""
 	类别："""+ dict.type + """
 	分量：[color=red]""" + str(dict.pice) +"""[/color]/"""+ str(dict.pice_max) +"""
 [color=fuchsia]【使用效果】[/color]
@@ -40,7 +51,24 @@ func creat_food_bbc():
 	享受：[color="""+ get_number_color(dict.happy) +"""]"""+ str(dict.happy) +"""[/color]
 	[right][color=yellow]价钱："""+ get_chinese_number(dict.value) +"""钱[/color][/right]
 	"""
-	return bbc
+	var result = []
+	var result0 = """[center][color=#ffff00]""" + dict.name_cn + """[/color][/center]
+	"""
+	var result1 = """[color=gray]【描述】[/color]
+	"""
+	var result2 = food.query("long") + """
+	"""
+	var result3 = """[color=yellow]【物品信息】[/color]
+	"""
+	var result4 = """单位："""+ food.query("unit")
+	var result5 = """
+	价钱：""" + str(food.query("value"))
+	var result6 = """
+	分量："""+ str(dict.food_remaining )
+	var result7 = """
+	果腹：[color="""+ get_number_color(dict.food) +"""]"""+ str(dict.food) +"""[/color]"""
+	var bbc1 = result0 + result1 + result2  + result3 + result4 + result5 + result6 + result7
+	return bbc1
 
 func get_number_color(number):
  	if number < 0: return "red" 

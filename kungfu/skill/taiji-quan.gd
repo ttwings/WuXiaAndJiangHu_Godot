@@ -1,6 +1,12 @@
 extends Node
 
+var DIR
+var WHT
+var NOR
+var HELP
+var HIW
 #inherit SKILL;
+#warning-ignore:unused_class_variable
 var type = "martial"
 var martialtype = "skill"
 
@@ -154,7 +160,7 @@ func valid_learn(me:Char):
 	if me.query_temp("weapon") or me.query_temp("secondary_weapon"):
 		return notify_fail("练太极拳必须空手。\n");
 #	if ((int)me->query_skill("taiji-shengong", 1) < 20)
-	if me.query_skill("taiji-shengong",1) < 20:
+	if me.query_skill("taiji-shengong","1") < 20:
 		return notify_fail("你的太极神功火候不够，无法学太极拳。\n");
 	if me.query("max_neili") < 100:
 		return notify_fail("你的内力太弱，无法练太极拳。\n");
@@ -172,7 +178,7 @@ func practice_skill(me:Char):
 	return 1;
 	
 func query_parry_msg(imb:String):
-	return parry_msg[random(sizeof(parry_msg))];
+	return parry_msg[randi() % parry_msg.size()];
 	
 func query_skill_name(level:int):
 	var i;
@@ -182,7 +188,7 @@ func query_skill_name(level:int):
 		if level >= action[i]["lvl"] :
 			return action[i]["skill_name"];
 			
-func query_action(me:Char, weapon:Weapon):
+func query_action(me:GameObject,weapon:GameObject):
 #""" d_e=dodge_effect p_e=parry_effect f_e=force_effect m_e=damage_effect """
 	var d_e1 = 0;
 	var d_e2 = 20;
@@ -195,24 +201,27 @@ func query_action(me:Char, weapon:Weapon):
 	var seq 
 	var ttl = action.size()
 	var msg;
-	lvl = me.query_skill("taiji-quan", 1);
+	lvl = me.query_skill("taiji-quan", "1");
 #/////////yun taiji/////////	
 	if me.query_temp("taiji") && me.query("neili") > 100 :
  		me.add_temp("taiji_fight", 1)
-#	match randi():
-#		1:msg = HIW"只见$N虚灵顶劲、涵胸拔背、松腰垂臀、沉肩坠肘，双手抱了个太极式的圆圈，纯以意行太极，\n已达形神合一，心动气动的境界，结果使出了太极拳中的"+ NOR +:
-#		2:msg = HIW"刹时间$N悟到了太极拳旨中“似松非松，将展未展，劲断意不断”的精微奥妙之处，\n使出一招犹如行云流水，潇洒无比。结果使出了太极拳中的"+ NOR +;
-#		msg = msg + order[random(sizeof(order))] + taijin[random(sizeof(taijin))] + NOR;
-	if (lvl > 250) and (randi(lvl) > 200) and (randi(10)>5) :
-		me.add("neili", -10);
-#        	return {  
-#                	"action" : msg,
-#                	"force" :  600,
-#                	"dodge":   -80,
-#               // 	"damage":   500,
-#                	"parry":   -80,
-#                	"damage_type" : random(2)==1?"瘀伤":"内伤",
-#        	}
+	match randi()%2:
+		1:
+			msg = HIW + "只见$N虚灵顶劲、涵胸拔背、松腰垂臀、沉肩坠肘，双手抱了个太极式的圆圈，纯以意行太极，\n已达形神合一，心动气动的境界，结果使出了太极拳中的"+ NOR
+		2:
+			msg = HIW + "刹时间$N悟到了太极拳旨中“似松非松，将展未展，劲断意不断”的精微奥妙之处，\n使出一招犹如行云流水，潇洒无比。结果使出了太极拳中的"+ NOR;
+	msg = msg + order[randi()%order.size()] + taijin[randi()%taijin.size()] + NOR;
+	if (lvl > 250) and (randi()%lvl > 200) and (randi()%10>5) :
+		me.add("neili", -10)
+		return {
+			"action" : msg,
+			"force" :  600,
+			"dodge":   -80,
+			"damage":   500,
+			"parry":   -80,
+#			"damage_type" : random(2)==1?"瘀伤":"内伤",
+			"damage_type" : "瘀伤",
+        }
 #  //////普通出招////////
 #	for(i = ttl; i > 0; i--)
 #		if(lvl > action[i-1]["lvl"}
@@ -232,8 +241,11 @@ func query_action(me:Char, weapon:Weapon):
 #var  success() { return 5; }
 #var  power_point(object me) { return 1.0; }
 
+func write(msg:String):
+	print(msg)
+
 func perform_action_file(action:String):
-	return __DIR__ + "taiji-quan/" + action;
+	return DIR + "taiji-quan/" + action;
 
 func help(me:Char):
 	write(WHT + "\n太极拳："+ NOR +"\n");

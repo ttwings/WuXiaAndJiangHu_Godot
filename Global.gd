@@ -9,6 +9,9 @@ var deffence_skills
 var foods
 var herbs
 
+const NOR = "[/color]"
+const RED = "[color = #ff0000]"
+
 func _init():
 	pass
 

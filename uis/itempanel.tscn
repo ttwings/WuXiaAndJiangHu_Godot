@@ -38,6 +38,7 @@ margin_right = -8.0
 margin_bottom = -8.0
 theme = ExtResource( 3 )
 bbcode_enabled = true
+scroll_following = true
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 233.492, 267.601 )
