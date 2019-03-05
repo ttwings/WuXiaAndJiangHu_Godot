@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/用射线来做碰撞检测.png-32e9cfd9b6694615d62b5565e01a9ebc.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

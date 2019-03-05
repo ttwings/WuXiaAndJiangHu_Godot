@@ -1,10 +1,10 @@
-extends Node
+extends Skill
 
 var DIR
-var WHT
-var NOR
-var HELP
-var HIW
+#var WHT
+#var NOR
+var HELP = WHT
+#var HIW
 #inherit SKILL;
 #warning-ignore:unused_class_variable
 var type = "martial"
@@ -26,123 +26,123 @@ var parry_msg = [
 ]
 
 var action = [
-{	"action" : "$N使一招"+(order[randi(13)])+"「揽雀尾」" + NOR + "，双手划了个半圈，按向$n的$l",	
+{	"action" : "$N使一招"+(order[randi()%13])+"「揽雀尾」" + NOR + "，双手划了个半圈，按向$n的$l",	
 	"skill_name" : "揽雀尾",
 	"lvl" : 0
 },
-{	"action" : "$N使一招"+(order[random(13)])+"「单鞭」"+ NOR +"，右手收置肋下，左手向外挥出，劈向$n的$l",
+{	"action" : "$N使一招"+(order[randi()%13])+"「单鞭」"+ NOR +"，右手收置肋下，左手向外挥出，劈向$n的$l",
 	"skill_name" : "单鞭",
 	"lvl" : 5
 },
-{	"action" : "$N左手回收，右手由钩变掌，由右向左，使一招"+(order[random(13)])+"「提手上式」"+ NOR +"，向$n的$l打去",
+{	"action" : "$N左手回收，右手由钩变掌，由右向左，使一招"+(order[randi()%13])+"「提手上式」"+ NOR +"，向$n的$l打去",
 	"skill_name" : "提手上式",
 	"lvl" : 10
 },
-{	"action" : "$N双手划弧，右手向上，左手向下，使一招"+(order[random(13)])+"「白鹤亮翅」"+ NOR +"，分击$n的面门和$l",
+{	"action" : "$N双手划弧，右手向上，左手向下，使一招"+(order[randi()%13])+"「白鹤亮翅」"+ NOR +"，分击$n的面门和$l",
 	"skill_name" : "白鹤亮翅",
 	"lvl" : 15
 },
-{	"action" : "$N左手由胸前向下，身体微转，划了一个大圈，使一招"+(order[random(13)])+"「搂膝拗步」"+ NOR +"，击向$n的$l",
+{	"action" : "$N左手由胸前向下，身体微转，划了一个大圈，使一招"+(order[randi()%13])+"「搂膝拗步」"+ NOR +"，击向$n的$l",
 	"skill_name" : "搂膝拗步",
 	"lvl" : 20
 },
-{	"action" : "$N左手由下上挑，右手内合，使一招"+(order[random(13)])+"「手挥琵琶」"+ NOR +"，向$n的$l打去",
+{	"action" : "$N左手由下上挑，右手内合，使一招"+(order[randi()%13])+"「手挥琵琶」"+ NOR +"，向$n的$l打去",
 	"skill_name" : "手挥琵琶",
 	"lvl" : 25
 },
-{	"action" : "$N左手变掌横于胸前，右拳由肘下穿出，一招"+(order[random(13)])+"「肘底看锤」"+ NOR +"，锤向$n的$l",
+{	"action" : "$N左手变掌横于胸前，右拳由肘下穿出，一招"+(order[randi()%13])+"「肘底看锤」"+ NOR +"，锤向$n的$l",
 	"skill_name" : "肘底看锤",
 	"lvl" : 30
 },
-{	"action" : "$N左脚前踏半步，右手使一招"+(order[random(13)])+"「海底针」"+ NOR +"，指由下向$n的$l戳去",
+{	"action" : "$N左脚前踏半步，右手使一招"+(order[randi()%13])+"「海底针」"+ NOR +"，指由下向$n的$l戳去",
 	"skill_name" : "海底针",
 	"lvl" : 35
 },
-{	"action" : "$N招"+(order[random(13)])+"「闪通臂」"+ NOR +"，左脚一个弓箭步，右手上举向外撇出，向$n的$l挥去",
+{	"action" : "$N招"+(order[randi()%13])+"「闪通臂」"+ NOR +"，左脚一个弓箭步，右手上举向外撇出，向$n的$l挥去",
 	"skill_name" : "闪通臂",
 	"lvl" : 40
 },
-{	"action" : "$N两手由相对，转而向左上右下分别挥出，右手使一招"+(order[random(13)])+"「斜飞式」"+ NOR +"，挥向$n的$l",
+{	"action" : "$N两手由相对，转而向左上右下分别挥出，右手使一招"+(order[randi()%13])+"「斜飞式」"+ NOR +"，挥向$n的$l",
 	"skill_name" : "斜飞式",
 	"lvl" : 45
 },
-{	"action" : "$N左手虚按，右手使一招"+(order[random(13)])+"「白蛇吐信」"+ NOR +"，向$n的$l插去",
+{	"action" : "$N左手虚按，右手使一招"+(order[randi()%13])+"「白蛇吐信」"+ NOR +"，向$n的$l插去",
 	"skill_name" : "白蛇吐信",
 	"lvl" : 50
 },
-{	"action" : "$N双手握拳，向前向后划弧，一招"+(order[random(13)])+"「双峰贯耳」"+ NOR +"打向$n的$l",
+{	"action" : "$N双手握拳，向前向后划弧，一招"+(order[randi()%13])+"「双峰贯耳」"+ NOR +"打向$n的$l",
 	"skill_name" : "双风贯耳",
 	"lvl" : 55
 },
-{	"action" : "$N左手虚划，右手一记"+(order[random(13)])+"「指裆锤」"+ NOR +"击向$n的裆部",
+{	"action" : "$N左手虚划，右手一记"+(order[randi()%13])+"「指裆锤」"+ NOR +"击向$n的裆部",
 	"skill_name" : "指裆锤",
 	"lvl" : 60
 },
-{	"action" : "$N施出"+(order[random(13)])+"「伏虎式」"+ NOR +"，右手击向$n的$l，左手攻向$n的裆部",
+{	"action" : "$N施出"+(order[randi()%13])+"「伏虎式」"+ NOR +"，右手击向$n的$l，左手攻向$n的裆部",
 	"skill_name" : "伏虎式",
 	"lvl" : 65
 },
-{	"action" : "$N由臂带手，在面前缓缓划过，使一招"+(order[random(13)])+"「云手」"+ NOR +"，挥向$n的$l",
+{	"action" : "$N由臂带手，在面前缓缓划过，使一招"+(order[randi()%13])+"「云手」"+ NOR +"，挥向$n的$l",
 	"skill_name" : "云手",
 	"lvl" : 70
 },
-{	"action" : "$N左腿收起，右手使一招"+(order[random(13)])+"「金鸡独立」"+ NOR +"，向$n的$l击去",
+{	"action" : "$N左腿收起，右手使一招"+(order[randi()%13])+"「金鸡独立」"+ NOR +"，向$n的$l击去",
 	"skill_name" : "金鸡独立",
 	"lvl" : 75
 },
-{	"action" : "$N右手由钩变掌，双手掌心向上，右掌向前推出一招"+(order[random(13)])+"「高探马」"+ NOR +"",
+{	"action" : "$N右手由钩变掌，双手掌心向上，右掌向前推出一招"+(order[randi()%13])+"「高探马」"+ NOR +"",
 	"skill_name" : "高探马",
 	"lvl" : 80
 },
-{	"action" : "$N右手使一式招"+(order[random(13)])+"「玉女穿梭」"+ NOR +"，扑身向$n的$l插去",
+{	"action" : "$N右手使一式招"+(order[randi()%13])+"「玉女穿梭」"+ NOR +"，扑身向$n的$l插去",
 	"skill_name" : "玉女穿梭",
 	"lvl" : 85
 },
-{	"action" : "$N右手经腹前经左肋向前撇出，使一招"+(order[random(13)])+"「反身撇锤」"+ NOR +"，向$n的$l锤去",
+{	"action" : "$N右手经腹前经左肋向前撇出，使一招"+(order[randi()%13])+"「反身撇锤」"+ NOR +"，向$n的$l锤去",
 	"skill_name" : "反身撇锤",
 	"lvl" : 90
 },
-{	"action" : "$N左手虚按，右腿使一招"+(order[random(13)])+"「转身蹬腿」"+ NOR +"，向$n的$l踢去",
+{	"action" : "$N左手虚按，右腿使一招"+(order[randi()%13])+"「转身蹬腿」"+ NOR +"，向$n的$l踢去",
 	"skill_name" : "反身蹬腿",
 	"lvl" : 95
 },
-{	"action" : "$N左手向上划弧拦出，右手使一招"+(order[random(13)])+"「搬拦锤」"+ NOR +"，向$n的$l锤去",
+{	"action" : "$N左手向上划弧拦出，右手使一招"+(order[randi()%13])+"「搬拦锤」"+ NOR +"，向$n的$l锤去",
 	"skill_name" : "白蛇吐信",
 	"lvl" : 100
 },
-{	"action" : "$N使一招"+(order[random(13)])+"「栽锤」"+ NOR +"，左手搂左膝，右手向下锤向$n的$l",
+{	"action" : "$N使一招"+(order[randi()%13])+"「栽锤」"+ NOR +"，左手搂左膝，右手向下锤向$n的$l",
 	"skill_name" : "栽锤",
 	"lvl" : 120
 },
-{	"action" : "$N双手先抱成球状，忽地分开右手上左手下，一招"+(order[random(13)])+"「野马分鬃」"+ NOR +"，向$n的$l和面门打去",
+{	"action" : "$N双手先抱成球状，忽地分开右手上左手下，一招"+(order[randi()%13])+"「野马分鬃」"+ NOR +"，向$n的$l和面门打去",
 	"skill_name" : "野马分鬃",
 	"lvl" : 150
 },
-{	"action" : "$N左手由胸前向下，右臂微曲，使一招"+(order[random(13)])+"「抱虎归山」"+ NOR +"，向$n的$l推去",
+{	"action" : "$N左手由胸前向下，右臂微曲，使一招"+(order[randi()%13])+"「抱虎归山」"+ NOR +"，向$n的$l推去",
 	"skill_name" : "抱虎归山",
 	"lvl" : 180
 },
-{	"action" : "$N双手经下腹划弧交于胸前，成十字状，一式"+(order[random(13)])+"「十字手」"+ NOR +"，向$n的$l打去",
+{	"action" : "$N双手经下腹划弧交于胸前，成十字状，一式"+(order[randi()%13])+"「十字手」"+ NOR +"，向$n的$l打去",
 	"skill_name" : "十字手",
 	"lvl" : 210
 },
-{	"action" : "$N左脚踏一个虚步，双手交叉成十字拳，一招"+(order[random(13)])+"「进步七星」"+ NOR +"，向$n的$l锤去",
+{	"action" : "$N左脚踏一个虚步，双手交叉成十字拳，一招"+(order[randi()%13])+"「进步七星」"+ NOR +"，向$n的$l锤去",
 	"skill_name" : "进步七星",
 	"lvl" : 240
 },
-{	"action" : "$N身体向后腾出，左手略直，右臂微曲，使一招"+(order[random(13)])+"「倒撵猴」"+ NOR +"，向$n的$l和面门打去",
+{	"action" : "$N身体向后腾出，左手略直，右臂微曲，使一招"+(order[randi()%13])+"「倒撵猴」"+ NOR +"，向$n的$l和面门打去",
 	"skill_name" : "倒撵猴",
 	"lvl" : 270
 },
-{	"action" : "$N双手伸开，以腰为轴，整个上身划出一个大圆弧，\n一招"+(order[random(13)])+"「转身摆莲」"+ NOR +"，将$n浑身上下都笼罩在重重掌影之中",
+{	"action" : "$N双手伸开，以腰为轴，整个上身划出一个大圆弧，\n一招"+(order[randi()%13])+"「转身摆莲」"+ NOR +"，将$n浑身上下都笼罩在重重掌影之中",
 	"skill_name" : "转身摆莲",
 	"lvl" : 300
 },
-{	"action" : "$N双手握拳，右手缓缓收至耳际，左手缓缓向前推出，\n拳意如箭，一招"+(order[random(13)])+"「弯弓射虎」"+ NOR +"，直奔$n心窝而去",
+{	"action" : "$N双手握拳，右手缓缓收至耳际，左手缓缓向前推出，\n拳意如箭，一招"+(order[randi()%13])+"「弯弓射虎」"+ NOR +"，直奔$n心窝而去",
 	"skill_name" : "弯弓射虎",
 	"lvl" : 400
 },
-{	"action" : "$N双手在胸前翻掌，由腹部向前向上推出，一招"+(order[random(13)])+"「如封似闭」"+ NOR +"，一股劲风直逼$n",
+{	"action" : "$N双手在胸前翻掌，由腹部向前向上推出，一招"+(order[randi()%13])+"「如封似闭」"+ NOR +"，一股劲风直逼$n",
 	"skill_name" : "如封似闭",
 	"lvl" : 500
 }
@@ -242,15 +242,19 @@ func query_action(me:GameObject,weapon:GameObject):
 #var  power_point(object me) { return 1.0; }
 
 func write(msg:String):
+	var rich_label = RichTextLabel.new()
+	
+	rich_label.bbcode_enabled = true
+	rich_label.bbcode_text = msg
 	print(msg)
 
 func perform_action_file(action:String):
 	return DIR + "taiji-quan/" + action;
 
-func help(me:Char):
+func help():
 	write(WHT + "\n太极拳："+ NOR +"\n");
 	write(HELP + """
-
+	
     太极拳，为宋末元初武当张三丰真人所创，合道家之说，冲虚
 自然，讲究以柔克刚、四两拨千斤。主以慢打快，以静制动，后发
 制人，无为至虚之念的上乘武学。拳出时双手圆转，每一招都含着
@@ -265,5 +269,4 @@ func help(me:Char):
 		内力100
 """ + HELP
 	);
-	return 1;
 

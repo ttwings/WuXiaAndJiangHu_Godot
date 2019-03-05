@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/buttonLong_grey.png-d9d1d43d654f763edc1bcd019efa1ec4.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

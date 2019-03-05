@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/roguelikeSheet_transparent.png-5d989213223ec12d3a09c9b9fb962243.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

@@ -103,6 +103,7 @@ func query_temp(temp:String):
 		
 func query(key:String):
 	if	attributes[key] :
+		print(attributes[key])
 		return attributes[key]
 	else:
 		return false		

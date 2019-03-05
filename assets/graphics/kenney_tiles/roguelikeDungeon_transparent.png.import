@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/roguelikeDungeon_transparent.png-08c1c72a9b07aa657a2ef477d816e7ac.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

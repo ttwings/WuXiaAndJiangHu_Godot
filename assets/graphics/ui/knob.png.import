@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/knob.png-245d2358597c10fb0e6670e60a373135.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

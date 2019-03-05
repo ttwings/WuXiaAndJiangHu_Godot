@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/skillanim.png-2b80338002b730cb1fc9e91dd20c180d.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

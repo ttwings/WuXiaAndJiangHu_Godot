@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/chineseui.png-716fd2d7d25b80c2d169a3e49e8203fe.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
