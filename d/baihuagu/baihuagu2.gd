@@ -2,9 +2,11 @@
 # // Last Modified by Winder on Mar. 5 2001
 
 # inherit ROOM;
-var __DIR__ = "res://d/baihuagu/"
-var __FILE__ = null
 extends GameObject
+
+
+var DIR = "res://d/baihuagu/"
+var FILE = null
 #include <ansi.h>
 func create():
 	set("short", HIM + "百花谷内" + NOR);
@@ -12,12 +14,12 @@ func create():
 HIG + "只见姹紫嫣红，满山锦绣，彩蝶纷飞，群蜂轻舞。纵是宇外琼地，世外桃源，也不过如此。山坡下一列挂着七八个木制的蜂巢另一面山山坡上盖着三间茅屋。\n"  + NOR);
 	set("outdoors", "baihuagu");
 	set("exits", {
-		"north"    : __DIR__ + "baihuagu",
-		"westup"   : __DIR__ + "shanpo1",
-		"eastdown" : __DIR__ + "shanpo2",
-		"south"    : __DIR__ + "baihuagu1",
-		"west"     : __DIR__ + "baihuagu",
-		"east"     : __FILE__,
+		"north"    : DIR + "baihuagu",
+		"westup"   : DIR + "shanpo1",
+		"eastdown" : DIR + "shanpo2",
+		"south"    : DIR + "baihuagu1",
+		"west"     : DIR + "baihuagu",
+		"east"     : FILE,
 	});
 	set("objects", []);
 	set("no_clean_up", 0);

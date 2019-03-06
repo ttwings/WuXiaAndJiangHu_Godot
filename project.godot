@@ -49,10 +49,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://inherit/char/Npc.gd"
 }, {
-"base": "Node2D",
+"base": "GameObject",
 "class": "Room",
 "language": "GDScript",
-"path": "res://objs/caiyuanTest.gd"
+"path": "res://inherit/room/Room.gd"
 }, {
 "base": "Node",
 "class": "Skill",

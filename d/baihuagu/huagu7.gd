@@ -4,7 +4,7 @@
 
 #include <ansi.h>
 extends GameObject
-var DIR = filename.get_base_dir()
+var DIR = "res://d/baihuagu/"
 func create():
 	set("short", RED + "百花谷" + NOR);
 	set("long", 

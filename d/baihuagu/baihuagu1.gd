@@ -3,7 +3,7 @@
 
 # inherit ROOM;
 extends GameObject
-var DIR = filename.get_base_dir()
+var DIR = "res://d/baihuagu/"
 var FILE = null
 #include <ansi.h>
 func create():
@@ -22,6 +22,7 @@ func create():
 	set("coor/x", -430);
 	set("coor/y", -360);
 	set("coor/z", 0);
+	print(DIR)
 	# setup();
 	# replace_program(ROOM);
 
