@@ -134,9 +134,3 @@ func destruct(ob:GameObject):
 	# TODO
 	pass	
 	
-func test():
-	return {
-		"name" : "zhangsan",
-		"age" : 20,
-		"money" : 20000
-		}

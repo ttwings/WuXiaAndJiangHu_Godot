@@ -14,7 +14,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://battler.gd"
 }, {
-"base": "Node",
+"base": "GameObject",
 "class": "Char",
 "language": "GDScript",
 "path": "res://inherit/char/Char.gd"
@@ -39,7 +39,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://objs/HealObj.gd"
 }, {
-"base": "Node",
+"base": "GameObject",
 "class": "Item",
 "language": "GDScript",
 "path": "res://inherit/item/Item.gd"

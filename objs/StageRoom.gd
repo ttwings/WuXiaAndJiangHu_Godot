@@ -21,94 +21,75 @@ var me = {
 
 var Room_gd = load("res://d/baihuagu/baihuagu.gd")
 var current_room = Room_gd.new()
-
+var rooms = {}
+var map_file = File.new()
 # 1  2  3
 # 4  5  6
 # 7  8  9 
 var neighbor_rooms = {}
-func creat_exits(exits):
+func creat_exits(room:GameObject,neighbor_rooms):
 	var x
 	var line = Line2D.new()
-	neighbor_rooms = {}
-	$NinePatchRect2/GridContainer/Door01.text = ""
-	$NinePatchRect2/GridContainer/Door02.text = ""
-	$NinePatchRect2/GridContainer/Door03.text = ""
-	$NinePatchRect2/GridContainer/Door04.text = ""
-	$NinePatchRect2/GridContainer/Door05.text = ""
-	$NinePatchRect2/GridContainer/Door06.text = ""
-	$NinePatchRect2/GridContainer/Door07.text = ""
-	$NinePatchRect2/GridContainer/Door08.text = ""
-	$NinePatchRect2/GridContainer/Door09.text = ""
+	var exits = room.query("exits")
+#	neighbor_rooms = {}
 	$room.show()
-	$room/RichTextLabel.bbcode_text = current_room.query("short")
+	$room/RichTextLabel.bbcode_text = "[center]" + room.query("short") +"[/center]"
 	for direct in exits:
 		if exits[direct] :
 			match direct:
 				"east" : 
-					neighbor_rooms[direct] = load(exits[direct] + ".gd")
-					$NinePatchRect2/GridContainer/Door04.text = "东"
-					$NinePatchRect2/GridContainer/Door04.connect("pressed",self,"on_exit_pressed",[direct])
-					$room_e.show()
-#					$room_e/RichTextLabel.bbcode_text = neighbor_rooms[direct].query("short")
-#					var line = Line2D.new()
-					$room_e.add_child(line)
-					line.width = 40
-					line.points.append($room/Position2D.position)
-					line.points.append($room_e/Position2D.position)
+					neighbor_room_creat(room,direct,neighbor_rooms)
 				"west":
-					neighbor_rooms[direct] = load(exits[direct] + ".gd")
-					$NinePatchRect2/GridContainer/Door06.text = "西"
-					$NinePatchRect2/GridContainer/Door06.connect("pressed",self,"on_exit_pressed",[direct])
-					$room_w.show()
-#					$room_w/RichTextLabel.bbcode_text = neighbor_rooms[direct].query("short")
-#					var line = Line2D.new()
-					$room_w.add_child(line)
-					line.width = 40
-					line.points.append($room/Position2D.position)
-					line.points.append($room_w/Position2D.position)
+					neighbor_room_creat(room,direct,neighbor_rooms)
 				"south":
-					neighbor_rooms[direct] = load(exits[direct] + ".gd").new()
-					$NinePatchRect2/GridContainer/Door08.text = "南"
-					$NinePatchRect2/GridContainer/Door08.connect("pressed",self,"on_exit_pressed",[direct])
-					$room_s.show()
-					$room_s/RichTextLabel.bbcode_text = neighbor_rooms[direct].query("short")
-					
-					$room_s.add_child(line)
-					line.show()
-					line.width = 40
-					line.points.append($room/Position2D.position)
-					line.points.append($room_s/Position2D.position)
+					neighbor_room_creat(room,direct,neighbor_rooms)
 				"north":
-					neighbor_rooms[direct] = load(exits[direct] + ".gd")
-					$NinePatchRect2/GridContainer/Door02.text = "北"
-					$NinePatchRect2/GridContainer/Door02.connect("pressed",self,"on_exit_pressed",[direct])
+					neighbor_room_creat(room,direct,neighbor_rooms)
 				"out":
-					neighbor_rooms[direct] = load(exits[direct] + ".gd").new()
-					$NinePatchRect2/GridContainer/Door09.text = "出去"
-					$NinePatchRect2/GridContainer/Door09.connect("pressed",self,"on_exit_pressed",[direct])
-					$room_out.show()
-					$room_out/RichTextLabel.bbcode_text = neighbor_rooms[direct].query("short")
-#					var line = Line2D.new()
-					$room_out.add_child(line)
-					line.width = 40
-					line.points.append($room/Position2D.position)
-					line.points.append($room_out/Position2D.position)
+					neighbor_room_creat(room,direct,neighbor_rooms)
 				"in":
-					neighbor_rooms[direct] = load(exits[direct] + ".gd")
-					$NinePatchRect2/GridContainer/Door05.text = exits[direct]
+					neighbor_room_creat(room,direct,neighbor_rooms)
 				x:
-					neighbor_rooms[direct] = load(exits[direct] + ".gd")
-					$NinePatchRect2/GridContainer/Door03.text = exits[direct]
-		else:
-			neighbor_rooms[direct] = null
+					neighbor_room_creat(room,direct,neighbor_rooms)
+#		else:
+#			neighbor_rooms[direct] = null
+#			rooms[direct].hide()
+			
+func neighbor_room_creat(room,direct,neighbor_rooms):
+#	print(exits[direct] + ".gd")
+	var exits = room.query("exits")
+	neighbor_rooms[direct] = load(exits[direct] + ".gd").new()
+	rooms[direct].show()
+	rooms[direct].connect("pressed",self,"move_to_room",[direct])
+	rooms[direct].get_child(0).bbcode_text = "[center]" + current_room.query("short") +"[/center]"
+#	rooms[direct].get_child().(neighbor_rooms[direct].query("short"))
+	pass			
+
+func move_to_room(direct):
+	current_room = neighbor_rooms[direct]
+	neighbor_rooms = {}
+	for i in rooms:
+		rooms[i].hide()
+	creat_exits(current_room,neighbor_rooms)
+	$RoomName.bbcode_text = "[center]" + current_room.query("short") +"[/center]"
+	$NinePatchRect/Description.bbcode_text = current_room.query("long")
+	pass
 
 func _ready():
-
-	var dir = filename.get_base_dir()
-	print(dir)
-	creat_exits(current_room.query("exits"))
-	$RoomName.bbcode_text = current_room.query("short")
+	rooms.current = $room
+	rooms.north = $room_n
+	rooms.south = $room_s
+	rooms.west = $room_w
+	rooms.east = $room_e
+	rooms.out = $room_out
+	rooms.in = $room_in
+	creat_exits(current_room,neighbor_rooms)
+	$RoomName.bbcode_text = "[center]" + current_room.query("short") +"[/center]"
 	$NinePatchRect/Description.bbcode_text = current_room.query("long")
+	# load map
+	map_file.open("res://doc/map/baihuagu",File.READ)
+	print(map_file.get_as_text())
+	$RichTextLabelCharacter.bbcode_text = map_file.get_as_text()
 	pass
 		
 func notify_fail(message:String):
@@ -135,15 +116,5 @@ func character_panel(me):
 	return msg
 	
 func _process(delta):
-	$RichTextLabelCharacter.bbcode_text = character_panel(me)
+#	$RichTextLabelCharacter.bbcode_text = character_panel(me)
 	pass	
-
-func on_exit_pressed(direct):
-	print("test")
-	if neighbor_rooms[direct] != null:
-		print(neighbor_rooms[direct])
-		current_room = neighbor_rooms[direct]
-		$RoomName.bbcode_text = current_room.query("short")
-		$NinePatchRect/Description.bbcode_text = current_room.query("long")
-		creat_exits(current_room.query("exits"))
-	pass # Replace with function body.

@@ -2,7 +2,7 @@
 # // Last Modified by Winder on Mar. 5 2001
 
 # inherit ROOM;
-extends GameObject
+extends Room
 #include <ansi.h>
 var DIR = "res://d/baihuagu/"
 var FILE = null
