@@ -34,8 +34,8 @@ const HBWHT = "[color=#f0fcff]"
 
 
 # 基本属性
-var name_cn
-var weight
+#var name_cn
+#var weight
 
 var attributes = {}
 var temps = {}
@@ -46,9 +46,6 @@ var prepare_skills = {}
 var family = {}
 # 携带的物品
 var objs = []
-func _ready():
-	set("name","张三")
-	print(query("name"))
 
 func set_name_cn(value1:String,value2:String):
 	attributes.name = value1
@@ -58,13 +55,13 @@ func name():
 	return attributes.name
 			
 func set_weight(value:int):
-	weight = value
+	attributes.weight = value
 
 func set(key:String,value):
 	attributes[key] = value
 	
 func add(key:String,value):
-	attributes[key] += value	
+	attributes[key] = attributes[key] + value	
 	
 func set_temp(key:String,value):
 	temps[key] = value
@@ -103,7 +100,7 @@ func query_temp(temp:String):
 		
 func query(key:String):
 	if	attributes[key] :
-		print(attributes[key])
+		print_debug(attributes[key])
 		return attributes[key]
 	else:
 		return false		
@@ -133,4 +130,26 @@ func tell_object(who:GameObject,msg:String):
 func destruct(ob:GameObject):
 	# TODO
 	pass	
+
+#
+var actions = {}	
+func add_action(fun:String,id:String):
+	actions[id] = fun
+	pass	
 	
+# todo	
+func this_player():
+	var player = self
+	return player	
+# todo
+func new_ob(file:String):
+	return self	
+	
+func move():
+	pass	
+	
+func carry_object(path:String):
+	var obj
+	obj = load("res:/" + path + ".gd").new()
+	obj.set("owner",self.id)
+	return obj

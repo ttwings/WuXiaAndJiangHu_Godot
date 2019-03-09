@@ -4,7 +4,7 @@
 # inherit ROOM;
 extends Room
 #include <ansi.h>
-var DIR = "res://d/baihuagu/"
+var DIR = "/d/baihuagu/"
 var FILE = null
 
 func create():

@@ -3,11 +3,11 @@
 
 # inherit ROOM;
 extends Room
-var DIR = "res://d/baihuagu/"
+var DIR = "/d/baihuagu/"
 var FILE = null
 #include <ansi.h>
 func create():
-	set("short", HIM + "百花谷内" + NOR);
+	set("short", HIM + "百花谷内1" + NOR);
 	set("long", HIG + "只见姹紫嫣红，满山锦绣，彩蝶纷飞，群蜂轻舞。纵是宇外琼地，世外桃源，也不过如此。\n" + NOR);
 	set("outdoors", "baihuagu");
 	set("exits", {

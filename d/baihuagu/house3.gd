@@ -4,7 +4,7 @@
 # inherit ROOM;
 #include <ansi.h>
 extends Room
-var __DIR__ = "res://d/baihuagu/"
+var __DIR__ = "/d/baihuagu/"
 func create():
 	set("short", HIY + "周伯通居" + NOR);
 	set("long", 
@@ -22,3 +22,5 @@ func create():
 # 	replace_program(ROOM);
 # }
 
+func _init():
+	create()

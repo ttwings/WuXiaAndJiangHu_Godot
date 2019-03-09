@@ -572,7 +572,6 @@ text = "百花谷"
 position = Vector2( 64.9802, 65.8826 )
 
 [node name="room_w" type="Button" parent="."]
-editor/display_folded = true
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
@@ -599,11 +598,10 @@ position = Vector2( 65.1606, 69.2332 )
 position = Vector2( 122.761, 65.4233 )
 points = PoolVector2Array( 6.58142, -1.59024, 60.3075, -1.59024 )
 width = 40.0
-default_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+default_color = Color( 0.431373, 0.435294, 0.466667, 1 )
 texture_mode = -433989510
 
 [node name="room_e" type="Button" parent="."]
-editor/display_folded = true
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
@@ -629,10 +627,10 @@ position = Vector2( 61.9026, 62.7171 )
 position = Vector2( -7.60004, 21.85 )
 points = PoolVector2Array( 7.40326, 42.0586, -48.3873, 42.2114 )
 width = 40.0
-default_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+default_color = Color( 0.431373, 0.435294, 0.466667, 1 )
+texture_mode = 1037341247
 
 [node name="room_s" type="Button" parent="."]
-editor/display_folded = true
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
@@ -658,10 +656,10 @@ position = Vector2( 61.9026, 62.7171 )
 [node name="Line2D" type="Line2D" parent="room_s"]
 points = PoolVector2Array( 62.544, 0.884155, 62.2789, -39.2186 )
 width = 40.0
-default_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+default_color = Color( 0.431373, 0.435294, 0.466667, 1 )
+texture_mode = -433989510
 
 [node name="room_n" type="Button" parent="."]
-editor/display_folded = true
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
@@ -686,7 +684,8 @@ position = Vector2( 61.9026, 62.7171 )
 [node name="Line2D" type="Line2D" parent="room_n"]
 points = PoolVector2Array( 61.264, 132.058, 61.264, 164.402 )
 width = 40.0
-default_color = Color( 0.301961, 0.301961, 0.301961, 1 )
+default_color = Color( 0.431373, 0.435294, 0.466667, 1 )
+texture_mode = -433989510
 
 [node name="room_in" type="Button" parent="."]
 editor/display_folded = true
@@ -712,6 +711,35 @@ bbcode_enabled = true
 position = Vector2( 61.9026, 62.7171 )
 
 [node name="Line2D" type="Line2D" parent="room_in"]
+points = PoolVector2Array( 0.514221, 95.4493, -60.6146, 97.7707, -162.249, 194.829 )
+width = 40.0
+default_color = Color( 0.431373, 0.435294, 0.466667, 1 )
+texture_mode = 670
+
+[node name="room_enter" type="Button" parent="."]
+editor/display_folded = true
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 840.36
+margin_top = 39.7005
+margin_right = 970.36
+margin_bottom = 172.7
+rect_pivot_offset = Vector2( 62.3897, 62.4628 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room_enter"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -88.9995
+theme = ExtResource( 3 )
+bbcode_enabled = true
+
+[node name="Position2D" type="Position2D" parent="room_enter"]
+position = Vector2( 61.9026, 62.7171 )
+
+[node name="Line2D" type="Line2D" parent="room_enter"]
 points = PoolVector2Array( 0.514221, 95.4493, -60.6146, 97.7707, -162.249, 194.829 )
 width = 40.0
 default_color = Color( 0.431373, 0.435294, 0.466667, 1 )
@@ -743,6 +771,130 @@ position = Vector2( 61.9026, 62.7171 )
 
 [node name="Line2D" type="Line2D" parent="room_out"]
 points = PoolVector2Array( 21.8998, 0.739502, 21.8998, -19.2539, -142.453, -108.638 )
+width = 40.0
+default_color = Color( 0.431373, 0.435294, 0.466667, 1 )
+texture_mode = 1634732298
+
+[node name="room_wu" type="Button" parent="."]
+editor/display_folded = true
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 391.766
+margin_top = 55.5546
+margin_right = 521.766
+margin_bottom = 188.555
+rect_pivot_offset = Vector2( 62.3897, 62.4628 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room_wu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -2.0
+margin_bottom = -94.0
+theme = ExtResource( 3 )
+bbcode_enabled = true
+
+[node name="Position2D" type="Position2D" parent="room_wu"]
+position = Vector2( 61.9026, 62.7171 )
+
+[node name="Line2D" type="Line2D" parent="room_wu"]
+position = Vector2( 208.777, 240.269 )
+points = PoolVector2Array( -33.6525, -54.0668, -62.8113, -54.0668, -142.123, -78.5602, -142.453, -108.638 )
+width = 40.0
+default_color = Color( 0.431373, 0.435294, 0.466667, 1 )
+texture_mode = 1634732298
+
+[node name="room_wd" type="Button" parent="."]
+editor/display_folded = true
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 397.208
+margin_top = 391.132
+margin_right = 527.208
+margin_bottom = 524.132
+rect_pivot_offset = Vector2( 62.3897, 62.4628 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room_wd"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -2.0
+margin_bottom = -94.0
+theme = ExtResource( 3 )
+bbcode_enabled = true
+
+[node name="Position2D" type="Position2D" parent="room_wd"]
+position = Vector2( 61.9026, 62.7171 )
+
+[node name="Line2D" type="Line2D" parent="room_wd"]
+position = Vector2( 202.79, 106.151 )
+points = PoolVector2Array( -34.8784, -168.727, -65.0149, -169.124, -128.88, -132.204, -128.88, -105.859 )
+width = 40.0
+default_color = Color( 0.431373, 0.435294, 0.466667, 1 )
+texture_mode = 1634732298
+
+[node name="room_ed" type="Button" parent="."]
+editor/display_folded = true
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 716.42
+margin_top = 388.676
+margin_right = 846.42
+margin_bottom = 521.676
+rect_pivot_offset = Vector2( 62.3897, 62.4628 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room_ed"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -2.0
+margin_bottom = -94.0
+theme = ExtResource( 3 )
+bbcode_enabled = true
+
+[node name="Position2D" type="Position2D" parent="room_ed"]
+position = Vector2( 61.9026, 62.7171 )
+
+[node name="Line2D" type="Line2D" parent="room_ed"]
+position = Vector2( 202.79, 106.151 )
+points = PoolVector2Array( -227.351, -166.765, -205.736, -166.765, -137.905, -135.421, -137.905, -104.694 )
+width = 40.0
+default_color = Color( 0.431373, 0.435294, 0.466667, 1 )
+texture_mode = 1634732298
+
+[node name="room_eu" type="Button" parent="."]
+editor/display_folded = true
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 712.543
+margin_top = 53.9556
+margin_right = 842.543
+margin_bottom = 186.956
+rect_pivot_offset = Vector2( 62.3897, 62.4628 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="room_eu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -2.0
+margin_bottom = -94.0
+theme = ExtResource( 3 )
+bbcode_enabled = true
+
+[node name="Position2D" type="Position2D" parent="room_eu"]
+position = Vector2( 61.9026, 62.7171 )
+
+[node name="Line2D" type="Line2D" parent="room_eu"]
+position = Vector2( 288.086, 302.59 )
+points = PoolVector2Array( -223.731, -170.159, -223.752, -145.32, -259.025, -126.042, -308.814, -124.151 )
 width = 40.0
 default_color = Color( 0.431373, 0.435294, 0.466667, 1 )
 texture_mode = 1634732298

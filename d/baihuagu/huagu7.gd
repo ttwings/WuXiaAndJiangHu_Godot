@@ -4,9 +4,9 @@
 
 #include <ansi.h>
 extends GameObject
-var DIR = "res://d/baihuagu/"
+var DIR = "/d/baihuagu/"
 func create():
-	set("short", RED + "百花谷" + NOR);
+	set("short", RED + "百花谷7" + NOR);
 	set("long", 
 HIC + "又转了几个弯，迎面两面山壁夹峙三株大松树冲天而起，挡在山壁间。成为两道天然的屏障。\n" + NOR);
 	set("exits", 
@@ -21,10 +21,10 @@ HIC + "又转了几个弯，迎面两面山壁夹峙三株大松树冲天而起�
 func _init():
 	create()	
 
-# func init():
-# 	add_action("do_swear","swear");
-# 	add_action("do_swear","han");
-# 	add_action("do_swear","huhan");
+func init():
+	add_action("do_swear","swear");
+	add_action("do_swear","han");
+	add_action("do_swear","huhan");
 
 # int do_swear(string arg)
 # {

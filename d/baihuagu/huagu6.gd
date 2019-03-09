@@ -4,10 +4,10 @@
 
 #include <ansi.h>
 extends GameObject
-var __DIR__ = "res://d/baihuagu/"
+var __DIR__ = "/d/baihuagu/"
 
 func create():
-	set("short", HIR + "百花谷" + NOR);
+	set("short", HIR + "百花谷6" + NOR);
 	set("long", 
 HIG + "来到此处，你突然眼前一亮，但觉青青翠谷，点缀着或红或紫，或黄或白的鲜花，竟是换了一个世界。道旁有一株桃树，开得正艳。\n" + NOR);  
 	set("outdoors", "baihuagu");

@@ -4,9 +4,9 @@
 
 # #include <ansi.h>
 extends Room
-var __DIR__ = "res://d/baihuagu/"
+var __DIR__ = "/d/baihuagu/"
 func create():
-	set("short", MAG + "百花谷" + NOR);
+	set("short", MAG + "百花谷1" + NOR);
 	set("long", 
 HIR + "来到此处，你突然眼前一亮，但觉青青翠谷，点缀着或红或紫，或黄或白的鲜花，竟是换了一个世界。道旁有一株桃树，开得正艳。\n" + NOR);  
 	set("outdoors", "baihuagu");
@@ -21,7 +21,7 @@ HIR + "来到此处，你突然眼前一亮，但觉青青翠谷，点缀着或�
 	set("coor/z", 0);
 	setup();
 
-func init():
+func _init():
 	create()
 	# if(interactive(this_player()))
 	# {
