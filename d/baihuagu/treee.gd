@@ -3,7 +3,7 @@
 # inherit ROOM;
 extends Room
 var __DIR__ = "/d/baihuagu/"
-var __FILE__ = null
+
 func create():
 	set("short", "树林");
 	set("long", """@LONG

@@ -66,33 +66,33 @@ func create():
 	setup();
 	carry_object("/clone/cloth/cloth").wear();
 
-func accept_object(who,ob):
-	if (ob.query("id") == "du she")
-		message_vision("$N拿出一条毒蛇在老顽童的眼前晃了晃．．．．．．
-老顽童吓得跳了起来，冲出洞外！边跑边喊：糟糕透了，老玩童这番死定了！\n\n
-声音渐渐远去，终于不复耳闻。\n" ,who);
-		destruct(this_object());
-	if (ob.query("id") == "mi")
-		if(who.query_temp("marks/mihave") && (int)who.query("marks/mi_age")<=121 )
-			message_vision("老顽童接过蜂蜜，高兴地说道：好，好，好。\n\n",who);
-			if(who.query("combat_exp") < 100000)
-				tell_object(who,HIW"你的经验上升了！\n你的潜能上升了！\n" NOR);
-				who.add("combat_exp",100+random(50));
-				who.add("potential",20+random(30));
-			who.set_temp("marks/mihave",0);
-			who.add("marks/mi",1);
-			if((who.query("marks/mi"))>60 && who.query("age")>39)
-				tell_object(who, HIG "由於勤养玉蜂，你显得更发年轻了！\n" NOR);
-				who.add("mud_age",-86400);
-				who.delete("last_slp");
-				who.delete("jingzuo_time");
-				who.add("marks/mi_age",1);
-				who.set("marks/mi",0);
-		else if(who.query_temp("marks/mihave") && (int)who.query("marks/mi_age")>121)
-			message_vision( HIY"老顽童接过蜂蜜，对$N扮了个鬼脸，笑道：你在我这养蜂也几年了，虽然我吃腻了你送的蜜，不过不吃白不吃。\n\n"NOR,who);
-		else
-			message_vision( HIY"老顽童接过蜂蜜，对$N扮了个鬼脸，笑道：反正这蜜也不是你做的，不吃白不吃。\n\n"NOR,who);
-		call_out("delmi",2);
+# func accept_object(who,ob):
+# 	if (ob.query("id") == "du she")
+# 		message_vision("$N拿出一条毒蛇在老顽童的眼前晃了晃．．．．．．
+# 老顽童吓得跳了起来，冲出洞外！边跑边喊：糟糕透了，老玩童这番死定了！\n\n
+# 声音渐渐远去，终于不复耳闻。\n" ,who);
+# 		destruct(this_object());
+# 	if (ob.query("id") == "mi")
+# 		if(who.query_temp("marks/mihave") && (int)who.query("marks/mi_age")<=121 )
+# 			message_vision("老顽童接过蜂蜜，高兴地说道：好，好，好。\n\n",who);
+# 			if(who.query("combat_exp") < 100000)
+# 				tell_object(who,HIW"你的经验上升了！\n你的潜能上升了！\n" NOR);
+# 				who.add("combat_exp",100+random(50));
+# 				who.add("potential",20+random(30));
+# 			who.set_temp("marks/mihave",0);
+# 			who.add("marks/mi",1);
+# 			if((who.query("marks/mi"))>60 && who.query("age")>39)
+# 				tell_object(who, HIG "由於勤养玉蜂，你显得更发年轻了！\n" NOR);
+# 				who.add("mud_age",-86400);
+# 				who.delete("last_slp");
+# 				who.delete("jingzuo_time");
+# 				who.add("marks/mi_age",1);
+# 				who.set("marks/mi",0);
+# 		else if(who.query_temp("marks/mihave") && (int)who.query("marks/mi_age")>121)
+# 			message_vision( HIY"老顽童接过蜂蜜，对$N扮了个鬼脸，笑道：你在我这养蜂也几年了，虽然我吃腻了你送的蜜，不过不吃白不吃。\n\n"NOR,who);
+# 		else
+# 			message_vision( HIY"老顽童接过蜂蜜，对$N扮了个鬼脸，笑道：反正这蜜也不是你做的，不吃白不吃。\n\n"NOR,who);
+# 		call_out("delmi",2);
 
 func delmi():
 	var obj2;
