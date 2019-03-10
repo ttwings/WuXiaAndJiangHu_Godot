@@ -45,7 +45,7 @@ var prepare_skills = {}
 # 门派
 var family = {}
 # 携带的物品
-var objs = []
+var objs = {}
 
 func set_name_cn(value1:String,value2:String):
 	attributes.name = value1
@@ -82,9 +82,9 @@ func create_family(key:String,lvl:int,nack_name:String):
 
 # 实例化物品	
 # TODO
-func carry_object(path:String):
-	var obj = get_node(path)
-	objs.append(obj)
+#func carry_object(path:String):
+#	var obj = get_node(path)
+#	objs.append(obj)
 
 func query_skill(skill:String,key:String):
 	if skills[skill] and skills[skill][key]:
@@ -100,7 +100,6 @@ func query_temp(temp:String):
 		
 func query(key:String):
 	if	attributes[key] :
-		print_debug(attributes[key])
 		return attributes[key]
 	else:
 		return false		
@@ -129,6 +128,7 @@ func tell_object(who:GameObject,msg:String):
 # 销毁这件物品	
 func destruct(ob:GameObject):
 	# TODO
+	queue_free()
 	pass	
 
 #
@@ -137,10 +137,13 @@ func add_action(fun:String,id:String):
 	actions[id] = fun
 	pass	
 	
-# todo	
+# # todo	
 func this_player():
-	var player = self
-	return player	
+ 	var player = self
+ 	return player	
+
+func this_object():
+	return self	
 # todo
 func new_ob(file:String):
 	return self	
@@ -153,3 +156,7 @@ func carry_object(path:String):
 	obj = load("res:/" + path + ".gd").new()
 	obj.set("owner",self.id)
 	return obj
+		
+func get_dir():
+	print_debug("test" + self.get_filename())
+#	print_debug(get_parent().filename)		

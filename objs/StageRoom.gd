@@ -83,8 +83,9 @@ func _ready():
 	$NinePatchRect/Description.bbcode_text = current_room.query("long")
 	# load map
 	map_file.open("res://doc/map/baihuagu",File.READ)
-	print(map_file.get_as_text())
+#	print(map_file.get_as_text())
 	$RichTextLabelCharacter.bbcode_text = map_file.get_as_text()
+	current_room.get_dir()
 	pass
 		
 func notify_fail(message:String):
