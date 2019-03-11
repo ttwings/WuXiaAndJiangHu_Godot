@@ -86,6 +86,7 @@ func _ready():
 #	print(map_file.get_as_text())
 	$RichTextLabelCharacter.bbcode_text = map_file.get_as_text()
 	current_room.get_dir()
+	object_panel(load("res://clone/food/baijiu.gd").new())
 	pass
 		
 func notify_fail(message:String):
@@ -110,6 +111,61 @@ func character_panel(me):
 	体质:""" + str(me.Con) + """
 	工作:""" + me.job_name
 	return msg
+	
+func object_panel(ob:GameObject):
+#		$ObjcetRect.show()
+		$ObjcetRect/Name.bbcode_text = ob.query("name")
+		$ObjcetRect/Type.text = ob.query("type")
+		$ObjcetRect/Description.bbcode_text = ob.query("long")
+		var props = []
+		var prop_nodes = []
+		prop_nodes.append($ObjcetRect/GridContainer/Prop1)
+		prop_nodes.append($ObjcetRect/GridContainer/Prop2)
+		prop_nodes.append($ObjcetRect/GridContainer/Prop3)
+		prop_nodes.append($ObjcetRect/GridContainer/Prop4)
+		prop_nodes.append($ObjcetRect/GridContainer/Prop5)
+		prop_nodes.append($ObjcetRect/GridContainer/Prop6)
+		prop_nodes.append($ObjcetRect/GridContainer/Prop7)
+		prop_nodes.append($ObjcetRect/GridContainer/Prop8)
+		
+		props = creat_props(ob)
+		for i in props.size() :
+#			if props[i]:
+#			var path = "ObjcetRect/GridContainer/Prop" + str(1)
+			prop_nodes[i].show()
+			prop_nodes[i].text = props[i]
+	
+func creat_props(ob:GameObject):
+	var props = []
+	for k in ob.attributes:
+		match k:
+			"unit":
+				props.append("单位:" + ob.query(k))
+			"value":
+				props.append("价值:" + str(ob.query(k)))
+			"material":
+				props.append("材质:" + ob.query(k))
+			"food_remaining":
+				props.append("分量:" + str(ob.query(k)))
+			"food_supply":
+				props.append("饱腹:" + str(ob.query(k)))
+			"water_supply":
+				props.append("解渴:" + str(ob.query(k)))
+			"max_liquid":
+				props.append("容量:" + str(ob.query(k)))
+			"liquid":
+				var liquid = ob.query("liquid")
+				for k in liquid:
+					match k:
+						"name":
+							props.append("盛装:" + str(liquid.name))
+						"remaining":
+							props.append("分量:" + str(liquid.remaining))
+						"drunk_supply":
+							props.append("饮酒:" + str(liquid.drunk_supply))
+						"water_supply":
+							props.append("解渴:" + str(liquid.water_supply))
+	return props
 	
 func _process(delta):
 #	$RichTextLabelCharacter.bbcode_text = character_panel(me)

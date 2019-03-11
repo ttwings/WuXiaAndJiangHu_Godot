@@ -99,10 +99,10 @@ func query_temp(temp:String):
 		return false		
 		
 func query(key:String):
-	if	attributes[key] :
+	if	attributes.has(key) :
 		return attributes[key]
 	else:
-		return false		
+		return ""		
 	pass
 
 # UID todo
@@ -145,16 +145,23 @@ func this_player():
 func this_object():
 	return self	
 # todo
-func new_ob(file:String):
-	return self	
+func new_ob(path:String):
+	var obj
+	obj = load("res:/" + path + ".gd").new()
+	obj.set_temp("environment",self.id)
+	return obj
 	
+func environment():
+	return query_temp("environment")
+
 func move():
 	pass	
 	
 func carry_object(path:String):
 	var obj
 	obj = load("res:/" + path + ".gd").new()
-	obj.set("owner",self.id)
+	obj.set("environment",self.id)
+	objs[obj.query(name)] = obj
 	return obj
 		
 func get_dir():
