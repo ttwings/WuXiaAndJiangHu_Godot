@@ -1,0 +1,2 @@
+#/clone/shop/yangzhou_shop.c
+dbase (["long":"这里是扬州城里最著名的店铺，整个铺面装修得相当精美雅致，显出十里扬州繁华大方的气派。不过店里的货柜上却空无一物，看样子已经很久没人来打理了。","no_beg":1,"short":"月明轩","shop_type":0,"objects":(["/clone/shop/waiter":1,]),"exits":(["down":"/d/city/majiu",]),"no_fight":1,"owner":"VOID_SHOP","no_clean_up":0,])

@@ -1,0 +1,2 @@
+#/clone/shop/chengdu_shop.c
+dbase (["long":"成都号称天府之国，物产丰盛，富甲一时。整个店铺装潢雅致，看得出店主是费了一番心思的，不过店里的货柜上却空无一物，看样子已经很久没人来打理了。","short":"清香园","exits":(["down":"/d/chengdu/majiu",]),"no_clean_up":0,"owner":"VOID_SHOP","shop_type":0,"no_beg":1,"objects":(["/clone/shop/waiter":1,]),"no_steal":1,"no_fight":1,])

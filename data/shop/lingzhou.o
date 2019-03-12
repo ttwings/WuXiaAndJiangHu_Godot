@@ -1,0 +1,2 @@
+#/clone/shop/lingzhou_shop.c
+dbase (["long":"这里便是灵州城里最有名的同福居，塞上江南，真是名不虚传，店里陈设清新可人，俨然江南名店一般。不过店里的货柜上却空无一物，看样子已经很久没人来打理了。","short":"同福居","exits":(["down":"/d/lingzhou/majiu",]),"no_clean_up":0,"owner":"VOID_SHOP","shop_type":0,"no_beg":1,"objects":(["/clone/shop/waiter":1,]),"no_steal":1,"no_fight":1,])

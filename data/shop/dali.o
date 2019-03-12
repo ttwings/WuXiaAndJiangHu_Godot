@@ -1,0 +1,2 @@
+#/clone/shop/dali_shop.c
+dbase (["long":"这里是大理城里最著名的老字号，整个铺面装修得相当十分艳丽，从内到外透着大西南的味儿。不过店里的货柜上却空无一物，看样子已经很久没人来打理了。","short":"拨云堂","exits":(["down":"/d/dali/majiu",]),"no_clean_up":0,"owner":"VOID_SHOP","shop_type":0,"no_beg":1,"objects":(["/clone/shop/waiter":1,]),"no_fight":1,])

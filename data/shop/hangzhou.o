@@ -1,0 +1,2 @@
+#/clone/shop/hangzhou_shop.c
+dbase (["long":"颐香斋乃是由杭州城的老字号，所谓「上有天堂下有苏杭」，杭州城建筑别具一格，这家店铺也不例外。不过货柜上却空无一物，看样子已很久没人来打理了。","short":"颐香斋","exits":(["down":"/d/hangzhou/majiu",]),"no_clean_up":0,"owner":"VOID_SHOP","shop_type":0,"no_beg":1,"objects":(["/clone/shop/waiter":1,]),"no_steal":1,"no_fight":1,])

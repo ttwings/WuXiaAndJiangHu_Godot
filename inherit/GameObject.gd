@@ -87,14 +87,14 @@ func create_family(key:String,lvl:int,nack_name:String):
 #	objs.append(obj)
 
 func query_skill(skill:String,key:String):
-	if skills[skill] and skills[skill][key]:
+	if skills.has(skill) and skills[skill].has(key):
 		return skills[skill][key]
 	else:
 		return false
 		
-func query_temp(temp:String):
-	if temps[temp] :
-		return temps[temp]
+func query_temp(key:String):
+	if temps.has(key) :
+		return temps[key]
 	else:
 		return false		
 		
@@ -118,12 +118,13 @@ func setup():
 	
 func message_vision(message:String,ob:GameObject):
 	# TODO
+	print_debug(ob.query("name") + message)
 	var msg = ""
 	return msg
 
 func tell_object(who:GameObject,msg:String):
 	#  TODO
-	print(who.name,msg)	
+	print_debug(who.name,msg)	
 	
 # 销毁这件物品	
 func destruct(ob:GameObject):

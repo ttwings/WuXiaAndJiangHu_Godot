@@ -1,0 +1,2 @@
+#/clone/shop/foshan_shop.c
+dbase (["long":"天海楼是佛山城内有名的店铺，岭南向来多豪侠之士，此楼内外装饰豪放，颇有豪杰之气。不过店里的货柜上却空无一物，看样子已经很久没人来打理了。","short":"天海楼","exits":(["down":"/d/foshan/majiu",]),"no_clean_up":0,"owner":"VOID_SHOP","shop_type":0,"no_beg":1,"objects":(["/clone/shop/waiter":1,]),"no_steal":1,"no_fight":1,])

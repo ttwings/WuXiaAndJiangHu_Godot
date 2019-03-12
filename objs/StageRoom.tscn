@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://objs/StageRoom.gd" type="Script" id=1]
 [ext_resource path="res://assets/graphics/tiles.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/graphics/faces/2.png" type="Texture" id=6]
 [ext_resource path="res://uis/TimeLine.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/graphics/icons/002.png" type="Texture" id=8]
+[ext_resource path="res://assets/graphics/faces/64.png" type="Texture" id=9]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tiles.png 0"
@@ -630,6 +631,7 @@ position = Vector2( -7.60004, 21.85 )
 points = PoolVector2Array( 7.40326, 42.0586, -48.3873, 42.2114 )
 width = 40.0
 default_color = Color( 0.431373, 0.435294, 0.466667, 1 )
+texture_mode = -31317904
 
 [node name="room_s" type="Button" parent="."]
 visible = false
@@ -901,6 +903,8 @@ default_color = Color( 0.431373, 0.435294, 0.466667, 1 )
 texture_mode = 1634732298
 
 [node name="ObjcetRect" type="NinePatchRect" parent="."]
+editor/display_folded = true
+visible = false
 margin_left = 505.0
 margin_top = 162.0
 margin_right = 797.0
@@ -1105,6 +1109,230 @@ text = "动作"
 visible = false
 margin_left = 228.0
 margin_right = 272.0
+margin_bottom = 30.0
+theme = ExtResource( 3 )
+text = "动作"
+
+[node name="CharactertRect" type="NinePatchRect" parent="."]
+margin_left = 330.136
+margin_top = 228.974
+margin_right = 932.136
+margin_bottom = 347.974
+texture = ExtResource( 4 )
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharactertRect"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 145.0
+margin_bottom = 94.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Nackname" type="RichTextLabel" parent="CharactertRect/VBoxContainer"]
+margin_right = 138.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+bbcode_enabled = true
+bbcode_text = "老顽童"
+text = "老顽童"
+scroll_following = true
+
+[node name="Name" type="RichTextLabel" parent="CharactertRect/VBoxContainer"]
+margin_top = 30.0
+margin_right = 138.0
+margin_bottom = 56.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+bbcode_enabled = true
+bbcode_text = "周伯通"
+text = "周伯通"
+scroll_following = true
+
+[node name="Title" type="RichTextLabel" parent="CharactertRect/VBoxContainer"]
+margin_top = 60.0
+margin_right = 138.0
+margin_bottom = 87.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+bbcode_enabled = true
+bbcode_text = "全真教第一代弟子"
+text = "全真教第一代弟子"
+scroll_following = true
+
+[node name="Description" type="RichTextLabel" parent="CharactertRect"]
+anchor_right = 1.0
+margin_left = 144.0
+margin_top = 4.0
+margin_right = -8.0
+margin_bottom = 133.0
+theme = ExtResource( 3 )
+bbcode_enabled = true
+bbcode_text = "这里是一座极大的菜园，种满了油菜，萝卜，茄子，丝瓜之类。周围的篱笆都破了，看来要整修了。菜园旁有几口大缸，里面盛满了水，可是菜地看起来都干裂了，几棵菜蔫蔫的长着，是缺水太多了"
+text = "他就是人称「老顽童」的周伯通。他一副仙风道骨的样子，看起来好象才四十来岁。很难想象他其实已经年逾古稀了。"
+scroll_following = true
+
+[node name="Head" type="TextureRect" parent="CharactertRect"]
+margin_left = 0.312836
+margin_top = -89.2113
+margin_right = 86.3128
+margin_bottom = -0.211258
+texture = ExtResource( 9 )
+
+[node name="GridContainer" type="GridContainer" parent="CharactertRect"]
+anchor_right = 1.0
+margin_left = 9.0
+margin_top = 179.265
+margin_right = -9.0
+margin_bottom = 319.265
+columns = 2
+
+[node name="Prop1" type="RichTextLabel" parent="CharactertRect/GridContainer"]
+margin_right = 290.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+bbcode_enabled = true
+text = "属性1"
+scroll_following = true
+
+[node name="Prop2" type="RichTextLabel" parent="CharactertRect/GridContainer"]
+margin_left = 294.0
+margin_right = 584.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+bbcode_enabled = true
+bbcode_text = "属性1"
+text = "属性1"
+scroll_following = true
+
+[node name="Prop3" type="RichTextLabel" parent="CharactertRect/GridContainer"]
+margin_top = 36.0
+margin_right = 290.0
+margin_bottom = 68.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+bbcode_enabled = true
+bbcode_text = "属性1"
+text = "属性1"
+scroll_following = true
+
+[node name="Prop4" type="RichTextLabel" parent="CharactertRect/GridContainer"]
+margin_left = 294.0
+margin_top = 36.0
+margin_right = 584.0
+margin_bottom = 68.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+bbcode_enabled = true
+bbcode_text = "属性1"
+text = "属性1"
+scroll_following = true
+
+[node name="Prop5" type="RichTextLabel" parent="CharactertRect/GridContainer"]
+margin_top = 72.0
+margin_right = 290.0
+margin_bottom = 104.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+bbcode_enabled = true
+bbcode_text = "属性1"
+text = "属性1"
+scroll_following = true
+
+[node name="Prop6" type="RichTextLabel" parent="CharactertRect/GridContainer"]
+margin_left = 294.0
+margin_top = 72.0
+margin_right = 584.0
+margin_bottom = 104.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+bbcode_enabled = true
+bbcode_text = "属性1"
+text = "属性1"
+scroll_following = true
+
+[node name="Prop7" type="RichTextLabel" parent="CharactertRect/GridContainer"]
+margin_top = 108.0
+margin_right = 290.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+bbcode_enabled = true
+bbcode_text = "属性1"
+text = "属性1"
+scroll_following = true
+
+[node name="Prop8" type="RichTextLabel" parent="CharactertRect/GridContainer"]
+margin_left = 294.0
+margin_top = 108.0
+margin_right = 584.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+bbcode_enabled = true
+bbcode_text = "属性1"
+text = "属性1"
+scroll_following = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharactertRect"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 9.36969
+margin_top = -33.2605
+margin_right = -10.6303
+margin_bottom = -3.2605
+custom_constants/separation = 12
+alignment = 2
+
+[node name="ActionButton1" type="Button" parent="CharactertRect/HBoxContainer"]
+margin_left = 330.0
+margin_right = 358.0
+margin_bottom = 30.0
+theme = ExtResource( 3 )
+text = "吃"
+
+[node name="ActionButton2" type="Button" parent="CharactertRect/HBoxContainer"]
+margin_left = 370.0
+margin_right = 414.0
+margin_bottom = 30.0
+theme = ExtResource( 3 )
+text = "动作"
+
+[node name="ActionButton3" type="Button" parent="CharactertRect/HBoxContainer"]
+margin_left = 426.0
+margin_right = 470.0
+margin_bottom = 30.0
+theme = ExtResource( 3 )
+text = "动作"
+
+[node name="ActionButton4" type="Button" parent="CharactertRect/HBoxContainer"]
+margin_left = 482.0
+margin_right = 526.0
+margin_bottom = 30.0
+theme = ExtResource( 3 )
+text = "动作"
+
+[node name="ActionButton5" type="Button" parent="CharactertRect/HBoxContainer"]
+margin_left = 538.0
+margin_right = 582.0
 margin_bottom = 30.0
 theme = ExtResource( 3 )
 text = "动作"

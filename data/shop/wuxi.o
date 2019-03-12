@@ -1,0 +1,2 @@
+#/clone/shop/wuxi_shop.c
+dbase (["long":"聚丰园是无锡城里最著名的店铺，整个铺面装修得相当精美雅致，显出江南大都会繁华大方的气派。不过店里的货柜上却空无一物，看样子已经很久没人来打理了。","short":"聚丰园","exits":(["down":"/d/wuxi/majiu",]),"no_clean_up":0,"owner":"VOID_SHOP","shop_type":0,"no_beg":1,"objects":(["/clone/shop/waiter":1,]),"no_steal":1,"no_fight":1,])

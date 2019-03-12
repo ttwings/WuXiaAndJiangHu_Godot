@@ -1,0 +1,2 @@
+#/clone/shop/wuchang_shop.c
+dbase (["long":"悦新昌是落于长江边上，是一间装潢雅致的店铺。江城楼宇别具一格，这家店铺也不例外。不过货柜上却空无一物，看样子已很久没人来打理了。","short":"悦新昌","exits":(["down":"/d/jiangling/majiu",]),"no_clean_up":0,"owner":"VOID_SHOP","shop_type":0,"no_beg":1,"objects":(["/clone/shop/waiter":1,]),"no_steal":1,"no_fight":1,])

@@ -1,0 +1,7 @@
+#/d/city/npc/xiaoer.c
+dbase (["max_qi":204,"id":"xiao er","sta":12,"race":"人类","shen_type":0,"max_jing":204,"pighead":0,"age":22,"per":28,"eff_jing":204,"eff_qi":204,"name":"店小二","attitude":"friendly","bt_tufei":15,"gender":"男性","str":24,"kar":27,"shen":0,"jingli":0,"actions":,"behavior_exp":0,"long":"这位店小二正笑咪咪地忙著，还不时拿起挂在脖子上的抹布擦脸。","rank_info":(["respect":"小二哥",]),"startroom":"/d/lingzhou/chema","quest_exp":220,"jing":204,"cor":17,"qi":204,"int":13,"default_actions":,"cps":30,"combat_exp":100,"con":13,"max_tili":60,"dex":30,])
+autoload ({})
+SAVE_NAME "npc_save"
+price_ratio 10
+minimum_bid 1000
+close_time 1135559251

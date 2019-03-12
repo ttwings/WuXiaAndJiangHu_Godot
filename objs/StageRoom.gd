@@ -1,22 +1,8 @@
 extends Node2D
 
 # person
-var weapon1 = {id = "piao",name = "瓢"}
-var mark1 = { jiao = 0}
-var me = {
-	name_cn = "孙悟",
-	weapon = weapon1,
-	mark = mark1,
-	job_name = "浇灌菜地",
-	is_busy = false,
-	is_fighting = false,
-	Con = 8,
-	Str = 3,
-	Int = 12,
-	jingli = 10,
-	qi = 2,
-	force = 10
-		}
+
+var player = Char.new()
 # Called when the node enters the scene tree for the first time.
 
 var Room_gd = load("res://d/baihuagu/baihuagu.gd")
@@ -87,6 +73,10 @@ func _ready():
 	$RichTextLabelCharacter.bbcode_text = map_file.get_as_text()
 	current_room.get_dir()
 	object_panel(load("res://clone/food/baijiu.gd").new())
+	var user = load("res://data/user/l/lijia.gd").new()
+	player = Global.creat_user(user.dbase)
+	for i in player.attributes :
+		print_debug(i + ":" + str(player.attributes[i]))
 	pass
 		
 func notify_fail(message:String):
@@ -111,7 +101,9 @@ func character_panel(me):
 	体质:""" + str(me.Con) + """
 	工作:""" + me.job_name
 	return msg
+
 	
+#  object panel 	
 func object_panel(ob:GameObject):
 #		$ObjcetRect.show()
 		$ObjcetRect/Name.bbcode_text = ob.query("name")
@@ -167,6 +159,65 @@ func creat_props(ob:GameObject):
 							props.append("解渴:" + str(liquid.water_supply))
 	return props
 	
+
+# cha panel
+
+func character_panel(ob:GameObject):
+	#		$CharacterRect.show()
+			$CharacterRect/Name.bbcode_text = ob.query("name")
+			$CharacterRect/Title.text = ob.query("titile")
+			$CharacterRect/Description.bbcode_text = ob.query("long")
+			var props = []
+			var prop_nodes = []
+			prop_nodes.append($CharacterRect/GridContainer/Prop1)
+			prop_nodes.append($CharacterRect/GridContainer/Prop2)
+			prop_nodes.append($CharacterRect/GridContainer/Prop3)
+			prop_nodes.append($CharacterRect/GridContainer/Prop4)
+			prop_nodes.append($CharacterRect/GridContainer/Prop5)
+			prop_nodes.append($CharacterRect/GridContainer/Prop6)
+			prop_nodes.append($CharacterRect/GridContainer/Prop7)
+			prop_nodes.append($CharacterRect/GridContainer/Prop8)
+			
+			props = creat_character_props(ob)
+			for i in props.size() :
+	#			if props[i]:
+	#			var path = "CharacterRect/GridContainer/Prop" + str(1)
+				prop_nodes[i].show()
+				prop_nodes[i].text = props[i]
+		
+	func creat_character_props(ob:GameObject):
+		var props = []
+		for k in ob.attributes:
+			match k:
+				"unit":
+					props.append("单位:" + ob.query(k))
+				"value":
+					props.append("价值:" + str(ob.query(k)))
+				"material":
+					props.append("材质:" + ob.query(k))
+				"food_remaining":
+					props.append("分量:" + str(ob.query(k)))
+				"food_supply":
+					props.append("饱腹:" + str(ob.query(k)))
+				"water_supply":
+					props.append("解渴:" + str(ob.query(k)))
+				"max_liquid":
+					props.append("容量:" + str(ob.query(k)))
+				"liquid":
+					var liquid = ob.query("liquid")
+					for k in liquid:
+						match k:
+							"name":
+								props.append("盛装:" + str(liquid.name))
+							"remaining":
+								props.append("分量:" + str(liquid.remaining))
+							"drunk_supply":
+								props.append("饮酒:" + str(liquid.drunk_supply))
+							"water_supply":
+								props.append("解渴:" + str(liquid.water_supply))
+		return props
+
+
 func _process(delta):
 #	$RichTextLabelCharacter.bbcode_text = character_panel(me)
 	pass	

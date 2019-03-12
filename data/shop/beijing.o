@@ -1,0 +1,2 @@
+#/clone/shop/beijing_shop.c
+dbase (["long":"这里便是北京城里最有名的瑞蚨祥，铺里人来人往，川流不息，显出天子之都繁华大方的气派。不过店里的货柜上却空无一物，看样子已经很久没人来打理了。","short":"瑞蚨祥","exits":(["down":"/d/beijing/majiu",]),"no_clean_up":0,"owner":"VOID_SHOP","shop_type":0,"no_beg":1,"objects":(["/clone/shop/waiter":1,]),"no_steal":1,"no_fight":1,])

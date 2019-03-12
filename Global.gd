@@ -2,9 +2,7 @@ extends Node
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var actors = load_data("res://data/actorDataNew.json")
-var player_data = actors[0]
-var skills = load_data("res://data/attackSkillData.json")
+
 var deffence_skills
 var foods
 var herbs
@@ -14,7 +12,14 @@ const RED = "[color = #ff0000]"
 
 func _init():
 	pass
-
+	
+# 从数据字典,生成角色
+func creat_user(dbase):
+	var user = Char.new()
+	for k in dbase:
+		user.set(k,dbase[k])
+	return user
+	pass
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

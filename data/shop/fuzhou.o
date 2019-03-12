@@ -1,0 +1,2 @@
+#/clone/shop/fuzhou_shop.c
+dbase (["long":"聚春园是福州城内有名的店铺，店堂正中挂着的一块匾额，匾上大书「三山聚春」四个大字，令人心胸大开。不过店里的货柜上却空无一物，看样子已经很久没人来打理了。","short":"聚春园","exits":(["down":"/d/fuzhou/majiu",]),"no_clean_up":0,"owner":"VOID_SHOP","shop_type":0,"no_beg":1,"objects":(["/clone/shop/waiter":1,]),"no_steal":1,"no_fight":1,])

@@ -1,0 +1,2 @@
+#/clone/shop/yanping_shop.c
+dbase (["long":"这里是延平城里最著名的店铺，整个铺面装修得相当精美雅致，楼顶凭轩处，正是俯瞰双溪汇流的好去处。不过店里的货柜上却空无一物，看样子已经很久没人来打理了。","short":"双溪楼","exits":(["down":"/d/yanping/majiu",]),"no_clean_up":0,"owner":"VOID_SHOP","shop_type":0,"no_beg":1,"objects":(["/clone/shop/waiter":1,]),"no_fight":1,])

@@ -1,0 +1,2 @@
+#/clone/shop/suzhou_shop.c
+dbase (["long":"采芝斋坐落于苏州城北，是一间装潢雅致的店铺。苏州城建筑别具一格，这家店铺也不例外。不过货柜上却空无一物，看样子已很久没人来打理了。","short":"采芝斋","exits":(["down":"/d/suzhou/majiu",]),"no_clean_up":0,"owner":"VOID_SHOP","shop_type":0,"no_beg":1,"objects":(["/clone/shop/waiter":1,]),"no_steal":1,"no_fight":1,])

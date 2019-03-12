@@ -1,0 +1,2 @@
+#/clone/shop/kaifeng_shop.c
+dbase (["long":"这里是开封城内有名的店铺福兴斋，开封为百年古都，民众富饶。店铺内装饰得非常豪华，不过柜上却空无一物。伙计在一旁打着盹，看样子已经很久没人来打理了。","short":"福兴斋","exits":(["down":"/d/kaifeng/majiu",]),"no_clean_up":0,"owner":"VOID_SHOP","shop_type":0,"no_beg":1,"objects":(["/clone/shop/waiter":1,]),"no_steal":1,"no_fight":1,])
