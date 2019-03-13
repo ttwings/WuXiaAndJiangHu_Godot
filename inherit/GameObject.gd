@@ -1,4 +1,4 @@
-extends Node
+extends Resource
 
 class_name GameObject
 # color
@@ -37,8 +37,8 @@ const HBWHT = "[color=#f0fcff]"
 #var name_cn
 #var weight
 
-var attributes = {}
-var temps = {}
+var dbase = {}
+var temp_dbase = {}
 var skills = {}
 var map_skills = {}
 var prepare_skills = {}
@@ -48,23 +48,27 @@ var family = {}
 var objs = {}
 
 func set_name_cn(value1:String,value2:String):
-	attributes.name = value1
-	attributes.id = value2
+	dbase.name = value1
+	dbase.id = value2
 	
 func name():
-	return attributes.name
+	return dbase.name
 			
 func set_weight(value:int):
-	attributes.weight = value
+	dbase.weight = value
 
 func set(key:String,value):
-	attributes[key] = value
+	dbase[key] = value
 	
 func add(key:String,value):
-	attributes[key] = attributes[key] + value	
+	dbase[key] = dbase[key] + value	
+
+func add_temp(key:String,value):
+	# temp_dbase[key] = temp_dbase[key] + value
+	set_temp(key,query(key) + value)
 	
 func set_temp(key:String,value):
-	temps[key] = value
+	temp_dbase[key] = value
 	
 func set_skill(key:String,value):
 	skills[key] = value
@@ -93,14 +97,14 @@ func query_skill(skill:String,key:String):
 		return false
 		
 func query_temp(key:String):
-	if temps.has(key) :
-		return temps[key]
+	if temp_dbase.has(key) :
+		return temp_dbase[key]
 	else:
 		return false		
 		
 func query(key:String):
-	if	attributes.has(key) :
-		return attributes[key]
+	if	dbase.has(key) :
+		return dbase[key]
 	else:
 		return ""		
 	pass
@@ -129,7 +133,7 @@ func tell_object(who:GameObject,msg:String):
 # 销毁这件物品	
 func destruct(ob:GameObject):
 	# TODO
-	queue_free()
+#	queue_free()
 	pass	
 
 #
@@ -155,16 +159,19 @@ func new_ob(path:String):
 func environment():
 	return query_temp("environment")
 
-func move():
+# todo
+func move(to:GameObject):
+	to.add("objects",self)
+	self.add("environment",to)
 	pass	
 	
-func carry_object(path:String):
-	var obj
-	obj = load("res:/" + path + ".gd").new()
-	obj.set("environment",self.id)
-	objs[obj.query(name)] = obj
-	return obj
+
 		
-func get_dir():
-	print_debug("test" + self.get_filename())
+func get_ob_dir(ob:GameObject):
+#	print_debug("test" + resource_path)
+	# return like "res://xxx/xxx"
+	return ob.get_script().get_path().get_base_dir()
 #	print_debug(get_parent().filename)		
+
+func get_ob_path(ob:GameObject):
+	return ob.get_script().get_path().get_basename()

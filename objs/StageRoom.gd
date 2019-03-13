@@ -71,13 +71,8 @@ func _ready():
 	map_file.open("res://doc/map/baihuagu",File.READ)
 #	print(map_file.get_as_text())
 	$RichTextLabelCharacter.bbcode_text = map_file.get_as_text()
-	current_room.get_dir()
+#	current_room.get_dir()
 	object_panel(load("res://clone/food/baijiu.gd").new())
-	var user = load("res://data/user/l/lijia.gd").new()
-	player = Global.creat_user(user.dbase)
-	for i in player.attributes :
-		print_debug(i + ":" + str(player.attributes[i]))
-	pass
 		
 func notify_fail(message:String):
 	$AcceptDialog.show()
@@ -87,20 +82,7 @@ func notify_fail(message:String):
 func message_vision(message:String,null):
 	$RichTextLabel.bbcode_enabled = true
 	$RichTextLabel.bbcode_text = message
-	pass	
-	
-func character_panel(me):
-	var msg:String
-	msg = """	名字:""" + me.name_cn + """
-	手持:""" + me.weapon.name + """
-	精力:""" + str(me.jingli) + """
-	气血:""" + str(me.qi) + """
-	内力:""" + str(me.force) + """
-	臂力:""" + str(me.Str) + """
-	悟性:""" + str(me.Int) + """
-	体质:""" + str(me.Con) + """
-	工作:""" + me.job_name
-	return msg
+	pass		
 
 	
 #  object panel 	
@@ -129,7 +111,7 @@ func object_panel(ob:GameObject):
 	
 func creat_props(ob:GameObject):
 	var props = []
-	for k in ob.attributes:
+	for k in ob.dbase:
 		match k:
 			"unit":
 				props.append("单位:" + ob.query(k))
@@ -185,37 +167,37 @@ func character_panel(ob:GameObject):
 				prop_nodes[i].show()
 				prop_nodes[i].text = props[i]
 		
-	func creat_character_props(ob:GameObject):
-		var props = []
-		for k in ob.attributes:
-			match k:
-				"unit":
-					props.append("单位:" + ob.query(k))
-				"value":
-					props.append("价值:" + str(ob.query(k)))
-				"material":
-					props.append("材质:" + ob.query(k))
-				"food_remaining":
-					props.append("分量:" + str(ob.query(k)))
-				"food_supply":
-					props.append("饱腹:" + str(ob.query(k)))
-				"water_supply":
-					props.append("解渴:" + str(ob.query(k)))
-				"max_liquid":
-					props.append("容量:" + str(ob.query(k)))
-				"liquid":
-					var liquid = ob.query("liquid")
-					for k in liquid:
-						match k:
-							"name":
-								props.append("盛装:" + str(liquid.name))
-							"remaining":
-								props.append("分量:" + str(liquid.remaining))
-							"drunk_supply":
-								props.append("饮酒:" + str(liquid.drunk_supply))
-							"water_supply":
-								props.append("解渴:" + str(liquid.water_supply))
-		return props
+func creat_character_props(ob:GameObject):
+	var props = []
+	for k in ob.attributes:
+		match k:
+			"qi":
+				props.append("气血:" + str(ob.query(k)))
+			"jing":
+				props.append("精神:" + str(ob.query(k)))
+			"nei":
+				props.append("内力:" + str(ob.query(k)))
+			"food":
+				props.append("食物:" + str(ob.query(k)))
+			"water":
+				props.append("饮水:" + str(ob.query(k)))
+			"water_supply":
+				props.append("解渴:" + str(ob.query(k)))
+			"max_liquid":
+				props.append("容量:" + str(ob.query(k)))
+			"liquid":
+				var liquid = ob.query("liquid")
+				for k in liquid:
+					match k:
+						"name":
+							props.append("盛装:" + str(liquid.name))
+						"remaining":
+							props.append("分量:" + str(liquid.remaining))
+						"drunk_supply":
+							props.append("饮酒:" + str(liquid.drunk_supply))
+						"water_supply":
+							props.append("解渴:" + str(liquid.water_supply))
+	return props
 
 
 func _process(delta):

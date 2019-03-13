@@ -22,7 +22,7 @@ func create():
 	set("coor/x", -430);
 	set("coor/y", -360);
 	set("coor/z", 0);
-	print(DIR)
+	print_debug(get_ob_dir(self))
 	# setup();
 	# replace_program(ROOM);
 

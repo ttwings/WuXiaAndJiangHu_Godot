@@ -9,9 +9,9 @@ var herbs
 
 const NOR = "[/color]"
 const RED = "[color = #ff0000]"
+var user_class
+var player
 
-func _init():
-	pass
 	
 # 从数据字典,生成角色
 func creat_user(dbase):
@@ -23,9 +23,12 @@ func creat_user(dbase):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("test")
+	user_class = load("res://data/user/l/lijia.gd").new()
+	player = creat_user(user_class.dbase)
 	pass # Replace with function body.
 
+func this_player():
+	return player
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

@@ -34,7 +34,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://inherit/item/Food.gd"
 }, {
-"base": "Node",
+"base": "Resource",
 "class": "GameObject",
 "language": "GDScript",
 "path": "res://inherit/GameObject.gd"
@@ -49,7 +49,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://inherit/item/Item.gd"
 }, {
-"base": "Node",
+"base": "Char",
 "class": "Npc",
 "language": "GDScript",
 "path": "res://inherit/char/Npc.gd"

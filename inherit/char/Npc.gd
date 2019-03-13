@@ -1,3 +1,3 @@
-extends GameObject
+extends Char
 
 class_name Npc

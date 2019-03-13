@@ -236,6 +236,8 @@
 [node name="StageRoom" type="Node2D"]
 script = ExtResource( 1 )
 
+[node name="Room" type="Node" parent="."]
+
 [node name="Node2D" type="Node2D" parent="."]
 editor/display_folded = true
 position = Vector2( 295.667, 4.98505 )
@@ -1176,7 +1178,7 @@ margin_bottom = 133.0
 theme = ExtResource( 3 )
 bbcode_enabled = true
 bbcode_text = "这里是一座极大的菜园，种满了油菜，萝卜，茄子，丝瓜之类。周围的篱笆都破了，看来要整修了。菜园旁有几口大缸，里面盛满了水，可是菜地看起来都干裂了，几棵菜蔫蔫的长着，是缺水太多了"
-text = "他就是人称「老顽童」的周伯通。他一副仙风道骨的样子，看起来好象才四十来岁。很难想象他其实已经年逾古稀了。"
+text = "这里是一座极大的菜园，种满了油菜，萝卜，茄子，丝瓜之类。周围的篱笆都破了，看来要整修了。菜园旁有几口大缸，里面盛满了水，可是菜地看起来都干裂了，几棵菜蔫蔫的长着，是缺水太多了"
 scroll_following = true
 
 [node name="Head" type="TextureRect" parent="CharactertRect"]
