@@ -72,10 +72,10 @@ func wield():
 		# If we are are using any weapon?
 		if( !(old_weapon = owner.query_temp("weapon")) ):
 			owner.set_temp("weapon", this_object());
-		else # If we still have a free hand? 
-		if( !owner.query_temp("secondary_weapon")
-		&&	!owner.query_temp("armor/shield") ) :
-
+		else :
+			return
+			# If we still have a free hand? 
+		if( !owner.query_temp("secondary_weapon") &&	!owner.query_temp("armor/shield") ) :
 			# If we can wield this as secondary weapon?
 			if(flag & SECONDARY):
 #				owner.set_temp("secondary_weapon", this_object());
@@ -85,14 +85,14 @@ func wield():
 					old_weapon.query("apply/skill_type") ==
 					this_object().query("apply/skill_type") &&
 					old_weapon.query("skill_type") != 
-					this_object().query("skill_type") )
-				{
+					this_object().query("skill_type") ):
+				# {
 					owner.set_temp("use_apply_action", 1);
 					old_weapon.set_temp("use_apply_skill", 1);
-				}
+				# }
 # end of add from xyj
 			# If we can switch our old weapon to secondary weapon ?
-			} else if( (int)old_weapon.query("flag") & SECONDARY ) {
+			} elif:( (int)old_weapon.query("flag") & SECONDARY ) {
 				old_weapon.unequip();
 				owner.set_temp("weapon", this_object());
 				old_weapon.wield();

@@ -31,13 +31,12 @@ const HBBLU = "[color=#3b2e7e]"
 const HBMAG = "[color=#815463]"
 const HBCYN = "[color=#00e09e]"
 const HBWHT = "[color=#f0fcff]"
-
-
+var __DIR__ = dir()
+var __FILE__ = file()
 # 基本属性
 #var name_cn
 #var weight
-
-var dbase = {}
+var dbase = {objects = []}
 var temp_dbase = {}
 var skills = {}
 var map_skills = {}
@@ -61,7 +60,15 @@ func set(key:String,value):
 	dbase[key] = value
 	
 func add(key:String,value):
-	dbase[key] = dbase[key] + value	
+#	match typeof(dbase[key]):
+#		Array:
+#			dbase[key].append(value)
+#		_:
+#			dbase[key] = dbase[key] + value	
+	if dbase[key] is Array:
+		dbase[key].append(value)
+	else:
+		dbase[key] = dbase[key] + value	
 
 func add_temp(key:String,value):
 	# temp_dbase[key] = temp_dbase[key] + value
@@ -134,6 +141,7 @@ func tell_object(who:GameObject,msg:String):
 func destruct(ob:GameObject):
 	# TODO
 #	queue_free()
+#	ob = null
 	pass	
 
 #
@@ -144,8 +152,7 @@ func add_action(fun:String,id:String):
 	
 # # todo	
 func this_player():
- 	var player = self
- 	return player	
+	Global.this_player()
 
 func this_object():
 	return self	
@@ -156,22 +163,22 @@ func new_ob(path:String):
 	obj.set_temp("environment",self.id)
 	return obj
 	
-func environment():
-	return query_temp("environment")
+func environment(ob=self):
+	return query("environment")
+	# return query_temp("environment")
 
 # todo
 func move(to:GameObject):
 	to.add("objects",self)
-	self.add("environment",to)
+	self.add("environment",to.file())
 	pass	
 	
+func move_object(ob=self,dest=self):
+	dest.add("objects",ob.file())
 
 		
-func get_ob_dir(ob:GameObject):
-#	print_debug("test" + resource_path)
-	# return like "res://xxx/xxx"
-	return ob.get_script().get_path().get_base_dir()
-#	print_debug(get_parent().filename)		
+func dir(ob = self):
+	return ob.get_script().get_path().get_base_dir() + "/"	
 
-func get_ob_path(ob:GameObject):
-	return ob.get_script().get_path().get_basename()
+func file(ob = self):
+	return ob.get_script().get_path()

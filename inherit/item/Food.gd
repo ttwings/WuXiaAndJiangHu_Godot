@@ -2,7 +2,7 @@ extends GameObject
 
 class_name Food
 
-func do_eat(arg:String):
+func do_eat(player):
 #	if( !living(this_player()) || this_player()->query_temp("noliving") )
 #		return 1;
 #	if( this_player()->query("jing")<0 || this_player()->query("qi")<0 )
@@ -24,15 +24,17 @@ func do_eat(arg:String):
 #	// This allows customization of drinking effect.
 #	if( query("eat_func") ) return 1;
 #
-#	set("value", 0);
-#	add("food_remaining", -1);
-#	if( !query("food_remaining") )
-#	{
-#		message_vision("$N将剩下的"+name()+"吃得干干净净。\n",this_player());
-#		if( !this_object()->finish_eat() ) destruct(this_object());
-#	} else message_vision("$N拿起" + name()+"咬了几口。\n", this_player());
+	set("value", 0);
+	if query("food_remaining") > 0 :
+		add("food_remaining", -1);
+	if( query("food_remaining") <= 0 ):
+		message_vision("$N将剩下的"+name()+"吃得干干净净。\n",player);
+#		if( !this_object().finish_eat() ):
+		destruct(this_object());
+	else:
+		message_vision("$N拿起" + name()+"咬了几口。\n",player);
 #//	this_player()->start_busy(1);
 #	return 1;
 #}
-	print("do_eat")
+	# print("do_eat")
 	pass

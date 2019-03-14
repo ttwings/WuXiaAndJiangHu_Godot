@@ -4,13 +4,13 @@
 
 #include <ansi.h>
 extends GameObject
-var DIR = "/d/baihuagu/"
+# var DIR = "/d/baihuagu/"
 func create():
 	set("short", RED + "百花谷7" + NOR);
 	set("long", 
 HIC + "又转了几个弯，迎面两面山壁夹峙三株大松树冲天而起，挡在山壁间。成为两道天然的屏障。\n" + NOR);
 	set("exits", 
-		{"west" : DIR + "huagu6",}
+		{"west" : __DIR__ + "huagu6",}
 	);
 	set("no_clean_up", 0);
 	set("coor/x", -450);

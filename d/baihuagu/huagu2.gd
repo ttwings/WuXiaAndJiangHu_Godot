@@ -4,7 +4,7 @@
 
 # #include <ansi.h>
 extends Room
-var __DIR__ = "/d/baihuagu/"
+# var __DIR__ = "/d/baihuagu/"
 func create():
 	set("short", HIR + "百花谷2" + NOR);
 	set("long", 

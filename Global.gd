@@ -134,4 +134,10 @@ func creat_sprite_frames_from_path(anim:String,path:String,suffix:String):
 	return sprite_frames
 						
 						
-						
+#func this_player():
+#	var dbase = load("res://data/user/l/lijia.gd").new()
+#	var char = Char.new()
+#	for i in dbase.dbase :
+#		char.add(i,dbase.dbase)
+#		print_debug(i,dbase.dbase)
+#	return char

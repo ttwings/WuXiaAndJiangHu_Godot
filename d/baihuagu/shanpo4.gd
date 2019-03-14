@@ -5,7 +5,7 @@
 #include <ansi.h>
 #include "yangfeng.h";
 extends Room
-var __DIR__ = "/d/baihuagu/"
+# var __DIR__ = "/d/baihuagu/"
 func create():
 	set("short", GRN + "山谷中" + NOR);
 	set("long", 

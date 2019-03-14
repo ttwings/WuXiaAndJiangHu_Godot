@@ -3,7 +3,7 @@
 # inherit ROOM;
 extends Room
 #include <ansi.h>
-var __DIR__ = "/d/baihuagu/"
+# var __DIR__ = "/d/baihuagu/"
 func create():
 	set("short", HIW + "茫茫雪地" + NOR);
 	set("long",
@@ -20,6 +20,7 @@ HIW + "这里是白茫茫的一片雪地，" + NOR + "远处山峰层峦迭嶂�
 	set("coor/z", 0);
 	# setup();
 	# replace_program(ROOM);
+	print_debug(__DIR__)
 
 func _init():
 	create()

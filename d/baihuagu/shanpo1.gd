@@ -4,7 +4,7 @@
 # // inherit ROOM;
 # // #include <ansi.h>
 extends Room
-var __DIR__ = "/d/baihuagu/"
+# var __DIR__ = "/d/baihuagu/"
 # todo
 var VEGETABLE_DIR = "res://"
 func create():

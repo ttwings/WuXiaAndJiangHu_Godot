@@ -494,6 +494,9 @@ func creatAnimation(path:String):
 * 仿<放置江湖> 物品信息面板
   ![](doc/img/物品信息面板修改.png)
 
+* 游戏UI设计
+  ![](doc/img/UI设计.png)  
+
   ```
 		func object_panel(ob:GameObject):
 			$ObjcetRect.show()

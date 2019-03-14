@@ -2,7 +2,7 @@
 # // Last Modified by Winder on Mar. 5 2001
 # inherit ROOM;
 extends Room
-var __DIR__ = "/d/baihuagu/"
+# var __DIR__ = "/d/baihuagu/"
 
 func create():
 	set("short", "树林");

@@ -3,7 +3,7 @@
 
 # inherit ROOM;
 extends Room
-var __DIR__ = "/d/baihuagu/"
+# var __DIR__ = "/d/baihuagu/"
 func create():
 	set("short", "小路");
 	set("long", "@LONG这是一条羊肠小路，北边是浓郁的大森林，不知道你进去之后还能不能出来。你走着走着，不禁害怕起来。LONG");
