@@ -495,7 +495,7 @@ func creatAnimation(path:String):
   ![](doc/img/物品信息面板修改.png)
 
 * 游戏UI设计
-  ![](doc/img/UI设计.png)  
+  ![](doc/img/ui设计.png)  
 
   ```
 		func object_panel(ob:GameObject):
