@@ -34,7 +34,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://inherit/item/Food.gd"
 }, {
-"base": "Resource",
+"base": "Node",
 "class": "GameObject",
 "language": "GDScript",
 "path": "res://inherit/GameObject.gd"
@@ -44,7 +44,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://objs/HealObj.gd"
 }, {
-"base": "GameObject",
+"base": "Node",
 "class": "Item",
 "language": "GDScript",
 "path": "res://inherit/item/Item.gd"
@@ -59,12 +59,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://inherit/room/Room.gd"
 }, {
-"base": "GameObject",
+"base": "Node",
 "class": "Skill",
 "language": "GDScript",
 "path": "res://skills/Skill.gd"
 }, {
-"base": "GameObject",
+"base": "Node",
 "class": "Weapon",
 "language": "GDScript",
 "path": "res://inherit/weapon/Weapon.gd"

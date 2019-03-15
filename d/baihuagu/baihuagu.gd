@@ -24,7 +24,6 @@ HIG + "只见姹紫嫣红，满山锦绣，彩蝶纷飞，群蜂轻舞。纵是�
 	set("coor/x", -430);
 	set("coor/y", -360);
 	set("coor/z", 0);
-	print_debug(__DIR__)
 	# setup();
 	# replace_program(ROOM);
 #}

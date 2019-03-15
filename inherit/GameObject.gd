@@ -171,6 +171,8 @@ func random(n:int):
 
 func this_object():
 	return self	
+func this_player():
+	pass	
 # todo
 func new_ob(path:String):
 	var obj

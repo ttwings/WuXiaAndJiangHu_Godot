@@ -1,6 +1,35 @@
 extends Node2D
+# const color -----------------------------------
+const NOR = "[/color]"
+const BLK = "[color=#000000]"
+const RED = "[color=#ff0000]"
+const GRN = "[color=#00ff00]"
+const YEL = "[color=#ffff00]"
+const BLU = "[color=#0000ff]"
+const MAG = "[color=#ff0.0ff]"
+const CYN = "[color=#00ffff]"
+const WHT = "[color=#ffffff]"   
+const HIR = "[color=#ff0000]"
+const HIG = "[color=#00ff00]"
+const HIY = "[color=#ffff00]"
+const HIB = "[color=#44cef6]"
+const HIM = "[color=#ff00ff]"
+const HIC = "[color=#177cb0]"
+const HIW = "[color=#e9e7ef]"
+const BRED = "[color=#ff2121]"
+const BGRN = "[color=#00e500]"
+const BYEL = "[color=#ffb61e]"
+const BBLU = "[color=#4b5cc4]"
+const BMAG = "[color=#8d4bbb]"
+const BCYN = "[color=#1685a9]"
+const HBRED = "[color=#ff2121]"
+const HBGRN = "[color=#40de5a]"
+const HBYEL = "[color=#eacd76]"
+const HBBLU = "[color=#3b2e7e]"
+const HBMAG = "[color=#815463]"
+const HBCYN = "[color=#00e09e]"
+const HBWHT = "[color=#f0fcff]"
 
-# person
 
 var player = Char.new()
 var Room_gd = load("res://d/baihuagu/baihuagu.gd")
@@ -32,10 +61,9 @@ func _ready():
 	# load map
 	map_file.open("res://doc/map/baihuagu",File.READ)
 #	print(map_file.get_as_text())
-	$RoomMessage/RichTextLabel.bbcode_text = map_file.get_as_text()
+	$RoomMessage/VBoxContainer/RichTextLabel.bbcode_text = map_file.get_as_text()
 #	current_room.get_dir()
 	food = load("res://clone/food/apple.gd").new()
-	print_debug(food)
 	object_panel(food)
 	player = Global.this_player()
 	# print_debug(player is GameObject)
@@ -146,40 +174,40 @@ func character_panel(ob:GameObject):
 			$CharacterPanel/PropContainer/HBoxContainer/VBoxContainer/Title.text = ob.query("titile")
 			$CharacterPanel/PropContainer/HBoxContainer/VBoxContainer/Nackname.text = ob.query("nackname")
 #			$CharacterRect/Description.bbcode_text = ob.query("long")
-#			var props = []
-#			var prop_nodes = []
-#			prop_nodes.append($CharacterRect/GridContainer/Prop1)
-#			prop_nodes.append($CharacterRect/GridContainer/Prop2)
-#			prop_nodes.append($CharacterRect/GridContainer/Prop3)
-#			prop_nodes.append($CharacterRect/GridContainer/Prop4)
-#			prop_nodes.append($CharacterRect/GridContainer/Prop5)
-#			prop_nodes.append($CharacterRect/GridContainer/Prop6)
-#			prop_nodes.append($CharacterRect/GridContainer/Prop7)
-#			prop_nodes.append($CharacterRect/GridContainer/Prop8)
+			var props = []
+			var prop_nodes = []
+			prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop1)
+			prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop2)
+			prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop3)
+			prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop4)
+			prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop5)
+			prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop6)
+			prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop7)
+			prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop8)
 #
-#			props = creat_character_props(ob)
-#			for i in props.size() :
-#	#			if props[i]:
-#	#			var path = "CharacterRect/GridContainer/Prop" + str(1)
-#				prop_nodes[i].show()
-#				prop_nodes[i].text = props[i]
+			props = creat_character_props(ob)
+			for i in props.size() :
+	#			if props[i]:
+	#			var path = "CharacterRect/GridContainer/Prop" + str(1)
+				prop_nodes[i].show()
+				prop_nodes[i].bbcode_text = props[i]
 		
 func creat_character_props(ob:GameObject):
 	var props = []
 	for k in ob.dbase:
 		match k:
-			"qi":
-				props.append("气血:" + str(ob.query(k)))
-			"jing":
-				props.append("精神:" + str(ob.query(k)))
-			"nei":
-				props.append("内力:" + str(ob.query(k)))
-			"food":
-				props.append("食物:" + str(ob.query(k)))
-			"water":
-				props.append("饮水:" + str(ob.query(k)))
-			"water_supply":
-				props.append("解渴:" + str(ob.query(k)))
+			"str":
+				props.append(GRN + "臂力:" + "[" + str(ob.query(k)) + "]" + NOR)
+			"int":
+				props.append("悟性:" + str(ob.query(k)))
+			"con":
+				props.append("体质:" + str(ob.query(k)))
+			"dex":
+				props.append("身法:" + str(ob.query(k)))
+			"per":
+				props.append("容貌:" + str(ob.query(k)))
+			"cps":
+				props.append("福源:" + str(ob.query(k)))
 			"max_liquid":
 				props.append("容量:" + str(ob.query(k)))
 			"liquid":
@@ -196,11 +224,33 @@ func creat_character_props(ob:GameObject):
 							props.append("解渴:" + str(liquid.water_supply))
 	return props
 
+#------------------------------------- signl	
 
 func _process(delta):
 #	$RichTextLabelCharacter.bbcode_text = character_panel(me)
+	player_status(player)
 	pass	
 
+func player_status(player):
+	var qi = player.query("qi")
+	var max_qi = player.query("max_qi")
+	var jing = player.query("jing")
+	var max_jing = player.query("max_jing")
+	var neili = player.query("neili")
+	var max_neili = player.query("max_neili")
+	$ActorStatus/VBoxContainer/Qibox/ProgressBar.value = qi
+	$ActorStatus/VBoxContainer/Qibox/ProgressBar.max_value = max_qi
+	$ActorStatus/VBoxContainer/Qibox/Label2.text = "[" + str(qi) + "/" + str(max_qi) + "]"
+	$ActorStatus/VBoxContainer/Jingbox/ProgressBar.value  = jing
+	$ActorStatus/VBoxContainer/Jingbox/ProgressBar.max_value  = max_jing
+	$ActorStatus/VBoxContainer/Jingbox/Label2.text  = "[" + str(jing) + "/" + str(max_jing) + "]"
+	$ActorStatus/VBoxContainer/Neibox/ProgressBar.value = neili
+	$ActorStatus/VBoxContainer/Neibox/ProgressBar.max_value = max_neili
+	$ActorStatus/VBoxContainer/Neibox/Label2.text  = "[" + str(neili) + "/" + str(max_neili) + "]"
+	$ActorStatus/VBoxContainer/FoodBox/ProgressBar.value = player.query("food")
+	$ActorStatus/VBoxContainer/WaterBox/ProgressBar.value = player.query("water")
+
+			
 func _on_ChatClose_pressed():
 	$ChatMessagePanel.hide()
 	pass # Replace with function body.
@@ -213,4 +263,21 @@ func _on_ActionButton1_pressed():
 	# print_debug(old_msg)
 	object_panel(food)
 	$ObjectMessage/RichTextLabel.bbcode_text = old_msg + msg
+	pass # Replace with function body.
+
+
+func _on_ObjectRectButton_pressed():
+	$ObjectRect.hide()
+	pass # Replace with function body.
+
+
+func _on_ItemList_item_selected(list):
+	var item = $CharacterPanel/PropContainer/ItemList.get_item_text(list)
+	var objs = player.objects
+	var ob
+	for o in objs.size():
+		ob = load(objs[o]).new()
+	object_panel(ob)
+	$ObjectRect.show()
+	print_debug(ob)
 	pass # Replace with function body.

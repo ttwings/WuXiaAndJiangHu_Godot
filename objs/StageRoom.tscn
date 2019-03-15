@@ -1,16 +1,19 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://objs/StageRoom.gd" type="Script" id=1]
 [ext_resource path="res://assets/graphics/tiles.png" type="Texture" id=2]
 [ext_resource path="res://new_theme.tres" type="Theme" id=3]
 [ext_resource path="res://uis/TimeLine.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/graphics/ui/ui_p.png" type="Texture" id=5]
-[ext_resource path="res://assets/graphics/faces/297.png" type="Texture" id=6]
-[ext_resource path="res://assets/graphics/faces/2.png" type="Texture" id=7]
-[ext_resource path="res://assets/graphics/icons/002.png" type="Texture" id=8]
-[ext_resource path="res://assets/graphics/faces/0.png" type="Texture" id=9]
-[ext_resource path="res://assets/graphics/icons/525.png" type="Texture" id=10]
-[ext_resource path="res://assets/graphics/faces/64.png" type="Texture" id=11]
+[ext_resource path="res://assets/fonts/SourceHanSerifCN-Medium.otf" type="DynamicFontData" id=6]
+[ext_resource path="res://assets/graphics/icons/002.png" type="Texture" id=7]
+[ext_resource path="res://assets/graphics/faces/0.png" type="Texture" id=8]
+[ext_resource path="res://assets/graphics/icons/525.png" type="Texture" id=9]
+[ext_resource path="res://assets/graphics/icons/016.png" type="Texture" id=10]
+[ext_resource path="res://assets/graphics/icons/067.png" type="Texture" id=11]
+[ext_resource path="res://assets/graphics/faces/297.png" type="Texture" id=12]
+[ext_resource path="res://assets/graphics/faces/2.png" type="Texture" id=13]
+[ext_resource path="res://assets/graphics/faces/64.png" type="Texture" id=14]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tiles.png 0"
@@ -235,7 +238,21 @@
 16/shapes = [  ]
 16/z_index = 0
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=16]
+
+[sub_resource type="DynamicFont" id=17]
+size = 12
+outline_size = 1
+outline_color = Color( 0.466667, 0.466667, 0.466667, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 12
+outline_size = 1
+outline_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.952941, 0.145098, 0.12549, 1 )
 border_width_left = 1
 border_width_top = 1
@@ -243,7 +260,7 @@ border_width_right = 1
 corner_radius_top_left = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.34902, 0.352941, 0.333333, 0.262745 )
 border_width_left = 1
 border_width_top = 1
@@ -255,7 +272,7 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.12549, 0.952941, 0.294118, 1 )
 border_width_left = 1
 border_width_top = 1
@@ -263,7 +280,7 @@ border_width_right = 1
 corner_radius_top_left = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.34902, 0.352941, 0.333333, 0.262745 )
 border_width_left = 1
 border_width_top = 1
@@ -275,22 +292,64 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxFlat" id=6]
-bg_color = Color( 0.12549, 0.196078, 0.952941, 1 )
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.615686, 0.12549, 0.952941, 1 )
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 corner_radius_top_left = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxFlat" id=7]
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.772549, 0.952941, 0.12549, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+corner_radius_top_left = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.12549, 0.913725, 0.952941, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+corner_radius_top_left = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id=14]
+
+[sub_resource type="DynamicFont" id=15]
+size = 12
+outline_size = 1
+outline_color = Color( 0.386719, 0.386719, 0.386719, 1 )
+use_mipmaps = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=10]
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=11]
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxFlat" id=18]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="DynamicFont" id=19]
+size = 12
+outline_size = 1
+outline_color = Color( 0.301961, 0.294118, 0.294118, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxFlat" id=12]
 bg_color = Color( 0.109804, 0.0392157, 0.964706, 1 )
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id=8]
+[sub_resource type="StyleBoxFlat" id=13]
 bg_color = Color( 0.0313726, 0.262745, 0.701961, 0.423529 )
 corner_radius_top_left = 8
 corner_radius_top_right = 8
@@ -838,37 +897,191 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 3 )
 
-[node name="Actors" type="NinePatchRect" parent="."]
+[node name="ActorStatus" type="NinePatchRect" parent="."]
 editor/display_folded = true
 margin_left = 813.004
-margin_top = 571.12
+margin_top = 570.385
 margin_right = 1135.0
-margin_bottom = 716.12
+margin_bottom = 715.385
 texture = ExtResource( 5 )
 patch_margin_left = 8
 patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 __meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
+"_edit_group_": true
 }
 
-[node name="ActorList" type="ItemList" parent="Actors"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ActorStatus"]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
 margin_top = 10.0
 margin_right = -10.0
 margin_bottom = -10.0
-theme = ExtResource( 3 )
-items = [ "管家", ExtResource( 6 ), false, "孙悟", ExtResource( 7 ), false ]
-max_columns = 6
-same_column_width = true
-icon_mode = 0
+
+[node name="Stage" type="RichTextLabel" parent="ActorStatus/VBoxContainer"]
+margin_right = 301.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 20 )
+size_flags_vertical = 3
+custom_styles/normal = SubResource( 16 )
+custom_fonts/normal_font = SubResource( 17 )
+bbcode_enabled = true
+bbcode_text = "[center]状态[/center]"
+text = "状态"
+
+[node name="Qibox" type="HBoxContainer" parent="ActorStatus/VBoxContainer"]
+margin_top = 24.0
+margin_right = 301.0
+margin_bottom = 42.0
+
+[node name="Label" type="Label" parent="ActorStatus/VBoxContainer/Qibox"]
+margin_right = 24.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 2 )
+text = "气血"
+
+[node name="ProgressBar" type="ProgressBar" parent="ActorStatus/VBoxContainer/Qibox"]
+margin_left = 28.0
+margin_right = 244.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_styles/fg = SubResource( 3 )
+custom_styles/bg = SubResource( 4 )
+value = 50.0
+percent_visible = false
+
+[node name="Label2" type="Label" parent="ActorStatus/VBoxContainer/Qibox"]
+margin_left = 248.0
+margin_top = 2.0
+margin_right = 301.0
+margin_bottom = 16.0
+text = "[50/100]"
+
+[node name="Jingbox" type="HBoxContainer" parent="ActorStatus/VBoxContainer"]
+editor/display_folded = true
+margin_top = 46.0
+margin_right = 301.0
+margin_bottom = 64.0
+
+[node name="Label" type="Label" parent="ActorStatus/VBoxContainer/Jingbox"]
+margin_right = 24.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 2 )
+text = "精神"
+
+[node name="ProgressBar" type="ProgressBar" parent="ActorStatus/VBoxContainer/Jingbox"]
+margin_left = 28.0
+margin_right = 244.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_styles/fg = SubResource( 5 )
+custom_styles/bg = SubResource( 6 )
+value = 50.0
+percent_visible = false
+
+[node name="Label2" type="Label" parent="ActorStatus/VBoxContainer/Jingbox"]
+margin_left = 248.0
+margin_top = 2.0
+margin_right = 301.0
+margin_bottom = 16.0
+text = "[50/100]"
+
+[node name="Neibox" type="HBoxContainer" parent="ActorStatus/VBoxContainer"]
+editor/display_folded = true
+margin_top = 68.0
+margin_right = 301.0
+margin_bottom = 86.0
+
+[node name="Label" type="Label" parent="ActorStatus/VBoxContainer/Neibox"]
+margin_right = 24.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 2 )
+text = "内力"
+
+[node name="ProgressBar" type="ProgressBar" parent="ActorStatus/VBoxContainer/Neibox"]
+margin_left = 28.0
+margin_right = 244.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_styles/fg = SubResource( 7 )
+custom_styles/bg = SubResource( 6 )
+value = 50.0
+percent_visible = false
+
+[node name="Label2" type="Label" parent="ActorStatus/VBoxContainer/Neibox"]
+margin_left = 248.0
+margin_top = 2.0
+margin_right = 301.0
+margin_bottom = 16.0
+text = "[50/100]"
+
+[node name="FoodBox" type="HBoxContainer" parent="ActorStatus/VBoxContainer"]
+editor/display_folded = true
+margin_top = 90.0
+margin_right = 301.0
+margin_bottom = 108.0
+
+[node name="Label" type="Label" parent="ActorStatus/VBoxContainer/FoodBox"]
+margin_right = 24.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 2 )
+text = "食物"
+
+[node name="ProgressBar" type="ProgressBar" parent="ActorStatus/VBoxContainer/FoodBox"]
+margin_left = 28.0
+margin_right = 244.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_styles/fg = SubResource( 8 )
+custom_styles/bg = SubResource( 6 )
+value = 50.0
+percent_visible = false
+
+[node name="Label2" type="Label" parent="ActorStatus/VBoxContainer/FoodBox"]
+margin_left = 248.0
+margin_top = 2.0
+margin_right = 301.0
+margin_bottom = 16.0
+text = "[50/100]"
+
+[node name="WaterBox" type="HBoxContainer" parent="ActorStatus/VBoxContainer"]
+editor/display_folded = true
+margin_top = 112.0
+margin_right = 301.0
+margin_bottom = 130.0
+
+[node name="Label" type="Label" parent="ActorStatus/VBoxContainer/WaterBox"]
+margin_right = 24.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 2 )
+text = "饮水"
+
+[node name="ProgressBar" type="ProgressBar" parent="ActorStatus/VBoxContainer/WaterBox"]
+margin_left = 28.0
+margin_right = 244.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_styles/fg = SubResource( 9 )
+custom_styles/bg = SubResource( 6 )
+value = 50.0
+percent_visible = false
+
+[node name="Label2" type="Label" parent="ActorStatus/VBoxContainer/WaterBox"]
+margin_left = 248.0
+margin_top = 2.0
+margin_right = 301.0
+margin_bottom = 16.0
+text = "[50/100]"
 
 [node name="NinePatchRect4" type="NinePatchRect" parent="."]
-editor/display_folded = true
 margin_left = 1134.95
 margin_top = 571.016
 margin_right = 1264.95
@@ -915,14 +1128,6 @@ margin_right = 110.0
 margin_bottom = 132.0
 theme = ExtResource( 3 )
 
-[node name="Label" type="Label" parent="NinePatchRect4"]
-margin_top = -24.0
-margin_right = 129.0
-theme = ExtResource( 3 )
-text = "行为"
-align = 1
-valign = 1
-
 [node name="AcceptDialog" type="AcceptDialog" parent="."]
 margin_left = 156.007
 margin_top = 235.676
@@ -931,6 +1136,7 @@ margin_bottom = 398.676
 theme = ExtResource( 3 )
 
 [node name="ObjectRect" type="NinePatchRect" parent="."]
+editor/display_folded = true
 margin_left = 505.0
 margin_top = 162.0
 margin_right = 797.0
@@ -981,13 +1187,15 @@ text = "这里是一座极大的菜园，种满了油菜，萝卜，茄子，丝
 scroll_following = true
 
 [node name="TextureRect" type="TextureRect" parent="ObjectRect"]
-margin_left = 227.431
-margin_top = 11.7325
-margin_right = 267.431
-margin_bottom = 51.7325
-texture = ExtResource( 8 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -96.0
+margin_top = 10.0
+margin_right = -292.0
+texture = ExtResource( 7 )
 
 [node name="GridContainer" type="GridContainer" parent="ObjectRect"]
+editor/display_folded = true
 margin_left = 9.0
 margin_top = 187.0
 margin_right = 286.0
@@ -1002,7 +1210,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 3 )
 bbcode_enabled = true
-text = "属性1"
 scroll_following = true
 
 [node name="Prop2" type="RichTextLabel" parent="ObjectRect/GridContainer"]
@@ -1139,64 +1346,25 @@ margin_bottom = 30.0
 theme = ExtResource( 3 )
 text = "动作"
 
+[node name="ObjectRectButton" type="Button" parent="ObjectRect"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -30.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = 20.0
+text = "X"
+
 [node name="CharacterPanel" type="NinePatchRect" parent="."]
 margin_left = 972.0
 margin_top = 2.0
 margin_right = 1276.0
 margin_bottom = 570.0
-theme = ExtResource( 3 )
 texture = ExtResource( 5 )
 patch_margin_left = 8
 patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
-
-[node name="Actions" type="HBoxContainer" parent="CharacterPanel"]
-editor/display_folded = true
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 9.36969
-margin_top = -33.2605
-margin_right = -10.6303
-margin_bottom = -3.2605
-custom_constants/separation = 12
-alignment = 2
-
-[node name="ActionButton1" type="Button" parent="CharacterPanel/Actions"]
-margin_left = 32.0
-margin_right = 60.0
-margin_bottom = 30.0
-theme = ExtResource( 3 )
-text = "吃"
-
-[node name="ActionButton2" type="Button" parent="CharacterPanel/Actions"]
-margin_left = 72.0
-margin_right = 116.0
-margin_bottom = 30.0
-theme = ExtResource( 3 )
-text = "动作"
-
-[node name="ActionButton3" type="Button" parent="CharacterPanel/Actions"]
-margin_left = 128.0
-margin_right = 172.0
-margin_bottom = 30.0
-theme = ExtResource( 3 )
-text = "动作"
-
-[node name="ActionButton4" type="Button" parent="CharacterPanel/Actions"]
-margin_left = 184.0
-margin_right = 228.0
-margin_bottom = 30.0
-theme = ExtResource( 3 )
-text = "动作"
-
-[node name="ActionButton5" type="Button" parent="CharacterPanel/Actions"]
-margin_left = 240.0
-margin_right = 284.0
-margin_bottom = 30.0
-theme = ExtResource( 3 )
-text = "动作"
 
 [node name="PropContainer" type="VBoxContainer" parent="CharacterPanel"]
 anchor_right = 1.0
@@ -1204,7 +1372,7 @@ anchor_bottom = 1.0
 margin_left = 8.0
 margin_top = 8.0
 margin_right = -8.0
-margin_bottom = -48.0
+margin_bottom = -8.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CharacterPanel/PropContainer"]
 editor/display_folded = true
@@ -1214,7 +1382,7 @@ margin_bottom = 89.0
 [node name="Head" type="TextureRect" parent="CharacterPanel/PropContainer/HBoxContainer"]
 margin_right = 86.0
 margin_bottom = 89.0
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CharacterPanel/PropContainer/HBoxContainer"]
 margin_left = 90.0
@@ -1258,97 +1426,121 @@ bbcode_text = "全真教第一代弟子"
 text = "全真教第一代弟子"
 scroll_following = true
 
-[node name="Qibox" type="HBoxContainer" parent="CharacterPanel/PropContainer"]
-editor/display_folded = true
+[node name="Label" type="Label" parent="CharacterPanel/PropContainer"]
 margin_top = 93.0
 margin_right = 288.0
-margin_bottom = 117.0
+margin_bottom = 111.0
+custom_styles/normal = SubResource( 14 )
+custom_fonts/font = SubResource( 15 )
+text = "属性"
+align = 1
 
-[node name="Label" type="Label" parent="CharacterPanel/PropContainer/Qibox"]
-margin_right = 32.0
-margin_bottom = 24.0
-text = "气血"
-
-[node name="ProgressBar" type="ProgressBar" parent="CharacterPanel/PropContainer/Qibox"]
-margin_left = 36.0
-margin_right = 221.0
-margin_bottom = 24.0
-size_flags_horizontal = 3
-size_flags_vertical = 1
-custom_styles/fg = SubResource( 2 )
-custom_styles/bg = SubResource( 3 )
-value = 50.0
-percent_visible = false
-
-[node name="Label2" type="Label" parent="CharacterPanel/PropContainer/Qibox"]
-margin_left = 225.0
-margin_right = 288.0
-margin_bottom = 24.0
-text = "[50/100]"
-
-[node name="Jingbox2" type="HBoxContainer" parent="CharacterPanel/PropContainer"]
+[node name="GridContainer" type="GridContainer" parent="CharacterPanel/PropContainer"]
 editor/display_folded = true
-margin_top = 121.0
+margin_top = 115.0
 margin_right = 288.0
-margin_bottom = 145.0
+margin_bottom = 213.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.34
+columns = 2
 
-[node name="Label" type="Label" parent="CharacterPanel/PropContainer/Jingbox2"]
-margin_right = 32.0
-margin_bottom = 24.0
-text = "精神"
-
-[node name="ProgressBar" type="ProgressBar" parent="CharacterPanel/PropContainer/Jingbox2"]
-margin_left = 36.0
-margin_right = 221.0
-margin_bottom = 24.0
+[node name="Prop1" type="RichTextLabel" parent="CharacterPanel/PropContainer/GridContainer"]
+margin_right = 142.0
+margin_bottom = 30.0
 size_flags_horizontal = 3
-size_flags_vertical = 1
-custom_styles/fg = SubResource( 4 )
-custom_styles/bg = SubResource( 5 )
-value = 50.0
-percent_visible = false
+size_flags_vertical = 3
+custom_fonts/normal_font = SubResource( 10 )
+bbcode_enabled = true
+bbcode_text = "臂力[29/26]"
+text = "臂力[29/26]"
 
-[node name="Label2" type="Label" parent="CharacterPanel/PropContainer/Jingbox2"]
-margin_left = 225.0
+[node name="Prop2" type="RichTextLabel" parent="CharacterPanel/PropContainer/GridContainer"]
+margin_left = 146.0
 margin_right = 288.0
-margin_bottom = 24.0
-text = "[50/100]"
-
-[node name="Neibox3" type="HBoxContainer" parent="CharacterPanel/PropContainer"]
-editor/display_folded = true
-margin_top = 149.0
-margin_right = 288.0
-margin_bottom = 173.0
-
-[node name="Label" type="Label" parent="CharacterPanel/PropContainer/Neibox3"]
-margin_right = 32.0
-margin_bottom = 24.0
-text = "内力"
-
-[node name="ProgressBar" type="ProgressBar" parent="CharacterPanel/PropContainer/Neibox3"]
-margin_left = 36.0
-margin_right = 221.0
-margin_bottom = 24.0
+margin_bottom = 30.0
 size_flags_horizontal = 3
-size_flags_vertical = 1
-custom_styles/fg = SubResource( 6 )
-custom_styles/bg = SubResource( 5 )
-value = 50.0
-percent_visible = false
+size_flags_vertical = 3
+custom_fonts/normal_font = SubResource( 10 )
+bbcode_enabled = true
+bbcode_text = "臂力[29/26]"
+text = "臂力[29/26]"
 
-[node name="Label2" type="Label" parent="CharacterPanel/PropContainer/Neibox3"]
-margin_left = 225.0
+[node name="Prop3" type="RichTextLabel" parent="CharacterPanel/PropContainer/GridContainer"]
+margin_top = 34.0
+margin_right = 142.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/normal_font = SubResource( 10 )
+bbcode_enabled = true
+bbcode_text = "臂力[29/26]"
+text = "臂力[29/26]"
+
+[node name="Prop4" type="RichTextLabel" parent="CharacterPanel/PropContainer/GridContainer"]
+margin_left = 146.0
+margin_top = 34.0
 margin_right = 288.0
-margin_bottom = 24.0
-text = "[50/100]"
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/normal_font = SubResource( 10 )
+bbcode_enabled = true
+bbcode_text = "臂力[29/26]"
+text = "臂力[29/26]"
+
+[node name="Prop5" type="RichTextLabel" parent="CharacterPanel/PropContainer/GridContainer"]
+margin_top = 68.0
+margin_right = 142.0
+margin_bottom = 98.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/normal_font = SubResource( 10 )
+bbcode_enabled = true
+bbcode_text = "臂力[29/26]"
+text = "臂力[29/26]"
+
+[node name="Prop6" type="RichTextLabel" parent="CharacterPanel/PropContainer/GridContainer"]
+margin_left = 146.0
+margin_top = 68.0
+margin_right = 288.0
+margin_bottom = 98.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/normal_font = SubResource( 10 )
+bbcode_enabled = true
+bbcode_text = "臂力[29/26]"
+text = "臂力[29/26]"
+
+[node name="Bag" type="Label" parent="CharacterPanel/PropContainer"]
+margin_top = 217.0
+margin_right = 288.0
+margin_bottom = 235.0
+custom_styles/normal = SubResource( 14 )
+custom_fonts/font = SubResource( 15 )
+text = "包裹"
+align = 1
 
 [node name="ItemList" type="ItemList" parent="CharacterPanel/PropContainer"]
-margin_top = 177.0
+margin_top = 239.0
 margin_right = 288.0
-margin_bottom = 512.0
+margin_bottom = 527.0
+size_flags_horizontal = 3
 size_flags_vertical = 3
-items = [ "苹果", ExtResource( 10 ), false ]
+custom_fonts/font = SubResource( 11 )
+items = [ "苹果", ExtResource( 9 ), false, "第1项", ExtResource( 10 ), false, "第2项", ExtResource( 11 ), false ]
+auto_height = true
 fixed_icon_size = Vector2( 32, 32 )
+
+[node name="BagStatus" type="RichTextLabel" parent="CharacterPanel/PropContainer"]
+margin_top = 531.0
+margin_right = 288.0
+margin_bottom = 551.0
+rect_min_size = Vector2( 0, 20 )
+custom_styles/normal = SubResource( 18 )
+custom_fonts/normal_font = SubResource( 19 )
+bbcode_enabled = true
+bbcode_text = "[right]3件[color=#F42254]物品[/color] 457[color=yellow]钱[/color][/right]"
+text = "3件物品 457钱"
 
 [node name="ObjectMessage" type="NinePatchRect" parent="."]
 anchor_top = 1.0
@@ -1373,7 +1565,6 @@ margin_right = -8.0
 margin_bottom = -8.0
 theme = ExtResource( 3 )
 bbcode_enabled = true
-text = "吃饭睡觉打豆豆"
 scroll_following = true
 
 [node name="RoomMessage" type="NinePatchRect" parent="."]
@@ -1393,7 +1584,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="RichTextLabel" type="RichTextLabel" parent="RoomMessage"]
+[node name="VBoxContainer" type="VBoxContainer" parent="RoomMessage"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 8.0
@@ -1401,7 +1592,70 @@ margin_top = 8.0
 margin_right = -8.0
 margin_bottom = -8.0
 
+[node name="RichTextLabel" type="RichTextLabel" parent="RoomMessage/VBoxContainer"]
+margin_right = 282.0
+margin_bottom = 161.0
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+bbcode_enabled = true
+
+[node name="ActorList" type="ItemList" parent="RoomMessage/VBoxContainer"]
+margin_top = 165.0
+margin_right = 282.0
+margin_bottom = 261.0
+rect_min_size = Vector2( 0, 96 )
+theme = ExtResource( 3 )
+items = [ "管家", ExtResource( 12 ), false, "孙悟", ExtResource( 13 ), false ]
+max_columns = 6
+same_column_width = true
+icon_mode = 0
+fixed_icon_size = Vector2( 48, 48 )
+
+[node name="Actions" type="HBoxContainer" parent="RoomMessage/VBoxContainer"]
+editor/display_folded = true
+margin_top = 265.0
+margin_right = 282.0
+margin_bottom = 295.0
+custom_constants/separation = 12
+alignment = 2
+
+[node name="ActionButton1" type="Button" parent="RoomMessage/VBoxContainer/Actions"]
+margin_left = 30.0
+margin_right = 58.0
+margin_bottom = 30.0
+theme = ExtResource( 3 )
+text = "吃"
+
+[node name="ActionButton2" type="Button" parent="RoomMessage/VBoxContainer/Actions"]
+margin_left = 70.0
+margin_right = 114.0
+margin_bottom = 30.0
+theme = ExtResource( 3 )
+text = "动作"
+
+[node name="ActionButton3" type="Button" parent="RoomMessage/VBoxContainer/Actions"]
+margin_left = 126.0
+margin_right = 170.0
+margin_bottom = 30.0
+theme = ExtResource( 3 )
+text = "动作"
+
+[node name="ActionButton4" type="Button" parent="RoomMessage/VBoxContainer/Actions"]
+margin_left = 182.0
+margin_right = 226.0
+margin_bottom = 30.0
+theme = ExtResource( 3 )
+text = "动作"
+
+[node name="ActionButton5" type="Button" parent="RoomMessage/VBoxContainer/Actions"]
+margin_left = 238.0
+margin_right = 282.0
+margin_bottom = 30.0
+theme = ExtResource( 3 )
+text = "动作"
+
 [node name="ChatMessagePanel" type="VBoxContainer" parent="."]
+editor/display_folded = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1447,7 +1701,7 @@ margin_left = 8.0
 margin_top = 8.0
 margin_right = 94.0
 margin_bottom = 97.0
-texture = ExtResource( 11 )
+texture = ExtResource( 14 )
 
 [node name="Description" type="RichTextLabel" parent="ChatMessagePanel/ChatMessage"]
 anchor_right = 1.0
@@ -1456,7 +1710,7 @@ margin_top = 4.0
 margin_right = -7.0
 margin_bottom = 79.0
 theme = ExtResource( 3 )
-custom_styles/normal = SubResource( 7 )
+custom_styles/normal = SubResource( 12 )
 bbcode_enabled = true
 bbcode_text = "他就是人称「老顽童」的周伯通。
 		他一副仙风道骨的样子，看起来好象才四十来岁。很难想象他其实已经年逾古稀了。"
@@ -1471,7 +1725,7 @@ margin_top = 81.0
 margin_right = -8.0
 margin_bottom = 240.0
 theme = ExtResource( 3 )
-custom_styles/normal = SubResource( 8 )
+custom_styles/normal = SubResource( 13 )
 bbcode_enabled = true
 bbcode_text = "		\"九阴真经\" : \"你再提这劳什子，我就不跟你玩了。\\n\",
 		\"瑛姑\"     : \"你知道她在哪儿吗？快，快告诉我。\",
@@ -1538,4 +1792,6 @@ text = "动作"
 
 [connection signal="pressed" from="NinePatchRect4/VBoxContainer/ActionButton01" to="." method="_on_ActionButton01_pressed"]
 [connection signal="pressed" from="ObjectRect/HBoxContainer/ActionButton1" to="." method="_on_ActionButton1_pressed"]
+[connection signal="pressed" from="ObjectRect/ObjectRectButton" to="." method="_on_ObjectRectButton_pressed"]
+[connection signal="item_selected" from="CharacterPanel/PropContainer/ItemList" to="." method="_on_ItemList_item_selected"]
 [connection signal="pressed" from="ChatMessagePanel/ChatMessage/ChatClose" to="." method="_on_ChatClose_pressed"]
