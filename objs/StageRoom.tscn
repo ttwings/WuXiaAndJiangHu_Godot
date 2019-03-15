@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://objs/StageRoom.gd" type="Script" id=1]
 [ext_resource path="res://assets/graphics/tiles.png" type="Texture" id=2]
@@ -9,7 +9,8 @@
 [ext_resource path="res://assets/graphics/faces/2.png" type="Texture" id=7]
 [ext_resource path="res://assets/graphics/icons/002.png" type="Texture" id=8]
 [ext_resource path="res://assets/graphics/faces/0.png" type="Texture" id=9]
-[ext_resource path="res://assets/graphics/faces/64.png" type="Texture" id=10]
+[ext_resource path="res://assets/graphics/icons/525.png" type="Texture" id=10]
+[ext_resource path="res://assets/graphics/faces/64.png" type="Texture" id=11]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tiles.png 0"
@@ -929,7 +930,7 @@ margin_right = 528.007
 margin_bottom = 398.676
 theme = ExtResource( 3 )
 
-[node name="ObjcetRect" type="NinePatchRect" parent="."]
+[node name="ObjectRect" type="NinePatchRect" parent="."]
 margin_left = 505.0
 margin_top = 162.0
 margin_right = 797.0
@@ -940,7 +941,7 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="Name" type="RichTextLabel" parent="ObjcetRect"]
+[node name="Name" type="RichTextLabel" parent="ObjectRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
@@ -953,7 +954,7 @@ bbcode_text = "<降龙十八掌>秘籍"
 text = "<降龙十八掌>秘籍"
 scroll_following = true
 
-[node name="Type" type="RichTextLabel" parent="ObjcetRect"]
+[node name="Type" type="RichTextLabel" parent="ObjectRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
@@ -966,7 +967,7 @@ bbcode_text = "秘籍残页"
 text = "秘籍残页"
 scroll_following = true
 
-[node name="Description" type="RichTextLabel" parent="ObjcetRect"]
+[node name="Description" type="RichTextLabel" parent="ObjectRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 8.0
@@ -979,21 +980,21 @@ bbcode_text = "这里是一座极大的菜园，种满了油菜，萝卜，茄�
 text = "这里是一座极大的菜园，种满了油菜，萝卜，茄子，丝瓜之类。周围的篱笆都破了，看来要整修了。菜园旁有几口大缸，里面盛满了水，可是菜地看起来都干裂了，几棵菜蔫蔫的长着，是缺水太多了"
 scroll_following = true
 
-[node name="TextureRect" type="TextureRect" parent="ObjcetRect"]
+[node name="TextureRect" type="TextureRect" parent="ObjectRect"]
 margin_left = 227.431
 margin_top = 11.7325
 margin_right = 267.431
 margin_bottom = 51.7325
 texture = ExtResource( 8 )
 
-[node name="GridContainer" type="GridContainer" parent="ObjcetRect"]
+[node name="GridContainer" type="GridContainer" parent="ObjectRect"]
 margin_left = 9.0
 margin_top = 187.0
 margin_right = 286.0
 margin_bottom = 320.0
 columns = 2
 
-[node name="Prop1" type="RichTextLabel" parent="ObjcetRect/GridContainer"]
+[node name="Prop1" type="RichTextLabel" parent="ObjectRect/GridContainer"]
 visible = false
 margin_right = 136.0
 margin_bottom = 30.0
@@ -1004,7 +1005,7 @@ bbcode_enabled = true
 text = "属性1"
 scroll_following = true
 
-[node name="Prop2" type="RichTextLabel" parent="ObjcetRect/GridContainer"]
+[node name="Prop2" type="RichTextLabel" parent="ObjectRect/GridContainer"]
 visible = false
 margin_right = 136.0
 margin_bottom = 30.0
@@ -1016,7 +1017,7 @@ bbcode_text = "属性1"
 text = "属性1"
 scroll_following = true
 
-[node name="Prop3" type="RichTextLabel" parent="ObjcetRect/GridContainer"]
+[node name="Prop3" type="RichTextLabel" parent="ObjectRect/GridContainer"]
 visible = false
 margin_right = 136.0
 margin_bottom = 40.0
@@ -1028,7 +1029,7 @@ bbcode_text = "属性1"
 text = "属性1"
 scroll_following = true
 
-[node name="Prop4" type="RichTextLabel" parent="ObjcetRect/GridContainer"]
+[node name="Prop4" type="RichTextLabel" parent="ObjectRect/GridContainer"]
 visible = false
 margin_right = 136.0
 margin_bottom = 40.0
@@ -1040,7 +1041,7 @@ bbcode_text = "属性1"
 text = "属性1"
 scroll_following = true
 
-[node name="Prop5" type="RichTextLabel" parent="ObjcetRect/GridContainer"]
+[node name="Prop5" type="RichTextLabel" parent="ObjectRect/GridContainer"]
 visible = false
 margin_right = 136.0
 margin_bottom = 60.0
@@ -1052,7 +1053,7 @@ bbcode_text = "属性1"
 text = "属性1"
 scroll_following = true
 
-[node name="Prop6" type="RichTextLabel" parent="ObjcetRect/GridContainer"]
+[node name="Prop6" type="RichTextLabel" parent="ObjectRect/GridContainer"]
 visible = false
 margin_right = 136.0
 margin_bottom = 60.0
@@ -1064,7 +1065,7 @@ bbcode_text = "属性1"
 text = "属性1"
 scroll_following = true
 
-[node name="Prop7" type="RichTextLabel" parent="ObjcetRect/GridContainer"]
+[node name="Prop7" type="RichTextLabel" parent="ObjectRect/GridContainer"]
 visible = false
 margin_right = 136.0
 margin_bottom = 121.0
@@ -1076,7 +1077,7 @@ bbcode_text = "属性1"
 text = "属性1"
 scroll_following = true
 
-[node name="Prop8" type="RichTextLabel" parent="ObjcetRect/GridContainer"]
+[node name="Prop8" type="RichTextLabel" parent="ObjectRect/GridContainer"]
 visible = false
 margin_right = 273.0
 margin_bottom = 121.0
@@ -1088,7 +1089,7 @@ bbcode_text = "属性1"
 text = "属性1"
 scroll_following = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ObjcetRect"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ObjectRect"]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1099,14 +1100,14 @@ margin_bottom = -3.2605
 custom_constants/separation = 12
 alignment = 2
 
-[node name="ActionButton1" type="Button" parent="ObjcetRect/HBoxContainer"]
+[node name="ActionButton1" type="Button" parent="ObjectRect/HBoxContainer"]
 margin_left = 244.0
 margin_right = 272.0
 margin_bottom = 30.0
 theme = ExtResource( 3 )
 text = "吃"
 
-[node name="ActionButton2" type="Button" parent="ObjcetRect/HBoxContainer"]
+[node name="ActionButton2" type="Button" parent="ObjectRect/HBoxContainer"]
 visible = false
 margin_left = 60.0
 margin_right = 104.0
@@ -1114,7 +1115,7 @@ margin_bottom = 30.0
 theme = ExtResource( 3 )
 text = "动作"
 
-[node name="ActionButton3" type="Button" parent="ObjcetRect/HBoxContainer"]
+[node name="ActionButton3" type="Button" parent="ObjectRect/HBoxContainer"]
 visible = false
 margin_left = 116.0
 margin_right = 160.0
@@ -1122,7 +1123,7 @@ margin_bottom = 30.0
 theme = ExtResource( 3 )
 text = "动作"
 
-[node name="ActionButton4" type="Button" parent="ObjcetRect/HBoxContainer"]
+[node name="ActionButton4" type="Button" parent="ObjectRect/HBoxContainer"]
 visible = false
 margin_left = 172.0
 margin_right = 216.0
@@ -1130,7 +1131,7 @@ margin_bottom = 30.0
 theme = ExtResource( 3 )
 text = "动作"
 
-[node name="ActionButton5" type="Button" parent="ObjcetRect/HBoxContainer"]
+[node name="ActionButton5" type="Button" parent="ObjectRect/HBoxContainer"]
 visible = false
 margin_left = 228.0
 margin_right = 272.0
@@ -1139,7 +1140,6 @@ theme = ExtResource( 3 )
 text = "动作"
 
 [node name="CharacterPanel" type="NinePatchRect" parent="."]
-editor/display_folded = true
 margin_left = 972.0
 margin_top = 2.0
 margin_right = 1276.0
@@ -1207,6 +1207,7 @@ margin_right = -8.0
 margin_bottom = -48.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CharacterPanel/PropContainer"]
+editor/display_folded = true
 margin_right = 288.0
 margin_bottom = 89.0
 
@@ -1341,8 +1342,15 @@ margin_right = 288.0
 margin_bottom = 24.0
 text = "[50/100]"
 
+[node name="ItemList" type="ItemList" parent="CharacterPanel/PropContainer"]
+margin_top = 177.0
+margin_right = 288.0
+margin_bottom = 512.0
+size_flags_vertical = 3
+items = [ "苹果", ExtResource( 10 ), false ]
+fixed_icon_size = Vector2( 32, 32 )
+
 [node name="ObjectMessage" type="NinePatchRect" parent="."]
-editor/display_folded = true
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 173.0
@@ -1359,9 +1367,16 @@ patch_margin_bottom = 8
 [node name="RichTextLabel" type="RichTextLabel" parent="ObjectMessage"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -8.0
+theme = ExtResource( 3 )
+bbcode_enabled = true
+text = "吃饭睡觉打豆豆"
+scroll_following = true
 
 [node name="RoomMessage" type="NinePatchRect" parent="."]
-editor/display_folded = true
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 0.0505371
@@ -1381,9 +1396,12 @@ __meta__ = {
 [node name="RichTextLabel" type="RichTextLabel" parent="RoomMessage"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -8.0
 
 [node name="ChatMessagePanel" type="VBoxContainer" parent="."]
-editor/display_folded = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1429,7 +1447,7 @@ margin_left = 8.0
 margin_top = 8.0
 margin_right = 94.0
 margin_bottom = 97.0
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 
 [node name="Description" type="RichTextLabel" parent="ChatMessagePanel/ChatMessage"]
 anchor_right = 1.0
@@ -1519,5 +1537,5 @@ theme = ExtResource( 3 )
 text = "动作"
 
 [connection signal="pressed" from="NinePatchRect4/VBoxContainer/ActionButton01" to="." method="_on_ActionButton01_pressed"]
-[connection signal="pressed" from="ObjcetRect/HBoxContainer/ActionButton1" to="." method="_on_ActionButton1_pressed"]
+[connection signal="pressed" from="ObjectRect/HBoxContainer/ActionButton1" to="." method="_on_ActionButton1_pressed"]
 [connection signal="pressed" from="ChatMessagePanel/ChatMessage/ChatClose" to="." method="_on_ChatClose_pressed"]

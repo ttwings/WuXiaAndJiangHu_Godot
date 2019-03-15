@@ -27,11 +27,6 @@ func _ready():
 	player = creat_user(user_class.dbase)
 	pass # Replace with function body.
 
-func this_player():
-	return player
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 func save():
 	var  save_dict = {
 		"filename" : get_filename(),
@@ -133,11 +128,40 @@ func creat_sprite_frames_from_path(anim:String,path:String,suffix:String):
 		sprite_frames.add_frame(anim,texture)
 	return sprite_frames
 						
-						
-#func this_player():
-#	var dbase = load("res://data/user/l/lijia.gd").new()
-#	var char = Char.new()
-#	for i in dbase.dbase :
-#		char.add(i,dbase.dbase)
-#		print_debug(i,dbase.dbase)
-#	return char
+# 依据数值 改变颜色名称
+func get_number_color(number):
+ 	if number < 0: return "red" 
+ 	else:return "green"
+# 将整数数字转为中文文字	
+func get_chinese_number(n:int):
+	var number_str = str(n)
+	var l = number_str.length()
+	var output = []
+	for i in range(l):
+		number_str[i] = swap_to_font(number_str[i])
+	return number_str
+# 配合上面转化		
+func swap_to_font(number):
+	match number:
+		"1":return "一"
+		"2":return "二"
+		"3":return "三"
+		"4":return "四"
+		"5":return "五"
+		"6":return "六"
+		"7":return "七"
+		"8":return "八"
+		"9":return "九"
+		"0":return "〇"
+		_:return "X"	
+
+# 返回当前玩家
+func this_player():
+	var user = load("res://data/user/l/lijia.gd").new()
+	var player = Char.new()
+	player.dbase = user.dbase
+
+	# for i in dbase.dbase :
+	# 	char.add(i,dbase.dbase)
+	# 	print_debug(i,dbase.dbase)
+	return player

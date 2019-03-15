@@ -1,14 +1,14 @@
-extends Resource
+extends Node
 
 class_name GameObject
-# color
+# const color -----------------------------------
 const NOR = "[/color]"
 const BLK = "[color=#000000]"
 const RED = "[color=#ff0000]"
 const GRN = "[color=#00ff00]"
 const YEL = "[color=#ffff00]"
 const BLU = "[color=#0000ff]"
-const MAG = "[color=#ff00ff]"
+const MAG = "[color=#ff0.0ff]"
 const CYN = "[color=#00ffff]"
 const WHT = "[color=#ffffff]"   
 const HIR = "[color=#ff0000]"
@@ -33,10 +33,15 @@ const HBCYN = "[color=#00e09e]"
 const HBWHT = "[color=#f0fcff]"
 var __DIR__ = dir()
 var __FILE__ = file()
+# 用信号处理各类信息
+signal message_player(msg,player)
+signal message_ob(msg,ob)
+signal message_room(msg,room)
 # 基本属性
 #var name_cn
 #var weight
-var dbase = {objects = []}
+var dbase = {"objects":[]}
+var objects = []
 var temp_dbase = {}
 var skills = {}
 var map_skills = {}
@@ -46,6 +51,12 @@ var family = {}
 # 携带的物品
 var objs = {}
 
+#TODO call func
+var actions = {}	
+func add_action(fun:String,id:String,ob=self):
+	actions[id] = fun
+	pass	
+	
 func set_name_cn(value1:String,value2:String):
 	dbase.name = value1
 	dbase.id = value2
@@ -65,10 +76,13 @@ func add(key:String,value):
 #			dbase[key].append(value)
 #		_:
 #			dbase[key] = dbase[key] + value	
-	if dbase[key] is Array:
-		dbase[key].append(value)
+	if dbase.has(key):
+		if dbase[key] is Array:
+			dbase[key].append(value)
+		else:
+			dbase[key] = dbase[key] + value
 	else:
-		dbase[key] = dbase[key] + value	
+		dbase.key = value	
 
 func add_temp(key:String,value):
 	# temp_dbase[key] = temp_dbase[key] + value
@@ -90,6 +104,7 @@ func create_family(key:String,lvl:int,nack_name:String):
 	family.name = key
 	family.lvl =  lvl
 	family.nack_name = nack_name
+
 
 # 实例化物品	
 # TODO
@@ -126,11 +141,18 @@ func setuid(id):
 		
 func setup():
 	setuid(getuid())
-	
+
+
+# 各类信息发送
 func message_vision(message:String,ob:GameObject):
 	# TODO
-	print_debug(ob.query("name") + message)
-	var msg = ""
+#	print_debug(ob.query("name") + message)
+	var msg = message
+	var str_n = ob.query("name")
+	msg = msg.replace("$N",str_n).replace("李","孙")
+#	msg = msg.replace("李","孙")
+	print_debug(msg)
+	emit_signal("message_ob",msg,ob)
 	return msg
 
 func tell_object(who:GameObject,msg:String):
@@ -143,16 +165,9 @@ func destruct(ob:GameObject):
 #	queue_free()
 #	ob = null
 	pass	
-
-#
-var actions = {}	
-func add_action(fun:String,id:String):
-	actions[id] = fun
-	pass	
 	
-# # todo	
-func this_player():
-	Global.this_player()
+func random(n:int):
+	return randi()%n
 
 func this_object():
 	return self	

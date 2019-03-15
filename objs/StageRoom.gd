@@ -35,10 +35,13 @@ func _ready():
 	$RoomMessage/RichTextLabel.bbcode_text = map_file.get_as_text()
 #	current_room.get_dir()
 	food = load("res://clone/food/apple.gd").new()
+	print_debug(food)
 	object_panel(food)
-	player.dbase =  load("data/user/l/lijia.gd").new().dbase
+	player = Global.this_player()
 	# print_debug(player is GameObject)
-	character_panel(player as GameObject)
+	player.carry_object("/clone/food/apple")
+	print_debug(player.query("objects"))
+	character_panel(player)
 
 func creat_exits(room:GameObject,neighbor_rooms):
 	var x
@@ -76,33 +79,29 @@ func notify_fail(message:String):
 	$AcceptDialog.dialog_text = message
 	pass
 	
-func message_vision(message:String,null):
-	$RichTextLabel.bbcode_enabled = true
-	$RichTextLabel.bbcode_text = message
-	pass		
-
-	
+func message_ob(msg,ob):
+	$ObjectMessage/RichTextLabel.bbcode_text = msg
 #  object panel 	
 func object_panel(ob:GameObject):
-#		$ObjcetRect.show()
-		$ObjcetRect/Name.bbcode_text = ob.query("name")
-		$ObjcetRect/Type.text = ob.query("type")
-		$ObjcetRect/Description.bbcode_text = ob.query("long")
+#		$ObjectRect.show()
+		$ObjectRect/Name.bbcode_text = ob.query("name")
+		$ObjectRect/Type.text = ob.query("type")
+		$ObjectRect/Description.bbcode_text = ob.query("long")
 		var props = []
 		var prop_nodes = []
-		prop_nodes.append($ObjcetRect/GridContainer/Prop1)
-		prop_nodes.append($ObjcetRect/GridContainer/Prop2)
-		prop_nodes.append($ObjcetRect/GridContainer/Prop3)
-		prop_nodes.append($ObjcetRect/GridContainer/Prop4)
-		prop_nodes.append($ObjcetRect/GridContainer/Prop5)
-		prop_nodes.append($ObjcetRect/GridContainer/Prop6)
-		prop_nodes.append($ObjcetRect/GridContainer/Prop7)
-		prop_nodes.append($ObjcetRect/GridContainer/Prop8)
+		prop_nodes.append($ObjectRect/GridContainer/Prop1)
+		prop_nodes.append($ObjectRect/GridContainer/Prop2)
+		prop_nodes.append($ObjectRect/GridContainer/Prop3)
+		prop_nodes.append($ObjectRect/GridContainer/Prop4)
+		prop_nodes.append($ObjectRect/GridContainer/Prop5)
+		prop_nodes.append($ObjectRect/GridContainer/Prop6)
+		prop_nodes.append($ObjectRect/GridContainer/Prop7)
+		prop_nodes.append($ObjectRect/GridContainer/Prop8)
 		
 		props = creat_props(ob)
 		for i in props.size() :
 #			if props[i]:
-#			var path = "ObjcetRect/GridContainer/Prop" + str(1)
+#			var path = "ObjectRect/GridContainer/Prop" + str(1)
 			prop_nodes[i].show()
 			prop_nodes[i].text = props[i]
 	
@@ -208,6 +207,10 @@ func _on_ChatClose_pressed():
 
 
 func _on_ActionButton1_pressed():
-	food.do_eat(player)
+	# food.do_eat(player)
+	var msg = food.do_eat(player)
+	var old_msg = $ObjectMessage/RichTextLabel.bbcode_text
+	# print_debug(old_msg)
 	object_panel(food)
+	$ObjectMessage/RichTextLabel.bbcode_text = old_msg + msg
 	pass # Replace with function body.
