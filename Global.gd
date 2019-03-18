@@ -11,8 +11,23 @@ const NOR = "[/color]"
 const RED = "[color = #ff0000]"
 var user_class
 var player
+# 全局房间字典，key为房间路径，v为实例
 
+var all_current_rooms = {}
 	
+func load_room(path:String):
+	if all_current_rooms.has(path):
+		return all_current_rooms[path]
+	else:
+		var room = load(path).new()
+		all_current_rooms[path] = room
+		return room
+
+# 保存房间数据
+func save_current_rooms():
+	for path in all_current_rooms:
+		ResourceSaver.save(path,all_current_rooms[path])		
+
 # 从数据字典,生成角色
 func creat_user(dbase):
 	var user = Char.new()
@@ -130,8 +145,10 @@ func creat_sprite_frames_from_path(anim:String,path:String,suffix:String):
 						
 # 依据数值 改变颜色名称
 func get_number_color(number):
- 	if number < 0: return "red" 
- 	else:return "green"
+	if number < 0: 
+		return "red" 
+	else:
+		return "green"
 # 将整数数字转为中文文字	
 func get_chinese_number(n:int):
 	var number_str = str(n)

@@ -32,8 +32,8 @@ const HBWHT = "[color=#f0fcff]"
 
 
 var player = Char.new()
-var Room_gd = load("res://d/baihuagu/baihuagu.gd")
-var current_room = Room_gd.new()
+var Room_gd
+var current_room
 var rooms = {}
 var map_file = File.new()
 # 1  2  3
@@ -43,6 +43,7 @@ var neighbor_rooms = {}
 var food
 
 func _ready():
+	current_room = Global.load_room("res://d/baihuagu/baihuagu.gd")
 	rooms.current = $Rooms/room
 	rooms.north = $Rooms/room_n
 	rooms.south = $Rooms/room_s
@@ -68,7 +69,8 @@ func _ready():
 	player = Global.this_player()
 	# print_debug(player is GameObject)
 	player.carry_object("/clone/food/apple")
-	print_debug(player.query("objects"))
+#	print_debug(player.dbase["objects"])
+	print_debug(player.objects)
 	character_panel(player)
 
 func creat_exits(room:GameObject,neighbor_rooms):
@@ -84,7 +86,8 @@ func creat_exits(room:GameObject,neighbor_rooms):
 func neighbor_room_creat(room,direct,neighbor_rooms):
 #	print(exits[direct] + ".gd")
 	var exits = room.query("exits")
-	neighbor_rooms[direct] = load(exits[direct] + ".gd").new()
+	# neighbor_rooms[direct] = load(exits[direct] + ".gd").new()
+	neighbor_rooms[direct] = Global.load_room(exits[direct] + ".gd")
 	rooms[direct].show()
 	rooms[direct].connect("pressed",self,"move_to_room",[direct])
 	rooms[direct].get_child(0).bbcode_text = "[center]" + neighbor_rooms[direct].query("short") +"[/center]"
@@ -238,7 +241,7 @@ func player_status(player):
 	var max_jing = player.query("max_jing")
 	var neili = player.query("neili")
 	var max_neili = player.query("max_neili")
-	$ActorStatus/VBoxContainer/Qibox/ProgressBar.value = qi
+	$ActorStatus/VBoxContainer/Qibox/ProgressBar.value = int(qi)
 	$ActorStatus/VBoxContainer/Qibox/ProgressBar.max_value = max_qi
 	$ActorStatus/VBoxContainer/Qibox/Label2.text = "[" + str(qi) + "/" + str(max_qi) + "]"
 	$ActorStatus/VBoxContainer/Jingbox/ProgressBar.value  = jing
@@ -275,9 +278,11 @@ func _on_ItemList_item_selected(list):
 	var item = $CharacterPanel/PropContainer/ItemList.get_item_text(list)
 	var objs = player.objects
 	var ob
-	for o in objs.size():
-		ob = load(objs[o]).new()
+	for o in objs:
+		ob = load(o).new()
+	print_debug(ob)	
 	object_panel(ob)
 	$ObjectRect.show()
-	print_debug(ob)
+	
 	pass # Replace with function body.
+# Replace with function body.

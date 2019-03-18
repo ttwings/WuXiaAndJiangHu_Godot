@@ -25,12 +25,7 @@ func create():
 	set_temp("apply/armor", 1);
 	# setup();
 
-# func init():
-# {
-# 	::init();
-# 	if(strsrch(file_name(environment(this_object())),"baihuagu") < 0)
-# 	{
-# 		write("玉蜂嗡嗡嗡转了一圈，飞回百花谷去了。\n");
-# 		destruct(this_object());
-# 	}
-# }
+func _init():
+	if(strsrch(file_name(environment(this_object())),"baihuagu") < 0):
+		write("玉蜂嗡嗡嗡转了一圈，飞回百花谷去了。\n");
+		destruct(this_object());

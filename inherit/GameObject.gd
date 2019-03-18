@@ -1,4 +1,4 @@
-extends Node
+#extends Node
 
 class_name GameObject
 # const color -----------------------------------
@@ -32,27 +32,35 @@ const HBMAG = "[color=#815463]"
 const HBCYN = "[color=#00e09e]"
 const HBWHT = "[color=#f0fcff]"
 var __DIR__ = dir()
-var __FILE__ = file()
+var __FILE__ = file_name()
 # 用信号处理各类信息
-signal message_player(msg,player)
-signal message_ob(msg,ob)
-signal message_room(msg,room)
+signal message_player_sended(msg,player)
+signal message_ob_sended(msg,ob)
+signal message_room_sended(msg,room)
 # 基本属性
 #var name_cn
 #var weight
-var dbase = {"objects":[]}
-var objects = []
+var dbase = {}
+var objects = {}
 var temp_dbase = {}
-var skills = {}
-var map_skills = {}
-var prepare_skills = {}
+
 # 门派
 var family = {}
 # 携带的物品
 var objs = {}
 
 #TODO call func
-var actions = {}	
+var actions = {}
+
+func _init():
+	dbase.objects={}
+
+func set_dbase(dbase):
+	dbase = dbase
+
+func get_dbase():
+	return dbase	
+
 func add_action(fun:String,id:String,ob=self):
 	actions[id] = fun
 	pass	
@@ -71,14 +79,12 @@ func set(key:String,value):
 	dbase[key] = value
 	
 func add(key:String,value):
-#	match typeof(dbase[key]):
-#		Array:
-#			dbase[key].append(value)
-#		_:
-#			dbase[key] = dbase[key] + value	
 	if dbase.has(key):
-		if dbase[key] is Array:
-			dbase[key].append(value)
+		if dbase[key] is Dictionary:
+			if dbase[key].has(key):
+				dbase[key] = dbase[key] + value
+			else:
+				dbase[key] = value
 		else:
 			dbase[key] = dbase[key] + value
 	else:
@@ -91,32 +97,11 @@ func add_temp(key:String,value):
 func set_temp(key:String,value):
 	temp_dbase[key] = value
 	
-func set_skill(key:String,value):
-	skills[key] = value
-
-func map_skill( key:String,value):
-	map_skills[key] = value
-	
-func prepare_skill(key:String,value):
-	prepare_skills[key] = value
-	
-func create_family(key:String,lvl:int,nack_name:String):
-	family.name = key
-	family.lvl =  lvl
-	family.nack_name = nack_name
-
-
 # 实例化物品	
 # TODO
 #func carry_object(path:String):
 #	var obj = get_node(path)
 #	objs.append(obj)
-
-func query_skill(skill:String,key:String):
-	if skills.has(skill) and skills[skill].has(key):
-		return skills[skill][key]
-	else:
-		return false
 		
 func query_temp(key:String):
 	if temp_dbase.has(key) :
@@ -152,7 +137,7 @@ func message_vision(message:String,ob:GameObject):
 	msg = msg.replace("$N",str_n).replace("李","孙")
 #	msg = msg.replace("李","孙")
 	print_debug(msg)
-	emit_signal("message_ob",msg,ob)
+	emit_signal("message_ob_sended",msg,ob)
 	return msg
 
 func tell_object(who:GameObject,msg:String):
@@ -160,7 +145,7 @@ func tell_object(who:GameObject,msg:String):
 	print_debug(who.name,msg)	
 	
 # 销毁这件物品	
-func destruct(ob:GameObject):
+func destruct(ob=self):
 	# TODO
 #	queue_free()
 #	ob = null
@@ -177,25 +162,45 @@ func this_player():
 func new_ob(path:String):
 	var obj
 	obj = load("res:/" + path + ".gd").new()
-	obj.set_temp("environment",self.id)
+	obj.set_temp("environment",self)
 	return obj
 	
 func environment(ob=self):
-	return query("environment")
+	return ob.query("environment")
 	# return query_temp("environment")
 
 # todo
 func move(to:GameObject):
 	to.add("objects",self)
-	self.add("environment",to.file())
+	self.add("environment",to.file_name())
 	pass	
 	
 func move_object(ob=self,dest=self):
-	dest.add("objects",ob.file())
+	dest.add("objects",ob.file_name())
 
 		
 func dir(ob = self):
 	return ob.get_script().get_path().get_base_dir() + "/"	
 
-func file(ob = self):
+func file_name(ob = self):
 	return ob.get_script().get_path()
+
+func strsrch(string1,string2):
+	var result = string1.find(string2)
+	print_debug(result)
+	return result
+
+# 	obj2=present("mi", this_object());
+# 返回物品
+# todo
+func present(name:String,to):
+	# var objects = query("objects")
+	# if objects.has(name):
+	# 	return objects[name]
+	# return null
+	to.add("present",name)
+
+# yield(get_tree().create_timer(1), 'timeout')
+func start_busy(time):
+#	yield,"timeout")
+	pass

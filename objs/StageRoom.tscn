@@ -238,42 +238,22 @@
 16/shapes = [  ]
 16/z_index = 0
 
-[sub_resource type="StyleBoxFlat" id=16]
+[sub_resource type="StyleBoxFlat" id=2]
 
-[sub_resource type="DynamicFont" id=17]
+[sub_resource type="DynamicFont" id=3]
 size = 12
 outline_size = 1
 outline_color = Color( 0.466667, 0.466667, 0.466667, 1 )
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=4]
 size = 12
 outline_size = 1
 outline_color = Color( 0.196078, 0.196078, 0.196078, 1 )
 font_data = ExtResource( 6 )
 
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.952941, 0.145098, 0.12549, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-corner_radius_top_left = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.34902, 0.352941, 0.333333, 0.262745 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color( 0.501961, 0.282353, 0.282353, 1 )
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
 [sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 0.12549, 0.952941, 0.294118, 1 )
+bg_color = Color( 0.952941, 0.145098, 0.12549, 1 )
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -293,7 +273,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id=7]
-bg_color = Color( 0.615686, 0.12549, 0.952941, 1 )
+bg_color = Color( 0.12549, 0.952941, 0.294118, 1 )
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -301,6 +281,26 @@ corner_radius_top_left = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.34902, 0.352941, 0.333333, 0.262745 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.501961, 0.282353, 0.282353, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.615686, 0.12549, 0.952941, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+corner_radius_top_left = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 0.772549, 0.952941, 0.12549, 1 )
 border_width_left = 1
 border_width_top = 1
@@ -308,7 +308,7 @@ border_width_right = 1
 corner_radius_top_left = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxFlat" id=9]
+[sub_resource type="StyleBoxFlat" id=11]
 bg_color = Color( 0.12549, 0.913725, 0.952941, 1 )
 border_width_left = 1
 border_width_top = 1
@@ -316,25 +316,25 @@ border_width_right = 1
 corner_radius_top_left = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxFlat" id=14]
+[sub_resource type="StyleBoxFlat" id=12]
 
-[sub_resource type="DynamicFont" id=15]
+[sub_resource type="DynamicFont" id=13]
 size = 12
 outline_size = 1
 outline_color = Color( 0.386719, 0.386719, 0.386719, 1 )
 use_mipmaps = true
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=14]
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=15]
 font_data = ExtResource( 6 )
 
-[sub_resource type="StyleBoxFlat" id=18]
+[sub_resource type="StyleBoxFlat" id=16]
 bg_color = Color( 0, 0, 0, 1 )
 
-[sub_resource type="DynamicFont" id=19]
+[sub_resource type="DynamicFont" id=17]
 size = 12
 outline_size = 1
 outline_color = Color( 0.301961, 0.294118, 0.294118, 1 )
@@ -342,14 +342,14 @@ use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 6 )
 
-[sub_resource type="StyleBoxFlat" id=12]
+[sub_resource type="StyleBoxFlat" id=18]
 bg_color = Color( 0.109804, 0.0392157, 0.964706, 1 )
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id=13]
+[sub_resource type="StyleBoxFlat" id=19]
 bg_color = Color( 0.0313726, 0.262745, 0.701961, 0.423529 )
 corner_radius_top_left = 8
 corner_radius_top_right = 8
@@ -926,8 +926,8 @@ margin_right = 301.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 0, 20 )
 size_flags_vertical = 3
-custom_styles/normal = SubResource( 16 )
-custom_fonts/normal_font = SubResource( 17 )
+custom_styles/normal = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
 bbcode_text = "[center]状态[/center]"
 text = "状态"
@@ -940,7 +940,7 @@ margin_bottom = 42.0
 [node name="Label" type="Label" parent="ActorStatus/VBoxContainer/Qibox"]
 margin_right = 24.0
 margin_bottom = 18.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 text = "气血"
 
 [node name="ProgressBar" type="ProgressBar" parent="ActorStatus/VBoxContainer/Qibox"]
@@ -949,8 +949,8 @@ margin_right = 244.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-custom_styles/fg = SubResource( 3 )
-custom_styles/bg = SubResource( 4 )
+custom_styles/fg = SubResource( 5 )
+custom_styles/bg = SubResource( 6 )
 value = 50.0
 percent_visible = false
 
@@ -970,7 +970,7 @@ margin_bottom = 64.0
 [node name="Label" type="Label" parent="ActorStatus/VBoxContainer/Jingbox"]
 margin_right = 24.0
 margin_bottom = 18.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 text = "精神"
 
 [node name="ProgressBar" type="ProgressBar" parent="ActorStatus/VBoxContainer/Jingbox"]
@@ -979,8 +979,8 @@ margin_right = 244.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-custom_styles/fg = SubResource( 5 )
-custom_styles/bg = SubResource( 6 )
+custom_styles/fg = SubResource( 7 )
+custom_styles/bg = SubResource( 8 )
 value = 50.0
 percent_visible = false
 
@@ -1000,7 +1000,7 @@ margin_bottom = 86.0
 [node name="Label" type="Label" parent="ActorStatus/VBoxContainer/Neibox"]
 margin_right = 24.0
 margin_bottom = 18.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 text = "内力"
 
 [node name="ProgressBar" type="ProgressBar" parent="ActorStatus/VBoxContainer/Neibox"]
@@ -1009,8 +1009,8 @@ margin_right = 244.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-custom_styles/fg = SubResource( 7 )
-custom_styles/bg = SubResource( 6 )
+custom_styles/fg = SubResource( 9 )
+custom_styles/bg = SubResource( 8 )
 value = 50.0
 percent_visible = false
 
@@ -1030,7 +1030,7 @@ margin_bottom = 108.0
 [node name="Label" type="Label" parent="ActorStatus/VBoxContainer/FoodBox"]
 margin_right = 24.0
 margin_bottom = 18.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 text = "食物"
 
 [node name="ProgressBar" type="ProgressBar" parent="ActorStatus/VBoxContainer/FoodBox"]
@@ -1039,8 +1039,8 @@ margin_right = 244.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-custom_styles/fg = SubResource( 8 )
-custom_styles/bg = SubResource( 6 )
+custom_styles/fg = SubResource( 10 )
+custom_styles/bg = SubResource( 8 )
 value = 50.0
 percent_visible = false
 
@@ -1060,7 +1060,7 @@ margin_bottom = 130.0
 [node name="Label" type="Label" parent="ActorStatus/VBoxContainer/WaterBox"]
 margin_right = 24.0
 margin_bottom = 18.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 text = "饮水"
 
 [node name="ProgressBar" type="ProgressBar" parent="ActorStatus/VBoxContainer/WaterBox"]
@@ -1069,8 +1069,8 @@ margin_right = 244.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-custom_styles/fg = SubResource( 9 )
-custom_styles/bg = SubResource( 6 )
+custom_styles/fg = SubResource( 11 )
+custom_styles/bg = SubResource( 8 )
 value = 50.0
 percent_visible = false
 
@@ -1092,12 +1092,10 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 __meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
+"_edit_group_": true
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect4"]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
@@ -1105,10 +1103,11 @@ margin_top = 10.0
 margin_right = -10.0
 margin_bottom = -10.0
 
-[node name="ActionButton01" type="Button" parent="NinePatchRect4/VBoxContainer"]
+[node name="SaveRooms" type="Button" parent="NinePatchRect4/VBoxContainer"]
 margin_right = 110.0
 margin_bottom = 30.0
 theme = ExtResource( 3 )
+text = "SaveRooms"
 
 [node name="ActionButton02" type="Button" parent="NinePatchRect4/VBoxContainer"]
 margin_top = 34.0
@@ -1136,7 +1135,6 @@ margin_bottom = 398.676
 theme = ExtResource( 3 )
 
 [node name="ObjectRect" type="NinePatchRect" parent="."]
-editor/display_folded = true
 margin_left = 505.0
 margin_top = 162.0
 margin_right = 797.0
@@ -1430,8 +1428,8 @@ scroll_following = true
 margin_top = 93.0
 margin_right = 288.0
 margin_bottom = 111.0
-custom_styles/normal = SubResource( 14 )
-custom_fonts/font = SubResource( 15 )
+custom_styles/normal = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
 text = "属性"
 align = 1
 
@@ -1449,7 +1447,7 @@ margin_right = 142.0
 margin_bottom = 30.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/normal_font = SubResource( 10 )
+custom_fonts/normal_font = SubResource( 14 )
 bbcode_enabled = true
 bbcode_text = "臂力[29/26]"
 text = "臂力[29/26]"
@@ -1460,7 +1458,7 @@ margin_right = 288.0
 margin_bottom = 30.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/normal_font = SubResource( 10 )
+custom_fonts/normal_font = SubResource( 14 )
 bbcode_enabled = true
 bbcode_text = "臂力[29/26]"
 text = "臂力[29/26]"
@@ -1471,7 +1469,7 @@ margin_right = 142.0
 margin_bottom = 64.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/normal_font = SubResource( 10 )
+custom_fonts/normal_font = SubResource( 14 )
 bbcode_enabled = true
 bbcode_text = "臂力[29/26]"
 text = "臂力[29/26]"
@@ -1483,7 +1481,7 @@ margin_right = 288.0
 margin_bottom = 64.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/normal_font = SubResource( 10 )
+custom_fonts/normal_font = SubResource( 14 )
 bbcode_enabled = true
 bbcode_text = "臂力[29/26]"
 text = "臂力[29/26]"
@@ -1494,7 +1492,7 @@ margin_right = 142.0
 margin_bottom = 98.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/normal_font = SubResource( 10 )
+custom_fonts/normal_font = SubResource( 14 )
 bbcode_enabled = true
 bbcode_text = "臂力[29/26]"
 text = "臂力[29/26]"
@@ -1506,7 +1504,7 @@ margin_right = 288.0
 margin_bottom = 98.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/normal_font = SubResource( 10 )
+custom_fonts/normal_font = SubResource( 14 )
 bbcode_enabled = true
 bbcode_text = "臂力[29/26]"
 text = "臂力[29/26]"
@@ -1515,8 +1513,8 @@ text = "臂力[29/26]"
 margin_top = 217.0
 margin_right = 288.0
 margin_bottom = 235.0
-custom_styles/normal = SubResource( 14 )
-custom_fonts/font = SubResource( 15 )
+custom_styles/normal = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
 text = "包裹"
 align = 1
 
@@ -1526,7 +1524,7 @@ margin_right = 288.0
 margin_bottom = 527.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 15 )
 items = [ "苹果", ExtResource( 9 ), false, "第1项", ExtResource( 10 ), false, "第2项", ExtResource( 11 ), false ]
 auto_height = true
 fixed_icon_size = Vector2( 32, 32 )
@@ -1536,8 +1534,8 @@ margin_top = 531.0
 margin_right = 288.0
 margin_bottom = 551.0
 rect_min_size = Vector2( 0, 20 )
-custom_styles/normal = SubResource( 18 )
-custom_fonts/normal_font = SubResource( 19 )
+custom_styles/normal = SubResource( 16 )
+custom_fonts/normal_font = SubResource( 17 )
 bbcode_enabled = true
 bbcode_text = "[right]3件[color=#F42254]物品[/color] 457[color=yellow]钱[/color][/right]"
 text = "3件物品 457钱"
@@ -1710,7 +1708,7 @@ margin_top = 4.0
 margin_right = -7.0
 margin_bottom = 79.0
 theme = ExtResource( 3 )
-custom_styles/normal = SubResource( 12 )
+custom_styles/normal = SubResource( 18 )
 bbcode_enabled = true
 bbcode_text = "他就是人称「老顽童」的周伯通。
 		他一副仙风道骨的样子，看起来好象才四十来岁。很难想象他其实已经年逾古稀了。"
@@ -1725,7 +1723,7 @@ margin_top = 81.0
 margin_right = -8.0
 margin_bottom = 240.0
 theme = ExtResource( 3 )
-custom_styles/normal = SubResource( 13 )
+custom_styles/normal = SubResource( 19 )
 bbcode_enabled = true
 bbcode_text = "		\"九阴真经\" : \"你再提这劳什子，我就不跟你玩了。\\n\",
 		\"瑛姑\"     : \"你知道她在哪儿吗？快，快告诉我。\",
@@ -1790,7 +1788,7 @@ margin_bottom = 166.0
 theme = ExtResource( 3 )
 text = "动作"
 
-[connection signal="pressed" from="NinePatchRect4/VBoxContainer/ActionButton01" to="." method="_on_ActionButton01_pressed"]
+[connection signal="pressed" from="NinePatchRect4/VBoxContainer/SaveRooms" to="." method="_on_SaveRooms_pressed"]
 [connection signal="pressed" from="ObjectRect/HBoxContainer/ActionButton1" to="." method="_on_ActionButton1_pressed"]
 [connection signal="pressed" from="ObjectRect/ObjectRectButton" to="." method="_on_ObjectRectButton_pressed"]
 [connection signal="item_selected" from="CharacterPanel/PropContainer/ItemList" to="." method="_on_ItemList_item_selected"]

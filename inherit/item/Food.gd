@@ -18,9 +18,9 @@ func do_eat(player):
 #		(int)this_player()->max_food_capacity() )
 #		return notify_fail("你已经吃太饱了，再也塞不下任何东西了。\n");
 
-	Global.this_player().add("food", 30);
-	print(query("food_supply"))
-	print_debug(Global.this_player().query("food"))
+	Global.this_player().add("food_test", 30);
+	print(query("food_test"))
+	print_debug(Global.this_player().query("food_test"))
 #	if( this_player()->is_fighting() ) this_player()->start_busy(2);
 #
 #	// This allows customization of drinking effect.
@@ -35,7 +35,7 @@ func do_eat(player):
 		destruct(this_object());
 	else:
 		return message_vision("$N拿起" + name()+"咬了几口。\n",player);
-#//	this_player()->start_busy(1);
+# //	this_player()->start_busy(1);
 #	return 1;
 #}
 	# print("do_eat")
