@@ -43,7 +43,7 @@ var neighbor_rooms = {}
 var food
 
 func _ready():
-	current_room = Global.load_room("res://d/baihuagu/baihuagu.gd")
+	current_room = Global.load_room("res://d/changan/shuyuan.gd")
 	rooms.current = $Rooms/room
 	rooms.north = $Rooms/room_n
 	rooms.south = $Rooms/room_s
@@ -60,7 +60,7 @@ func _ready():
 	$RoomPanel/VBoxContainer/RoomName.bbcode_text = "[center]" + current_room.query("short") +"[/center]"
 	$RoomPanel/VBoxContainer/Description.bbcode_text  = current_room.query("long")
 	# load map
-	map_file.open("res://doc/map/baihuagu",File.READ)
+	map_file.open("res://doc/map/changan",File.READ)
 #	print(map_file.get_as_text())
 	$RoomMessage/VBoxContainer/RichTextLabel.bbcode_text = map_file.get_as_text()
 #	current_room.get_dir()

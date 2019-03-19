@@ -1,0 +1,14 @@
+// wa.c
+
+#include <ansi.h>
+inherit ITEM;
+
+void create()
+{
+	set_name(HIC"∫∫Õﬂ"NOR, ({"han wa", "wa"}));
+	set("long", "’‚ «“ª∆¨’‰πÛµƒ∫∫Õﬂ°£\n");
+	set("unit", "∆¨");
+	set("value", 500);
+	set("weight", 10);
+}
+

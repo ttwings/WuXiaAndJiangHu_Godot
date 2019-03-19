@@ -204,3 +204,6 @@ func present(name:String,to):
 func start_busy(time):
 #	yield,"timeout")
 	pass
+
+func create():
+	pass	
