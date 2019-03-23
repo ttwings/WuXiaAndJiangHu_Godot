@@ -3,9 +3,9 @@
 # inherit  ROOM;
 extends Room
 
-func create  ():
-	set  ("short",  "押牌房");
-	set  ("long", 
+func create():
+	set("short",  "押牌房");
+	set("long", 
 """屋子中间放着一张白玉桌，桌后一张镶玉太师椅上坐着的就是庄家
 了。你想和他玩玩么？那么，玩完你自个之前，想来还是先看看墙上钉
 的牌子(paizi)吧。"""

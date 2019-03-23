@@ -3,9 +3,9 @@
 # inherit  ROOM;
 extends Room
 
-func create  ():
-	set  ("short",  "西大街");
-	set  ("long",  
+func create():
+	set("short",  "西大街");
+	set("long",  
 """你正走在长安西大街上，毕竟曾为多朝古都，气派非比寻常。北边
 是鼓楼，相传当年天子曾在此鸣鼓点将，往南可以到长安城内有名的“
 清馨”茶馆。"""

@@ -3,9 +3,9 @@
 # inherit  ROOM;
 extends Room
 
-func create  ():
-	set  ("short",  "南大街");
-	set  ("long",  
+func create():
+	set("short",  "南大街");
+	set("long",  
 """你正走在长安南大街上，北边是一个热闹的广场，人声鼎沸，东边
 不时地传来金属撞击声，和西边安静的小巷形成鲜明的对比。"""
 );

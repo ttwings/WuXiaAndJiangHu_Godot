@@ -3,7 +3,7 @@
 # inherit  ROOM;
 extends Room
 
-func  create  ():
+func  create():
 	set("short",  "东岳庙");
 	set("long",  
 """东岳就是泰山，历代天子认为山高有灵，因此建庙祭祀。此庙建于

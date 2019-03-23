@@ -32,7 +32,7 @@
 
 extends Room
 
-func  create  ():
+func  create():
 	set("short",  "骰子房");
 	set("long", """
 屋中间摆着一张看起来相当结实的大长条桌 (table)，四周围了十
@@ -61,7 +61,7 @@ func  create  ():
 五，在下注过程中可用取消(cancel)指令。庄家用此指令则宣布此局无效，
 　　大家将赌注取回，庄家非正常丢庄。非庄家用此指令则表示退出此
 　　局，赌注可取回。
-		\n" "" });
+		\n""" });
 	# //for  look  something.
 
 	set("exits",  
@@ -689,8 +689,3 @@ func  create  ():
 # 	}
 # 	return  0;	
 # }
-
-
-
-
-

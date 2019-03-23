@@ -20,8 +20,8 @@ extends Room
 #   };  
 
 func create():
-    set("short",  "骨骰房");
-    set("long",  
+	set("short",  "骨骰房");
+	set("long",  
 """这里摆着一个八仙桌，中间摆着一个银盘。赌客们正聚精会神地下
 赌。正席是一位胖子，手里不断玩弄着一对玉骰，他就是这里的庄东。
 
@@ -33,23 +33,22 @@ func create():
 
     匾角有一个牌子(paizi)。"""
 );
-
-    set("item_desc",{
+	set("item_desc",{
         "paizi"  :  "押头彩骰：  gutou tc <amount> <money>\n"+  
                     "押双对骰：  gutou sd <amount> <money>\n"+  
                     "押七星骰：  gutou qx <amount> <money>\n"+  
                     "押散星骰：  gutou sx <amount> <money>\n"  
     });  
-    set("objects",  {
+	set("objects",  {
         __DIR__ + "npc/zhuangd"  :  1,
     });
-    set("exits",  {
+	set("exits",  {
         "west"  :  __DIR__ + "clubup",
         # //"east"  :  __DIR__"shaizi-room",
     });
-    set("light_up",  1);
-    set("no_fight",  1);
-    set("no_magic",  1);
+	set("light_up",  1);
+	set("no_fight",  1);
+	set("no_magic",  1);
 	set("coor/x", -5020);
 	set("coor/y", 1010);
 	set("coor/z", 10);

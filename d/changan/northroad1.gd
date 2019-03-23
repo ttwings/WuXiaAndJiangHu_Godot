@@ -1,6 +1,6 @@
-// // /d/changan/northroad1.c
-
-// inherit  ROOM;
+#// // /d/changan/northroad1.c
+#
+#// inherit  ROOM;
 extends Room
 
 func create  ():

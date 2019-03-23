@@ -378,7 +378,6 @@ format = 1
 tile_data = PoolIntArray( 0, 16, 0, 1, 16, 1, 2, 16, 1, 3, 16, 1, 4, 16, 1, 5, 16, 1, 6, 16, 1, 7, 16, 1, 8, 16, 1, 9, 16, 1, 10, 16, 1, 11, 16, 1, 12, 16, 1, 13, 16, 1, 14, 16, 1, 15, 16, 1, 16, 16, 1, 17, 16, 1, 18, 16, 1, 19, 16, 1, 20, 16, 2, 65536, 16, 65536, 65537, 983055, 0, 65539, 4, 0, 65541, 4, 0, 65543, 4, 0, 65545, 4, 0, 65547, 4, 0, 65549, 15, 0, 65551, 4, 0, 65552, 14, 0, 65553, 4, 0, 65554, 14, 0, 65555, 4, 0, 65556, 16, 65538, 131072, 16, 65536, 131073, 1376275, 0, 131074, 4, 0, 131076, 4, 0, 131078, 4, 0, 131080, 4, 0, 131081, 11, 0, 131082, 4, 0, 131084, 4, 0, 131085, 14, 0, 131086, 4, 0, 131087, 11, 0, 131088, 13, 0, 131090, 4, 0, 131092, 16, 65538, 196608, 16, 65536, 196609, 11, 0, 196611, 4, 0, 196613, 4, 0, 196615, 11, 0, 196617, 4, 0, 196619, 4, 0, 196621, 15, 0, 196623, 4, 0, 196625, 13, 0, 196626, 14, 0, 196627, 15, 0, 196628, 16, 65538, 262144, 16, 65536, 262145, 14, 0, 262146, 4, 0, 262147, 15, 0, 262149, 4, 0, 262151, 4, 0, 262153, 15, 0, 262155, 15, 0, 262157, 4, 0, 262158, 11, 0, 262159, 8, 0, 262161, 15, 0, 262162, 14, 0, 262163, 15, 0, 262164, 16, 65538, 327680, 16, 65536, 327681, 14, 0, 327682, 11, 0, 327683, 15, 0, 327684, 4, 0, 327686, 4, 0, 327688, 4, 0, 327689, 15, 0, 327690, 4, 0, 327691, 15, 0, 327692, 4, 0, 327694, 15, 0, 327696, 13, 0, 327697, 15, 0, 327698, 4, 0, 327699, 15, 0, 327700, 16, 65538, 393216, 16, 65536, 393217, 14, 0, 393219, 15, 0, 393221, 15, 0, 393223, 4, 0, 393225, 15, 0, 393227, 15, 0, 393229, 15, 0, 393231, 8, 0, 393233, 15, 0, 393234, 14, 0, 393235, 4, 0, 393236, 16, 65538, 458752, 16, 65536, 458753, 14, 0, 458754, 4, 0, 458756, 15, 0, 458757, 15, 0, 458758, 4, 0, 458760, 4, 0, 458761, 15, 0, 458762, 4, 0, 458763, 15, 0, 458764, 15, 0, 458765, 15, 0, 458766, 4, 0, 458768, 4, 0, 458769, 15, 0, 458770, 14, 0, 458771, 14, 0, 458772, 16, 65538, 524288, 16, 65536, 524289, 14, 0, 524291, 4, 0, 524292, 15, 0, 524293, 4, 0, 524295, 4, 0, 524297, 15, 0, 524298, 15, 0, 524299, 15, 0, 524300, 15, 0, 524301, 4, 0, 524303, 4, 0, 524304, 11, 0, 524305, 15, 0, 524306, 13, 0, 524307, 14, 0, 524308, 16, 65538, 589824, 16, 65536, 589825, 14, 0, 589826, 4, 0, 589828, 4, 0, 589829, 15, 0, 589830, 4, 0, 589832, 4, 0, 589833, 15, 0, 589834, 15, 0, 589835, 15, 0, 589836, 4, 0, 589838, 4, 0, 589839, 15, 0, 589840, 4, 0, 589841, 15, 0, 589842, 4, 0, 589843, 14, 0, 589844, 16, 65538, 655360, 16, 65536, 655361, 14, 0, 655363, 4, 0, 655365, 4, 0, 655366, 15, 0, 655367, 4, 0, 655369, 15, 0, 655370, 15, 0, 655371, 15, 0, 655373, 4, 0, 655375, 15, 0, 655376, 15, 0, 655377, 15, 0, 655379, 14, 0, 655380, 16, 65538, 720896, 16, 65536, 720897, 14, 0, 720898, 4, 0, 720900, 4, 0, 720901, 13, 0, 720902, 15, 0, 720903, 15, 0, 720904, 15, 0, 720906, 15, 0, 720907, 15, 0, 720908, 4, 0, 720909, 13, 0, 720910, 4, 0, 720911, 15, 0, 720912, 15, 0, 720913, 15, 0, 720914, 4, 0, 720915, 14, 0, 720916, 16, 65538, 786432, 16, 65536, 786433, 15, 0, 786435, 4, 0, 786437, 13, 0, 786439, 4, 0, 786440, 13, 0, 786441, 4, 0, 786442, 13, 0, 786443, 4, 0, 786445, 4, 0, 786447, 15, 0, 786448, 11, 0, 786449, 4, 0, 786451, 4, 0, 786452, 16, 65538, 851968, 16, 65536, 851969, 15, 0, 851970, 14, 0, 851972, 4, 0, 851974, 4, 0, 851975, 13, 0, 851976, 4, 0, 851978, 11, 0, 851979, 11, 0, 851980, 4, 0, 851981, 13, 0, 851982, 4, 0, 851984, 15, 0, 851985, 13, 0, 851986, 14, 0, 851988, 16, 65538, 917504, 16, 65536, 917505, 15, 0, 917506, 14, 0, 917507, 4, 0, 917508, 11, 0, 917509, 13, 0, 917511, 14, 0, 917513, 15, 0, 917515, 4, 0, 917517, 4, 0, 917519, 13, 0, 917520, 15, 0, 917521, 14, 0, 917522, 14, 0, 917523, 4, 0, 917524, 16, 65538, 983040, 16, 65536, 983041, 14, 0, 983042, 4, 0, 983044, 4, 0, 983046, 4, 0, 983047, 14, 0, 983048, 15, 0, 983049, 15, 0, 983050, 4, 0, 983051, 14, 0, 983052, 14, 0, 983054, 4, 0, 983055, 13, 0, 983056, 15, 0, 983058, 4, 0, 983059, 14, 0, 983060, 16, 65538, 1048576, 16, 65536, 1048577, 14, 0, 1048579, 14, 0, 1048581, 13, 0, 1048583, 4, 0, 1048584, 15, 0, 1048585, 13, 0, 1048587, 4, 0, 1048589, 14, 0, 1048591, 4, 0, 1048592, 15, 0, 1048593, 4, 0, 1048595, 14, 0, 1048596, 16, 65538, 1114112, 16, 65536, 1114113, 14, 0, 1114114, 4, 0, 1114116, 4, 0, 1114118, 4, 0, 1114120, 15, 0, 1114122, 4, 0, 1114123, 11, 0, 1114124, 4, 0, 1114125, 14, 0, 1114126, 4, 0, 1114127, 13, 0, 1114128, 4, 0, 1114130, 15, 0, 1114131, 14, 0, 1114132, 16, 65538, 1179648, 16, 65536, 1179649, 14, 0, 1179650, 14, 0, 1179651, 11, 0, 1179653, 13, 0, 1179654, 13, 0, 1179655, 13, 0, 1179657, 4, 0, 1179659, 4, 0, 1179661, 14, 0, 1179663, 4, 0, 1179664, 15, 0, 1179665, 15, 0, 1179666, 15, 0, 1179667, 15, 0, 1179668, 16, 65538, 1245184, 16, 65536, 1245185, 15, 0, 1245186, 14, 0, 1245188, 4, 0, 1245189, 13, 0, 1245190, 4, 0, 1245192, 4, 0, 1245194, 4, 0, 1245195, 13, 0, 1245196, 4, 0, 1245198, 4, 0, 1245200, 4, 0, 1245202, 15, 0, 1245203, 15, 0, 1245204, 16, 65538, 1310720, 16, 65536, 1310721, 15, 0, 1310722, 15, 0, 1310723, 4, 0, 1310725, 4, 0, 1310727, 15, 0, 1310728, 16, 65538, 1310729, 15, 0, 1310731, 16, 65536, 1310733, 15, 0, 1310734, 15, 0, 1310735, 15, 0, 1310737, 4, 0, 1310738, 15, 0, 1310739, 4, 0, 1310740, 16, 65538, 1376256, 16, 131072, 1376257, 16, 131073, 1376258, 16, 131073, 1376259, 16, 131073, 1376260, 16, 131073, 1376261, 16, 131073, 1376262, 16, 131073, 1376263, 16, 131073, 1376264, 16, 131074, 1376267, 16, 131072, 1376268, 16, 131073, 1376269, 16, 131073, 1376270, 16, 131073, 1376271, 16, 131073, 1376272, 16, 131073, 1376273, 16, 131073, 1376274, 16, 131073, 1376275, 16, 131073, 1376276, 16, 131074 )
 
 [node name="Rooms" type="Node2D" parent="."]
-editor/display_folded = true
 position = Vector2( 649.663, 363.269 )
 
 [node name="room" type="ColorRect" parent="Rooms"]
@@ -678,6 +677,37 @@ width = 40.0
 default_color = Color( 0.431373, 0.435294, 0.466667, 1 )
 texture_mode = 1634732298
 
+[node name="room_d" type="Button" parent="Rooms"]
+editor/display_folded = true
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -242.792
+margin_top = 31.132
+margin_right = -112.792
+margin_bottom = 164.132
+rect_pivot_offset = Vector2( 62.3897, 62.4628 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Rooms/room_d"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -2.0
+margin_bottom = -94.0
+theme = ExtResource( 3 )
+bbcode_enabled = true
+
+[node name="Position2D" type="Position2D" parent="Rooms/room_d"]
+position = Vector2( 61.9026, 62.7171 )
+
+[node name="Line2D" type="Line2D" parent="Rooms/room_d"]
+position = Vector2( 202.79, 106.151 )
+points = PoolVector2Array( -34.8784, -168.727, -65.0149, -169.124, -128.88, -132.204, -128.88, -105.859 )
+width = 40.0
+default_color = Color( 0.431373, 0.435294, 0.466667, 1 )
+texture_mode = 1634732298
+
 [node name="room_ed" type="Button" parent="Rooms"]
 editor/display_folded = true
 visible = false
@@ -734,6 +764,37 @@ bbcode_enabled = true
 position = Vector2( 61.9026, 62.7171 )
 
 [node name="Line2D" type="Line2D" parent="Rooms/room_eu"]
+position = Vector2( 288.086, 302.59 )
+points = PoolVector2Array( -223.731, -170.159, -223.752, -145.32, -259.025, -126.042, -308.814, -124.151 )
+width = 40.0
+default_color = Color( 0.431373, 0.435294, 0.466667, 1 )
+texture_mode = 1634732298
+
+[node name="room_u" type="Button" parent="Rooms"]
+editor/display_folded = true
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 72.543
+margin_top = -306.044
+margin_right = 202.543
+margin_bottom = -173.044
+rect_pivot_offset = Vector2( 62.3897, 62.4628 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Rooms/room_u"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -2.0
+margin_bottom = -94.0
+theme = ExtResource( 3 )
+bbcode_enabled = true
+
+[node name="Position2D" type="Position2D" parent="Rooms/room_u"]
+position = Vector2( 61.9026, 62.7171 )
+
+[node name="Line2D" type="Line2D" parent="Rooms/room_u"]
 position = Vector2( 288.086, 302.59 )
 points = PoolVector2Array( -223.731, -170.159, -223.752, -145.32, -259.025, -126.042, -308.814, -124.151 )
 width = 40.0
@@ -945,7 +1006,7 @@ text = "气血"
 
 [node name="ProgressBar" type="ProgressBar" parent="ActorStatus/VBoxContainer/Qibox"]
 margin_left = 28.0
-margin_right = 244.0
+margin_right = 289.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -955,10 +1016,10 @@ value = 50.0
 percent_visible = false
 
 [node name="Label2" type="Label" parent="ActorStatus/VBoxContainer/Qibox"]
-margin_left = 248.0
-margin_top = 2.0
+margin_left = 293.0
+margin_top = 8.0
 margin_right = 301.0
-margin_bottom = 16.0
+margin_bottom = 9.0
 text = "[50/100]"
 
 [node name="Jingbox" type="HBoxContainer" parent="ActorStatus/VBoxContainer"]
@@ -975,7 +1036,7 @@ text = "精神"
 
 [node name="ProgressBar" type="ProgressBar" parent="ActorStatus/VBoxContainer/Jingbox"]
 margin_left = 28.0
-margin_right = 244.0
+margin_right = 289.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -985,10 +1046,10 @@ value = 50.0
 percent_visible = false
 
 [node name="Label2" type="Label" parent="ActorStatus/VBoxContainer/Jingbox"]
-margin_left = 248.0
-margin_top = 2.0
+margin_left = 293.0
+margin_top = 8.0
 margin_right = 301.0
-margin_bottom = 16.0
+margin_bottom = 9.0
 text = "[50/100]"
 
 [node name="Neibox" type="HBoxContainer" parent="ActorStatus/VBoxContainer"]
@@ -1005,7 +1066,7 @@ text = "内力"
 
 [node name="ProgressBar" type="ProgressBar" parent="ActorStatus/VBoxContainer/Neibox"]
 margin_left = 28.0
-margin_right = 244.0
+margin_right = 289.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -1015,10 +1076,10 @@ value = 50.0
 percent_visible = false
 
 [node name="Label2" type="Label" parent="ActorStatus/VBoxContainer/Neibox"]
-margin_left = 248.0
-margin_top = 2.0
+margin_left = 293.0
+margin_top = 8.0
 margin_right = 301.0
-margin_bottom = 16.0
+margin_bottom = 9.0
 text = "[50/100]"
 
 [node name="FoodBox" type="HBoxContainer" parent="ActorStatus/VBoxContainer"]
@@ -1035,7 +1096,7 @@ text = "食物"
 
 [node name="ProgressBar" type="ProgressBar" parent="ActorStatus/VBoxContainer/FoodBox"]
 margin_left = 28.0
-margin_right = 244.0
+margin_right = 289.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -1045,10 +1106,10 @@ value = 50.0
 percent_visible = false
 
 [node name="Label2" type="Label" parent="ActorStatus/VBoxContainer/FoodBox"]
-margin_left = 248.0
-margin_top = 2.0
+margin_left = 293.0
+margin_top = 8.0
 margin_right = 301.0
-margin_bottom = 16.0
+margin_bottom = 9.0
 text = "[50/100]"
 
 [node name="WaterBox" type="HBoxContainer" parent="ActorStatus/VBoxContainer"]
@@ -1065,7 +1126,7 @@ text = "饮水"
 
 [node name="ProgressBar" type="ProgressBar" parent="ActorStatus/VBoxContainer/WaterBox"]
 margin_left = 28.0
-margin_right = 244.0
+margin_right = 289.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -1075,10 +1136,10 @@ value = 50.0
 percent_visible = false
 
 [node name="Label2" type="Label" parent="ActorStatus/VBoxContainer/WaterBox"]
-margin_left = 248.0
-margin_top = 2.0
+margin_left = 293.0
+margin_top = 8.0
 margin_right = 301.0
-margin_bottom = 16.0
+margin_bottom = 9.0
 text = "[50/100]"
 
 [node name="NinePatchRect4" type="NinePatchRect" parent="."]
@@ -1135,6 +1196,8 @@ margin_bottom = 398.676
 theme = ExtResource( 3 )
 
 [node name="ObjectRect" type="NinePatchRect" parent="."]
+editor/display_folded = true
+visible = false
 margin_left = 505.0
 margin_top = 162.0
 margin_right = 797.0
@@ -1295,6 +1358,7 @@ text = "属性1"
 scroll_following = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ObjectRect"]
+editor/display_folded = true
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1351,9 +1415,11 @@ margin_left = -30.0
 margin_top = 10.0
 margin_right = -10.0
 margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
 text = "X"
 
 [node name="CharacterPanel" type="NinePatchRect" parent="."]
+editor/display_folded = true
 margin_left = 972.0
 margin_top = 2.0
 margin_right = 1276.0

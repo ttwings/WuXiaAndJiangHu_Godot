@@ -3,14 +3,14 @@
 # inherit  ROOM;
 extends Room
 
-func create  ():
-	set  ("short",  "永宁门");
-	set  ("long",
+func create():
+	set("short",  "永宁门");
+	set("long",
 """这里便是长安南门----永宁门。长安为多朝古都，果然不同凡响，
 城墙以石灰、糯米和土夯成，固若金汤。出了城门便是官道，几名官兵
 正在守门。还有几名不当值的官兵正在门楼上休息。"""
 );
-	//set("item_desc",  {"  ***  "  :  "  ***  ",  });
+#	//set("item_desc",  {"  ***  "  :  "  ***  ",  });
 	set("exits",  {
 		"north"  :  __DIR__ + "southroad1",
 		"south"  :  __DIR__ + "road5",

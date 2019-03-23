@@ -4,58 +4,57 @@
 extends Room
 
 var room_status  =  0;
-var *res  =  allocate(5);
+#var res  =  allocate(5);
 
-var random2  (var i)
-{
-    return  (random(i)+uptime())  %  i;
-}
+#var random2  (var i)
+#{
+#    return  (random(i)+uptime())  %  i;
+#}
 
-var qians  =  {  
-    "dqq"  :  "大乾签",
-    "dkq"  :  "大坤签",
-    "xqq"  :  "小乾签",
-    "xkq"  :  "小坤签",
-    "qq"   :  "乾签",
-    "kq"   :  "坤签",
-};  
+var qians  =  {
+	"dqq"  :  "大乾签",
+	"dkq"  :  "大坤签",
+	"xqq"  :  "小乾签",
+	"xkq"  :  "小坤签",
+	"qq"   :  "乾签",
+	"kq"   :  "坤签",
+};
 
-void  create()
-{
-    set("short",  "押签房");
-    set("long", 
+func create():
+	set("short",  "押签房");
+	set("long",
 """一群人围着紫檀木大桌而坐，首席座着一位精瘦的签客，正在一本
 正经地从镶金黑盒里慢悠悠一根一根往外抽出乾坤签，码在桌面上。
 
-    墙上有一匾写着：
-        大乾签（全部五根皆为乾签）：一赢三十二
-        大坤签（全部五根皆为坤签）：一赢三十二
-        小乾签（连续四根皆为乾签）：一赢十六
-        小坤签（连续四根皆为坤签）：一赢十六
-          乾签（任意三根皆为乾签）：一赢二
-          坤签（任意三根皆为坤签）：一赢二
+	墙上有一匾写着：
+		大乾签（全部五根皆为乾签）：一赢三十二
+		大坤签（全部五根皆为坤签）：一赢三十二
+		小乾签（连续四根皆为乾签）：一赢十六
+		小坤签（连续四根皆为坤签）：一赢十六
+			乾签（任意三根皆为乾签）：一赢二
+			坤签（任意三根皆为坤签）：一赢二
 
-    匾角有一个牌子(paizi)。"""
+	匾角有一个牌子(paizi)。"""
 );
 
-    set("item_desc",{
-        "paizi"  :  "押大乾签：  qian dqq <amount> <money>\n"+  
-                    "押大坤签：  qian dkq <amount> <money>\n"+  
-                    "押小乾签：  qian xqq <amount> <money>\n"+  
-                    "押小坤签：  qian xkq <amount> <money>\n"+  
-                    "押乾签：     qian qq <amount> <money>\n"+  
-                    "押坤签：     qian kq <amount> <money>\n\n"+
-                    "为免破产跳楼  限押一两黄金\n",
-    });  
-    set("exits",  {
-        "east"  :  __DIR__ + "clubup",
-    });
-    set("objects",  {
-        __DIR__ + "npc/qianke"  :  1,
-    });
-    set("light_up",  1);
-    set("no_fight",  1);
-    set("no_beg",  1);
+	set("item_desc",{
+#		押大乾签：  qian dqq <amount> <money>,
+#		押大坤签：  qian dkq <amount> <money>,,
+#		押小乾签：  qian xqq <amount> <money>\n
+#		押小坤签：  qian xkq <amount> <money>\n
+#		押乾签：    qian qq <amount> <money>\n
+#		押坤签：    qian kq <amount> <money>\n\n
+#		为免破产跳楼  限押一两黄金\n""",
+		});
+	set("exits",  {
+		"east"  :  __DIR__ + "clubup",
+		});
+	set("objects",  {
+		__DIR__ + "npc/qianke"  :  1,
+		});
+	set("light_up",  1);
+	set("no_fight",  1);
+	set("no_beg",  1);
 	set("coor/x", -5040);
 	set("coor/y", 1010);
 	set("coor/z", 10);

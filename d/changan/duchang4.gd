@@ -21,27 +21,27 @@
 extends Room
 
 func create():
-    set("short",  "赛龟房");
-    set("long",
+	set("short",  "赛龟房");
+	set("long",
 """一排紫色的镂空檀香靠背椅沿着屋子四周放了一圈，坐着聚精会神
 的客人。中间是一雕花石座，上面放着一个长长的紫檀龟台。一位扎着
 青鬏的龟童正围着龟台转来转去。龟房南面的墙上挂着牌子(paizi)。""" 
 );
 
-    set("item_desc",{
+	set("item_desc",{
         "paizi"  :  "押长寿龟：  sai cs <amount> <money>\n"+  
                     "押千年龟：  sai qn <amount> <money>\n"+  
                     "押不老龟：  sai bl <amount> <money>\n",  
     });  
-    set("objects",  {
+	set("objects",  {
         __DIR__ + "npc/guitong"  :  1,
     });
-    set("exits",  {
+	set("exits",  {
         "north"  :  __DIR__ + "clubup",
     });
-    set("light_up",  1);
-    set("no_fight",  1);
-    set("no_magic",  1);
+	set("light_up",  1);
+	set("no_fight",  1);
+	set("no_magic",  1);
 	set("coor/x", -5030);
 	set("coor/y", 1000);
 	set("coor/z", 10);

@@ -3,13 +3,13 @@
 # inherit  ROOM;
 extends Room
 
-func create  ():
-	set  ("short",  "枣巷");
-	set  ("long",
+func create():
+	set("short",  "枣巷");
+	set("long",
 """你走在一条幽静的青石小巷中，巷两边种着一行枣树。不料繁华的
 长安城内也有如此悠然去处。一阵枣香、一丝茶意、一声丝竹如远处高
 楼的歌声，隐隐飘来。"""
-;
+)
 	set("exits",  {
 		"north"     :  __DIR__ + "westroad2",
 		"southwest" :  __DIR__ + "chaguan",

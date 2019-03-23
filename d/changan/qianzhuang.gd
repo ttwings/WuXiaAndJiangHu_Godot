@@ -7,8 +7,8 @@ extends Room
 # void  reset_balance(object  me);
 
 func create  ():
-	set  ("short",  "相记钱庄");
-	set  ("long", 
+	set("short",  "相记钱庄");
+	set("long", 
 """这是一家老字号的钱庄，相老板是山西人，这家钱庄从他的爷爷的
 爷爷的爷爷的爷爷那辈开始办起，一直传到他手里，声誉非常好，在全
 国各地都有分店。它发行的银票信誉非常好，通行全国。光看老板将钱

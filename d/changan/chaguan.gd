@@ -3,7 +3,7 @@
 # inherit  ROOM;
 extends Room
 
-func  create  ():
+func create():
 	set("short",  "清馨茶馆");
 	set("long",  """
 你一走进来，就闻到一股茶香沁入心脾，精神为之一爽。几张八仙

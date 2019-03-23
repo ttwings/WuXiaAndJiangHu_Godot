@@ -1,9 +1,9 @@
-// // /d/changan/dijiao.c
-
-// inherit  ROOM;
+#// // /d/changan/dijiao.c
+#
+#// inherit  ROOM;
 extends Room
 
-func  create  ():
+func  create():
 	set("short",  "地窖");
 	set("long",  
 """满窖里漫着酒池，二百多个酒坛子都成了破瓷块，你终于明白停业

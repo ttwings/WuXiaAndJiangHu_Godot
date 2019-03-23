@@ -3,7 +3,7 @@
 # inherit  ROOM;
 extends Room
 
-func  create  ():
+func  create():
 	set("short",  "打铁铺");
 	set("long", 
 """这是一家简陋的打铁铺，中心摆着一个火炉，炉火把四周照得一片

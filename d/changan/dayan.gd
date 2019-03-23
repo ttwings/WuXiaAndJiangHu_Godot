@@ -1,9 +1,9 @@
-// /d/changan/dayan.c
+# // /d/changan/dayan.c
 
-// inherit  ROOM;
+# // inherit  ROOM;
 extends Room
 
-func  create  ():
+func  create():
 	set("short",  "大雁塔");
 	set("long",  
 """唐永徽三年，圣僧玄奘为保护佛家经书，由唐高宗资助建成此塔。

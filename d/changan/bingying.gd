@@ -6,10 +6,10 @@ extends Room
 
 func create():
 	set("short", "兵营");
-	set("long", @LONG
+	set("long", """
 这里是长安守军驻扎地，一对官兵正在操练。你最好赶紧走开，不
 然被随便安个罪名关进大牢可不是好玩的。
-LONG );
+""" );
 	set("exits", {
 		"west" : __DIR__ + "northroad2",
 	});

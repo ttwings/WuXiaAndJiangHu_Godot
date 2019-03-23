@@ -53,9 +53,15 @@ func _ready():
 	rooms.in = $Rooms/room_in
 	rooms.enter = $Rooms/room_enter
 	rooms.westup = $Rooms/room_wu
+	rooms.southwest = $Rooms/room_wu
 	rooms.westdown = $Rooms/room_wd
+	rooms.northwest = $Rooms/room_wd
 	rooms.eastup = $Rooms/room_eu
+	rooms.northeast = $Rooms/room_eu
 	rooms.eastdown = $Rooms/room_ed
+	rooms.southeast = $Rooms/room_ed
+	rooms.up = $Rooms/room_u
+	rooms.down  = $Rooms/room_d
 	creat_exits(current_room,neighbor_rooms)
 	$RoomPanel/VBoxContainer/RoomName.bbcode_text = "[center]" + current_room.query("short") +"[/center]"
 	$RoomPanel/VBoxContainer/Description.bbcode_text  = current_room.query("long")
@@ -72,6 +78,11 @@ func _ready():
 #	print_debug(player.dbase["objects"])
 	print_debug(player.objects)
 	character_panel(player)
+	pressed_connect()
+	
+func pressed_connect():
+	for direct in rooms:	
+		rooms[direct].connect("pressed",self,"move_to_room",[direct])
 
 func creat_exits(room:GameObject,neighbor_rooms):
 	var x
@@ -89,7 +100,7 @@ func neighbor_room_creat(room,direct,neighbor_rooms):
 	# neighbor_rooms[direct] = load(exits[direct] + ".gd").new()
 	neighbor_rooms[direct] = Global.load_room(exits[direct] + ".gd")
 	rooms[direct].show()
-	rooms[direct].connect("pressed",self,"move_to_room",[direct])
+	
 	rooms[direct].get_child(0).bbcode_text = "[center]" + neighbor_rooms[direct].query("short") +"[/center]"
 #	rooms[direct].get_child().(neighbor_rooms[direct].query("short"))
 	pass			
