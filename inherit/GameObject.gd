@@ -113,7 +113,7 @@ func query(key:String):
 	if	dbase.has(key) :
 		return dbase[key]
 	else:
-		return ""		
+		return false		
 	pass
 
 # UID todo

@@ -1,20 +1,23 @@
-/*  <SecCrypt CPL V3R05>  */
+# /*  <SecCrypt CPL V3R05>  */
  
-//  by  snowcat  on  7/5/1997  
-inherit  NPC;
-
-int  random2  (int  i)
-{
-	return  (random(i)+uptime())  %  i;
-}
+# //  by  snowcat  on  7/5/1997  
+# inherit  NPC;
+extends Npc
+func random2(int  i):
+	return randi()%10
+# {
+# 	return  (random(i)+uptime())  %  i;
+# }
 int is_douji() {return 1;}
+
+
 void  create()
 {
-	set_name("¶·¼¦",  ({  "dou  ji",  "ji"  })  );
-	set("race", "·ÉÇİ");
-	set("gender",  "ĞÛĞÔ");
+	set_name("æ–—é¸¡",  ({  "dou  ji",  "ji"  })  );
+	set("race", "é£ç¦½");
+	set("gender",  "é›„æ€§");
 	set("age",  2);
-	set("long",  "Ò»Ö»ĞÛôñôñµÄ¶·¼¦¡£\n");
+	set("long",  "ä¸€åªé›„èµ³èµ³çš„æ–—é¸¡ã€‚\n");
 	set("attitude",  "friendly");
 	set("max_qi",200+random2(2));
 	set("max_jing",200+random2(2));

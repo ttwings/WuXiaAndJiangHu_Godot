@@ -5,9 +5,9 @@ inherit F_DEALER;
 
 void create()
 {
-	set_name("¥Û…©", ({"da sao", "sao"}));
+	set_name("?°Ë°Ï???", ({"da sao", "sao"}));
 	set("age", 32);
-	set("gender", "≈Æ–‘");
+	set("gender", "????Ä°Ï");
 	set("per", 20);
 	set("attitude", "friendly");
 

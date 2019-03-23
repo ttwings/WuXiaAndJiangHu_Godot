@@ -44,6 +44,7 @@ var food
 
 func _ready():
 	current_room = Global.load_room("res://d/changan/shuyuan.gd")
+	# 不同方向的房间房间太多,后期考虑精简. up 与 north  west up 和 north west等.
 	rooms.current = $Rooms/room
 	rooms.north = $Rooms/room_n
 	rooms.south = $Rooms/room_s
@@ -53,15 +54,16 @@ func _ready():
 	rooms.in = $Rooms/room_in
 	rooms.enter = $Rooms/room_enter
 	rooms.westup = $Rooms/room_wu
-	rooms.southwest = $Rooms/room_wu
+	rooms.southwest = $Rooms/room_sw
 	rooms.westdown = $Rooms/room_wd
-	rooms.northwest = $Rooms/room_wd
+	rooms.northwest = $Rooms/room_nw
 	rooms.eastup = $Rooms/room_eu
-	rooms.northeast = $Rooms/room_eu
+	rooms.northeast = $Rooms/room_ne
 	rooms.eastdown = $Rooms/room_ed
-	rooms.southeast = $Rooms/room_ed
+	rooms.southeast = $Rooms/room_se
 	rooms.up = $Rooms/room_u
 	rooms.down  = $Rooms/room_d
+	
 	creat_exits(current_room,neighbor_rooms)
 	$RoomPanel/VBoxContainer/RoomName.bbcode_text = "[center]" + current_room.query("short") +"[/center]"
 	$RoomPanel/VBoxContainer/Description.bbcode_text  = current_room.query("long")
@@ -79,7 +81,8 @@ func _ready():
 	print_debug(player.objects)
 	character_panel(player)
 	pressed_connect()
-	
+
+# 信号链接一次就好
 func pressed_connect():
 	for direct in rooms:	
 		rooms[direct].connect("pressed",self,"move_to_room",[direct])
@@ -100,7 +103,6 @@ func neighbor_room_creat(room,direct,neighbor_rooms):
 	# neighbor_rooms[direct] = load(exits[direct] + ".gd").new()
 	neighbor_rooms[direct] = Global.load_room(exits[direct] + ".gd")
 	rooms[direct].show()
-	
 	rooms[direct].get_child(0).bbcode_text = "[center]" + neighbor_rooms[direct].query("short") +"[/center]"
 #	rooms[direct].get_child().(neighbor_rooms[direct].query("short"))
 	pass			

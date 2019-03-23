@@ -646,6 +646,37 @@ width = 40.0
 default_color = Color( 0.431373, 0.435294, 0.466667, 1 )
 texture_mode = 1634732298
 
+[node name="room_nw" type="Button" parent="Rooms"]
+editor/display_folded = true
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -248.234
+margin_top = -304.445
+margin_right = -118.234
+margin_bottom = -171.445
+rect_pivot_offset = Vector2( 62.3897, 62.4628 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Rooms/room_nw"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -2.0
+margin_bottom = -94.0
+theme = ExtResource( 3 )
+bbcode_enabled = true
+
+[node name="Position2D" type="Position2D" parent="Rooms/room_nw"]
+position = Vector2( 61.9026, 62.7171 )
+
+[node name="Line2D" type="Line2D" parent="Rooms/room_nw"]
+position = Vector2( 208.777, 240.269 )
+points = PoolVector2Array( -33.6525, -54.0668, -62.8113, -54.0668, -142.123, -78.5602, -142.453, -108.638 )
+width = 40.0
+default_color = Color( 0.431373, 0.435294, 0.466667, 1 )
+texture_mode = 1634732298
+
 [node name="room_wd" type="Button" parent="Rooms"]
 editor/display_folded = true
 visible = false
@@ -671,6 +702,37 @@ bbcode_enabled = true
 position = Vector2( 61.9026, 62.7171 )
 
 [node name="Line2D" type="Line2D" parent="Rooms/room_wd"]
+position = Vector2( 202.79, 106.151 )
+points = PoolVector2Array( -34.8784, -168.727, -65.0149, -169.124, -128.88, -132.204, -128.88, -105.859 )
+width = 40.0
+default_color = Color( 0.431373, 0.435294, 0.466667, 1 )
+texture_mode = 1634732298
+
+[node name="room_sw" type="Button" parent="Rooms"]
+editor/display_folded = true
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -242.792
+margin_top = 31.132
+margin_right = -112.792
+margin_bottom = 164.132
+rect_pivot_offset = Vector2( 62.3897, 62.4628 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Rooms/room_sw"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -2.0
+margin_bottom = -94.0
+theme = ExtResource( 3 )
+bbcode_enabled = true
+
+[node name="Position2D" type="Position2D" parent="Rooms/room_sw"]
+position = Vector2( 61.9026, 62.7171 )
+
+[node name="Line2D" type="Line2D" parent="Rooms/room_sw"]
 position = Vector2( 202.79, 106.151 )
 points = PoolVector2Array( -34.8784, -168.727, -65.0149, -169.124, -128.88, -132.204, -128.88, -105.859 )
 width = 40.0
@@ -739,6 +801,37 @@ width = 40.0
 default_color = Color( 0.431373, 0.435294, 0.466667, 1 )
 texture_mode = 1634732298
 
+[node name="room_se" type="Button" parent="Rooms"]
+editor/display_folded = true
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 76.42
+margin_top = 28.676
+margin_right = 206.42
+margin_bottom = 161.676
+rect_pivot_offset = Vector2( 62.3897, 62.4628 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Rooms/room_se"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -2.0
+margin_bottom = -94.0
+theme = ExtResource( 3 )
+bbcode_enabled = true
+
+[node name="Position2D" type="Position2D" parent="Rooms/room_se"]
+position = Vector2( 61.9026, 62.7171 )
+
+[node name="Line2D" type="Line2D" parent="Rooms/room_se"]
+position = Vector2( 202.79, 106.151 )
+points = PoolVector2Array( -227.351, -166.765, -205.736, -166.765, -137.905, -135.421, -137.905, -104.694 )
+width = 40.0
+default_color = Color( 0.431373, 0.435294, 0.466667, 1 )
+texture_mode = 1634732298
+
 [node name="room_eu" type="Button" parent="Rooms"]
 editor/display_folded = true
 visible = false
@@ -764,6 +857,37 @@ bbcode_enabled = true
 position = Vector2( 61.9026, 62.7171 )
 
 [node name="Line2D" type="Line2D" parent="Rooms/room_eu"]
+position = Vector2( 288.086, 302.59 )
+points = PoolVector2Array( -223.731, -170.159, -223.752, -145.32, -259.025, -126.042, -308.814, -124.151 )
+width = 40.0
+default_color = Color( 0.431373, 0.435294, 0.466667, 1 )
+texture_mode = 1634732298
+
+[node name="room_ne" type="Button" parent="Rooms"]
+editor/display_folded = true
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 72.543
+margin_top = -306.044
+margin_right = 202.543
+margin_bottom = -173.044
+rect_pivot_offset = Vector2( 62.3897, 62.4628 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Rooms/room_ne"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -2.0
+margin_bottom = -94.0
+theme = ExtResource( 3 )
+bbcode_enabled = true
+
+[node name="Position2D" type="Position2D" parent="Rooms/room_ne"]
+position = Vector2( 61.9026, 62.7171 )
+
+[node name="Line2D" type="Line2D" parent="Rooms/room_ne"]
 position = Vector2( 288.086, 302.59 )
 points = PoolVector2Array( -223.731, -170.159, -223.752, -145.32, -259.025, -126.042, -308.814, -124.151 )
 width = 40.0
@@ -815,7 +939,6 @@ color = Color( 0, 0, 0, 0.560784 )
 position = Vector2( 304.625, 3.25802 )
 
 [node name="RoomPanel" type="NinePatchRect" parent="."]
-editor/display_folded = true
 margin_left = 1.0
 margin_top = 1.0
 margin_right = 293.0

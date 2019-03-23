@@ -30,7 +30,7 @@ func create():
 });
 	set("exits",{
 		"south" : __DIR__ + "kedian",
-		"up"    : SHOP_DIR + "changan_shop",
+#		"up"    : SHOP_DIR + "changan_shop",
 	});
 	set("coor/x", -5060);
 	set("coor/y", 1020);
