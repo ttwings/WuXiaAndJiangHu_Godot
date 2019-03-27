@@ -29,7 +29,9 @@ func do_eat(player):
 	set("value", 0);
 	if query("food_remaining") > 0 :
 		add("food_remaining", -1);
-	if( query("food_remaining") <= 0 ):
+		print_debug(self.query("food"))
+		Global.this_player().add("food",self.query("food"))
+	if( query("food_remaining") == 0 ):
 		return message_vision("$N将剩下的"+name()+"吃得干干净净。\n",player);
 #		if( !this_object().finish_eat() ):
 		destruct(this_object());

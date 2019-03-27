@@ -3,16 +3,15 @@
 # //  by  snowcat  on  7/5/1997  
 # inherit  NPC;
 extends Npc
-func random2(int  i):
-	return randi()%10
+func random2(int:i):
+	return randi()%i
 # {
 # 	return  (random(i)+uptime())  %  i;
 # }
-int is_douji() {return 1;}
+func is_douji():
+	return 1
 
-
-void  create()
-{
+func create():
 	set_name("斗鸡",  ({  "dou  ji",  "ji"  })  );
 	set("race", "飞禽");
 	set("gender",  "雄性");
@@ -33,7 +32,6 @@ void  create()
 	set_skill("unarmed",  random2(2)+10);
 	set_skill("dodge",  random2(2)+10);
 	set_skill("parry",  random2(2)+10);
-
+	
 	setup();
-}
 

@@ -40,7 +40,7 @@ signal message_room_sended(msg,room)
 # 基本属性
 #var name_cn
 #var weight
-var dbase = {}
+var dbase = {objects : {}}
 var objects = {}
 var temp_dbase = {}
 
@@ -53,7 +53,7 @@ var objs = {}
 var actions = {}
 
 func _init():
-	dbase.objects={}
+	pass
 
 func set_dbase(dbase):
 	dbase = dbase
@@ -61,8 +61,8 @@ func set_dbase(dbase):
 func get_dbase():
 	return dbase	
 
-func add_action(fun:String,id:String,ob=self):
-	actions[id] = fun
+func add_action(fun:String,key:String,ob=self):
+	actions[key] = fun
 	pass	
 	
 func set_name_cn(value1:String,value2:String):
@@ -86,7 +86,7 @@ func add(key:String,value):
 			else:
 				dbase[key] = value
 		else:
-			dbase[key] = dbase[key] + value
+			dbase[key] = int(dbase[key]) + int(value)
 	else:
 		dbase.key = value	
 
@@ -107,13 +107,13 @@ func query_temp(key:String):
 	if temp_dbase.has(key) :
 		return temp_dbase[key]
 	else:
-		return false		
+		return ""		
 		
 func query(key:String):
 	if	dbase.has(key) :
 		return dbase[key]
 	else:
-		return false		
+		return ""		
 	pass
 
 # UID todo
@@ -175,7 +175,7 @@ func move(to:GameObject):
 	self.add("environment",to.file_name())
 	pass	
 	
-func move_object(ob=self,dest=self):
+func move_object(ob=self,dest):
 	dest.add("objects",ob.file_name())
 
 		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://objs/StageRoom.gd" type="Script" id=1]
 [ext_resource path="res://assets/graphics/tiles.png" type="Texture" id=2]
@@ -315,6 +315,9 @@ border_width_top = 1
 border_width_right = 1
 corner_radius_top_left = 4
 corner_radius_bottom_left = 4
+
+[sub_resource type="DynamicFont" id=20]
+font_data = ExtResource( 6 )
 
 [sub_resource type="StyleBoxFlat" id=12]
 
@@ -1319,7 +1322,6 @@ margin_bottom = 398.676
 theme = ExtResource( 3 )
 
 [node name="ObjectRect" type="NinePatchRect" parent="."]
-editor/display_folded = true
 visible = false
 margin_left = 505.0
 margin_top = 162.0
@@ -1539,6 +1541,7 @@ margin_top = 10.0
 margin_right = -10.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 20, 20 )
+custom_fonts/font = SubResource( 20 )
 text = "X"
 
 [node name="CharacterPanel" type="NinePatchRect" parent="."]

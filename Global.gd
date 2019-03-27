@@ -6,9 +6,6 @@ extends Node
 var deffence_skills
 var foods
 var herbs
-
-const NOR = "[/color]"
-const RED = "[color = #ff0000]"
 var user_class
 var player
 # 全局房间字典，key为房间路径，v为实例
@@ -30,7 +27,7 @@ func save_current_rooms():
 
 # 从数据字典,生成角色
 func creat_user(dbase):
-	var user = Char.new()
+	var user = User.new()
 	for k in dbase:
 		user.set(k,dbase[k])
 	return user

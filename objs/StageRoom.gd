@@ -266,7 +266,14 @@ func player_status(player):
 	$ActorStatus/VBoxContainer/FoodBox/ProgressBar.value = player.query("food")
 	$ActorStatus/VBoxContainer/WaterBox/ProgressBar.value = player.query("water")
 
-			
+var player_objects = {}
+func init_player_objects(player):
+	var objects = player.query("objects")
+	for ob in objects:
+		player_objects[ob] = player.carry_object(objects[ob])
+	
+
+
 func _on_ChatClose_pressed():
 	$ChatMessagePanel.hide()
 	pass # Replace with function body.
@@ -278,7 +285,8 @@ func _on_ActionButton1_pressed():
 	var old_msg = $ObjectMessage/RichTextLabel.bbcode_text
 	# print_debug(old_msg)
 	object_panel(food)
-	$ObjectMessage/RichTextLabel.bbcode_text = old_msg + msg
+	var time = OS.get_datetime()
+	$ObjectMessage/RichTextLabel.bbcode_text =old_msg + "[%2d:%2d:%2d] " % [time.hour,time.minute,time.second] +  msg
 	pass # Replace with function body.
 
 
