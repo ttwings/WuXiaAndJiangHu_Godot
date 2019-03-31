@@ -4,7 +4,7 @@
 #include <ansi.h>
 extends Npc
 func create():
-	set_name("冯从吾", ({ "feng congwu", "feng" }));
+	set_name("冯从吾", "feng congwu");
 	set("long",
 "冯先生是当代大学者，精通儒术。\n");
 	set("gender", "男性");
@@ -17,7 +17,7 @@ func create():
 	set_skill("parry", 80);
 	set_temp("apply/attack", 80);
 	set_temp("apply/defense", 80);
-	set_temp("apply/damage", 20);
+	set_temp("apply/damage", 20); 
 
 	set("combat_exp", 400000);
 	set("shen_type", 1);

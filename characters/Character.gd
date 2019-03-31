@@ -25,8 +25,8 @@ func move(dir):
 	can_move = false
 	$AnimationPlayer.play(facing)
 	$MoveTween.interpolate_property(self, "position", position,
-								position + moves[facing] * tile_size, 0.6,
-								Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+			position + moves[facing] * tile_size, 0.6,
+			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$MoveTween.start()
 	#position = position + moves[facing] * tile_size * 0.16
 	return true
@@ -38,8 +38,8 @@ func attack(dir):
 	can_move = false
 	$AnimationPlayer.play(facing)
 	$AttackTween.interpolate_property(self, "position", position,
-								position + moves[facing] * tile_size * 1, 0.4,
-								Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+			position + moves[facing] * tile_size * 1, 0.4,
+			Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 	# $MoveTween.interpolate_property(self, "position", position,
 	#							position - moves[facing] * tile_size * 2, 0.4,
 	#							Tween.TRANS_SINE, Tween.EASE_IN_OUT)

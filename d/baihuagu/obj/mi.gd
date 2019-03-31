@@ -13,5 +13,5 @@ func create():
 	set("no_give", "这样东西还是不要给别人的好。\n");
 	set("no_put",  "呀，小心撒了。\n"); 
 
-func _init():
-	create()
+# func _init():
+# 	create()

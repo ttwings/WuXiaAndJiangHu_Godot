@@ -9,24 +9,18 @@
 [ext_resource path="res://new_theme.tres" type="Theme" id=7]
 
 [sub_resource type="DynamicFont" id=1]
-
-use_mipmaps = false
-use_filter = false
 font_data = ExtResource( 2 )
 
 [sub_resource type="StyleBoxFlat" id=2]
-
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
 [sub_resource type="DynamicFont" id=3]
-
-use_mipmaps = false
-use_filter = false
 font_data = ExtResource( 2 )
 
 [node name="ChatPanel" type="Panel"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_right = 391.0
+margin_left = 96.0
+margin_right = 487.0
 margin_bottom = 71.0
 __meta__ = {
 "_edit_group_": true,

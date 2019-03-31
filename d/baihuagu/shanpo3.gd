@@ -5,7 +5,6 @@
 #include <ansi.h>
 #include "yangfeng.h";
 extends Room
-# var __DIR__ = "/d/baihuagu/"
 
 func create():
 	set("short", GRN + "山谷中" + NOR);
@@ -48,7 +47,7 @@ func do_dig():
 	me=this_player();
 	# if( me.query("food") >= me.max_food_capacity() )
 	if me.query("food") >= me.max_food_capacity() :
-		message_vision( HIC"$N正要挖什么，突然老顽童跑了过来，邪恶地笑了一下，猛然从身后取出一支茯苓，望$N嘴中灌过去，口中叫道：我叫你吃！！把$N灌得头晕眼花，吃的都吐了出来。老顽童得意地笑了，又一溜烟地跑了。\n"NOR,me);
+		message_vision(HIC + "$N正要挖什么，突然老顽童跑了过来，邪恶地笑了一下，猛然从身后取出一支茯苓，望$N嘴中灌过去，口中叫道：我叫你吃！！把$N灌得头晕眼花，吃的都吐了出来。老顽童得意地笑了，又一溜烟地跑了。\n" + NOR,me);
 	else:
 		if query("count") > 0 :
 			message_vision("$N挖了一会儿，挖到一颗首乌。当下坐下，吃将起来。\n",me);
@@ -61,7 +60,7 @@ func do_full():
 	var me;
 	me=this_player();
 	if me.query("water") >= me.max_water_capacity():
-		message_vision( HIY"$N意犹未尽地拍了拍肚子，手伸向蜂巢——突然惨叫一声，整个人都跳了起来，只见整只手都膨胀起来。\n"NOR,me);
+		message_vision( HIY + "$N意犹未尽地拍了拍肚子，手伸向蜂巢——突然惨叫一声，整个人都跳了起来，只见整只手都膨胀起来。\n" + NOR,me);
 	else:
 		if (query("count") > 0):
 			message_vision("$N从蜂巢中取了些蜂浆，喝了起来。\n",me);
@@ -74,8 +73,8 @@ func do_getmi():
 	var me;
 	me=this_player();
 	if me.query_temp("marks/getmi") :
-		message_vision(HIY"$N欢叫一声，从蜂巢中取出一罐蜜。\n"NOR,me);
+		message_vision(HIY + "$N欢叫一声，从蜂巢中取出一罐蜜。\n" + NOR,me);
 		new("/d/baihuagu/obj/mi").move(me);
 		me.set_temp("marks/getmi",0);
 	else :
-		message_vision( HIR"$N嘿嘿一笑，贼忒兮兮地向蜂巢凑去，正要有所行动，突听嗡的几声，几只玉蜂从里面冲将而出，把$N蜇得满头大包！\n"NOR,me);
+		message_vision( HIR + "$N嘿嘿一笑，贼忒兮兮地向蜂巢凑去，正要有所行动，突听嗡的几声，几只玉蜂从里面冲将而出，把$N蜇得满头大包！\n" + NOR,me);

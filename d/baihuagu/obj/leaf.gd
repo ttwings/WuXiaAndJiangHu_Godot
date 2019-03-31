@@ -2,7 +2,7 @@ extends Item
 #include <ansi.h>
 # inherit ITEM;
 func create():
-	set_name(HIM + "桃花" + NOR,"leaf", "flower");
+	set_name(HIM + "桃花" + NOR,"leaf");
 	set_weight(80);
 	# if (clonep())
 	# 	set_default_object(__FILE__);
@@ -11,5 +11,5 @@ func create():
 	set("unit", "枝");
 	set("value", 100);
 
-func _init():
-	create()	
+# func _init():
+# 	create()	

@@ -7,7 +7,7 @@ func create():
 	set_name_cn(HIY + "玉蜂" + NOR, "yu bee");
 	set("race", "昆虫");
 	set("subrace", "飞虫");
-	seteuid(getuid());
+	setuid(getuid());
 	set("age", 1);
 	set("long", "这是一群玉色的蜜蜂，个头比普通蜜蜂大得多，\n");
 	set("attitude", "peaceful");

@@ -40,9 +40,12 @@ var map_file = File.new()
 # 4  5  6
 # 7  8  9 
 var neighbor_rooms = {}
+# ------------------ test -------------------------
 var food
+var npc
 
 func _ready():
+	# 初始房间. 等角色创建登录功能完成后.这里根据角色的home 属性,设置.
 	current_room = Global.load_room("res://d/changan/shuyuan.gd")
 	# 不同方向的房间房间太多,后期考虑精简. up 与 north  west up 和 north west等.
 	rooms.current = $Rooms/room
@@ -75,18 +78,19 @@ func _ready():
 	food = load("res://clone/food/apple.gd").new()
 	object_panel(food)
 	player = Global.this_player()
-	# print_debug(player is GameObject)
 	player.carry_object("/clone/food/apple")
-#	print_debug(player.dbase["objects"])
-	print_debug(player.objects)
 	character_panel(player)
+#	npc test 对话
+	npc = load("res://d/baihuagu/npc/zhou.gd").new()
+	creat_chat_panel(npc)
+#  	链接房间按钮.
 	pressed_connect()
 
 # 信号链接一次就好
 func pressed_connect():
 	for direct in rooms:	
 		rooms[direct].connect("pressed",self,"move_to_room",[direct])
-
+# 生成出口
 func creat_exits(room:GameObject,neighbor_rooms):
 	var x
 	var line = Line2D.new()
@@ -96,7 +100,7 @@ func creat_exits(room:GameObject,neighbor_rooms):
 	for direct in exits:
 		if exits[direct] :
 			neighbor_room_creat(room,direct,neighbor_rooms)	
-			
+# 生成相邻房间			
 func neighbor_room_creat(room,direct,neighbor_rooms):
 #	print(exits[direct] + ".gd")
 	var exits = room.query("exits")
@@ -106,7 +110,7 @@ func neighbor_room_creat(room,direct,neighbor_rooms):
 	rooms[direct].get_child(0).bbcode_text = "[center]" + neighbor_rooms[direct].query("short") +"[/center]"
 #	rooms[direct].get_child().(neighbor_rooms[direct].query("short"))
 	pass			
-
+# 房间之间的移动
 func move_to_room(direct):
 	current_room = neighbor_rooms[direct]
 	neighbor_rooms = {}
@@ -117,37 +121,30 @@ func move_to_room(direct):
 	$RoomPanel/VBoxContainer/Description.bbcode_text = current_room.query("long")
 	pass
 
-		
-func notify_fail(message:String):
-	$AcceptDialog.show()
-	$AcceptDialog.dialog_text = message
-	pass
-	
-func message_ob(msg,ob):
-	$ObjectMessage/RichTextLabel.bbcode_text = msg
+
 #  object panel 	
 func object_panel(ob:GameObject):
-#		$ObjectRect.show()
-		$ObjectRect/Name.bbcode_text = ob.query("name")
-		$ObjectRect/Type.text = ob.query("type")
-		$ObjectRect/Description.bbcode_text = ob.query("long")
-		var props = []
-		var prop_nodes = []
-		prop_nodes.append($ObjectRect/GridContainer/Prop1)
-		prop_nodes.append($ObjectRect/GridContainer/Prop2)
-		prop_nodes.append($ObjectRect/GridContainer/Prop3)
-		prop_nodes.append($ObjectRect/GridContainer/Prop4)
-		prop_nodes.append($ObjectRect/GridContainer/Prop5)
-		prop_nodes.append($ObjectRect/GridContainer/Prop6)
-		prop_nodes.append($ObjectRect/GridContainer/Prop7)
-		prop_nodes.append($ObjectRect/GridContainer/Prop8)
-		
-		props = creat_props(ob)
-		for i in props.size() :
-#			if props[i]:
-#			var path = "ObjectRect/GridContainer/Prop" + str(1)
-			prop_nodes[i].show()
-			prop_nodes[i].text = props[i]
+#	$ObjectRect.show()
+	$ObjectRect/Name.bbcode_text = ob.query("name")
+	$ObjectRect/Type.text = ob.query("type")
+	$ObjectRect/Description.bbcode_text = ob.query("long")
+	var props = []
+	var prop_nodes = []
+	prop_nodes.append($ObjectRect/GridContainer/Prop1)
+	prop_nodes.append($ObjectRect/GridContainer/Prop2)
+	prop_nodes.append($ObjectRect/GridContainer/Prop3)
+	prop_nodes.append($ObjectRect/GridContainer/Prop4)
+	prop_nodes.append($ObjectRect/GridContainer/Prop5)
+	prop_nodes.append($ObjectRect/GridContainer/Prop6)
+	prop_nodes.append($ObjectRect/GridContainer/Prop7)
+	prop_nodes.append($ObjectRect/GridContainer/Prop8)
+	
+	props = creat_props(ob)
+	for i in props.size() :
+#		if props[i]:
+#		var path = "ObjectRect/GridContainer/Prop" + str(1)
+		prop_nodes[i].show()
+		prop_nodes[i].text = props[i]
 	
 func creat_props(ob:GameObject):
 	var props = []
@@ -184,36 +181,37 @@ func creat_props(ob:GameObject):
 
 # cha panel
 
-func character_panel(ob:GameObject):
-	#		$CharacterRect.show()
-			$CharacterPanel/PropContainer/HBoxContainer/VBoxContainer/Nackname.bbcode_text = ob.query("name")
-			$CharacterPanel/PropContainer/HBoxContainer/VBoxContainer/Title.text = ob.query("titile")
-			$CharacterPanel/PropContainer/HBoxContainer/VBoxContainer/Nackname.text = ob.query("nackname")
-#			$CharacterRect/Description.bbcode_text = ob.query("long")
-			var props = []
-			var prop_nodes = []
-			prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop1)
-			prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop2)
-			prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop3)
-			prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop4)
-			prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop5)
-			prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop6)
-			prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop7)
-			prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop8)
+func character_panel(ob:Char):
+	#$CharacterRect.show()
+	$CharacterPanel/PropContainer/HBoxContainer/VBoxContainer/Name.bbcode_text = ob.query("name")
+	$CharacterPanel/PropContainer/HBoxContainer/VBoxContainer/Title.text = ob.query("titile")
+	$CharacterPanel/PropContainer/HBoxContainer/VBoxContainer/Nackname.text = ob.query("nackname")
+#	$CharacterRect/Description.bbcode_text = ob.query("long")
+	var props = []
+	var prop_nodes = []
+	prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop1)
+	prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop2)
+	prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop3)
+	prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop4)
+	prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop5)
+	prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop6)
+	prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop7)
+	prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop8)
 #
-			props = creat_character_props(ob)
-			for i in props.size() :
-	#			if props[i]:
-	#			var path = "CharacterRect/GridContainer/Prop" + str(1)
-				prop_nodes[i].show()
-				prop_nodes[i].bbcode_text = props[i]
+	props = creat_character_props(ob)
+	for i in props.size() :
+	#	if props[i]:
+	#	var path = "CharacterRect/GridContainer/Prop" + str(1)
+		prop_nodes[i].show()
+		prop_nodes[i].bbcode_text = props[i]
 		
-func creat_character_props(ob:GameObject):
+func creat_character_props(ob:Char):
 	var props = []
 	for k in ob.dbase:
 		match k:
 			"str":
-				props.append(GRN + "臂力:" + "[" + str(ob.query(k)) + "]" + NOR)
+#				props.append(GRN + "臂力:" + "[" + str(ob.query(k)) + "]" + NOR)
+				props.append("臂力:" + str(ob.query(k)))
 			"int":
 				props.append("悟性:" + str(ob.query(k)))
 			"con":
@@ -224,8 +222,14 @@ func creat_character_props(ob:GameObject):
 				props.append("容貌:" + str(ob.query(k)))
 			"cps":
 				props.append("福源:" + str(ob.query(k)))
-			"max_liquid":
-				props.append("容量:" + str(ob.query(k)))
+#			"food":
+#				props.append("食物:" + str(ob.query(k)))
+#			"water":
+#				props.append("饮水:" + str(ob.query(k)))
+#			"max_liquid":
+#				props.append("容量:" + str(ob.query(k)))
+#			"max_liquid":
+#				props.append("容量:" + str(ob.query(k)))
 			"liquid":
 				var liquid = ob.query("liquid")
 				for k in liquid:
@@ -241,7 +245,16 @@ func creat_character_props(ob:GameObject):
 	return props
 
 #------------------------------------- signl	
-
+# 消息的接受与发送		
+func notify_fail(message:String):
+	$AcceptDialog.show()
+	$AcceptDialog.dialog_text = message
+	pass
+	
+func message_ob(msg,ob):
+	$ObjectMessage/RichTextLabel.bbcode_text = msg
+	
+	
 func _process(delta):
 #	$RichTextLabelCharacter.bbcode_text = character_panel(me)
 	player_status(player)
@@ -254,25 +267,65 @@ func player_status(player):
 	var max_jing = player.query("max_jing")
 	var neili = player.query("neili")
 	var max_neili = player.query("max_neili")
+	var food = player.query("food")
+	var water = player.query("water")
+	var max_food = player.query("str")*3 + 300
+	var max_water = 300
 	$ActorStatus/VBoxContainer/Qibox/ProgressBar.value = int(qi)
-	$ActorStatus/VBoxContainer/Qibox/ProgressBar.max_value = max_qi
+	$ActorStatus/VBoxContainer/Qibox/ProgressBar.max_value = int(max_qi)
 	$ActorStatus/VBoxContainer/Qibox/Label2.text = "[" + str(qi) + "/" + str(max_qi) + "]"
-	$ActorStatus/VBoxContainer/Jingbox/ProgressBar.value  = jing
-	$ActorStatus/VBoxContainer/Jingbox/ProgressBar.max_value  = max_jing
+	$ActorStatus/VBoxContainer/Jingbox/ProgressBar.value  = int(jing)
+	$ActorStatus/VBoxContainer/Jingbox/ProgressBar.max_value  = int(max_jing)
 	$ActorStatus/VBoxContainer/Jingbox/Label2.text  = "[" + str(jing) + "/" + str(max_jing) + "]"
-	$ActorStatus/VBoxContainer/Neibox/ProgressBar.value = neili
-	$ActorStatus/VBoxContainer/Neibox/ProgressBar.max_value = max_neili
+	$ActorStatus/VBoxContainer/Neibox/ProgressBar.value = int(neili)
+	$ActorStatus/VBoxContainer/Neibox/ProgressBar.max_value = int(max_neili)
 	$ActorStatus/VBoxContainer/Neibox/Label2.text  = "[" + str(neili) + "/" + str(max_neili) + "]"
-	$ActorStatus/VBoxContainer/FoodBox/ProgressBar.value = player.query("food")
-	$ActorStatus/VBoxContainer/WaterBox/ProgressBar.value = player.query("water")
+	$ActorStatus/VBoxContainer/FoodBox/ProgressBar.value = int(food)
+	$ActorStatus/VBoxContainer/FoodBox/ProgressBar.max_value = max_food
+	$ActorStatus/VBoxContainer/FoodBox/Label2.text  = "[" + str(food) + "/" + str(max_food) + "]"
+	$ActorStatus/VBoxContainer/WaterBox/ProgressBar.value = int(water)
+	$ActorStatus/VBoxContainer/WaterBox/ProgressBar.max_value = max_water
+#	$ActorStatus/VBoxContainer/Waterbox/Label2.text  = "[" + str(water) + "/" + str(max_water) + "]"
 
-var player_objects = {}
-func init_player_objects(player):
-	var objects = player.query("objects")
-	for ob in objects:
-		player_objects[ob] = player.carry_object(objects[ob])
+# 初始化玩家物品栏.
+# 进入游戏后.玩家的objects里面由路径变为对象.
+# 待定,当有需要的时候,再进行转化.
+
+#var player_objects = {}
+#func init_player_objects(player):
+#	var objects = player.query("objects")
+#	for ob in objects:
+#		if objects[ob] is GameObject :
+#			continue
+#		else:
+#			player_objects[ob] = player.carry_object(objects[ob])
 	
+# ----------------------------------------------------- 对话窗口 -------------------------------------
+# 根据人物信息显示基本窗口
+func creat_chat_panel(actor:Char,key:String = ""):
+	$CharacterPanel.show()
+	$ChatMessagePanel/ChatMessage/names.bbcode_text = actor.query("nickname") + "\n"  + actor.name()+ "\n" + actor.query("title")
+	$ChatMessagePanel/ChatMessage/Description.bbcode_text = actor.query("long")
+#	$ChatMessagePanel/ChatMessage/Chat.bbcode_text = "九阴真经\n" + actor.query("inquiry")["九阴真经"]
+#	create_chat_inquiry(actor,"九阴真经")
+	creat_chat_inquiry_button(actor.query("inquiry"))
+# 根据对话判断生成各种功能
+# 深入判断看自己是否有了解到的内容.
 
+func create_chat_inquiry(inquiry,key):
+#	var inquiry = actor.query("inquiry")
+	if inquiry and inquiry.has(key):
+		$ChatMessagePanel/ChatMessage/Chat.bbcode_text ="[" +  key  + "]\n" + inquiry[key]
+
+func creat_chat_inquiry_button(inquiry):
+	for i in inquiry :
+		var action_button = Button.new()
+		action_button.text = i
+		action_button.rect_min_size = Vector2(200,30)
+		action_button.connect("pressed",self,"create_chat_inquiry",[inquiry,i])
+		$ChatMessagePanel/Actions.add_child(action_button)
+		
+		
 
 func _on_ChatClose_pressed():
 	$ChatMessagePanel.hide()
@@ -297,10 +350,11 @@ func _on_ObjectRectButton_pressed():
 
 func _on_ItemList_item_selected(list):
 	var item = $CharacterPanel/PropContainer/ItemList.get_item_text(list)
-	var objs = player.objects
+	var objs = player.query("objects")
+	print_debug(objs)
 	var ob
 	for o in objs:
-		ob = load(o).new()
+		ob = o
 	print_debug(ob)	
 	object_panel(ob)
 	$ObjectRect.show()

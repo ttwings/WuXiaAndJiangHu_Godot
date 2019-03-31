@@ -17,20 +17,23 @@ func do_eat(player):
 #	if( (int)this_player().query("food") >=
 #		(int)this_player().max_food_capacity() )
 #		return notify_fail("你已经吃太饱了，再也塞不下任何东西了。\n");
-
-	Global.this_player().add("food_test", 30);
-	print(query("food_test"))
-	print_debug(Global.this_player().query("food_test"))
+#
+#	Global.this_player().add("food_test", 30);
+#	print(query("food_test"))
+#	print_debug(Global.this_player().query("food_test"))
 #	if( this_player().is_fighting() ) this_player().start_busy(2);
 #
 #	// This allows customization of drinking effect.
 #	if( query("eat_func") ) return 1;
 #
 	set("value", 0);
+	# if query("food_remaining") == 0 :
+		
 	if query("food_remaining") > 0 :
 		add("food_remaining", -1);
-		print_debug(self.query("food"))
-		Global.this_player().add("food",self.query("food"))
+		print_debug("food",query("food_supply"))
+		Global.this_player().add("food",query("food_supply"))
+#		print_debug(Global.this_player.query("food"))
 	if( query("food_remaining") == 0 ):
 		return message_vision("$N将剩下的"+name()+"吃得干干净净。\n",player);
 #		if( !this_object().finish_eat() ):

@@ -1,10 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://new_theme.tres" type="Theme" id=1]
-[ext_resource path="res://ProgressButton.gd" type="Script" id=2]
+[ext_resource path="res://controls/ProgressButton.gd" type="Script" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
-
 bg_color = Color( 0.6, 0.6, 0.6, 0.611765 )
 corner_radius_top_left = 4
 corner_radius_top_right = 4
@@ -12,19 +11,16 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id=2]
-
 bg_color = Color( 0.6, 0.6, 0.6, 0.615686 )
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="ProgressButton" type="Button"]
+[node name="ProgressButton" type="Control"]
 margin_right = 97.0
 margin_bottom = 33.0
 theme = ExtResource( 1 )
-text = "动作"
-flat = true
 script = ExtResource( 2 )
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
@@ -33,7 +29,14 @@ anchor_bottom = 1.0
 theme = ExtResource( 1 )
 custom_styles/fg = SubResource( 1 )
 custom_styles/bg = SubResource( 2 )
-value = 50.0
 percent_visible = false
 
-[connection signal="pressed" from="." to="." method="_on_ProgressButton_pressed"]
+[node name="Button" type="Button" parent="ProgressBar"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+text = "狮子吼"
+flat = true
+
+[connection signal="pressed" from="ProgressBar/Button" to="." method="_on_Button_pressed"]

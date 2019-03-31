@@ -63,7 +63,7 @@ func create():
 	set_temp("apply/damage", 15);
 	setup();
 
-	carry_object("/clone/cloth/cloth").wear();
+#	carry_object("/clone/cloth/cloth").wear();
 
 func accept_object(who:GameObject, ob:GameObject):
 	# if (ob.query("id") == "du she")

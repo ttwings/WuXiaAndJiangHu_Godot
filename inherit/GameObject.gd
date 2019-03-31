@@ -40,19 +40,14 @@ signal message_room_sended(msg,room)
 # 基本属性
 #var name_cn
 #var weight
-var dbase = {objects : {}}
-var objects = {}
+var dbase = {"objects" : {}}
 var temp_dbase = {}
-
-# 门派
-var family = {}
-# 携带的物品
-var objs = {}
 
 #TODO call func
 var actions = {}
 
 func _init():
+	create()
 	pass
 
 func set_dbase(dbase):
@@ -68,6 +63,11 @@ func add_action(fun:String,key:String,ob=self):
 func set_name_cn(value1:String,value2:String):
 	dbase.name = value1
 	dbase.id = value2
+
+func set_name(value1:String,value2:String):
+	dbase.name = value1
+	dbase.id = value2
+
 	
 func name():
 	return dbase.name
@@ -78,30 +78,32 @@ func set_weight(value:int):
 func set(key:String,value):
 	dbase[key] = value
 	
-func add(key:String,value):
-	if dbase.has(key):
-		if dbase[key] is Dictionary:
-			if dbase[key].has(key):
-				dbase[key] = dbase[key] + value
-			else:
-				dbase[key] = value
+func add(key,value):
+	# var dbase = get_dbase()
+	if key == "objects":
+#		if dbase[key] is Dictionary:
+#			if dbase[key].has(value):
+##				dbase[key][value] = dbase[key][value] + 1
+#				dbase[key][value] =  1
+#			else:
+#				dbase[key][value] =  1
+#		else:
+#			dbase[key] = int(dbase[key]) + int(value)
+		if dbase.has(key):
+			dbase[key][value] = dbase[key][value] + 1
 		else:
-			dbase[key] = int(dbase[key]) + int(value)
+			dbase[key] = {}
+			dbase[key][value] = 1
+#		dbase[key] = value
 	else:
-		dbase.key = value	
+		dbase[key] = dbase[key] + value	
 
 func add_temp(key:String,value):
-	# temp_dbase[key] = temp_dbase[key] + value
-	set_temp(key,query(key) + value)
+	temp_dbase[key] = temp_dbase[key] + value
+	# set_temp(key,query(key) + value)
 	
 func set_temp(key:String,value):
 	temp_dbase[key] = value
-	
-# 实例化物品	
-# TODO
-#func carry_object(path:String):
-#	var obj = get_node(path)
-#	objs.append(obj)
 		
 func query_temp(key:String):
 	if temp_dbase.has(key) :
@@ -111,7 +113,7 @@ func query_temp(key:String):
 		
 func query(key:String):
 	if	dbase.has(key) :
-		return dbase[key]
+		return get_dbase()[key]
 	else:
 		return ""		
 	pass
@@ -127,17 +129,14 @@ func setuid(id):
 func setup():
 	setuid(getuid())
 
-
 # 各类信息发送
 func message_vision(message:String,ob:GameObject):
 	# TODO
 #	print_debug(ob.query("name") + message)
 	var msg = message
 	var str_n = ob.query("name")
-	msg = msg.replace("$N",str_n).replace("李","孙")
-#	msg = msg.replace("李","孙")
-	print_debug(msg)
-	emit_signal("message_ob_sended",msg,ob)
+	msg = msg.replace("$N",str_n)
+	# emit_signal("message_ob_sended",msg,ob)
 	return msg
 
 func tell_object(who:GameObject,msg:String):
@@ -145,9 +144,11 @@ func tell_object(who:GameObject,msg:String):
 	print_debug(who.name,msg)	
 	
 # 销毁这件物品	
+var destruct = false
 func destruct(ob=self):
 	# TODO
-#	queue_free()
+	destruct = true
+	ob.queue_free()
 #	ob = null
 	pass	
 	
@@ -161,7 +162,10 @@ func this_player():
 # todo
 func new_ob(path:String):
 	var obj
-	obj = load("res:/" + path + ".gd").new()
+	if path.find("res:/")>0 and path.find(".gd",-1)>0 :
+		obj = load(path).new() 
+	else:
+		obj = load("res:/" + path + ".gd").new()
 	obj.set_temp("environment",self)
 	return obj
 	
@@ -175,9 +179,8 @@ func move(to:GameObject):
 	self.add("environment",to.file_name())
 	pass	
 	
-func move_object(ob=self,dest):
+func move_object(ob=self,dest=self):
 	dest.add("objects",ob.file_name())
-
 		
 func dir(ob = self):
 	return ob.get_script().get_path().get_base_dir() + "/"	
@@ -190,7 +193,6 @@ func strsrch(string1,string2):
 	print_debug(result)
 	return result
 
-# 	obj2=present("mi", this_object());
 # 返回物品
 # todo
 func present(name:String,to):

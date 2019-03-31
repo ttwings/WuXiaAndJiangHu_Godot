@@ -9,11 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node",
-"class": "Battler",
-"language": "GDScript",
-"path": "res://battler.gd"
-}, {
 "base": "GameObject",
 "class": "Char",
 "language": "GDScript",
@@ -64,13 +59,17 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://skills/Skill.gd"
 }, {
+"base": "Char",
+"class": "User",
+"language": "GDScript",
+"path": "res://inherit/char/User.gd"
+}, {
 "base": "Node",
 "class": "Weapon",
 "language": "GDScript",
 "path": "res://inherit/weapon/Weapon.gd"
 } ]
 _global_script_class_icons={
-"Battler": "",
 "Char": "",
 "DmgObj": "",
 "Equip": "",
@@ -81,6 +80,7 @@ _global_script_class_icons={
 "Npc": "",
 "Room": "",
 "Skill": "",
+"User": "",
 "Weapon": ""
 }
 

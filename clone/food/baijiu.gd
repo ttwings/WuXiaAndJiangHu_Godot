@@ -16,7 +16,3 @@ func create():
         "remaining": 15,
         "drunk_supply": 15,
      });
-	
-
-func _init():
-	create()

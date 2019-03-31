@@ -4,11 +4,9 @@
 [ext_resource path="res://assets/graphics/faces/0.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-
 extents = Vector2( 16, 16 )
 
 [sub_resource type="Animation" id=2]
-
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -24,7 +22,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=3]
-
 resource_name = "left"
 length = 0.8
 tracks/0/type = "value"
@@ -41,7 +38,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-
 resource_name = "right"
 length = 0.8
 tracks/0/type = "value"
@@ -58,7 +54,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=5]
-
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")

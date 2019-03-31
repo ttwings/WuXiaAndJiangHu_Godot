@@ -26,17 +26,15 @@ func save_current_rooms():
 		ResourceSaver.save(path,all_current_rooms[path])		
 
 # 从数据字典,生成角色
-func creat_user(dbase):
-	var user = User.new()
-	for k in dbase:
-		user.set(k,dbase[k])
-	return user
-	pass
+func creat_user(file):
+	var user = load(file).new()
+	var player = Char.new()
+	player.dbase = user.dbase
+	return player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	user_class = load("res://data/user/l/lijia.gd").new()
-	player = creat_user(user_class.dbase)
+	player = creat_user("res://data/user/l/lijia.gd")
 	pass # Replace with function body.
 
 func save():
@@ -171,11 +169,4 @@ func swap_to_font(number):
 
 # 返回当前玩家
 func this_player():
-	var user = load("res://data/user/l/lijia.gd").new()
-	var player = Char.new()
-	player.dbase = user.dbase
-
-	# for i in dbase.dbase :
-	# 	char.add(i,dbase.dbase)
-	# 	print_debug(i,dbase.dbase)
 	return player
