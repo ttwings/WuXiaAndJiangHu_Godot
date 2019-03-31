@@ -5,14 +5,14 @@
 [ext_resource path="res://new_theme.tres" type="Theme" id=3]
 [ext_resource path="res://uis/TimeLine.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/graphics/ui/ui_p.png" type="Texture" id=5]
-[ext_resource path="res://assets/fonts/SourceHanSerifCN-Medium.otf" type="DynamicFontData" id=6]
-[ext_resource path="res://assets/graphics/icons/002.png" type="Texture" id=7]
-[ext_resource path="res://assets/graphics/faces/0.png" type="Texture" id=8]
-[ext_resource path="res://assets/graphics/icons/525.png" type="Texture" id=9]
-[ext_resource path="res://assets/graphics/icons/016.png" type="Texture" id=10]
-[ext_resource path="res://assets/graphics/icons/067.png" type="Texture" id=11]
-[ext_resource path="res://assets/graphics/faces/297.png" type="Texture" id=12]
-[ext_resource path="res://assets/graphics/faces/2.png" type="Texture" id=13]
+[ext_resource path="res://assets/graphics/faces/297.png" type="Texture" id=6]
+[ext_resource path="res://assets/graphics/faces/2.png" type="Texture" id=7]
+[ext_resource path="res://assets/fonts/SourceHanSerifCN-Medium.otf" type="DynamicFontData" id=8]
+[ext_resource path="res://assets/graphics/icons/002.png" type="Texture" id=9]
+[ext_resource path="res://assets/graphics/faces/0.png" type="Texture" id=10]
+[ext_resource path="res://assets/graphics/icons/525.png" type="Texture" id=11]
+[ext_resource path="res://assets/graphics/icons/016.png" type="Texture" id=12]
+[ext_resource path="res://assets/graphics/icons/067.png" type="Texture" id=13]
 [ext_resource path="res://assets/graphics/faces/64.png" type="Texture" id=14]
 
 [sub_resource type="TileSet" id=1]
@@ -244,13 +244,13 @@
 size = 12
 outline_size = 1
 outline_color = Color( 0.466667, 0.466667, 0.466667, 1 )
-font_data = ExtResource( 6 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 12
 outline_size = 1
 outline_color = Color( 0.196078, 0.196078, 0.196078, 1 )
-font_data = ExtResource( 6 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.952941, 0.145098, 0.12549, 1 )
@@ -317,7 +317,7 @@ corner_radius_top_left = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="DynamicFont" id=12]
-font_data = ExtResource( 6 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="StyleBoxFlat" id=13]
 
@@ -326,13 +326,13 @@ size = 12
 outline_size = 1
 outline_color = Color( 0.386719, 0.386719, 0.386719, 1 )
 use_mipmaps = true
-font_data = ExtResource( 6 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=15]
-font_data = ExtResource( 6 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=16]
-font_data = ExtResource( 6 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="StyleBoxFlat" id=17]
 bg_color = Color( 0, 0, 0, 1 )
@@ -343,7 +343,7 @@ outline_size = 1
 outline_color = Color( 0.301961, 0.294118, 0.294118, 1 )
 use_mipmaps = true
 use_filter = true
-font_data = ExtResource( 6 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="StyleBoxFlat" id=19]
 bg_color = Color( 0.32549, 0.278431, 0.254902, 1 )
@@ -943,7 +943,6 @@ color = Color( 0, 0, 0, 0.560784 )
 position = Vector2( 304.625, 3.25802 )
 
 [node name="RoomPanel" type="NinePatchRect" parent="."]
-editor/display_folded = true
 margin_left = 1.0
 margin_top = 1.0
 margin_right = 293.0
@@ -953,6 +952,20 @@ patch_margin_left = 8
 patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
+
+[node name="Objects" type="VBoxContainer" parent="RoomPanel"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = 5.0
+margin_top = 10.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 20 )
+theme = ExtResource( 3 )
+
+[node name="Button" type="Button" parent="RoomPanel/Objects"]
+margin_right = 60.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 60, 30 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="RoomPanel"]
 anchor_right = 1.0
@@ -976,7 +989,7 @@ text = "百花谷"
 [node name="Description" type="RichTextLabel" parent="RoomPanel/VBoxContainer"]
 margin_top = 34.0
 margin_right = 276.0
-margin_bottom = 242.0
+margin_bottom = 238.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 3 )
@@ -984,6 +997,105 @@ bbcode_enabled = true
 bbcode_text = "这里是一座极大的菜园，种满了油菜，萝卜，茄子，丝瓜之类。周围的篱笆都破了，看来要整修了。菜园旁有几口大缸，里面盛满了水，可是菜地看起来都干裂了，几棵菜蔫蔫的长着，是缺水太多了"
 text = "这里是一座极大的菜园，种满了油菜，萝卜，茄子，丝瓜之类。周围的篱笆都破了，看来要整修了。菜园旁有几口大缸，里面盛满了水，可是菜地看起来都干裂了，几棵菜蔫蔫的长着，是缺水太多了"
 scroll_following = true
+
+[node name="Items" type="HBoxContainer" parent="RoomPanel/VBoxContainer"]
+editor/display_folded = true
+margin_top = 242.0
+margin_right = 276.0
+margin_bottom = 242.0
+theme = ExtResource( 3 )
+
+[node name="Button" type="Button" parent="RoomPanel/VBoxContainer/Items"]
+visible = false
+margin_right = 12.0
+margin_bottom = 30.0
+
+[node name="RoomMessage" type="NinePatchRect" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 0.0505371
+margin_top = 261.0
+margin_right = 298.051
+margin_bottom = 572.0
+theme = ExtResource( 3 )
+texture = ExtResource( 5 )
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RoomMessage"]
+editor/display_folded = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -8.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="RoomMessage/VBoxContainer"]
+margin_right = 282.0
+margin_bottom = 161.0
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+bbcode_enabled = true
+
+[node name="ActorList" type="ItemList" parent="RoomMessage/VBoxContainer"]
+margin_top = 165.0
+margin_right = 282.0
+margin_bottom = 261.0
+rect_min_size = Vector2( 0, 96 )
+theme = ExtResource( 3 )
+items = [ "管家", ExtResource( 6 ), false, "孙悟", ExtResource( 7 ), false ]
+max_columns = 6
+same_column_width = true
+icon_mode = 0
+fixed_icon_size = Vector2( 48, 48 )
+
+[node name="Actions" type="HBoxContainer" parent="RoomMessage/VBoxContainer"]
+margin_top = 265.0
+margin_right = 282.0
+margin_bottom = 295.0
+custom_constants/separation = 12
+alignment = 2
+
+[node name="ActionButton1" type="Button" parent="RoomMessage/VBoxContainer/Actions"]
+margin_left = 30.0
+margin_right = 58.0
+margin_bottom = 30.0
+theme = ExtResource( 3 )
+text = "吃"
+
+[node name="ActionButton2" type="Button" parent="RoomMessage/VBoxContainer/Actions"]
+margin_left = 70.0
+margin_right = 114.0
+margin_bottom = 30.0
+theme = ExtResource( 3 )
+text = "动作"
+
+[node name="ActionButton3" type="Button" parent="RoomMessage/VBoxContainer/Actions"]
+margin_left = 126.0
+margin_right = 170.0
+margin_bottom = 30.0
+theme = ExtResource( 3 )
+text = "动作"
+
+[node name="ActionButton4" type="Button" parent="RoomMessage/VBoxContainer/Actions"]
+margin_left = 182.0
+margin_right = 226.0
+margin_bottom = 30.0
+theme = ExtResource( 3 )
+text = "动作"
+
+[node name="ActionButton5" type="Button" parent="RoomMessage/VBoxContainer/Actions"]
+margin_left = 238.0
+margin_right = 282.0
+margin_bottom = 30.0
+theme = ExtResource( 3 )
+text = "动作"
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="."]
 editor/display_folded = true
@@ -1319,6 +1431,7 @@ margin_bottom = 132.0
 theme = ExtResource( 3 )
 
 [node name="ObjectRect" type="NinePatchRect" parent="."]
+editor/display_folded = true
 margin_left = 505.0
 margin_top = 162.0
 margin_right = 797.0
@@ -1374,7 +1487,7 @@ anchor_right = 1.0
 margin_left = -96.0
 margin_top = 10.0
 margin_right = -292.0
-texture = ExtResource( 7 )
+texture = ExtResource( 9 )
 
 [node name="GridContainer" type="GridContainer" parent="ObjectRect"]
 editor/display_folded = true
@@ -1386,8 +1499,8 @@ columns = 2
 
 [node name="Prop1" type="RichTextLabel" parent="ObjectRect/GridContainer"]
 visible = false
-margin_right = 136.0
-margin_bottom = 30.0
+margin_right = 273.0
+margin_bottom = 121.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 3 )
@@ -1479,7 +1592,6 @@ text = "属性1"
 scroll_following = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ObjectRect"]
-editor/display_folded = true
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1564,7 +1676,7 @@ margin_bottom = 89.0
 [node name="Head" type="TextureRect" parent="CharacterPanel/PropContainer/HBoxContainer"]
 margin_right = 86.0
 margin_bottom = 89.0
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CharacterPanel/PropContainer/HBoxContainer"]
 margin_left = 90.0
@@ -1709,7 +1821,7 @@ margin_bottom = 527.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 16 )
-items = [ "苹果", ExtResource( 9 ), false, "第1项", ExtResource( 10 ), false, "第2项", ExtResource( 11 ), false ]
+items = [ "苹果", ExtResource( 11 ), false, "第1项", ExtResource( 12 ), false, "第2项", ExtResource( 13 ), false ]
 auto_height = true
 fixed_icon_size = Vector2( 32, 32 )
 
@@ -1749,94 +1861,6 @@ margin_bottom = -8.0
 theme = ExtResource( 3 )
 bbcode_enabled = true
 scroll_following = true
-
-[node name="RoomMessage" type="NinePatchRect" parent="."]
-editor/display_folded = true
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 0.0505371
-margin_top = 261.0
-margin_right = 298.051
-margin_bottom = 572.0
-theme = ExtResource( 3 )
-texture = ExtResource( 5 )
-patch_margin_left = 8
-patch_margin_top = 8
-patch_margin_right = 8
-patch_margin_bottom = 8
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="RoomMessage"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 8.0
-margin_right = -8.0
-margin_bottom = -8.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="RoomMessage/VBoxContainer"]
-margin_right = 282.0
-margin_bottom = 161.0
-size_flags_vertical = 3
-theme = ExtResource( 3 )
-bbcode_enabled = true
-
-[node name="ActorList" type="ItemList" parent="RoomMessage/VBoxContainer"]
-margin_top = 165.0
-margin_right = 282.0
-margin_bottom = 261.0
-rect_min_size = Vector2( 0, 96 )
-theme = ExtResource( 3 )
-items = [ "管家", ExtResource( 12 ), false, "孙悟", ExtResource( 13 ), false ]
-max_columns = 6
-same_column_width = true
-icon_mode = 0
-fixed_icon_size = Vector2( 48, 48 )
-
-[node name="Actions" type="HBoxContainer" parent="RoomMessage/VBoxContainer"]
-editor/display_folded = true
-margin_top = 265.0
-margin_right = 282.0
-margin_bottom = 295.0
-custom_constants/separation = 12
-alignment = 2
-
-[node name="ActionButton1" type="Button" parent="RoomMessage/VBoxContainer/Actions"]
-margin_left = 30.0
-margin_right = 58.0
-margin_bottom = 30.0
-theme = ExtResource( 3 )
-text = "吃"
-
-[node name="ActionButton2" type="Button" parent="RoomMessage/VBoxContainer/Actions"]
-margin_left = 70.0
-margin_right = 114.0
-margin_bottom = 30.0
-theme = ExtResource( 3 )
-text = "动作"
-
-[node name="ActionButton3" type="Button" parent="RoomMessage/VBoxContainer/Actions"]
-margin_left = 126.0
-margin_right = 170.0
-margin_bottom = 30.0
-theme = ExtResource( 3 )
-text = "动作"
-
-[node name="ActionButton4" type="Button" parent="RoomMessage/VBoxContainer/Actions"]
-margin_left = 182.0
-margin_right = 226.0
-margin_bottom = 30.0
-theme = ExtResource( 3 )
-text = "动作"
-
-[node name="ActionButton5" type="Button" parent="RoomMessage/VBoxContainer/Actions"]
-margin_left = 238.0
-margin_right = 282.0
-margin_bottom = 30.0
-theme = ExtResource( 3 )
-text = "动作"
 
 [node name="ChatMessagePanel" type="VBoxContainer" parent="."]
 editor/display_folded = true

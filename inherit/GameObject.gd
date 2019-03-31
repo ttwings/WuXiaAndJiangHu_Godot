@@ -207,5 +207,10 @@ func start_busy(time):
 #	yield,"timeout")
 	pass
 
+func notify_fail(message:String):
+	print_debug(message)
+	return message
+	pass	
+
 func create():
 	pass	

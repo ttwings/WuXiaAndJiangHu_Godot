@@ -2,6 +2,17 @@ extends GameObject
 
 class_name Char
 
+
+# -------------- props ----------
+var max_food_capacity
+var max_water_capacity
+func max_food_capacity():
+	max_food_capacity = query("str") * 5 + 300
+	return max_food_capacity
+
+func max_water_capacity():
+	max_food_capacity = query("int") * 5 + 300
+	return max_food_capacity
 	
 var skills = {}
 var test_skills = {}
@@ -28,6 +39,8 @@ func query_skill(skill:String,key:String):
 		return skills[skill][key]
 	else:
 		return false
+		
+		
 
 # ---------------------------- family ----------------------	
 var family = {}

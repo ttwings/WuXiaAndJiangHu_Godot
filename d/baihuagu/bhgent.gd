@@ -20,7 +20,7 @@ HIW + "这里是白茫茫的一片雪地，" + NOR + "远处山峰层峦迭嶂�
 	set("coor/z", 0);
 	# setup();
 	# replace_program(ROOM);
-	print_debug(__DIR__)
+#	print_debug(__DIR__)
 
 func _init():
 	create()

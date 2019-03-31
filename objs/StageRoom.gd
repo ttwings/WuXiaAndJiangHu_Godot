@@ -119,8 +119,13 @@ func move_to_room(direct):
 	creat_exits(current_room,neighbor_rooms)
 	$RoomPanel/VBoxContainer/RoomName.bbcode_text = "[center]" + current_room.query("short") +"[/center]"
 	$RoomPanel/VBoxContainer/Description.bbcode_text = current_room.query("long")
+#	生成房间固定物品 如牌子类
+	create_room_items()
+#	生成房间包含对象,如物品,人物等
+	create_room_objects()
 	pass
 
+	
 
 #  object panel 	
 func object_panel(ob:GameObject):
@@ -269,8 +274,8 @@ func player_status(player):
 	var max_neili = player.query("max_neili")
 	var food = player.query("food")
 	var water = player.query("water")
-	var max_food = player.query("str")*3 + 300
-	var max_water = 300
+	var max_food = player.max_food_capacity()
+	var max_water = player.max_water_capacity()
 	$ActorStatus/VBoxContainer/Qibox/ProgressBar.value = int(qi)
 	$ActorStatus/VBoxContainer/Qibox/ProgressBar.max_value = int(max_qi)
 	$ActorStatus/VBoxContainer/Qibox/Label2.text = "[" + str(qi) + "/" + str(max_qi) + "]"
@@ -324,8 +329,51 @@ func creat_chat_inquiry_button(inquiry):
 		action_button.rect_min_size = Vector2(200,30)
 		action_button.connect("pressed",self,"create_chat_inquiry",[inquiry,i])
 		$ChatMessagePanel/Actions.add_child(action_button)
-		
-		
+# -------------------------------------------------------------room 内物品互动 ------------		
+# 根据房间信息生成互动物品
+func create_room_items():
+	var room = current_room
+	var items = room.query("item_desc")
+	if !items :
+		for i in $RoomPanel/VBoxContainer/Items.get_child_count():
+			var button = $RoomPanel/VBoxContainer/Items.get_child(0)
+			$RoomPanel/VBoxContainer/Items.remove_child(button)
+		return
+	for i in items :
+		var item_button = Button.new()
+		item_button.text = i
+		item_button.rect_min_size = Vector2(30,30)
+		item_button.connect("pressed",self,"create_room_item_desc",[items,i])
+		$RoomPanel/VBoxContainer/Items.add_child(item_button)		
+
+func create_room_item_desc(items,key):
+	if items and items.has(key):
+		$RoomMessage/VBoxContainer/RichTextLabel.bbcode_text ="[" +  key  + "]\n" + items[key]
+
+# 生成房间内的 objects 
+
+func create_room_objects():
+	var room = current_room
+	var objects = room.query("objects")
+	if !objects :
+		for i in $RoomPanel/Objects.get_child_count():
+			var button = $RoomPanel/Objects.get_child(0)
+			$RoomPanel/Objects.remove_child(button)
+		return
+	for o in objects :
+		var obj_button = Button.new()
+		print_debug(o + ".gd")
+		var object = load(o + ".gd").new()
+		obj_button.text = object.name()
+		obj_button.rect_min_size = Vector2(30,30)
+		obj_button.connect("pressed",self,"create_room_object_panel",[objects,o])
+		$RoomPanel/Objects.add_child(obj_button)			
+
+func create_room_object_panel(objects,o):
+	if objects and objects.has(o):
+#		object_panel(o)
+		print_debug("object_panel")
+
 
 func _on_ChatClose_pressed():
 	$ChatMessagePanel.hide()
