@@ -2,10 +2,10 @@ extends GameObject
 
 class_name Weapon
 
-#// weapon.c
-#// Last Modified by winder on Feb. 28 2001
-#// "damage" = sharpness
-#// "rigidity" according to damage but need consider of weapon type
+## weapon.c
+## Last Modified by winder on Feb. 28 2001
+## "damage" = sharpness
+## "rigidity" according to damage but need consider of weapon type
 #
 ##include <weapon.h>
 ##include <ansi.h>
@@ -16,9 +16,9 @@ class_name Weapon
 #inherit EQUIP;
 ##endif
 
-#// axe.c
+## axe.c
 
-#varargs void init_axe(int damage, int flag)
+#func init_axe(int damage, int flag)
 #{
 #	set("weapon_prop/damage", damage);
 #	set("flag", (int)flag | EDGED | SECONDARY);
@@ -30,13 +30,13 @@ class_name Weapon
 #	}
 #}
 #
-#// blade.c
+## blade.c
 #
-#varargs void init_blade(int damage, int flag)
+#func init_blade(int damage, int flag)
 #{
 #	set("weapon_prop/damage", damage);
 #	set("flag", (int)flag | EDGED | SECONDARY);
-#//	set("flag", 2);
+##	set("flag", 2);
 #	set("skill_type", "blade");
 #	set("rigidity", (int)(damage/3));
 #	if( !query("actions") ) {
@@ -45,13 +45,13 @@ class_name Weapon
 #	}
 #}
 #
-#// club.c
+## club.c
 #
-#varargs void init_club(int damage, int flag)
+#func init_club(int damage, int flag)
 #{
 #	set("weapon_prop/damage", damage);
 #	set("flag", (int)flag | LONG | SECONDARY);
-#//	set("flag", 1);
+##	set("flag", 1);
 #	set("skill_type", "club");
 #	set("rigidity", (int)(damage/5));
 #	if( !query("actions") ) {
@@ -60,13 +60,13 @@ class_name Weapon
 #	}
 #}
 #
-#// dagger.c
+## dagger.c
 #
-#varargs void init_dagger(int damage, int flag)
+#func init_dagger(int damage, int flag)
 #{
 #	set("weapon_prop/damage", damage);
 #	set("flag", flag | EDGED | SECONDARY );
-#//	set("flag", 0);
+##	set("flag", 0);
 #	set("skill_type", "dagger");
 #	set("rigidity", (int)(damage/4));
 #	if( !query("actions") ) {
@@ -75,13 +75,13 @@ class_name Weapon
 #	}
 #}
 #
-#// fork.c
+## fork.c
 #
-#varargs void init_fork(int damage, int flag)
+#func init_fork(int damage, int flag)
 #{
 #	set("weapon_prop/damage", damage);
 #	set("flag", (int)flag | POINTED | SECONDARY);
-#//	set("flag", 1);
+##	set("flag", 1);
 #	set("skill_type", "fork");
 #	set("rigidity", (int)(damage/3));
 #	if( !query("actions") ) {
@@ -90,13 +90,13 @@ class_name Weapon
 #	}
 #}
 #
-#// hammer.c
+## hammer.c
 #
-#varargs void init_hammer(int damage, int flag)
+#func init_hammer(int damage, int flag)
 #{
 #	set("weapon_prop/damage", damage);
 #	set("flag", flag | SECONDARY);
-#//	set("flag", 2);
+##	set("flag", 2);
 #	set("skill_type", "hammer");
 #	set("rigidity", (int)(damage/2));
 #	if( !query("actions") ) {
@@ -105,9 +105,9 @@ class_name Weapon
 #	}
 #}
 #
-#// hook.c
+## hook.c
 #
-#varargs void init_hook(int damage, int flag)
+#func init_hook(int damage, int flag)
 #{
 #	set("weapon_prop/damage", damage);
 #	set("flag", (int)flag | EDGED | SECONDARY);
@@ -119,13 +119,13 @@ class_name Weapon
 #	}
 #}
 #
-#// spear.c
+## spear.c
 #
-#varargs void init_spear(int damage, int flag)
+#func init_spear(int damage, int flag)
 #{
 #	set("weapon_prop/damage", damage);
 #	set("flag", (int)flag | LONG | SECONDARY);
-#//	set("flag", 1);
+##	set("flag", 1);
 #	set("skill_type", "spear");
 #	set("rigidity", (int)(damage/4));
 #	if( !query("actions") ) {
@@ -134,13 +134,13 @@ class_name Weapon
 #	}
 #}
 #
-#// staff.c
+## staff.c
 #
-#varargs void init_staff(int damage, int flag)
+#func init_staff(int damage, int flag)
 #{
 #	set("weapon_prop/damage", damage);
 #	set("flag", (int)flag | LONG | SECONDARY);
-#//	set("flag", 1);
+##	set("flag", 1);
 #	set("skill_type", "staff");
 #	set("rigidity", (int)(damage/3));
 #	if( !query("actions") ) {
@@ -149,13 +149,13 @@ class_name Weapon
 #	}
 #}
 #
-#// stick.c
+## stick.c
 #
-#varargs void init_stick(int damage, int flag)
+#func init_stick(int damage, int flag)
 #{
 #	set("weapon_prop/damage", damage);
 #	set("flag", (int)flag | LONG | SECONDARY);
-#//	set("flag", 1);
+##	set("flag", 1);
 #	set("skill_type", "stick");
 #	set("rigidity", (int)(damage/4));
 #	if( !query("actions") ) {
@@ -164,28 +164,25 @@ class_name Weapon
 #	}
 #}
 #
-#// sword.c
+## sword.c
 #
-#varargs void init_sword(int damage, int flag)
-#{
-#	set("weapon_prop/damage", damage);
+func init_sword(damage:int, flag:int):
+	set("weapon_prop/damage", damage);
 #	set("flag", (int)flag | EDGED | SECONDARY);
-#//	set("flag", 2);
-#	set("skill_type", "sword");
-#	set("rigidity", (int)(damage/4));
-#	if( !query("actions") ) {
+#	set("flag", 2);
+	set("skill_type", "sword");
+	set("rigidity", damage/4);
+	if( !query("actions") ):
 #		set("actions", (: call_other, WEAPON_D, "query_action" :) );
-#		set("verbs", ({ "slash", "slice", "thrust" }) );
-#	}
-#}
+		set("verbs", ["slash", "slice", "thrust" ] );
 #
-#// throwing.c
+## throwing.c
 #
-#varargs void init_throwing(int damage, int flag)
+#func init_throwing(int damage, int flag)
 #{
 #	set("weapon_prop/damage", damage);
 #	set("flag", (int)flag | SECONDARY);
-#//	set("flag", 8);
+##	set("flag", 8);
 #	set("skill_type", "throwing");
 #	set("rigidity", (int)(damage/6));
 #	if( !query("actions") ) {
@@ -194,27 +191,24 @@ class_name Weapon
 #	}
 #}
 #
-#// whip.c
+## whip.c
 #
-#varargs void init_whip(int damage, int flag)
-#{
-#	set("weapon_prop/damage", damage);
-#	set("flag", flag );
-#//	set("flag", 2);
-#	set("skill_type", "whip");
-#	set("rigidity", (int)(damage/3));
-#	if( !query("actions") ) {
+func init_whip(damage, flag):
+	set("weapon_prop/damage", damage);
+	set("flag", flag );
+# #	set("flag", 2);
+	set("skill_type", "whip");
+	set("rigidity", damage/3);
+	if( !query("actions") ) :
 #		set("actions", (: call_other, WEAPON_D, "query_action" :) );
-#		set("verbs", ({ "whip" }) );
-#	}
-#}
+		set("verbs", ["whip" ]);
 
-func this_object():
-	return self
+# func this_object():
+# 	return self
 	
-func this_player():
-#	返回当前操作角色
-	pass
+# func this_player():
+# #	返回当前操作角色
+# 	pass
 
 func set_desc(w_lv:int,w_or:String,w_name:String):
 	var weapon : GameObject
@@ -252,29 +246,29 @@ func set_desc(w_lv:int,w_or:String,w_name:String):
 		1,2,3:
 			result3 = "但似乎威力还没有开发出来，是习武之人常用的练武兵器。兵刃晃动，恍若" + HIC + "清波澹澹。\n" + NOR;
 		4,5,6:
-			result3 = "但似乎威力并不很大，象是江湖人常用的护身兵刃。兵刃晃动，恍若" + HIC + "秋水无痕。\n" + + NOR;
+			result3 = "但似乎威力并不很大，象是江湖人常用的护身兵刃。兵刃晃动，恍若" + HIC + "秋水无痕。\n" + NOR;
 		7,8,9:
-			result3 = "隐隐的散发着一丝令人不安的气息。兵刃晃动，恍若" + HIC + "朔风出塞。\n" + + NOR;
+			result3 = "隐隐的散发着一丝令人不安的气息。兵刃晃动，恍若" + HIC + "朔风出塞。\n" + NOR;
 		10,11,12:
-			result3 = "散发着一丝令人不安的气息, 显然普通兵器已不能和他相比了。兵刃晃动，恍若" + HIC + "白羽飘零。\n" + + NOR;
+			result3 = "散发着一丝令人不安的气息, 显然普通兵器已不能和他相比了。兵刃晃动，恍若" + HIC + "白羽飘零。\n" + NOR;
 		13,14,15:
 			result3 = "向外散发着一丝迷蒙的雾气，竟有一种霸气散发了出来。兵刃晃动，恍若"+ HIC +"霜冷长河。\n"+ NOR;
-			break;
+#			break;
 		16,17,18:
 			result3 = "一股霸气直冲霄汉，直叫神惊鬼泣。兵刃晃动，恍若"+ HIC +"雪落无声。\n"+ NOR;
-			break;
+#			break;
 		19,20,21:
 			result3 = "霸气似乎有所收敛，但更多的是有了一股骇人的戾气。兵刃晃动，恍若"+ HIC +"寒潭惊雁。\n"+ NOR;
-			break;
+#			break;
 		22,23,24:
 			result3 = "冲天的戾气叫人看了不由心惊胆战，不愿再看第二眼。兵刃晃动，恍若"+ HIC +"九天龙吟。\n"+ NOR;
-			break;
+#			break;
 		25,26,27:
 			result3 = "戾气似乎削减了不少，一股温和的王者之气透了出来。兵刃晃动，恍若"+ HIC +"青虹贯日。\n"+ NOR;
-			break;
+#			break;
 		28,29,30:
 			result3 = "一股温和的王者之气悠悠的散发了出来。兵刃晃动，恍若"+ HIC +"冷月断魂。\n"+ NOR;
-			break;
+#			break;
 		_:
 			result3 = "一种庄严，温和，凛然而不可侵犯的气息让人不敢有一丝亵渎之意, 它已经返朴归真，成为真正的上古神兵。兵刃晃动，直欲" + HIC +"气冲斗牛。\n"+ NOR;
 	result4="上面用小篆刻着一行小字：\n\t"+player_name+"铸于"+make_time+"\n";

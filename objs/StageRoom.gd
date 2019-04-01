@@ -309,6 +309,7 @@ func player_status(player):
 # 根据人物信息显示基本窗口
 func creat_chat_panel(actor:Char,key:String = ""):
 	$CharacterPanel.show()
+	print_debug("chat panel message")
 	$ChatMessagePanel/ChatMessage/names.bbcode_text = actor.query("nickname") + "\n"  + actor.name()+ "\n" + actor.query("title")
 	$ChatMessagePanel/ChatMessage/Description.bbcode_text = actor.query("long")
 #	$ChatMessagePanel/ChatMessage/Chat.bbcode_text = "九阴真经\n" + actor.query("inquiry")["九阴真经"]
@@ -363,16 +364,23 @@ func create_room_objects():
 	for o in objects :
 		var obj_button = Button.new()
 		print_debug(o + ".gd")
-		var object = load(o + ".gd").new()
-		obj_button.text = object.name()
+		var ob = load(o + ".gd").new()
+		obj_button.text = ob.name()
 		obj_button.rect_min_size = Vector2(30,30)
-		obj_button.connect("pressed",self,"create_room_object_panel",[objects,o])
+		obj_button.connect("pressed",self,"create_room_object_panel")
 		$RoomPanel/Objects.add_child(obj_button)			
 
-func create_room_object_panel(objects,o):
-	if objects and objects.has(o):
+func create_room_object_panel():
+#	ob as Char
+	var ob = load("res://d/changan/npc/feng.gd").new()
+	creat_chat_panel(ob)
+#	if ob is Char:
+#		creat_chat_panel(o)
+#	elif ob is Item:
+#		object_panel(objects[o])
 #		object_panel(o)
-		print_debug("object_panel")
+#		creat_chat_panel(objects[o])
+	print_debug("object_panel")
 
 
 func _on_ChatClose_pressed():

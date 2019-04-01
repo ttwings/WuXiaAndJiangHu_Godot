@@ -1,13 +1,12 @@
-// dasao.c 
+# // dasao.c 
 
-inherit NPC;
-inherit F_DEALER;
-
-void create()
-{
-	set_name("?¡è¡ì???", ({"da sao", "sao"}));
+# inherit NPC;
+# inherit F_DEALER;
+extends Npc
+func create():
+	set_name("??","da sao");
 	set("age", 32);
-	set("gender", "????€¡ì");
+	set("gender", "??");
 	set("per", 20);
 	set("attitude", "friendly");
 
@@ -15,19 +14,17 @@ void create()
 	set_skill("unarmed", 10);
 	set_skill("dodge", 10);
 
-	set("vendor_goods", ({
-		__DIR__"obj/taoyong",
-		__DIR__"obj/zhuan",
-		__DIR__"obj/wa",
-	}));
+	set("vendor_goods",{
+		__DIR__ + "obj/taoyong",
+		__DIR__ + "obj/zhuan",
+		__DIR__ + "obj/wa",
+	});
 	setup();
 	carry_object("/clone/misc/cloth")->wear();
 	add_money("silver", 2);
-}
 
-void init()
-{	
+func _init():
+	create()
 	add_action("do_buy", "buy");
 	add_action("do_list", "list");
-}
 

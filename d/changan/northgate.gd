@@ -16,8 +16,9 @@ func create  ():
 		"south"  :  __DIR__ + "northroad1",
 	});
 	set("objects",  {
-		"/d/city/npc/wujiang"  :  1,
-		"/d/city/npc/bing"  :  3,
+		
+		__DIR__ + "npc/wujiang"  :  1,
+		__DIR__ + "npc/bing"  :  3,
 	});
 	set("outdoors",  "changan");
 	set("no_clean_up",  0);

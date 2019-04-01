@@ -81,21 +81,18 @@ func wield():
 #				owner.set_temp("secondary_weapon", this_object());
 # add from xyj
 				owner.set_temp("secondary_weapon", this_object());
-				if(old_weapon.query("apply/skill_type") &&
-					old_weapon.query("apply/skill_type") ==
-					this_object().query("apply/skill_type") &&
-					old_weapon.query("skill_type") != 
-					this_object().query("skill_type") ):
+				if(old_weapon.query("apply/skill_type") && old_weapon.query("apply/skill_type") ==this_object().query("apply/skill_type") &&old_weapon.query("skill_type") != this_object().query("skill_type") ):
 				# {
 					owner.set_temp("use_apply_action", 1);
 					old_weapon.set_temp("use_apply_skill", 1);
 				# }
 # end of add from xyj
 			# If we can switch our old weapon to secondary weapon ?
-			} elif:( (int)old_weapon.query("flag") & SECONDARY ) {
-				old_weapon.unequip();
-				owner.set_temp("weapon", this_object());
-				old_weapon.wield();
+			# } 	
+				elif( (int)old_weapon.query("flag") & SECONDARY ) :
+					old_weapon.unequip();
+					owner.set_temp("weapon", this_object());
+					old_weapon.wield();
 
 			# We need unwield our old weapon before we can use this one.
 			} else

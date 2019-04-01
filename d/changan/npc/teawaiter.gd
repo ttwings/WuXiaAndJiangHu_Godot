@@ -1,13 +1,13 @@
-// teawaiter.c 
-inherit NPC;
-inherit F_DEALER;
+# teawaiter.c 
+# inherit NPC;
+# inherit F_DEALER;
 
-void create()
-{
-//	reload("teawaiter");
-	set_name("²è²©Ê¿", ({"cha boshi","waiter"}));
+extends Npc
+func create():
+#	reload("teawaiter");
+	set_name("èŒ¶åšå£«", "cha boshi");
 	set("shop_id", ({"boshi", "waiter"}));
-	set("gender", "ÄÐÐÔ");
+	set("gender", "ç”·æ€§");
 	set("class", "scholar");
 	set("combat_exp", 1000);
 	set("age", 26);
@@ -20,13 +20,11 @@ void create()
 		"/d/city/obj/jitui",
 	}) );
 	setup();
-	carry_object("/clone/misc/cloth")->wear();
-}
-void init()
-{
-	object ob;
+	carry_object("/clone/misc/cloth").wear();
 
-	::init();
+func _init():
+	# object ob;
+	create()
+	# ::init();
 	add_action("do_list", "list");
 	add_action("do_buy", "buy");
-}

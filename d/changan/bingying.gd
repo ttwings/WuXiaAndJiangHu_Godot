@@ -14,8 +14,8 @@ func create():
 		"west" : __DIR__ + "northroad2",
 	});
 	set("objects", {
-		"/d/city/npc/wujiang" : random(2) + 1,
-		"/d/city/npc/bing" : random(2) + 1,
+		__DIR__ + "npc/wujiang" : random(2) + 1,
+		__DIR__ + "npc/bing" : random(2) + 1,
 	});
 	set("outdoors", "changan");
 	set("coor/x", -5030);

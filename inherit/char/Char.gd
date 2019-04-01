@@ -51,9 +51,11 @@ func create_family(key:String,lvl:int,nack_name:String):
 
 func carry_object(path):
 	# if obj
-	var obj = load("res:/" + path + ".gd").new()
+#	var ob = load("res:/" + path + ".gd").new()
 #	self.dbase.objects[path] = obj
-	self.add("objects",obj)
+	self.add("objects",path)
+#	if ob is Weapon :
+#		self.set("weapon",ob)
 	print_debug(self.query("objects"))
 	pass
 	

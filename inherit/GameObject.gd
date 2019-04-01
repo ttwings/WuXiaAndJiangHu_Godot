@@ -79,24 +79,32 @@ func set(key:String,value):
 	dbase[key] = value
 	
 func add(key,value):
-	# var dbase = get_dbase()
-	if key == "objects":
-#		if dbase[key] is Dictionary:
-#			if dbase[key].has(value):
-##				dbase[key][value] = dbase[key][value] + 1
-#				dbase[key][value] =  1
-#			else:
-#				dbase[key][value] =  1
-#		else:
-#			dbase[key] = int(dbase[key]) + int(value)
-		if dbase.has(key):
+# 	# var dbase = get_dbase()
+# 	if key == "objects":
+# #		if dbase[key] is Dictionary:
+# #			if dbase[key].has(value):
+# ##				dbase[key][value] = dbase[key][value] + 1
+# #				dbase[key][value] =  1
+# #			else:
+# #				dbase[key][value] =  1
+# #		else:
+# #			dbase[key] = int(dbase[key]) + int(value)
+# 		if dbase.has(key):
+# 			dbase[key][value] = dbase[key][value] + 1
+# 		else:
+# 			dbase[key] = {}
+# 			dbase[key][value] = 1
+# #		dbase[key] = value
+# 	else:
+	if dbase.has(key):
+		if dbase[key] is int:
+			dbase[key] = dbase[key] + value
+		elif dbase[key] is Array:
+			dbase[key].append(value)
+		elif dbase[key] is Directory:
 			dbase[key][value] = dbase[key][value] + 1
-		else:
-			dbase[key] = {}
-			dbase[key][value] = 1
-#		dbase[key] = value
 	else:
-		dbase[key] = dbase[key] + value	
+		dbase[key] = value	
 
 func add_temp(key:String,value):
 	temp_dbase[key] = temp_dbase[key] + value
@@ -121,13 +129,14 @@ func query(key:String):
 # UID todo
 var uid = 0	
 func getuid():
-	return uid + 1
+	return .get_instance_id()
 
 func setuid(id):
 	uid = id		
 		
 func setup():
-	setuid(getuid())
+	# setuid(getuid())
+	pass
 
 # 各类信息发送
 func message_vision(message:String,ob:GameObject):
@@ -155,10 +164,19 @@ func destruct(ob=self):
 func random(n:int):
 	return randi()%n
 
+func sizeof(array):
+	return array.size()	
+
 func this_object():
 	return self	
+
+var player
+#func set_player(user:Char):
+#	player = user
 func this_player():
+	return player
 	pass	
+
 # todo
 func new_ob(path:String):
 	var obj
