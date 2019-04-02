@@ -1,6 +1,50 @@
-extends GameObject
+extends Equip
 
 class_name Weapon
+
+
+##include <weapon.h>
+const DEFAULT_WEAPON_LIMB =  "右手"
+
+const TWO_HANDED  =  1
+const SECONDARY   =  2
+const EDGED       =  4
+const POINTED     =  8
+const LONG        = 16
+
+const AXE         =  "/inherit/weapon/axe"           # 斧
+const BLADE       =  "/inherit/weapon/blade"         # 刀
+const CLUB        =  "/inherit/weapon/club"          # 棍
+const DAGGER      =  "/inherit/weapon/dagger"        # 矛
+const FORK        =  "/inherit/weapon/fork"          # 叉
+const HAMMER      =  "/inherit/weapon/hammer"        # 锤
+const HOOK        =  "/inherit/weapon/hook"          # 钩
+const MACE        =  "/inherit/weapon/mace"          # 鞭
+const RAKE        =  "/inherit/weapon/rake"          # 耙
+const SWORD       =  "/inherit/weapon/sword"         # 剑
+const STICK       =  "/inherit/weapon/stick"         # 棒
+const STAFF       =  "/inherit/weapon/staff"         # 杖
+const SPEAR       =  "/inherit/weapon/spear"         # 枪
+const THROWING    =  "/inherit/weapon/throwing"      # 暗器
+const WHIP        =  "/inherit/weapon/whip"          # 软鞭
+const M_WEAPON    =  "/inherit/weapon/weapon"        # 制造兵器
+
+const F_AXE       =  "/inherit/weapon/_axe"
+const F_BLADE     =  "/inherit/weapon/_blade"
+const F_CLUB      =  "/inherit/weapon/_club"
+const F_DAGGER    =  "/inherit/weapon/_dagger"
+const F_FORK      =  "/inherit/weapon/_fork"
+const F_HAMMER    =  "/inherit/weapon/_hammer"
+const F_HOOK      =  "/inherit/weapon/_hook"
+const F_MACE      =  "/inherit/weapon/_mace"
+const F_RAKE      =  "/inherit/weapon/_rake"
+const F_SWORD     =  "/inherit/weapon/_sword"
+const F_STICK     =  "/inherit/weapon/_stick"
+const F_STAFF     =  "/inherit/weapon/_staff"
+const F_SPEAR     =  "/inherit/weapon/_spear"
+const F_THROWING  =  "/inherit/weapon/_throwing"
+const F_WHIP      =  "/inherit/weapon/_whip"
+
 
 ## weapon.c
 ## Last Modified by winder on Feb. 28 2001

@@ -41,7 +41,7 @@ signal message_room_sended(msg,room)
 #var name_cn
 #var weight
 var dbase = {"objects" : {}}
-var temp_dbase = {}
+var tmp_dbase = {}
 
 #TODO call func
 var actions = {}
@@ -49,6 +49,94 @@ var actions = {}
 func _init():
 	create()
 	pass
+	
+func getuid():
+	return get_instance_id()
+	
+func setuid(uid):
+	set("uid",uid)		
+##################################################  dbase #################################
+var default_ob;
+
+func query_default_object():
+	return default_ob
+
+func set_default_object(ob):
+	if( !getuid() ) :
+		setuid(getuid());
+	default_ob = ob;
+	ob.add("no_clean_up", 1);
+
+func set(key:String,value):
+	dbase[key] = value
+	
+func add(key,value):
+
+	if dbase.has(key):
+		if dbase[key] is int:
+			dbase[key] = dbase[key] + value
+		elif dbase[key] is Array:
+			dbase[key].append(value)
+		elif dbase[key] is Directory:
+			dbase[key][value] = dbase[key][value] + 1
+	else:
+		dbase[key] = value	
+
+#func add(prop:String,data):
+#	# mixed old;
+#	var old
+#	if( !mapp(dbase) || !(old = query(prop, 1)) ):
+#		return set(prop, data);
+#
+#	# if( functionp(old) )
+#	# 	error("dbase: add() - called on a function type property.\n");
+#	return set(prop, old + data);
+
+func add_temp(prop:String, data):
+	var old;
+	old = query_temp(prop)
+	# if( !mapp(tmp_dbase) || !(old = query_temp(prop, 1)) )
+	if( !mapp(tmp_dbase) || !old ):
+		return set_temp(prop, data);
+	# if( functionp(old) )
+	# 	error("dbase: add_temp() - called on a function type property.\n");
+	return set_temp(prop, old + data);
+
+func delete(key):
+	if( !mapp(dbase) ) :
+		return 0;
+	dbase.ease(key)
+
+func delete_temp(key):
+	if( !mapp(tmp_dbase) ) :
+		return 0;
+	tmp_dbase.ease(key)
+
+func set_temp(prop:String,data):
+	if( !mapp(tmp_dbase) ):
+		tmp_dbase = {};
+	tmp_dbase[prop] = data
+		
+func query_temp(key:String):
+	if tmp_dbase.has(key) :
+		return tmp_dbase[key]
+	else:
+		return ""		
+		
+func query(key:String):
+	if	dbase.has(key) :
+		return get_dbase()[key]
+	else:
+		return ""		
+	pass
+
+func query_entire_dbase():
+	return dbase;
+
+func query_entire_temp_dbase():
+	return tmp_dbase;
+
+########################################   ##########################
 
 func set_dbase(dbase):
 	dbase = dbase
@@ -60,79 +148,10 @@ func add_action(fun:String,key:String,ob=self):
 	actions[key] = fun
 	pass	
 	
-func set_name_cn(value1:String,value2:String):
-	dbase.name = value1
-	dbase.id = value2
 
-func set_name(value1:String,value2:String):
-	dbase.name = value1
-	dbase.id = value2
-
-	
-func name():
-	return dbase.name
-			
 func set_weight(value:int):
 	dbase.weight = value
-
-func set(key:String,value):
-	dbase[key] = value
 	
-func add(key,value):
-# 	# var dbase = get_dbase()
-# 	if key == "objects":
-# #		if dbase[key] is Dictionary:
-# #			if dbase[key].has(value):
-# ##				dbase[key][value] = dbase[key][value] + 1
-# #				dbase[key][value] =  1
-# #			else:
-# #				dbase[key][value] =  1
-# #		else:
-# #			dbase[key] = int(dbase[key]) + int(value)
-# 		if dbase.has(key):
-# 			dbase[key][value] = dbase[key][value] + 1
-# 		else:
-# 			dbase[key] = {}
-# 			dbase[key][value] = 1
-# #		dbase[key] = value
-# 	else:
-	if dbase.has(key):
-		if dbase[key] is int:
-			dbase[key] = dbase[key] + value
-		elif dbase[key] is Array:
-			dbase[key].append(value)
-		elif dbase[key] is Directory:
-			dbase[key][value] = dbase[key][value] + 1
-	else:
-		dbase[key] = value	
-
-func add_temp(key:String,value):
-	temp_dbase[key] = temp_dbase[key] + value
-	# set_temp(key,query(key) + value)
-	
-func set_temp(key:String,value):
-	temp_dbase[key] = value
-		
-func query_temp(key:String):
-	if temp_dbase.has(key) :
-		return temp_dbase[key]
-	else:
-		return ""		
-		
-func query(key:String):
-	if	dbase.has(key) :
-		return get_dbase()[key]
-	else:
-		return ""		
-	pass
-
-# UID todo
-var uid = 0	
-func getuid():
-	return .get_instance_id()
-
-func setuid(id):
-	uid = id		
 		
 func setup():
 	# setuid(getuid())
@@ -160,9 +179,7 @@ func destruct(ob=self):
 	ob.queue_free()
 #	ob = null
 	pass	
-	
-func random(n:int):
-	return randi()%n
+
 
 func sizeof(array):
 	return array.size()	
@@ -199,12 +216,7 @@ func move(to:GameObject):
 	
 func move_object(ob=self,dest=self):
 	dest.add("objects",ob.file_name())
-		
-func dir(ob = self):
-	return ob.get_script().get_path().get_base_dir() + "/"	
 
-func file_name(ob = self):
-	return ob.get_script().get_path()
 
 func strsrch(string1,string2):
 	var result = string1.find(string2)
@@ -229,6 +241,107 @@ func notify_fail(message:String):
 	print_debug(message)
 	return message
 	pass	
+########################################  name ####################
+func set_name_cn(value1:String,value2:String):
+	dbase.name = value1
+	dbase.id = value2
 
+var my_id
+func set_name(name,id):
+	set("name", name);
+	set("id", id);
+	my_id = id;
+
+func name(raw=1):
+	var st
+	var mask;
+	mask = query_temp("apply/name")
+	if( !raw && sizeof(mask) ):
+		return mask[sizeof(mask)-1];
+	else:
+		st = query("name")
+		if( stringp(st) ):
+			return st;
+		else:
+			return file_name(this_object());
+func short(raw=1):
+	pass
+
+func long(raw=1):
+	var st
+	var extra
+	var mask;
+	mask = query_temp("apply/long")
+	if( !raw && sizeof(mask) ):
+		st = mask[sizeof(mask)-1];
+	elif( !stringp(query("long")) ):
+		st = short(raw) + "。\n";
+	
+	extra = this_object().extra_long()
+	if( stringp(extra) ):
+		st += extra;
+
+	return st;
+
+func extra_long():
+	# todo
+	pass	
+
+###################################### F clean up  ###########################
+#func clean_up():
+#	var inv;
+#	var i;
+#
+#	if( !clonep() && this_object().query("no_clean_up") ) :
+#		return 1;
+#
+#	if(interactive(this_object())) :
+#		return 1;
+#
+#	# If we are contained in something, let environment do the clean
+#	# up instead of making recursive call. This will prevent clean-up
+#	# time lag.
+#
+#	if(environment()) :
+#		return 1;
+#
+#	inv = all_inventory();
+#	# for(i=sizeof(inv)-1; i>=0; i--)
+#	for i in sizeof(inv):
+#		if(interactive(inv[i])) :
+#			return 1;
+#
+#	destruct(this_object());
+#	return 0;
+
+
+# ----------------------------------------- tools ------------------
+# func delete(key):
+# 	dbase.erase(key)
+
+# func delete_temp(key):
+# 	temp_dbase.erase(key)	
+			
+func random(n:int):
+	return randi()%n
+	
+func dir(ob = self):
+	return ob.get_script().get_path().get_base_dir() + "/"	
+
+func file_name(ob = self):
+	return ob.get_script().get_path()
+	
+func mapp(d):
+	return d is Dictionary
+	
+func stringp(s):
+	return s is String	
+
+	
+func undefinedp(u):
+	return !u		
+	
+func keys(d:Dictionary):
+	return d.keys()
 func create():
 	pass	
