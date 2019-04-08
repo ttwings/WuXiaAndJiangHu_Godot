@@ -24,7 +24,7 @@ func create():
 	setup();
 
 func recognize_apprentice(ob):
-	if ob.query_temp("mark/冯") ==  false :
+	if ob.query_temp("mark/冯") ==  false:
 		return 0;
 	ob.add_temp("mark/冯", -1);
 	return 1;

@@ -136,6 +136,25 @@ func query_entire_dbase():
 func query_entire_temp_dbase():
 	return tmp_dbase;
 
+########################################  move #####################################
+var weight : int = 0
+var encumb : int = 0
+var max_encumb : int = 0
+func query_encumbrance()-> int:
+	return encumb
+func over_encumbranced():
+	return encumb > max_encumb
+
+func query_max_encumbrance():
+	return max_encumb
+	
+func set_max_encumbrance(e:int):
+	max_encumb = e
+
+func add_encumbrance(w:int):
+	encumb += w
+	
+
 ########################################   ##########################
 
 func set_dbase(dbase):

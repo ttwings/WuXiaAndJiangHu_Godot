@@ -15,6 +15,7 @@ func create  ():
 	});
 	set("objects",  {
 		__DIR__ + "npc/feng" : 1,
+		"clone/food/apple" : 1
 	});
 	set("coor/x", -5030);
 	set("coor/y", 990);

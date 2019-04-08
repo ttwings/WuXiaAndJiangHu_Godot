@@ -943,6 +943,7 @@ color = Color( 0, 0, 0, 0.560784 )
 position = Vector2( 304.625, 3.25802 )
 
 [node name="RoomPanel" type="NinePatchRect" parent="."]
+editor/display_folded = true
 margin_left = 1.0
 margin_top = 1.0
 margin_right = 293.0
@@ -1011,6 +1012,7 @@ margin_right = 12.0
 margin_bottom = 30.0
 
 [node name="RoomMessage" type="NinePatchRect" parent="."]
+editor/display_folded = true
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 0.0505371
@@ -1432,6 +1434,7 @@ margin_bottom = 132.0
 theme = ExtResource( 3 )
 
 [node name="ObjectRect" type="NinePatchRect" parent="."]
+editor/display_folded = true
 margin_left = 505.0
 margin_top = 162.0
 margin_right = 797.0
@@ -1863,8 +1866,6 @@ bbcode_enabled = true
 scroll_following = true
 
 [node name="ChatMessagePanel" type="VBoxContainer" parent="."]
-editor/display_folded = true
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 403.0
@@ -1946,22 +1947,7 @@ margin_bottom = 240.0
 theme = ExtResource( 3 )
 custom_styles/normal = SubResource( 20 )
 bbcode_enabled = true
-bbcode_text = "		\"九阴真经\" : \"你再提这劳什子，我就不跟你玩了。\\n\",
-		\"瑛姑\"     : \"你知道她在哪儿吗？快，快告诉我。\",
-		\"蛇\"       : \"不要吓我，我最怕蛇了！\\n\",
-		\"拜把兄弟\" : \"提起我的拜把兄弟郭靖，他可是个大英雄。不过比起我来，嘻嘻。\",
-		\"郭靖\"     : \"提起我的拜把兄弟郭靖，他可是个大英雄。不过比起我来，嘻嘻。\",
-		\"黄蓉\"     : \"这小丫头鬼机灵，我比不过她。\""
-text = "		\"九阴真经\" : \"你再提这劳什子，我就不跟你玩了。\\n\",
-		\"瑛姑\"     : \"你知道她在哪儿吗？快，快告诉我。\",
-		\"蛇\"       : \"不要吓我，我最怕蛇了！\\n\",
-		\"拜把兄弟\" : \"提起我的拜把兄弟郭靖，他可是个大英雄。不过比起我来，嘻嘻。\",
-		\"郭靖\"     : \"提起我的拜把兄弟郭靖，他可是个大英雄。不过比起我来，嘻嘻。\",
-		\"黄蓉\"     : \"这小丫头鬼机灵，我比不过她。\""
 scroll_following = true
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="ChatClose" type="Button" parent="ChatMessagePanel/ChatMessage"]
 anchor_left = 1.0

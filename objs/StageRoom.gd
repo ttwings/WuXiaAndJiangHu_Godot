@@ -129,7 +129,8 @@ func move_to_room(direct):
 
 #  object panel 	
 func object_panel(ob:GameObject):
-#	$ObjectRect.show()
+	print_debug(ob.name())
+	$ObjectRect.show()
 	$ObjectRect/Name.bbcode_text = ob.query("name")
 	$ObjectRect/Type.text = ob.query("type")
 	$ObjectRect/Description.bbcode_text = ob.query("long")
@@ -307,29 +308,55 @@ func player_status(player):
 	
 # ----------------------------------------------------- 对话窗口 -------------------------------------
 # 根据人物信息显示基本窗口
-func creat_chat_panel(actor:Char,key:String = ""):
-	$CharacterPanel.show()
-	print_debug("chat panel message")
+func creat_chat_panel(actor:Char):
+	$ChatMessagePanel/ChatMessage/names.bbcode_text = ""
+	$ChatMessagePanel/ChatMessage/Description.bbcode_text = ""
+	$ChatMessagePanel/ChatMessage/Chat.bbcode_text = ""
+	$ChatMessagePanel.show()
+#	print_debug("chat panel message")
+	print_debug(actor.name())
 	$ChatMessagePanel/ChatMessage/names.bbcode_text = actor.query("nickname") + "\n"  + actor.name()+ "\n" + actor.query("title")
 	$ChatMessagePanel/ChatMessage/Description.bbcode_text = actor.query("long")
-#	$ChatMessagePanel/ChatMessage/Chat.bbcode_text = "九阴真经\n" + actor.query("inquiry")["九阴真经"]
-#	create_chat_inquiry(actor,"九阴真经")
-	creat_chat_inquiry_button(actor.query("inquiry"))
+	
+	creat_chat_inquiry_button(actor.query("inquiry"),actor)
+	print_debug("chat panel message")
 # 根据对话判断生成各种功能
 # 深入判断看自己是否有了解到的内容.
 
-func create_chat_inquiry(inquiry,key):
+func create_chat_inquiry(inquiry,key,ob):
 #	var inquiry = actor.query("inquiry")
+	
 	if inquiry and inquiry.has(key):
-		$ChatMessagePanel/ChatMessage/Chat.bbcode_text ="[" +  key  + "]\n" + inquiry[key]
+		if inquiry[key] is String:
+			$ChatMessagePanel/ChatMessage/Chat.bbcode_text ="[" +  key  + "]\n" + inquiry[key]
+		elif inquiry[key] is Array:
+			$ChatMessagePanel/ChatMessage/Chat.bbcode_text ="[" +  key  + "]\n" + inquiry_func(inquiry[key],ob)
+			pass
+#	else:
+#		$ChatMessagePanel/ChatMessage/Chat.bbcode_text = ""
+#		pass			
 
-func creat_chat_inquiry_button(inquiry):
-	for i in inquiry :
-		var action_button = Button.new()
-		action_button.text = i
-		action_button.rect_min_size = Vector2(200,30)
-		action_button.connect("pressed",self,"create_chat_inquiry",[inquiry,i])
-		$ChatMessagePanel/Actions.add_child(action_button)
+func creat_chat_inquiry_button(inquiry,ob=null):
+	if inquiry and inquiry.size()>0 :
+		for i in inquiry :
+			var action_button = Button.new()
+			action_button.text = i
+			action_button.rect_min_size = Vector2(200,30)
+			action_button.connect("pressed",self,"create_chat_inquiry",[inquiry,i,ob])
+			$ChatMessagePanel/Actions.add_child(action_button)
+	else:
+		var actions = $ChatMessagePanel/Actions
+		for each in actions.get_children():
+			each.queue_free()	
+
+func inquiry_func(array:Array,ob=null):
+	if ! ob :
+		ob = Global.this_player()
+		
+	var func_name = array[0]
+	# var args = array[1]
+	ob.call_func(func_name)
+			
 # -------------------------------------------------------------room 内物品互动 ------------		
 # 根据房间信息生成互动物品
 func create_room_items():
@@ -367,20 +394,22 @@ func create_room_objects():
 		var ob = load(o + ".gd").new()
 		obj_button.text = ob.name()
 		obj_button.rect_min_size = Vector2(30,30)
-		obj_button.connect("pressed",self,"create_room_object_panel")
+		obj_button.connect("pressed",self,"create_room_object_panel",[ob])
 		$RoomPanel/Objects.add_child(obj_button)			
 
-func create_room_object_panel():
+func create_room_object_panel(ob):
+	print_debug(ob.name())
 #	ob as Char
-	var ob = load("res://d/changan/npc/feng.gd").new()
-	creat_chat_panel(ob)
-#	if ob is Char:
-#		creat_chat_panel(o)
-#	elif ob is Item:
-#		object_panel(objects[o])
+#	var ob = load("res://d/changan/npc/feng.gd").new()
+#	creat_chat_panel(ob)
+	if ob is Char:
+		creat_chat_panel(ob)
+#	TODO all object except food use only 1 panel
+	elif ob is Food:
+		object_panel(ob)
 #		object_panel(o)
 #		creat_chat_panel(objects[o])
-	print_debug("object_panel")
+
 
 
 func _on_ChatClose_pressed():

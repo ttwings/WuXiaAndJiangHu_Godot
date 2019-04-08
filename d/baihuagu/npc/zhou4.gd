@@ -51,14 +51,14 @@ func create():
 	prepare_skill("cuff", "chunyang-quan");
 	prepare_skill("strike", "haotian-zhang");
 
-	set("inquiry", ([
+	set("inquiry", {
 		"九阴真经" : "你再提这劳什子，我就不跟你玩了。\n",
 		"瑛姑"     : "你知道她在哪儿吗？快，快告诉我。",
 		"蛇"       : "不要吓我，我最怕蛇了！\n",
 		"拜把兄弟" : "提起我的拜把兄弟郭靖，他可是个大英雄。不过比起我来，嘻嘻。",
 		"郭靖"     : "提起我的拜把兄弟郭靖，他可是个大英雄。不过比起我来，嘻嘻。",
 		"黄蓉"     : "这小丫头鬼机灵，我比不过她。",
-	]) );
+	} );
 	create_family("全真教", 1, "弟子");
 	set_temp("apply/attack", 50);
 	set_temp("apply/armor", 50);

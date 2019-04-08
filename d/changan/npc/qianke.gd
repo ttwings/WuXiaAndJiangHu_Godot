@@ -26,7 +26,6 @@ func  create():
     set("max_neili",  150);
     setup();
     carry_object(__DIR__ + "obj/magua").wear();
-}
 
 func  _init():
     # ::init();

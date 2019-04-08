@@ -7,7 +7,7 @@ extends Npc
 var apply_dancer(var me);
 var answer_leaving(var me);
 int  do_yes(arg);
-func do_something();
+
 
 func create():
 	set_name("公孙大娘",  ({"gongsun  daniang",  "gongsun",  "daniang"}));

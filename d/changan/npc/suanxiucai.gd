@@ -11,7 +11,8 @@ func create():
 	set("per",  22);
 	set("combat_exp",  8000);
 	set("shen_type",  1);
-	set("class",  "scholar");
+	# class change to class_
+	set("class_", "scholar");
 	set("force",  200);
 	set("max_force",  200);
 	set("force_factor",  3);

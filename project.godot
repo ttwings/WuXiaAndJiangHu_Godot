@@ -64,7 +64,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://inherit/char/User.gd"
 }, {
-"base": "GameObject",
+"base": "Equip",
 "class": "Weapon",
 "language": "GDScript",
 "path": "res://inherit/weapon/Weapon.gd"
@@ -166,6 +166,8 @@ B={
 
 [rendering]
 
+quality/intended_usage/framebuffer_allocation=0
+quality/intended_usage/framebuffer_allocation.mobile=1
 quality/2d/use_pixel_snap=true
 environment/default_environment="res://default_env.tres"
 
