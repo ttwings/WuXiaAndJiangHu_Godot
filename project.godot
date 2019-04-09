@@ -87,6 +87,7 @@ _global_script_class_icons={
 [application]
 
 config/name="WuXiaAndJiangHu"
+run/main_scene="res://objs/StageRoom.tscn"
 config/icon="res://icon.png"
 
 [autoload]

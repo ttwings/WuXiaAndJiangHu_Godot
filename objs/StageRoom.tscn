@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://objs/StageRoom.gd" type="Script" id=1]
 [ext_resource path="res://assets/graphics/tiles.png" type="Texture" id=2]
@@ -10,10 +10,7 @@
 [ext_resource path="res://assets/fonts/SourceHanSerifCN-Medium.otf" type="DynamicFontData" id=8]
 [ext_resource path="res://assets/graphics/icons/002.png" type="Texture" id=9]
 [ext_resource path="res://assets/graphics/faces/0.png" type="Texture" id=10]
-[ext_resource path="res://assets/graphics/icons/525.png" type="Texture" id=11]
-[ext_resource path="res://assets/graphics/icons/016.png" type="Texture" id=12]
-[ext_resource path="res://assets/graphics/icons/067.png" type="Texture" id=13]
-[ext_resource path="res://assets/graphics/faces/64.png" type="Texture" id=14]
+[ext_resource path="res://assets/graphics/faces/64.png" type="Texture" id=11]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tiles.png 0"
@@ -1653,7 +1650,6 @@ custom_fonts/font = SubResource( 12 )
 text = "X"
 
 [node name="CharacterPanel" type="NinePatchRect" parent="."]
-editor/display_folded = true
 margin_left = 972.0
 margin_top = 2.0
 margin_right = 1276.0
@@ -1824,7 +1820,6 @@ margin_bottom = 527.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 16 )
-items = [ "苹果", ExtResource( 11 ), false, "第1项", ExtResource( 12 ), false, "第2项", ExtResource( 13 ), false ]
 auto_height = true
 fixed_icon_size = Vector2( 32, 32 )
 
@@ -1915,7 +1910,7 @@ margin_left = 8.0
 margin_top = 8.0
 margin_right = 94.0
 margin_bottom = 97.0
-texture = ExtResource( 14 )
+texture = ExtResource( 11 )
 __meta__ = {
 "_edit_lock_": true
 }

@@ -409,7 +409,13 @@ func create_room_object_panel(ob):
 		object_panel(ob)
 #		object_panel(o)
 #		creat_chat_panel(objects[o])
-
+#	包裹ItemList 生成
+func create_itemlist(ob:Char):
+	var list = $CharacterPanel/PropContainer/ItemList
+	var objs = ob.query_temp("objects")
+	for ob in objs :
+		var item_str = ""
+		list.add(ob.name())
 
 
 func _on_ChatClose_pressed():
