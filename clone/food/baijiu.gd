@@ -15,4 +15,4 @@ func create():
         "name": "老白干",
         "remaining": 15,
         "drunk_supply": 15,
-     });
+    });

@@ -601,9 +601,6 @@ func keys(d:Dictionary):
 func sprintf(string,arg1=null,arg2=null):
 	string.format(arg1,arg2)
 
-# call out
-func call_out(func_name,time):
-	var timer = get_tree().create
 
 
 func create():

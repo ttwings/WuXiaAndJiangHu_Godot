@@ -1678,6 +1678,7 @@ margin_bottom = 89.0
 texture = ExtResource( 10 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CharacterPanel/PropContainer/HBoxContainer"]
+editor/display_folded = true
 margin_left = 90.0
 margin_right = 288.0
 margin_bottom = 89.0

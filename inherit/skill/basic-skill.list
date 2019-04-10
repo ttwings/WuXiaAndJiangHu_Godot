@@ -1,0 +1,33 @@
+主要武功
+force:		基本内功
+unarmed:	基本拳脚
+sword:		基本剑法
+blade:		基本刀法
+stick:		基本棍法
+staff:		基本杖法
+
+
+辅助武功
+dodge:		基本躲闪(轻功)
+parry:		基本招架
+throwing:	基本暗器
+poison:		基本毒功
+
+学问功夫
+literate:	基本学问
+buddhism:	基本佛法
+taoism:		基本道法
+
+人物数据
+attributes: "str", "int", "con", "dex"
+stats:
+"jing", "max_jing", "eff_jing", "jingli", "max_jingli", "eff_jingli", "jiajing"
+"qi", "max_qi", "eff_qi", "neili", "max_neili", "eff_neili", "jiali"
+
+"shen"
+"bellicosity"
+
+"food", "max_food"
+"water", "max_water"
+
+"potential", "mud_age", "birthday", "combat_exp"
