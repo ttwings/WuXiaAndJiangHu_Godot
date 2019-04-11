@@ -10,15 +10,15 @@ var encumb = 0
 var max_encumb = 0;
 # func listob(object *inv);
 func query_encumbrance():
-	return encumb; }
+	return encumb;
 func over_encumbranced():
 	return encumb > max_encumb;
 
 func query_max_encumbrance():
 	return max_encumb;
-func set_max_encumbrance(int e):
+func set_max_encumbrance(e:int):
 	max_encumb = e;
-func add_encumbrance(int w):
+func add_encumbrance(w:int):
 	encumb += w;
 	if( encumb < 0 ):
 		log_file("move.bug", sprintf("%O encumbrance underflow.\n", this_object()));
@@ -48,7 +48,7 @@ func set_weight(w):
 func weight() :
 	return weight + encumb;
 
-func move(mixed dest, int silently):
+func move(dest, silently:int):
 	object ob, env, *inv, me = this_object(), where = environment();
 	mapping exits;
 	string str, *dirs, time = NATURE_D.game_time();

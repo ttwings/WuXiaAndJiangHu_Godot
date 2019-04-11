@@ -5,17 +5,17 @@
 # inherit EQUIP;
 extends Armor
 
-func setup():
-	if( clonep(this_object()) ):
-		return;
+class_name Cloth
 
+func setup():
 	set("armor_type", TYPE_CLOTH);
-	if( !query("armor_apply/dodge")
-			&&	weight() > 3000 ):
+	if( !query("armor_apply/dodge") &&	weight() > 3000 ):
 		set("armor_prop/dodge", - weight() / 3000 );
 
-func init():
-	add_action("do_tear", "tear");
+func _init() -> void:	
+	setup()
+	create()
+	# add_action("do_tear", "tear");
 
 # func do_tear(string str):
 # 	var ob;

@@ -62,6 +62,11 @@ func carry_object(path):
 	
 #func create():
 #	pass
+
+############################### tool ############
+
+func is_character():
+	return true
 #
 func _init():
 #	skills = {}

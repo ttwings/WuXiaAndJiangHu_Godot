@@ -173,21 +173,13 @@ func this_player():
 
 #################################  延迟调用  ##############################
 # call out
-var call_funcs = {}
-func call_out(func_name,time):
-	if call_funcs.has(func_name) and call_funcs[func_name]>0:
-		call_funcs[func_name] += time
-	else:
-		call_funcs[func_name] = time
 
-func remove_call_out(func_name):
-	if call_funcs.has(func_name) and call_func[func_name] <= 0:
-		call_funcs.erase(func_name)
+
 	
-func update_call(delta):
-	# var delta = get_process_delta_time()
-	for c in call_funcs :
-		call_funcs[c] -= delta
+#func update_call(delta):
+#	# var delta = get_process_delta_time()
+#	for c in call_funcs :
+#		call_funcs[c] -= delta
 #		if call_funcs[c] <= 0 :
-#			call_func(c)
+##			call_func(c)
 #			call_funcs.erase(c)	

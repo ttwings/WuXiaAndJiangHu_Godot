@@ -182,7 +182,8 @@ func set_weight(w:int):
 func weight() :
 	return weight + encumb;
 
-func move(dest, silently:int):
+
+func move(dest, silently:int = 1):
 	var ob
 	var env
 	var inv
@@ -235,7 +236,8 @@ func move(dest, silently:int):
 	move_object(ob);
 	if( !me) :
 		return 0;
-	me.remove_all_enemy();  # by qingyun
+#		todo
+#	me.remove_all_enemy();  # by qingyun
 	ob.add_encumbrance(w);
 
 	##################################
@@ -311,8 +313,7 @@ func move(dest, silently:int):
 # 			command("look");
 # 	}
 
-	return 1;
-	
+	return 1;	
 #######################################   ##########################
 
 func set_dbase(dbase):
@@ -342,7 +343,7 @@ func message_vision(message:String,ob:GameObject):
 
 func tell_object(who:GameObject,msg:String):
 	#  TODO
-	print_debug(who.name,msg)	
+	print_debug(who.name(),msg)	
 	
 # 销毁这件物品	
 var destruct = false
@@ -367,18 +368,20 @@ func this_player():
 	return player
 	pass	
 
-# todo
+# todo new()  to  new_ob()
 func new_ob(path:String):
 	var obj
 	if path.find("res:/")>0 and path.find(".gd",-1)>0 :
 		obj = load(path).new() 
 	else:
 		obj = load("res:/" + path + ".gd").new()
+	obj.set("environment",self.name())
 	obj.set_temp("environment",self)
 	return obj
 	
+# todo	
 func environment(ob=self):
-	return ob.query("environment")
+	return ob.query_temp("environment")
 	# return query_temp("environment")
 
 # todo
@@ -564,11 +567,8 @@ func extra_long():
 
 
 # ----------------------------------------- tools ------------------
-# func delete(key):
-# 	dbase.erase(key)
-
-# func delete_temp(key):
-# 	temp_dbase.erase(key)	
+func is_character():
+	return false
 			
 func random(n:int):
 	return randi()%n
@@ -578,6 +578,9 @@ func dir(ob = self):
 
 func file_name(ob = self):
 	return ob.get_script().get_path()
+	
+func arrayp(a):
+	return a is Array	
 	
 func mapp(d):
 	return d is Dictionary
@@ -593,6 +596,17 @@ func undefinedp(u):
 	
 func objectp(ob):
 	return true
+	
+# todo	
+func userp(ob):
+	return false
+		
+func functionp(fun,ob=self):
+	return ob.has_method(fun)		
+	
+func evaluate(fun,args=[],ob=self):	
+	if ob.has_method(fun) :
+		call(fun,args)
 		
 func keys(d:Dictionary):
 	return d.keys()
@@ -601,10 +615,45 @@ func keys(d:Dictionary):
 func sprintf(string,arg1=null,arg2=null):
 	string.format(arg1,arg2)
 
+# todo 
+func living(ob):
+	return true
+	
+# todo
+var fighting = false	
+func is_fighting():
+	return fighting
 
+################################ command ###################
+# 每个objects 里面需要	
+var call_funcs = {}
+
+func call_out(func_name,time,ob=self):
+	self.call_funcs[func_name] = time
+	if call_funcs.has(func_name) and call_funcs[func_name]>0:
+		call_funcs[func_name] += time
+	else:
+		call_funcs[func_name] = time
+
+func remove_call_out(func_name):
+	if call_funcs.has(func_name) and call_funcs[func_name] <= 0:
+		call_funcs.erase(func_name)
 
 func create():
 	pass	
 	
 	
+######################################### message #######################
+func message(version:String,msg:String,frome,to):
+	print_debug(version,msg,frome.name(),to.name())
+	pass
 	
+func say(msg):
+	print_debug(msg)		
+	
+func command(cmd:String):
+	var array = cmd.split(" ")
+	var command = array[0]
+	var args = array.remove(0)
+	if functionp(command) :
+		evaluate(command,args)	

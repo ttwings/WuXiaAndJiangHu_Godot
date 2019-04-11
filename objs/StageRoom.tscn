@@ -1432,6 +1432,7 @@ theme = ExtResource( 3 )
 
 [node name="ObjectRect" type="NinePatchRect" parent="."]
 editor/display_folded = true
+visible = false
 margin_left = 505.0
 margin_top = 162.0
 margin_right = 797.0
@@ -1650,6 +1651,7 @@ custom_fonts/font = SubResource( 12 )
 text = "X"
 
 [node name="CharacterPanel" type="NinePatchRect" parent="."]
+editor/display_folded = true
 margin_left = 972.0
 margin_top = 2.0
 margin_right = 1276.0
@@ -1862,6 +1864,7 @@ bbcode_enabled = true
 scroll_following = true
 
 [node name="ChatMessagePanel" type="VBoxContainer" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 403.0
