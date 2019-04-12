@@ -81,6 +81,7 @@ func add(key,value):
 			dbase[key][value] = dbase[key][value] + 1
 	else:
 		dbase[key] = value	
+	return dbase[key]
 
 #func add(prop:String,data):
 #	# mixed old;

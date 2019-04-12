@@ -10,6 +10,5 @@ func setup():
 		return;
 
 	set("armor_type", TYPE_SHIELD);
-	if( !query("armor_apply/dodge")
-			&&	weight() > 3000 ):
+	if( !query("armor_apply/dodge")	&&	weight() > 3000 ):
 		set("armor_prop/dodge", - weight() / 3000 );

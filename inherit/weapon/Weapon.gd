@@ -318,7 +318,9 @@ func set_desc(w_lv:int,w_or:String,w_name:String):
 	result4="上面用小篆刻着一行小字：\n\t"+player_name+"铸于"+make_time+"\n";
 	result=result1+result2+result3+result4;
 	weapon.set("long",result);
+
 	
+#############################  Equip ##############################	
 func wield():
 	var owner
 	var old_weapon;
@@ -362,10 +364,10 @@ func wield():
 #				owner.set_temp("secondary_weapon", this_object());
 # add from xyj
 				owner.set_temp("secondary_weapon", this_object());
-				if(old_weapon.query("apply/skill_type") &&
-						old_weapon.query("apply/skill_type") ==
-						this_object().query("apply/skill_type") &&
-						old_weapon.query("skill_type") != 
+				if(old_weapon.query("apply/skill_type") &&       		\
+						old_weapon.query("apply/skill_type") ==			\
+						this_object().query("apply/skill_type") &&		\
+						old_weapon.query("skill_type") != 				\
 						this_object().query("skill_type") ):
 					owner.set_temp("use_apply_action", 1);
 					old_weapon.set_temp("use_apply_skill", 1);
