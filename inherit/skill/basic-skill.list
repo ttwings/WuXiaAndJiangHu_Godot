@@ -20,6 +20,8 @@ taoism:		基本道法
 
 人物数据
 attributes: "str", "int", "con", "dex"
+
+
 stats:
 "jing", "max_jing", "eff_jing", "jingli", "max_jingli", "eff_jingli", "jiajing"
 "qi", "max_qi", "eff_qi", "neili", "max_neili", "eff_neili", "jiali"

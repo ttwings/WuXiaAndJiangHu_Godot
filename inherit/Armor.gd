@@ -19,23 +19,20 @@ const HANDS		= "/inherit/armor/hands"
 const BOOTS		= "/inherit/armor/boots"
 
 # Standard armor types
-const TYPE_HEAD		= "head"
-const TYPE_NECK		= "neck"
-const TYPE_CLOTH	= "cloth"
-const TYPE_ARMOR	= "armor"
-const TYPE_SURCOAT	= "surcoat"
-const TYPE_WAIST	= "waist"
-const TYPE_WRISTS	= "wrists"
-const TYPE_SHIELD	= "shield"
-const TYPE_FINGER	= "finger"
-const TYPE_HANDS	= "hands"
-const TYPE_BOOTS	= "boots"
+const TYPE_HEAD		= "head"		# 头冠
+const TYPE_NECK		= "neck"		# 项链
+const TYPE_CLOTH	= "cloth"		# 衣服
+const TYPE_ARMOR	= "armor"		# 护甲
+const TYPE_SURCOAT	= "surcoat"   	# 外套
+const TYPE_WAIST	= "waist"		# 腰带
+const TYPE_WRISTS	= "wrists"		# 护腕
+const TYPE_SHIELD	= "shield"		# 盾牌
+const TYPE_FINGER	= "finger"		# 手指
+const TYPE_HANDS	= "hands"		# 手套
+const TYPE_BOOTS	= "boots"		# 靴子
 # inherit EQUIP;
 
-func setup():
-	set("armor_type", TYPE_ARMOR);
-	if(!query("armor_apply/dodge") and weight() > 3000 ):
-		set("armor_prop/dodge", - weight() / 3000 );
+
 
 func wear():
 	var owner
@@ -130,3 +127,61 @@ func unequip():
 
 func create():
 	pass
+
+
+# Init armor types
+
+func init_head():
+	set("armor_type", TYPE_HEAD);
+	if( !query("armor_apply/dodge") && weight() > 3000 ):
+		set("armor_prop/dodge", - weight() / 3000 );
+
+func init_neck():
+	set("armor_type", TYPE_NECK);
+	if( !query("armor_apply/dodge")	&& weight() > 3000 ):
+		set("armor_prop/dodge", - weight() / 3000 );
+
+func init_cloth():
+	set("armor_type", TYPE_CLOTH);
+	if( !query("armor_apply/dodge") &&	weight() > 3000 ):
+		set("armor_prop/dodge", - weight() / 3000 );
+		
+func init_armor():
+	set("armor_type", TYPE_ARMOR);
+	if(!query("armor_apply/dodge") and weight() > 3000 ):
+		set("armor_prop/dodge", - weight() / 3000 );
+	
+func init_surcoat():
+	set("armor_type", TYPE_SURCOAT);
+	if( !query("armor_apply/dodge")	&& weight() > 3000 ):
+		set("armor_prop/dodge", - weight() / 3000 );
+
+func init_wrists():
+	set("armor_type", TYPE_WAIST);
+	if( !query("armor_apply/dodge")	&&	weight() > 3000 ):
+		set("armor_prop/dodge", - weight() / 3000 );
+
+func init_waist():
+	set("armor_type", TYPE_WAIST);
+	if( !query("armor_apply/dodge")	&&	weight() > 3000 ):
+		set("armor_prop/dodge", - weight() / 3000 );
+		
+func init_shield():
+	set("armor_type", TYPE_SHIELD);
+	if( !query("armor_apply/dodge")	&&	weight() > 3000 ):
+		set("armor_prop/dodge", - weight() / 3000 );	
+
+func init_finger():
+	set("armor_type", TYPE_FINGER);
+	if( !query("armor_apply/dodge") &&	weight() > 3000 ):
+		set("armor_prop/dodge", - weight() / 3000 );	
+
+func init_hands():
+	set("armor_type", TYPE_HEAD);
+	if( !query("armor_apply/dodge") && weight() > 3000 ):
+		set("armor_prop/dodge", - weight() / 3000 );	
+
+func init_boots():
+	set("armor_type", TYPE_BOOTS);
+	if( !query("armor_apply/dodge") &&	weight() > 3000 ):
+		set("armor_prop/dodge", - weight() / 3000 );	
