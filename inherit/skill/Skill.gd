@@ -4,6 +4,7 @@
 #	should inherit this as its skeleton.
 
 # inherit F_CLEAN_UP;
+class_name Skill
 
 func create():
 	seteuid(getuid());
@@ -18,13 +19,11 @@ func create():
 # this function in your skill object and make it reasonable 
 # according to the power of the skill.
 
-func valid_learn(object me) :
-	{ return 1; }
+func valid_learn(me) :
+	return 1
 
-func valid_effect(object me, object weapon, string action_name, int skill) 
-{ 
+func valid_effect(me, weapon, action_name:String, skill:int) :
 	return 1;
-}
 
 # 
 # type()
@@ -35,7 +34,8 @@ func valid_effect(object me, object weapon, string action_name, int skill)
 # /cmds/usr/skills.c )。
 # Currently we have only 2 types of skill: "martial" and "knowledge".
 
-string type() { return "martial"; }
+func type() :
+	return "martial"
 
 #
 # skill_improved()
@@ -43,7 +43,8 @@ string type() { return "martial"; }
 # This function is called when a character's skill has gained a new level.
 # You can make some modify to a character according to the skill.
 
-func skill_improved(object me) {}
+func skill_improved(me) :
+	pass
 
 #
 # exert_function()
@@ -57,104 +58,83 @@ func skill_improved(object me) {}
 # that takes the function name as argument and return the file name that
 # defines the specified function. 
 
-int exert_function(object me, string arg)
-{
-	string func, target, file;
-	object target_ob;
+func exert_function(me,arg:String):
+	var func_
+	var target
+	var file
+	var target_ob;
 
-	if( sscanf(arg, "%s %s", func, target)==2 ) {
+	if( sscanf(arg, "%s %s", func_, target)==2 ) :
 		target_ob = present(target, environment(me));
 		if( !target_ob ) return notify_fail("这里没有 " + target + "。\n");
-	} else {
-		func = arg;
+	else :
+		func_ = arg;
 		target_ob = me;
-	}
-
-	if( !stringp(file = (string)this_object()->exert_function_file(func))
-	||	file_size(file + ".c") <= 0 )
+	
+	file = this_object().exert_function_file(func_)
+	if( !stringp(file) || file_size(file + ".c") <= 0 ):
 		return 0;
 
-	return (int)call_other( file, "exert", me, target_ob);
-}
+	return call_other( file, "exert", me, target_ob);
 
-int perform_action(object me, string arg)
-{
+func perform_action(object me, string arg):
 	string action, target, file;
 	object target_ob;
 
-	if( sscanf(arg, "%s %s", action, target)==2 ) {
+	if( sscanf(arg, "%s %s", action, target)==2 ) :
 		target_ob = present(target, environment(me));
 		if( !target_ob ) return notify_fail("这里没有 " + target + "。\n");
-	} else {
+	else :
 		action = arg;
-	}
 
-	if( !stringp(file = (string)this_object()->perform_action_file(action))
-	||	file_size(file + ".c") <= 0 )
+	file = this_object().perform_action_file(action)
+	if( !stringp(file) || file_size(file + ".c") <= 0 ):
 		return 0;
 
-	return (int)call_other( file, "perform", me, target_ob);
-}
+	return call_other( file, "perform", me, target_ob);
 
-int cast_spell(object me, string spell, object target)
-{
+
+func cast_spell(object me, string spell, object target):
 	string file;
 
 	notify_fail("你所选用的咒文系中没有这种咒文。\n");
-
-	if( !stringp(file = (string)this_object()->cast_spell_file(spell))
-	||	file_size(file + ".c") <= 0 )
+	file = this_object().cast_spell_file(spell)
+	if( !stringp(file) || file_size(file + ".c") <= 0 ):
 		return 0;
 
 	return (int)call_other( file, "cast", me, target);
-}
 
-int conjure_magic(object me, string spell, object target)
-{
-	string file;
 
+func conjure_magic(object me, string spell, object target):
+	var file;
 	notify_fail("你所选用的法术系中没有这种法术。\n");
-
-	if( !stringp(file = (string)this_object()->conjure_magic_file(spell))
-	||	file_size(file + ".c") <= 0 )
+	file = this_object().conjure_magic_file(spell)
+	if( !stringp(file) || file_size(file + ".c") <= 0 ):
 		return 0;
+	return call_other( file, "conjure", me, target);
 
-	return (int)call_other( file, "conjure", me, target);
-}
-
-int scribe_spell(object me, object ob, string spell)
-{
-	string file;
-
-	if( !stringp(file = (string)this_object()->scribe_spell_file(spell))
-	||	file_size(file + ".c") <= 0 )
+func scribe_spell(object me, object ob, string spell):
+	var file;
+	file = this_object().scribe_spell_file(spell)
+	if( !stringp(file) || file_size(file + ".c") <= 0 ):
 		return 0;
-
-	return (int)call_other( file, "scribe", me, ob );
-}
+	return call_other( file, "scribe", me, ob );
 
 # The following two functions are used to modify the random function
 # for shaolin wugong.
 
-int sum(int n,int base,int d)
-{
-  return (n*(2*base+(n-1)*d)/2);
-}
+func sum(n:int,base:int,d:int):
+	return (n*(2*base+(n-1)*d)/2);
 
-int NewRandom(int n,int base,int d)
-{ 
-  int i = 1;
-  int randnum = random(sum(n,base,d));
+func NewRandom(n:int,base:int,d:int):
+	var i = 1;
+	var randnum = random(sum(n,base,d));
 
-  if (sum(6,base,d) < randnum)
-   {
-    i = 7;
-    while (sum(i,base,d) < randnum)
-          i++;
-    }
-  else {
-    while (sum(i,base,d) < randnum)
-        i++;
-   } 
-  return (i-1);
-}
+	if (sum(6,base,d) < randnum):
+		i = 7;
+		while (sum(i,base,d) < randnum):
+			i = i + 1;
+	else :
+		while (sum(i,base,d) < randnum):
+			i= i + 1;
+	return (i-1);

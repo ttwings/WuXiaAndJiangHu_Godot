@@ -353,7 +353,6 @@ func short():
 		return ::short();
 
 func move(mixed dest, int silent):
-{
 	var env
 	var inv;
 	var i
@@ -366,14 +365,11 @@ func move(mixed dest, int silent):
 		file = base_name(this_object());
 		inv = all_inventory(env);
 		total = (int)query_amount();
-		for(i=0; i<sizeof(inv); i++) {
-			if( inv[i]==this_object() ) continue;
-			if( base_name(inv[i])==file ) {
-				total += (int)inv[i]->query_amount();
+		for(i=0; i<sizeof(inv); i++) :
+			if( inv[i]==this_object() ) :
+				continue;
+			if( base_name(inv[i])==file ) :
+				total += (int)inv[i].query_amount();
 				destruct(inv[i]);
-			}
-		}
 		set_amount(total);
 		return 1;
-	}
-}

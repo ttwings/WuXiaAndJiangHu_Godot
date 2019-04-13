@@ -15,9 +15,9 @@ class_name Char
 #include <user.h>
 #include <combat.h>
 
-# inherit F_ACTION;
+# inherit F_ACTION;		Y
 # inherit F_ALIAS;		X 机器人程序相关,不需要
-# inherit F_APPRENTICE;
+# inherit F_APPRENTICE;	Y
 # inherit F_ATTACK;
 # inherit F_ATTRIBUTE;
 # inherit F_COMMAND;
@@ -33,11 +33,196 @@ class_name Char
 # inherit F_SKILL;
 # inherit F_TEAM;
 
+########################################## F_ACTION ######################
+var busy
+var interrupt
+var old_busy = 0;
+
+func start_busy(new_busy, new_interrupt):
+	if( !new_busy ) :
+		return;
+	if( !intp(new_busy) && !functionp(new_busy) ):
+		print_debug("action: Invalid busy action type.\n");
+# Add being busy time to New busy. By winder. 2001.10.18
+# 改dazuo状态下 start_busy(3)的bug 
+	if( this_object().is_busy()):
+		if (functionp(busy)):
+			old_busy += new_busy;
+		elif (intp(busy)):
+			busy += new_busy;
+	else:
+		busy = new_busy;
+	if( !intp(new_interrupt) && !functionp(new_interrupt) ):
+		print_debug("action: Invalid busy action interrupt handler type.\n");
+	if (functionp(new_interrupt)):
+		interrupt = new_interrupt;
+	set_heart_beat(1);
+	
+func set_heart_beat(i):
+	pass	
+
+func query_busy() :
+	return busy
+func is_busy() :
+	return busy!=0
+
+# This is called by heart_beat() instead of attack() when a ppl is busy
+# doing something else.
+
+func continue_action():
+	if( intp(busy) && (busy > 0) ) :
+		busy = busy - 1;
+		return;
+	elif( functionp(busy) ) :
+		if( !evaluate(busy, this_object()) ) :
+#			busy = 0;
+			busy = old_busy;
+			old_busy = 0;
+			interrupt = 0;
+
+	else :
+		busy = 0;
+		interrupt = 0;
+
+
+func interrupt_me(who, how:String):
+	if( !busy ) :
+		return;
+
+	if( intp(busy) && intp(interrupt) ) :
+		if( busy < interrupt ) :
+			busy = 0;
+	elif( functionp(interrupt) ) :
+		if( evaluate(interrupt, this_object(), who, how) ) :
+			busy = old_busy;
+			old_busy = 0;
+			interrupt = 0;
+
+func remove_busy():
+	old_busy = 0;
+	busy = 0;
+	interrupt = 0;
+
+# This function is for temporary conditions's recovery call_outs, bcz
+# such recovery function call_out might be destroyed if some wizard
+# destructed the object that is reponsible of it, so we let users launch
+# the call_out themself. Thus we can make sure the recovery call_out.
+# 
+# Because this could cause a serious security problem, so we need highest
+# security check here.
+const ROOT_UID = -1
+
+func start_call_out(fun, delay:int):
+	if( !previous_object() || (geteuid(previous_object()) != ROOT_UID			\
+		&& sscanf(base_name(previous_object()),"/kungfu/skill/%*s/%*s")!=2		\
+		&& userp(this_object()) && this_player() != this_object())):			
+		return 0;
+
+	call_out("eval_function", delay, fun);
+	return 1;
+
+func eval_function(fun,ob) :
+	evaluate(fun,ob)
+
+########  TODO #######
+func previous_object():
+	pass
+
+func base_name(ob):
+	self.name()
+	
+func sscanf(s,s1):
+	pass	
+
+##########################################  F_ATTRIBUTE ###################
+# 膂力 -- 出手重
+func query_str():
+	var improve = query_skill("unarmed", 1) / 10;
+
+	if ( query_skill("leg", 1) || query_skill("strike", 1) ||	\
+		query_skill("finger", 1) || query_skill("cuff", 1) ||   \
+		query_skill("hand", 1) || query_skill("claw", 1)):
+		if ( query_skill("leg", 1) >= improve * 10):
+			improve = query_skill("leg", 1) / 10;
+		if ( query_skill("strike", 1) >= improve * 10 ):
+			improve = query_skill("strike", 1) / 10;
+		if ( query_skill("finger", 1) >= improve * 10):
+			improve = query_skill("finger", 1) / 10;
+		if ( query_skill("cuff", 1) >= improve * 10):
+			improve = query_skill("cuff", 1) / 10;
+		if ( query_skill("hand", 1) >= improve * 10):
+			improve = query_skill("hand", 1) / 10;
+		if ( query_skill("claw", 1) >= improve * 10):
+			improve = query_skill("claw", 1) / 10;
+	return query("str") + query_temp("apply/strength") + improve;
+
+# 悟性 -- 学习和读书快
+func query_int():
+	return query("int") + query_temp("apply/intelligence") + query_skill("literate", 1) / 10;
+
+# 根骨 -- 气血恢复快且长大时气血上限增量高
+func query_con():
+	return query("con") + query_temp("apply/constitution") + query_skill("force", 1) / 10;
+
+# 身法 -- 躲避快
+func query_dex():
+	return query("dex") + query_temp("apply/dexerity") + query_skill("dodge", 1) / 10;
+
+# 耐力 -- 内力恢复快
+func query_sta():
+	return query("sta") + query_temp("apply/stamina") + query_skill("parry", 1) / 10;
+
+# 灵性 -- 能学更多的武功，且速度也快
+func query_spi():
+	var improve = query_skill("buddhism", 1) / 10;
+
+	if ( query_skill("buddhism", 1) || query_skill("mahayana", 1) ||	\
+		query_skill("lamaism", 1) || query_skill("taoism", 1) ||		\
+		query_skill("ziyunyin",1) || query_skill("zhengqijue",1) || query_skill("poison")):
+			if ( query_skill("buddhism", 1) >= improve * 10 ):
+				improve = query_skill("buddhism", 1) / 10;
+			if ( query_skill("mahayana", 1) >= improve * 10):
+				improve = query_skill("mahayana", 1) / 10;
+			if ( query_skill("lamaism", 1) >= improve * 10):
+				improve = query_skill("lamaism", 1) / 10;
+			if ( query_skill("taoism", 1) >= improve * 10):
+				improve = query_skill("taoism", 1) / 10;
+			if ( query_skill("ziyunyin", 1) >= improve * 10):
+				improve = query_skill("ziyunyin", 1) / 10;
+			if ( query_skill("zhengqijue", 1) >= improve * 10):
+				improve = query_skill("zhengqijue", 1) / 10;
+			if ( query_skill("poison", 1) >= improve * 10):
+				improve = query_skill("poison", 1) / 10;		
+	return query("spi") + query_temp("apply/spirit") + improve;
+
+# 福缘 -- 机缘好
+func query_kar():
+	return query("kar") + query_temp("apply/karma");
+
+# 容貌 -- 对定力低的异性有震慑力
+func query_per():
+	return query("per") + query_temp("apply/personality");
+
+# 定力 -- 出手破绽少，不易被反击，对方进功成功率低
+func query_cps():
+	return query("cps") + query_temp("apply/composure");
+
+# 胆识 -- 出手成功率高
+func query_cor():
+	return query("cor") + query_temp("apply/courage");
+
+# 兽类驯服度 -- 
+func query_obe():
+	return query("obe") + query_temp("apply/obedience");
+
+
+################################################################# char ##################################
+
 # Use a tick with longer period than heart beat to save cpu's work
 var tick:int;
 
 func create():
-	seteuid(0); # so LOGIN_D can export uid to us
+	setuid(0); # so LOGIN_D can export uid to us
 
 # Use this function to identify if an object is a character.
 func is_character() :
@@ -53,7 +238,6 @@ func setup():
 	enable_player();
 
 	CHAR_D.setup_char( this_object() );
-}
 
 func heart_beat():
 	var wimpy_ratio
@@ -72,9 +256,10 @@ func heart_beat():
 	# If we're dying or falling unconcious?
 	if( my["qi"] < 0 || my["jing"] < 0):
 		remove_all_enemy();
-		if( !living(this_object()) ||
-			this_object().query_temp("noliving") ) die();
-		else unconcious();
+		if( !living(this_object()) || this_object().query_temp("noliving") ):
+			die();
+		else :
+			unconcious();
 		return;
 	
 	# Do attack if we are fighting.
@@ -144,7 +329,7 @@ func heart_beat():
 # 	lvl = wiz_level(this_object());
 
 # 	if( lvl > wiz_level(ob) ) return 1;
-# 	if(wizardp(ob)) invis = (int)ob.query("env/invisibility");
+# 	if(wizardp(ob)) invis = ob.query("env/invisibility");
 # 	else invis=0;
 # 	if( intp(invis) && (invis > lvl) ) return 0;
 
@@ -167,31 +352,31 @@ func max_water_capacity():
 	max_food_capacity = query("int") * 5 + 300
 	return max_food_capacity
 	
-var skills = {}
-var test_skills = {}
-var map_skills = {}
-var prepare_skills = {}
-
-func set_skill(key:String,value):
-#	if !skills:skills={}
-	skills[key] = value
-
-func get_skill(key:String):
-	return skills[key]
-
-func map_skill( key:String,value):
-#	if !map_skills:map_skills={}
-	map_skills[key] = value
-	
-func prepare_skill(key:String,value):
-#	if !prepare_skills:prepare_skills={}
-	prepare_skills[key] = value
-
-func query_skill(skill:String,key:String):
-	if skills.has(skill) and skills[skill].has(key):
-		return skills[skill][key]
-	else:
-		return false
+#var skills = {}
+#var test_skills = {}
+#var map_skills = {}
+#var prepare_skills = {}
+#
+#func set_skill(key:String,value):
+##	if !skills:skills={}
+#	skills[key] = value
+#
+#func get_skill(key:String):
+#	return skills[key]
+#
+#func map_skill( key:String,value):
+##	if !map_skills:map_skills={}
+#	map_skills[key] = value
+#
+#func prepare_skill(key:String,value):
+##	if !prepare_skills:prepare_skills={}
+#	prepare_skills[key] = value
+#
+#func query_skill(skill:String,key:String):
+#	if skills.has(skill) and skills[skill].has(key):
+#		return skills[skill][key]
+#	else:
+#		return false
 		
 		
 
@@ -217,9 +402,6 @@ func carry_object(path):
 #	pass
 
 ############################### tool ############
-
-func is_character():
-	return true
 #
 func _init():
 #	skills = {}
@@ -230,8 +412,18 @@ func _init():
 	create()
 	pass	
 
+# todo new()  to  new_ob()
+func new_ob(path:String):
+	var obj
+	if path.find("res:/")>0 and path.find(".gd",-1)>0 :
+		obj = load(path).new() 
+	else:
+		obj = load("res:/" + path + ".gd").new()
+	obj.set("environment",self.name())
+	obj.set_temp("environment",self)
+	return obj
 
-########################################  name ####################
+########################################  F_NAME ####################
 func set_name_cn(value1:String,value2:String):
 	dbase.name = value1
 	dbase.id = value2
@@ -351,3 +543,195 @@ func long(raw=1):
 func extra_long():
 	# todo
 	pass		
+	
+
+######################################### F_SKILL ########################
+
+var skills;
+var learned;
+var skill_map;
+var skill_prepare;
+
+func query_skills() :
+	return skills
+func query_learned() :
+	return learned
+
+func set_skill(skill:String, val:int):
+	if( !find_object(SKILL_D(skill)) &&	file_size(SKILL_D(skill)+".c") < 0 ):
+		error("F_SKILL: No such skill (" + skill + ")\n");
+
+	if( !mapp(skills) ) :
+		skills = {skill: val}
+	else :
+		skills[skill] = val;
+
+func delete_skill(skill:String):
+	if( mapp(skills) ) :
+		map_delete(skills, skill);
+		if( mapp(learned) ) :
+			map_delete(learned, skill);
+			return undefinedp(learned[skill]);
+		return undefinedp(skills[skill]);
+	return 0;
+
+# This function 'map' a skill <skill> to another skill <mapped_to>.
+# If 2nd argument not given, cancel the mapped skill <skill>.
+func map_skill(skill:String, mapped_to:String):
+	if( !mapped_to && mapp(skill_map) ):
+		map_delete(skill_map, skill);
+		return;
+
+	if( !find_object(SKILL_D(skill)) &&	file_size(SKILL_D(skill)+".c") < 0 ):
+		error("F_SKILL: No such skill (" + skill + ")\n");
+
+	if( !mapp(skills) || undefinedp(skills[mapped_to]) ):
+		return;
+		
+	if( !mapp(skill_map) ) :
+		skill_map = {skill: mapped_to}
+	else :
+		skill_map[skill] = mapped_to;
+
+# This function 'prepare' a skill <skill> to another skill <mapped_to>.
+# If 2nd argument not given, cancel the prepared skill <skill>.
+func prepare_skill(skill:String, mapped_to:String):
+	if( !mapped_to && mapp(skill_prepare) ) :
+		map_delete(skill_prepare, skill);
+		return;
+
+	if( !find_object(SKILL_D(skill)) && file_size(SKILL_D(skill)+".c") < 0 ):
+		error("F_SKILL: No such skill (" + skill + ")\n");
+
+	if( !mapp(skills) || undefinedp(skills[mapped_to]) ):
+		return;
+		
+	if( !mapp(skill_prepare) ) :
+		skill_prepare = {skill: mapped_to};
+	else :
+		skill_prepare[skill] = mapped_to;
+
+func query_skill_mapped(skill:String):
+	if( mapp(skill_map) && !undefinedp(skill_map[skill]) ):
+		return skill_map[skill];
+	return 0;
+
+func query_skill_prepared(skill:String):
+	if( mapp(skill_prepare) && !undefinedp(skill_prepare[skill]) ):
+		return skill_prepare[skill];
+	return 0;
+
+func query_skill(skill:String, raw:int):
+	if( !raw ) :
+		var s;
+		
+		s = query_temp("apply/" + skill);
+		if( mapp(skills) ) :
+			s += skills[skill] / 2;
+			if( mapp(skill_map) ):
+				s += skills[skill_map[skill]];
+		return s;
+	if( mapp(skills) && !undefinedp(skills[skill]) ) :
+		return skills[skill];
+	return 0;
+
+func query_skill_map():
+	return skill_map;
+
+func query_skill_prepare():
+	return skill_prepare;
+
+func skill_death_penalty():
+	var sk;
+	var i;
+
+	if( wizardp(this_object()) || !mapp(skills) ) :
+		return 0;
+
+	sk = keys(skills);
+# /*
+# 	if( !mapp(learned) )
+# 		for(i = 0; i<sizeof(sk); i++)
+# 		{
+# 			skills[sk[i]]--;
+# 			if( skills[sk[i]]<0 ) map_delete(skills, sk[i]);
+# 		}
+# 	else
+# 		for(i = 0; i<sizeof(sk); i++)
+# 		{
+# #			if( (int)learned[sk[i]] > (skills[sk[i]]+1) * (skills[sk[i]]+1) / 2 )
+# #				map_delete(learned, sk[i]);
+# #			else {
+# #				skills[sk[i]]--;
+# #				if( skills[sk[i]]<0 ) map_delete(skills, sk[i]);
+# #			}
+# 			skills[sk[i]]--;
+# 			map_delete(learned,sk[i]);
+# 			if( skills[sk[i]]<0 ) map_delete(skills, sk[i]);
+# 		}
+# */
+		# for(i = 0; i<sizeof(sk); i++)
+	for i in range(sizeof(sk)) :
+		skills[sk[i]] = skills[sk[i]] - 1;
+		if( skills[sk[i]]<0  || (skills[sk[i]]==0 && learned[sk[i]]==0) ):
+			map_delete(skills, sk[i]);
+			if (mapp(learned)):
+				map_delete(learned,sk[i]);
+
+
+	skill_map = 0;
+	return 1;
+
+
+func skillreincarnate():
+	var sk
+	var i
+
+	sk = keys(skills);
+#	for(i = 0; i<sizeof(sk); i++) :
+	for i in range(sizeof(sk)) :
+		skills[sk[i]] = skills[sk[i]] + 1;
+	log_file("skill_re", sprintf("[%s] %s eat %s \n", ctime(time()), geteuid(this_object()),base_name(previous_object())));
+	return 1;
+
+func improve_skill(skill:String, amount:int, weak_mode:int):
+	var spi;
+
+#只有玩家和好学的npc才能学习。比如宠物或玩家小孩等。
+	if (!userp(this_object()) && !this_object().query("curiousness")):
+		return; 
+	if( !find_object(SKILL_D(skill)) && file_size(SKILL_D(skill)+".c") < 0 ):
+		error("F_SKILL: No such skill (" + skill + ")\n");
+
+	if( !weak_mode || !userp(this_object()) ) :
+		if( !mapp(skills) ) :
+			skills = ([]);
+		if( undefinedp(skills[skill]) ) :
+			skills[skill] = 0;
+
+
+	# Give learning penalty to those learning too much skills.
+	spi = this_object().query_spi();
+	if( sizeof(learned) > spi ):
+		amount /= sizeof(learned) - spi;
+
+	if( !amount ) :
+		amount = 1;
+
+	if( !mapp(learned) ) :
+		learned = {skill : amount};
+	else :
+		learned[skill] += amount;
+
+	if( (!weak_mode || !userp(this_object())) && learned[skill] > (skills[skill] + 1) * (skills[skill] + 1) ) :
+		skills[skill] = skills[skill] + 1;
+		learned[skill] = 0;
+		tell_object(this_object(), HIC + "你的「" + to_chinese(skill) + "」进步了！\n" + NOR);
+		SKILL_D(skill).skill_improved(this_object());
+
+
+
+######################
+
+func intp(i):
+	return i is int

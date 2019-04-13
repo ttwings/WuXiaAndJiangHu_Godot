@@ -50,8 +50,11 @@ func _init():
 	create()
 	pass
 	
-func getuid():
-	return get_instance_id()
+func getuid(ob=self):
+	return ob.get_instance_id()
+
+func geteuid(ob=self):
+	return ob.get_instance_id()	
 	
 func setuid(uid):
 	set("uid",uid)		
@@ -182,8 +185,8 @@ func destruct(ob=self):
 func sizeof(array):
 	return array.size()	
 
-func this_object():
-	return self	
+func this_object(ob=self):
+	return ob	
 
 var player
 #func set_player(user:Char):
@@ -192,16 +195,7 @@ func this_player():
 	return player
 	pass	
 
-# todo new()  to  new_ob()
-func new_ob(path:String):
-	var obj
-	if path.find("res:/")>0 and path.find(".gd",-1)>0 :
-		obj = load(path).new() 
-	else:
-		obj = load("res:/" + path + ".gd").new()
-	obj.set("environment",self.name())
-	obj.set_temp("environment",self)
-	return obj
+
 	
 # todo	
 func environment(ob=self):
@@ -233,9 +227,6 @@ func present(name:String,to):
 	to.add("present",name)
 
 # yield(get_tree().create_timer(1), 'timeout')
-func start_busy(time):
-#	yield,"timeout")
-	pass
 
 func notify_fail(message:String):
 	print_debug(message)
@@ -309,7 +300,7 @@ func userp(ob):
 func functionp(fun,ob=self):
 	return ob.has_method(fun)		
 	
-func evaluate(fun,args=[],ob=self):	
+func evaluate(interrupt,fun,args=[],ob=self):	
 	if ob.has_method(fun) :
 		call(fun,args)
 		
@@ -362,3 +353,6 @@ func command(cmd:String):
 	var args = array.remove(0)
 	if functionp(command) :
 		evaluate(command,args)	
+		
+func error(e):
+	print_debug(str(e))		
