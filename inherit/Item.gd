@@ -1,6 +1,37 @@
-extends GameObject
+# extends GameObject
 
 class_name Item
+
+const NOR = "[/color]"
+const BLK = "[color=#000000]"
+const RED = "[color=#ff0000]"
+const GRN = "[color=#00ff00]"
+const YEL = "[color=#ffff00]"
+const BLU = "[color=#0000ff]"
+const MAG = "[color=#ff0.0ff]"
+const CYN = "[color=#00ffff]"
+const WHT = "[color=#ffffff]"   
+const HIR = "[color=#ff0000]"
+const HIG = "[color=#00ff00]"
+const HIY = "[color=#ffff00]"
+const HIB = "[color=#44cef6]"
+const HIM = "[color=#ff00ff]"
+const HIC = "[color=#177cb0]"
+const HIW = "[color=#e9e7ef]"
+const BRED = "[color=#ff2121]"
+const BGRN = "[color=#00e500]"
+const BYEL = "[color=#ffb61e]"
+const BBLU = "[color=#4b5cc4]"
+const BMAG = "[color=#8d4bbb]"
+const BCYN = "[color=#1685a9]"
+const HBRED = "[color=#ff2121]"
+const HBGRN = "[color=#40de5a]"
+const HBYEL = "[color=#eacd76]"
+const HBBLU = "[color=#3b2e7e]"
+const HBMAG = "[color=#815463]"
+const HBCYN = "[color=#00e09e]"
+const HBWHT = "[color=#f0fcff]"
+
 #
 #// item.c
 #
@@ -19,11 +50,117 @@ class_name Item
 #	set("weight",100);
 #}
 
+var __DIR__ = dir()
+var __FILE__ = file_name()
+
+
 func setup():
 	setuid(getuid())
 	set("weight",100)
 
-########################################  move #####################################
+###########
+#TODO call func
+var actions = {}
+
+func _init():
+	create()
+	pass
+	
+func getuid(ob=self):
+	return ob.get_instance_id()
+
+func geteuid(ob=self):
+	return ob.get_instance_id()	
+	
+func setuid(uid):
+	set("uid",uid)			
+
+
+
+######################################## F_DBASE #####################################
+
+var dbase = {"objects" : {}}
+var tmp_dbase = {}
+
+var default_ob;
+
+func query_default_object():
+	return default_ob
+
+func set_default_object(ob):
+	if( !getuid() ) :
+		setuid(getuid());
+	default_ob = ob;
+	ob.add("no_clean_up", 1);
+
+func set(key:String,value):
+	dbase[key] = value
+	
+func add(key,value):
+
+	if dbase.has(key):
+		if dbase[key] is int:
+			dbase[key] = dbase[key] + value
+		elif dbase[key] is Array:
+			dbase[key].append(value)
+		elif dbase[key] is Directory:
+			dbase[key][value] = dbase[key][value] + 1
+	else:
+		dbase[key] = value	
+	return dbase[key]
+
+func add_temp(prop:String, data):
+	var old;
+	old = query_temp(prop)
+	# if( !mapp(tmp_dbase) || !(old = query_temp(prop, 1)) )
+	if( !mapp(tmp_dbase) || !old ):
+		return set_temp(prop, data);
+	# if( functionp(old) )
+	# 	error("dbase: add_temp() - called on a function type property.\n");
+	return set_temp(prop, old + data);
+
+func delete(key):
+	if( !mapp(dbase) ) :
+		return 0;
+	dbase.ease(key)
+
+func delete_temp(key):
+	if( !mapp(tmp_dbase) ) :
+		return 0;
+	tmp_dbase.ease(key)
+
+func set_temp(prop:String,data):
+	if( !mapp(tmp_dbase) ):
+		tmp_dbase = {};
+	tmp_dbase[prop] = data
+		
+func query_temp(key:String):
+	if tmp_dbase.has(key) :
+		return tmp_dbase[key]
+	else:
+		return 0		
+		
+func query(key:String):
+	if	dbase.has(key) :
+		return get_dbase()[key]
+	else:
+		return 0		
+	pass
+
+func query_entire_dbase():
+	return dbase;
+
+func query_entire_temp_dbase():
+	return tmp_dbase;
+
+func set_dbase(dbase):
+	dbase = dbase
+
+func get_dbase():
+	return dbase	
+
+
+########################################  F_MOVE #####################################
 var weight : int = 0
 var encumb : int = 0
 var max_encumb : int = 0
@@ -122,82 +259,7 @@ func move(dest, silently:int = 1):
 	move_object(ob);
 	if( !me) :
 		return 0;
-#		todo
-#	me.remove_all_enemy();  # by qingyun
 	ob.add_encumbrance(w);
-
-	##################################
-# 	# If we are players, try look where we are.
-# 	if( interactive(me)			# are we linkdead?
-# 		&& living(me)			# are we still concious?
-# 		&& !me.query_temp("noliving")	# are we still concious?
-# 		&& userp(me)			# are we still concious?
-# 		&& !silently )
-# 	{
-# 		if( query("env/brief") )
-# 		{
-# 			tell_object(me, HIC+environment().query("short") + NOR + " -\n");
-# 		}
-# 		else
-# 		if( query("env/brief1") )
-# 		{
-# 			str = HIC+environment().query("short") + NOR + " -\n";
-# 			inv = all_inventory(environment());
-# 	  if (sizeof(inv)<20)
-# 			  for(i=0; i<sizeof(inv); i++)
-# 			  {
-# 				  if( inv[i]==me ) continue;
-# 				  if( inv[i].query("no_shown")) continue;
-# 				  if( !me.visible(inv[i]) ) continue;
-# 				  str += "  " + inv[i].short() + "\n";
-# 			  }
-# 	  else
-# 		str += listob(inv);
-# 			 tell_object(me, str);
-# 		}
-# 		else
-# 		if( query("env/brief2") )
-# 		{
-# 			str = HIC+environment().query("short") + NOR + " -\n";
-# 			inv = all_inventory(environment());
-# 	  if (sizeof(inv)<20)
-# 			  for(i=0; i<sizeof(inv); i++) 
-# 			  {
-# 				  if( inv[i]==me ) continue;
-# 				   if( inv[i].query("no_shown")) continue;
-# 				  if( !me.visible(inv[i]) ) continue;
-# 				  str += "  " + inv[i].short() + "\n";
-# 			  }
-# 	  else
-# 		str += listob(inv);
-# 			if( mapp(exits = environment().query("exits")) )
-# 			{
-# 				dirs = keys(exits);
-# /*				for(i=0; i<sizeof(dirs); i++)
-# 					if( (int)env.query_door(dirs[i], "status") & DOOR_CLOSED ) dirs[i] = 0;
-# 				dirs -= ({ 0 });
-# */
-# 				if ( environment().query("outdoors") &&
-# 					!present("fire", this_object()) &&
-# 					!wizardp(this_object()) &&
-# 					((strsrch(time, "亥时") >= 0) ||
-# 					 (strsrch(time, "子时") >= 0) ||
-# 					 (strsrch(time, "丑时") >= 0) ||
-# 					 (strsrch(time, "寅时") >= 0) ))
-# 					str += "    天色太黑了，你看不清明显的出路。\n";
-# 				else if( sizeof(dirs)==0 )
-# 					str += "    这里没有任何明显的出路。\n";
-# 				else if( sizeof(dirs)==1 )
-# 					str += "    这里唯一的出口是 " + BOLD + dirs[0] + NOR + "。\n";
-# 				else
-# 					str += sprintf("    这里明显的出口是 " + BOLD + "%s" + NOR + " 和 " + BOLD + "%s" + NOR + "。\n",
-# 					implode(dirs[0..sizeof(dirs)-2], "、"), dirs[sizeof(dirs)-1]);
-# 			}
-# 			tell_object(me, str);
-# 		}
-# 		else
-# 			command("look");
-# 	}
 
 	return 1;		
 
@@ -239,68 +301,8 @@ func short(raw=1):
 #
 #	if( !stringp(string = query("short")) ):
 #		string = name(raw) + "(" + capitalize(query("id")) + ")";
-#
-#	if( !this_object().is_character() ) :
-#		return string;
-#
-#	if (!raw) :
-#		if (query_temp("pending/exercise") != 0):
-#			return name() + "正坐在地下修炼内力。";
-#		elif (query_temp("pending/respirate") != 0):
-#			return name() + "正坐在地下吐纳炼精。";
-#	}
-#
-#        if( !raw && sizeof(mask = query_temp("apply/short")) ):
-#                str = str(mask[sizeof(mask)-1]);
-##	if( !raw && stringp(str1 = (string)query_temp("apply/short")) ) {
-##		str = (string)mask[sizeof(mask) - 1];
-##		return (string)query_temp("apply/short");
-##		if (stringp(str1))
-##		  	str += str1;
-##	}
-#	else: 
-#		if( stringp(nick = query("nickname")) ):
-#			str = sprintf("「%s」%s", nick, str);
-#
-#		if( stringp(title = query("title")) ) :
-#			# 叛师过的无门派人士改称隐士。Modified by Spacenet@FXLT
-#			if (title == "普通百姓" && query("betrayer")):
-#				title = "隐士";
-#			str = sprintf("%s%s%s", title,(nick?"":" "), str);
-#		if ( mapp(party = query("party")) ) :
-#			party_title = party["party_name"] + party["rank"];
-#			str=sprintf("%s%s%s%s", party_title,(title?"":""),(nick?"":" "), str);
-#		if ( stringp(degree = query("degree")) ) :
-#			str = sprintf("%s%s%s%s%s",degree,(party_title?"":""),(title?"":""),(nick?"":" "), str);
-#		if ( stringp(guard = query("guard")) ) :
-#			str = sprintf("%s%s%s%s%s%s",guard,(degree?"":""),(party_title?"":""),(title?"":""),(nick?"":" "), str);
-#
-#	if( !raw ) :
-#		if( this_object().is_ghost() ) :
-#			str = HIB "(鬼气) " NOR + str;
-#		# if( query_temp("netdead") ) :
-#		# 	str += HIG" <断线中>" NOR;
-#		# if( in_input() ) str += HIC" <输入文字中>" NOR;
-#		# if( in_edit() ) str += HIY" <编辑档案中>" NOR;
-#		# if( query_temp("boss_screen") ) :
-#		# 	str += HIG" <逃避老板中>" NOR;
-#		if( query_temp("bixie/cimu") ) :
-#			str += HIR + " <失明中>" + NOR;
-#		if( query_temp("noliving/sleeped") ) :
-#			str += HIR + " <睡梦中>"  + NOR;
-#		if( query_temp("noliving/fakedie") ) :
-#			str += HIR + " <装死中>"  + NOR;
-#		if( query_temp("noliving/jingzuo") ) :
-#			str += HIR + " <静坐中>"  + NOR;
-#		if( query_temp("noliving/journey") ) :
-#			str += HIR + " <旅途中>"  + NOR;
-#		if( query_temp("noliving/unconcious") ):
-#			str += HIR + " <昏迷不醒>" +  NOR;
-#		if( interactive(this_object()) && query_idle(this_object())>120):
-#			str += HIM +  " <发呆中>"  + NOR;
-#		if( !living(this_object()) ):
-#			str += HIR + query("disable_type") + NOR;
-#	return str;
+
+	return string
 	pass
 
 func long(raw=1):
@@ -323,53 +325,4 @@ func extra_long():
 	# todo
 	pass		
 
-#############################  combined  #################################
 
-var amount;
-
-func query_amount() :
-	return amount;
-
-func destruct_me() :
-	destruct(this_object())
-
-func set_amount(v:int):
-	if( v < 0 ) error("combine:set_amount less than 1.\n");
-# //	if( v==0 ) destruct(this_object()); 
-	if( v==0 ) :
-		# ::move(VOID_OB);
-		call_out("destruct_me", 1);
-	else :
-		amount = v;
-		this_object().set_weight(v * int(query("base_weight")));
-
-func add_amount(int v) :
-	set_amount(amount+v)
-
-func short():
-	if (query_amount()>1):
-		return chinese_number(query_amount()) + query("base_unit") + ::short();
-	else:
-		return ::short();
-
-func move(mixed dest, int silent):
-	var env
-	var inv;
-	var i
-	var total;
-	var file;
-
-	if( ::move(dest, silent) ) {
-#		if( living(env = environment()) ) {
-		env = environment();
-		file = base_name(this_object());
-		inv = all_inventory(env);
-		total = (int)query_amount();
-		for(i=0; i<sizeof(inv); i++) :
-			if( inv[i]==this_object() ) :
-				continue;
-			if( base_name(inv[i])==file ) :
-				total += (int)inv[i].query_amount();
-				destruct(inv[i]);
-		set_amount(total);
-		return 1;

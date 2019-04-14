@@ -40,8 +40,7 @@ signal message_room_sended(msg,room)
 # 基本属性
 #var name_cn
 #var weight
-var dbase = {"objects" : {}}
-var tmp_dbase = {}
+
 
 #TODO call func
 var actions = {}
@@ -59,6 +58,9 @@ func geteuid(ob=self):
 func setuid(uid):
 	set("uid",uid)		
 ##################################################  dbase #################################
+var dbase = {"objects" : {}}
+var tmp_dbase = {}
+
 var default_ob;
 
 func query_default_object():
@@ -85,16 +87,6 @@ func add(key,value):
 	else:
 		dbase[key] = value	
 	return dbase[key]
-
-#func add(prop:String,data):
-#	# mixed old;
-#	var old
-#	if( !mapp(dbase) || !(old = query(prop, 1)) ):
-#		return set(prop, data);
-#
-#	# if( functionp(old) )
-#	# 	error("dbase: add() - called on a function type property.\n");
-#	return set(prop, old + data);
 
 func add_temp(prop:String, data):
 	var old;
@@ -125,13 +117,13 @@ func query_temp(key:String):
 	if tmp_dbase.has(key) :
 		return tmp_dbase[key]
 	else:
-		return ""		
+		return 0		
 		
 func query(key:String):
 	if	dbase.has(key) :
 		return get_dbase()[key]
 	else:
-		return ""		
+		return 0		
 	pass
 
 func query_entire_dbase():
@@ -140,15 +132,14 @@ func query_entire_dbase():
 func query_entire_temp_dbase():
 	return tmp_dbase;
 
-
-#######################################   ##########################
-
 func set_dbase(dbase):
 	dbase = dbase
 
 func get_dbase():
 	return dbase	
 
+
+#####################################
 func add_action(fun:String,key:String,ob=self):
 	actions[key] = fun
 	pass	

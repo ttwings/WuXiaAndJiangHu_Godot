@@ -1,4 +1,4 @@
-extends GameObject
+# extends GameObject
 
 class_name Char
 #pragma save_binary
@@ -19,11 +19,11 @@ class_name Char
 # inherit F_ALIAS;		X 机器人程序相关,不需要
 # inherit F_APPRENTICE;	Y
 # inherit F_ATTACK;
-# inherit F_ATTRIBUTE;
+# inherit F_ATTRIBUTE;	Y
 # inherit F_COMMAND;
 # inherit F_CONDITION;
 # inherit F_DAMAGE;
-# inherit F_DBASE;
+# inherit F_DBASE;		Y
 # inherit F_EDIT;
 # inherit F_FINANCE;
 # inherit F_MESSAGE;
@@ -32,6 +32,98 @@ class_name Char
 # inherit F_NAME;		Y
 # inherit F_SKILL;
 # inherit F_TEAM;
+
+
+######################################## F_DBASE #####################################
+func getuid(ob=self):
+	return ob.get_instance_id()
+	
+func setuid(uid):
+	set("uid",uid)	
+
+
+var dbase = {"objects" : {}}
+var tmp_dbase = {}
+
+var default_ob;
+
+func query_default_object():
+	return default_ob
+
+func set_default_object(ob):
+	if( !getuid() ) :
+		setuid(getuid());
+	default_ob = ob;
+	ob.add("no_clean_up", 1);
+
+func set(key:String,value):
+	dbase[key] = value
+	
+func add(key,value):
+
+	if dbase.has(key):
+		if dbase[key] is int:
+			dbase[key] = dbase[key] + value
+		elif dbase[key] is Array:
+			dbase[key].append(value)
+		elif dbase[key] is Directory:
+			dbase[key][value] = dbase[key][value] + 1
+	else:
+		dbase[key] = value	
+	return dbase[key]
+
+func add_temp(prop:String, data):
+	var old;
+	old = query_temp(prop)
+	# if( !mapp(tmp_dbase) || !(old = query_temp(prop, 1)) )
+	if( !mapp(tmp_dbase) || !old ):
+		return set_temp(prop, data);
+	# if( functionp(old) )
+	# 	error("dbase: add_temp() - called on a function type property.\n");
+	return set_temp(prop, old + data);
+
+func delete(key):
+	if( !mapp(dbase) ) :
+		return 0;
+	dbase.ease(key)
+
+func delete_temp(key):
+	if( !mapp(tmp_dbase) ) :
+		return 0;
+	tmp_dbase.ease(key)
+
+func set_temp(prop:String,data):
+	if( !mapp(tmp_dbase) ):
+		tmp_dbase = {};
+	tmp_dbase[prop] = data
+		
+func query_temp(key:String):
+	if tmp_dbase.has(key) :
+		return tmp_dbase[key]
+	else:
+		return 0		
+		
+func query(key:String):
+	if	dbase.has(key) :
+		return get_dbase()[key]
+	else:
+		return 0		
+	pass
+
+func query_entire_dbase():
+	return dbase;
+
+func query_entire_temp_dbase():
+	return tmp_dbase;
+
+func set_dbase(dbase):
+	dbase = dbase
+
+func get_dbase():
+	return dbase	
+
+
+
 
 ########################################## F_ACTION ######################
 var busy
@@ -113,7 +205,7 @@ func remove_busy():
 const ROOT_UID = -1
 
 func start_call_out(fun, delay:int):
-	if( !previous_object() || (geteuid(previous_object()) != ROOT_UID			\
+	if( !previous_object() || (getuid(previous_object()) != ROOT_UID			\
 		&& sscanf(base_name(previous_object()),"/kungfu/skill/%*s/%*s")!=2		\
 		&& userp(this_object()) && this_player() != this_object())):			
 		return 0;
@@ -133,6 +225,71 @@ func base_name(ob):
 	
 func sscanf(s,s1):
 	pass	
+########################################## F_APPERENCE 学徒##################
+
+func is_apprentice_of(ob):
+	var family;
+	family = query("family")
+	if( !mapp(family) ) :
+		return 0;
+
+	if( family["master_id"] == ob.query("id") && family["master_name"] == ob.query("name") ):
+		return 1;
+	return 0;	
+
+func assign_apprentice(title:String, privs:int):
+	var family;
+	family = query("family")
+	if( !mapp(family) ) :
+		return;
+
+	family["title"] = title;
+	family["privs"] = privs;
+
+	if( userp(this_object()) || !query("title") ) :
+		if( family["generation"]==1 ):
+			set("title", family["family_name"] + "开山祖师");
+		else:
+			set("title", sprintf("%s第%s代%s", family["family_name"],
+				chinese_number(family["generation"]), family["title"]));
+
+
+# This is used for NPC, or start a new family for a player.
+func create_family(family_name:String, generation:int, title:String):
+	var family;
+
+	# family = allocate_mapping(6);
+
+	family["family_name"] = family_name;
+	family["generation"] = generation;
+
+	set("family", family);
+
+	# priv = -1 for ALL privileges.
+	assign_apprentice( title, -1 );
+
+func recruit_apprentice(ob):
+	var my_family
+	var family;
+
+	if( ob.is_apprentice_of( this_object() ) ):
+		return 0;
+	my_family = query("family")	
+	if( !mapp(my_family) ):
+		return 0;
+
+#	family = allocate_mapping(sizeof(my_family));
+	family = {}
+	family["master_id"] = query("id");
+	family["master_name"] = query("name");
+	family["family_name"] = my_family["family_name"];
+	family["generation"] = my_family["generation"] + 1;
+	family["enter_time"] = OS.get_time(); #  return {}
+	ob.set("family", family);
+	ob.assign_apprentice("弟子", 0);
+	return 1;
+
+
 
 ##########################################  F_ATTRIBUTE ###################
 # 膂力 -- 出手重
@@ -231,11 +388,12 @@ func is_character() :
 # setup: used to configure attributes that aren't known by this_object()
 # at create() time such as living_name (and so can't be done in create()).
 func setup():
-	seteuid(getuid(this_object()));
+	setuid(getuid(this_object()));
 
 	set_heart_beat(1);
 	tick = 5 + random(10);
-	enable_player();
+	
+#	enable_player();
 
 	CHAR_D.setup_char( this_object() );
 
@@ -381,11 +539,11 @@ func max_water_capacity():
 		
 
 # ---------------------------- family ----------------------	
-var family = {}
-func create_family(key:String,lvl:int,nack_name:String):
-	family.name = key
-	family.lvl =  lvl
-	family.nack_name = nack_name
+#var family = {}
+#func create_family(key:String,lvl:int,nack_name:String):
+#	family.name = key
+#	family.lvl =  lvl
+#	family.nack_name = nack_name
 
 func carry_object(path):
 	# if obj
@@ -557,7 +715,7 @@ func query_skills() :
 func query_learned() :
 	return learned
 
-func set_skill(skill:String, val:int):
+func set_skill(skill:String, val:int = 0):
 	if( !find_object(SKILL_D(skill)) &&	file_size(SKILL_D(skill)+".c") < 0 ):
 		error("F_SKILL: No such skill (" + skill + ")\n");
 
@@ -611,17 +769,17 @@ func prepare_skill(skill:String, mapped_to:String):
 	else :
 		skill_prepare[skill] = mapped_to;
 
-func query_skill_mapped(skill:String):
+func query_skill_mapped(skill:String,raw:int = 0):
 	if( mapp(skill_map) && !undefinedp(skill_map[skill]) ):
 		return skill_map[skill];
 	return 0;
 
-func query_skill_prepared(skill:String):
+func query_skill_prepared(skill:String,raw:int = 0):
 	if( mapp(skill_prepare) && !undefinedp(skill_prepare[skill]) ):
 		return skill_prepare[skill];
 	return 0;
 
-func query_skill(skill:String, raw:int):
+func query_skill(skill:String, raw:int = 0):
 	if( !raw ) :
 		var s;
 		
@@ -731,7 +889,75 @@ func improve_skill(skill:String, amount:int, weak_mode:int):
 
 
 
-######################
+###################### tools ##############
+func chinese_number(i:int):
+	CHINESED.chinese_number(i)
+	
+func this_object(ob=self):
+	return ob
+	
+### todo	
+func this_player(ob=self):
+	return ob	
+	
+func call_out(funcname, delay, fun):
+	pass
+			
+func random(n:int):
+	return randi()%n
+	
+func dir(ob = self):
+	return ob.get_script().get_path().get_base_dir() + "/"	
+
+func file_name(ob = self):
+	return ob.get_script().get_path()
+	
+func arrayp(a):
+	return a is Array	
+	
+func mapp(d):
+	return d is Dictionary
+	
+func stringp(s):
+	return s is String	
 
 func intp(i):
 	return i is int
+	
+func undefinedp(u):
+	return !u		
+	
+func objectp(ob):
+	return true
+	
+# todo	
+func userp(ob):
+	return false
+		
+func functionp(fun,ob=self):
+	return ob.has_method(fun)		
+	
+func evaluate(interrupt,fun,args=[],ob=self):	
+	if ob.has_method(fun) :
+		call(fun,args)
+		
+func keys(d:Dictionary):
+	return d.keys()
+
+# todo test
+func sprintf(string,arg1=null,arg2=null,arg3=null,arg4=null):
+	string.format(arg1,arg2,arg3,arg4)
+	print_debug(string)
+	return string
+
+# todo 
+func living(ob):
+	return true
+	
+# todo
+var fighting = false	
+func is_fighting():
+	return fighting	
+	
+func sizeof(a):
+	return a.size()	

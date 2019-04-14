@@ -1385,10 +1385,10 @@ text = "[50/100]"
 
 [node name="NinePatchRect4" type="NinePatchRect" parent="."]
 editor/display_folded = true
-margin_left = 1134.95
-margin_top = 571.016
-margin_right = 1264.95
-margin_bottom = 716.016
+margin_left = 1135.0
+margin_top = 571.0
+margin_right = 1277.0
+margin_bottom = 716.0
 texture = ExtResource( 5 )
 patch_margin_left = 8
 patch_margin_top = 8
@@ -1407,26 +1407,26 @@ margin_right = -10.0
 margin_bottom = -10.0
 
 [node name="SaveRooms" type="Button" parent="NinePatchRect4/VBoxContainer"]
-margin_right = 110.0
+margin_right = 122.0
 margin_bottom = 30.0
 theme = ExtResource( 3 )
 text = "SaveRooms"
 
 [node name="ActionButton02" type="Button" parent="NinePatchRect4/VBoxContainer"]
 margin_top = 34.0
-margin_right = 110.0
+margin_right = 122.0
 margin_bottom = 64.0
 theme = ExtResource( 3 )
 
 [node name="ActionButton03" type="Button" parent="NinePatchRect4/VBoxContainer"]
 margin_top = 68.0
-margin_right = 110.0
+margin_right = 122.0
 margin_bottom = 98.0
 theme = ExtResource( 3 )
 
 [node name="ActionButton04" type="Button" parent="NinePatchRect4/VBoxContainer"]
 margin_top = 102.0
-margin_right = 110.0
+margin_right = 122.0
 margin_bottom = 132.0
 theme = ExtResource( 3 )
 

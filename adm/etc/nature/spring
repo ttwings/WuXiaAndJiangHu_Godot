@@ -1,0 +1,64 @@
+#  Spring day phase, no useful
+#  The definition of day phase
+#  Format:
+#       length          length of the phase in seconds
+#       time_msg        msg sent to outdoors user at phase starts
+#       desc_msg        desc looked during the period before next phase
+#       event_fun       the function is called in NATURE_D at the phase starts
+#
+#  Phase starts at 0:00 every day
+#
+#  Note the length of a phase is in minutes of a day.
+#
+
+# The two lines defines the data format in 2 lines as
+#
+#  field1:field2:field3....
+#  format1:format2:format3....
+#
+
+length:time_msg:desc_msg:event_fun
+%d:%s:%s:%s
+
+# The following lines are data, each non-blank line will fill in each field
+# in each record sequently.
+
+240
+夜色下红红的灯笼高高挂着，元旦的早晨响彻在除旧的爆竹声中
+东方的天空渐渐的发白了
+event_dawn
+
+120
+又是一个新年的早晨，从东方的天边射了万道霞光，一轮红日跃出天际
+太阳从东方的地平线冉冉升起，放射着耀眼的光芒
+event_sunrise
+
+180
+大年初一的太阳清清冷冷地高挂在东方的碧蓝的天空中，映射着人间热火的佳节
+灿烂的阳光遍洒在大地新发的嫩绿枝芽上
+event_morning
+
+180
+已经是正午了，阳光下蝶飞蜂舞，百花丛里掩不住春泥的芬芳
+现在是正午时分，太阳高挂在你的头顶正上方
+event_noon
+
+180
+太阳开始从西方的瓦蓝瓦蓝的天空中，暖暖地照着万物生机
+太阳正高挂在西方的天空中
+event_afternoon
+
+180
+傍晚了，太阳的馀晖将西方的天空映成一片火红
+一轮火红的夕阳正徘徊在西方的地平线上
+event_evening
+
+120
+结束一天的喧闹，夜晚悄悄地降临了
+夜幕笼罩著大地，四野渐渐沉寂
+event_night
+
+240
+已经是午夜了，星辰璀灿明月当空，春寒料峭
+夜幕低垂，满天繁星
+event_midnight

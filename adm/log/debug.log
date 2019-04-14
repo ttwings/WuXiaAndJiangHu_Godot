@@ -1,0 +1,9 @@
+Can't find "mudos", ignoring old binaries.
+Try invoking the driver using the full pathname.
+System Error: init_addr_server: connect: 由于目标计算机积极拒绝，无法连接。
+
+
+Loading preloaded files ...
+Initializations complete.
+
+Accepting connections on port 5555.

@@ -14,7 +14,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://inherit/Armor.gd"
 }, {
-"base": "GameObject",
+"base": "Reference",
 "class": "Char",
 "language": "GDScript",
 "path": "res://inherit/Char.gd"
@@ -54,10 +54,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://objs/HealObj.gd"
 }, {
-"base": "GameObject",
+"base": "Reference",
 "class": "Item",
 "language": "GDScript",
 "path": "res://inherit/Item.gd"
+}, {
+"base": "Combined_item",
+"class": "Money",
+"language": "GDScript",
+"path": "res://inherit/item/Money.gd"
 }, {
 "base": "Char",
 "class": "Npc",
@@ -95,6 +100,7 @@ _global_script_class_icons={
 "GameObject": "",
 "HealObj": "",
 "Item": "",
+"Money": "",
 "Npc": "",
 "Room": "",
 "Skill": "",
@@ -111,6 +117,9 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://Global.gd"
+CHINESED="*res://adm/daemons/CHINESED.gd"
+COLORD="*res://adm/daemons/COLORD.gd"
+CHAR_D="*res://adm/daemons/CHAR_D.gd"
 
 [display]
 
