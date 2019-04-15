@@ -33,31 +33,19 @@ const HBCYN = "[color=#00e09e]"
 const HBWHT = "[color=#f0fcff]"
 var __DIR__ = dir()
 var __FILE__ = file_name()
-# 用信号处理各类信息
-signal message_player_sended(msg,player)
-signal message_ob_sended(msg,ob)
-signal message_room_sended(msg,room)
-# 基本属性
-#var name_cn
-#var weight
-
-
-#TODO call func
-var actions = {}
 
 func _init():
 	create()
 	pass
-	
+
+##################################################  dbase #################################	
+
 func getuid(ob=self):
 	return ob.get_instance_id()
-
-func geteuid(ob=self):
-	return ob.get_instance_id()	
 	
 func setuid(uid):
 	set("uid",uid)		
-##################################################  dbase #################################
+
 var dbase = {"objects" : {}}
 var tmp_dbase = {}
 
@@ -137,37 +125,18 @@ func set_dbase(dbase):
 
 func get_dbase():
 	return dbase	
-
-
-#####################################
-func add_action(fun:String,key:String,ob=self):
-	actions[key] = fun
-	pass	
 	
-		
+#############################################################		
 func setup():
-	# setuid(getuid())
+	setuid(getuid())
 	pass
 
-# 各类信息发送
-func message_vision(message:String,ob:GameObject):
-	# TODO
-#	print_debug(ob.query("name") + message)
-	var msg = message
-	var str_n = ob.query("name")
-	msg = msg.replace("$N",str_n)
-	# emit_signal("message_ob_sended",msg,ob)
-	return msg
 
-func tell_object(who:GameObject,msg:String):
-	#  TODO
-	print_debug(who.name(),msg)	
 	
 # 销毁这件物品	
-var destruct = false
 func destruct(ob=self):
 	# TODO
-	destruct = true
+	ob.set("destruct",true)
 	ob.queue_free()
 #	ob = null
 	pass	
@@ -179,29 +148,9 @@ func sizeof(array):
 func this_object(ob=self):
 	return ob	
 
-var player
-#func set_player(user:Char):
-#	player = user
-func this_player():
-	return player
-	pass	
-
-
-	
 # todo	
 func environment(ob=self):
 	return ob.query_temp("environment")
-	# return query_temp("environment")
-
-# todo
-#func move(to:GameObject):
-#	to.add("objects",self)
-#	self.add("environment",to.file_name())
-#	pass	
-	
-func move_object(ob=self,dest=self):
-	dest.add("objects",ob.file_name())
-
 
 func strsrch(string1,string2):
 	var result = string1.find(string2)
@@ -211,49 +160,8 @@ func strsrch(string1,string2):
 # 返回物品
 # todo
 func present(name:String,to):
-	# var objects = query("objects")
-	# if objects.has(name):
-	# 	return objects[name]
-	# return null
 	to.add("present",name)
 
-# yield(get_tree().create_timer(1), 'timeout')
-
-func notify_fail(message:String):
-	print_debug(message)
-	return message
-	pass	
-
-
-###################################### F clean up  ###########################
-#func clean_up():
-#	var inv;
-#	var i;
-#
-#	if( !clonep() && this_object().query("no_clean_up") ) :
-#		return 1;
-#
-#	if(interactive(this_object())) :
-#		return 1;
-#
-#	# If we are contained in something, let environment do the clean
-#	# up instead of making recursive call. This will prevent clean-up
-#	# time lag.
-#
-#	if(environment()) :
-#		return 1;
-#
-#	inv = all_inventory();
-#	# for(i=sizeof(inv)-1; i>=0; i--)
-#	for i in sizeof(inv):
-#		if(interactive(inv[i])) :
-#			return 1;
-#
-#	destruct(this_object());
-#	return 0;
-
-
-# ----------------------------------------- tools ------------------
 func is_character():
 	return false
 			
@@ -311,25 +219,9 @@ var fighting = false
 func is_fighting():
 	return fighting
 
-################################ command ###################
-# 每个objects 里面需要	
-var call_funcs = {}
-
-func call_out(func_name,time,ob=self):
-	self.call_funcs[func_name] = time
-	if call_funcs.has(func_name) and call_funcs[func_name]>0:
-		call_funcs[func_name] += time
-	else:
-		call_funcs[func_name] = time
-
-func remove_call_out(func_name):
-	if call_funcs.has(func_name) and call_funcs[func_name] <= 0:
-		call_funcs.erase(func_name)
-
 func create():
 	pass	
-	
-	
+		
 ######################################### message #######################
 func message(version:String,msg:String,frome,to):
 	print_debug(version,msg,frome.name(),to.name())
@@ -346,4 +238,24 @@ func command(cmd:String):
 		evaluate(command,args)	
 		
 func error(e):
-	print_debug(str(e))		
+	print_debug(str(e))
+
+func notify_fail(message:String):
+	print_debug(message)
+	return message
+	pass	
+
+# 各类信息发送
+func message_vision(message:String,ob:GameObject):
+	# TODO
+#	print_debug(ob.query("name") + message)
+	var msg = message
+	var str_n = ob.query("name")
+	msg = msg.replace("$N",str_n)
+	# emit_signal("message_ob_sended",msg,ob)
+	return msg
+
+func tell_object(who:GameObject,msg:String):
+	#  TODO
+	who.add("msg",msg)
+	print_debug(who.name(),msg)		

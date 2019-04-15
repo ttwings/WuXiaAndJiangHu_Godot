@@ -21,7 +21,7 @@ void more(string cmd, string *text, int line)
 		case "q":
 			return;
 	}
-	printf(HIW"== Î´Íê¼ÌĞø " HIY "%d%%" HIW " == (ENTER ¼ÌĞøÏÂÒ»Ò³£¬q Àë¿ª£¬b Ç°Ò»Ò³)\n"NOR,
+	printf(HIW"== æœªå®Œç»§ç»­ " HIY "%d%%" HIW " == (ENTER ç»§ç»­ä¸‹ä¸€é¡µï¼Œq ç¦»å¼€ï¼Œb å‰ä¸€é¡µ)\n"NOR,
 		(line*100/sizeof(text)) );
 	input_to("more", text, line);
 }

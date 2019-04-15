@@ -81,7 +81,7 @@ int check(object ob, int myexp, string id, int shen, string fam)
 		ob->query("no_quest") ||
 		// special npcs, like zhong shentong, attacker, biaoshi etc.
 		ob->query("id") == id ||
-		ob->query("race")!="ÈËÀà" ||
+		ob->query("race")!="äººç±»" ||
 		ob->query("family/family_name") == fam ||
 		ob->query("have_master") ||
 		ob->query("owner") ||
@@ -134,7 +134,7 @@ int is_target(object corpse, object me)
 		return 0; // didnt get the job
 	if ( quest["time"] < time())
 		return -3; // time up.
-	if ( quest["type"] != "É±")
+	if ( quest["type"] != "æ€")
 		return -1; // job type is not killing
 	if ( corpse->query("id") != "corpse")
 		return 0; // it's not a corpse.

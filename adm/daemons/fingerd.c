@@ -31,7 +31,7 @@ string finger_all()
 	int i;
 	
 //	ob = users();
-	// Êä³ö¸ñÊ½°´ÕÕipÅÅĞò£¬Modified by Constant
+	// è¾“å‡ºæ ¼å¼æŒ‰ç…§ipæ’åºï¼ŒModified by Constant
 	ob = sort_array(users(), (: sort_user :));
 	msg = "";
 	if ( !wizardp(this_player()) )  // player finger
@@ -42,12 +42,12 @@ string finger_all()
 				msg, ob[i]->query("name"), ob[i]->query("id"),
 				query_idle(ob[i]) + "s");
 		}
-        return "¡ò ÏÀ¿ÍĞĞÒ»°Ù\n" +
-		"©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤\n"
-		+ "ĞÕÃû          ÕÊºÅ          ·¢´ô\n" +
-		"©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤\n"
+        return "â— ä¾ å®¢è¡Œä¸€ç™¾\n" +
+		"â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\n"
+		+ "å§“å          å¸å·          å‘å‘†\n" +
+		"â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\n"
 		+ msg +
-		"©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤\n";
+		"â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\n";
 	} else  	// wizard finger
 	{
 		for(i=0; i<sizeof(ob); i++) {
@@ -57,12 +57,12 @@ string finger_all()
 				age_string( (int)ob[i]->query("mud_age")), 
 				query_idle(ob[i]) + "s", query_ip_name(ob[i]));
 		}
-		return "¡ò ÏÀ¿ÍĞĞ\n" + 
-		"©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤\n"
-		+ "ĞÕÃû          ÕÊºÅ          ÄêÁä          ·¢´ô   Á¬Ïß\n" +
-		"©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤\n"
+		return "â— ä¾ å®¢è¡Œ\n" + 
+		"â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\n"
+		+ "å§“å          å¸å·          å¹´é¾„          å‘å‘†   è¿çº¿\n" +
+		"â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\n"
 		+ msg +
-		"©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤\n";
+		"â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\n";
 	}
 }
 	
@@ -75,7 +75,7 @@ string finger_user(string name)
 
 /*	if( sscanf(name, "%s@%s", name, mud)==2 ) {
 		GFINGER_Q->send_finger_q(mud, name, this_player(1));
-		return "ÍøÂ·Ö¸Áî´«ËÍ¹ı³Ì¿ÉÄÜĞèÒªÒ»Ğ©Ê±¼ä£¬ÇëÉÔºò¡£\n";
+		return "ç½‘è·¯æŒ‡ä»¤ä¼ é€è¿‡ç¨‹å¯èƒ½éœ€è¦ä¸€äº›æ—¶é—´ï¼Œè¯·ç¨å€™ã€‚\n";
 	}
 */
 	ob = new(LOGIN_OB);
@@ -83,7 +83,7 @@ string finger_user(string name)
 	if( !ob->restore() ) 
 	{
 		destruct(ob);
-	 return "Ã»ÓĞÕâ¸öÍæ¼Ò¡£\n";
+	 return "æ²¡æœ‰è¿™ä¸ªç©å®¶ã€‚\n";
 	}
 	
 	if ( !wizardp(this_player()) )  // player finger
@@ -104,34 +104,34 @@ string finger_user(string name)
 			{
 				destruct(ob);
 				destruct(body);
-				return "Ã»ÓĞÕâ¸öÍæ¼Ò¡£\n";
+				return "æ²¡æœ‰è¿™ä¸ªç©å®¶ã€‚\n";
 			}
 //			public_flag = body->query("env/public")?1:0;
 			public_flag = 1;
 			destruct(body);
 		}		
 		
-		msg =  sprintf("\nÓ¢ÎÄ´úºÅ£º\t%s\nĞÕ    Ãû£º\t%s\nÈ¨ÏŞµÈ¼¶£º\t%s\n"
-			"µç×ÓÓÊ¼şµØÖ·£º\t%s\nÉÏ´ÎÁ¬Ïß£º\t%s\n\n",
+		msg =  sprintf("\nè‹±æ–‡ä»£å·ï¼š\t%s\nå§“    åï¼š\t%s\næƒé™ç­‰çº§ï¼š\t%s\n"
+			"ç”µå­é‚®ä»¶åœ°å€ï¼š\t%s\nä¸Šæ¬¡è¿çº¿ï¼š\t%s\n\n",
 			ob->query("id"),
 			ob->query("name"),
 			SECURITY_D->get_status(name),
-			public_flag?ob->query("email"):"²»¸æËßÄã",
+			public_flag?ob->query("email"):"ä¸å‘Šè¯‰ä½ ",
 			ctime(ob->query("last_on"))
 		);
 		if( objectp(body = find_player(name)) && (geteuid(body)==name || (body->query("id")==name && body->query("no_look_wiz")) )) {
 		if ( !wizardp(body) || this_player()->visible(body) || body->query("no_look_wiz")) {	
-		msg += sprintf("\n%sÄ¿Ç°ÕıÔÚÁ¬ÏßÖĞ¡£\n", body->name(1));
+		msg += sprintf("\n%sç›®å‰æ­£åœ¨è¿çº¿ä¸­ã€‚\n", body->name(1));
 		if (ob->query("id") != this_player()->query("id"))
-message("channel:chat", HIC"¡¾ÏĞÁÄ¡¿¡°°¡......Ìç£¡¡±"+body->name(1)+
-"´òÁË¸ö´óÅçÌç£¬ÈàÁËÈà±Ç×Óà½àìµÀ£º¡°Ò»¶¨ÊÇÎÒÄÇ¿Ú×Ó"+this_player()->query("name")+
-"ÓÖÔÚÏëÎÒÁË¡£¡±\n"NOR,users());
-		} else tell_object(find_player(name),WHT+this_player()->query("name")+"("+this_player()->query("id")+")"+"ÕıÔÚÂÒÍ±Äã¡£\n"NOR);
+message("channel:chat", HIC"ã€é—²èŠã€‘â€œå•Š......åšï¼â€"+body->name(1)+
+"æ‰“äº†ä¸ªå¤§å–·åšï¼Œæ‰äº†æ‰é¼»å­å˜Ÿå›”é“ï¼šâ€œä¸€å®šæ˜¯æˆ‘é‚£å£å­"+this_player()->query("name")+
+"åˆåœ¨æƒ³æˆ‘äº†ã€‚â€\n"NOR,users());
+		} else tell_object(find_player(name),WHT+this_player()->query("name")+"("+this_player()->query("id")+")"+"æ­£åœ¨ä¹±æ…ä½ ã€‚\n"NOR);
 		}
 	} else  	// wizard finger
 	{
-		msg =  sprintf("\nÓ¢ÎÄ´úºÅ£º\t%s\nĞÕ    Ãû£º\t%s\nÈ¨ÏŞµÈ¼¶£º\t%s\n"
-			"µç×ÓÓÊ¼şµØÖ·£º\t%s\nÉÏ´ÎÁ¬ÏßµØÖ·£º\t%s( %s )\n\n",
+		msg =  sprintf("\nè‹±æ–‡ä»£å·ï¼š\t%s\nå§“    åï¼š\t%s\næƒé™ç­‰çº§ï¼š\t%s\n"
+			"ç”µå­é‚®ä»¶åœ°å€ï¼š\t%s\nä¸Šæ¬¡è¿çº¿åœ°å€ï¼š\t%s( %s )\n\n",
 			ob->query("id"),
 			ob->query("name"),
 			SECURITY_D->get_status(name),
@@ -140,7 +140,7 @@ message("channel:chat", HIC"¡¾ÏĞÁÄ¡¿¡°°¡......Ìç£¡¡±"+body->name(1)+
 			ctime(ob->query("last_on"))
 		);
 		if( objectp(body = find_player(name)) && geteuid(body)==name ) {
-			msg += sprintf("\n%sÄ¿Ç°ÕıÔÚ´Ó %s Á¬ÏßÖĞ¡£\n", body->name(1),
+			msg += sprintf("\n%sç›®å‰æ­£åœ¨ä» %s è¿çº¿ä¸­ã€‚\n", body->name(1),
 				query_ip_name(body));
 		}
 	}	
@@ -159,11 +159,11 @@ varargs string remote_finger_user(string name, int chinese_flag)
 	if( !ob->restore() )
 	{
 		destruct(ob);
-		return chinese_flag ? "Ã»ÓĞÕâ¸öÍæ¼Ò¡£\n" : "No such user.\n";
+		return chinese_flag ? "æ²¡æœ‰è¿™ä¸ªç©å®¶ã€‚\n" : "No such user.\n";
 	}
 	if( chinese_flag ) msg =  sprintf(
-		"\nÓ¢ÎÄ´úºÅ£º\t%s\nĞÕ    Ãû£º\t%s\nÈ¨ÏŞµÈ¼¶£º\t%s\n"
-		"µç×ÓÓÊ¼şµØÖ·£º\t%s\nÉÏ´ÎÁ¬ÏßµØÖ·£º\t%s( %s )\n\n",
+		"\nè‹±æ–‡ä»£å·ï¼š\t%s\nå§“    åï¼š\t%s\næƒé™ç­‰çº§ï¼š\t%s\n"
+		"ç”µå­é‚®ä»¶åœ°å€ï¼š\t%s\nä¸Šæ¬¡è¿çº¿åœ°å€ï¼š\t%s( %s )\n\n",
 		ob->query("id"),
 		ob->query("name"),
 		SECURITY_D->get_status(name),
@@ -182,11 +182,11 @@ varargs string remote_finger_user(string name, int chinese_flag)
 	if( body = find_player(name) ) {
 		if( !this_player() || this_player()->visible(body) )
 			msg += chinese_flag ?
-				("\n" + ob->query("name") + "Ä¿Ç°ÕıÔÚÏßÉÏ¡£\n"):
+				("\n" + ob->query("name") + "ç›®å‰æ­£åœ¨çº¿ä¸Šã€‚\n"):
 				("\n" + capitalize(name) + " is currently connected.\n");
-message("channel:chat", HIC"¡¾ÏĞÁÄ¡¿¡°°¡......Ìç£¡¡±"+body->name(1)+
-"´òÁË¸ö´óÅçÌç£¬ÈàÁËÈà±Ç×Óà½àìµÀ£º¡°Ò»¶¨ÊÇÎÒÄÇ¿Ú×Ó"+this_player()->query("name")+
-"ÓÖÔÚÏëÎÒÁË¡£¡±\n"NOR,users());
+message("channel:chat", HIC"ã€é—²èŠã€‘â€œå•Š......åšï¼â€"+body->name(1)+
+"æ‰“äº†ä¸ªå¤§å–·åšï¼Œæ‰äº†æ‰é¼»å­å˜Ÿå›”é“ï¼šâ€œä¸€å®šæ˜¯æˆ‘é‚£å£å­"+this_player()->query("name")+
+"åˆåœ¨æƒ³æˆ‘äº†ã€‚â€\n"NOR,users());
 	}
 
 	destruct(ob);
@@ -225,9 +225,9 @@ string get_killer()
 		if ((int)ob[i]->query_condition("killer"))
 			msg += (ob[i]->short() + "\n");
 	if (msg == "")
-		return "±¾³ÇÖÎ°²Á¼ºÃ¡£\n";
+		return "æœ¬åŸæ²»å®‰è‰¯å¥½ã€‚\n";
 	else
-		return "ÏÖÔÚ±¾³ÇÕıÔÚ¼©ÄÃÒÔÏÂÈË·¸£º\n\n" + msg;
+		return "ç°åœ¨æœ¬åŸæ­£åœ¨ç¼‰æ‹¿ä»¥ä¸‹äººçŠ¯ï¼š\n\n" + msg;
 }
 
 int sort_user(object ob1, object ob2)

@@ -1,9 +1,9 @@
-// emei.c �¼������ҽ��ճ�
+// emei.c 事件：峨嵋金顶日出
 // for XKX100 , by Sir 2003.11.3
 
 #include <ansi.h>
 
-// ����
+// 奖励
 private void do_bonus(object room)
 {
         object *obs;
@@ -18,15 +18,15 @@ private void do_bonus(object room)
         r = random(365);
         if (r == 0)
         {
-                msg = HIY "����Ȼ��ۡ����ҷ��\n"NOR;
-                msg += HIR "ֻ��̫��һ��һ�������������ٿ����ǰһ����һ�����γ������Ƽʣ�\n"
-                          "���������ƺ���һ����Ӱ���ڵ��У�����̾�۲��ѡ�\n" NOR;
-                msg += HIG "��ڤڤ�з·�õ��˷�����ָʾ����ʱ��é���ٿ��ĸо���\n" NOR;
+                msg = HIY "【自然奇观】峨嵋佛光\n"NOR;
+                msg += HIR "只见太阳一点一点的升了起来，倏的眼前一亮，一道光晕出现在云际，\n"
+                          "朦朦胧胧似乎有一个佛影立在当中，令人叹羡不已。\n" NOR;
+                msg += HIG "你冥冥中仿佛得到了佛主的指示，登时有茅塞顿开的感觉。\n" NOR;
                 
                
                
 
-                // ���ŵ������ӷ�ѧ����
+                // 佛门弟子增加佛学技能
                 for ( i = 0 ; i < sizeof(obs); i++)
                 {
                 	if( !living(obs[i]) || !userp(obs[i]) ) continue;
@@ -50,27 +50,27 @@ private void do_bonus(object room)
                 }
 
                 message("vision", msg, obs);
-		message("channel:rumor", HIM"��ҥ�ԡ�"+"��˵���ҽ𶥷����֣�����̾Ϊ��ֹ����̾���ѡ�\n"NOR, users());
+		message("channel:rumor", HIM"【谣言】"+"听说峨嵋金顶佛光出现，令人叹为观止，赞叹不已。\n"NOR, users());
                
         } else
         if (r < 250)
         {
-        	msg = HIY "����Ȼ��ۡ������ճ�\n"NOR;
-        	msg +=HIG "�ڶ���ɽ�������ճ������Ŀ��������������Զ���ɽ���������档\n"NOR;
+        	msg = HIY "【自然奇观】峨嵋日出\n"NOR;
+        	msg +=HIG "在峨嵋山上欣赏日出令人心旷神怡，格外领略峨嵋山的隽秀险奇。\n"NOR;
         	
                 switch (random(3))
                 {
                 case 0:
-                        msg += HIY "һ�ֺ���Ծ����ʣ�ӳ��ò��͵��������欣�ãã�ƺ���������ױ��\n" NOR;
+                        msg += HIY "一轮红日跃出天际，映射得层峦叠翠分外妖娆，茫茫云海，尽披红妆。\n" NOR;
                         break;
                 case 1:
-                        msg += HIY "��Ȼ��һ�ֺ���Ծ�����������֮���ʱ�Ի��ޱȣ�ֻ������۾����޷�������\n" NOR;
+                        msg += HIY "忽然间一轮红日跃了上来，天地之间登时辉煌无比，只射得你眼睛都无法睁开。\n" NOR;
                         break;
                 default:
-                        msg += HIY "��Ȼ��ǰ������䣬һ�ֺ���ȽȽ����\n" NOR;
+                        msg += HIY "蓦然眼前金光四射，一轮红日冉冉升起。\n" NOR;
                         break;
                 }
-                msg += HIG "����ͷ����һ����⣬�ƺ��ܵ���ĳ�����ϡ�\n" NOR;
+                msg += HIG "你心头闪过一道灵光，似乎受到了某种启迪。\n" NOR;
                 
                 for ( i = 0 ; i < sizeof(obs); i++)
                 {
@@ -89,27 +89,27 @@ private void do_bonus(object room)
                 switch (random(3))
                 {
                 case 0:
-                        msg = WHT "�ۼ�̫���������ʵľ�Ҫ��������ȴ��һƬ����Ʈ�������˸�����ʵʵ��\n" NOR;
+                        msg = WHT "眼见太阳朦朦胧胧的就要升上来，却见一片乌云飘过，遮了个严严实实。\n" NOR;
                         break;
                 case 1:
-                        msg = WHT "����ǰԽ��Խ���������������أ�����ʲô�����������\n" NOR;
+                        msg = WHT "你眼前越来越亮，但是雾气好重，让你什么都看不清楚。\n" NOR;
                         break;
                 default:
-                        msg = WHT "��߽����ķ��ף�����һ��һ�����������ͷѹ�ù�âһ˿����������\n" NOR;
+                        msg = WHT "天边渐渐的发白，但是一层一层的云气将日头压得光芒一丝都看不见。\n" NOR;
                         break;
                 }
-                msg += HIG "��������̾����̫��ϧ�ˣ���\n" NOR;
+                msg += HIG "你心中连叹：“太可惜了！”\n" NOR;
 
                 message("vision", msg, obs);
         }
 }
 
-//�¼�����
+//事件触发
 void trigger_event()
 {
         object room;
 
-        // ���ҽ��ճ�
+        // 峨嵋金顶日出
         if (objectp(room = find_object("/d/emei/jinding")))
                 do_bonus(room);
 }
@@ -117,6 +117,6 @@ void trigger_event()
 void create() 
 { 
 	seteuid(getuid()); 
-	message("channel:sys", HIR"����Ȼ��ۡ����ҽ��ճ���\n"NOR, users());
+	message("channel:sys", HIR"【自然奇观】峨嵋金顶日出。\n"NOR, users());
 	trigger_event();
 }

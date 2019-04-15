@@ -53,10 +53,10 @@ int quest_reward(object me, object who,object quest_item)
         me->add("combat_exp",exp);
         me->add("potential",pot);
         me->add("score",score);
-	tell_object(me,HIW"Äã±»½±ÀøÁË£º\n" +
-        	    chinese_number(exp) + "µãÊµÕ½¾­Ñé\n"+
-        	    chinese_number(pot) + "µãÇ±ÄÜ\n" +
-        	    chinese_number(score)+"µã½­ºşÔÄÀú\n"NOR);
+	tell_object(me,HIW"ä½ è¢«å¥–åŠ±äº†ï¼š\n" +
+        	    chinese_number(exp) + "ç‚¹å®æˆ˜ç»éªŒ\n"+
+        	    chinese_number(pot) + "ç‚¹æ½œèƒ½\n" +
+        	    chinese_number(score)+"ç‚¹æ±Ÿæ¹–é˜…å†\n"NOR);
 	me->add("TASK",1);
 	if ( !undefinedp(quest["fin_func"]))
 		call_other(this_object(), quest["fin_func"], me, who, quest_item);
@@ -134,10 +134,10 @@ string dyn_quest_list(int unfinished)
 			if (unfinished)
 				continue;
 			else
-				status = HIR"   ¡Ì "NOR;
+				status = HIR"   âˆš "NOR;
 		}
 
-		item_name = item->query("name") + "£¨" + item->query("id") + "£©";
+		item_name = item->query("name") + "ï¼ˆ" + item->query("id") + "ï¼‰";
 		owner_name = owner->query("name");
 
 		if (random(2))
@@ -154,15 +154,15 @@ string dyn_quest_list(int unfinished)
 string locate_obj(object me,string strr)
 {
         string *distance = ({
-		"¼«½ü", "ºÜ½ü", "±È½Ï½ü", "²»Ô¶",
-		"²»½ü", "±È½ÏÔ¶", "ºÜÔ¶", "¼«Ô¶"
+		"æè¿‘", "å¾ˆè¿‘", "æ¯”è¾ƒè¿‘", "ä¸è¿œ",
+		"ä¸è¿‘", "æ¯”è¾ƒè¿œ", "å¾ˆè¿œ", "æè¿œ"
         });
         string *altitude = ({
-		"¸ß´¦", "µØ·½", "µÍ´¦"
+		"é«˜å¤„", "åœ°æ–¹", "ä½å¤„"
         });
         string *directions = ({
-		"ÖÜÎ§","±±·½", "ÄÏ·½", "¶«·½","Î÷·½",
-		"¶«±±·½","Î÷±±·½","¶«ÄÏ·½","Î÷ÄÏ·½"
+		"å‘¨å›´","åŒ—æ–¹", "å—æ–¹", "ä¸œæ–¹","è¥¿æ–¹",
+		"ä¸œåŒ—æ–¹","è¥¿åŒ—æ–¹","ä¸œå—æ–¹","è¥¿å—æ–¹"
         });
         	
         object ob, tmpobj,where, *ob_list;
@@ -205,7 +205,7 @@ string locate_obj(object me,string strr)
 
         if (ob) {
 		if (wizardp(me))
-			return "¡º" + item->query("name") + "¡»ÔÚ" + base_name(ob) + "´¦\n";
+			return "ã€" + item->query("name") + "ã€åœ¨" + base_name(ob) + "å¤„\n";
 
               	x0 = (int)room->query("coor/x");
               	y0 = (int)room->query("coor/y");
@@ -256,7 +256,7 @@ string locate_obj(object me,string strr)
         		dir = directions[7];
         	if (x<0 && y<0) 
         		dir = directions[8];
-		output = "¡º"+item->query("name")+"¡»ËÆºõÔÚ"+dir+dis+"µÄ"+alt+"¡£\n";
+		output = "ã€"+item->query("name")+"ã€ä¼¼ä¹åœ¨"+dir+dis+"çš„"+alt+"ã€‚\n";
 		return output;
 	}
 	return "";

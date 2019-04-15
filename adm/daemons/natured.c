@@ -3,21 +3,21 @@
 
 #include <ansi.h>
 // #define TIME_TICK ((time()-1270000000)*60)
-//#define TIME_TICK ((time()-1111000000)*365)//ÏÖÊµÒ»Ãëmud365Ãë
-					   //ÏÖÊµÒ»Ììmud365Ìì(Ò»Äê)
-#define TIME_TICK ((time()%(60*24*3600))*365)//mudÖĞ60ÄêÒ»ÂÖ=ÏÖÊµÖĞ60Ìì
+//#define TIME_TICK ((time()-1111000000)*365)//ç°å®ä¸€ç§’mud365ç§’
+					   //ç°å®ä¸€å¤©mud365å¤©(ä¸€å¹´)
+#define TIME_TICK ((time()%(60*24*3600))*365)//mudä¸­60å¹´ä¸€è½®=ç°å®ä¸­60å¤©
 static int current_day_phase;
 mapping *day_phase;
 
-//·ÉÔôÈÎÎñÓëÒşÊ¿ÈÎÎñµÄ±êÊ¶
+//é£è´¼ä»»åŠ¡ä¸éšå£«ä»»åŠ¡çš„æ ‡è¯†
 int thief_yinshi = 3;
 
 string *weather_msg = ({
-	"Ìì¿ÕÖĞÍòÀïÎŞÔÆ",
-	"¼¸¶äµ­µ­µÄÔÆ²Ê×±µãÖøÇåÀÊµÄÌì¿Õ",
-	"°×ÔÆÔÚÌì¿ÕÖĞÆ®À´Æ®È¥",
-	"ºñºñµÄÔÆ²ã¶Ñ»ıÔÚÌì±ß",
-	"Ìì¿ÕÖĞÎÚÔÆÃÜ²¼",
+	"å¤©ç©ºä¸­ä¸‡é‡Œæ— äº‘",
+	"å‡ æœµæ·¡æ·¡çš„äº‘å½©å¦†ç‚¹è‘—æ¸…æœ—çš„å¤©ç©º",
+	"ç™½äº‘åœ¨å¤©ç©ºä¸­é£˜æ¥é£˜å»",
+	"åšåšçš„äº‘å±‚å †ç§¯åœ¨å¤©è¾¹",
+	"å¤©ç©ºä¸­ä¹Œäº‘å¯†å¸ƒ",
 });
 
 mapping *read_table(string file);
@@ -47,8 +47,8 @@ void init_day_phase()
 
 	current_day_phase = (i==0? sizeof(day_phase)-1: i - 1);
 	current_day_phase = (i==0? sizeof(day_phase)-1: i - 1);
-	// MUD ÔËĞĞÊ±¼ä¾ÃÁË£¬Ê±¼ä»áÓĞÆ«²î£¬ÕâÀïÊÇµ÷Õû³ÌĞò£¬Ã¿Ğ¡Ê±Ö´ĞĞÒ»´Î
-	message("channel:sys", HIR"¡¾ÏµÍ³¡¿Äà°ÍÊ±¼ä¶ÔÆëÏµÍ³Ê±¼ä£¬Ò»Ğ¡Ê±Ò»´Î¡£\n"NOR, users());
+	// MUD è¿è¡Œæ—¶é—´ä¹…äº†ï¼Œæ—¶é—´ä¼šæœ‰åå·®ï¼Œè¿™é‡Œæ˜¯è°ƒæ•´ç¨‹åºï¼Œæ¯å°æ—¶æ‰§è¡Œä¸€æ¬¡
+	message("channel:sys", HIR"ã€ç³»ç»Ÿã€‘æ³¥å·´æ—¶é—´å¯¹é½ç³»ç»Ÿæ—¶é—´ï¼Œä¸€å°æ—¶ä¸€æ¬¡ã€‚\n"NOR, users());
 	remove_call_out("init_day_phase");
 	call_out("init_day_phase", 3600);
 
@@ -64,7 +64,7 @@ void update_day_phase()
 	remove_call_out("update_day_phase");
 
 	current_day_phase = (++current_day_phase) % sizeof(day_phase);
-	message("outdoor:vision", HIG"¡¾´°Íâ¡¿"NOR + day_phase[current_day_phase]["time_msg"] + NOR"¡£\n", users());
+	message("outdoor:vision", HIG"ã€çª—å¤–ã€‘"NOR + day_phase[current_day_phase]["time_msg"] + NOR"ã€‚\n", users());
 	if( !undefinedp(day_phase[current_day_phase]["event_fun"]) )
 		call_other(this_object(), day_phase[current_day_phase]["event_fun"]);
 
@@ -78,9 +78,9 @@ void event_midnight()
 	switch(get_month)
 	{
 		//spring weather
-		case "Èı":
-		case "ËÄ":
-		case "Îå":
+		case "ä¸‰":
+		case "å››":
+		case "äº”":
 			switch(random(3))
 			{
 			case 0:
@@ -92,9 +92,9 @@ void event_midnight()
 			}
 			break;
 		//summer weather
-		case "Áù":
-		case "Æß":
-		case "°Ë":
+		case "å…­":
+		case "ä¸ƒ":
+		case "å…«":
 			switch(random(3))
 			{
 			case 0:
@@ -106,9 +106,9 @@ void event_midnight()
 			}
 			break;
 		//autumn weather
-		case "¾Å":
-		case "Ê®":
-		case "Ê®Ò»":
+		case "ä¹":
+		case "å":
+		case "åä¸€":
 			switch(random(3))
 			{
 			case 0:
@@ -120,9 +120,9 @@ void event_midnight()
 			}
 			break;
 		//winter weather
-		case "Ê®¶ş":
-		case "Ò»":
-		case "¶ş":
+		case "åäºŒ":
+		case "ä¸€":
+		case "äºŒ":
 			switch(random(3))
 			{
 			case 0:
@@ -152,15 +152,15 @@ object create_thief( )
 	if (random(2) == 0)
 	{
 	        if (thief_yinshi==1) name = NAME_D->woman_name();
-		obj->set("gender", "Å®ĞÔ");
+		obj->set("gender", "å¥³æ€§");
 	}
 	else
 	{
 		if (thief_yinshi==1) name = NAME_D->man_name();
-		obj->set("gender", "ÄĞĞÔ");
+		obj->set("gender", "ç”·æ€§");
 	}
         if (thief_yinshi==1) obj->set("fname", name["name"]);
-/* skilllvl && exp for ·ÉÔô */    
+/* skilllvl && exp for é£è´¼ */    
      if (thief_yinshi==0)
         {
        	   i=random(5);
@@ -190,7 +190,7 @@ object create_thief( )
                  obj->set("str_lvl",5);
                 }                        
          }
-/* skilllvl && exp for ÒşÊ¿*/
+/* skilllvl && exp for éšå£«*/
       if (thief_yinshi==1)
           { 
             skilllvl=250;
@@ -218,7 +218,7 @@ void event_morning()
 
         thief_yinshi=1;
         yinshi=create_thief();
-//Ñ¡ÔñµØµã
+//é€‰æ‹©åœ°ç‚¹
 	dir = get_dir("/d/");
 	i = random(sizeof(dir));
 	file = get_dir("/d/"+dir[i]+"/");
@@ -244,9 +244,9 @@ void event_morning()
 	  room = load_object("/d/wuyi/sangufeng");
 	}
 	yinshi->move(room);
-	CHANNEL_D->do_channel(yinshi, "sys",yinshi->query("name")+"ÔÚ"+room->query("short")+"(/d/"+dir[i]+"/"+file[j]+")¡£\n");	        				
-        message("channel:snow", HIY"¡¾½­ºş´«ÎÅ¡¿"HIC + "ÌıËµÔÚ"+ to_chinese(dir[i]) + "Ò»´øÒş¾Ó×ÅÒ»Î»ÎäÁÖÇ°±²£¬½­ºşÈËÊ¿·×·×Ç°ÍùÑ°·Ã£¡\n"NOR,users() );
-//»¹Ô­±êÊ¶
+	CHANNEL_D->do_channel(yinshi, "sys",yinshi->query("name")+"åœ¨"+room->query("short")+"(/d/"+dir[i]+"/"+file[j]+")ã€‚\n");	        				
+        message("channel:snow", HIY"ã€æ±Ÿæ¹–ä¼ é—»ã€‘"HIC + "å¬è¯´åœ¨"+ to_chinese(dir[i]) + "ä¸€å¸¦éšå±…ç€ä¸€ä½æ­¦æ—å‰è¾ˆï¼Œæ±Ÿæ¹–äººå£«çº·çº·å‰å¾€å¯»è®¿ï¼\n"NOR,users() );
+//è¿˜åŸæ ‡è¯†
 	thief_yinshi=3;              
 }
 
@@ -258,7 +258,7 @@ void event_afternoon()
                 for(i=0; i<sizeof(ob_list); i++) 
 		if(environment(ob_list[i]))
 		{
-			message_vision("$NĞ¦µÀ£ºÌìÒªºÚÁË£¬ÎÒÒ²¸Ã×ßÀ²£¡\n",ob_list[i]);
+			message_vision("$Nç¬‘é“ï¼šå¤©è¦é»‘äº†ï¼Œæˆ‘ä¹Ÿè¯¥èµ°å•¦ï¼\n",ob_list[i]);
 			destruct(ob_list[i]);
                 }
 }
@@ -275,107 +275,107 @@ void event_night()
 		if(objectp(room=load_object("/d/city/shilijie4")))
 		 badguy= create_thief();
 		 badguy->move(room);
-		message("channel:snow", HIM"¡¾¹Ù¸®Í¨¸æ¡¿"HIR + "ÑïÖİ³ÇÖĞ½ñÒ¹ÓĞ·ÉÔôºáĞĞ£¬Á¼Ãñ°ÙĞÕÇë±ÕÃÅ²»³ö£¬ÇĞÄª×ÔÎó£¡\n"NOR,users() );
+		message("channel:snow", HIM"ã€å®˜åºœé€šå‘Šã€‘"HIR + "æ‰¬å·åŸä¸­ä»Šå¤œæœ‰é£è´¼æ¨ªè¡Œï¼Œè‰¯æ°‘ç™¾å§“è¯·é—­é—¨ä¸å‡ºï¼Œåˆ‡è«è‡ªè¯¯ï¼\n"NOR,users() );
 	}
         else if ( num == 1)
         {
 		if(objectp(room=load_object("/d/beijing/tian_anm")))
 		badguy= create_thief();
 		badguy->move(room);
-		message("channel:snow", HIM"¡¾¹Ù¸®Í¨¸æ¡¿"HIR + "±±¾©³ÇÖĞ½ñÒ¹ÓĞ·ÉÔôºáĞĞ£¬Á¼Ãñ°ÙĞÕÇë±ÕÃÅ²»³ö£¬ÇĞÄª×ÔÎó£¡\n"NOR,users() );
+		message("channel:snow", HIM"ã€å®˜åºœé€šå‘Šã€‘"HIR + "åŒ—äº¬åŸä¸­ä»Šå¤œæœ‰é£è´¼æ¨ªè¡Œï¼Œè‰¯æ°‘ç™¾å§“è¯·é—­é—¨ä¸å‡ºï¼Œåˆ‡è«è‡ªè¯¯ï¼\n"NOR,users() );
 	}
         else if ( num == 2)
         {
 		if(objectp(room=load_object("/d/changan/center")))
 		badguy= create_thief();
 		badguy->move(room);
-		message("channel:snow", HIM"¡¾¹Ù¸®Í¨¸æ¡¿"HIR + "³¤°²³ÇÖĞ½ñÒ¹ÓĞ·ÉÔôºáĞĞ£¬Á¼Ãñ°ÙĞÕÇë±ÕÃÅ²»³ö£¬ÇĞÄª×ÔÎó£¡\n"NOR,users() );
+		message("channel:snow", HIM"ã€å®˜åºœé€šå‘Šã€‘"HIR + "é•¿å®‰åŸä¸­ä»Šå¤œæœ‰é£è´¼æ¨ªè¡Œï¼Œè‰¯æ°‘ç™¾å§“è¯·é—­é—¨ä¸å‡ºï¼Œåˆ‡è«è‡ªè¯¯ï¼\n"NOR,users() );
 	}
          else if ( num == 3)
         {
 		if(objectp(room=load_object("/d/fuzhou/dongjiekou")))
 		badguy= create_thief();
 		badguy->move(room);
-		message("channel:snow", HIM"¡¾¹Ù¸®Í¨¸æ¡¿"HIR + "¸£Öİ³ÇÖĞ½ñÒ¹ÓĞ·ÉÔôºáĞĞ£¬Á¼Ãñ°ÙĞÕÇë±ÕÃÅ²»³ö£¬ÇĞÄª×ÔÎó£¡\n"NOR,users() );
+		message("channel:snow", HIM"ã€å®˜åºœé€šå‘Šã€‘"HIR + "ç¦å·åŸä¸­ä»Šå¤œæœ‰é£è´¼æ¨ªè¡Œï¼Œè‰¯æ°‘ç™¾å§“è¯·é—­é—¨ä¸å‡ºï¼Œåˆ‡è«è‡ªè¯¯ï¼\n"NOR,users() );
 	}
          else if ( num == 4)
         {
 		if(objectp(room=load_object("/d/quanzhou/guangchang")) )
 		badguy= create_thief();
 		badguy->move(room);
-		message("channel:snow", HIM"¡¾¹Ù¸®Í¨¸æ¡¿"HIR + "ÈªÖİ³ÇÖĞ½ñÒ¹ÓĞ·ÉÔôºáĞĞ£¬Á¼Ãñ°ÙĞÕÇë±ÕÃÅ²»³ö£¬ÇĞÄª×ÔÎó£¡\n"NOR,users() );
+		message("channel:snow", HIM"ã€å®˜åºœé€šå‘Šã€‘"HIR + "æ³‰å·åŸä¸­ä»Šå¤œæœ‰é£è´¼æ¨ªè¡Œï¼Œè‰¯æ°‘ç™¾å§“è¯·é—­é—¨ä¸å‡ºï¼Œåˆ‡è«è‡ªè¯¯ï¼\n"NOR,users() );
 	}
          else if ( num == 5)
         {
 		if(objectp(room=load_object("/d/suzhou/baodaiqiao")) )
 		badguy= create_thief();
 		badguy->move(room);
-		message("channel:snow", HIM"¡¾¹Ù¸®Í¨¸æ¡¿"HIR + "ËÕÖİ³ÇÖĞ½ñÒ¹ÓĞ·ÉÔôºáĞĞ£¬Á¼Ãñ°ÙĞÕÇë±ÕÃÅ²»³ö£¬ÇĞÄª×ÔÎó£¡\n"NOR,users() );
+		message("channel:snow", HIM"ã€å®˜åºœé€šå‘Šã€‘"HIR + "è‹å·åŸä¸­ä»Šå¤œæœ‰é£è´¼æ¨ªè¡Œï¼Œè‰¯æ°‘ç™¾å§“è¯·é—­é—¨ä¸å‡ºï¼Œåˆ‡è«è‡ªè¯¯ï¼\n"NOR,users() );
 	}
          else if ( num == 6)
         {
 		if(objectp(room=load_object("/d/hangzhou/jujingyuan")) )
 		badguy= create_thief();
 		badguy->move(room);		
-		message("channel:snow", HIM"¡¾¹Ù¸®Í¨¸æ¡¿"HIR + "º¼Öİ³ÇÖĞ½ñÒ¹ÓĞ·ÉÔôºáĞĞ£¬Á¼Ãñ°ÙĞÕÇë±ÕÃÅ²»³ö£¬ÇĞÄª×ÔÎó£¡\n"NOR,users() );
+		message("channel:snow", HIM"ã€å®˜åºœé€šå‘Šã€‘"HIR + "æ­å·åŸä¸­ä»Šå¤œæœ‰é£è´¼æ¨ªè¡Œï¼Œè‰¯æ°‘ç™¾å§“è¯·é—­é—¨ä¸å‡ºï¼Œåˆ‡è«è‡ªè¯¯ï¼\n"NOR,users() );
 	}
          else if ( num == 7)
         {
 		if(objectp(room=load_object("/d/wuxi/guangchang")) )
 		badguy= create_thief();
 		badguy->move(room);
-		message("channel:snow", HIM"¡¾¹Ù¸®Í¨¸æ¡¿"HIR + "ÎŞÎı³ÇÖĞ½ñÒ¹ÓĞ·ÉÔôºáĞĞ£¬Á¼Ãñ°ÙĞÕÇë±ÕÃÅ²»³ö£¬ÇĞÄª×ÔÎó£¡\n"NOR,users() );
+		message("channel:snow", HIM"ã€å®˜åºœé€šå‘Šã€‘"HIR + "æ— é”¡åŸä¸­ä»Šå¤œæœ‰é£è´¼æ¨ªè¡Œï¼Œè‰¯æ°‘ç™¾å§“è¯·é—­é—¨ä¸å‡ºï¼Œåˆ‡è«è‡ªè¯¯ï¼\n"NOR,users() );
 	}
         else if ( num == 8)
         {
 		if(objectp(room=load_object("/d/xiangyang/guangchang")) )
 		badguy= create_thief();
 		badguy->move(room);
-		message("channel:snow", HIM"¡¾¹Ù¸®Í¨¸æ¡¿"HIR + "ÏåÑô³ÇÖĞ½ñÒ¹ÓĞ·ÉÔôºáĞĞ£¬Á¼Ãñ°ÙĞÕÇë±ÕÃÅ²»³ö£¬ÇĞÄª×ÔÎó£¡\n"NOR,users() );
+		message("channel:snow", HIM"ã€å®˜åºœé€šå‘Šã€‘"HIR + "è¥„é˜³åŸä¸­ä»Šå¤œæœ‰é£è´¼æ¨ªè¡Œï¼Œè‰¯æ°‘ç™¾å§“è¯·é—­é—¨ä¸å‡ºï¼Œåˆ‡è«è‡ªè¯¯ï¼\n"NOR,users() );
 	}
          else if ( num == 9)
         {
 		if(objectp(room=load_object("/d/yueyang/zhongxin")) )
 		badguy= create_thief();
 		badguy->move(room);
-		message("channel:snow", HIM"¡¾¹Ù¸®Í¨¸æ¡¿"HIR + "ÔÀÑô³ÇÖĞ½ñÒ¹ÓĞ·ÉÔôºáĞĞ£¬Á¼Ãñ°ÙĞÕÇë±ÕÃÅ²»³ö£¬ÇĞÄª×ÔÎó£¡\n"NOR,users() );
+		message("channel:snow", HIM"ã€å®˜åºœé€šå‘Šã€‘"HIR + "å²³é˜³åŸä¸­ä»Šå¤œæœ‰é£è´¼æ¨ªè¡Œï¼Œè‰¯æ°‘ç™¾å§“è¯·é—­é—¨ä¸å‡ºï¼Œåˆ‡è«è‡ªè¯¯ï¼\n"NOR,users() );
 	}
          else if ( num == 10)
         {
 		if(objectp(room=load_object("/d/chengdu/guangchang")))
 		badguy= create_thief();
 		badguy->move(room);
-		message("channel:snow", HIM"¡¾¹Ù¸®Í¨¸æ¡¿"HIR + "³É¶¼³ÇÖĞ½ñÒ¹ÓĞ·ÉÔôºáĞĞ£¬Á¼Ãñ°ÙĞÕÇë±ÕÃÅ²»³ö£¬ÇĞÄª×ÔÎó£¡\n"NOR,users() );
+		message("channel:snow", HIM"ã€å®˜åºœé€šå‘Šã€‘"HIR + "æˆéƒ½åŸä¸­ä»Šå¤œæœ‰é£è´¼æ¨ªè¡Œï¼Œè‰¯æ°‘ç™¾å§“è¯·é—­é—¨ä¸å‡ºï¼Œåˆ‡è«è‡ªè¯¯ï¼\n"NOR,users() );
 	}
          else if ( num == 11)
         {
 		if(objectp(room=load_object("/d/dali/center")) )
 		badguy= create_thief();
 		badguy->move(room);
-		message("channel:snow", HIM"¡¾¹Ù¸®Í¨¸æ¡¿"HIR + "´óÀí³ÇÖĞ½ñÒ¹ÓĞ·ÉÔôºáĞĞ£¬Á¼Ãñ°ÙĞÕÇë±ÕÃÅ²»³ö£¬ÇĞÄª×ÔÎó£¡\n"NOR,users() );
+		message("channel:snow", HIM"ã€å®˜åºœé€šå‘Šã€‘"HIR + "å¤§ç†åŸä¸­ä»Šå¤œæœ‰é£è´¼æ¨ªè¡Œï¼Œè‰¯æ°‘ç™¾å§“è¯·é—­é—¨ä¸å‡ºï¼Œåˆ‡è«è‡ªè¯¯ï¼\n"NOR,users() );
         }
         else if ( num == 12)
         {
 		if(objectp(room=load_object("/d/lingzhou/center")) )
 		badguy= create_thief();
 		badguy->move(room);
-		message("channel:snow", HIM"¡¾¹Ù¸®Í¨¸æ¡¿"HIR + "ÁéÖİ³ÇÖĞ½ñÒ¹ÓĞ·ÉÔôºáĞĞ£¬Á¼Ãñ°ÙĞÕÇë±ÕÃÅ²»³ö£¬ÇĞÄª×ÔÎó£¡\n"NOR,users() );
+		message("channel:snow", HIM"ã€å®˜åºœé€šå‘Šã€‘"HIR + "çµå·åŸä¸­ä»Šå¤œæœ‰é£è´¼æ¨ªè¡Œï¼Œè‰¯æ°‘ç™¾å§“è¯·é—­é—¨ä¸å‡ºï¼Œåˆ‡è«è‡ªè¯¯ï¼\n"NOR,users() );
 	}
        else if ( num == 13)
         {
 		if(objectp(room=load_object("/d/foshan/street3")) )
 		badguy= create_thief();
 		badguy->move(room);
-		message("channel:snow", HIM"¡¾¹Ù¸®Í¨¸æ¡¿"HIR + "·ğÉ½ÕòÖĞ½ñÒ¹ÓĞ·ÉÔôºáĞĞ£¬Á¼Ãñ°ÙĞÕÇë±ÕÃÅ²»³ö£¬ÇĞÄª×ÔÎó£¡\n"NOR,users() );
+		message("channel:snow", HIM"ã€å®˜åºœé€šå‘Šã€‘"HIR + "ä½›å±±é•‡ä¸­ä»Šå¤œæœ‰é£è´¼æ¨ªè¡Œï¼Œè‰¯æ°‘ç™¾å§“è¯·é—­é—¨ä¸å‡ºï¼Œåˆ‡è«è‡ªè¯¯ï¼\n"NOR,users() );
         }
        else 
         {
 		if(objectp(room=load_object("/d/jiangling/xijie2")) )
 		badguy= create_thief();
 		badguy->move(room);
-		message("channel:snow", HIM"¡¾¹Ù¸®Í¨¸æ¡¿"HIR + "½­Áê³ÇÖĞ½ñÒ¹ÓĞ·ÉÔôºáĞĞ£¬Á¼Ãñ°ÙĞÕÇë±ÕÃÅ²»³ö£¬ÇĞÄª×ÔÎó£¡\n"NOR,users() );
+		message("channel:snow", HIM"ã€å®˜åºœé€šå‘Šã€‘"HIR + "æ±Ÿé™µåŸä¸­ä»Šå¤œæœ‰é£è´¼æ¨ªè¡Œï¼Œè‰¯æ°‘ç™¾å§“è¯·é—­é—¨ä¸å‡ºï¼Œåˆ‡è«è‡ªè¯¯ï¼\n"NOR,users() );
          }
-//»¹Ô­±êÊ¶
+//è¿˜åŸæ ‡è¯†
        thief_yinshi=3;
 }
 
@@ -387,7 +387,7 @@ void event_dawn()
                 for(i=0; i<sizeof(ob_list); i++) 
 		if(environment(ob_list[i]))
 		{
-			message_vision("$NĞ¦µÀ£ºÌìÁÁÁË£¬¶«Î÷Ò²µ½ÊÖÁË£¬ÎÒÉÁ£¡\n",ob_list[i]);
+			message_vision("$Nç¬‘é“ï¼šå¤©äº®äº†ï¼Œä¸œè¥¿ä¹Ÿåˆ°æ‰‹äº†ï¼Œæˆ‘é—ªï¼\n",ob_list[i]);
 			destruct(ob_list[i]);
                 }
 }
@@ -402,35 +402,35 @@ void event_noon()
 	get_month = CHINESE_D->chinese_month(TIME_TICK);
 	switch(get_month)
 	{
-		case "Èı":
-		case "ËÄ":
-		case "Îå":
+		case "ä¸‰":
+		case "å››":
+		case "äº”":
 			ill = "ill_kesou";
-			msg = HIG"ºöÈ»ºíÍ·Ò»ÕóºÛÑ÷£¬Äã¸Ğ¾õËÆºõÒª¿ÈËÔÁË¡£\n"NOR;
+			msg = HIG"å¿½ç„¶å–‰å¤´ä¸€é˜µç—•ç—’ï¼Œä½ æ„Ÿè§‰ä¼¼ä¹è¦å’³å—½äº†ã€‚\n"NOR;
 			break;
-		case "Áù":
-		case "Æß":
-		case "°Ë":
+		case "å…­":
+		case "ä¸ƒ":
+		case "å…«":
 			ill = "ill_zhongshu";
-			msg = HIG"Í»È»ÄãĞØÒÜÖ®¼äÒ»Õó·­ÌÚ£¬ÄãÖĞÊîÁË¡£\n"NOR;
+			msg = HIG"çªç„¶ä½ èƒ¸è‡†ä¹‹é—´ä¸€é˜µç¿»è…¾ï¼Œä½ ä¸­æš‘äº†ã€‚\n"NOR;
 			break;
-		case "¾Å":
-		case "Ê®":
-		case "Ê®Ò»":
+		case "ä¹":
+		case "å":
+		case "åä¸€":
 			ill = "ill_shanghan";
-			msg = HIG"¶¸µÄÄã´òÁË¸öÀäÕ½£¬Í·»è³Á³ÁµÄ£¬ÄãµÃÉËº®²¡ÁË¡£\n"NOR;
+			msg = HIG"é™¡çš„ä½ æ‰“äº†ä¸ªå†·æˆ˜ï¼Œå¤´æ˜æ²‰æ²‰çš„ï¼Œä½ å¾—ä¼¤å¯’ç—…äº†ã€‚\n"NOR;
 			break;
-		case "Ê®¶ş":
-		case "Ò»":
-		case "¶ş":
+		case "åäºŒ":
+		case "ä¸€":
+		case "äºŒ":
 			ill = "ill_dongshang";
-			msg = HIG"ÄãÖ«ÌåÄ©¶ËÒ»Õó½©Ö±£¬¿´À´Äã±»¶³ÉËÁË¡£\n"NOR;
+			msg = HIG"ä½ è‚¢ä½“æœ«ç«¯ä¸€é˜µåƒµç›´ï¼Œçœ‹æ¥ä½ è¢«å†»ä¼¤äº†ã€‚\n"NOR;
 			break;
 	}
 	if(random(2))
 	{
 		ill = "ill_fashao";
-		msg = HIG"ÄãÅ¼¸Ğ·çº®£¬¾¹¶ø·¢ÆğÉÕÀ´¡£\n"NOR;
+		msg = HIG"ä½ å¶æ„Ÿé£å¯’ï¼Œç«Ÿè€Œå‘èµ·çƒ§æ¥ã€‚\n"NOR;
 	}
 	ob = users();
 	for(i=0; i<sizeof(ob); i++)
@@ -440,11 +440,11 @@ void event_noon()
 		if( ob[i]->query("age")==14 ) continue;
 		con1 = ob[i]->query("qi");
 		con2 = ob[i]->query("max_qi");
-		(int)con = con1/con2*50;//ĞÎ³ÉµÚÒ»¸öÉú²¡ÅĞ¶ÏÌõ¼ş
+		(int)con = con1/con2*50;//å½¢æˆç¬¬ä¸€ä¸ªç”Ÿç—…åˆ¤æ–­æ¡ä»¶
 		con3 = ob[i]->query("neili");
 		con2 = ob[i]->query("max_neili");
 		if( con2 == 0) con2 = 1;
-		(int)con1 = con3/con2*50;//ĞÎ³ÉµÚ¶ş¸öÉú²¡ÅĞ¶ÏÌõ¼ş
+		(int)con1 = con3/con2*50;//å½¢æˆç¬¬äºŒä¸ªç”Ÿç—…åˆ¤æ–­æ¡ä»¶
 		if(random(con)+random(50)+random(con1)<25)
 		{
 			ob[i]->apply_condition(ill, 10+random(40));
@@ -455,7 +455,7 @@ void event_noon()
 
 string outdoor_room_description()
 {
-	return "    "+day_phase[current_day_phase]["desc_msg"]+NOR"¡£\n";
+	return "    "+day_phase[current_day_phase]["desc_msg"]+NOR"ã€‚\n";
 }
 string outdoor_room_event()
 {

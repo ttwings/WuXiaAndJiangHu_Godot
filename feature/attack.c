@@ -42,7 +42,7 @@ void fight_ob(object ob)
 	if(!ob || ob==this_object()) return;
 	if (environment(ob) != environment(this_object())) return;
 	set_heart_beat(1);
-/*  ÔÝÊ±²»ÏÂ×øÆïÓ­Õ½
+/*  æš‚æ—¶ä¸ä¸‹åéª‘è¿Žæˆ˜
 	if (ob->query_temp("is_riding"))
 	{
 		inv = all_inventory(ob);
@@ -57,7 +57,7 @@ void fight_ob(object ob)
 		}
 		if( i < 0 )
 		{
-			message_vision("$N¼±Ã¦´Ó$nÉÏÊÖÃ¦½ÅÂÒµØÌøÏÂÓ­Õ½¡£\n", ob, obj);
+			message_vision("$Næ€¥å¿™ä»Ž$nä¸Šæ‰‹å¿™è„šä¹±åœ°è·³ä¸‹è¿Žæˆ˜ã€‚\n", ob, obj);
 			obj->move( environment(ob) );
 			obj->delele("is_rided_by");
 			ob->delete_temp("is_riding");
@@ -76,14 +76,14 @@ void kill_ob(object ob)
 
 	if( me->query_temp("guardfor") == ob)
 	{
-		tell_object(me, HIR "²»ÄÜÉ±ÄãÒª±£»¤µÄÈË£¡\n" NOR);
+		tell_object(me, HIR "ä¸èƒ½æ€ä½ è¦ä¿æŠ¤çš„äººï¼\n" NOR);
 		return;
 	}
 	if( environment(me)->query("no_fight")) return;
 	if (environment(me)!=environment(ob)) return;
 
 	if (me->is_killing(ob->query("id")) && me->is_fighting(ob)) return;
-	tell_object(ob, HIR "¿´ÆðÀ´" + this_object()->name() + "ÏëÉ±ËÀÄã£¡\n" NOR);
+	tell_object(ob, HIR "çœ‹èµ·æ¥" + this_object()->name() + "æƒ³æ€æ­»ä½ ï¼\n" NOR);
 
 	if( member_array(ob->query("id"), killer)==-1 )
 		killer += ({ ob->query("id") });
@@ -97,8 +97,8 @@ void kill_ob(object ob)
 		guards = ob->query_temp("guarded");
 		guards -= ({ this_object() });
 		ob->set_temp("guarded", guards);
-		tell_object(this_object(), HIY "ÄãÍ£Ö¹±£»¤" + ob->name() + "¡£\n" NOR);
-		tell_object(ob, HIY + this_object()->name() + "Í£Ö¹±£»¤Äã¡£\n" NOR);
+		tell_object(this_object(), HIY "ä½ åœæ­¢ä¿æŠ¤" + ob->name() + "ã€‚\n" NOR);
+		tell_object(ob, HIY + this_object()->name() + "åœæ­¢ä¿æŠ¤ä½ ã€‚\n" NOR);
 	}
 */
 	if ( !this_object()->query("jianxi")&&!this_object()->query("quest_no_guard")&& arrayp(guards = ob->query_temp("guarded")))
@@ -112,7 +112,7 @@ void kill_ob(object ob)
 		if ( sizeof(guards) > 0 )
 		{
 			enemy += guards;
-message("vision", HIR + ob->name() + "ÊÜµ½¹¥»÷£¡ÄãÍ¦Éí¼ÓÈëÕ½ÍÅ£¡\n" NOR, guards);
+message("vision", HIR + ob->name() + "å—åˆ°æ”»å‡»ï¼ä½ æŒºèº«åŠ å…¥æˆ˜å›¢ï¼\n" NOR, guards);
 			guards->kill_ob(this_object());
 		}
 	}
@@ -314,9 +314,9 @@ int do_ride_none(object me)
 		i++;
 	}
 	if( i >= 0 )
-		return notify_fail("·¢ÏÖ´íÎó£¡\n");
-/*  ÔÝÊ±²»ÏÂ×øÆïÓ­Õ½
-	message_vision("$N¼±Ã¦´Ó$nÉÏÌøÏÂÓ­Õ½¡£\n", me, ob);
+		return notify_fail("å‘çŽ°é”™è¯¯ï¼\n");
+/*  æš‚æ—¶ä¸ä¸‹åéª‘è¿Žæˆ˜
+	message_vision("$Næ€¥å¿™ä»Ž$nä¸Šè·³ä¸‹è¿Žæˆ˜ã€‚\n", me, ob);
 	ob->move( environment(me) );
 	ob->delele("is_rided_by");
 //	ob->set("xingcheng", me->query_temp_marks("zuoji/xingcheng"));

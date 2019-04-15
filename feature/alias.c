@@ -22,7 +22,7 @@ string process_input(string str)
 	int i, j;
 	object me = this_object();
 
-/* ÏŞÖÆõ¿½Å»úÆ÷ÈË
+/* é™åˆ¶è¹©è„šæœºå™¨äºº
 	if(maxcom == 0) last_check = time();
 	if(maxcom == (MAX_IN_A_ROW - 1) && time() == last_check)
 	{
@@ -33,20 +33,20 @@ string process_input(string str)
 		maxcom++;
 	maxcom = maxcom % MAX_IN_A_ROW ;
 */
-// ÏŞÖÆdisable_playerºóÒÅÖ¢
-	if( !interactive(me) ) command("quit");       // ·Ç½»»¥ÎïÆ·
-	if( !query_heart_beat(me) ) command("quit");  // ÎŞĞÄÌø
-	if( !living(me)) return "";                   // ²»ÊÇ»îÎï
-	if( me->query_temp("noliving") ) return "";   // ·Ç»î¶¯Íæ¼Ò
+// é™åˆ¶disable_playeråé—ç—‡
+	if( !interactive(me) ) command("quit");       // éäº¤äº’ç‰©å“
+	if( !query_heart_beat(me) ) command("quit");  // æ— å¿ƒè·³
+	if( !living(me)) return "";                   // ä¸æ˜¯æ´»ç‰©
+	if( me->query_temp("noliving") ) return "";   // éæ´»åŠ¨ç©å®¶
 	if( !wizardp(me))
 	{
 		if (me->query("jing") < 0 || me->query("qi") < 0)
 		{
-			write("ÄãÂíÉÏÒª»èÃÔÁË£¬²»ÄÜ×öÈÎºÎÊÂÇé¡£\n");
+			write("ä½ é©¬ä¸Šè¦æ˜è¿·äº†ï¼Œä¸èƒ½åšä»»ä½•äº‹æƒ…ã€‚\n");
 			return "";
 		}
 	}
-// ÏŞÖÆ´Ö¿Ú 
+// é™åˆ¶ç²—å£ 
 	badstr=lower_case(str);
         badstr = replace_string(badstr, "$blk$", "");
         badstr = replace_string(badstr, "$red$", "");
@@ -71,10 +71,10 @@ string process_input(string str)
 		me->add_temp("fuck", 1);
 		if (me->query_temp("fuck") > 1)
 			return "";
-		message("channel:chat", HIC"¡¾ÏĞÁÄ¡¿"+me->name()+"ÕÅ¿ª´ó×ì·ÅÁË¸ö³åÌì´ó³ôÆ¨£¬½á¹ûÒ»¿ÚÆøÃ»ÉÏÀ´£¬¾Í±»×Ô¼ºµÄ´ó·à¸ø»î»î±ïËÀÁË¡£\n"NOR, users());
+		message("channel:chat", HIC"ã€é—²èŠã€‘"+me->name()+"å¼ å¼€å¤§å˜´æ”¾äº†ä¸ªå†²å¤©å¤§è‡­å±ï¼Œç»“æœä¸€å£æ°”æ²¡ä¸Šæ¥ï¼Œå°±è¢«è‡ªå·±çš„å¤§ç²ªç»™æ´»æ´»æ†‹æ­»äº†ã€‚\n"NOR, users());
 		return "";
 	}
-// ÏŞÖÆ·Ç·¨»ñÈ¡µÄÉúÃüÊı¾İ
+// é™åˆ¶éæ³•è·å–çš„ç”Ÿå‘½æ•°æ®
 	if( userp(me) )
 	{
 		if((int)me->query("eff_qi") > (int)me->query("max_qi"))
@@ -88,15 +88,15 @@ string process_input(string str)
 		if((int)me->query("neili") > (int)me->query("max_neili") * 2)
 			me->set("neili", (int)me->query("max_neili") * 2);
 	}
-// ÏŞÖÆÆµµÀ×Ö·ûºÍÆäËûÄà°ÍĞû´«
+// é™åˆ¶é¢‘é“å­—ç¬¦å’Œå…¶ä»–æ³¥å·´å®£ä¼ 
 	if( !wizardp(me) && (strsrch(str, "[") >= 0 || strsrch(str, "%") >= 0 || strsrch(str, "5555") >= 0 || strsrch(str, "8888") >= 0 || strsrch(str, "6666") >= 0 || strsrch(str, "9999") >= 0)) return "";
-// ÏŞÖÆÌ«¶àµÄÃüÁîÊäÈëĞĞ
+// é™åˆ¶å¤ªå¤šçš„å‘½ä»¤è¾“å…¥è¡Œ
 	if( str==last_input && str != "" )
 	{
 		repeat_cnt++;
 		if( repeat_cnt > MAX_REPEAT )
 		{
-			tell_object(me,"\nÌìºóÏÉ×ÓÍ»È»ÔÚÒ»ÕóÑÌÎíÖĞ³öÏÖ£ºÄãÖØ¸´ÃüÁîÌ«¶à£¬×îºóÄÇĞ©¶¼Ê§Ğ§ÁË£¡£¡\n\n");
+			tell_object(me,"\nå¤©åä»™å­çªç„¶åœ¨ä¸€é˜µçƒŸé›¾ä¸­å‡ºç°ï¼šä½ é‡å¤å‘½ä»¤å¤ªå¤šï¼Œæœ€åé‚£äº›éƒ½å¤±æ•ˆäº†ï¼ï¼\n\n");
 //			command("quit");
 			if(!me->is_busy()) me->start_busy(random(10));
 			return "";
@@ -148,7 +148,7 @@ int set_alias(string verb, string replace)
 	} else {
 		if( !mapp(alias) ) alias = ([ verb:replace ]);
 		else if( sizeof(alias) > MAX_ALIASES )
-			return notify_fail("ÄúÉè¶¨µÄ alias Ì«¶àÁË£¬ÇëÏÈÉ¾µôÒ»Ğ©²»³£ÓÃµÄ¡£\n");
+			return notify_fail("æ‚¨è®¾å®šçš„ alias å¤ªå¤šäº†ï¼Œè¯·å…ˆåˆ æ‰ä¸€äº›ä¸å¸¸ç”¨çš„ã€‚\n");
 		else alias[verb] = replace;
 		return 1;
 	}

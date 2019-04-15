@@ -1,4 +1,4 @@
-// Éñ»°ÊÀ½ç¡¤Î÷ÓÎ¼Ç¡¤°æ±¾£´£®£µ£°
+// ç¥è¯ä¸–ç•ŒÂ·è¥¿æ¸¸è®°Â·ç‰ˆæœ¬ï¼”ï¼ï¼•ï¼
 /* <SecCrypt CPL V3R05> */
  
 // File     : /adm/daemons/network/dns_master.c
@@ -292,7 +292,7 @@ void send_shutdown()
      SHUTDOWN->send_shutdown(muds[mud_names[i]]["HOSTADDRESS"],
         muds[mud_names[i]]["PORTUDP"]);
    socket_close(socket_id);
-   CHANNEL_D->do_channel(this_object(), "sys", "ËÍ³öÍøÂ·¹Ø±ÕÑ¶Ï¢¡£\n");
+   CHANNEL_D->do_channel(this_object(), "sys", "é€å‡ºç½‘è·¯å…³é—­è®¯æ¯ã€‚\n");
 }
 
 string start_message()
@@ -445,7 +445,7 @@ void set_mud_info(string name, mapping junk)
       //if this is a new mud or has lost connection.
           CHANNEL_D->do_channel(this_object(), "sys",
             junk["MUDNAME"]+"("+junk["NAME"]+")   "+
-            junk["HOSTADDRESS"]+" "+junk["PORT"]+" ¼ÓÈëÁ¬Í¨");
+            junk["HOSTADDRESS"]+" "+junk["PORT"]+" åŠ å…¥è¿é€š");
 
    // determines whether or not we send the service queries out
    // to the new mud
@@ -893,7 +893,7 @@ void create()
 
    restore_euid();
 
-   set("channel_id", "ÍøÂ·¾«Áé");
+   set("channel_id", "ç½‘è·¯ç²¾çµ");
 
         //added by mon 10/23/97
    list=values(LISTNODES);

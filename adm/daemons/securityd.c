@@ -143,7 +143,7 @@ int valid_write(string file, mixed user, string func)
 	}
 	if ( func=="write_file" ) {
 		if ( file_name(previous_object(1)) == "/cmds/skill/editskill" 
-		&& sscanf(file,"/kungfu/skill/%*s")) // �Դ��书
+		&& sscanf(file,"/kungfu/skill/%*s")) // 自创武功
 		return 1;
 	}
 

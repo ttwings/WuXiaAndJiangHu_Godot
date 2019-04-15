@@ -1,4 +1,4 @@
-// Éñ»°ÊÀ½ç¡¤Î÷ÓÎ¼Ç¡¤°æ±¾£´£®£µ£°
+// ç¥è¯ä¸–ç•ŒÂ·è¥¿æ¸¸è®°Â·ç‰ˆæœ¬ï¼”ï¼ï¼•ï¼
 /* <SecCrypt CPL V3R05> */
  
 /* File    : startup.c
@@ -42,5 +42,5 @@ incoming_request(mapping info)
 void create()
 {
   seteuid(ROOT_UID);
-  set("channel_id", "ÍøÂ·Á¬Í¨¾«Áé");
+  set("channel_id", "ç½‘è·¯è¿é€šç²¾çµ");
 }

@@ -60,19 +60,19 @@ void load_sites()
 	return;
 }
 
-// ÏÈÆ¥Åä½â½ûÁĞ±í£¬ºóÆ¥Åä·â½ûÁĞ±í£¬ÒÔÔÊĞíÕıÔò±í´ïÊ½µÄ¹ıÂË
-// ÀıÈç£ºban 210.34.4	allow 210.34.4.168
+// å…ˆåŒ¹é…è§£ç¦åˆ—è¡¨ï¼ŒååŒ¹é…å°ç¦åˆ—è¡¨ï¼Œä»¥å…è®¸æ­£åˆ™è¡¨è¾¾å¼çš„è¿‡æ»¤
+// ä¾‹å¦‚ï¼šban 210.34.4	allow 210.34.4.168
 int is_banned(string site)
 {
 	int i;
 	
-	// ÏÈÅĞ¶ÏÊÇ·ñÔÚ½â½ûÁĞ±íÖĞ
+	// å…ˆåˆ¤æ–­æ˜¯å¦åœ¨è§£ç¦åˆ—è¡¨ä¸­
         for (i = 0; i < sizeof(keys(OKSites)); i++)	
                 if (site == keys(OKSites)[i] && values(OKSites)[i] != -1
 		    || strsrch(site, keys(OKSites)[i]) != -1 && values(OKSites)[i] == -1)
                         return 0;
 	
-	// ÔÙÅĞ¶ÏÊÇ·ñÔÚ·â½ûÁĞ±íÖĞ
+	// å†åˆ¤æ–­æ˜¯å¦åœ¨å°ç¦åˆ—è¡¨ä¸­
 	for (i = 0; i < sizeof(keys(Sites)); i++) {
 		if (site == keys(Sites)[i] && values(Sites)[i] == 0
 		    || strsrch(site, keys(Sites)[i]) != -1 && values(Sites)[i] == -1 )
@@ -121,13 +121,13 @@ void add(string site, mixed num)
 	if (site == "clear") {
 		Sites = ([]);
 		write_file(BANNED_SITES, "", 1);
-		write("Çå³ı·â½ûÁĞ±í......Íê³É£¡\n");
+		write("æ¸…é™¤å°ç¦åˆ—è¡¨......å®Œæˆï¼\n");
 		return;
 	}
 
 	if ((i = member_array(site, keys(Sites))) != -1)
 		if (values(Sites)[i] == num) {
-			tell_object(this_player(), "Õâ¸öµØÖ·ÒÑ¾­±»·â½ûÁË¡£\n");
+			tell_object(this_player(), "è¿™ä¸ªåœ°å€å·²ç»è¢«å°ç¦äº†ã€‚\n");
 			return;
 		} else if (values(Sites)[i] != -1) {
 			Sites[keys(Sites)[i]] = num;
@@ -136,20 +136,20 @@ void add(string site, mixed num)
 
 	if (match_sites(Sites, site) && !check)
 		if (i = member_array(site, keys(OKSites)) == -1) {
-			tell_object(this_player(), "Õâ¸öµØÖ·ÒÑ¾­±»·â½ûÁË¡£\n");
+			tell_object(this_player(), "è¿™ä¸ªåœ°å€å·²ç»è¢«å°ç¦äº†ã€‚\n");
 			return;
 		} else if (!num) {
 			map_delete(OKSites, site);
-			write(HIW"·â½û "HIR + site + HIW" £Ï£®£Ë£®\n"NOR);
+			write(HIW"å°ç¦ "HIR + site + HIW" ï¼¯ï¼ï¼«ï¼\n"NOR);
 			write_file(ALLOWED_SITES, "", 1);
 			record_list(OKSites, ALLOWED_SITES);
 			return;
 		} else {
-			tell_object(this_player(), "Õâ¸öµØÖ·ÒÑ¾­±»·â½ûÁË¡£\n");
+			tell_object(this_player(), "è¿™ä¸ªåœ°å€å·²ç»è¢«å°ç¦äº†ã€‚\n");
 			return;
 		}
 
-	// ÕûÀí·â½ûÁĞ±í¡£
+	// æ•´ç†å°ç¦åˆ—è¡¨ã€‚
 	write_file(BANNED_SITES, "", 1);
 
 	k_site = keys(Sites);
@@ -161,7 +161,7 @@ void add(string site, mixed num)
 	Sites += ([site : num]);
 	record_list(Sites, BANNED_SITES);
 
-	// ÕûÀí½â½ûÁĞ±í¡£
+	// æ•´ç†è§£ç¦åˆ—è¡¨ã€‚
 	write_file(ALLOWED_SITES, "", 1);
 	if ((i = member_array(site, keys(OKSites))) != -1)
 		if (values(OKSites)[i] == num)
@@ -176,7 +176,7 @@ void add(string site, mixed num)
 
 	record_list(OKSites, ALLOWED_SITES);
 
-	write(HIW"·â½û "HIR + site + HIW" £Ï£®£Ë£®\n"NOR);
+	write(HIW"å°ç¦ "HIR + site + HIW" ï¼¯ï¼ï¼«ï¼\n"NOR);
 }
 
 void delete(string site, mixed num)
@@ -187,23 +187,23 @@ void delete(string site, mixed num)
 	if (site == "clear") {
 		OKSites = ([]);
 		write_file(ALLOWED_SITES, "", 1);
-		write("Çå³ı½â½ûÁĞ±í......Íê³É£¡\n");
+		write("æ¸…é™¤è§£ç¦åˆ—è¡¨......å®Œæˆï¼\n");
 		return;
 	}
 
 	if (member_array(site, keys(OKSites)) != -1) {
 		if (values(OKSites)[i] == num) {
-			tell_object(this_player(), "¸ÃµØÖ·ÒÑÔÚ½â½ûÖ®ÁĞ¡£\n");
+			tell_object(this_player(), "è¯¥åœ°å€å·²åœ¨è§£ç¦ä¹‹åˆ—ã€‚\n");
 			return;
 		} else  OKSites[keys(OKSites)[i]] = num;
 	}
 	
 	if (match_sites(OKSites, site)) {
-			tell_object(this_player(), "¸ÃµØÖ·ÒÑÔÚ½â½ûÖ®ÁĞ¡£\n");
+			tell_object(this_player(), "è¯¥åœ°å€å·²åœ¨è§£ç¦ä¹‹åˆ—ã€‚\n");
 			return;
 	}
 
-	// ÕûÀí·â½ûÁĞ±í¡£
+	// æ•´ç†å°ç¦åˆ—è¡¨ã€‚
 	write_file(BANNED_SITES, "", 1);
 	if ((i = member_array(site, keys(Sites))) != -1)
 		if (values(Sites)[i] >= num && num <= 0) 
@@ -219,7 +219,7 @@ void delete(string site, mixed num)
 
 	record_list(Sites, BANNED_SITES);
 
-	// ÕûÀí½â½ûÁĞ±í¡£
+	// æ•´ç†è§£ç¦åˆ—è¡¨ã€‚
 	write_file(ALLOWED_SITES, "", 1);
 
 	k_site = keys(OKSites);
@@ -234,7 +234,7 @@ void delete(string site, mixed num)
 
 	record_list(OKSites, ALLOWED_SITES);
 
-	write(HIW"½â½û "HIR + site + HIW" £Ï£®£Ë£®\n"NOR);
+	write(HIW"è§£ç¦ "HIR + site + HIW" ï¼¯ï¼ï¼«ï¼\n"NOR);
 }
 
 int match_sites(mapping sites, string site)

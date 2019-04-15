@@ -1,5 +1,5 @@
 // eventd.c
-// ×ÔÈ»Ææ¹ÛÏµÍ³Ö÷³ÌĞò
+// è‡ªç„¶å¥‡è§‚ç³»ç»Ÿä¸»ç¨‹åº
 // for XKX100 , by Sir 2003.11.3
 
 #include <dbase.h>
@@ -7,17 +7,17 @@
 #include <localtime.h>
 int start;
 
-// ´ı´¥·¢µÄÊÂ¼ş
-// µÇ¼ÇÔÚÄ³¸ö¾ø¶ÔµÄÊ±¼äÆô¶¯ÊÂ¼ş
-// Éè¶¨µÄ²ÎÊıÊÇÁã»ò¸ºÊı
-// ±ÈÈç£ºmonth = 0  day = 0   hour = -5    ±íÊ¾Êµ¼ÊÊ±¼äÃ¿ÌìÔçÉÏ5µãÖÓ 
-//	 month = -8 day = -15 hour = -5    ±íÊ¾Êµ¼ÊÊ±¼äÃ¿Äê8ÔÂ15µÄ5µãÖÓ 
+// å¾…è§¦å‘çš„äº‹ä»¶
+// ç™»è®°åœ¨æŸä¸ªç»å¯¹çš„æ—¶é—´å¯åŠ¨äº‹ä»¶
+// è®¾å®šçš„å‚æ•°æ˜¯é›¶æˆ–è´Ÿæ•°
+// æ¯”å¦‚ï¼šmonth = 0  day = 0   hour = -5    è¡¨ç¤ºå®é™…æ—¶é—´æ¯å¤©æ—©ä¸Š5ç‚¹é’Ÿ 
+//	 month = -8 day = -15 hour = -5    è¡¨ç¤ºå®é™…æ—¶é—´æ¯å¹´8æœˆ15çš„5ç‚¹é’Ÿ 
 mapping *event_list = ({	
-(["month" :  0, "day" :  0, "hour"  : -7,  "ename"  : "emei.c",     "cname" : "¶ëáÒ½ğ¶¥ÈÕ³ö" ]), //ÔçÉÏ7µã
-(["month" :  0, "day" : -15,"hour"  : -23, "ename"  : "wuliang.c",  "cname" : "ÎŞÁ¿É½Óñ±Ú½£Îè"]), //Ã¿ÔÂ15ÈÕÍí11µã
-(["month" :  0, "day" :  0, "hour"  : -22, "ename"  : "tianchi.c",  "cname" : "³¤°×É½Ìì³ØÁ÷ĞÇ"]), //Ã¿Íí10µã
-(["month" : -8, "day" : -15,"hour"  : -10, "ename"  : "qiantang.c", "cname" : "Ç®ÌÁ½­³±ĞÅ"]), //Ã¿Äê8ÔÂ15ÈÕ10µã
-(["month" :  0, "day" :  0, "hour"  : -17, "ename"  : "hspb.c",     "cname" : "ºâÉ½Ë®Á±¶´ÆÙ²¼"]), //Ã¿ÈÕÏÂÎç5µã
+(["month" :  0, "day" :  0, "hour"  : -7,  "ename"  : "emei.c",     "cname" : "å³¨åµ‹é‡‘é¡¶æ—¥å‡º" ]), //æ—©ä¸Š7ç‚¹
+(["month" :  0, "day" : -15,"hour"  : -23, "ename"  : "wuliang.c",  "cname" : "æ— é‡å±±ç‰å£å‰‘èˆ"]), //æ¯æœˆ15æ—¥æ™š11ç‚¹
+(["month" :  0, "day" :  0, "hour"  : -22, "ename"  : "tianchi.c",  "cname" : "é•¿ç™½å±±å¤©æ± æµæ˜Ÿ"]), //æ¯æ™š10ç‚¹
+(["month" : -8, "day" : -15,"hour"  : -10, "ename"  : "qiantang.c", "cname" : "é’±å¡˜æ±Ÿæ½®ä¿¡"]), //æ¯å¹´8æœˆ15æ—¥10ç‚¹
+(["month" :  0, "day" :  0, "hour"  : -17, "ename"  : "hspb.c",     "cname" : "è¡¡å±±æ°´å¸˜æ´ç€‘å¸ƒ"]), //æ¯æ—¥ä¸‹åˆ5ç‚¹
 });
 
 
@@ -26,19 +26,19 @@ void create()
         int i;
         seteuid(ROOT_UID);
 
-        message("channel:sys", HIR"¡¾×ÔÈ»Ææ¹Û¡¿×ÔÈ»Ææ¹ÛÒÑ¾­Æô¶¯¡£\n"NOR, users());
-        message("channel:sys", HIR"¡¾×ÔÈ»Ææ¹Û¡¿ÏµÍ³ÒÑµÇ¼ÇµÄ×ÔÈ»Ææ¹ÛÈçÏÂ:\n"NOR, users());
+        message("channel:sys", HIR"ã€è‡ªç„¶å¥‡è§‚ã€‘è‡ªç„¶å¥‡è§‚å·²ç»å¯åŠ¨ã€‚\n"NOR, users());
+        message("channel:sys", HIR"ã€è‡ªç„¶å¥‡è§‚ã€‘ç³»ç»Ÿå·²ç™»è®°çš„è‡ªç„¶å¥‡è§‚å¦‚ä¸‹:\n"NOR, users());
         
         for ( i = 0 ; i < sizeof(event_list); i++)
         {
-        	message("channel:sys", HIR"¡¾×ÔÈ»Ææ¹Û¡¿"+event_list[i]["cname"]+"¡£\n"NOR, users());
+        	message("channel:sys", HIR"ã€è‡ªç„¶å¥‡è§‚ã€‘"+event_list[i]["cname"]+"ã€‚\n"NOR, users());
         }
         
-        set_heart_beat(30);      // Ã¿·ÖÖÓĞÄÌøÒ»´Î
+        set_heart_beat(30);      // æ¯åˆ†é’Ÿå¿ƒè·³ä¸€æ¬¡
 }
 
 
-// Ã¿·ÖÖÓĞÄÌøÒ»´Î£¬1,10Ê±¼ì²éËùÓĞµÄÊÂ¼ş
+// æ¯åˆ†é’Ÿå¿ƒè·³ä¸€æ¬¡ï¼Œ1,10æ—¶æ£€æŸ¥æ‰€æœ‰çš„äº‹ä»¶
 void heart_beat()
 {
         mixed *lt;
@@ -60,7 +60,7 @@ void heart_beat()
         
         time = chinese_number( start );
         
-//        message("channel:sys",HIR"¡¾×ÔÈ»Ææ¹Û¡¿ Õâ¸öÊ±¼ä¶ÎÄÚĞÄÌø"+time+"´Î\n"NOR, users());
+//        message("channel:sys",HIR"ã€è‡ªç„¶å¥‡è§‚ã€‘ è¿™ä¸ªæ—¶é—´æ®µå†…å¿ƒè·³"+time+"æ¬¡\n"NOR, users());
         
         if ( start == 1 || start == 10) 
         {      
@@ -80,7 +80,7 @@ void heart_beat()
         	if (  month == lt[LT_MON] && day == lt[LT_MDAY] && hour == lt[LT_HOUR])
       	  		{
         		    if (start == 1)
-        		    message("channel:rumor", HIM"¡¾Ò¥ÑÔ¡¿"+"ÌıËµ"+event_list[i]["cname"]+"ÎµÎªÆæ¹Û£¬²»ÉÙ½­ºşÈËÊ¿·×·×Ç°Íù¹ÛÉÍ¡£\n"NOR, users());
+        		    message("channel:rumor", HIM"ã€è°£è¨€ã€‘"+"å¬è¯´"+event_list[i]["cname"]+"è”šä¸ºå¥‡è§‚ï¼Œä¸å°‘æ±Ÿæ¹–äººå£«çº·çº·å‰å¾€è§‚èµã€‚\n"NOR, users());
         		    else
         		    {
         		    	eob = new (EVENT_DIR + event_list[i]["ename"]);

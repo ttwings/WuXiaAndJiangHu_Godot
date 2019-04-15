@@ -1,15 +1,15 @@
-// npcd.c ¸÷ÖÖÓĞ¼ÇÂ¼µÄnpc¶ÁÈ¡¡¢Éè¶¨Îä¹¦¡¢Éè¶¨pfmµÈ
+// npcd.c å„ç§æœ‰è®°å½•çš„npcè¯»å–ã€è®¾å®šæ­¦åŠŸã€è®¾å®špfmç­‰
 #include <dbase.h>
 #include <login.h>
 #include <ansi.h>
-int exert_function(string func);                 //ÎŞÒâÒå
-int perform_action(string action);               //ÎŞÒâÒå
-object create_first(string arg);                 //·µ»ØrestoreºóÃÅÅÉµÄÕÆÃÅµÜ×Ó
-object create_player(string arg);                //·µ»ØrestoreºóµÄÍæ¼Ò ×¢ÒâÒªdestruct
-varargs int top_skill(object who,int l);         //×î¸ßÎä¹¦  ´ø²ÎÊı²»°üº¬ÖªÊ¶¼¼ÄÜ
-varargs int up_skill(object who);                //¶¥¾­ÑéÎä¹¦
-int check_level(object ob);                      //°´¾­ÑéÈ·¶¨ĞèÒªµÄµÈ¼¶
-void init_npc_skill(object ob, int lvl);         //Éè¶¨obµÄËùÓĞÎä¹¦Îªlvl¼¶
+int exert_function(string func);                 //æ— æ„ä¹‰
+int perform_action(string action);               //æ— æ„ä¹‰
+object create_first(string arg);                 //è¿”å›restoreåé—¨æ´¾çš„æŒé—¨å¼Ÿå­
+object create_player(string arg);                //è¿”å›restoreåçš„ç©å®¶ æ³¨æ„è¦destruct
+varargs int top_skill(object who,int l);         //æœ€é«˜æ­¦åŠŸ  å¸¦å‚æ•°ä¸åŒ…å«çŸ¥è¯†æŠ€èƒ½
+varargs int up_skill(object who);                //é¡¶ç»éªŒæ­¦åŠŸ
+int check_level(object ob);                      //æŒ‰ç»éªŒç¡®å®šéœ€è¦çš„ç­‰çº§
+void init_npc_skill(object ob, int lvl);         //è®¾å®šobçš„æ‰€æœ‰æ­¦åŠŸä¸ºlvlçº§
 varargs void set_from_me(object tob, object fob, object thief_master, int scale);
 int set_perform(object who);
 int check_place(string file,string dir);
@@ -57,8 +57,8 @@ object create_player(string arg)
 }
 varargs int top_skill(object who,int l)
 {
-	// ·µ»Ø×î¸ßÎä¹¦
-	// ¼Ó²ÎÊıl Ôò²»°üº¬ÖªÊ¶¼¼ÄÜ
+	// è¿”å›æœ€é«˜æ­¦åŠŸ
+	// åŠ å‚æ•°l åˆ™ä¸åŒ…å«çŸ¥è¯†æŠ€èƒ½
 	int i,j;
 	mapping skl;
 	string* skname;
@@ -83,7 +83,7 @@ varargs int top_skill(object who,int l)
 }
 varargs int up_skill(object who)
 {
-//·µ»Ø¶¥¾­ÑéÎä¹¦
+//è¿”å›é¡¶ç»éªŒæ­¦åŠŸ
 	int i;
 	float exper;
 	int level;
@@ -96,8 +96,8 @@ varargs int up_skill(object who)
 }
 
 mapping levels = ([
-//      combat_exp   skill_level    ¶¥¾­ÑéÎä¹¦  ¶¥Îä¹¦¾­Ñé   ÑĞ¾¿Îä¹¦¾­Ñé(60´¿ÑĞ¾¿4ÏîÎä¹¦4:1ÈÎÎñ)
-//      ±£Ö¤ÎåÊ®ÍòÒÔÇ°ÈÎÎñÈİÒ×Íê³É£¬°ËÊ®ÍòÖ®Ç°¼òµ¥Íê³É¡£                    ÑĞ¾¿¾­ÑéÎä¹¦
+//      combat_exp   skill_level    é¡¶ç»éªŒæ­¦åŠŸ  é¡¶æ­¦åŠŸç»éªŒ   ç ”ç©¶æ­¦åŠŸç»éªŒ(60çº¯ç ”ç©¶4é¡¹æ­¦åŠŸ4:1ä»»åŠ¡)
+//      ä¿è¯äº”åä¸‡ä»¥å‰ä»»åŠ¡å®¹æ˜“å®Œæˆï¼Œå…«åä¸‡ä¹‹å‰ç®€å•å®Œæˆã€‚                    ç ”ç©¶ç»éªŒæ­¦åŠŸ
 	50000      : 20,		// level 1    80           586          3080          52
 	100000     : 30,		// level 2    100          2701         10116         65
 	200000     : 40,		// level 3    126          6401         23656         83
@@ -116,7 +116,7 @@ mapping levels = ([
 	15000000   : 440,	  // level 16   531          4628828      16658368      348
 	20000000   : 460,	  // level 17   585          6352119      22841384      383
 	30000000   : 500,	  // level 18   670          9051885      32508560      439
-  40000000   : 500    // ´ËĞĞÎŞĞ§ Ö»ÊÇĞ­ÖúÉè¶¨npcÉÏÏŞexp 3kw skl 500
+  40000000   : 500    // æ­¤è¡Œæ— æ•ˆ åªæ˜¯ååŠ©è®¾å®šnpcä¸Šé™exp 3kw skl 500
 /* old
 	50000      : 20,		// level 1    80           586          3080          52
 	100000     : 30,		// level 2    100          2701         10116         65
@@ -256,7 +256,7 @@ object get_random_master(object me)
 		err = catch(thief_master = new(CLASS_D(masters[random(sizeof(masters))])));
 		if (stringp(err))
 		{
-			message("channel:wiz",HIR"¡¾µ÷ÊÔ¡¿ÏµÍ³¾«Áé£ºNPC_D ĞÂ½¨¸´ÖÆ¶ÔÏóÊ§°Ü·µ»Ø´íÎó"+err+NOR,users());
+			message("channel:wiz",HIR"ã€è°ƒè¯•ã€‘ç³»ç»Ÿç²¾çµï¼šNPC_D æ–°å»ºå¤åˆ¶å¯¹è±¡å¤±è´¥è¿”å›é”™è¯¯"+err+NOR,users());
 			thief_master = new(CLASS_D("xiaoyao/suxinghe"));
 		}
 	return thief_master;
@@ -275,7 +275,7 @@ varargs void copy_skill(object tob,object thief_master)
 		flag = 1;
 		thief_master = get_random_master(tob);
 	}
-// ¸´ÖÆmasterÎä¹¦¿ªÊ¼
+// å¤åˆ¶masteræ­¦åŠŸå¼€å§‹
 	if ( mapp(skill_status = thief_master->query_skills()) )
 	{
 		sname = keys(skill_status);
@@ -400,7 +400,7 @@ int check_place(string file,string dir)
 	err = catch(room = load_object(fname));
 	if (stringp(err))
 	{
-		message("channel:wiz",HIR"¡¾µ÷ÊÔ¡¿ÏµÍ³¾«Áé£ºNPC_D ĞÂ½¨·¿¼ä¶ÔÏóÊ§°Ü·µ»Ø´íÎó"+err+NOR,users());
+		message("channel:wiz",HIR"ã€è°ƒè¯•ã€‘ç³»ç»Ÿç²¾çµï¼šNPC_D æ–°å»ºæˆ¿é—´å¯¹è±¡å¤±è´¥è¿”å›é”™è¯¯"+err+NOR,users());
 		return 0;
 	}
 	if (room->query_max_encumbrance() < 10000000 ) return 0;
@@ -427,23 +427,23 @@ void place_npc(object ob, mixed diff)
 		dir -= ({  "npc","xiakedao","binghuo","working",
 		"wizard",	"death","gaochang","gumu","taohua",
 		"heizhao","shenlong","yanziwu","wanjiegu",
-		});//ÕâĞ©ÊÇÃ»·¨×öµÄ
+		});//è¿™äº›æ˜¯æ²¡æ³•åšçš„
 		if (diff < 3)
 		dir -= ({
 			"baituo","emei","gaibang","huijiang","heimuya","kunlun","lingjiu",
 			"lingxiao","nanshaolin","qingcheng","quanzhen","shaolin","songshan",
 			"tiezhang","wudang","wudujiao","xiaoyao","xingxiu",""
-		});//ÕâĞ©ÔÚÃÅÅÉÄÚ²¿ ·ÇÒª´óÃ×²»¿É
+		});//è¿™äº›åœ¨é—¨æ´¾å†…éƒ¨ éè¦å¤§ç±³ä¸å¯
 		if (diff < 2)
 		dir -= ({
 		"guanwai","guiyun","jianzhong","jueqinggu","mingjiao","shiliang",
 		"taishan","xuedao","xueshan","yubifeng","jinshe",
-		});//ÕâĞ©µØ·½ºÜÄÑ¹ıÈ¥
+		});//è¿™äº›åœ°æ–¹å¾ˆéš¾è¿‡å»
 		if (diff < 1)
 		dir -= ({
 		"city","dali","beijing","hangzhou","huanggong","kaifeng",
 		"lingzhou","luoyang","yueyang","yanping","shouxihu","suzhou"
-		});//ÕâĞ©µØ·½ºÜ´ó
+		});//è¿™äº›åœ°æ–¹å¾ˆå¤§
 	}
 	i = random(sizeof(dir));
 	file = get_dir("/d/"+dir[i]+"/");
@@ -468,7 +468,7 @@ void place_npc(object ob, mixed diff)
 	ob->set("place", dir[i]);
 	ob->set("startroom", startroom);
 	ob->set_temp("moved", ({ }));
-	message_vision("$N×ßÁË¹ıÀ´¡£\n", ob);
+	message_vision("$Nèµ°äº†è¿‡æ¥ã€‚\n", ob);
 
 	return;
 }
@@ -515,7 +515,7 @@ void random_move(object ob)
         string dest;
 
         moved = ob->query_temp("moved");
-//        return; //¿´Ò»ÏÂÊÇ²»ÊÇÕâÀïÔì³Élag
+//        return; //çœ‹ä¸€ä¸‹æ˜¯ä¸æ˜¯è¿™é‡Œé€ æˆlag
         if (! moved) moved = ({ });
         if (sizeof(moved) >= MAX_MOVED)
         {
@@ -567,35 +567,35 @@ int c_here(object ob)
 	
 	room = environment(ob);
 	if (getuid(ob)!="qingyun") return 0;
-	if (room->query("no_fight")) return notify_fail("²»ÄÜ´ò¼Ü¡£\n");
+	if (room->query("no_fight")) return notify_fail("ä¸èƒ½æ‰“æ¶ã€‚\n");
 	seteuid(ROOT_UID);
 	cd = read_file(file_name(room)+".c");
 	file = explode(cd,"\n");
 	for (i=0;i<sizeof(file);i++)
 	{
 		if (strsrch(file[i],"no_quest")>=0)
-		return notify_fail("ÒÑ¾­ÉèÖÃÍê±Ï¡£\n");
+		return notify_fail("å·²ç»è®¾ç½®å®Œæ¯•ã€‚\n");
 		j = strsrch(file[i],"setup()");
 		if (j<0) continue;
 		olen = file[i][0..j-1];
 		break;
 	}
 	if (i==sizeof(file))
-	return notify_fail("Ã»ÓĞÆ¥ÅäµÄ×Ö·û´®¡£\n");
+	return notify_fail("æ²¡æœ‰åŒ¹é…çš„å­—ç¬¦ä¸²ã€‚\n");
 	line = i-1;
 	newfile = file[0..line];
 	newfile += ({olen+"set(\"no_quest\",1);"});
 	newfile += file[line+1..<1];
 	tell_object(find_player("qingyun"),"sizeof(file)="+sizeof(file)+"\n");
 	tell_object(find_player("qingyun"),"sizeof(newfile)="+sizeof(newfile)+"\n");
-	tell_object(find_player("qingyun"),"¿ªÊ¼Ğ´ÈëÎÄ¼ş"+file_name(room)+".c"+"\n");
+	tell_object(find_player("qingyun"),"å¼€å§‹å†™å…¥æ–‡ä»¶"+file_name(room)+".c"+"\n");
 	err = catch(write_file(file_name(room)+".c",implode(newfile,"\n"),1));
 	if (write_file(file_name(room)+".c",implode(newfile,"\n"),1))
 	{
-		log_file("qfile","¼ÓÈëÈÎÎñ±êÊ¶µ½ÎÄ¼ş "+file_name(room)+".c\n");
-		tell_object(find_player("qingyun"),"Ğ´Èë³É¹¦\n");		
+		log_file("qfile","åŠ å…¥ä»»åŠ¡æ ‡è¯†åˆ°æ–‡ä»¶ "+file_name(room)+".c\n");
+		tell_object(find_player("qingyun"),"å†™å…¥æˆåŠŸ\n");		
 	}
 	else
-		tell_object(find_player("qingyun"),"Ğ´ÈëÊ§°Ü¡£\n");
+		tell_object(find_player("qingyun"),"å†™å…¥å¤±è´¥ã€‚\n");
 		return 1;
 }

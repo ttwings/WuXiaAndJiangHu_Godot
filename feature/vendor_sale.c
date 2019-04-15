@@ -64,13 +64,13 @@ int complete_trade(object me, string what)
      }
      save();
 
-     message_vision("$NÏò$nÂòÏÂÒ»" + 
-        ob->query("unit") + ob->query("name") + "¡£\n",
+     message_vision("$Nå‘$nä¹°ä¸‹ä¸€" + 
+        ob->query("unit") + ob->query("name") + "ã€‚\n",
         me, this_object() );
 
      return 1;
    }
-   return notify_fail("Ã»ÓĞÕâÑù¶«Î÷Âô¡£\n");
+   return notify_fail("æ²¡æœ‰è¿™æ ·ä¸œè¥¿å–ã€‚\n");
 }
 
 // price is the original price.
@@ -85,7 +85,7 @@ int take_money(int paid, int price)
      else {
          if(deposit+earn<0) {
         message_vision(
-          "\n"+name()+"ÆÆ²úÁË£¡\n\n",this_object());
+          "\n"+name()+"ç ´äº§äº†ï¼\n\n",this_object());
         new_owner();
         return notify_fail("the owner bankrupted\n");
          }
@@ -101,13 +101,13 @@ string price_string(int v)
     int val;
     
     val=v/10000;
-    if(val) str+=chinese_number(val) + "Á½»Æ½ğ";
+    if(val) str+=chinese_number(val) + "ä¸¤é»„é‡‘";
     val=(v%10000)/100;
-    if(val) str+=chinese_number(val) + "Á½Òø×Ó";
+    if(val) str+=chinese_number(val) + "ä¸¤é“¶å­";
     val=(v%100);
-    if(val) str+=chinese_number(val)  + "ÎÄÇ®";
+    if(val) str+=chinese_number(val)  + "æ–‡é’±";
     
-    if(str=="") str="ÁãÎÄÇ®";
+    if(str=="") str="é›¶æ–‡é’±";
 
      return str;
 }
@@ -122,10 +122,10 @@ int do_vendor_list(string arg)
    if( !mapp(goods = query("vendor_goods")) ) return 0;
    if( arg && !this_object()->id(arg) ) return 0;
    name = keys(goods);
-   list = "Äã¿ÉÒÔ¹ºÂòÏÂÁĞÕâĞ©¶«Î÷£º\n";
+   list = "ä½ å¯ä»¥è´­ä¹°ä¸‹åˆ—è¿™äº›ä¸œè¥¿ï¼š\n";
    for(i=0; i<sizeof(name); i++)  {
      tlist = sprintf("%s(%s)", goods[name[i]]->query("name"), name[i]);
-     list += sprintf("%-30s£º%s\n", tlist,
+     list += sprintf("%-30sï¼š%s\n", tlist,
         price_string(goods[name[i]]->query("value")
           *price_ratio/10 ));
         }
@@ -178,10 +178,10 @@ int do_bid(string arg)
     
     minimum=(minimum/100)*100; // round to silver
     if(amount<minimum) return notify_fail(
-       "ÄãÖÁÉÙĞèÒª³ö"+price_string(minimum)+"¡£\n");
+       "ä½ è‡³å°‘éœ€è¦å‡º"+price_string(minimum)+"ã€‚\n");
 
     if(who->query("balance")<amount) return notify_fail(
-       "Äã»§Í·ÀïÃ»ÓĞÕâÃ´¶àÇ®¡£\n");
+       "ä½ æˆ·å¤´é‡Œæ²¡æœ‰è¿™ä¹ˆå¤šé’±ã€‚\n");
     
     env=environment(this_object());
     if(base_name(env)!=this_object()->query("startroom"))
@@ -194,9 +194,9 @@ int do_bid(string arg)
    if(getuid(who)!=bidder) {
      who1=find_player(bidder);
      if(who1)
-       tell_object(who1, "ÄãÍ¶±ê¹ºÂò"+
+       tell_object(who1, "ä½ æŠ•æ ‡è´­ä¹°"+
          roomname
-     +"Ê§°ÜÁË£¡\n");
+     +"å¤±è´¥äº†ï¼\n");
    }
     }
 
@@ -211,8 +211,8 @@ int do_bid(string arg)
     bid=amount;
 
     save();
-    message_vision("$N³ö¼Û"+price_string(amount)+"ÊÕ¹º"+
-       roomname+"£¡\n",who);
+    message_vision("$Nå‡ºä»·"+price_string(amount)+"æ”¶è´­"+
+       roomname+"ï¼\n",who);
     
     return 1;
 }
@@ -261,7 +261,7 @@ int do_deposit(string arg)
     int amount;
     
     if(getuid(who)!=owner_id) return
-   notify_fail("Ö»ÓĞµêÖ÷ÄÜÓÃÕâ¸öÃüÁî¡£\n");
+   notify_fail("åªæœ‰åº—ä¸»èƒ½ç”¨è¿™ä¸ªå‘½ä»¤ã€‚\n");
     
     notify_fail("Usage: deposit <amount> <gold|silver>\n");
 
@@ -272,10 +272,10 @@ int do_deposit(string arg)
     else if(money=="silver") amount*=100;
     else return 0;
 
-    if(amount<10000) return notify_fail("Ò»´ÎÖÁÉÙÒªÒ»Á½½ğ×Ó¡£\n");
+    if(amount<10000) return notify_fail("ä¸€æ¬¡è‡³å°‘è¦ä¸€ä¸¤é‡‘å­ã€‚\n");
     
     if(who->query("balance")<amount) return
-       notify_fail("Äã»§Í·ÀïÃ»ÓĞÕâÃ´¶àÇ®¡£\n");
+       notify_fail("ä½ æˆ·å¤´é‡Œæ²¡æœ‰è¿™ä¹ˆå¤šé’±ã€‚\n");
 
     who->add("balance",-amount);
     who->save();
@@ -283,7 +283,7 @@ int do_deposit(string arg)
     deposit+=amount;
     save();
     
-    write("ÏÖÔÚ¹²ÓĞ"+price_string(deposit)+"Ô¤¸¶½ğ¡£\n");
+    write("ç°åœ¨å…±æœ‰"+price_string(deposit)+"é¢„ä»˜é‡‘ã€‚\n");
 
     return 1;
 }
@@ -295,7 +295,7 @@ int do_setprice(string arg)
     string str;
     
     if(getuid(who)!=owner_id) return
-   notify_fail("Ö»ÓĞµêÖ÷ÄÜÓÃÕâ¸öÃüÁî¡£\n");
+   notify_fail("åªæœ‰åº—ä¸»èƒ½ç”¨è¿™ä¸ªå‘½ä»¤ã€‚\n");
 
     notify_fail("Usage: set_price <ratio> \n"+
          "<ratio> is between 1 to 100.\n");
@@ -305,22 +305,22 @@ int do_setprice(string arg)
     if(ratio<1 || ratio>100) return 0;
     
     if(ratio<5 && deposit<1) return
-   notify_fail("ÄãµÄ¶¨¼ÛÉÙÓÚ³É±¾£¬±ØĞëÏÈ¸¶¶¨½ğ(deposit)¡£\n");
+   notify_fail("ä½ çš„å®šä»·å°‘äºæˆæœ¬ï¼Œå¿…é¡»å…ˆä»˜å®šé‡‘(deposit)ã€‚\n");
     
     price_ratio=ratio;
     save();
     
     if(ratio<10)
-   message_vision("$N¾ö¶¨ËùÓĞÎïÆ·"+chinese_number(ratio)+
-     "ÕÛ³öÊÛ¡£\n", who);
+   message_vision("$Nå†³å®šæ‰€æœ‰ç‰©å“"+chinese_number(ratio)+
+     "æŠ˜å‡ºå”®ã€‚\n", who);
     else if(ratio==10)
-   message_vision("$N¾ö¶¨ËùÓĞÎïÆ·°´Ô­¼Û³öÊÛ¡£\n", who);
+   message_vision("$Nå†³å®šæ‰€æœ‰ç‰©å“æŒ‰åŸä»·å‡ºå”®ã€‚\n", who);
     else {
    str=chinese_number(ratio/10);
    ratio=ratio-(ratio/10)*10;
-   if(ratio) str+="µã"+chinese_number(ratio);
-   message_vision("$N¾ö¶¨ËùÓĞÎïÆ·°´Ô­¼ÛµÄ"+
-     str+"±¶³öÊÛ¡£\n", who);
+   if(ratio) str+="ç‚¹"+chinese_number(ratio);
+   message_vision("$Nå†³å®šæ‰€æœ‰ç‰©å“æŒ‰åŸä»·çš„"+
+     str+"å€å‡ºå”®ã€‚\n", who);
     }
     
     return 1;
@@ -343,27 +343,27 @@ int do_status(string arg)
     else {
    hour=next/3600;
    if(hour)
-     str=chinese_number(hour)+"Ğ¡Ê±";
+     str=chinese_number(hour)+"å°æ—¶";
    else
        str="";
    hour=(next-hour*3600)/60;
    if(hour)
-       str+=chinese_number(hour)+"·ÖÖÖ";
-        write("Í¶±ê»ñÊ¤Õß½«ÓÚ"+str+"ºó³ÉÎªĞÂµêÖ÷¡£\n");
+       str+=chinese_number(hour)+"åˆ†ç§";
+        write("æŠ•æ ‡è·èƒœè€…å°†äº"+str+"åæˆä¸ºæ–°åº—ä¸»ã€‚\n");
     }
 
     if(bidder)
-      write("µ±Ç°×î¸ßÍ¶±êÊÇ"+bidder_name+"("+
-       bidder+")£º"+price_string(bid)+"\n");
+      write("å½“å‰æœ€é«˜æŠ•æ ‡æ˜¯"+bidder_name+"("+
+       bidder+")ï¼š"+price_string(bid)+"\n");
     else
-   write("Ä¿Ç°»¹Ã»ÓĞÈËÍ¶±ê¡£\n");
+   write("ç›®å‰è¿˜æ²¡æœ‰äººæŠ•æ ‡ã€‚\n");
 
-    write("×òÈÕÓ¯Àû£º"+price_string(last_profit)+"\n");
+    write("æ˜¨æ—¥ç›ˆåˆ©ï¼š"+price_string(last_profit)+"\n");
 
     if(wizardp(who) || getuid(who)==owner_id) {
-   write("\nÓ¯Àû¡¡¡¡¡¡£º"+price_string(profit)+"\n");
-   write("Ê£ÓàÔ¤¸¶½ğ£º"+price_string(deposit)+"\n");
-   write("¼Û¸ñÖ¸Êı¡¡£º"+price_ratio+"\n");
+   write("\nç›ˆåˆ©ã€€ã€€ã€€ï¼š"+price_string(profit)+"\n");
+   write("å‰©ä½™é¢„ä»˜é‡‘ï¼š"+price_string(deposit)+"\n");
+   write("ä»·æ ¼æŒ‡æ•°ã€€ï¼š"+price_ratio+"\n");
     }
     
     return 1;
@@ -385,16 +385,16 @@ void new_owner()
        pay_back(owner_id, prof);
    old=find_player(owner_id);
 
-   msg="ÄãµÄµêÖ÷("+name(1)+")ÈÎÆÚ½áÊø£¬½áÓà"+
-       price_string(prof)+"ÒÑ´æÈëÄãµÄ»§Í·¡£\n";
-   msg+="ÆäÖĞÓ¯Àû"+price_string(profit)+"£¬"+
-       "Ê£ÓàÔ¤¸¶½ğ"+price_string(deposit)+"¡£\n";
+   msg="ä½ çš„åº—ä¸»("+name(1)+")ä»»æœŸç»“æŸï¼Œç»“ä½™"+
+       price_string(prof)+"å·²å­˜å…¥ä½ çš„æˆ·å¤´ã€‚\n";
+   msg+="å…¶ä¸­ç›ˆåˆ©"+price_string(profit)+"ï¼Œ"+
+       "å‰©ä½™é¢„ä»˜é‡‘"+price_string(deposit)+"ã€‚\n";
 
    if(old)
        tell_object(old,msg);
         mail = ([
           "from": name(1) + "(" + query("id") + ")",
-          "title": name(1)+"£ºÕÊÄ¿½áËã",
+          "title": name(1)+"ï¼šå¸ç›®ç»“ç®—",
           "to": owner_id,
           "time": time(),
           "status": "N",
@@ -459,7 +459,7 @@ void set_new_owner(string id, string name, string long)
     
     short+=name+"("+capitalize(newid[0])+")";
     set_temp("apply/short",({short}));
-    message_vision("\nĞÂµêÖ÷"+name+"×ßÂíÉÏÈÎ£¡\n\n",
+    message_vision("\næ–°åº—ä¸»"+name+"èµ°é©¬ä¸Šä»»ï¼\n\n",
      this_object());
 }
 

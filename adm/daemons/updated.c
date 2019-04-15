@@ -1,5 +1,5 @@
 // /adm/daemons/updated.c
-// Modified by Zeratul Jan 6 2001 ĞŞ¸ÄÁËË¥ÀÏËÙ¶È£¬Ôö¼ÓÁË´æ¿îÉÏÏŞÅĞ¶Ï
+// Modified by Zeratul Jan 6 2001 ä¿®æ”¹äº†è¡°è€é€Ÿåº¦ï¼Œå¢åŠ äº†å­˜æ¬¾ä¸Šé™åˆ¤æ–­
 
 #include <ansi.h>
 void create() { seteuid(getuid()); }
@@ -63,53 +63,53 @@ void check_user(object ob)
 		ob->set_skill("wuyun-jian", ob->query_skill("wuyun-jianfa",1));
 		ob->delete_skill("wuyun-jianfa");
 	}*/
-/*	if( ob->query("family/family_name") == "ÁéğÕ¹¬")
+/*	if( ob->query("family/family_name") == "çµé¹«å®«")
 	{
-		ob->set("family/family_name","åĞÒ£ÅÉ");
+		ob->set("family/family_name","é€é¥æ´¾");
 	}*/
 	
-// À®ÂïÊôĞÔ
-	if( ob->query("family/family_name") == "Ñ©É½ËÂ" && 
+// å–‡å˜›å±æ€§
+	if( ob->query("family/family_name") == "é›ªå±±å¯º" && 
 		ob->query("class") == "bonze")
 	{
 		ob->set("class", "lama");
 	}
-// ÕòÄÏÍõ¸®
-	if( ob->query("family/family_name") == "´óÀí¶Î¼Ò" &&
+// é•‡å—ç‹åºœ
+	if( ob->query("family/family_name") == "å¤§ç†æ®µå®¶" &&
 		!ob->query("guard"))
 	{
-		ob->set("guard", "ÕòÄÏÍõ¸®¼Ò³¼");
+		ob->set("guard", "é•‡å—ç‹åºœå®¶è‡£");
 	}
 	if( ob->query("no_get")) ob->delete("no_get");
-// ²»ÔÊĞí±È¿ªÉ½×æÊ¦»¹ÀÏ
+// ä¸å…è®¸æ¯”å¼€å±±ç¥–å¸ˆè¿˜è€
 	if( ob->query("family/generation")==0) ob->delete("family");
 //	if( ob->query("family/generation")>=100)
 //	      ob->set("family/genearation",99);
-// Ç¿ÖÆÌ«¼àÊôĞÔ
-	if( ob->query("gender")=="ÎŞĞÔ") ob->set("class", "eunach");
-	if( ob->query("class")=="eunach") ob->set("gender", "ÎŞĞÔ");
-// ÁÙ¼Ã×¯
+// å¼ºåˆ¶å¤ªç›‘å±æ€§
+	if( ob->query("gender")=="æ— æ€§") ob->set("class", "eunach");
+	if( ob->query("class")=="eunach") ob->set("gender", "æ— æ€§");
+// ä¸´æµåº„
 	if( ob->query("linji/jing") )
 	{
 		ob->apply_condition("linji_daxiao", 1);
 	}
-// ²»ÔÊĞí×ÔÖÆ±øÆ÷ÃûÎªcorpse, ¾ÅÒõ°×¹Ç×¥Ğècorpse²ÅÄÜÁ·
+// ä¸å…è®¸è‡ªåˆ¶å…µå™¨åä¸ºcorpse, ä¹é˜´ç™½éª¨æŠ“éœ€corpseæ‰èƒ½ç»ƒ
 	if( (ob->query("weapon/id")== "corpse") )
 	{
 		ob->set("weapon/id","shiti");
 	}
-// ¹Ù¸®
+// å®˜åºœ
 	if( ob->query("weiwang") > 100 && ob->query("officerlvl") >0)
 	{
 		ob->set("weiwang", 80 + 20*ob->query("officerlvl"));
 	}
-// µÇÂ¼Ê±¼ÇÂ¼¾­ÑéºÍÇ±ÄÜ, ÒÔ¼°µÇÂ¼Ê±¼ä, ÎªÀëÏßĞÅÏ¢Ô¤Áô
-// ×ªÒÆµ½logind.c
+// ç™»å½•æ—¶è®°å½•ç»éªŒå’Œæ½œèƒ½, ä»¥åŠç™»å½•æ—¶é—´, ä¸ºç¦»çº¿ä¿¡æ¯é¢„ç•™
+// è½¬ç§»åˆ°logind.c
 //	ob->set_temp("nowexp", ob->query("combat_exp"));
 //	ob->set_temp("nowpot", ob->query("potential"));
 //	ob->set_temp("nowtime", time());
-// Ç±ÄÜÉÏÏŞ100000 ÉñÉÏÏŞ°ÙÍò ½­ºşÔÄÀúÉÏÏŞ 10Íò
-// ÒÔÏÂ×ªÒÆµ½chard.c ¶ÏÏß²»»áÏûÈ¥¶àÓàÇ±ÄÜ
+// æ½œèƒ½ä¸Šé™100000 ç¥ä¸Šé™ç™¾ä¸‡ æ±Ÿæ¹–é˜…å†ä¸Šé™ 10ä¸‡
+// ä»¥ä¸‹è½¬ç§»åˆ°chard.c æ–­çº¿ä¸ä¼šæ¶ˆå»å¤šä½™æ½œèƒ½
 /*
 	if ((ob->query("potential")-ob->query("learned_points"))>100000) 
 		ob->set("potential", ob->query("learned_points")+100000);
@@ -117,7 +117,7 @@ void check_user(object ob)
         if( ob->query("shen")<-1000000) ob->set("shen",-1000000);
         if( ob->query("score")>100000) ob->set("score",100000);
 */        
-// ÒşĞÔÌì¸³
+// éšæ€§å¤©èµ‹
 	if( undefinedp(my["per"]) ) my["per"] = 10 + random(21);
 	if( undefinedp(my["kar"]) ) my["kar"] = 10 + random(21);
 	if( undefinedp(my["cor"]) ) my["cor"] = 10 + random(21);
@@ -125,8 +125,7 @@ void check_user(object ob)
 	if( undefinedp(my["sta"]) ) my["sta"] = 10 + random(21);
 	if( undefinedp(my["spi"]) ) my["spi"] = 10 + random(21);
 
-	max = 40 + 
-	->query_scborn_times(ob)*5;
+	max = 40 + SCBORN_D->query_scborn_times(ob)*5;
 	if( my["int"] > max ) my["int"] = max;
 	if( my["con"] > max ) my["con"] = max;
 	if( my["str"] > max ) my["str"] = max;
@@ -159,7 +158,7 @@ void check_user(object ob)
 			i = i * ( i + 1 ) / 2;
 			my["max_jing"] -= i;
 		}
-		// µÀ¼Ò±£¾«£º
+		// é“å®¶ä¿ç²¾ï¼š
 		if(my["age"] > 60 && (int)ob->query_skill("taoism", 1) >= 120)
 		{
 			// Modified by zeratul Jan 6 2001
@@ -167,7 +166,7 @@ void check_user(object ob)
 			my["max_jing"] += i;
 		}
 
-		// ·ğ¼ÒÑø¾«£º£³£°ËêÇ°²¹¾«£¬£³£°Ëêºó³¤¾«
+		// ä½›å®¶å…»ç²¾ï¼šï¼“ï¼å²å‰è¡¥ç²¾ï¼Œï¼“ï¼å²åé•¿ç²¾
 		if((xism_age=(int)ob->query_skill("buddhism", 1)) > 39)
 		{
 			xism_age = xism_age/2;
@@ -178,7 +177,7 @@ void check_user(object ob)
 			if (xism_age > 0) my["max_jing"] += xism_age *((int)ob->query_skill("zhanzhuang-gong", 1)/10);
 			if (xism_age > 0) my["max_jing"] += xism_age *((int)ob->query_skill("baiyun-xinfa", 1)/10);
 		}
-		// ×ÏëµÒ÷³¤¾«£º
+		// ç´«æ°²åŸé•¿ç²¾ï¼š
 		if((xism_age=(int)ob->query_skill("ziyunyin", 1)) > 39) 
 		{
 			xism_age = xism_age/2;
@@ -207,7 +206,7 @@ void check_user(object ob)
 			else my["max_qi"] = 10;  
 		}
 
-		// ·ğ¼Ò±£Æø£º
+		// ä½›å®¶ä¿æ°”ï¼š
 		if(my["age"] > 60 && (int)ob->query_skill("buddhism", 1) >= 120)
 		{
 			// Modified by zeratul Jan 6 2001
@@ -216,7 +215,7 @@ void check_user(object ob)
 			my["max_qi"] += i;
 		}
 
-		// µÀ¼ÒÕıÒ»ÅÉÁ·Æø£º£³£°ËêÇ°²¹Æø£¬£³£°Ëêºó³¤Æø
+		// é“å®¶æ­£ä¸€æ´¾ç»ƒæ°”ï¼šï¼“ï¼å²å‰è¡¥æ°”ï¼Œï¼“ï¼å²åé•¿æ°”
 		if((xism_age=(int)ob->query_skill("taoism", 1)) > 39)
 		{
 			xism_age = xism_age/2;
@@ -226,7 +225,7 @@ void check_user(object ob)
 			if (xism_age > 0) my["max_qi"] += xism_age *((int)ob->query_skill("taiji-shengong", 1) / 10);
 		}
 
-		// µÀ¼ÒÈ«ÕæÅÉÁ·Æø£º£³£°ËêÇ°²¹Æø£¬£³£°Ëêºó³¤Æø
+		// é“å®¶å…¨çœŸæ´¾ç»ƒæ°”ï¼šï¼“ï¼å²å‰è¡¥æ°”ï¼Œï¼“ï¼å²åé•¿æ°”
 		if((xism_age=(int)ob->query_skill("taoism", 1)) > 39)
 		{
 			xism_age = xism_age/2;
@@ -236,7 +235,7 @@ void check_user(object ob)
 			if (xism_age > 0) my["max_qi"] += xism_age *((int)ob->query_skill("xiantian-qigong", 1) / 10);
 		}
 
-		// ÕıÆø¾÷³¤Æø£º
+		// æ­£æ°”è¯€é•¿æ°”ï¼š
 		if((xism_age=(int)ob->query_skill("zhengqijue", 1)) > 39) 
 		{
 			xism_age = xism_age/2;
@@ -245,7 +244,7 @@ void check_user(object ob)
 			if (xism_age > 0) my["max_qi"] += xism_age *((int)ob->query_skill("zixia-shengong", 1) / 20);
 		}
 
-		// ¶¾¼¼Á·Æø£º£³£°ËêÇ°²¹Æø£¬£³£°Ëêºó³¤Æø
+		// æ¯’æŠ€ç»ƒæ°”ï¼šï¼“ï¼å²å‰è¡¥æ°”ï¼Œï¼“ï¼å²åé•¿æ°”
 		if((xism_age=(int)ob->query_skill("poison", 1)) > 39)
 		{
 			xism_age = xism_age/2;
@@ -255,11 +254,11 @@ void check_user(object ob)
 			if (xism_age > 0) my["max_qi"] += xism_age *((int)ob->query_skill("huagong-dafa", 1) / 10);		        
 		             
 		}
-		// ÄÚÁ¦¿É³¤ÆøÑª
+		// å†…åŠ›å¯é•¿æ°”è¡€
 		if( my["max_neili"] > 0 ) my["max_qi"] += my["max_neili"] / 4;
 		if ( my["max_qi"] < 1 ) my["max_qi"] = 1;
 			
-		// ÌåÁ¦ÓëÄêÁäÏà¹Ø
+		// ä½“åŠ›ä¸å¹´é¾„ç›¸å…³
 		if( my["age"] <= 14 ) my["max_tili"] = 100;
 		else if( my["age"] <= 30 )
 			my["max_tili"] = 100 + (my["age"]-14)*my["sta"];
@@ -267,12 +266,12 @@ void check_user(object ob)
 		if( my["age"] > 60 ) my["max_tili"] -= (my["age"] - 60) * 5;
 	}
 
-        // ÏŞÖÆ´æ¿îÊıÁ¿¡£
+        // é™åˆ¶å­˜æ¬¾æ•°é‡ã€‚
         // Modified by zeratul Jan 6 2001
         ob->set( "max_balance", 500000000 + ob->query( "combat_exp" ) );
         if ( ob->query( "balance" ) > ob->query( "max_balance" ) )
                 ob->set( "balance", ob->query( "max_balance" ) );
-        // ÏŞÖÆ×ÔÖı±øÆ÷ÍşÁ¦ÉÏÏŞ¡£
+        // é™åˆ¶è‡ªé“¸å…µå™¨å¨åŠ›ä¸Šé™ã€‚
 	if( ob->query("weapon/lv") > (ob->query_sta() + ob->query_con())/3)
 		ob->set("weapon/lv", (ob->query_sta() + ob->query_con())/3);
 

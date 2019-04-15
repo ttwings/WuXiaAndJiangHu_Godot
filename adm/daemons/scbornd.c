@@ -1,17 +1,17 @@
 #include <ansi.h>
 
-object load_data(object user,object ob);         //´Ólogin obÖĞ¶ÁÈ¡data
-object load_skill(object user);                  //´ÓdataÖĞ¶ÁÈ¡skill
-object check_user(object user,object ob);        //¹©logind.cµ÷ÓÃ
-int valid_scborn(object ob);                     //ÊÇ·ñ¿ÉÒÔ×ªÉú ¹©Íâ²¿µ÷ÓÃ
-int save_data(object user,string arg);           //±£´æÖ¸¶¨Êı¾İµ½loginob
-varargs int save_skill(object user,string arg,int lvl);//±£´æÖ¸¶¨skillµ½login
-int save_force(object user);                     //±£´æËùÓĞÄÚ¹¦µ½login
-int save_knowledge(object user);                 //±£´æËùÓĞÖªÊ¶¼¼ÄÜµ½login
-varargs int save_perform(object user,string skill,string pfm);//±£´æÒ»¸ö¼¼ÄÜµÄpfmµ½login
-int valid_perform(object me,string base_skill,string pfm);//Íâ²¿µ÷ÓÃ ÊÇ·ñÊÇ±£´æµÄpfm
-int query_scborn_times(object me);               //Íâ²¿µ÷ÓÃ ×ªÉú´ÎÊı
-varargs int reborn(object user,string skill,string etc1,string etc2);//¸÷¼¶×ªÉú±£´æÊı¾İ
+object load_data(object user,object ob);         //ä»login obä¸­è¯»å–data
+object load_skill(object user);                  //ä»dataä¸­è¯»å–skill
+object check_user(object user,object ob);        //ä¾›logind.cè°ƒç”¨
+int valid_scborn(object ob);                     //æ˜¯å¦å¯ä»¥è½¬ç”Ÿ ä¾›å¤–éƒ¨è°ƒç”¨
+int save_data(object user,string arg);           //ä¿å­˜æŒ‡å®šæ•°æ®åˆ°loginob
+varargs int save_skill(object user,string arg,int lvl);//ä¿å­˜æŒ‡å®šskillåˆ°login
+int save_force(object user);                     //ä¿å­˜æ‰€æœ‰å†…åŠŸåˆ°login
+int save_knowledge(object user);                 //ä¿å­˜æ‰€æœ‰çŸ¥è¯†æŠ€èƒ½åˆ°login
+varargs int save_perform(object user,string skill,string pfm);//ä¿å­˜ä¸€ä¸ªæŠ€èƒ½çš„pfmåˆ°login
+int valid_perform(object me,string base_skill,string pfm);//å¤–éƒ¨è°ƒç”¨ æ˜¯å¦æ˜¯ä¿å­˜çš„pfm
+int query_scborn_times(object me);               //å¤–éƒ¨è°ƒç”¨ è½¬ç”Ÿæ¬¡æ•°
+varargs int reborn(object user,string skill,string etc1,string etc2);//å„çº§è½¬ç”Ÿä¿å­˜æ•°æ®
 
 void create()
 {
@@ -68,7 +68,7 @@ int valid_scborn(object ob)
 	times = this_object()->query_scborn_times(ob);
 	switch(times)
 	{
-		case 0: //´ÓÎ´×ªÉú¹ı
+		case 0: //ä»æœªè½¬ç”Ÿè¿‡
 			needexp = 5000000;
 			needskill = 350;
 			break;
@@ -93,25 +93,25 @@ int valid_scborn(object ob)
 			needskill = 1000;
 			break;
 		default: 
-		return notify_fail("ÄãÒÑ¾­¹¦µÂÔ²ÂúÁË£¬²»ĞèÒª×ªÉúÁË¡£\n");
+		return notify_fail("ä½ å·²ç»åŠŸå¾·åœ†æ»¡äº†ï¼Œä¸éœ€è¦è½¬ç”Ÿäº†ã€‚\n");
 	}
 	
 	if (ob->query("combat_exp")<needexp)
-	return notify_fail("ÄãµÄ¾­ÑéÉĞÇ³£¬ÎŞ·¨×ªÊÀ¡£\n");
+	return notify_fail("ä½ çš„ç»éªŒå°šæµ…ï¼Œæ— æ³•è½¬ä¸–ã€‚\n");
 	skl = ob->query_skills();
-	if (!mapp(skl)) return notify_fail("ÄãµÄÎä¹¦»¹Ã»µ½¼Ò£¬¶àÁ·Á·°É¡£\n");
+	if (!mapp(skl)) return notify_fail("ä½ çš„æ­¦åŠŸè¿˜æ²¡åˆ°å®¶ï¼Œå¤šç»ƒç»ƒå§ã€‚\n");
 	sklname = keys(skl);
 	for (i=0;i<sizeof(skl);i++)
 		if (skl[sklname[i]]>=needskill)	count++;
-	if (count < 5) return notify_fail("ÄãµÄÎä¹¦»¹Ã»µ½¼Ò£¬¶àÁ·Á·°É¡£\n");
-	if (!ob->query("guangming_winner")) return notify_fail("ÄãÎ´¼ûÊ¶¹ıÃ÷½Ì¹âÃ÷Ê¥»ğÕó£¬Ã»×Ê¸ñ×ªÉú¡£\n");
-	if (!ob->query("luohan_winner")) return notify_fail("ÄãÎ´¼ûÊ¶¹ıÉÙÁÖÊ®°ËÂŞººÕó£¬Ã»×Ê¸ñ×ªÉú¡£\n");
-	if (!ob->query("qixing")) return notify_fail("ÄãÎ´¼ûÊ¶¹ıÈ«ÕæÌìî¸±±¶·Õó£¬Ã»×Ê¸ñ×ªÉú¡£\n");
-	if (!ob->query("KILLER")) return notify_fail("ÄãÖªµÀ´ó×ÚÊ¦³¤Ê²Ã´ÑùÂğ£¿\n");
-	if (ob->query("KILLER") < needskill*(times+1)*(times+1)/10) return notify_fail("×ÚÊ¦¶ÔÄãµÄÆÀ¼ÛÌ«²îÁË£¬ÔÙÅ¬Á¦Ò»°Ñ°É¡£\n");
-//	if ((int)ob->query("gift/qingyun")< 500 * (times+1) ) return notify_fail("ÄãÔÚÏßÍê³ÉÈÎÎñ´ÎÊıÌ«ÉÙ£¬²»ÄÜ×ªÉú¡£\n");
+	if (count < 5) return notify_fail("ä½ çš„æ­¦åŠŸè¿˜æ²¡åˆ°å®¶ï¼Œå¤šç»ƒç»ƒå§ã€‚\n");
+	if (!ob->query("guangming_winner")) return notify_fail("ä½ æœªè§è¯†è¿‡æ˜æ•™å…‰æ˜åœ£ç«é˜µï¼Œæ²¡èµ„æ ¼è½¬ç”Ÿã€‚\n");
+	if (!ob->query("luohan_winner")) return notify_fail("ä½ æœªè§è¯†è¿‡å°‘æ—åå…«ç½—æ±‰é˜µï¼Œæ²¡èµ„æ ¼è½¬ç”Ÿã€‚\n");
+	if (!ob->query("qixing")) return notify_fail("ä½ æœªè§è¯†è¿‡å…¨çœŸå¤©ç½¡åŒ—æ–—é˜µï¼Œæ²¡èµ„æ ¼è½¬ç”Ÿã€‚\n");
+	if (!ob->query("KILLER")) return notify_fail("ä½ çŸ¥é“å¤§å®—å¸ˆé•¿ä»€ä¹ˆæ ·å—ï¼Ÿ\n");
+	if (ob->query("KILLER") < needskill*(times+1)*(times+1)/10) return notify_fail("å®—å¸ˆå¯¹ä½ çš„è¯„ä»·å¤ªå·®äº†ï¼Œå†åŠªåŠ›ä¸€æŠŠå§ã€‚\n");
+//	if ((int)ob->query("gift/qingyun")< 500 * (times+1) ) return notify_fail("ä½ åœ¨çº¿å®Œæˆä»»åŠ¡æ¬¡æ•°å¤ªå°‘ï¼Œä¸èƒ½è½¬ç”Ÿã€‚\n");
 //	if (member_array(getuid(ob),bid)>=0)
-//  return notify_fail("ÄãµÄ×ªÉúÌõ¼ş²»¹»£¬Ã»·¨×ªÉú¡£\n");
+//  return notify_fail("ä½ çš„è½¬ç”Ÿæ¡ä»¶ä¸å¤Ÿï¼Œæ²¡æ³•è½¬ç”Ÿã€‚\n");
 
 	return 1;
 }
@@ -273,64 +273,64 @@ varargs int reborn(object user,string skill,string etc1,string etc2)
 	ob = user->query_temp("link_ob");
 	times = this_object()->query_scborn_times(user);
 	
-	save_data(user,"board_last_read");   //±£´æÁôÑÔ°æ¶ÁÈ¡ĞÅÏ¢
-	save_data(user,"bug");               //±£´æbug¹±Ï×
-	save_data(user,"bug_count");         //±£´æbug¹±Ï××ÜºÍ
-	save_data(user,"home");              //±£´æ·¿Îİ
-	save_data(user,"weapon");            //±£´æÎäÆ÷
-// Ò»×ª Ó¦¸ÃÊÇ reborn(user,"taiji-quan","zhen"); ±£´ætaiji-quanºÍpfm zhen
-// ¶ş×ª Ó¦¸ÃÊÇ reborn(user,"taiji-quan","literate"); ±£´æ Á½¸ö¼¼ÄÜ
-// Èı×ª Ó¦¸ÃÊÇ reborn(user,"taiji-quan","taiji-shengong"); ±£´æ
-// ËÄ×ª Ó¦¸ÃÊÇ reborn(user,"taiji-quan","taiji-jian");
-// Îå×ª Ó¦¸ÃÊÇ reborn(user,"taiji-quan","taiji-jian","huifeng-jian");
-// Áù×ª Ó¦¸ÃÊÇ reborn(user);
+	save_data(user,"board_last_read");   //ä¿å­˜ç•™è¨€ç‰ˆè¯»å–ä¿¡æ¯
+	save_data(user,"bug");               //ä¿å­˜bugè´¡çŒ®
+	save_data(user,"bug_count");         //ä¿å­˜bugè´¡çŒ®æ€»å’Œ
+	save_data(user,"home");              //ä¿å­˜æˆ¿å±‹
+	save_data(user,"weapon");            //ä¿å­˜æ­¦å™¨
+// ä¸€è½¬ åº”è¯¥æ˜¯ reborn(user,"taiji-quan","zhen"); ä¿å­˜taiji-quanå’Œpfm zhen
+// äºŒè½¬ åº”è¯¥æ˜¯ reborn(user,"taiji-quan","literate"); ä¿å­˜ ä¸¤ä¸ªæŠ€èƒ½
+// ä¸‰è½¬ åº”è¯¥æ˜¯ reborn(user,"taiji-quan","taiji-shengong"); ä¿å­˜
+// å››è½¬ åº”è¯¥æ˜¯ reborn(user,"taiji-quan","taiji-jian");
+// äº”è½¬ åº”è¯¥æ˜¯ reborn(user,"taiji-quan","taiji-jian","huifeng-jian");
+// å…­è½¬ åº”è¯¥æ˜¯ reborn(user);
 	switch(times)
 	{
 		case 0:
-			save_skill(user,skill);           //±£´æÒ»¸ö¼¼ÄÜ100¼¶
+			save_skill(user,skill);           //ä¿å­˜ä¸€ä¸ªæŠ€èƒ½100çº§
 			if (stringp(etc1))
-				save_perform(user,skill,etc1);  //±£´æ¼¼ÄÜµÄÒ»¸öpfm
-			ob->set("scborn/times",1);        //¼ÇÂ¼ÒÑ¾­×ªÉú´ÎÊı
+				save_perform(user,skill,etc1);  //ä¿å­˜æŠ€èƒ½çš„ä¸€ä¸ªpfm
+			ob->set("scborn/times",1);        //è®°å½•å·²ç»è½¬ç”Ÿæ¬¡æ•°
 			break;
 		case 1:
-			save_skill(user,skill);          //±£´æÒ»¸ö¼¼ÄÜ100¼¶
-			save_perform(user,skill);	       //ÒÔ¼°Õâ¸ö¼¼ÄÜµÄËùÓĞpfm
-			save_skill(user,etc1,1);           //ÍêÕû±£´æÒ»¸öÖªÊ¶¼¼ÄÜ
-			ob->set("scborn/times",2);       //¼ÇÂ¼ÒÑ¾­×ªÉú´ÎÊı
+			save_skill(user,skill);          //ä¿å­˜ä¸€ä¸ªæŠ€èƒ½100çº§
+			save_perform(user,skill);	       //ä»¥åŠè¿™ä¸ªæŠ€èƒ½çš„æ‰€æœ‰pfm
+			save_skill(user,etc1,1);           //å®Œæ•´ä¿å­˜ä¸€ä¸ªçŸ¥è¯†æŠ€èƒ½
+			ob->set("scborn/times",2);       //è®°å½•å·²ç»è½¬ç”Ÿæ¬¡æ•°
 			break;
 		case 2:
-			save_skill(user,skill);          //±£´æÒ»¸ö¼¼ÄÜ
-			save_perform(user,skill);	       //ÒÔ¼°Õâ¸ö¼¼ÄÜµÄËùÓĞpfm
-			save_knowledge(user);            //±£´æËùÓĞÖªÊ¶¼¼ÄÜ
-			save_skill(user,etc1);         //±£´æÒ»¸öÄÚ¹¦
-			ob->set("scborn/times",3);       //¼ÇÂ¼ÒÑ¾­×ªÉú´ÎÊı
+			save_skill(user,skill);          //ä¿å­˜ä¸€ä¸ªæŠ€èƒ½
+			save_perform(user,skill);	       //ä»¥åŠè¿™ä¸ªæŠ€èƒ½çš„æ‰€æœ‰pfm
+			save_knowledge(user);            //ä¿å­˜æ‰€æœ‰çŸ¥è¯†æŠ€èƒ½
+			save_skill(user,etc1);         //ä¿å­˜ä¸€ä¸ªå†…åŠŸ
+			ob->set("scborn/times",3);       //è®°å½•å·²ç»è½¬ç”Ÿæ¬¡æ•°
 			break;
 		case 3:
-			save_skill(user,skill);          //±£´æÒ»¸ö¼¼ÄÜ
-			save_perform(user,skill);	       //ÒÔ¼°Õâ¸ö¼¼ÄÜµÄËùÓĞpfm
-			save_skill(user,etc1);           //±£´æÒ»¸ö¼¼ÄÜ
-			save_perform(user,etc1);         //ÒÔ¼°Õâ¸ö¼¼ÄÜµÄËùÓĞpfm
-			save_force(user);                //±£´æËùÓĞÄÚ¹¦
-			save_knowledge(user);            //±£´æËùÓĞÖªÊ¶¼¼ÄÜ
-			ob->set("scborn/times",4);       //¼ÇÂ¼ÒÑ¾­×ªÉú´ÎÊı
+			save_skill(user,skill);          //ä¿å­˜ä¸€ä¸ªæŠ€èƒ½
+			save_perform(user,skill);	       //ä»¥åŠè¿™ä¸ªæŠ€èƒ½çš„æ‰€æœ‰pfm
+			save_skill(user,etc1);           //ä¿å­˜ä¸€ä¸ªæŠ€èƒ½
+			save_perform(user,etc1);         //ä»¥åŠè¿™ä¸ªæŠ€èƒ½çš„æ‰€æœ‰pfm
+			save_force(user);                //ä¿å­˜æ‰€æœ‰å†…åŠŸ
+			save_knowledge(user);            //ä¿å­˜æ‰€æœ‰çŸ¥è¯†æŠ€èƒ½
+			ob->set("scborn/times",4);       //è®°å½•å·²ç»è½¬ç”Ÿæ¬¡æ•°
 			break;
 		case 4:
-			save_skill(user,skill);          //±£´æÒ»¸ö¼¼ÄÜ
-			save_perform(user,skill);	       //ÒÔ¼°Õâ¸ö¼¼ÄÜµÄËùÓĞpfm
-			save_skill(user,etc1);           //±£´æÒ»¸ö¼¼ÄÜ
-			save_perform(user,etc1);         //ÒÔ¼°Õâ¸ö¼¼ÄÜµÄËùÓĞpfm
-			save_skill(user,etc2);           //±£´æÒ»¸ö¼¼ÄÜ
-			save_perform(user,etc2);         //ÒÔ¼°Õâ¸ö¼¼ÄÜµÄËùÓĞpfm
-			save_force(user);                //±£´æËùÓĞÄÚ¹¦
-			save_knowledge(user);            //±£´æËùÓĞÖªÊ¶¼¼ÄÜ
-			ob->set("scborn/times",5);       //¼ÇÂ¼ÒÑ¾­×ªÉú´ÎÊı
+			save_skill(user,skill);          //ä¿å­˜ä¸€ä¸ªæŠ€èƒ½
+			save_perform(user,skill);	       //ä»¥åŠè¿™ä¸ªæŠ€èƒ½çš„æ‰€æœ‰pfm
+			save_skill(user,etc1);           //ä¿å­˜ä¸€ä¸ªæŠ€èƒ½
+			save_perform(user,etc1);         //ä»¥åŠè¿™ä¸ªæŠ€èƒ½çš„æ‰€æœ‰pfm
+			save_skill(user,etc2);           //ä¿å­˜ä¸€ä¸ªæŠ€èƒ½
+			save_perform(user,etc2);         //ä»¥åŠè¿™ä¸ªæŠ€èƒ½çš„æ‰€æœ‰pfm
+			save_force(user);                //ä¿å­˜æ‰€æœ‰å†…åŠŸ
+			save_knowledge(user);            //ä¿å­˜æ‰€æœ‰çŸ¥è¯†æŠ€èƒ½
+			ob->set("scborn/times",5);       //è®°å½•å·²ç»è½¬ç”Ÿæ¬¡æ•°
 		  break;
 		case 5:
-			save_skill(user,"all");          //±£´æËùÓĞ¼¼ÄÜ
-			save_perform(user,"all");        //±£´æËùÓĞpfm
-			ob->set("scborn/times",6);       //¼ÇÂ¼ÒÑ¾­×ªÉú´ÎÊı
+			save_skill(user,"all");          //ä¿å­˜æ‰€æœ‰æŠ€èƒ½
+			save_perform(user,"all");        //ä¿å­˜æ‰€æœ‰pfm
+			ob->set("scborn/times",6);       //è®°å½•å·²ç»è½¬ç”Ÿæ¬¡æ•°
 		  break;
-		default: return notify_fail("³¬³ö×ªÉú·¶Î§¡£\n");
+		default: return notify_fail("è¶…å‡ºè½¬ç”ŸèŒƒå›´ã€‚\n");
 	}
 	ob->set("scborn/reset_gift",1);
 	if (ob->query("couple/have_couple"))
@@ -344,7 +344,7 @@ varargs int reborn(object user,string skill,string etc1,string etc2)
 		{
 			couple->delete("couple");
 			couple->save();
-			tell_object(couple,"ÄãµÄ"+couple->query("couple/couple_gender")+"×ÔÉ±ÁË£¬ÄãÃÇµÄ»éÒö¹ØÏµ½â³ıÁË¡£\n");
+			tell_object(couple,"ä½ çš„"+couple->query("couple/couple_gender")+"è‡ªæ€äº†ï¼Œä½ ä»¬çš„å©šå§»å…³ç³»è§£é™¤äº†ã€‚\n");
 			if(flag == 1) destruct(couple);
 		}
 		ob->delete("couple");

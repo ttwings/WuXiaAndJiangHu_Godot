@@ -1,4 +1,4 @@
-// �����硤���μǡ��汾��������
+// 神话世界·西游记·版本４．５０
 /* <SecCrypt CPL V3R05> */
  
 /*
@@ -107,7 +107,7 @@ void incoming_request(mapping info)
                 
      mudinfo=DNS_MASTER->query_mud_info(Mud_name());
      // query info about ourselves.
-    tf("����send_affirmation_a�ѻ�Ӧ��Ϣ�ظ��������ˡ�\n");
+    tf("调用send_affirmation_a把回应消息回复给发送人。\n");
      (AUX_PATH+"affirmation_a")->send_affirmation_a(info["HOSTADDRESS"],
         info["PORTUDP"], 
         mudinfo["MUDNAME"], //"Gtell@"+Mud_name(),

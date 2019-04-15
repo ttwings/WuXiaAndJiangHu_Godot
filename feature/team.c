@@ -1,6 +1,6 @@
 // team.c
 // Last Modified by winder on Aug. 25 2001
-// 修改成员被杀后的bug
+// 淇敼鎴愬憳琚潃鍚庣殑bug
 
 #include <command.h>
 #include <dbase.h>

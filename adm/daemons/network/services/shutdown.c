@@ -1,4 +1,4 @@
-// Éñ»°ÊÀ½ç¡¤Î÷ÓÎ¼Ç¡¤°æ±¾£´£®£µ£°
+// ç¥è¯ä¸–ç•ŒÂ·è¥¿æ¸¸è®°Â·ç‰ˆæœ¬ï¼”ï¼ï¼•ï¼
 /* <SecCrypt CPL V3R05> */
  
 /*
@@ -70,5 +70,5 @@ void send_shutdown(string host, int port)
 void create()
 {
   seteuid(ROOT_UID);
-  set("channel_id", "ÍøÂ·¹Ø±Õ¾«Áé");
+  set("channel_id", "ç½‘è·¯å…³é—­ç²¾çµ");
 }

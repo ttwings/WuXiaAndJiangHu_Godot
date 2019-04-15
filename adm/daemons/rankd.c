@@ -12,188 +12,188 @@ string query_rank(object ob)
         int age;
 
         if( ob->is_ghost() )
-                return HIB "¡¾ ¹í  »ê ¡¿" NOR;
+                return HIB "ã€ é¬¼  é­‚ ã€‘" NOR;
 
         shen = ob->query("shen");
         age = ob->query("age");
         if ( (fam = ob->query("family")) &&
-		(fam["family_name"] == "ÉÙÁÖÅÉ" ||
-		fam["family_name"] == "ÄÏÉÙÁÖÅÉ" ||
-		fam["family_name"] == "¶ëáÒÅÉ" ||
-		fam["family_name"] == "ÌìÁúËÂ" ||
-		fam["family_name"] == "Ñ©É½ÅÉ" ||
-		fam["family_name"] == "ºãÉ½ÅÉ"))
+		(fam["family_name"] == "å°‘æ—æ´¾" ||
+		fam["family_name"] == "å—å°‘æ—æ´¾" ||
+		fam["family_name"] == "å³¨åµ‹æ´¾" ||
+		fam["family_name"] == "å¤©é¾™å¯º" ||
+		fam["family_name"] == "é›ªå±±æ´¾" ||
+		fam["family_name"] == "æ’å±±æ´¾"))
                 budd = ob->query_skill("buddhism",1);
 
         switch(ob->query("gender")) {
-        case "Å®ĞÔ":
+        case "å¥³æ€§":
                 switch(wizhood(ob)) {
-                case "(admin)"     : return HIM "¡¾ Ìì  ºó ¡¿" NOR;
-                case "(arch)"      : return HIY "¡¾ ÏÉ  åú ¡¿" NOR;
-                case "(wizard)"    : return HIG "¡¾ Éñ  Å® ¡¿" NOR;
-                case "(apprentice)": return HIC "¡¾ ÏÉ  Å® ¡¿" NOR;
-                case "(immortal)"  : return HIC "¡¾ Å®ÏÉÍ¯ ¡¿" NOR;
+                case "(admin)"     : return HIM "ã€ å¤©  å ã€‘" NOR;
+                case "(arch)"      : return HIY "ã€ ä»™  å¦ƒ ã€‘" NOR;
+                case "(wizard)"    : return HIG "ã€ ç¥  å¥³ ã€‘" NOR;
+                case "(apprentice)": return HIC "ã€ ä»™  å¥³ ã€‘" NOR;
+                case "(immortal)"  : return HIC "ã€ å¥³ä»™ç«¥ ã€‘" NOR;
                 default:
                         if (((int)ob->query("betrayer") > 0) &&
-                            (!(ob->query("family"))))     return "¡¾ Å®ÒşÊ¿ ¡¿";
+                            (!(ob->query("family"))))     return "ã€ å¥³éšå£« ã€‘";
                         if (((int)ob->query("PKS") > (int)ob->query("MKS")) &&
-                            ((int)ob->query("PKS") > 10)) return "¡¾Å®É±ÈËÄ§¡¿";
-                        if ((int)ob->query("thief")> 10 ) return "¡¾ Å®¹ßÇÔ ¡¿";
-                        if (shen >= 100000)       return HIC "¡¾¿õÊÀÅ®ÏÀ¡¿" NOR;
+                            ((int)ob->query("PKS") > 10)) return "ã€å¥³æ€äººé­”ã€‘";
+                        if ((int)ob->query("thief")> 10 ) return "ã€ å¥³æƒ¯çªƒ ã€‘";
+                        if (shen >= 100000)       return HIC "ã€æ—·ä¸–å¥³ä¾ ã€‘" NOR;
 /*
-                        else if (shen >= 10000)   return HIC "¡¾ ´óÅ®ÏÀ ¡¿" NOR;
-                        else if (shen >= 1000)    return HIC "¡¾ Å®  ÏÀ ¡¿" NOR;
-                        else if (shen >= 100)     return HIC "¡¾ Å®ÉÙÏÀ ¡¿" NOR;
+                        else if (shen >= 10000)   return HIC "ã€ å¤§å¥³ä¾  ã€‘" NOR;
+                        else if (shen >= 1000)    return HIC "ã€ å¥³  ä¾  ã€‘" NOR;
+                        else if (shen >= 100)     return HIC "ã€ å¥³å°‘ä¾  ã€‘" NOR;
 */
-                        else if (shen <=-100000)  return HIC "¡¾ Å®Ä§Íõ ¡¿" NOR;
+                        else if (shen <=-100000)  return HIC "ã€ å¥³é­”ç‹ ã€‘" NOR;
 /*
-                        else if (shen <= -10000)  return HIC "¡¾ ´óÅ®Ä§ ¡¿" NOR;
-                        else if (shen <= -1000)   return HIC "¡¾ Å®  Ä§ ¡¿" NOR;
-                        else if (shen <= -100)    return HIC "¡¾ Å®ÉÙÄ§ ¡¿" NOR;
+                        else if (shen <= -10000)  return HIC "ã€ å¤§å¥³é­” ã€‘" NOR;
+                        else if (shen <= -1000)   return HIC "ã€ å¥³  é­” ã€‘" NOR;
+                        else if (shen <= -100)    return HIC "ã€ å¥³å°‘é­” ã€‘" NOR;
 */
                         else
                         switch(ob->query("class")) {
                         case "bonze":
-                             if (budd >= 150)     return HIW "¡¾ Éñ  Äá ¡¿" NOR;
-                             else if (budd >=120) return HIY "¡¾ Ê¥  Äá ¡¿" NOR;
-                             else if (budd >= 90) return HIY "¡¾ µÂ  Äá ¡¿" NOR;
-                             else if (budd >= 60) return HIC "¡¾ ÏÍ  Äá ¡¿" NOR;
-                             else if (budd >= 30) return HIG "¡¾ Ê¦  Ì« ¡¿" NOR;
-                             else if (age  <= 16) return "¡¾ Ğ¡Äá¹Ã ¡¿";
-                             else                 return "¡¾ Äá  ¹Ã ¡¿";
-                        case "taoist":            /*ÕıÒ»ÅÉ*/
-                        case "quanzhen":          /*È«ÕæÅÉ*/
-                             if (age <= 16)       return "¡¾ Ğ¡µÀ¹Ã ¡¿";
-                             else if (age <= 30)  return "¡¾ µÀ  ¹Ã ¡¿";
-                             else                 return "¡¾ Ğş  Å® ¡¿";
+                             if (budd >= 150)     return HIW "ã€ ç¥  å°¼ ã€‘" NOR;
+                             else if (budd >=120) return HIY "ã€ åœ£  å°¼ ã€‘" NOR;
+                             else if (budd >= 90) return HIY "ã€ å¾·  å°¼ ã€‘" NOR;
+                             else if (budd >= 60) return HIC "ã€ è´¤  å°¼ ã€‘" NOR;
+                             else if (budd >= 30) return HIG "ã€ å¸ˆ  å¤ª ã€‘" NOR;
+                             else if (age  <= 16) return "ã€ å°å°¼å§‘ ã€‘";
+                             else                 return "ã€ å°¼  å§‘ ã€‘";
+                        case "taoist":            /*æ­£ä¸€æ´¾*/
+                        case "quanzhen":          /*å…¨çœŸæ´¾*/
+                             if (age <= 16)       return "ã€ å°é“å§‘ ã€‘";
+                             else if (age <= 30)  return "ã€ é“  å§‘ ã€‘";
+                             else                 return "ã€ ç„  å¥³ ã€‘";
                         case "scholar":
-                             if (age <= 16)       return "¡¾ Å®Ñ§Í¯ ¡¿";
-                             else if (age <= 30)  return "¡¾ ²Å  Å® ¡¿";
-                             else                 return "¡¾ Å®Ñ§Ê¿ ¡¿";
-                        case "bandit":            return "¡¾ Å®·ÉÔô ¡¿";
-                        case "dancer":            return "¡¾ Îè  Õß ¡¿";
-                        case "legend":            return "¡¾ ÏÀ  Å® ¡¿";
-                        case "traveller" :        return "¡¾ ÀË  Å® ¡¿";
-                        case "ninemoon":          return "¡¾ Ğ°  Å® ¡¿";
-                        case "officer":           /* ¹Ù²î */
+                             if (age <= 16)       return "ã€ å¥³å­¦ç«¥ ã€‘";
+                             else if (age <= 30)  return "ã€ æ‰  å¥³ ã€‘";
+                             else                 return "ã€ å¥³å­¦å£« ã€‘";
+                        case "bandit":            return "ã€ å¥³é£è´¼ ã€‘";
+                        case "dancer":            return "ã€ èˆ  è€… ã€‘";
+                        case "legend":            return "ã€ ä¾   å¥³ ã€‘";
+                        case "traveller" :        return "ã€ æµª  å¥³ ã€‘";
+                        case "ninemoon":          return "ã€ é‚ª  å¥³ ã€‘";
+                        case "officer":           /* å®˜å·® */
                              budd = (int)ob->query("officerlvl");
-                             if (budd == 9)       return HIR"¡¾ Å®Éñ²¶ ¡¿" NOR;
-                             else if (budd == 8)  return YEL"¡¾Ò»µÈÊÌÎÀ¡¿" NOR;
-                             else if (budd == 7)  return YEL"¡¾¶şµÈÊÌÎÀ¡¿" NOR;
-                             else if (budd == 6)  return YEL"¡¾ÈıµÈÊÌÎÀ¡¿" NOR;
-                             else if (budd == 5)  return HIG"¡¾Å®×Ü²¶Í·¡¿" NOR;
-                             else if (budd == 4)  return HIG"¡¾¸±×Ü²¶Í·¡¿" NOR;
-                             else if (budd == 3)  return HIG"¡¾ Å®²¶Í· ¡¿" NOR;
-                             else if (budd == 2)  return HIG"¡¾ Å®²¶¿ì ¡¿" NOR;
-                             else if (budd == 1)  return HIG"¡¾ÊµÏ°²¶¿ì¡¿" NOR;
-                             else return "¡¾ Å®¹Ù²î ¡¿";
-                        case "fighter":           return "¡¾ Å®ÎäÕß ¡¿";
-                        case "swordsman":         return "¡¾ Å®½£Ê¿ ¡¿";
-                        case "alchemist":         return "¡¾ Å®·½Ê¿ ¡¿";
-                        case "shaman":            return "¡¾ Å®Î×Ò½ ¡¿";
-                        case "lama":              return "¡¾ ²Ø  Äá ¡¿";
-                        case "generals":          return "¡¾ Å®  ½« ¡¿";
-                        case "guard":             return "¡¾ Å®ÎÀÊ¿ ¡¿";
-                        case "minion":            return "¡¾ Å®¼Ò³¼ ¡¿";
-                        case "prostitute":        return "¡¾ ¼Ë  Å® ¡¿";
+                             if (budd == 9)       return HIR"ã€ å¥³ç¥æ• ã€‘" NOR;
+                             else if (budd == 8)  return YEL"ã€ä¸€ç­‰ä¾å«ã€‘" NOR;
+                             else if (budd == 7)  return YEL"ã€äºŒç­‰ä¾å«ã€‘" NOR;
+                             else if (budd == 6)  return YEL"ã€ä¸‰ç­‰ä¾å«ã€‘" NOR;
+                             else if (budd == 5)  return HIG"ã€å¥³æ€»æ•å¤´ã€‘" NOR;
+                             else if (budd == 4)  return HIG"ã€å‰¯æ€»æ•å¤´ã€‘" NOR;
+                             else if (budd == 3)  return HIG"ã€ å¥³æ•å¤´ ã€‘" NOR;
+                             else if (budd == 2)  return HIG"ã€ å¥³æ•å¿« ã€‘" NOR;
+                             else if (budd == 1)  return HIG"ã€å®ä¹ æ•å¿«ã€‘" NOR;
+                             else return "ã€ å¥³å®˜å·® ã€‘";
+                        case "fighter":           return "ã€ å¥³æ­¦è€… ã€‘";
+                        case "swordsman":         return "ã€ å¥³å‰‘å£« ã€‘";
+                        case "alchemist":         return "ã€ å¥³æ–¹å£« ã€‘";
+                        case "shaman":            return "ã€ å¥³å·«åŒ» ã€‘";
+                        case "lama":              return "ã€ è—  å°¼ ã€‘";
+                        case "generals":          return "ã€ å¥³  å°† ã€‘";
+                        case "guard":             return "ã€ å¥³å«å£« ã€‘";
+                        case "minion":            return "ã€ å¥³å®¶è‡£ ã€‘";
+                        case "prostitute":        return "ã€ å¦“  å¥³ ã€‘";
                         case "beggar":
-                             if (shen > 1000)     return "¡¾ Å®ÏÀØ¤ ¡¿";
-                             else if (shen<-1000) return "¡¾ Å®¶ñØ¤ ¡¿";
-                             else                 return "¡¾ Å®½Ğ»¯ ¡¿";
+                             if (shen > 1000)     return "ã€ å¥³ä¾ ä¸ ã€‘";
+                             else if (shen<-1000) return "ã€ å¥³æ¶ä¸ ã€‘";
+                             else                 return "ã€ å¥³å«åŒ– ã€‘";
                         default:
-                                if (age <= 16)    return "¡¾ ÉÙ  Å® ¡¿";
-                                else              return "¡¾ Ãñ  ¸¾ ¡¿";
+                                if (age <= 16)    return "ã€ å°‘  å¥³ ã€‘";
+                                else              return "ã€ æ°‘  å¦‡ ã€‘";
                         }
                 }
         default:
                 switch(wizhood(ob)) {
-                case "(admin)":      if (!ob->query("no_look_wiz")) return HIM "¡¾ Ìì  µÛ ¡¿" NOR;
-                case "(arch)":       if (!ob->query("no_look_wiz")) return HIY "¡¾ Ìì  Íõ ¡¿" NOR;
-                case "(wizard)":     if (!ob->query("no_look_wiz")) return HIG "¡¾ Éñ  ÏÉ ¡¿" NOR;
-                case "(apprentice)": if (!ob->query("no_look_wiz")) return HIC "¡¾ °ë  ÏÉ ¡¿" NOR;
-                case "(immortal)":   if (!ob->query("no_look_wiz")) return HIC "¡¾ ÏÉ  Í¯ ¡¿" NOR;
+                case "(admin)":      if (!ob->query("no_look_wiz")) return HIM "ã€ å¤©  å¸ ã€‘" NOR;
+                case "(arch)":       if (!ob->query("no_look_wiz")) return HIY "ã€ å¤©  ç‹ ã€‘" NOR;
+                case "(wizard)":     if (!ob->query("no_look_wiz")) return HIG "ã€ ç¥  ä»™ ã€‘" NOR;
+                case "(apprentice)": if (!ob->query("no_look_wiz")) return HIC "ã€ åŠ  ä»™ ã€‘" NOR;
+                case "(immortal)":   if (!ob->query("no_look_wiz")) return HIC "ã€ ä»™  ç«¥ ã€‘" NOR;
                 default:
                         if (((int)ob->query("betrayer") > 0) &&
-                            (!(ob->query("family"))))     return "¡¾ Òş  Ê¿ ¡¿";
+                            (!(ob->query("family"))))     return "ã€ éš  å£« ã€‘";
                         if (((int)ob->query("PKS") > (int)ob->query("MKS")) &&
-                            ((int)ob->query("PKS") > 10)) return "¡¾ É±ÈËÄ§ ¡¿";
-                        if ((int)ob->query("thief")> 10 ) return "¡¾ ¹ß  ÇÔ ¡¿";
-                        if (shen >= 100000)       return HIC "¡¾¿õÊÀ´óÏÀ¡¿" NOR;
+                            ((int)ob->query("PKS") > 10)) return "ã€ æ€äººé­” ã€‘";
+                        if ((int)ob->query("thief")> 10 ) return "ã€ æƒ¯  çªƒ ã€‘";
+                        if (shen >= 100000)       return HIC "ã€æ—·ä¸–å¤§ä¾ ã€‘" NOR;
 /*
-                        else if (shen >= 10000)   return HIC "¡¾ ´ó  ÏÀ ¡¿" NOR;
-                        else if (shen >= 1000)    return HIC "¡¾ ÏÀ  ¿Í ¡¿" NOR;
-                        else if (shen >= 100)     return HIC "¡¾ ÉÙ  ÏÀ ¡¿" NOR;
+                        else if (shen >= 10000)   return HIC "ã€ å¤§  ä¾  ã€‘" NOR;
+                        else if (shen >= 1000)    return HIC "ã€ ä¾   å®¢ ã€‘" NOR;
+                        else if (shen >= 100)     return HIC "ã€ å°‘  ä¾  ã€‘" NOR;
 */
-                        else if (shen <= -100000) return HIC "¡¾ Ä§  Íõ ¡¿" NOR;
+                        else if (shen <= -100000) return HIC "ã€ é­”  ç‹ ã€‘" NOR;
 /*
-                        else if (shen <= -10000)  return HIC "¡¾ ´ó  Ä§ ¡¿" NOR;
-                        else if (shen <= -1000)   return HIC "¡¾ Ä§  Í· ¡¿" NOR;
-                        else if (shen <= -100)    return HIC "¡¾ ÉÙ  Ä§ ¡¿" NOR;
+                        else if (shen <= -10000)  return HIC "ã€ å¤§  é­” ã€‘" NOR;
+                        else if (shen <= -1000)   return HIC "ã€ é­”  å¤´ ã€‘" NOR;
+                        else if (shen <= -100)    return HIC "ã€ å°‘  é­” ã€‘" NOR;
 */
                         else switch(ob->query("class")) {
                         case "bonze":
-                             if (budd >= 150)     return HIY "¡¾ ³¤  ÀÏ ¡¿" NOR;
-                             else if (budd >=120) return HIY "¡¾ Ê¥  É® ¡¿" NOR;
-                             else if (budd >= 90) return HIY "¡¾ ÂŞ  ºº ¡¿" NOR;
-                             else if (budd >= 60) return HIC "¡¾ ×ğ  Õß ¡¿" NOR;
-                             else if (budd >= 40) return HIC "¡¾ ìø  Ê¦ ¡¿" NOR;
-                             else if (budd >= 30) return HIG "¡¾ ±È  Çğ ¡¿" NOR;
-                             else if (age  <= 16) return "¡¾ Ğ¡ºÍÉĞ ¡¿";
-                             else                 return "¡¾ É®  ÈË ¡¿";
-                        case "taoist":            /*ÕıÒ»ÅÉ*/
-                        case "quanzhen":          /*È«ÕæÅÉ*/
+                             if (budd >= 150)     return HIY "ã€ é•¿  è€ ã€‘" NOR;
+                             else if (budd >=120) return HIY "ã€ åœ£  åƒ§ ã€‘" NOR;
+                             else if (budd >= 90) return HIY "ã€ ç½—  æ±‰ ã€‘" NOR;
+                             else if (budd >= 60) return HIC "ã€ å°Š  è€… ã€‘" NOR;
+                             else if (budd >= 40) return HIC "ã€ ç¦…  å¸ˆ ã€‘" NOR;
+                             else if (budd >= 30) return HIG "ã€ æ¯”  ä¸˜ ã€‘" NOR;
+                             else if (age  <= 16) return "ã€ å°å’Œå°š ã€‘";
+                             else                 return "ã€ åƒ§  äºº ã€‘";
+                        case "taoist":            /*æ­£ä¸€æ´¾*/
+                        case "quanzhen":          /*å…¨çœŸæ´¾*/
                              if (ob->query_skill("taoism",1)>100)
-                                                  return "¡¾ Õæ  ÈË ¡¿";
-                             else if (age <= 16)  return "¡¾ Ğ¡µÀÊ¿ ¡¿";
-                             else if (age <= 30)  return "¡¾ µÀ  Ê¿ ¡¿";
-                             else                 return "¡¾ µÀ  ³¤ ¡¿";
+                                                  return "ã€ çœŸ  äºº ã€‘";
+                             else if (age <= 16)  return "ã€ å°é“å£« ã€‘";
+                             else if (age <= 30)  return "ã€ é“  å£« ã€‘";
+                             else                 return "ã€ é“  é•¿ ã€‘";
                         case "scholar":
-                             if (age <= 16)       return "¡¾ Ñ§  Í¯ ¡¿";
-                             else if (age <= 35)  return "¡¾ Êé  Éú ¡¿";
-                             else if (age <= 50)  return "¡¾ ÀÏĞã²Å ¡¿";
-                             else                 return "¡¾ Èå  Ê¿ ¡¿";
-                        case "bandit":            return "¡¾ µÁ  Ôô ¡¿";
-                        case "legend":            return "¡¾ ÓÎ  ÏÀ ¡¿";
-                        case "traveller" :        return "¡¾ ÀË  ×Ó ¡¿";
-                        case "ninemoon":          return "¡¾ ¶ñ  ¹÷ ¡¿";
-                        case "officer":           /* ¹Ù²î */
+                             if (age <= 16)       return "ã€ å­¦  ç«¥ ã€‘";
+                             else if (age <= 35)  return "ã€ ä¹¦  ç”Ÿ ã€‘";
+                             else if (age <= 50)  return "ã€ è€ç§€æ‰ ã€‘";
+                             else                 return "ã€ å„’  å£« ã€‘";
+                        case "bandit":            return "ã€ ç›—  è´¼ ã€‘";
+                        case "legend":            return "ã€ æ¸¸  ä¾  ã€‘";
+                        case "traveller" :        return "ã€ æµª  å­ ã€‘";
+                        case "ninemoon":          return "ã€ æ¶  æ£ ã€‘";
+                        case "officer":           /* å®˜å·® */
                              budd = (int)ob->query("officerlvl");
-                             if (budd == 9)       return HIR"¡¾ Éñ  ²¶ ¡¿" NOR;
-                             else if (budd == 8)  return YEL"¡¾Ò»µÈÊÌÎÀ¡¿" NOR;
-                             else if (budd == 7)  return YEL"¡¾¶şµÈÊÌÎÀ¡¿" NOR;
-                             else if (budd == 6)  return YEL"¡¾ÈıµÈÊÌÎÀ¡¿" NOR;
-                             else if (budd == 5)  return HIG"¡¾ ×Ü²¶Í· ¡¿" NOR;
-                             else if (budd == 4)  return HIG"¡¾¸±×Ü²¶Í·¡¿" NOR;
-                             else if (budd == 3)  return HIG"¡¾ ²¶  Í· ¡¿" NOR;
-                             else if (budd == 2)  return HIG"¡¾ ²¶  ¿ì ¡¿" NOR;
-                             else if (budd == 1)  return HIG"¡¾ÊµÏ°²¶¿ì¡¿" NOR;
-                             else return "¡¾ ¹Ù  ²î ¡¿";
-                        case "fighter":           return "¡¾ Îä  Õß ¡¿";
-                        case "swordsman":         return "¡¾ ½£  Ê¿ ¡¿";
-                        case "alchemist":         return "¡¾ ·½  Ê¿ ¡¿";
-                        case "shaman":            return "¡¾ Î×  Ò½ ¡¿";
-                        case "lama":              return "¡¾ À®  Âï ¡¿";
-                        case "generals":          return "¡¾ Îä  ½« ¡¿";
-                        case "guard":             return "¡¾ ÎÀ  Ê¿ ¡¿";
-                        case "minion":            return "¡¾ ¼Ò  ³¼ ¡¿";
-                        case "prostitute":        return "¡¾ ¹ê  ¹« ¡¿";
+                             if (budd == 9)       return HIR"ã€ ç¥  æ• ã€‘" NOR;
+                             else if (budd == 8)  return YEL"ã€ä¸€ç­‰ä¾å«ã€‘" NOR;
+                             else if (budd == 7)  return YEL"ã€äºŒç­‰ä¾å«ã€‘" NOR;
+                             else if (budd == 6)  return YEL"ã€ä¸‰ç­‰ä¾å«ã€‘" NOR;
+                             else if (budd == 5)  return HIG"ã€ æ€»æ•å¤´ ã€‘" NOR;
+                             else if (budd == 4)  return HIG"ã€å‰¯æ€»æ•å¤´ã€‘" NOR;
+                             else if (budd == 3)  return HIG"ã€ æ•  å¤´ ã€‘" NOR;
+                             else if (budd == 2)  return HIG"ã€ æ•  å¿« ã€‘" NOR;
+                             else if (budd == 1)  return HIG"ã€å®ä¹ æ•å¿«ã€‘" NOR;
+                             else return "ã€ å®˜  å·® ã€‘";
+                        case "fighter":           return "ã€ æ­¦  è€… ã€‘";
+                        case "swordsman":         return "ã€ å‰‘  å£« ã€‘";
+                        case "alchemist":         return "ã€ æ–¹  å£« ã€‘";
+                        case "shaman":            return "ã€ å·«  åŒ» ã€‘";
+                        case "lama":              return "ã€ å–‡  å˜› ã€‘";
+                        case "generals":          return "ã€ æ­¦  å°† ã€‘";
+                        case "guard":             return "ã€ å«  å£« ã€‘";
+                        case "minion":            return "ã€ å®¶  è‡£ ã€‘";
+                        case "prostitute":        return "ã€ é¾Ÿ  å…¬ ã€‘";
                         case "beggar":
-                             if (age <= 16)       return "¡¾ Ğ¡½Ğ»¯ ¡¿";
-                             else if (shen >1000) return "¡¾ ÏÀ  Ø¤ ¡¿";
-                             else if (shen<-1000) return "¡¾ ¶ñ  Ø¤ ¡¿";
-                             else                 return "¡¾ ½Ğ»¯×Ó ¡¿";
+                             if (age <= 16)       return "ã€ å°å«åŒ– ã€‘";
+                             else if (shen >1000) return "ã€ ä¾   ä¸ ã€‘";
+                             else if (shen<-1000) return "ã€ æ¶  ä¸ ã€‘";
+                             else                 return "ã€ å«åŒ–å­ ã€‘";
                         case "eunach":
                              budd = ob->query_skill("bixie-jian",1);
-                             if (budd >= 110)     return HIY "¡¾´óÄÚ¸ßÊÖ¡¿" NOR;
-                             else if (budd >=100) return HIY "¡¾¶«³§Íò»§¡¿" NOR;
-                             else if (budd >= 90) return HIY "¡¾¶«³§Ç§»§¡¿" NOR;
-                             else if (budd >= 80) return HIY "¡¾¶«³§°Ù»§¡¿" NOR;
-                             else if (budd >= 70) return HIY "¡¾¶«³§Ê®»§¡¿" NOR;
-                             else if (budd >= 60) return HIY "¡¾¶«³§¹«¹«¡¿" NOR;
-                             else                 return "¡¾ ÄÚ  ÊÌ ¡¿";
+                             if (budd >= 110)     return HIY "ã€å¤§å†…é«˜æ‰‹ã€‘" NOR;
+                             else if (budd >=100) return HIY "ã€ä¸œå‚ä¸‡æˆ·ã€‘" NOR;
+                             else if (budd >= 90) return HIY "ã€ä¸œå‚åƒæˆ·ã€‘" NOR;
+                             else if (budd >= 80) return HIY "ã€ä¸œå‚ç™¾æˆ·ã€‘" NOR;
+                             else if (budd >= 70) return HIY "ã€ä¸œå‚åæˆ·ã€‘" NOR;
+                             else if (budd >= 60) return HIY "ã€ä¸œå‚å…¬å…¬ã€‘" NOR;
+                             else                 return "ã€ å†…  ä¾ ã€‘";
                         default:
-                             if (age <= 16)       return "¡¾ ÉÙ  Äê ¡¿";
-                             else                 return "¡¾ Æ½  Ãñ ¡¿";
+                             if (age <= 16)       return "ã€ å°‘  å¹´ ã€‘";
+                             else                 return "ã€ å¹³  æ°‘ ã€‘";
                         }
                 }
         }
@@ -209,53 +209,53 @@ string query_respect(object ob)
 
         age = ob->query("age");
         switch(ob->query("gender")) {
-                case "Å®ĞÔ":
+                case "å¥³æ€§":
                         switch(ob->query("class")) {
                         case "bonze":
                         case "lama":
-                                if( age < 18 ) return "Ğ¡Ê¦Ì«";
-                                else return "Ê¦Ì«";
+                                if( age < 18 ) return "å°å¸ˆå¤ª";
+                                else return "å¸ˆå¤ª";
                                 break;
-                        case "taoist":            /*ÕıÒ»ÅÉ*/
-                        case "quanzhen":          /*È«ÕæÅÉ*/
-                                if( age < 18 ) return "Ğ¡ÏÉ¹Ã";
-                                else return "ÏÉ¹Ã";
+                        case "taoist":            /*æ­£ä¸€æ´¾*/
+                        case "quanzhen":          /*å…¨çœŸæ´¾*/
+                                if( age < 18 ) return "å°ä»™å§‘";
+                                else return "ä»™å§‘";
                                 break;
                         default:
-                                if( age < 18 ) return "Ğ¡¹ÃÄï";
-                                else if( age < 30 ) return "¹ÃÄï";
-                                else if( age < 50 ) return "´óÉô";
-                                else return "ÆÅÆÅ";
+                                if( age < 18 ) return "å°å§‘å¨˜";
+                                else if( age < 30 ) return "å§‘å¨˜";
+                                else if( age < 50 ) return "å¤§å©¶";
+                                else return "å©†å©†";
                                 break;
                         }
-                case "ÄĞĞÔ":
+                case "ç”·æ€§":
                 default:
                         switch(ob->query("class")) {
                         case "bonze":
                         case "lama":
-                                if( age < 18 ) return "Ğ¡Ê¦¸¸";
-                                else return "´óÊ¦";
+                                if( age < 18 ) return "å°å¸ˆçˆ¶";
+                                else return "å¤§å¸ˆ";
                                 break;
-                        case "taoist":            /*ÕıÒ»ÅÉ*/
-                        case "quanzhen":          /*È«ÕæÅÉ*/
-                                if( age < 18 ) return "µÀĞÖ";
-                                else return "µÀ³¤";
+                        case "taoist":            /*æ­£ä¸€æ´¾*/
+                        case "quanzhen":          /*å…¨çœŸæ´¾*/
+                                if( age < 18 ) return "é“å…„";
+                                else return "é“é•¿";
                                 break;
                         case "scholar":
-                                if( age < 18 ) return "Ğ¡Ïà¹«";
-                                else if( age < 50 ) return "Ïà¹«";
-                                else return "ÀÏÏÈÉú";
+                                if( age < 18 ) return "å°ç›¸å…¬";
+                                else if( age < 50 ) return "ç›¸å…¬";
+                                else return "è€å…ˆç”Ÿ";
                                 break;
                         case "fighter":
                         case "swordsman":
-                                if( age < 18 ) return "Ğ¡ÀÏµÜ";
-                                else if( age < 50 ) return "×³Ê¿";
-                                else return "ÀÏÇ°±²";
+                                if( age < 18 ) return "å°è€å¼Ÿ";
+                                else if( age < 50 ) return "å£®å£«";
+                                else return "è€å‰è¾ˆ";
                                 break;
                         default:
-                                if( age < 20 ) return "Ğ¡ĞÖµÜ";
-                                else if( age < 50 ) return "×³Ê¿";
-                                else return "ÀÏÒ¯×Ó";
+                                if( age < 20 ) return "å°å…„å¼Ÿ";
+                                else if( age < 50 ) return "å£®å£«";
+                                else return "è€çˆ·å­";
                                 break;
                         }
         }
@@ -271,53 +271,53 @@ string query_rude(object ob)
 
         age = ob->query("age");
         switch(ob->query("gender")) {
-                case "Å®ĞÔ":
+                case "å¥³æ€§":
                         switch(ob->query("class")) {
                         case "bonze":
                         case "lama":
-                                if( age < 18 ) return "Ğ¡ÔôÄá";
-                                if( age < 30 ) return "ÔôÄá";
-                                else return "ÀÏÔôÄá";
+                                if( age < 18 ) return "å°è´¼å°¼";
+                                if( age < 30 ) return "è´¼å°¼";
+                                else return "è€è´¼å°¼";
                                 break;
-                        case "taoist":            /*ÕıÒ»ÅÉ*/
-                        case "quanzhen":          /*È«ÕæÅÉ*/
-                                if( age < 18 ) return "Ğ¡ÑıÅ®";
-                                if( age < 30 ) return "ÑıÅ®";
-                                else return "ÀÏÑıÆÅ";
+                        case "taoist":            /*æ­£ä¸€æ´¾*/
+                        case "quanzhen":          /*å…¨çœŸæ´¾*/
+                                if( age < 18 ) return "å°å¦–å¥³";
+                                if( age < 30 ) return "å¦–å¥³";
+                                else return "è€å¦–å©†";
                                 break;
                         default:
-                                if( age < 18 ) return "Ğ¡ÄïÆ¤";
-                                if( age < 25 ) return "Ğ¡¼úÈË";
-                                if( age < 40 ) return "ÔôÆÅÄï";
-                                else return "ËÀÀÏÌ«ÆÅ";
+                                if( age < 18 ) return "å°å¨˜çš®";
+                                if( age < 25 ) return "å°è´±äºº";
+                                if( age < 40 ) return "è´¼å©†å¨˜";
+                                else return "æ­»è€å¤ªå©†";
                                 break;
                         }
-                case "ÄĞĞÔ":
+                case "ç”·æ€§":
                 default:
                         switch(ob->query("class")) {
                         case "bonze":
                         case "lama":
-                                if( age < 18 ) return "Ğ¡ÔôÍº";
-                                if( age < 50 ) return "ËÀÍºÂ¿";
-                                else return "ÀÏÍºÂ¿";
+                                if( age < 18 ) return "å°è´¼ç§ƒ";
+                                if( age < 50 ) return "æ­»ç§ƒé©´";
+                                else return "è€ç§ƒé©´";
                                 break;
-                        case "taoist":            /*ÕıÒ»ÅÉ*/
-                        case "quanzhen":          /*È«ÕæÅÉ*/
-                                if( age < 18 ) return "Ğ¡ÔÓÃ«";
-                                if( age < 30 ) return "ËÀÅ£±Ç×Ó";
-                                else return "ÀÏÔÓÃ«";
+                        case "taoist":            /*æ­£ä¸€æ´¾*/
+                        case "quanzhen":          /*å…¨çœŸæ´¾*/
+                                if( age < 18 ) return "å°æ‚æ¯›";
+                                if( age < 30 ) return "æ­»ç‰›é¼»å­";
+                                else return "è€æ‚æ¯›";
                                 break;
                         case "scholar":
-                                if( age < 18 ) return "Ğ¡Êé´ô×Ó";
-                                else if( age < 50 ) return "³ôÊé´ô×Ó";
-                                else return "ÀÏÍ¯Éú";
+                                if( age < 18 ) return "å°ä¹¦å‘†å­";
+                                else if( age < 50 ) return "è‡­ä¹¦å‘†å­";
+                                else return "è€ç«¥ç”Ÿ";
                                 break;
                         default:
-                                if( age < 20 ) return "Ğ¡Íõ°Ëµ°";
-                                if( age < 30 ) return "Ö±ÄïÔô";
-                                if( age < 50 ) return "³ôÔô";
-                                if( age < 80 ) return "ÀÏÆ¥·ò";
-                                else return "ÀÏ²»ËÀ";
+                                if( age < 20 ) return "å°ç‹å…«è›‹";
+                                if( age < 30 ) return "ç›´å¨˜è´¼";
+                                if( age < 50 ) return "è‡­è´¼";
+                                if( age < 80 ) return "è€åŒ¹å¤«";
+                                else return "è€ä¸æ­»";
                                 break;
                         }
         }
@@ -333,45 +333,45 @@ string query_self(object ob)
 
         age = ob->query("age");
         switch(ob->query("gender")) {
-                case "Å®ĞÔ":
+                case "å¥³æ€§":
                         switch(ob->query("class")) {
                         case "bonze":
                         case "lama":
-                                if( age < 50 ) return "Æ¶Äá";
-                                else return "ÀÏÄá";
+                                if( age < 50 ) return "è´«å°¼";
+                                else return "è€å°¼";
                                 break;
-                        case "taoist":            /*ÕıÒ»ÅÉ*/
-                        case "quanzhen":          /*È«ÕæÅÉ*/
-                                return "Æ¶µÀ";
+                        case "taoist":            /*æ­£ä¸€æ´¾*/
+                        case "quanzhen":          /*å…¨çœŸæ´¾*/
+                                return "è´«é“";
                                 break;
                         default:
-                                if( age < 20 ) return "Ğ¡Å®×Ó";
-                                if( age > 50 ) return "ÀÏÉí";
-                                else return "æªÉí";
+                                if( age < 20 ) return "å°å¥³å­";
+                                if( age > 50 ) return "è€èº«";
+                                else return "å¦¾èº«";
                                 break;
                         }
-                case "ÄĞĞÔ":
+                case "ç”·æ€§":
                 default:
                         switch(ob->query("class")) {
                         case "bonze":
                         case "lama":
-                                if( age < 18 ) return "Ğ¡ñÄ";
-                                if( age < 40 ) return "Æ¶É®";
-                                else return "ÀÏñÄ";
+                                if( age < 18 ) return "å°è¡²";
+                                if( age < 40 ) return "è´«åƒ§";
+                                else return "è€è¡²";
                                 break;
-                        case "taoist":            /*ÕıÒ»ÅÉ*/
-                        case "quanzhen":          /*È«ÕæÅÉ*/
-                                if( age < 18 ) return "Ğ¡µÀ";
-                                if( age < 30 ) return "Æ¶µÀ";
-                                else return "ÀÏµÀ";
+                        case "taoist":            /*æ­£ä¸€æ´¾*/
+                        case "quanzhen":          /*å…¨çœŸæ´¾*/
+                                if( age < 18 ) return "å°é“";
+                                if( age < 30 ) return "è´«é“";
+                                else return "è€é“";
                                 break;
                         case "scholar":
-                                if( age < 30 ) return "ÍíÉú";
-                                else return "²»²Å";
+                                if( age < 30 ) return "æ™šç”Ÿ";
+                                else return "ä¸æ‰";
                                 break;
                         default:
-                                if( age < 50 ) return "ÔÚÏÂ";
-                                else return "ÀÏÍ·×Ó";
+                                if( age < 50 ) return "åœ¨ä¸‹";
+                                else return "è€å¤´å­";
                                 break;
                         }
         }
@@ -387,44 +387,44 @@ string query_self_rude(object ob)
 
         age = ob->query("age");
         switch(ob->query("gender")) {
-                case "Å®ĞÔ":
+                case "å¥³æ€§":
                         switch(ob->query("class")) {
                         case "bonze":
                         case "lama":
-                                if( age < 50 ) return "Æ¶Äá";
-                                else return "ÀÏÄá";
+                                if( age < 50 ) return "è´«å°¼";
+                                else return "è€å°¼";
                                 break;
-                        case "taoist":            /*ÕıÒ»ÅÉ*/
-                        case "quanzhen":          /*È«ÕæÅÉ*/
-                                return "±¾ÏÉ¹Ã";
+                        case "taoist":            /*æ­£ä¸€æ´¾*/
+                        case "quanzhen":          /*å…¨çœŸæ´¾*/
+                                return "æœ¬ä»™å§‘";
                                 break;
                         default:
-                                if( age < 20 ) return "±¾¹ÃÄï";
-                                if( age < 30 ) return "±¾¹ÃÄÌÄÌ";
-                                else return "ÀÏÄï";
+                                if( age < 20 ) return "æœ¬å§‘å¨˜";
+                                if( age < 30 ) return "æœ¬å§‘å¥¶å¥¶";
+                                else return "è€å¨˜";
                                 break;
                         }
-                case "ÄĞĞÔ":
+                case "ç”·æ€§":
                 default:
                         switch(ob->query("class")) {
                         case "bonze":
                         case "lama":
-                                if( age < 50 ) return "´óºÍÉĞÎÒ";
-                                else return "ÀÏºÍÉĞÎÒ";
+                                if( age < 50 ) return "å¤§å’Œå°šæˆ‘";
+                                else return "è€å’Œå°šæˆ‘";
                                 break;
-                        case "taoist":            /*ÕıÒ»ÅÉ*/
-                        case "quanzhen":          /*È«ÕæÅÉ*/
-                                if( age < 30 ) return "±¾É½ÈË";
-                                return "ÀÏµÀÎÒ";
+                        case "taoist":            /*æ­£ä¸€æ´¾*/
+                        case "quanzhen":          /*å…¨çœŸæ´¾*/
+                                if( age < 30 ) return "æœ¬å±±äºº";
+                                return "è€é“æˆ‘";
                                 break;
                         case "scholar":
-                                if( age < 50 ) return "±¾Ïà¹«";
-                                else return "ÀÏ·ò×ÓÎÒ";
+                                if( age < 50 ) return "æœ¬ç›¸å…¬";
+                                else return "è€å¤«å­æˆ‘";
                                 break;
                         default:
-                                if( age < 20 ) return "±¾ÉÙÒ¯ÎÒ";
-                                if( age < 40 ) return "´óÒ¯ÎÒ";
-                                else return "ÀÏ×Ó";
+                                if( age < 20 ) return "æœ¬å°‘çˆ·æˆ‘";
+                                if( age < 40 ) return "å¤§çˆ·æˆ‘";
+                                else return "è€å­";
                                 break;
                         }
         }
@@ -450,17 +450,17 @@ string query_close(object ob)
         }
 
         switch (ob->query("gender")) {
-        case "Å®ĞÔ" :
+        case "å¥³æ€§" :
                 if (a1 >= a2)
-                        return "ÃÃÃÃ";
+                        return "å¦¹å¦¹";
                 else
-                        return "½ã½ã";
+                        return "å§å§";
                 break;
         default :
                 if (a1 >= a2)
-                        return "µÜµÜ";
+                        return "å¼Ÿå¼Ÿ";
                 else
-                        return "¸ç¸ç";
+                        return "å“¥å“¥";
         }
 }
 
@@ -485,17 +485,17 @@ string query_self_close(object ob)
         }
 
         switch (this_player()->query("gender")) {
-        case "Å®ĞÔ" :
+        case "å¥³æ€§" :
                 if (a1 >= a2)
-                        return "½ã½ãÎÒ";
+                        return "å§å§æˆ‘";
                 else
-                        return "Ğ¡ÃÃÎÒ";
+                        return "å°å¦¹æˆ‘";
                 break;
         default :
                 if (a1 >= a2)
-                        return "ÓŞĞÖÎÒ";
+                        return "æ„šå…„æˆ‘";
                 else
-                        return "Ğ¡µÜÎÒ";
+                        return "å°å¼Ÿæˆ‘";
         }
 }
 

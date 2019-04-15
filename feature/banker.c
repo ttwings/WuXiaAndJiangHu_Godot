@@ -1,7 +1,7 @@
-// /feature/banker.c ÒøĞĞ¼Ò
+// /feature/banker.c é“¶è¡Œå®¶
 // This is a inheritable object.
 // Each dealer should support buy, sell, list, value 4 commands
-// Modified by Zeratul Jan 5 2001 Ôö¼ÓÁË´æ¿îÅĞ¶Ï
+// Modified by Zeratul Jan 5 2001 å¢åŠ äº†å­˜æ¬¾åˆ¤æ–­
 
 #include <dbase.h>
 #include <ansi.h>
@@ -25,10 +25,10 @@ int do_check()
         if (!total || total < 0)
         {
                 this_player()->set("balance", 0);
-                return notify_fail("ÄúÔÚ±ÖÉÌºÅÃ»ÓĞ´æÇ®¡£\n");
+                return notify_fail("æ‚¨åœ¨æ•å•†å·æ²¡æœ‰å­˜é’±ã€‚\n");
         }
-        write(this_object()->query("name")+"ÇÄÇÄ¸æËßÄã£ºÄúÔÚ±ÖÉÌºÅ¹²´æÓĞ" + 
-                MONEY_D->money_str(total) + "¡£\n");
+        write(this_object()->query("name")+"æ‚„æ‚„å‘Šè¯‰ä½ ï¼šæ‚¨åœ¨æ•å•†å·å…±å­˜æœ‰" + 
+                MONEY_D->money_str(total) + "ã€‚\n");
         return 1;                                                               
 }
 
@@ -40,15 +40,15 @@ int do_convert(string arg)
         object me;
 
         if (query_temp("busy"))
-           return notify_fail("Ó´£¬±§Ç¸°¡£¬ÎÒÕâ¶ùÕıÃ¦×ÅÄØ¡­¡­ÄúÇëÉÔºò¡£\n");
+           return notify_fail("å“Ÿï¼ŒæŠ±æ­‰å•Šï¼Œæˆ‘è¿™å„¿æ­£å¿™ç€å‘¢â€¦â€¦æ‚¨è¯·ç¨å€™ã€‚\n");
 
         me = this_player();                                                     
 	if( me->is_busy() )
-		return notify_fail("Ó´£¬±§Ç¸£¬ÎÒÕâ¶ùÕıÃ¦×ÅÄØ¡­¡­ÄúÇëÉÔºò¡£\n");
+		return notify_fail("å“Ÿï¼ŒæŠ±æ­‰ï¼Œæˆ‘è¿™å„¿æ­£å¿™ç€å‘¢â€¦â€¦æ‚¨è¯·ç¨å€™ã€‚\n");
 
         if (!arg || sscanf(arg, "%d %s to %s", amount, from, to) != 3)
         {
-           return notify_fail("ÃüÁî¸ñÊ½£ºconvert|duihuan <ÊıÁ¿> <»õ±Òµ¥Î»> to <ĞÂ»õ±Òµ¥Î»>\n");
+           return notify_fail("å‘½ä»¤æ ¼å¼ï¼šconvert|duihuan <æ•°é‡> <è´§å¸å•ä½> to <æ–°è´§å¸å•ä½>\n");
         }
            
         if((strsrch(to, "thousand") >= 0) ||
@@ -59,37 +59,37 @@ int do_convert(string arg)
            (strsrch(to, "1000") >= 0) ||
            (strsrch(to, "100") >= 0) ||
            (strsrch(to, "10") >= 0))
-           return notify_fail("²»ÄÜ»»³ÉÕâÖÖ»õ±Ò£¡\n");  
+           return notify_fail("ä¸èƒ½æ¢æˆè¿™ç§è´§å¸ï¼\n");  
 
         from_ob = present(from + "_money", me);
         to_ob = present(to + "_money", me);
 
         if (!to_ob && file_size("/clone/money/" + to + ".c") < 0)
         {
-           return notify_fail("ÄãÏë¶Ò»»³ÉÊ²Ã´£¿\n");
+           return notify_fail("ä½ æƒ³å…‘æ¢æˆä»€ä¹ˆï¼Ÿ\n");
         }
         if (!from_ob)
         {
-           return notify_fail("ÄãÉíÉÏÃ»ÓĞ´øÕâÖÖÇ®¡£\n");
+           return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰å¸¦è¿™ç§é’±ã€‚\n");
         }
         if (amount < 1)
         {
-           return notify_fail("ÄãÏë°××¬°¡£¿\n");
+           return notify_fail("ä½ æƒ³ç™½èµšå•Šï¼Ÿ\n");
         }
         if ((int)from_ob->query_amount() < amount)
         {
-           return notify_fail("Äã´øµÄ" + from_ob->query("name") + "²»¹»¡£\n");
+           return notify_fail("ä½ å¸¦çš„" + from_ob->query("name") + "ä¸å¤Ÿã€‚\n");
         }
         bv1 = from_ob->query("base_value");
         if (!bv1)
         {
-           return notify_fail("ÕâÑù¶«Î÷²»ÖµÇ®¡£\n");
+           return notify_fail("è¿™æ ·ä¸œè¥¿ä¸å€¼é’±ã€‚\n");
         }
         bv2 = to_ob ? to_ob->query("base_value") : call_other("/clone/money/" + to, "query", "base_value" );
         if (bv1 < bv2)  amount -= amount % (bv2 / bv1);
         if (amount == 0)
         {
-           return notify_fail("ÕâĞ©" + from_ob->query("name") + "²»¹»»»¡£\n ");
+           return notify_fail("è¿™äº›" + from_ob->query("name") + "ä¸å¤Ÿæ¢ã€‚\n ");
         }
 
         // allowed to convert now
@@ -107,7 +107,7 @@ int do_convert(string arg)
         else
                 to_ob->add_amount(amount * bv1 / bv2);
 
-        message_vision(sprintf("$N´ÓÉíÉÏÈ¡³ö%s%s%s£¬»»³ÉÁË%s%s%s¡£\n",
+        message_vision(sprintf("$Nä»èº«ä¸Šå–å‡º%s%s%sï¼Œæ¢æˆäº†%s%s%sã€‚\n",
         chinese_number(amount), call_other("/clone/money/" + from, "query", "base_unit"), call_other("/clone/money/" + from, "query", "name"),
         chinese_number(amount * bv1 / bv2), call_other("/clone/money/" + to, "query", "base_unit"),
         call_other("/clone/money/" + to, "query", "name")), me);
@@ -129,28 +129,28 @@ int do_deposit(string arg)
         object what_ob, me;
 
         if (query_temp("busy"))
-                return notify_fail("Ó´£¬±§Ç¸°¡£¬ÎÒÕâ¶ùÕıÃ¦×ÅÄØ¡­¡­ÄúÇëÉÔºò¡£\n");
+                return notify_fail("å“Ÿï¼ŒæŠ±æ­‰å•Šï¼Œæˆ‘è¿™å„¿æ­£å¿™ç€å‘¢â€¦â€¦æ‚¨è¯·ç¨å€™ã€‚\n");
         me = this_player();
 	if( me->is_busy() )
-		return notify_fail("Ó´£¬±§Ç¸£¬ÎÒÕâ¶ùÕıÃ¦×ÅÄØ¡­¡­ÄúÇëÉÔºò¡£\n");
+		return notify_fail("å“Ÿï¼ŒæŠ±æ­‰ï¼Œæˆ‘è¿™å„¿æ­£å¿™ç€å‘¢â€¦â€¦æ‚¨è¯·ç¨å€™ã€‚\n");
 
         if (!arg || sscanf(arg, "%d %s", amount, what) != 2)
         {
-                return notify_fail("ÃüÁî¸ñÊ½£ºdeposit:cun <ÊıÁ¿> <»õ±Òµ¥Î»>\n");
+                return notify_fail("å‘½ä»¤æ ¼å¼ï¼šdeposit:cun <æ•°é‡> <è´§å¸å•ä½>\n");
         }
 
         what_ob = present(what + "_money", me);
         if (!what_ob)
         {
-                return notify_fail("ÄãÉíÉÏÃ»ÓĞ´øÕâÖÖÇ®¡£\n");
+                return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰å¸¦è¿™ç§é’±ã€‚\n");
         }
         if (amount < 1)
         {
-                return notify_fail("ÄãÏë´æ¶àÉÙ" + what_ob->query("name") + "£¿\n");
+                return notify_fail("ä½ æƒ³å­˜å¤šå°‘" + what_ob->query("name") + "ï¼Ÿ\n");
         }                                                                       
         if ((int)what_ob->query_amount() < amount)
         {
-                return notify_fail("Äã´øµÄ" + what_ob->query("name") + "²»¹»¡£\n");
+                return notify_fail("ä½ å¸¦çš„" + what_ob->query("name") + "ä¸å¤Ÿã€‚\n");
         }
 
         // deposit it
@@ -165,10 +165,10 @@ int do_deposit(string arg)
 
 	if (me->query("balance") + what_ob->query("base_value") * amount > money_limit)
 	{
-                return notify_fail("ÄãµÄ´æ¿î¶î¶ÈÒÑ¾­ÓÃÂúÁË¡£\n");
+                return notify_fail("ä½ çš„å­˜æ¬¾é¢åº¦å·²ç»ç”¨æ»¡äº†ã€‚\n");
 	}
 */
-        message_vision(sprintf("$NÄÃ³ö%s%s%s£¬´æ½øÁËÒøºÅ¡£\n",
+        message_vision(sprintf("$Næ‹¿å‡º%s%s%sï¼Œå­˜è¿›äº†é“¶å·ã€‚\n",
                 chinese_number(amount), what_ob->query("base_unit"),
                 what_ob->query("name")), me);
         what_ob->add_amount(-amount);
@@ -177,7 +177,7 @@ int do_deposit(string arg)
         // Added by zeratul 2001-1-1
         if ( me->query( "balance" ) > me->query( "max_balance" ) )
         {
-        	tell_object( me, "ÄãµÄ´æ¿î¶î¶ÈÒÑ¾­ÓÃÂúÁË¡£\n");
+        	tell_object( me, "ä½ çš„å­˜æ¬¾é¢åº¦å·²ç»ç”¨æ»¡äº†ã€‚\n");
         	me->set( "balance", me->query( "max_balance" ) );
         }
 
@@ -194,26 +194,26 @@ int do_withdraw(string arg)
         object me;
 
         if (query_temp("busy"))
-                return notify_fail("Ó´£¬±§Ç¸°¡£¬ÎÒÕâ¶ùÕıÃ¦×ÅÄØ¡­¡­ÄúÇëÉÔºò¡£\n");
+                return notify_fail("å“Ÿï¼ŒæŠ±æ­‰å•Šï¼Œæˆ‘è¿™å„¿æ­£å¿™ç€å‘¢â€¦â€¦æ‚¨è¯·ç¨å€™ã€‚\n");
         me = this_player();
 	if( me->is_busy() )
-		return notify_fail("Ó´£¬±§Ç¸£¬ÎÒÕâ¶ùÕıÃ¦×ÅÄØ¡­¡­ÄúÇëÉÔºò¡£\n");
+		return notify_fail("å“Ÿï¼ŒæŠ±æ­‰ï¼Œæˆ‘è¿™å„¿æ­£å¿™ç€å‘¢â€¦â€¦æ‚¨è¯·ç¨å€™ã€‚\n");
 
         if (!arg || sscanf(arg, "%d %s", amount, what) != 2)
         {
-                return notify_fail("ÃüÁî¸ñÊ½£ºwithdraw|qu <ÊıÁ¿> <»õ±Òµ¥Î»>\n");
+                return notify_fail("å‘½ä»¤æ ¼å¼ï¼šwithdraw|qu <æ•°é‡> <è´§å¸å•ä½>\n");
         }
         if (amount < 1)
         {
-                return notify_fail("ÄãÏëÈ¡³ö¶àÉÙÇ®£¿\n");
+                return notify_fail("ä½ æƒ³å–å‡ºå¤šå°‘é’±ï¼Ÿ\n");
         }
         if(amount >= 100)
         {
-                return notify_fail("ÕâÃ´´óµÄÊıÄ¿¡£±¾µêÃ»ÕâÃ´¶àÁãÉ¢ÏÖ½ğ¡£\n");
+                return notify_fail("è¿™ä¹ˆå¤§çš„æ•°ç›®ã€‚æœ¬åº—æ²¡è¿™ä¹ˆå¤šé›¶æ•£ç°é‡‘ã€‚\n");
         }
         if (file_size("/clone/money/" + what + ".c") < 0)
         {
-                return notify_fail("ÄãÏëÈ¡³öÊ²Ã´Ç®£¿\n");
+                return notify_fail("ä½ æƒ³å–å‡ºä»€ä¹ˆé’±ï¼Ÿ\n");
         }
         what = "/clone/money/" + what;
         
@@ -223,12 +223,12 @@ int do_withdraw(string arg)
         
         if ((v = amount * what->query("base_value")) > me->query("balance"))
         {
-               return notify_fail("Äã´æµÄÇ®²»¹»È¡¡£\n");
+               return notify_fail("ä½ å­˜çš„é’±ä¸å¤Ÿå–ã€‚\n");
         }
 
         set_temp("busy", 1);
 
-        message_vision(sprintf("$N´ÓÒøºÅÀïÈ¡³ö%s¡£\n", MONEY_D->money_str(v)), me);
+        message_vision(sprintf("$Nä»é“¶å·é‡Œå–å‡º%sã€‚\n", MONEY_D->money_str(v)), me);
         me->add("balance",  -v);
 //        MONEY_D->pay_player(me, v = v * 9 / 10);
 	//Modified by zeratul 2001-1-4

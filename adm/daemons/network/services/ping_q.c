@@ -1,4 +1,4 @@
-// Éñ»°ÊÀ½ç¡¤Î÷ÓÎ¼Ç¡¤°æ±¾£´£®£µ£°
+// ç¥è¯ä¸–ç•ŒÂ·è¥¿æ¸¸è®°Â·ç‰ˆæœ¬ï¼”ï¼ï¼•ï¼
 /* <SecCrypt CPL V3R05> */
  
 /* File    : ping_q.c
@@ -29,7 +29,7 @@ void create()
    seteuid(ROOT_UID);
    my_address = query_host_name();
    my_port = udp_port();
-   set("channel_id", "ÍøÂ·»ØÓ¦¾«Áé");
+   set("channel_id", "ç½‘è·¯å›åº”ç²¾çµ");
 }
 
 // Someone has ping'd us

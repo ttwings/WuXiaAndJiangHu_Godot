@@ -30,10 +30,10 @@ varargs void message_vision(string msg, object me, object you)
 
 varargs void message_combatd(string msg, object me, object you)
 {
-// ±ÈÎäÏÖ³¡×ª²¥ start
+// æ¯”æ­¦ç°åœºè½¬æ’­ start
 	int userno;
 	object *player;
-// ±ÈÎäÏÖ³¡×ª²¥ end
+// æ¯”æ­¦ç°åœºè½¬æ’­ end
 	string my_gender, your_gender, my_name, your_name;
 	string str1, str2, str3;
 
@@ -61,15 +61,15 @@ varargs void message_combatd(string msg, object me, object you)
 	}
 	message("vision", str1, me);
 	message("vision", str3,  environment(me), ({ me, you}) );
-// ±ÈÎäÏÖ³¡×ª²¥ start
-	if ((string)environment(me)->query("short") == "ÀŞÌ¨")
+// æ¯”æ­¦ç°åœºè½¬æ’­ start
+	if ((string)environment(me)->query("short") == "æ“‚å°")
 	for (userno=0; userno<sizeof(player); userno++)
 	    if ((player[userno])->query_temp("view_leitai") &&
-             (string)environment(player[userno])->query("short") == "ÎäµÀ³¡" &&
+             (string)environment(player[userno])->query("short") == "æ­¦é“åœº" &&
 	        (player[userno]) != me &&
 	        (player[userno]) != you) 
 	       tell_object(player[userno], str3);
-// ±ÈÎäÏÖ³¡×ª²¥ end
+// æ¯”æ­¦ç°åœºè½¬æ’­ end
 }
 void tell_object(object ob, string str)
 {

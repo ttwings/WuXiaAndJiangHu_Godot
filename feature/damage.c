@@ -1,5 +1,5 @@
 // damage.c
-// Last Modified by Sir on 2004.1.13  »ªÉ½ÂÛ½£²»ËÀ
+// Last Modified by Sir on 2004.1.13  åå±±è®ºå‰‘ä¸æ­»
 #include <ansi.h>
 #include <dbase.h>
 #include <login.h>
@@ -16,9 +16,9 @@ varargs int receive_damage(string type, int damage, mixed reason)
 	int val;
   	int imp;
 
-	if( damage < 0 ) error("F_DAMAGE: ÉËº¦ÖµÎª¸ºÖµ¡£\n");
+	if( damage < 0 ) error("F_DAMAGE: ä¼¤å®³å€¼ä¸ºè´Ÿå€¼ã€‚\n");
 	if( type!="jing" && type!="qi" )
-		error("F_DAMAGE: ÉËº¦ÖÖÀà´íÎó( Ö»ÄÜÊÇ jing, qi ÆäÖĞÖ®Ò» )¡£\n");
+		error("F_DAMAGE: ä¼¤å®³ç§ç±»é”™è¯¯( åªèƒ½æ˜¯ jing, qi å…¶ä¸­ä¹‹ä¸€ )ã€‚\n");
 
 	if( objectp(reason) ) set_temp("last_damage_from", reason);
 	if( stringp(reason) ) set_temp("die_reason",reason);
@@ -44,9 +44,9 @@ varargs int receive_wound(string type, int damage, mixed reason)
 	int val;
 	int imp;
 
-	if( damage < 0 ) error("F_DAMAGE: ÉËº¦ÖµÎª¸ºÖµ¡£\n");
+	if( damage < 0 ) error("F_DAMAGE: ä¼¤å®³å€¼ä¸ºè´Ÿå€¼ã€‚\n");
 	if( type!="jing" && type!="qi" )
-		error("F_DAMAGE: ÉËº¦ÖÖÀà´íÎó( Ö»ÄÜÊÇ jing, qi ÆäÖĞÖ®Ò» )¡£\n");
+		error("F_DAMAGE: ä¼¤å®³ç§ç±»é”™è¯¯( åªèƒ½æ˜¯ jing, qi å…¶ä¸­ä¹‹ä¸€ )ã€‚\n");
 
 	if( objectp(reason) ) set_temp("last_damage_from", reason);
 	if( stringp(reason) ) set_temp("die_reason",reason);
@@ -76,9 +76,9 @@ int receive_heal(string type, int heal)
 {
 	int val;
 
-	if( heal < 0 ) error("F_DAMAGE: »Ö¸´ÖµÎª¸ºÖµ¡£\n");
+	if( heal < 0 ) error("F_DAMAGE: æ¢å¤å€¼ä¸ºè´Ÿå€¼ã€‚\n");
 	if( type!="jing" && type!="qi" )
-		error("F_DAMAGE: »Ö¸´ÖÖÀà´íÎó( Ö»ÄÜÊÇ jing, qi ÆäÖĞÖ®Ò» )¡£\n");
+		error("F_DAMAGE: æ¢å¤ç§ç±»é”™è¯¯( åªèƒ½æ˜¯ jing, qi å…¶ä¸­ä¹‹ä¸€ )ã€‚\n");
 
 	val = (int)query(type) + heal;
 
@@ -92,9 +92,9 @@ int receive_curing(string type, int heal)
 {
 	int max, val;
 
-	if( heal < 0 ) error("F_DAMAGE: »Ö¸´ÖµÎª¸ºÖµ¡£\n");
+	if( heal < 0 ) error("F_DAMAGE: æ¢å¤å€¼ä¸ºè´Ÿå€¼ã€‚\n");
 	if( type!="jing" && type!="qi" )
-		error("F_DAMAGE: »Ö¸´ÖÖÀà´íÎó( Ö»ÄÜÊÇ jing, qi ÆäÖĞÖ®Ò» )¡£\n");
+		error("F_DAMAGE: æ¢å¤ç§ç±»é”™è¯¯( åªèƒ½æ˜¯ jing, qi å…¶ä¸­ä¹‹ä¸€ )ã€‚\n");
 
 	val = (int)query("eff_" + type);
 	max = (int)query("max_" + type);
@@ -113,7 +113,7 @@ void unconcious()
 	object defeater;
 	object riding;
 
-	// ËùÔÚ·¿¼ä¶¨ÒåÁËno_unconcious£¬²»ÔÊĞíÔÎµ¹ 
+	// æ‰€åœ¨æˆ¿é—´å®šä¹‰äº†no_unconciousï¼Œä¸å…è®¸æ™•å€’ 
 	if (environment()->no_unconcious(this_object())) return;
 	if( !living(this_object()) || this_object()->query_temp("noliving") )
 		return;
@@ -130,18 +130,18 @@ void unconcious()
 	this_object()->set_temp("faint_by", query_temp("last_damage_from")); 
 	       if (objectp(riding = query_temp("is_riding")))
         {
-                message_vision("$NÒ»Í·´Ó$nÉÏÃæÔÔÁËÏÂÀ´£¡\n",
+                message_vision("$Nä¸€å¤´ä»$nä¸Šé¢æ ½äº†ä¸‹æ¥ï¼\n",
                                this_object(), riding);
                 delete_temp("is_riding");
                 riding->delete_temp("is_rided_by");
                 riding->move(environment());
         }
 
-	message("system", HIR "\nÄãµÄÑÛÇ°Ò»ºÚ£¬½Ó×ÅÊ²Ã´Ò²²»ÖªµÀÁË....\n\n" NOR, this_object());
-// ±ÜÃâadd_actionµÄbug
+	message("system", HIR "\nä½ çš„çœ¼å‰ä¸€é»‘ï¼Œæ¥ç€ä»€ä¹ˆä¹Ÿä¸çŸ¥é“äº†....\n\n" NOR, this_object());
+// é¿å…add_actionçš„bug
 	if(userp(this_object()))
 		this_object()->set_temp("noliving/unconcious", 1);
-	else this_object()->disable_player(" <»èÃÔ²»ĞÑ>");
+	else this_object()->disable_player(" <æ˜è¿·ä¸é†’>");
 
 	set("jing", 0);
 	set("qi", 0);
@@ -157,7 +157,7 @@ varargs void revive(int quiet)
 	remove_call_out("revive");
 	while( environment()->is_character() )
 		this_object()->move(environment(environment()));
-// ±ÜÃâadd_actionµÄbug
+// é¿å…add_actionçš„bug
 	if(userp(this_object())) this_object()->delete_temp("noliving");
 	else this_object()->enable_player();
 
@@ -165,7 +165,7 @@ varargs void revive(int quiet)
 	{
 		COMBAT_D->announce(this_object(), "revive");
 		set_temp("block_msg/all", 0);
-		message("system", HIY "\nÂıÂıµØÄãÖÕÓÚÓÖÓĞÁËÖª¾õ....\n\n" NOR, this_object());
+		message("system", HIY "\næ…¢æ…¢åœ°ä½ ç»ˆäºåˆæœ‰äº†çŸ¥è§‰....\n\n" NOR, this_object());
 	} else
 		set_temp("block_msg/all", 0);
 }
@@ -181,7 +181,7 @@ void die()
 	if( !living(this_object()) || this_object()->query_temp("noliving") )
 		revive(1);
 	else delete_temp("faint_by");
-	// ËùÔÚ·¿¼ä¶¨ÒåÁËno_die£¬²»ÔÊĞíËÀÍö 
+	// æ‰€åœ¨æˆ¿é—´å®šä¹‰äº†no_dieï¼Œä¸å…è®¸æ­»äº¡ 
 	if (environment()->no_die(this_object())) return;
 	if( wizardp(this_object()) && query("env/immortal") ) return;
 
@@ -189,16 +189,16 @@ void die()
 	{
 		this_object()->receive_curing("jing", 10);
 		this_object()->receive_curing("qi", 10);
-		message_vision(HIW "ºÚ°×Ë÷»êÎŞ³£ºöÈ»³öÏÖ£¬ºÈµÀ£ººÎ·½¹Â»êÒ°¹í£¬¿ì¿ìËæÎÒÇ°È¥ÑÖÂŞ´óµî£¡\n" NOR, this_object());
+		message_vision(HIW "é»‘ç™½ç´¢é­‚æ— å¸¸å¿½ç„¶å‡ºç°ï¼Œå–é“ï¼šä½•æ–¹å­¤é­‚é‡é¬¼ï¼Œå¿«å¿«éšæˆ‘å‰å»é˜ç½—å¤§æ®¿ï¼\n" NOR, this_object());
 		this_object()->move("/d/death/dadian");
 		return;
 	}
 
 
-// ÀŞÌ¨±ÈÎä²»ËÀ
+// æ“‚å°æ¯”æ­¦ä¸æ­»
 	if (file_name(environment(this_object())) == "/d/city/leitai")
 	{
-		message_vision(HIR "¹«Æ½×ÓµÀ£º¡°ÒÑ·ÖÊ¤¸º£¬²»¾öÉúËÀ¡£¡±\n" NOR, this_object());
+		message_vision(HIR "å…¬å¹³å­é“ï¼šâ€œå·²åˆ†èƒœè´Ÿï¼Œä¸å†³ç”Ÿæ­»ã€‚â€\n" NOR, this_object());
 		this_object()->move("/d/city/wudao4");
 		this_object()->receive_curing("jing", 10);
 		this_object()->receive_curing("qi", 10);
@@ -206,12 +206,12 @@ void die()
 	}
 	if (userp(this_object())&& environment(this_object())->query("bwdhpk"))
         {
-                message_vision(HIR "»ªÉ½ÂÛ½££¬Ö»·ÖÊ¤¸º£¬²»¾öÉúËÀ£¡¡£\n" NOR, this_object());
-                message_vision(HIR "$N±»Ì§ÁËÏÂÈ¥¡£\n" NOR, this_object());
+                message_vision(HIR "åå±±è®ºå‰‘ï¼Œåªåˆ†èƒœè´Ÿï¼Œä¸å†³ç”Ÿæ­»ï¼ã€‚\n" NOR, this_object());
+                message_vision(HIR "$Nè¢«æŠ¬äº†ä¸‹å»ã€‚\n" NOR, this_object());
                 if( objectp(killer = query_temp("last_damage_from")) )
 			{
 			killer->add_temp("bwdh_pknum",1);
-message("channel:chat", HIC"¡¾»ªÉ½ÂÛ½£¡¿¹«Æ½×Ó£º"+this_object()->query("name")+"²»µĞ"+killer->query("name")+"£¬±»ÆÈÍË³ö»ªÉ½ÂÛ½££¡\n"NOR,users() );
+message("channel:chat", HIC"ã€åå±±è®ºå‰‘ã€‘å…¬å¹³å­ï¼š"+this_object()->query("name")+"ä¸æ•Œ"+killer->query("name")+"ï¼Œè¢«è¿«é€€å‡ºåå±±è®ºå‰‘ï¼\n"NOR,users() );
 			}
 	  this_object()->set("eff_jing", (int)this_object()->query("max_jing"));
 	  this_object()->set("jing", (int)this_object()->query("max_jing"));
@@ -229,7 +229,7 @@ message("channel:chat", HIC"¡¾»ªÉ½ÂÛ½£¡¿¹«Æ½×Ó£º"+this_object()->query("name")+"
 	}
         if (objectp(riding = query_temp("is_riding")))
         {
-                message_vision("$NÒ»Í·´Ó$nÉÏÃæÔÔÁËÏÂÀ´£¡\n",
+                message_vision("$Nä¸€å¤´ä»$nä¸Šé¢æ ½äº†ä¸‹æ¥ï¼\n",
                                this_object(), riding);
                 delete_temp("is_riding");
                 riding->delete_temp("is_rided_by");
@@ -239,7 +239,7 @@ message("channel:chat", HIC"¡¾»ªÉ½ÂÛ½£¡¿¹«Æ½×Ó£º"+this_object()->query("name")+"
 
 	if (this_object()->query_condition("huaiyun") > 0 &&
 	    this_object()->query_condition("huaiyun") < 2560 )
-	tell_object(this_object(),"ÄãÄªÃûµØ¸Ğµ½Ò»ÕóĞÄÍ´¡£¡£¡£\n");
+	tell_object(this_object(),"ä½ è«ååœ°æ„Ÿåˆ°ä¸€é˜µå¿ƒç—›ã€‚ã€‚ã€‚\n");
 	if( objectp(killer = query_temp("last_damage_from")) &&
 		file_name(environment(killer)) == file_name(environment(this_object())))
 	{
@@ -252,8 +252,8 @@ message("channel:chat", HIC"¡¾»ªÉ½ÂÛ½£¡¿¹«Æ½×Ó£º"+this_object()->query("name")+"
 			this_object()->set("eff_jing",10);
 			this_object()->set("qi",10);
 			this_object()->set("jing",10);
-			message_vision(HIY "\nÌìºóÏÉ×Ó"HIC"×ÔÔÆÖĞÆ®È»¶øÏÂ£º"HIR"Ò»ÈÕ²»¹ıËÄ¡£²»×¼Æµ·±ÍÀÉ±£¡\n" NOR, this_object());
-			message_vision(HIG "»ÓÆğ³¤Ğä£¬°ÚÆğÒ»ÕóÏã·ç°Ñ"+this_object()->name()+"¹Î»ØÎäÃí¡£\n" NOR, this_object());
+			message_vision(HIY "\nå¤©åä»™å­"HIC"è‡ªäº‘ä¸­é£˜ç„¶è€Œä¸‹ï¼š"HIR"ä¸€æ—¥ä¸è¿‡å››ã€‚ä¸å‡†é¢‘ç¹å± æ€ï¼\n" NOR, this_object());
+			message_vision(HIG "æŒ¥èµ·é•¿è¢–ï¼Œæ‘†èµ·ä¸€é˜µé¦™é£æŠŠ"+this_object()->name()+"åˆ®å›æ­¦åº™ã€‚\n" NOR, this_object());
 			this_object()->move("/d/city/wumiao");
 			this_object()->start_busy(10);
 			return;
@@ -261,7 +261,7 @@ message("channel:chat", HIC"¡¾»ªÉ½ÂÛ½£¡¿¹«Æ½×Ó£º"+this_object()->query("name")+"
 		this_object()->clear_condition();
 		this_object()->set("dietime",time());
 		this_object()->add("normal_die", 1);
-/* É±ÊÖ±¾´ÎÉ±ÈËÊ±¼ä */
+/* æ€æ‰‹æœ¬æ¬¡æ€äººæ—¶é—´ */
 		if (userp(this_object()))
 			killer->set("killertime", time());
 		set_temp("my_killer", killer->query("id"));
@@ -270,12 +270,12 @@ message("channel:chat", HIC"¡¾»ªÉ½ÂÛ½£¡¿¹«Æ½×Ó£º"+this_object()->query("name")+"
 	else
 		if(userp(this_object()))
 		{
-			this_object()->set("last_die_msg","ËÀµÃºÜÀëÆæ");
+			this_object()->set("last_die_msg","æ­»å¾—å¾ˆç¦»å¥‡");
 			if (stringp(reason=this_object()->query_temp("die_reason")))
 			    this_object()->set("last_die_msg",reason);
 			else if (stringp(reason=this_object()->query_temp("last_damage_from")))
-			    this_object()->set("last_die_msg",reason+"ËÀÁË");
-			message("channel:rumor", HIM"¡¾Ò¥ÑÔ¡¿"+"ÌıËµ"+this_object()->name()+ HIM"ËÀÁË£¬¶øÇÒËÀµÃºÜÀëÆæ¡£\n"NOR, users());
+			    this_object()->set("last_die_msg",reason+"æ­»äº†");
+			message("channel:rumor", HIM"ã€è°£è¨€ã€‘"+"å¬è¯´"+this_object()->name()+ HIM"æ­»äº†ï¼Œè€Œä¸”æ­»å¾—å¾ˆç¦»å¥‡ã€‚\n"NOR, users());
 
 			this_object()->delete("last_die_by_name");
 			this_object()->delete("last_die_by_id");
@@ -289,14 +289,14 @@ message("channel:chat", HIC"¡¾»ªÉ½ÂÛ½£¡¿¹«Æ½×Ó£º"+this_object()->query("name")+"
 	if( objectp(corpse = CHAR_D->make_corpse(this_object(), killer)) )
 	{
 		corpse->move(environment());
-// ³¬¶ÈÓÃµÄ¾­ÑéÖµ
+// è¶…åº¦ç”¨çš„ç»éªŒå€¼
 		corpse->set("combat_exp", this_object()->query("combat_exp"));
-// ËÀÕßÊÇÍæ¼Ò
+// æ­»è€…æ˜¯ç©å®¶
 		if (userp(this_object()))
 			corpse->set("userp", 1);
 		else
 		{
-// ËÀÕßÊÇÈÎÎñ¶ÔÏó
+// æ­»è€…æ˜¯ä»»åŠ¡å¯¹è±¡
 			if(this_object()->query("quest"))
 				corpse->set("quest", this_object()->query("quest"));
 			if(this_object()->query("owner"))
@@ -320,7 +320,7 @@ message("channel:chat", HIC"¡¾»ªÉ½ÂÛ½£¡¿¹«Æ½×Ó£º"+this_object()->query("name")+"
 	}
 	else
 	{
-//ºÆ½ÙÏµÍ³µÄ´¥·¢Ìõ¼ş
+//æµ©åŠ«ç³»ç»Ÿçš„è§¦å‘æ¡ä»¶
 		LOGIN_D->add_dienpc();
                 destruct(this_object());
          }
@@ -352,10 +352,10 @@ int heal_up()
 
 
 
-	//¾ÍÊÇÏÂÃæÕâÁ½¾ä»°£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡
-	//¾ÍÊÇÏÂÃæÕâÁ½¾ä»°£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡
-	//¾ÍÊÇÏÂÃæÕâÁ½¾ä»°£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡
-	//¾ÍÊÇÏÂÃæÕâÁ½¾ä»°£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡
+	//å°±æ˜¯ä¸‹é¢è¿™ä¸¤å¥è¯ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼
+	//å°±æ˜¯ä¸‹é¢è¿™ä¸¤å¥è¯ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼
+	//å°±æ˜¯ä¸‹é¢è¿™ä¸¤å¥è¯ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼
+	//å°±æ˜¯ä¸‹é¢è¿™ä¸¤å¥è¯ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼
      
 
 	  if (environment(this_object()) && environment(this_object())->is_chat_room()
@@ -369,11 +369,11 @@ int heal_up()
 	if( my["water"] > 0 ) { my["water"] -= 1; update_flag++; }
   	if( my["food"] > 0 ) { my["food"] -= 1; update_flag++; }
   
-	if( my["water"] < 1 &&  //ÈËºÍ³èÎïÈç¹ûÃ»ÒûË®£¬²»ÄÜ»Ö¸´ÉíÌå¡£
+	if( my["water"] < 1 &&  //äººå’Œå® ç‰©å¦‚æœæ²¡é¥®æ°´ï¼Œä¸èƒ½æ¢å¤èº«ä½“ã€‚
 		(userp(this_object()) || this_object()->query("ownername")) )
 		return update_flag;
 	
-	if( my["food"] < 1 &&  //ÈËºÍ³èÎïÈç¹ûÃ»Ê³Îï£¬²»ÄÜ»Ö¸´ÉíÌå¡£
+	if( my["food"] < 1 &&  //äººå’Œå® ç‰©å¦‚æœæ²¡é£Ÿç‰©ï¼Œä¸èƒ½æ¢å¤èº«ä½“ã€‚
 		(userp(this_object()) || this_object()->query("ownername")) )
 		return update_flag;
 

@@ -24,13 +24,13 @@ string extra_long()
 	{
 		max = query("max_liquid");
 		if( amount == max )
-			str = "ÀïÃæ×°ÂúÁË" + query("liquid/name") + "¡£\n";
+			str = "é‡Œé¢è£…æ»¡äº†" + query("liquid/name") + "ã€‚\n";
 		else if( amount > max/2 )
-			str = "ÀïÃæ×°ÁËÆß¡¢°Ë·ÖÂúµÄ" + query("liquid/name") + "¡£\n";
+			str = "é‡Œé¢è£…äº†ä¸ƒã€å…«åˆ†æ»¡çš„" + query("liquid/name") + "ã€‚\n";
 		else if( amount >= max/3 )
-			str = "ÀïÃæ×°ÁËÎå¡¢Áù·ÖÂúµÄ" + query("liquid/name") + "¡£\n";
+			str = "é‡Œé¢è£…äº†äº”ã€å…­åˆ†æ»¡çš„" + query("liquid/name") + "ã€‚\n";
 		else if( amount > max/2 )
-			str = "ÀïÃæ×°ÁËÉÙÐíµÄ" + query("liquid/name") + "¡£\n";
+			str = "é‡Œé¢è£…äº†å°‘è®¸çš„" + query("liquid/name") + "ã€‚\n";
 		return str;
 	}
 	else return 0;
@@ -41,20 +41,20 @@ int do_drink(string arg)
 	if( !living(this_player()) || this_player()->query_temp("noliving") )
 		return 1;
 	if( this_player()->query("jing")<0 || this_player()->query("qi")<0 )
-		return notify_fail("ÄãÌ«ÀÛÁË£¬ÊµÔÚÃ»Á¦ÆøºÈ¶«Î÷ÁË¡£\n");
+		return notify_fail("ä½ å¤ªç´¯äº†ï¼Œå®žåœ¨æ²¡åŠ›æ°”å–ä¸œè¥¿äº†ã€‚\n");
 	if( !this_object()->id(arg) ) return 0;
 	if( !present(this_object(), this_player()) )
-		return notify_fail("ÄãÒªºÈÊ²Ã´¶«Î÷£¿\n");
+		return notify_fail("ä½ è¦å–ä»€ä¹ˆä¸œè¥¿ï¼Ÿ\n");
 	if( this_player()->is_busy() )
-		return notify_fail("±ð¼±£¬ÂýÂýºÈ£¬±ðÇº×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢å–ï¼Œåˆ«å‘›ç€äº†ã€‚\n");
 	if( !query("liquid/remaining") )
-		return notify_fail( name() + (query("liquid/name") ? "ÒÑ¾­±»ºÈµÃÒ»µÎÒ²²»Ê£ÁË":"ÊÇ¿ÕµÄ¡£\n"));
+		return notify_fail( name() + (query("liquid/name") ? "å·²ç»è¢«å–å¾—ä¸€æ»´ä¹Ÿä¸å‰©äº†":"æ˜¯ç©ºçš„ã€‚\n"));
 	if( (int)this_player()->query("water") >=
 		(int)this_player()->max_water_capacity() )
-		return notify_fail("ÄãÒÑ¾­ºÈÌ«¶àÁË£¬ÔÙÒ²¹à²»ÏÂÒ»µÎË®ÁË¡£\n");
+		return notify_fail("ä½ å·²ç»å–å¤ªå¤šäº†ï¼Œå†ä¹ŸçŒä¸ä¸‹ä¸€æ»´æ°´äº†ã€‚\n");
 
 	add("liquid/remaining", -1);
-	message_vision("$NÄÃÆð" + name() + "¹¾ààààµØºÈÁË¼¸¿Ú" + query("liquid/name") + "¡£\n", this_player());
+	message_vision("$Næ‹¿èµ·" + name() + "å’•å™œå™œåœ°å–äº†å‡ å£" + query("liquid/name") + "ã€‚\n", this_player());
 	if( query("liquid/supply") >0 )
 		this_player()->add("water", query("liquid/supply"));
   	else
@@ -62,11 +62,11 @@ int do_drink(string arg)
 	if( query("liquid/poisontime") > 1 )
 	{
 		this_player()->apply_condition(query("liquid/poison"),query("liquid/poisontime") );
-		write("ÄãÍ»È»¾õµÃºÈµÄ¶«Î÷ÓÐµã²»¶Ô¾¢¡£¿ÉÒÑ¾­À´²»¼°ÁË¡£\n");
+		write("ä½ çªç„¶è§‰å¾—å–çš„ä¸œè¥¿æœ‰ç‚¹ä¸å¯¹åŠ²ã€‚å¯å·²ç»æ¥ä¸åŠäº†ã€‚\n");
 	}
 	if( this_player()->is_fighting() ) this_player()->start_busy(2);
 	if( !query("liquid/remaining") )
-		write("ÄãÒÑ¾­½«" + name() + "ÀïµÄ" + query("liquid/name") +"ºÈµÃÒ»µÎÒ²²»Ê£ÁË¡£\n");
+		write("ä½ å·²ç»å°†" + name() + "é‡Œçš„" + query("liquid/name") +"å–å¾—ä¸€æ»´ä¹Ÿä¸å‰©äº†ã€‚\n");
 
 // This allows customization of drinking effect.
 	if( query("liquid/drink_func") ) return 1;
@@ -87,20 +87,20 @@ int do_fill(string arg)
 {
 	if( !this_object()->id(arg) ) return 0;
 	if (!present(this_object(), this_player()))
-		return notify_fail("ÄãÉíÉÏÃ»ÓÐÕâÑù¶«Î÷£¡\n");
+		return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰è¿™æ ·ä¸œè¥¿ï¼\n");
 	if( this_player()->is_busy() )
-		return notify_fail("ÄãÉÏÒ»¸ö¶¯×÷»¹Ã»ÓÐÍê³É¡£\n");
+		return notify_fail("ä½ ä¸Šä¸€ä¸ªåŠ¨ä½œè¿˜æ²¡æœ‰å®Œæˆã€‚\n");
 	if( !environment(this_player())->query("resource/water") )
-		return notify_fail("ÕâÀïÃ»ÓÐµØ·½¿ÉÒÔ×°Ë®¡£\n");
+		return notify_fail("è¿™é‡Œæ²¡æœ‰åœ°æ–¹å¯ä»¥è£…æ°´ã€‚\n");
 
 	if( query("liquid/remaining") )
-		message_vision("$N½«" + name() + "ÀïÊ£ÏÂµÄ" + query("liquid/name") + "µ¹µô¡£\n", this_player());
-	message_vision("$N½«" + name() + "×°ÂúÇåË®¡£\n", this_player());
+		message_vision("$Nå°†" + name() + "é‡Œå‰©ä¸‹çš„" + query("liquid/name") + "å€’æŽ‰ã€‚\n", this_player());
+	message_vision("$Nå°†" + name() + "è£…æ»¡æ¸…æ°´ã€‚\n", this_player());
 
 	if( this_player()->is_fighting() ) this_player()->start_busy(2);
 
 	set("liquid/type", "water");
-	set("liquid/name", "ÇåË®");
+	set("liquid/name", "æ¸…æ°´");
 	set("liquid/remaining", query("max_liquid"));
 	set("liquid/drink_func", 0);
 

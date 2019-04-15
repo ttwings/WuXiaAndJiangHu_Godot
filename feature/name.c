@@ -73,9 +73,9 @@ varargs string short(int raw)
 
 	if (!raw) {
 		if ((int)query_temp("pending/exercise") != 0)
-			return name() + "Õý×øÔÚµØÏÂÐÞÁ¶ÄÚÁ¦¡£";
+			return name() + "æ­£ååœ¨åœ°ä¸‹ä¿®ç‚¼å†…åŠ›ã€‚";
 		else if ((int)query_temp("pending/respirate") != 0)
-			return name() + "Õý×øÔÚµØÏÂÍÂÄÉÁ¶¾«¡£";
+			return name() + "æ­£ååœ¨åœ°ä¸‹åçº³ç‚¼ç²¾ã€‚";
 	}
 	
         if( !raw && sizeof(mask = query_temp("apply/short")) )
@@ -89,12 +89,12 @@ varargs string short(int raw)
 	else 
 	{
 		if( stringp(nick = query("nickname")) )
-			str = sprintf("¡¸%s¡¹%s", nick, str);
+			str = sprintf("ã€Œ%sã€%s", nick, str);
 
 		if( stringp(title = query("title")) ) {
-			// ÅÑÊ¦¹ýµÄÎÞÃÅÅÉÈËÊ¿¸Ä³ÆÒþÊ¿¡£Modified by Spacenet@FXLT
-			if (title == "ÆÕÍ¨°ÙÐÕ" && query("betrayer"))
-				title = "ÒþÊ¿";
+			// å›å¸ˆè¿‡çš„æ— é—¨æ´¾äººå£«æ”¹ç§°éšå£«ã€‚Modified by Spacenet@FXLT
+			if (title == "æ™®é€šç™¾å§“" && query("betrayer"))
+				title = "éšå£«";
 			str = sprintf("%s%s%s", title,(nick?"":" "), str);
 		}
 		if ( mapp(party = query("party")) ) 
@@ -113,20 +113,20 @@ varargs string short(int raw)
 	}
 
 	if( !raw ) {
-		if( this_object()->is_ghost() ) str = HIB "(¹íÆø) " NOR + str;
-		if( query_temp("netdead") ) str += HIG" <¶ÏÏßÖÐ>" NOR;
-		if( in_input() ) str += HIC" <ÊäÈëÎÄ×ÖÖÐ>" NOR;
-		if( in_edit() ) str += HIY" <±à¼­µµ°¸ÖÐ>" NOR;
-		if( query_temp("boss_screen") ) str += HIG" <ÌÓ±ÜÀÏ°åÖÐ>" NOR;
-		if( query_temp("bixie/cimu") ) str += HIR" <Ê§Ã÷ÖÐ>" NOR;
-		if( query_temp("noliving/sleeped") ) str += HIR" <Ë¯ÃÎÖÐ>" NOR;
-		if( query_temp("noliving/fakedie") ) str += HIR" <×°ËÀÖÐ>" NOR;
-		if( query_temp("noliving/jingzuo") ) str += HIR" <¾²×øÖÐ>" NOR;
-		if( query_temp("noliving/journey") ) str += HIR" <ÂÃÍ¾ÖÐ>" NOR;
+		if( this_object()->is_ghost() ) str = HIB "(é¬¼æ°”) " NOR + str;
+		if( query_temp("netdead") ) str += HIG" <æ–­çº¿ä¸­>" NOR;
+		if( in_input() ) str += HIC" <è¾“å…¥æ–‡å­—ä¸­>" NOR;
+		if( in_edit() ) str += HIY" <ç¼–è¾‘æ¡£æ¡ˆä¸­>" NOR;
+		if( query_temp("boss_screen") ) str += HIG" <é€ƒé¿è€æ¿ä¸­>" NOR;
+		if( query_temp("bixie/cimu") ) str += HIR" <å¤±æ˜Žä¸­>" NOR;
+		if( query_temp("noliving/sleeped") ) str += HIR" <ç¡æ¢¦ä¸­>" NOR;
+		if( query_temp("noliving/fakedie") ) str += HIR" <è£…æ­»ä¸­>" NOR;
+		if( query_temp("noliving/jingzuo") ) str += HIR" <é™åä¸­>" NOR;
+		if( query_temp("noliving/journey") ) str += HIR" <æ—…é€”ä¸­>" NOR;
 		if( query_temp("noliving/unconcious") )
-			str += HIR" <»èÃÔ²»ÐÑ>" NOR;
+			str += HIR" <æ˜è¿·ä¸é†’>" NOR;
 		if( interactive(this_object()) && query_idle(this_object())>120)
-			str += HIM " <·¢´ôÖÐ>" NOR;
+			str += HIM " <å‘å‘†ä¸­>" NOR;
 		if( !living(this_object()) )
 			str += HIR + query("disable_type") + NOR;
 	}
@@ -141,7 +141,7 @@ varargs string long(int raw)
 	if( !raw && sizeof(mask = query_temp("apply/long")) )
 		str = mask[sizeof(mask)-1];
 	else if( !stringp(str = query("long")) )
-		str = short(raw) + "¡£\n";
+		str = short(raw) + "ã€‚\n";
 
 	if( stringp(extra = this_object()->extra_long()) )
 		str += extra;

@@ -1,4 +1,4 @@
-# extends GameObject
+extends GameObject
 
 class_name Char
 #pragma save_binary
@@ -35,92 +35,92 @@ class_name Char
 
 
 ######################################## F_DBASE #####################################
-func getuid(ob=self):
-	return ob.get_instance_id()
+# func getuid(ob=self):
+# 	return ob.get_instance_id()
 	
-func setuid(uid):
-	set("uid",uid)	
+# func setuid(uid):
+# 	set("uid",uid)	
 
 
-var dbase = {"objects" : {}}
-var tmp_dbase = {}
+# var dbase = {"objects" : {}}
+# var tmp_dbase = {}
 
-var default_ob;
+# var default_ob;
 
-func query_default_object():
-	return default_ob
+# func query_default_object():
+# 	return default_ob
 
-func set_default_object(ob):
-	if( !getuid() ) :
-		setuid(getuid());
-	default_ob = ob;
-	ob.add("no_clean_up", 1);
+# func set_default_object(ob):
+# 	if( !getuid() ) :
+# 		setuid(getuid());
+# 	default_ob = ob;
+# 	ob.add("no_clean_up", 1);
 
-func set(key:String,value):
-	dbase[key] = value
+# func set(key:String,value):
+# 	dbase[key] = value
 	
-func add(key,value):
+# func add(key,value):
 
-	if dbase.has(key):
-		if dbase[key] is int:
-			dbase[key] = dbase[key] + value
-		elif dbase[key] is Array:
-			dbase[key].append(value)
-		elif dbase[key] is Directory:
-			dbase[key][value] = dbase[key][value] + 1
-	else:
-		dbase[key] = value	
-	return dbase[key]
+# 	if dbase.has(key):
+# 		if dbase[key] is int:
+# 			dbase[key] = dbase[key] + value
+# 		elif dbase[key] is Array:
+# 			dbase[key].append(value)
+# 		elif dbase[key] is Directory:
+# 			dbase[key][value] = dbase[key][value] + 1
+# 	else:
+# 		dbase[key] = value	
+# 	return dbase[key]
 
-func add_temp(prop:String, data):
-	var old;
-	old = query_temp(prop)
-	# if( !mapp(tmp_dbase) || !(old = query_temp(prop, 1)) )
-	if( !mapp(tmp_dbase) || !old ):
-		return set_temp(prop, data);
-	# if( functionp(old) )
-	# 	error("dbase: add_temp() - called on a function type property.\n");
-	return set_temp(prop, old + data);
+# func add_temp(prop:String, data):
+# 	var old;
+# 	old = query_temp(prop)
+# 	# if( !mapp(tmp_dbase) || !(old = query_temp(prop, 1)) )
+# 	if( !mapp(tmp_dbase) || !old ):
+# 		return set_temp(prop, data);
+# 	# if( functionp(old) )
+# 	# 	error("dbase: add_temp() - called on a function type property.\n");
+# 	return set_temp(prop, old + data);
 
-func delete(key):
-	if( !mapp(dbase) ) :
-		return 0;
-	dbase.ease(key)
+# func delete(key):
+# 	if( !mapp(dbase) ) :
+# 		return 0;
+# 	dbase.ease(key)
 
-func delete_temp(key):
-	if( !mapp(tmp_dbase) ) :
-		return 0;
-	tmp_dbase.ease(key)
+# func delete_temp(key):
+# 	if( !mapp(tmp_dbase) ) :
+# 		return 0;
+# 	tmp_dbase.ease(key)
 
-func set_temp(prop:String,data):
-	if( !mapp(tmp_dbase) ):
-		tmp_dbase = {};
-	tmp_dbase[prop] = data
+# func set_temp(prop:String,data):
+# 	if( !mapp(tmp_dbase) ):
+# 		tmp_dbase = {};
+# 	tmp_dbase[prop] = data
 		
-func query_temp(key:String):
-	if tmp_dbase.has(key) :
-		return tmp_dbase[key]
-	else:
-		return 0		
+# func query_temp(key:String):
+# 	if tmp_dbase.has(key) :
+# 		return tmp_dbase[key]
+# 	else:
+# 		return 0		
 		
-func query(key:String):
-	if	dbase.has(key) :
-		return get_dbase()[key]
-	else:
-		return 0		
-	pass
+# func query(key:String):
+# 	if	dbase.has(key) :
+# 		return get_dbase()[key]
+# 	else:
+# 		return 0		
+# 	pass
 
-func query_entire_dbase():
-	return dbase;
+# func query_entire_dbase():
+# 	return dbase;
 
-func query_entire_temp_dbase():
-	return tmp_dbase;
+# func query_entire_temp_dbase():
+# 	return tmp_dbase;
 
-func set_dbase(dbase):
-	dbase = dbase
+# func set_dbase(dbase):
+# 	dbase = dbase
 
-func get_dbase():
-	return dbase	
+# func get_dbase():
+# 	return dbase	
 
 
 
@@ -891,7 +891,7 @@ func improve_skill(skill:String, amount:int, weak_mode:int):
 
 ###################### tools ##############
 func chinese_number(i:int):
-	CHINESED.chinese_number(i)
+	CHINESE_D.chinese_number(i)
 	
 func this_object(ob=self):
 	return ob

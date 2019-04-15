@@ -4,15 +4,15 @@
 # Modified by winder@XKX100
 
 #include <ansi.h> 
-var HUMAN_RACE 		# = load("/adm/daemons/race/human")
-var BEAST1_RACE 	#"/adm/daemons/race/beast1"
-var BEAST_RACE	 	#"/adm/daemons/race/beast"
-var MONSTER_RACE 	#"/adm/daemons/race/monster"
-var STOCK_RACE 		#"/adm/daemons/race/stock"
-var BIRD_RACE 		#"/adm/daemons/race/bird"
-var FISH_RACE 		#"/adm/daemons/race/fish"
-var SNAKE_RACE 		#"/adm/daemons/race/snake"
-var INSECT_RACE 	#"/adm/daemons/race/insect"
+var HUMAN_RACE 		= "load(res://adm/daemons/race/human.gd").new()
+var BEAST1_RACE 	= "load(res://adm/daemons/race/beast1.gd").new()
+var BEAST_RACE	 	= "load(res://adm/daemons/race/beast.gd").new()
+var MONSTER_RACE 	= "load(res://adm/daemons/race/monster.gd").new()
+var STOCK_RACE 		= "load(res://adm/daemons/race/stock.gd").new()
+var BIRD_RACE 		= "load(res://adm/daemons/race/bird.gd").new()
+var FISH_RACE 		= "load(res://adm/daemons/race/fish.gd").new()
+var SNAKE_RACE 		= "load(res://adm/daemons/race/snake.gd").new()
+var INSECT_RACE 	= "load(res://adm/daemons/race/insect.gd").new()
 
 func setup_char(ob):
 	var race;

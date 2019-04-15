@@ -1,4 +1,4 @@
-// Éñ»°ÊÀ½ç¡¤Î÷ÓÎ¼Ç¡¤°æ±¾£´£®£µ£°
+// ç¥è¯ä¸–ç•ŒÂ·è¥¿æ¸¸è®°Â·ç‰ˆæœ¬ï¼”ï¼ï¼•ï¼
 /* <SecCrypt CPL V3R05> */
  
 // by mon@xyj 10/2/97
@@ -68,7 +68,7 @@ void send_msg(string channel, object me, string verb, string id,
 //     "||FILTER:" + filter +
                 "||CHANNEL:" +channel+
      "||MSG:"+msg+"@@@\n");
-        tell_object(me, "ÍøÂ·Ñ¶Ï¢ÒÑËÍ³ö£¬ÇëÉÔºò¡£\n");
+        tell_object(me, "ç½‘è·¯è®¯æ¯å·²é€å‡ºï¼Œè¯·ç¨å€™ã€‚\n");
 }
 
 // Someone on another mud has sent us an intermud emote.

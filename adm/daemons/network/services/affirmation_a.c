@@ -1,4 +1,4 @@
-// Éñ»°ÊÀ½ç¡¤Î÷ÓÎ¼Ç¡¤°æ±¾£´£®£µ£°
+// ç¥è¯ä¸–ç•ŒÂ·è¥¿æ¸¸è®°Â·ç‰ˆæœ¬ï¼”ï¼ï¼•ï¼
 /* <SecCrypt CPL V3R05> */
  
 /*
@@ -34,7 +34,7 @@ void incoming_request(mapping info)
    if (info["WIZTO"]) {
      if( info["MSG"][sizeof(info["MSG"])] != '\n' ) info["MSG"] += "\n";
      if (ob = find_player(lower_case(info["WIZTO"])))
-     tell_object(ob, HIG + info["WIZFROM"]+"Í¨ÖªÄã£º"+info["MSG"] + NOR);
+     tell_object(ob, HIG + info["WIZFROM"]+"é€šçŸ¥ä½ ï¼š"+info["MSG"] + NOR);
    }
 }
 

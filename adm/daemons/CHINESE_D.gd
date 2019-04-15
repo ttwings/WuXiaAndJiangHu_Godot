@@ -24,12 +24,12 @@ var dict = {};
 # func add_translate(string key, string chn);
 # func remove_translate(string key);
 
-func create():
-	seteuid(getuid());
-	restore();
+# func create():
+# 	setuid(getuid());
+# 	restore();
 
-func remove():
-	save();
+# func remove():
+# 	save();
 
 func chinese_number(i:int):
 	if (i < 0):

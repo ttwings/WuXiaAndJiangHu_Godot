@@ -1,4 +1,4 @@
-// /feature/dealer.c ÉÌÈË
+// /feature/dealer.c å•†äºº
 
 // This is a inheritable object.
 // Each dealer should support buy, sell, list, value 4 commands
@@ -9,7 +9,7 @@
 #include <ansi.h>
 
 string makeup_space(string s);
-string filter_color(string arg);//È¥³ıÑÕÉ«
+string filter_color(string arg);//å»é™¤é¢œè‰²
 
 int is_dealer() {return 1;}
 string is_vendor_good(string arg)
@@ -43,20 +43,20 @@ int do_value(string arg)
 	int value;
 
 	if (!arg || !(ob = present(arg, this_player())))
-		return notify_fail("ÄãÒª¹ÀÊ²Ã´µÄ¼Û£¿\n");
+		return notify_fail("ä½ è¦ä¼°ä»€ä¹ˆçš„ä»·ï¼Ÿ\n");
 	
 	if (ob->query("money_id"))
-		return notify_fail("ÄãÃ»ÓÃ¹ıÇ®°¡£¿\n");
+		return notify_fail("ä½ æ²¡ç”¨è¿‡é’±å•Šï¼Ÿ\n");
 
 	if (userp(ob))
 		ob->set("value", ob->query("per") * 500);
 
 	value = ob->query("value");
 	if (value < 1)
-		write(ob->query("name") + "Ò»ÎÄ²»Öµ£¡\n");
+		write(ob->query("name") + "ä¸€æ–‡ä¸å€¼ï¼\n");
 	else 
-		write(ob->query("name") + "Öµ" + 
-		MONEY_D->price_str(value * 70 / 100) + "¡£\n");
+		write(ob->query("name") + "å€¼" + 
+		MONEY_D->price_str(value * 70 / 100) + "ã€‚\n");
 	return 1;
 }
 
@@ -71,10 +71,10 @@ int do_sell(string arg)
 	object *obs;
 	
 	if (!arg )
-		return notify_fail("ÄãÒªÂôÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦å–ä»€ä¹ˆï¼Ÿ\n");
 
 	if( this_player()->is_busy() )
-		return notify_fail("Ó´£¬±§Ç¸£¬ÎÒÕâ¶ùÕıÃ¦×ÅÄØ¡­¡­ÄúÇëÉÔºò¡£\n");
+		return notify_fail("å“Ÿï¼ŒæŠ±æ­‰ï¼Œæˆ‘è¿™å„¿æ­£å¿™ç€å‘¢â€¦â€¦æ‚¨è¯·ç¨å€™ã€‚\n");
 
   sscanf(arg,"%d %s",amount,arg);
   ob = present(arg,this_player());
@@ -92,28 +92,28 @@ int do_sell(string arg)
   }
 
   if ( !objectp(ob) || amount < 1 )
-    return notify_fail("ÄãÒªÂôÊ²Ã´£¿\n");
+    return notify_fail("ä½ è¦å–ä»€ä¹ˆï¼Ÿ\n");
 
 	if (ob->query("money_id"))
-		return notify_fail("ÄãÏëÂô¡¸Ç®¡¹£¿£¿\n");
+		return notify_fail("ä½ æƒ³å–ã€Œé’±ã€ï¼Ÿï¼Ÿ\n");
 
   if (intp(ob->query("no_sell")) && ob->query("no_sell") >0 )
-    return notify_fail("ÕâÑù¶«Î÷²»ÄÜÂô¡£\n");
+    return notify_fail("è¿™æ ·ä¸œè¥¿ä¸èƒ½å–ã€‚\n");
 
   if (stringp(ob->query("no_sell")))
     return notify_fail(ob->query("no_sell"));
 
 	if (stringp(ob->query("no_drop")))
-		return notify_fail("ÕâÑù¶«Î÷²»ÄÜÂô¡£\n");
+		return notify_fail("è¿™æ ·ä¸œè¥¿ä¸èƒ½å–ã€‚\n");
 
 	if (is_vendor_good(arg) != "") 
-		return notify_fail("Âô¸øÄãºÃ²»ºÃ£¿\n");
+		return notify_fail("å–ç»™ä½ å¥½ä¸å¥½ï¼Ÿ\n");
 
 	if (ob->query("food_supply") || ob->query("water_supply"))
-		return notify_fail("Ê£²ËÊ£·¹Áô¸øÄú×Ô¼ºÓÃ°É¡£\n");
+		return notify_fail("å‰©èœå‰©é¥­ç•™ç»™æ‚¨è‡ªå·±ç”¨å§ã€‚\n");
 	
 	if (ob->query("shaolin"))
-		return notify_fail("Ğ¡µÄÖ»ÓĞÒ»¸öÄÔ´ü£¬¿É²»¸ÒÂòÉÙÁÖÃí²ú¡£\n");
+		return notify_fail("å°çš„åªæœ‰ä¸€ä¸ªè„‘è¢‹ï¼Œå¯ä¸æ•¢ä¹°å°‘æ—åº™äº§ã€‚\n");
 
 	inv = all_inventory(this_player());
 	count1=0;
@@ -123,7 +123,7 @@ int do_sell(string arg)
 			count1++;
 	}
 	if (count1 < amount)	
-    return notify_fail("ÄãÃ»ÓĞÄÇÃ´¶àµÄ"+ob->name(1)+"¡£\n");
+    return notify_fail("ä½ æ²¡æœ‰é‚£ä¹ˆå¤šçš„"+ob->name(1)+"ã€‚\n");
 
 	inv = all_inventory(this_object());
 	count=0;
@@ -133,7 +133,7 @@ int do_sell(string arg)
 			count++;
 	}
 	if (count+amount > 100 && !wizardp(this_player()))
-		return notify_fail("´ËÎï±¾µê´æ»õÌ«¶à£¬ÄãÈ¥±ğµÄµê¿´¿´¡£\n");
+		return notify_fail("æ­¤ç‰©æœ¬åº—å­˜è´§å¤ªå¤šï¼Œä½ å»åˆ«çš„åº—çœ‹çœ‹ã€‚\n");
 
 	if (userp(ob))
 	{
@@ -141,12 +141,12 @@ int do_sell(string arg)
       ob->set("value", ob->query("per") * 3);
 	//	ob->set("value", 0);
 		CHANNEL_D->do_channel(ob, "rumor",
-			sprintf("%s±»Ä³ÈË¹ÕÂô¸øÌÆéªÁË¡£", ob->name(1)));
+			sprintf("%sè¢«æŸäººæ‹å–ç»™å”æ¥ äº†ã€‚", ob->name(1)));
 	}
 
 	value = ob->query("value");
-	if (value < 30 || ob->query_amount())//ÓĞÊıÁ¿µÄÎïÆ·sell´æÔÚÇ±ÔÚbug£¬Ä¿Ç°²»ÔÊĞísell
-		write(ob->query("name") + "Ò»ÎÄ²»Öµ£¡\n");
+	if (value < 30 || ob->query_amount())//æœ‰æ•°é‡çš„ç‰©å“sellå­˜åœ¨æ½œåœ¨bugï¼Œç›®å‰ä¸å…è®¸sell
+		write(ob->query("name") + "ä¸€æ–‡ä¸å€¼ï¼\n");
 	else
 	{
 		if ( userp(ob) )
@@ -179,14 +179,14 @@ int do_sell(string arg)
 		        		inv[j]->delete("last_value");
 		        	}
       		    MONEY_D->pay_player(this_player(), value * 70 / 100);
-	            MONEY_D->player_pay(this_player(), 0);//»»³ÉÕûÇ®
+	            MONEY_D->player_pay(this_player(), 0);//æ¢æˆæ•´é’±
 		          break;
 		        }
 		    }
       }
     }
-		message_vision("$NÂôµôÁË" +chinese_number(i)+ ob->query("unit") + 
-		ob->query("name") + "¸ø$n¡£\n", this_player(), this_object());
+		message_vision("$Nå–æ‰äº†" +chinese_number(i)+ ob->query("unit") + 
+		ob->query("name") + "ç»™$nã€‚\n", this_player(), this_object());
    
 	}
 	this_player()->start_busy(1);
@@ -206,7 +206,7 @@ int do_list(string arg)
 		arg!="book" && arg!="medicine" &&
 		arg!="food" && arg!="fruit" && arg!="liquid" &&
 		arg!="other")
-		return notify_fail("Ã»ÓĞÕâÖÖ·ÖÀàµÄ¶«Î÷¡£\n");
+		return notify_fail("æ²¡æœ‰è¿™ç§åˆ†ç±»çš„ä¸œè¥¿ã€‚\n");
 
 	for (i = 0; i < sizeof(inv); i++) 
 	{
@@ -224,34 +224,34 @@ int do_list(string arg)
 	}
 
 	if (!sizeof(inv1) && !arrayp(goods = query("vendor_goods")))
-		return notify_fail("Ä¿Ç°Ã»ÓĞ¿ÉÒÔÂôµÄ¶«Î÷¡£\n");
+		return notify_fail("ç›®å‰æ²¡æœ‰å¯ä»¥å–çš„ä¸œè¥¿ã€‚\n");
 
 	str = "";
 	if( !arg || arg == "other" )
-		str = sprintf("Äã¿ÉÒÔÏò%s¹ºÂòÏÂÁĞÎïÆ·£º\n", query("name"));
+		str = sprintf("ä½ å¯ä»¥å‘%sè´­ä¹°ä¸‹åˆ—ç‰©å“ï¼š\n", query("name"));
 	else
 		switch (arg)
 		{
 			case "armor":
-				str = sprintf("Äã¿ÉÒÔÏò%s¹ºÂòÏÂÁĞ·À¾ß£º\n", query("name"));
+				str = sprintf("ä½ å¯ä»¥å‘%sè´­ä¹°ä¸‹åˆ—é˜²å…·ï¼š\n", query("name"));
 				break;
 			case "weapon":
-				str = sprintf("Äã¿ÉÒÔÏò%s¹ºÂòÏÂÁĞ±øÆ÷£º\n", query("name"));
+				str = sprintf("ä½ å¯ä»¥å‘%sè´­ä¹°ä¸‹åˆ—å…µå™¨ï¼š\n", query("name"));
 				break;
 			case "food":
-				str = sprintf("Äã¿ÉÒÔÏò%s¹ºÂòÏÂÁĞÊ³Æ·£º\n", query("name"));
+				str = sprintf("ä½ å¯ä»¥å‘%sè´­ä¹°ä¸‹åˆ—é£Ÿå“ï¼š\n", query("name"));
 				break;
 			case "fruit":
-				str = sprintf("Äã¿ÉÒÔÏò%s¹ºÂòÏÂÁĞ¹ûÆ·£º\n", query("name"));
+				str = sprintf("ä½ å¯ä»¥å‘%sè´­ä¹°ä¸‹åˆ—æœå“ï¼š\n", query("name"));
 				break;
 			case "liquid":
-				str = sprintf("Äã¿ÉÒÔÏò%s¹ºÂòÏÂÁĞÒûÆ·£º\n", query("name"));
+				str = sprintf("ä½ å¯ä»¥å‘%sè´­ä¹°ä¸‹åˆ—é¥®å“ï¼š\n", query("name"));
 				break;
 			case "medicine":
-				str = sprintf("Äã¿ÉÒÔÏò%s¹ºÂòÏÂÁĞÒ©Æ·£º\n", query("name"));
+				str = sprintf("ä½ å¯ä»¥å‘%sè´­ä¹°ä¸‹åˆ—è¯å“ï¼š\n", query("name"));
 				break;
 			case "book":
-				str = sprintf("Äã¿ÉÒÔÏò%s¹ºÂòÏÂÁĞÊé¼®£º\n", query("name"));
+				str = sprintf("ä½ å¯ä»¥å‘%sè´­ä¹°ä¸‹åˆ—ä¹¦ç±ï¼š\n", query("name"));
 				break;
 		}
 
@@ -273,7 +273,7 @@ int do_list(string arg)
 			(arg=="food" && inv1[i]->query("food_remaining")) ||
 			(arg=="fruit" && inv1[i]->query("fruit_remaining")) ||
 			(arg=="liquid" && inv1[i]->query("liquid")) )
-			str += sprintf("%30-s%sÊıÁ¿£º%3-i %s\n", 
+			str += sprintf("%30-s%sæ•°é‡ï¼š%3-i %s\n", 
 				inv1[i]->short(),
 				makeup_space(inv1[i]->short()), count[i],
 				MONEY_D->price_str(inv1[i]->query("value") * 6 / 5));
@@ -298,7 +298,7 @@ int do_list(string arg)
 			(arg=="food" && goods[i]->query("food_remaining")) ||
 			(arg=="fruit" && goods[i]->query("fruit_remaining")) ||
 			(arg=="liquid" && goods[i]->query("liquid")) )
-			str = sprintf("%s%30-s%s£º%s\n", str, 
+			str = sprintf("%s%30-s%sï¼š%s\n", str, 
 				goods[i]->short(),
 				makeup_space(goods[i]->short()),
 				MONEY_D->price_str(goods[i]->query("value")));
@@ -306,11 +306,11 @@ int do_list(string arg)
 	}
 	if( !arg )
 		str += sprintf(HIY
-"©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤"HIC"¿´»õÀà±ğ"HIY"©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤"HIG"
-armor ·À¾ßÀà  weapon ±øÆ÷Àà  book  Êé¼®Àà  medicine Ò©Æ·Àà
-food  Ê³Æ·Àà  liquid ÒûÆ·Àà  fruit ¹ûÆ·Àà  other    ÆäËûÀà"NOR);
+"â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€"HIC"çœ‹è´§ç±»åˆ«"HIY"â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€"HIG"
+armor é˜²å…·ç±»  weapon å…µå™¨ç±»  book  ä¹¦ç±ç±»  medicine è¯å“ç±»
+food  é£Ÿå“ç±»  liquid é¥®å“ç±»  fruit æœå“ç±»  other    å…¶ä»–ç±»"NOR);
   if (SHOP_D->is_owner(this_player()->query("id")))
-    str += HIW"\nÄãÊÇÉÌÒµĞ­»áµÄ³ÉÔ±£¬ÔÚ´Ë¹ºÎïÏíÊÜ°ËÕÛÓÅ»İ¡£"NOR;
+    str += HIW"\nä½ æ˜¯å•†ä¸šåä¼šçš„æˆå‘˜ï¼Œåœ¨æ­¤è´­ç‰©äº«å—å…«æŠ˜ä¼˜æƒ ã€‚"NOR;
 
 	this_player()->start_more(str);
 
@@ -330,21 +330,21 @@ int do_buy(string arg)
 	int zscount;
 	string unit;
 
-	if ((fam = this_player()->query("family")) && fam["family_name"] == "Ø¤°ï")
-		return notify_fail("ÄãÊÇ¸öÇî½Ğ»¯£¬ÂòÊ²÷á¶«Î÷£¡\n");
+	if ((fam = this_player()->query("family")) && fam["family_name"] == "ä¸å¸®")
+		return notify_fail("ä½ æ˜¯ä¸ªç©·å«åŒ–ï¼Œä¹°ä»€éº½ä¸œè¥¿ï¼\n");
 	
 	if( this_player()->is_busy() )
-		return notify_fail("Ó´£¬±§Ç¸£¬ÎÒÕâ¶ùÕıÃ¦×ÅÄØ¡­¡­ÄúÇëÉÔºò¡£\n");
+		return notify_fail("å“Ÿï¼ŒæŠ±æ­‰ï¼Œæˆ‘è¿™å„¿æ­£å¿™ç€å‘¢â€¦â€¦æ‚¨è¯·ç¨å€™ã€‚\n");
 
 	if (!arg) 
-	  return notify_fail("ÄãÏëÂòÊ²Ã´£¿ \n");
+	  return notify_fail("ä½ æƒ³ä¹°ä»€ä¹ˆï¼Ÿ \n");
  
   sscanf(arg,"%d %s",amount,arg);
  
   if (amount<1) 
-    return notify_fail("ÄãÏëÂòÊ²Ã´£¿ \n");
+    return notify_fail("ä½ æƒ³ä¹°ä»€ä¹ˆï¼Ÿ \n");
   if (amount>100)
-    return notify_fail("±ğ¼±£¬ÂıÂıÀ´¡£\n");
+    return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢æ¥ã€‚\n");
   if (!(ob = present(arg, this_object())))
 	 {
 	  inv = all_inventory(this_object());
@@ -358,7 +358,7 @@ int do_buy(string arg)
 	  }
 	 }
 	if (!ob && (ob_file = is_vendor_good(arg)) == "")
-			return notify_fail("ÄãÏëÂòÊ²Ã´£¿ \n");
+			return notify_fail("ä½ æƒ³ä¹°ä»€ä¹ˆï¼Ÿ \n");
 
 	if (!ob)
 	{
@@ -368,9 +368,9 @@ int do_buy(string arg)
 	}
 	else {
 		if (ob->query("equipped"))
-			return notify_fail("ÄãÏëÂòÊ²Ã´£¿ \n");
+			return notify_fail("ä½ æƒ³ä¹°ä»€ä¹ˆï¼Ÿ \n");
 		if (ob->query("money_id"))
-		  return notify_fail("ÄãÒªÂòÇ®£¿\n");
+		  return notify_fail("ä½ è¦ä¹°é’±ï¼Ÿ\n");
 		from="pawn";
 		val_factor = 12;
 		inv=all_inventory(this_object());
@@ -381,10 +381,10 @@ int do_buy(string arg)
       count++;
 		}
 		if (count < amount)
-		 return notify_fail("µêÀïÃ»ÓĞÕâÃ´¶àµÄ"+ob->name()+"¡£\n");
+		 return notify_fail("åº—é‡Œæ²¡æœ‰è¿™ä¹ˆå¤šçš„"+ob->name()+"ã€‚\n");
 	}
 	if (query_temp("busy"))
-		return notify_fail("Ó´£¬±§Ç¸°¡£¬ÎÒÕâ¶ùÕıÃ¦×ÅÄØ¡­¡­ÄúÇëÉÔºò¡£\n");
+		return notify_fail("å“Ÿï¼ŒæŠ±æ­‰å•Šï¼Œæˆ‘è¿™å„¿æ­£å¿™ç€å‘¢â€¦â€¦æ‚¨è¯·ç¨å€™ã€‚\n");
   if (SHOP_D->is_owner(this_player()->query("id")))
    discount = 8;
   else
@@ -395,15 +395,15 @@ int do_buy(string arg)
 	switch(MONEY_D->player_pay(this_player(),ob->query("value") * discount/10 * amount * val_factor/10 * zscount/10))
 	{
 		case 0:
-			return notify_fail("Çî¹âµ°£¬Ò»±ß´ô×ÅÈ¥£¡\n");
+			return notify_fail("ç©·å…‰è›‹ï¼Œä¸€è¾¹å‘†ç€å»ï¼\n");
 		case 2:
-			return notify_fail("ÄúµÄÁãÇ®²»¹»ÁË£¬ÒøÆ±ÓÖÃ»ÈËÕÒµÃ¿ª¡£\n");
+			return notify_fail("æ‚¨çš„é›¶é’±ä¸å¤Ÿäº†ï¼Œé“¶ç¥¨åˆæ²¡äººæ‰¾å¾—å¼€ã€‚\n");
 		default:
 			set_temp("busy", 1);
 			if (ob->query("base_unit")) unit = ob->query("base_unit");
 			else unit = ob->query("unit");
-			message_vision("$N´Ó$nÄÇÀïÂòÏÂÁË"+chinese_number(amount) + unit + 
-			ob->query("name") + "¡£\n", this_player(), this_object());
+			message_vision("$Nä»$né‚£é‡Œä¹°ä¸‹äº†"+chinese_number(amount) + unit + 
+			ob->query("name") + "ã€‚\n", this_player(), this_object());
 	}
 	  for(i=0;i<amount;i++)
 	  {
@@ -440,7 +440,7 @@ void enough_rest()
 	delete_temp("busy");
 }
 
-// Ôö¼Óº¯Êımakeup_space£¬ÓÃÓÚÌî³ä¿Õ¸ñ£¬¶ÔÆëÊä³ö¸ñÊ½¡£
+// å¢åŠ å‡½æ•°makeup_spaceï¼Œç”¨äºå¡«å……ç©ºæ ¼ï¼Œå¯¹é½è¾“å‡ºæ ¼å¼ã€‚
 // Added by Constant Jan 1 2001
 string makeup_space(string s)
 {

@@ -1,4 +1,4 @@
-// Éñ»°ÊÀ½ç¡¤Î÷ÓÎ¼Ç¡¤°æ±¾£´£®£µ£°
+// ç¥è¯ä¸–ç•ŒÂ·è¥¿æ¸¸è®°Â·ç‰ˆæœ¬ï¼”ï¼ï¼•ï¼
 /* <SecCrypt CPL V3R05> */
  
 /*
@@ -43,7 +43,7 @@ void incoming_request(mapping info)
        message("finger", "\n"+
          ((!mudinfo || undefinedp(mudinfo["MUDNAME"]))?
            info["NAME"]:mudinfo["MUDNAME"])+
-           "¸æËßÄã£º\n"+info["MSG"],ob);
+           "å‘Šè¯‰ä½ ï¼š\n"+info["MSG"],ob);
      }      
    }
 }

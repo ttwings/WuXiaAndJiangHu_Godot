@@ -178,7 +178,7 @@ varargs void improve_skill(string skill, int amount, int weak_mode)
 {
 	int spi;
 
-//Ö»ÓÐÍæ¼ÒºÍºÃÑ§µÄnpc²ÅÄÜÑ§Ï°¡£±ÈÈç³èÎï»òÍæ¼ÒÐ¡º¢µÈ¡£
+//åªæœ‰çŽ©å®¶å’Œå¥½å­¦çš„npcæ‰èƒ½å­¦ä¹ ã€‚æ¯”å¦‚å® ç‰©æˆ–çŽ©å®¶å°å­©ç­‰ã€‚
 	if (!userp(this_object()) && !this_object()->query("curiousness"))
 		return; 
 	if( !find_object(SKILL_D(skill)) &&
@@ -205,7 +205,7 @@ varargs void improve_skill(string skill, int amount, int weak_mode)
 	{
 		skills[skill]++;
 		learned[skill] = 0;
-		tell_object(this_object(), HIC"ÄãµÄ¡¸" + to_chinese(skill) + "¡¹½ø²½ÁË£¡\n" NOR);
+		tell_object(this_object(), HIC"ä½ çš„ã€Œ" + to_chinese(skill) + "ã€è¿›æ­¥äº†ï¼\n" NOR);
 		SKILL_D(skill)->skill_improved(this_object());
 	}
 }

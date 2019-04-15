@@ -2,7 +2,7 @@
 
 mapping global_alias = ([
 	"l":		"look",
-	"¿´":		"look",
+	"çœ‹":		"look",
 	"n":		"go north",
 	"e":		"go east",
 	"w":		"go west",
