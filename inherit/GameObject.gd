@@ -207,17 +207,9 @@ func keys(d:Dictionary):
 	return d.keys()
 
 # todo test
-func sprintf(string,arg1=null,arg2=null):
-	string.format(arg1,arg2)
-
-# todo 
-func living(ob):
-	return true
-	
-# todo
-var fighting = false	
-func is_fighting():
-	return fighting
+func sprintf(string,arg1=null,arg2=null,arg3=null,arg4=null):
+	string.format(arg1,arg2,arg3,arg4)
+	print_debug(string)
 
 func create():
 	pass	
