@@ -31,7 +31,7 @@ func set_ghost(i) :
 		add( "nuqi" , imp );
 	if ( query("nuqi")>query("max_nuqi") ):
 		set("nuqi",query("max_nuqi"));
-	val = (int)query(type) - damage;
+	val = query(type) - damage;
 
 	if( val >= 0 ) :
 		set(type, val);
@@ -61,7 +61,7 @@ func receive_wound(type:String, damage:int,reason):
 		add( "nuqi" , imp );
 		if ( query("nuqi")>query("max_nuqi") ):
 			set("nuqi",query("max_nuqi"));
-	val = (int)query("eff_" + type) - damage;
+	val = query("eff_" + type) - damage;
 
 	if( val >= 0 ) :
 		set("eff_" + type, val);
@@ -69,7 +69,7 @@ func receive_wound(type:String, damage:int,reason):
 		set( "eff_" + type, -1 );
 		val = -1;
 
-	if( (int)query(type) > val ) :
+	if( query(type) > val ) :
 		set(type, val);
 
 	set_heart_beat(1);
@@ -84,9 +84,9 @@ func receive_heal(type:String, heal:int)
 		error("F_DAMAGE: 恢复值为负值。\n");
 	if( type!="jing" && type!="qi" ):
 		error("F_DAMAGE: 恢复种类错误( 只能是 jing, qi 其中之一 )。\n");
-	val = (int)query(type) + heal;
-	if( val > (int)query("eff_"+type) ) :
-		set(type, (int)query("eff_"+type));
+	val = query(type) + heal;
+	if( val > query("eff_"+type) ) :
+		set(type, query("eff_"+type));
 	else :
 		set( type, val );
 
@@ -101,8 +101,8 @@ func receive_curing(type:String, heal:int)
 	if( type!="jing" && type!="qi" ):
 		error("F_DAMAGE: 恢复种类错误( 只能是 jing, qi 其中之一 )。\n");
 
-	val = (int)query("eff_" + type);
-	max = (int)query("max_" + type);
+	val = query("eff_" + type);
+	max = query("max_" + type);
 
 	if( val + heal > max ) :
 		set("eff_" + type, max);
@@ -215,12 +215,12 @@ func die():
 			killer.add_temp("bwdh_pknum",1);
 			message("channel:chat", HIC"【华山论剑】公平子："+this_object().query("name")+"不敌"+killer.query("name")+"，被迫退出华山论剑！\n"NOR,users() );
 	
-	this_object().set("eff_jing", (int)this_object().query("max_jing"));
-	this_object().set("jing", (int)this_object().query("max_jing"));
-	this_object().set("eff_qi", (int)this_object().query("max_qi"));
-	this_object().set("qi", (int)this_object().query("max_qi"));
-	this_object().set("jingli", (int)this_object().query("max_jingli"));
-	this_object().set("neili", (int)this_object().query("max_neili"));
+	this_object().set("eff_jing", this_object().query("max_jing"));
+	this_object().set("jing", this_object().query("max_jing"));
+	this_object().set("eff_qi", this_object().query("max_qi"));
+	this_object().set("qi", this_object().query("max_qi"));
+	this_object().set("jingli", this_object().query("max_jingli"));
+	this_object().set("neili", this_object().query("max_neili"));
 	this_object().remove_all_killer();
 	this_object().remove_all_enemy();
 	this_object().delete_temp("bwdh_join");
@@ -267,9 +267,9 @@ func die():
 
 			this_object().set("last_die_msg","死得很离奇");
 			if (stringp(reason=this_object().query_temp("die_reason"))):
-			    this_object().set("last_die_msg",reason);
-			else if (stringp(reason=this_object().query_temp("last_damage_from"))):
-			    this_object().set("last_die_msg",reason+"死了");
+				this_object().set("last_die_msg",reason);
+			elif (stringp(reason=this_object().query_temp("last_damage_from"))):
+				this_object().set("last_die_msg",reason+"死了");
 			message("channel:rumor", HIM"【谣言】"+"听说"+this_object().name()+ HIM"死了，而且死得很离奇。\n"NOR, users());
 
 			this_object().delete("last_die_by_name");
@@ -312,107 +312,92 @@ func die():
 		DEATH_ROOM.start_death(this_object());
 	
 	else:
-
 #浩劫系统的触发条件
 		LOGIN_D.add_dienpc();
-                destruct(this_object());
+        destruct(this_object());
 
 
-func max_food_capacity()  :
+func max_food_capacity() :
 	return query_weight() / 200;
 
 func max_water_capacity() :
 	return query_weight() / 200;
 
-void reincarnate()
-{
+func reincarnate():
 	ghost = 0;
 	set("eff_jing", query("max_jing"));
 	set("eff_qi", query("max_qi"));
 	set("food",max_food_capacity());
 	set("water",max_water_capacity());
-}
 
-int heal_up()
-{
-	int update_flag, i;
-	mapping my;
+func heal_up():
+	var update_flag, i;
+	var my;
 
 #	if( this_object().is_fighting() ) return -1;
-
 	update_flag = 0;
 
 	my = query_entire_dbase();
 
-
-
 	#就是下面这两句话！！！！！！！！！！！！！
 	#就是下面这两句话！！！！！！！！！！！！！
 	#就是下面这两句话！！！！！！！！！！！！！
 	#就是下面这两句话！！！！！！！！！！！！！
-     
 
-	  if (environment(this_object()) && environment(this_object()).is_chat_room()
- 	      && this_object().query("env/halt_age") )
+	if (environment(this_object()) && environment(this_object()).is_chat_room() && this_object().query("env/halt_age") ):
+		return 0;
 
-
-
-
-  	      return 0;
-  
-	if( my["water"] > 0 ) { my["water"] -= 1; update_flag++; }
-  	if( my["food"] > 0 ) { my["food"] -= 1; update_flag++; }
-  
-	if( my["water"] < 1 &&  #人和宠物如果没饮水，不能恢复身体。
-		(userp(this_object()) || this_object().query("ownername")) )
+	if( my["water"] > 0 ) :
+		{ my["water"] -= 1; update_flag++; }
+	if( my["food"] > 0 ) :
+		{ my["food"] -= 1; update_flag++; }
+	#人和宠物如果没饮水，不能恢复身体。
+	if( my["water"] < 1 && (userp(this_object()) || this_object().query("ownername")) ):
 		return update_flag;
-	
-	if( my["food"] < 1 &&  #人和宠物如果没食物，不能恢复身体。
-		(userp(this_object()) || this_object().query("ownername")) )
+	#人和宠物如果没食物，不能恢复身体。
+	if( my["food"] < 1 && (userp(this_object()) || this_object().query("ownername")) ):
 		return update_flag;
 
 	my["jing"] += my["con"] / 3 + my["max_jingli"] / 10;
-	if( my["jing"] >= my["eff_jing"] )
-	{
+	if( my["jing"] >= my["eff_jing"] ):
 		my["jing"] = my["eff_jing"];
-		if( my["eff_jing"] < my["max_jing"] )
-		{
-			my["eff_jing"] ++; update_flag++;
-		}
-	} else update_flag++;
+		if( my["eff_jing"] < my["max_jing"] ):
+			my["eff_jing"] ++; 
+			update_flag++;
+	else :
+		update_flag++;
 
 	my["qi"] += my["con"] / 3 + my["max_neili"] / 10;
-	if( my["qi"] >= my["eff_qi"] )
-	{
+	if( my["qi"] >= my["eff_qi"] ):
 		my["qi"] = my["eff_qi"];
-		if( my["eff_qi"] < my["max_qi"] )
-		{
-			my["eff_qi"] ++; update_flag++;
-		}
-	} else update_flag++;
-
-	if( my["max_jingli"] && my["jingli"] < my["max_jingli"] )
-	{
-		my["jingli"] += (int)this_object().query_skill("taoism", 1)/20;
-		if(my["jingli"]>my["max_jingli"]) my["jingli"]=my["max_jingli"];
+		if( my["eff_qi"] < my["max_qi"] ):
+			my["eff_qi"] ++; 
+			update_flag++;
+	else :
 		update_flag++;
-	}
 
-	if( my["max_neili"] && my["neili"] < my["max_neili"] )
-	{
-		my["neili"] += (int)this_object().query_skill("force", 1)/2 + 
-			(int)this_object().query("sta")/3;
-		if(my["neili"] > my["max_neili"]) my["neili"] = my["max_neili"];
+	if( my["max_jingli"] && my["jingli"] < my["max_jingli"] ):
+		my["jingli"] += this_object().query_skill("taoism", 1)/20;
+		if(my["jingli"]>my["max_jingli"]) :
+			my["jingli"]=my["max_jingli"];
 		update_flag++;
-	}
 
-	if( my["max_tili"] && my["tili"] < my["max_tili"] )
-	{
-		my["tili"] += (int)this_object().query_skill("parry", 1)/2 +
-			(int)this_object().query("sta")/3;
-		if(my["tili"] > my["max_tili"]) my["tili"] = my["max_tili"];
+
+	if( my["max_neili"] && my["neili"] < my["max_neili"] ):
+		my["neili"] += this_object().query_skill("force", 1)/2 + 
+			this_object().query("sta")/3;
+		if(my["neili"] > my["max_neili"]) :
+			my["neili"] = my["max_neili"];
 		update_flag++;
-	}
+
+
+	if( my["max_tili"] && my["tili"] < my["max_tili"] ):
+		my["tili"] += this_object().query_skill("parry", 1)/2 +
+			this_object().query("sta")/3;
+		if(my["tili"] > my["max_tili"]) :
+			my["tili"] = my["max_tili"];
+		update_flag++;
+
 
 	return update_flag;
-}
+
