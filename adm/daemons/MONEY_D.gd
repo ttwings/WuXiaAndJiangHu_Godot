@@ -48,7 +48,7 @@ func price_str(amount:int):
 func pay_player(who, amount:int):
     var v
     var ob
-	var err
+	# var err
 	seteuid(getuid());
     if (amount < 1):
         amount = 1;

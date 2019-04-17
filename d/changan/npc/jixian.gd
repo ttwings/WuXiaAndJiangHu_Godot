@@ -1,15 +1,14 @@
-/*  <SecCrypt CPL V3R05>  */
+# /*  <SecCrypt CPL V3R05>  */
  
-//  created  7/6/1997  by  snowcat
+#  created  7/6/1997  by  snowcat
 #include  <ansi.h>
 
-inherit  NPC;
+extends  Npc;
 
-object  room  =  0;
+var  room  =  0;
 
-void  create()
-{
-    set_name("白髯鸡仙",  ({"ji  xian",  "xian"  }));
+func create():
+    set_name("白髯鸡仙", "ji  xian");
     set("gender",  "男性");
     set("age",  60);
     set("per",  30);
@@ -27,46 +26,36 @@ void  create()
     set("max_neili",  150);
     setup();
     carry_object(__DIR__"obj/magua")->wear();
-}
 
-void  init()
-{
-    ::init();
+
+func init():
+    .init();
     add_action("do_fight",  "fight");
     add_action("do_kill",  "kill");
-    if  (room  ==  0)
-        room  =  environment  (this_object());
-}
+    if(room  ==  0):
+        room  =  environment(this_object());
 
-void  refuse_message  (object  me,  object  who)
-{
+
+func refuse_message(me,  who):
     message_vision  ("$N说：人斗人？还是看鸡斗鸡有趣些吧。\n",me,who);
-}
 
-int  do_fight(string  arg)
-{
-    object  who  =  this_player();
-    object  me  =  this_object();
+func do_fight(arg):
+    var who  =  this_player();
+    var me  =  this_object();
 
-    if  (arg  &&  present(arg,environment(who))==me)
-    {
+    if(arg  &&  present(arg,environment(who))==me):
         message_vision  ("$N看样子输红了眼，想找$n打架。\n",who,me);
         refuse_message  (me,who);
         return  1;
-    }
     return  0;
-}
 
-int  do_kill(string  arg)
-{
-    object  who  =  this_player();
-    object  me  =  this_object();
 
-    if  (arg  &&  present(arg,environment(who))==me)
-    {
+func do_kill(arg):
+    var who  =  this_player();
+    var me  =  this_object();
+
+    if(arg  &&  present(arg,environment(who))==me):
         message_vision  ("$N看样子输红了眼，想杀$n。\n",who,me);
         refuse_message  (me,who);
         return  1;
-    }
     return  0;
-}

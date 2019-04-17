@@ -2,7 +2,7 @@
 # inherit ITEM;
 extends Item
 func create():
-    set_name(YEL "手信" NOR, ({"letter"}));
+    set_name(YEL +"手信" +NOR, "letter");
     set("long","""
 这是一张已经发黄的草纸，上面写道...
 给我的后人：

@@ -23,7 +23,7 @@ func destruct_me() :
 func set_amount(v:int):
 	if( v < 0 ) error("combine:set_amount less than 1.\n");
 # //	if( v==0 ) destruct(this_object()); 
-	if( v==0 ) :
+	if( v == 0 ) :
 		# ::move(VOID_OB);
 		call_out("destruct_me", 1);
 	else :
@@ -46,17 +46,18 @@ func move(mixed dest, int silent):
 	var total;
 	var file;
 
-	if( ::move(dest, silent) ) {
+	if( .move(dest, silent) ):
 #		if( living(env = environment()) ) {
 		env = environment();
 		file = base_name(this_object());
 		inv = all_inventory(env);
-		total = (int)query_amount();
-		for(i=0; i<sizeof(inv); i++) :
+		total = query_amount();
+		# for(i=0; i<sizeof(inv); i++) :
+		for i in range(sizeof(inv)):
 			if( inv[i]==this_object() ) :
 				continue;
 			if( base_name(inv[i])==file ) :
-				total += (int)inv[i].query_amount();
+				total += inv[i].query_amount();
 				destruct(inv[i]);
 		set_amount(total);
 		return 1;

@@ -1,24 +1,23 @@
-// zhanggui.c
+# zhanggui.c
 
-inherit NPC;
-inherit F_DEALER;
+extends Npc;
+# inherit F_DEALER;
 
-void create()
-{
-	set_name("ÄÏ±±ÐÐÕÆ¹ñ", ({ "zhanggui" }));
+func create():
+	set_name("å—åŒ—è¡ŒæŽŒæŸœ", "zhanggui");
 	set("shen_type", 1);
 
-	set("gender", "ÄÐÐÔ");
+	set("gender", "ç”·æ€§");
 	set("age", 45);
 	set("long",
-	"Ëû×öÁË¼¸Ê®ÄêµÄÐ¡ÂòÂô£¬ÕæÃû·´¶øÃ»ÈËÖªµÀ£¬´ó¼Ò¶¼½ÐËûÕÆ¹ñ¡£\n");
+	"ä»–åšäº†å‡ åå¹´çš„å°ä¹°å–ï¼ŒçœŸååè€Œæ²¡äººçŸ¥é“ï¼Œå¤§å®¶éƒ½å«ä»–æŽŒæŸœã€‚\n");
 	set_skill("unarmed", 50);
 	set_skill("dodge", 50);
 	set_temp("apply/damage", 15);
 
 	set("combat_exp", 40000);
 	set("attitude", "friendly");
-	set("vendor_goods", ({
+	set("vendor_goods", [
 		"/d/xingxiu/obj/fire",
 		"/d/city/npc/obj/mabudai",
 		"/d/city/npc/obj/beixin",
@@ -33,14 +32,13 @@ void create()
 		"/d/city/npc/obj/pixue",
 		"/d/city/npc/obj/shoutao",
 		"/d/city/npc/obj/tieshou",
-	}));
+	]);
 	
 	setup();
-	carry_object("/clone/misc/cloth")->wear();
-}
+	carry_object("/clone/misc/cloth").wear();
 
-void init()
-{
+
+func init():
 	add_action("do_list", "list");
 	add_action("do_buy", "buy");
-}
+

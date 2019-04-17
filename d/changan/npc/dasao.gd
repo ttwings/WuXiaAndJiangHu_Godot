@@ -4,9 +4,9 @@
 # inherit F_DEALER;
 extends Npc
 func create():
-	set_name("??","da sao");
+	set_name("大嫂","da sao");
 	set("age", 32);
-	set("gender", "??");
+	set("gender", "女性");
 	set("per", 20);
 	set("attitude", "friendly");
 
