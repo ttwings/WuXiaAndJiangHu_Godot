@@ -21,7 +21,7 @@ func add_money(type:String,amount:int):
 # This function is called by the reset() of the room that creates this
 # npc. When this function is called, it means the room demand the npc
 # to return its startroom.
-func return_home(home:Room):
+func return_home(home):
 	# Are we at home already?
 	if( !environment() || environment()==home ):
 		return 1;
@@ -75,18 +75,19 @@ func random_move():
 
 
 ################################# vendor ###########################
-func buy_object(me:Char,what:String):
+func buy_object(me,what:String):
 	var ob;
-	if( stringp(ob = query("vendor_goods/" + what)) ):
+	ob = query("vendor_goods/" + what)
+	if( stringp(ob) ):
 		return ob.query("value");
 	else:
 		return 0;
 
-func compelete_trade(me:Char, what:String):
+func compelete_trade(me, what:String):
 	var ob_file;
 	var ob;
-
-	if( stringp(ob_file = query("vendor_goods/" + what)) ):
+	ob_file = query("vendor_goods/" + what)
+	if( stringp(ob_file) ):
 		ob = new(ob_file);
 		ob.move(me);
 		message_vision("$N向$n买下一" + ob.query("unit") + ob.query("name") + "。\n",
@@ -111,7 +112,8 @@ func do_vendor_list(arg:String):
 		return 0;
 	name = keys(goods);
 	list = "你可以购买下列这些东西：\n";
-	for(i=0; i<sizeof(name); i++):
+#	for(i=0; i<sizeof(name); i++):
+	for i in range(name.size()):
 		list += sprintf("%-30s：%s\n",
 			goods[name[i]].query("name") + "(" +
 			goods[name[i]].query("id") + ")",

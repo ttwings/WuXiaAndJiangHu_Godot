@@ -1,4 +1,4 @@
-# extends GameObject
+extends GameObject
 
 class_name Item
 
@@ -105,6 +105,10 @@ func move(dest, silently:int = 1):
 
 	return 1;		
 
+# TODO. 先测试，后完善
+func move_object(ob):
+	print_debug(ob.name())
+	self.add_temp("objects",ob)
 
 ########################################  name ####################
 func set_name_cn(value1:String,value2:String):

@@ -215,7 +215,7 @@ func create():
 	pass	
 		
 ######################################### message #######################
-func message(version:String,msg:String,frome,to):
+func message(version:String,msg:String,frome=null,to=null):
 	print_debug(version,msg,frome.name(),to.name())
 	pass
 	
@@ -238,7 +238,7 @@ func notify_fail(message:String):
 	pass	
 
 # 各类信息发送
-func message_vision(message:String,ob:GameObject):
+func message_vision(message:String,ob):
 	# TODO
 #	print_debug(ob.query("name") + message)
 	var msg = message
@@ -247,7 +247,7 @@ func message_vision(message:String,ob:GameObject):
 	# emit_signal("message_ob_sended",msg,ob)
 	return msg
 
-func tell_object(who:GameObject,msg:String):
+func tell_object(who,msg:String):
 	#  TODO
 	who.add("msg",msg)
 	print_debug(who.name(),msg)		

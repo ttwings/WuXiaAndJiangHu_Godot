@@ -132,7 +132,10 @@ func previous_object():
 func base_name(ob):
 	self.name()
 	
-func sscanf(s,s1):
+func sscanf(s:String,s1:String):
+	var f = s.find(s1)
+	print_debug(f)
+	return f
 	pass	
 ########################################## F_APPERENCE 学徒##################
 
@@ -268,7 +271,7 @@ func kill_ob(ob):
 	var me = this_object();
 
 	if( me.query_temp("guardfor") == ob):
-		tell_object(me, HIR "不能杀你要保护的人！\n" NOR);
+		tell_object(me, HIR + "不能杀你要保护的人！\n" + NOR);
 		return;
 
 	if( environment(me).query("no_fight")) :
@@ -278,7 +281,7 @@ func kill_ob(ob):
 
 	if (me.is_killing(ob.query("id")) && me.is_fighting(ob)) :
 		return;
-	tell_object(ob, HIR "看起来" + this_object().name() + "想杀死你！\n" NOR);
+	tell_object(ob, HIR + "看起来" + this_object().name() + "想杀死你！\n" + NOR);
 
 	if( member_array(ob.query("id"), killer)==-1 ):
 		killer += [ ob.query("id") ];
@@ -310,7 +313,7 @@ func kill_ob(ob):
 
 		if ( sizeof(guards) > 0 ):
 			enemy += guards;
-			message("vision", HIR + ob.name() + "受到攻击！你挺身加入战团！\n" NOR, guards);
+			message("vision", HIR + ob.name() + "受到攻击！你挺身加入战团！\n" + NOR, guards);
 			guards.kill_ob(this_object());
 
 
@@ -340,7 +343,9 @@ func select_opponent():
 		return 0;
 
 	which = random(MAX_OPPONENT);
-	return which < sizeof(enemy) ? enemy[which] : enemy[0];
+	which = enemy[which] if which < sizeof(enemy) else enemy[0]
+#	return which < sizeof(enemy) ? enemy[which] : enemy[0];
+	return which
 
 # /*  for (i=0;i<sizeof(ob);i++)
 #         if (!objectp(ob[i]) || environment(ob[i])!=environment(me))
@@ -370,14 +375,15 @@ func remove_killer(ob):
 
 # Stop all fighting, but killer remains.
 func remove_all_enemy():
-	# for(int i=0; i<sizeof(enemy); i++)
-	for i in range enemy.size() :
+#	enemy.clear()
+	var size = enemy.size()
+	for i in range(size) :
 		# We ask our enemy to stop fight, but not nessessary to confirm
 		# if the fight is succeffully stopped, bcz the fight will start
 		# again if our enemy keeping call COMBAT_D.fight() on us.
 		if( enemy[i] is Char ) :
 			enemy[i].remove_enemy(this_object());
-		enemy[i] = 0;;
+		enemy[i] = 0
 
 	enemy = [];
 
@@ -387,9 +393,9 @@ func remove_all_killer() :
 	enemy -= [ 0 ];
 
 	# for(int i=0; i<sizeof(enemy); i++)
-	for i in range sizeof(enemy) :
+	for i in range(sizeof(enemy)) :
 		if( enemy[i].remove_killer(this_object()) ):
-			enemy[i] = 0;;
+			enemy[i] = 0
 
 	enemy -= [ 0 ];
 
@@ -408,8 +414,8 @@ func reset_action():
 
 	me = this_object();
 	prepare = query_skill_prepare();
-	
-	if( ob = query_temp("weapon") ) :
+	ob = query_temp("weapon")
+	if( ob or ob != "" ) :
 		type = ob.query("skill_type");
 	elif ( sizeof(prepare) == 0) :
 		type = "unarmed";
@@ -422,9 +428,9 @@ func reset_action():
 	if( stringp(skill) ):
 # If using a mapped skill, call the skill daemon.
 		if ( ob ):
-			set("actions", (: call_other, SKILL_D(skill), "query_action", me, ob :) );
+			set("actions", [ call_other, SKILL_D(skill), "query_action", me, ob ] );
 		else:
-			set("actions", (: call_other, SKILL_D(skill), "query_action" :) );
+			set("actions", [ call_other, SKILL_D(skill), "query_action" ] );
 	else :
 # Else, let weapon handle it.
 		if( ob ) :
@@ -459,29 +465,33 @@ func init() :
 	# most of these conditions are checked again in COMBAT_D's auto_fight()
 	# function,these check reduces lots of possible failure in the call_out
 	# launched by auto_fight() and saves some overhead.
+	
+	# TODO. 弄清楚再修改 
+	ob = this_player()
 	if( is_fighting() || !living(this_object()) ||						\
 		this_object().query_temp("noliving") ||							\
-		!(ob = this_player()) || environment(ob)!=environment() ||		\
+		! ob || environment(ob) != environment() ||						\
 		!living(ob) || ob.query_temp("noliving") ||						\
 		ob.query("linkdead") ):
 		return;
 
 	# Now start check the auto fight cases.
+	vendetta_mark = query("vendetta_mark")
 	if( userp(ob) && is_killing(ob.query("id")) ):
 		COMBAT_D.auto_fight(this_object(), ob, "hatred");
 		return;
-	elif( stringp(vendetta_mark = query("vendetta_mark")) &&			\
-			ob.query("vendetta/" + vendetta_mark) ) :
-			COMBAT_D.auto_fight(this_object(), ob, "vendetta");
-			return;
-		else:
-			if(userp(ob) && (string)query("attitude")=="aggressive"):
-				COMBAT_D.auto_fight(this_object(), ob, "aggressive");
-				return;
+	elif( stringp(vendetta_mark) &&			\
+		ob.query("vendetta/" + vendetta_mark) ) :
+		COMBAT_D.auto_fight(this_object(), ob, "vendetta");
+		return;
+	elif (userp(ob) && query("attitude")=="aggressive"):
+		COMBAT_D.auto_fight(this_object(), ob, "aggressive");
+		return;
 
 
-func do_ride_none(object me):
-	var ob,*inv;
+func do_ride_none(me):
+	var ob
+	var inv;
 	var i = 0;
 
 #	if( !this = find_object( VOID_OB ) )
@@ -494,7 +504,7 @@ func do_ride_none(object me):
 			ob = inv[i];
 			i = -10;
 
-		i++;
+		i = i + 1;
 
 	if( i >= 0 ):
 		return notify_fail("发现错误！\n");
@@ -611,8 +621,8 @@ func update_condition():
 	var flag
 	var update_flag
 	var cnd_d
-
-	if( !mapp(conditions) || !(i=sizeof(conditions)) ) :
+	i = conditions.size()
+	if( !mapp(conditions) || i <= 0 ) :
 		return 0;
 	cnd = keys(conditions);
 	update_flag = 0;
@@ -660,7 +670,7 @@ func update_condition():
 
 func apply_condition(cnd:String, info):
 	if( !mapp(conditions) ):
-		conditions = ([ cnd : info ]);
+		conditions = { cnd : info };
 	else:
 		conditions[cnd] = info;
 
@@ -676,18 +686,19 @@ func query_condition(cnd:String):
 
 
 func query_entire_conditions():
-    return conditions;
+	return conditions;
 
 
 func query_conditions_by_type(required_type:String):
-    var cnd_d
-    var i
-    var cnd_type
+	var cnd_d
+	var i
+	var cnd_type
 	var cnd
 	var err
-	if (!mapp(conditions) || !(i = sizeof(conditions))) :
+	
+	if (!mapp(conditions) || !sizeof(conditions) > 0) :
 		return 0;
-    type_conditions = 0;
+	type_conditions = 0;
 	cnd = keys(conditions);
 	i = i - 1
 	# In order to not casue player lost heart beat occasionally while
@@ -716,7 +727,7 @@ func query_conditions_by_type(required_type:String):
 		cnd_type = call_other(cnd_d, "query_type", this_object());
 		if (cnd_type == required_type):
 			if (!mapp(type_conditions)) :
-				type_conditions = ([ cnd[i]: conditions[cnd[i]] ]);
+				type_conditions = { cnd[i]: conditions[cnd[i]] };
 			else :
 				type_conditions[cnd[i]] = conditions[cnd[i]];
 
@@ -732,7 +743,7 @@ func query_conditions_by_type(required_type:String):
 func clear_condition(cnd:String):
 	if (!cnd):
 		conditions = 0;
-	else if (mapp(conditions)) :
+	elif (mapp(conditions)) :
 		map_delete(conditions, cnd);
 
 
@@ -743,7 +754,7 @@ func clear_conditions_by_type(required_type:String):
 	var cnd 
 	var err
 
-	if (!mapp(conditions) || !(i = sizeof(conditions))) :
+	if (!mapp(conditions) || ! sizeof(conditions) > 0) :
 		return;
 	cnd = keys(conditions);
 	i = i - 1
@@ -779,7 +790,7 @@ func clear_conditions_by_type(required_type:String):
 
 const ENTRY_ROOM = "/d/huashan/sheshen"
 var ghost = 0;
-var is_ghost() :
+func is_ghost() :
 	return ghost
 func set_ghost(i) :
 	ghost=i
@@ -848,7 +859,7 @@ func receive_wound(type:String, damage:int,reason):
 	return damage;
 
 
-func receive_heal(type:String, heal:int)
+func receive_heal(type:String, heal:int):
 	var val;
 
 	if( heal < 0 ) :
@@ -864,20 +875,20 @@ func receive_heal(type:String, heal:int)
 	return heal;
 
 
-func receive_curing(type:String, heal:int)
-	var max, val;
-
+func receive_curing(type:String, heal:int):
+	var max_
+	var val
 	if( heal < 0 ) :
 		error("F_DAMAGE: 恢复值为负值。\n");
 	if( type!="jing" && type!="qi" ):
 		error("F_DAMAGE: 恢复种类错误( 只能是 jing, qi 其中之一 )。\n");
 
 	val = query("eff_" + type);
-	max = query("max_" + type);
+	max_ = query("max_" + type);
 
-	if( val + heal > max ) :
-		set("eff_" + type, max);
-		return max - val;
+	if( val + heal > max_ ) :
+		set("eff_" + type, max_);
+		return max_ - val;
 	else :
 		set( "eff_" + type, val + heal);
 		return heal;
@@ -894,8 +905,8 @@ func unconcious():
 		return;
 	if( wizardp(this_object()) && query("env/immortal") ) :
 		return;
-
-	if( objectp(defeater = query_temp("last_damage_from")) ):
+	defeater = query_temp("last_damage_from")
+	if( objectp(defeater) ):
 			COMBAT_D.winner_reward(defeater, this_object());
 	if (environment(this_object())==environment(defeater)):
 		if (this_object().query("max_nuqi")):
@@ -903,14 +914,15 @@ func unconcious():
 
 	this_object().remove_all_enemy();
 	this_object().set_temp("faint_by", query_temp("last_damage_from")); 
-	if (objectp(riding = query_temp("is_riding"))):
-        message_vision("$N一头从$n上面栽了下来！\n",this_object(), riding);
-        delete_temp("is_riding");
-        riding.delete_temp("is_rided_by");
-        riding.move(environment());
-        
+	riding = query_temp("is_riding")
+	if (objectp(riding)):
+		message_vision("$N一头从$n上面栽了下来！\n",this_object(), riding);
+		delete_temp("is_riding");
+		riding.delete_temp("is_rided_by");
+		riding.move(environment());
+		
 
-	message("system", HIR "\n你的眼前一黑，接着什么也不知道了....\n\n" NOR, this_object());
+	message("system", HIR + "\n你的眼前一黑，接着什么也不知道了....\n\n" + NOR, this_object());
 # 避免add_action的bug
 	if(userp(this_object())):
 		this_object().set_temp("noliving/unconcious", 1);
@@ -939,16 +951,17 @@ func revive(quiet:int):
 	if( !quiet ):
 		COMBAT_D.announce(this_object(), "revive");
 		set_temp("block_msg/all", 0);
-		message("system", HIY "\n慢慢地你终于又有了知觉....\n\n" NOR, this_object());
+		message("system", HIY + "\n慢慢地你终于又有了知觉....\n\n" + NOR, this_object());
 	else:
 		set_temp("block_msg/all", 0);
 
 
 func die():
-	var corpse, killer;
-	var i;
-	var reason;
-	var riding;
+	var corpse
+	var killer
+	var i
+	var reason
+	var riding
 
 	
 	if( !living(this_object()) || this_object().query_temp("noliving") ):
@@ -964,7 +977,7 @@ func die():
 	if(userp(this_object()) && this_object().is_ghost()):
 		this_object().receive_curing("jing", 10);
 		this_object().receive_curing("qi", 10);
-		message_vision(HIW "黑白索魂无常忽然出现，喝道：何方孤魂野鬼，快快随我前去阎罗大殿！\n" NOR, this_object());
+		message_vision(HIW + "黑白索魂无常忽然出现，喝道：何方孤魂野鬼，快快随我前去阎罗大殿！\n" + NOR, this_object());
 		this_object().move("/d/death/dadian");
 		return;
 
@@ -972,19 +985,19 @@ func die():
 
 # 擂台比武不死
 	if (file_name(environment(this_object())) == "/d/city/leitai"):
-		message_vision(HIR "公平子道：“已分胜负，不决生死。”\n" NOR, this_object());
+		message_vision(HIR + "公平子道：“已分胜负，不决生死。”\n" + NOR, this_object());
 		this_object().move("/d/city/wudao4");
 		this_object().receive_curing("jing", 10);
 		this_object().receive_curing("qi", 10);
 		return;
 	
 	if (userp(this_object())&& environment(this_object()).query("bwdhpk")):
-        message_vision(HIR "华山论剑，只分胜负，不决生死！。\n" NOR, this_object());
-		message_vision(HIR "$N被抬了下去。\n" NOR, this_object());
+		message_vision(HIR + "华山论剑，只分胜负，不决生死！。\n" + NOR, this_object());
+		message_vision(HIR + "$N被抬了下去。\n" + NOR, this_object());
 		killer = query_temp("last_damage_from")
 		if( objectp(killer) ):
 			killer.add_temp("bwdh_pknum",1);
-			message("channel:chat", HIC"【华山论剑】公平子："+this_object().query("name")+"不敌"+killer.query("name")+"，被迫退出华山论剑！\n"NOR,users() );
+			message("channel:chat", HIC + "【华山论剑】公平子："+this_object().query("name")+"不敌"+killer.query("name")+"，被迫退出华山论剑！\n" + NOR,users() );
 	
 	this_object().set("eff_jing", this_object().query("max_jing"));
 	this_object().set("jing", this_object().query("max_jing"));
@@ -999,27 +1012,28 @@ func die():
 	this_object().delete_temp("bwdh_nknum");
 	this_object().move(ENTRY_ROOM);
 	return;
-	
-    if (objectp(riding = query_temp("is_riding"))):
-        message_vision("$N一头从$n上面栽了下来！\n",this_object(), riding);
-        delete_temp("is_riding");
-        riding.delete_temp("is_rided_by");
-        riding.move(environment());
+	riding = query_temp("is_riding")
+	if (objectp(riding)):
+		message_vision("$N一头从$n上面栽了下来！\n",this_object(), riding);
+		delete_temp("is_riding");
+		riding.delete_temp("is_rided_by");
+		riding.move(environment());
 
 
 
 	if (this_object().query_condition("huaiyun") > 0 && this_object().query_condition("huaiyun") < 2560 ):
 		tell_object(this_object(),"你莫名地感到一阵心痛。。。\n");
-	if( objectp(killer = query_temp("last_damage_from")) && file_name(environment(killer)) == file_name(environment(this_object()))):
+	killer = query_temp("last_damage_from")	
+	if( objectp(killer) && file_name(environment(killer)) == file_name(environment(this_object()))):
 # Clear all the conditions by normal death.
 		if ( userp(this_object()) && userp(killer) && (!environment(this_object()).query("bwdhpk")) &&	\
-			(time()-this_object().query("dietime")<13400 ||	time()-killer.query("killertime")<13400)):											\		
+			(time()-this_object().query("dietime")<13400 ||	time()-killer.query("killertime")<13400)):	
 			this_object().set("eff_qi",10);
 			this_object().set("eff_jing",10);
 			this_object().set("qi",10);
 			this_object().set("jing",10);
-			message_vision(HIY "\n天后仙子"HIC"自云中飘然而下："HIR"一日不过四。不准频繁屠杀！\n" NOR, this_object());
-			message_vision(HIG "挥起长袖，摆起一阵香风把"+this_object().name()+"刮回武庙。\n" NOR, this_object());
+			message_vision(HIY + "\n天后仙子自云中飘然而下：一日不过四。不准频繁屠杀！\n" + NOR, this_object());
+			message_vision(HIG + "挥起长袖，摆起一阵香风把"+this_object().name()+"刮回武庙。\n" + NOR, this_object());
 			this_object().move("/d/city/wumiao");
 			this_object().start_busy(10);
 			return;
@@ -1037,11 +1051,13 @@ func die():
 		if(userp(this_object())):
 
 			this_object().set("last_die_msg","死得很离奇");
-			if (stringp(reason=this_object().query_temp("die_reason"))):
+			reason=this_object().query_temp("die_reason")
+			if (stringp(reason)):
 				this_object().set("last_die_msg",reason);
-			elif (stringp(reason=this_object().query_temp("last_damage_from"))):
+			elif (stringp(this_object().query_temp("last_damage_from"))):
+				reason=this_object().query_temp("last_damage_from")
 				this_object().set("last_die_msg",reason+"死了");
-			message("channel:rumor", HIM"【谣言】"+"听说"+this_object().name()+ HIM"死了，而且死得很离奇。\n"NOR, users());
+			message("channel:rumor", HIM + "【谣言】"+"听说"+this_object().name()+ NOR + HIM + "死了，而且死得很离奇。\n" + NOR, users());
 
 			this_object().delete("last_die_by_name");
 			this_object().delete("last_die_by_id");
@@ -1052,7 +1068,8 @@ func die():
 	COMBAT_D.announce(this_object(), "dead");
 	if (this_player().query_condition("huaiyun")):
 		this_object().clear_condition("huaiyun");
-	if( objectp(corpse = CHAR_D.make_corpse(this_object(), killer)) ):
+	corpse = CHAR_D.make_corpse(this_object(), killer)
+	if( objectp(corpse) ):
 		corpse.move(environment());
 # 超度用的经验值
 		corpse.set("combat_exp", this_object().query("combat_exp"));
@@ -1085,7 +1102,7 @@ func die():
 	else:
 #浩劫系统的触发条件
 		LOGIN_D.add_dienpc();
-        destruct(this_object());
+		destruct(this_object());
 
 
 func max_food_capacity() :
@@ -1102,8 +1119,9 @@ func reincarnate():
 	set("water",max_water_capacity());
 
 func heal_up():
-	var update_flag, i;
-	var my;
+	var update_flag
+	var i
+	var my
 
 #	if( this_object().is_fighting() ) return -1;
 	update_flag = 0;
@@ -1119,9 +1137,11 @@ func heal_up():
 		return 0;
 
 	if( my["water"] > 0 ) :
-		{ my["water"] -= 1; update_flag++; }
+		my["water"] -= 1
+		update_flag += 1
 	if( my["food"] > 0 ) :
-		{ my["food"] -= 1; update_flag++; }
+		my["food"] -= 1
+		update_flag += 1
 	#人和宠物如果没饮水，不能恢复身体。
 	if( my["water"] < 1 && (userp(this_object()) || this_object().query("ownername")) ):
 		return update_flag;
@@ -1133,41 +1153,39 @@ func heal_up():
 	if( my["jing"] >= my["eff_jing"] ):
 		my["jing"] = my["eff_jing"];
 		if( my["eff_jing"] < my["max_jing"] ):
-			my["eff_jing"] ++; 
-			update_flag++;
+			my["eff_jing"] += 1 
+			update_flag +=1
 	else :
-		update_flag++;
+		update_flag +=1
 
 	my["qi"] += my["con"] / 3 + my["max_neili"] / 10;
 	if( my["qi"] >= my["eff_qi"] ):
 		my["qi"] = my["eff_qi"];
 		if( my["eff_qi"] < my["max_qi"] ):
-			my["eff_qi"] ++; 
-			update_flag++;
+			my["eff_qi"] +=1 
+			update_flag+=1
 	else :
-		update_flag++;
+		update_flag+=1
 
 	if( my["max_jingli"] && my["jingli"] < my["max_jingli"] ):
 		my["jingli"] += this_object().query_skill("taoism", 1)/20;
 		if(my["jingli"]>my["max_jingli"]) :
 			my["jingli"]=my["max_jingli"];
-		update_flag++;
+		update_flag+=1
 
 
 	if( my["max_neili"] && my["neili"] < my["max_neili"] ):
-		my["neili"] += this_object().query_skill("force", 1)/2 + 
-			this_object().query("sta")/3;
+		my["neili"] += this_object().query_skill("force", 1)/2 + this_object().query("sta")/3;
 		if(my["neili"] > my["max_neili"]) :
 			my["neili"] = my["max_neili"];
-		update_flag++;
+		update_flag+=1
 
 
 	if( my["max_tili"] && my["tili"] < my["max_tili"] ):
-		my["tili"] += this_object().query_skill("parry", 1)/2 +
-			this_object().query("sta")/3;
+		my["tili"] += this_object().query_skill("parry", 1)/2 + this_object().query("sta")/3;
 		if(my["tili"] > my["max_tili"]) :
 			my["tili"] = my["max_tili"];
-		update_flag++;
+		update_flag+=1
 
 
 	return update_flag;
@@ -1202,17 +1220,17 @@ func can_afford(amount):
 		return 0;
 
 	if( coin ) :
-		amount -= (int)coin.value();
+		amount -= coin.value();
 	if( amount <= 0 ) :
 		return 1;
-	else if( amount % 100 ) :
+	elif( amount % 100 ) :
 		return 2;
 
 	if( silver ) :
-		amount -= (int)silver.value();
+		amount -= silver.value();
 	if( amount <= 0 ) :
 		return 1;
-	else if( amount % 10000 ) :
+	elif( amount % 10000 ) :
 		return 2;
 
 	return 1;
@@ -1244,7 +1262,7 @@ func pay_money(amount):
 			gold.add_amount(-amount/10000);
 			amount %= 10000;
 		else :
-			amount -= (int)gold.value();
+			amount -= gold.value();
 			gold.set_amount(0);
 
 
@@ -1253,7 +1271,7 @@ func pay_money(amount):
 			silver.add_amount(-amount/100);
 			amount %= 100;
 		else :
-			amount -= (int)silver.value();
+			amount -= silver.value();
 			silver.set_amount(0);
 
 	if( coin && amount > 0 ) :
@@ -1395,15 +1413,15 @@ func heart_beat():
 # }
 
 # -------------- props ----------
-var max_food_capacity
-var max_water_capacity
-func max_food_capacity():
-	max_food_capacity = query("str") * 5 + 300
-	return max_food_capacity
-
-func max_water_capacity():
-	max_food_capacity = query("int") * 5 + 300
-	return max_food_capacity
+#var max_food_capacity
+#var max_water_capacity
+#func max_food_capacity():
+#	max_food_capacity = query("str") * 5 + 300
+#	return max_food_capacity
+#
+#func max_water_capacity():
+#	max_food_capacity = query("int") * 5 + 300
+#	return max_food_capacity
 	
 #var skills = {}
 #var test_skills = {}
@@ -1802,7 +1820,6 @@ func follow_path(dir:String):
 		this_object().remove_all_enemy();
 		return GO_CMD.main(this_object(), dir);
 	#}
-}
 
 func follow_me(ob, dir:String):
 	if( !living(this_object()) || this_object().query_temp("noliving") || ob==this_object() ) :
@@ -1875,10 +1892,21 @@ func query_team():
 
 
 
-###################### tools ##############
-# func chinese_number(i:int):
-# 	CHINESE_D.chinese_number(i)
+##################### tools ##############
+
+func this_player():
+	return Global.this_player()
 	
+func call_out(arg1,arg2,agr3):
+	pass	
+
+func chinese_number(i:int):
+	CHINESE_D.chinese_number(i)
+	
+	
+func member_array(ob,m_array:Array):
+	var num = m_array.find(ob)
+	return num
 # func this_object(ob=self):
 # 	return ob
 	

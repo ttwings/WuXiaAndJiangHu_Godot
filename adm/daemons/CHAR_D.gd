@@ -4,15 +4,15 @@
 # Modified by winder@XKX100
 
 #include <ansi.h> 
-var HUMAN_RACE 		= "load(res://adm/daemons/race/human.gd").new()
-var BEAST1_RACE 	= "load(res://adm/daemons/race/beast1.gd").new()
-var BEAST_RACE	 	= "load(res://adm/daemons/race/beast.gd").new()
-var MONSTER_RACE 	= "load(res://adm/daemons/race/monster.gd").new()
-var STOCK_RACE 		= "load(res://adm/daemons/race/stock.gd").new()
-var BIRD_RACE 		= "load(res://adm/daemons/race/bird.gd").new()
-var FISH_RACE 		= "load(res://adm/daemons/race/fish.gd").new()
-var SNAKE_RACE 		= "load(res://adm/daemons/race/snake.gd").new()
-var INSECT_RACE 	= "load(res://adm/daemons/race/insect.gd").new()
+var HUMAN_RACE 		= preload("res://adm/daemons/race/human.gd").new()
+var BEAST1_RACE 	= preload("res://adm/daemons/race/beast1.gd").new()
+var BEAST_RACE	 	= preload("res://adm/daemons/race/beast.gd").new()
+var MONSTER_RACE 	= preload("res://adm/daemons/race/monster.gd").new()
+var STOCK_RACE 		= preload("res://adm/daemons/race/stock.gd").new()
+var BIRD_RACE 		= preload("res://adm/daemons/race/bird.gd").new()
+var FISH_RACE 		= preload("res://adm/daemons/race/fish.gd").new()
+var SNAKE_RACE 		= preload("res://adm/daemons/race/snake.gd").new()
+var INSECT_RACE 	= preload("res://adm/daemons/race/insect.gd").new()
 
 func setup_char(ob):
 	var race;
@@ -160,7 +160,7 @@ func make_corpse(victim, killer):
 		return 0;
 	
 	# todo
-#	corpse = new(CORPSE_OB);      
+	corpse = new_ob(CORPSE_OB);      
 	
 	corpse.set_name( victim.name(1) + "的尸体","corpse" );
 	# todo
@@ -182,8 +182,8 @@ func make_corpse(victim, killer):
 	victim.set_temp("die_by_from",corpse.query("kill_by"));
 	corpse.set_weight( victim.query_weight() );
 	corpse.set_max_encumbrance( victim.query_max_encumbrance() );
-	# todo
-#	corpse.move(environment(victim)); 
+	# TODO.
+	corpse.move(environment(victim)); 
 
 # Don't let wizard left illegal items in their corpses.
 	# if( !wizardp(victim) ) {      

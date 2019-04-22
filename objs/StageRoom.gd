@@ -398,7 +398,7 @@ func create_room_objects():
 		$RoomPanel/Objects.add_child(obj_button)			
 
 func create_room_object_panel(ob):
-	print_debug(ob.name())
+	# print_debug(ob.name())
 #	ob as Char
 #	var ob = load("res://d/changan/npc/feng.gd").new()
 #	creat_chat_panel(ob)
