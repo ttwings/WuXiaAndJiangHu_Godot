@@ -6,11 +6,12 @@ inherit SWORD;
 
 void create()
 {
-	set_name("賭喜", ({ "ruler" }) );
+	set_name("賭喜", ({"ruler"}));
 	set_weight(700);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "參");
 		set("long", "珨參窪纕纕腔賭喜ㄝ\n");
 		set("value", 80);
@@ -21,4 +22,3 @@ void create()
 	init_sword(10);
 	setup();
 }
-

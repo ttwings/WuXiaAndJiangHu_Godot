@@ -15,11 +15,12 @@ void init()
 
 void create()
 {
-	set_name(YEL"九阴假经"NOR, ({ "mask_jiuyin", "jiuyin-jiajing" }));
+	set_name(YEL "九阴假经" NOR, ({"mask_jiuyin", "jiuyin-jiajing"}));
 	set_weight(300);
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "本");
 		set("material", "paper");
 		set("no_drop", "你好不容易拿到手的宝经，你舍得丢么？\n");
@@ -32,8 +33,8 @@ int do_du(string arg)
 {
 	if (!arg && arg != "mask_jiuyin" && arg != "jiuyin-jiajing")
 		return notify_fail("你要读什么？\n");
-	if (!present(this_object(), this_player())) return 0;
+	if (!present(this_object(), this_player()))
+		return 0;
 
 	return notify_fail("没有人解释经义，你自己能看得懂么？\n");
 }
-

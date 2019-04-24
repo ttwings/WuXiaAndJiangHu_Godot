@@ -9,9 +9,10 @@ void create()
 {
 	set_name("ÀÇÆ¤È¹", ({"wolf skirt", "skirt"}));
 	set_weight(1000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("material", "cloth");
 		set("unit", "¼þ");
 		set("value", 100);
@@ -19,4 +20,3 @@ void create()
 	}
 	setup();
 }
-

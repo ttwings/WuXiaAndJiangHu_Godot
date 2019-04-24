@@ -8,11 +8,12 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(HIW"白玉瑶琴"NOR, ({ "yao qin", "qin"}));
+	set_name(HIW "白玉瑶琴" NOR, ({"yao qin", "qin"}));
 	set_weight(6000);
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "具");
 		set("long", "这是一具用白玉做成的瑶琴。\n");
 		set("value", 2000);
@@ -23,4 +24,3 @@ void create()
 	init_sword(100);
 	setup();
 }
-

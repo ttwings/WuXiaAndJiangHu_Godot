@@ -8,9 +8,10 @@ void create()
 {
 	set_name("亮银甲", ({"silver armor", "jia", "armor"}));
 	set_weight(30000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "件");
 		set("long", "一件银光灿灿的盔甲．\n");
 		set("value", 8000);
@@ -20,4 +21,3 @@ void create()
 	}
 	setup();
 }
-

@@ -5,7 +5,8 @@
 inherit ITEM;
 
 void setup()
-{}
+{
+}
 
 void init()
 {
@@ -19,14 +20,15 @@ void create()
 	set_name("金创药", ({"jin chuangyao", "jin"}));
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "包");
 		set("long", "这是一包别具灵效的金创药，专治内外伤等。\n");
 		set("value", 2000);
 		set("no_drop", "这样东西不能离开你。\n");
 	}
 	set("pour_type", "1");
-	set("shaolin",1);
+	set("shaolin", 1);
 	setup();
 }
 
@@ -34,16 +36,17 @@ int do_eat(string arg)
 {
 	object me = this_player();
 
-	if(!id(arg)) return notify_fail("你要吃什么？\n");
-	if(!present(this_object(), me))
+	if (!id(arg))
 		return notify_fail("你要吃什么？\n");
-	if( me->is_busy() )
+	if (!present(this_object(), me))
+		return notify_fail("你要吃什么？\n");
+	if (me->is_busy())
 		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
 
 	if (me->query("eff_qi") == me->query("max_qi"))
 		return notify_fail("你现在不需要用金创药。\n");
-	
-	if ( (int)me->query_condition("bonze_drug" ) > 0 )
+
+	if ((int)me->query_condition("bonze_drug") > 0)
 	{
 		this_player()->receive_damage("qi", 50);
 		message_vision(HIR "$N吃下一包金创药，只觉胸口烦恶欲呕，四肢乏力，原来服食太急太多，药效适得其反！\n" NOR, me);
@@ -57,4 +60,3 @@ int do_eat(string arg)
 	destruct(this_object());
 	return 1;
 }
-

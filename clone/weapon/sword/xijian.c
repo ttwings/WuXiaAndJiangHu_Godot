@@ -6,11 +6,12 @@ inherit SWORD;
 
 void create()
 {
-	set_name("Ï¸½£", ({ "xi jian", "jian", "sword" }) );
+	set_name("Ï¸½£", ({"xi jian", "jian", "sword"}));
 	set_weight(1400);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "°Ñ");
 		set("value", 700);
 		set("material", "steel");

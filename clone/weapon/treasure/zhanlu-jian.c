@@ -8,11 +8,12 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(HIC"湛卢剑"NOR, ({ "zhanlu jian", "sword", "jian" }));
+	set_name(HIC "湛卢剑" NOR, ({"zhanlu jian", "sword", "jian"}));
 	set_weight(20000);
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "柄");
 		set("long", "这是春秋名匠欧冶子所铸的五口宝剑之湛卢剑。\n");
 		set("value", 100000);

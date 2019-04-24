@@ -8,11 +8,12 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(HIG"碧水剑"NOR, ({ "greenwater sword", "jian", "sword" }) );
+	set_name(HIG "碧水剑" NOR, ({"greenwater sword", "jian", "sword"}));
 	set_weight(7000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "把");
 		set("long", "这是一把通体晶莹剔透的剑!\n");
 		set("value", 400);

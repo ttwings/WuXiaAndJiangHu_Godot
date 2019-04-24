@@ -3,7 +3,7 @@
 
 inherit ITEM;
 
-string* titles = ({
+string *titles = ({
 	"韦陀棍法",
 	"普渡杖法",
 	"伏魔剑法",
@@ -11,7 +11,7 @@ string* titles = ({
 	"如影随形腿腿法",
 });
 
-string* skills = ({
+string *skills = ({
 	"weituo-club",
 	"pudu-staff",
 	"fumo-sword",
@@ -23,17 +23,16 @@ void create()
 {
 	int i = random(sizeof(titles));
 
-	set_name(titles[i], ({ "shaolin wuji", "wuji" }));
+	set_name(titles[i], ({"shaolin wuji", "wuji"}));
 	set_weight(200);
 	set("unit", "册");
 	set("long", "这是一册" + titles[i] + "\n");
 	set("value", 500);
 	set("material", "paper");
 	set("skill", ([
-		"name":	skills[i],
-		"exp_required":	10000,
-		"jing_cost": 15+random(30),
-		"difficulty":	25,
-		"max_skill":	99
-	]) );
+							 "name":skills[i],
+					 "exp_required":10000,
+						"jing_cost":15 + random(30),
+					   "difficulty":25,
+						"max_skill":99]));
 }

@@ -6,11 +6,12 @@ inherit SHIELD;
 
 void create()
 {
-	set_name("Å£Æ¤¶Ü", ({"leather shield","shield", "jia", "armor"}));
+        set_name("Å£Æ¤¶Ü", ({"leather shield", "shield", "jia", "armor"}));
         set_weight(6000);
-        if( clonep() )
+        if (clonep())
                 set_default_object(__FILE__);
-        else {
+        else
+        {
                 set("unit", "¼þ");
                 set("material", "wood");
                 set("value", 1000);
@@ -18,5 +19,3 @@ void create()
         }
         setup();
 }
-
-

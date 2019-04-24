@@ -8,9 +8,10 @@ void create()
 {
 	set_name("д╬ух", ({"bang"}));
 	set_weight(2000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "╟я");
 		set("value", 400);
 		set("material", "wood");
@@ -19,4 +20,3 @@ void create()
 	init_stick(20);
 	setup();
 }
-

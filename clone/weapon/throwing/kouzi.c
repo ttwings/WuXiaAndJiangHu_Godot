@@ -7,9 +7,10 @@ inherit THROWING;
 void create()
 {
 	set_name("Í­¿Û", ({"kouzi"}));
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("long", "Ò»Ã¶Ð¡Í­¿Û");
 		set("unit", "Ð©");
 		set("base_unit", "Ã¶");
@@ -20,4 +21,3 @@ void create()
 	init_throwing(20);
 	setup();
 }
-

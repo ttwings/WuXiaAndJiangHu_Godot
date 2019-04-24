@@ -6,11 +6,12 @@ inherit CLOTH;
 
 void create()
 {
-	set_name("¹¬È¹", ({ "gong qun", "skirt" }) );
+	set_name("¹¬È¹", ({"gong qun", "skirt"}));
 	set_weight(2700);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("long", "Ò»Ï®³¤³¤¹¬È¹£®\n");
 		set("unit", "Ï®");
 		set("value", 1000);
@@ -20,4 +21,3 @@ void create()
 	}
 	setup();
 }
-

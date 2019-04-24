@@ -4,11 +4,12 @@ inherit ITEM;
 
 void create()
 {
-	set_name( "唐诗剑谱",({ "tangshi jianpu","book"}));
+	set_name("唐诗剑谱", ({"tangshi jianpu", "book"}));
 	set_weight(200);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "本");
 		set("long","这是一本唐诗选辑。经过水浸泡后一些字显得格外醒目：
 

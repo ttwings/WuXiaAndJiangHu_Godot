@@ -8,9 +8,10 @@ void create()
 {
 	set_name("长袍", ({"chang pao", "pao", "cloth"}));
 	set_weight(2000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("long", "一件青色长袍，象是有学问的人穿的．\n");
 		set("unit", "件");
 		set("value", 200);
@@ -19,4 +20,3 @@ void create()
 	}
 	setup();
 }
-

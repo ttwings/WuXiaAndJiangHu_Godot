@@ -5,11 +5,12 @@ inherit SWORD;
 
 void create()
 {
-	set_name("御用剑", ({ "wizard sword", "sword", "jian" }));
+	set_name("御用剑", ({"wizard sword", "sword", "jian"}));
 	set_weight(5000);
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "柄");
 		set("long", "这是一柄神仙用的御用剑，通体散发着金色的光芒。\n");
 		set("value", 100);

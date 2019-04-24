@@ -1,4 +1,4 @@
-// diaopi.c 
+// diaopi.c
 
 #include <armor.h>
 
@@ -6,16 +6,16 @@ inherit CLOTH;
 
 void create()
 {
-        set_name("ıı∆§", ({ "diao pi", "pi" }) );
+        set_name("ıı∆§", ({"diao pi", "pi"}));
         set_weight(2000);
-        if( clonep() )
+        if (clonep())
                 set_default_object(__FILE__);
-        else {
+        else
+        {
                 set("unit", "øÓ");
                 set("material", "fur");
-		set("value", 5000);
+                set("value", 5000);
                 set("armor_prop/armor", 3);
         }
         setup();
 }
-

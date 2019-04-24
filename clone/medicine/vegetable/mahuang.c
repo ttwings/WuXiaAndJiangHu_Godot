@@ -11,10 +11,11 @@ void init()
 
 void create()
 {
-	set_name(HIY"麻黄"NOR, ({"mahuang" }));
+	set_name(HIY "麻黄" NOR, ({"mahuang"}));
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "包");
 		set("vegetable", 32);
 		set("value", 100);
@@ -30,10 +31,11 @@ int do_eat(string arg)
 {
 	object me = this_player();
 
-	if(!id(arg)) return notify_fail("你要吃什么？\n");
-	if(!present(this_object(), me))
+	if (!id(arg))
 		return notify_fail("你要吃什么？\n");
-	if( me->is_busy() )
+	if (!present(this_object(), me))
+		return notify_fail("你要吃什么？\n");
+	if (me->is_busy())
 		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
 
 	write("麻黄不能这么吃。\n");

@@ -10,12 +10,13 @@ void create()
 	set_weight(300);
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("long", "Ò»¿éÏÊÑªÁÜÀì·ÊµÄÒ°ÍÃÈâ¡£\n");
 		set("unit", "¿é");
 		set("value", 50);
 		set("food_remaining", 4);
 		set("food_supply", 50);
-//		set("food_race","Ò°ÊŞ");
+		//		set("food_race","Ò°ÊŞ");
 	}
 }

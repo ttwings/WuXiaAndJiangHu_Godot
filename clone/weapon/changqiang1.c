@@ -5,11 +5,12 @@ inherit SPEAR;
 
 void create()
 {
-	set_name("长枪", ({ "chang qiang","qiang","changqiang" }) );
+	set_name("长枪", ({"chang qiang", "qiang", "changqiang"}));
 	set_weight(5000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "杆");
 		set("long", "这是一杆比武专用的的精钢长枪,威力非比寻常.\n");
 		set("value", 0);

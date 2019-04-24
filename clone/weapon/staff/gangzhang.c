@@ -8,9 +8,10 @@ void create()
 {
 	set_name("∏÷’»", ({"gang zhang", "zhang", "staff"}));
 	set_weight(6000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "∞—");
 		set("value", 300);
 		set("material", "steel");
@@ -21,4 +22,3 @@ void create()
 	init_staff(35);
 	setup();
 }
-

@@ -10,7 +10,8 @@ void create()
 	set_weight(5000);
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "柄");
 		set("long", "这是一柄长长的精钢剑，剑口锋利。\n");
 		set("value", 500);

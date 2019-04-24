@@ -8,9 +8,10 @@ void create()
 {
 	set_name("ф╓еш", ({"pi pao", "pao", "cloth"}));
 	set_weight(4000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "╪Ч");
 		set("value", 800);
 		set("material", "cloth");
@@ -18,4 +19,3 @@ void create()
 	}
 	setup();
 }
-

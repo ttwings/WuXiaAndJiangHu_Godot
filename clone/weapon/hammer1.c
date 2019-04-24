@@ -6,11 +6,12 @@ inherit HAMMER;
 
 void create()
 {
-        set_name("铁锤", ({ "hammer" }) );
+        set_name("铁锤", ({"hammer"}));
         set_weight(8000);
-        if( clonep() )
+        if (clonep())
                 set_default_object(__FILE__);
-        else {
+        else
+        {
                 set("unit", "把");
                 set("long", "这是一把沈重的铁锤，打造的相当坚实。\n");
                 set("value", 0);

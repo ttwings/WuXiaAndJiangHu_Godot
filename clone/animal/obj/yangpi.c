@@ -6,11 +6,12 @@ inherit CLOTH;
 
 void create()
 {
-	set_name("—Ú∆§", ({ "yang pi", "pi", "lamb skin" }) );
+	set_name("—Ú∆§", ({"yang pi", "pi", "lamb skin"}));
 	set_weight(3000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "øÈ");
 		set("material", "fur");
 		set("value", 400);
@@ -18,4 +19,3 @@ void create()
 	}
 	setup();
 }
-

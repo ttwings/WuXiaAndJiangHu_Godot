@@ -6,11 +6,12 @@ inherit RAKE;
 
 void create()
 {
-	set_name("¸Ö°Ò", ({ "gang pa", "pa","rake" }) );
+	set_name("¸Ö°Ò", ({"gang pa", "pa", "rake"}));
 	set_weight(8000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "±ú");
 		set("value", 1000);
 		set("material", "iron");
@@ -20,4 +21,3 @@ void create()
 	init_rake(25);
 	setup();
 }
-

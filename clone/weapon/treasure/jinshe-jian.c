@@ -8,11 +8,12 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(YEL"金蛇剑"NOR, ({ "jinshe jian", "sword", "jian" }));
+	set_name(YEL "金蛇剑" NOR, ({"jinshe jian", "sword", "jian"}));
 	set_weight(50000);
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "柄");
 		set("long", 
 "这剑金光灿烂，握在手中甚是沉重，看来竟是黄金混和了其他五

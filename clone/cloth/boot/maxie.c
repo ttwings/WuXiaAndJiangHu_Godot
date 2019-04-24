@@ -8,9 +8,10 @@ void create()
 {
 	set_name("麻鞋", ({"ma xie", "xie", "shoes"}));
 	set_weight(1000);
-	if ( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("long", "一双麻绳编制的鞋子。\n");
 		set("unit", "双");
 		set("value", 5);
@@ -19,5 +20,3 @@ void create()
 	}
 	setup();
 }
-
-

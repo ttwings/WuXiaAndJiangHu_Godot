@@ -4,10 +4,11 @@ inherit ITEM;
 
 void create()
 {
-	set_name(RED"º×¶¥ºì"NOR, ({"heding hong", "hong"}));
+	set_name(RED "º×¶¥ºì" NOR, ({"heding hong", "hong"}));
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("long", "Ò»Æ¿¾ç¶¾µÄ¶¾Ò©, Èç¹ûÓÃÀ´Á¶°µÆ÷ÓĞ¼ûÑª·âºíÖ®Ğ§. \n");
 		set("unit", "Æ¿");
 		set("value", 20000);
@@ -26,14 +27,15 @@ int do_drink(string arg)
 {
 	object me = this_player();
 
-	if(!id(arg)) return notify_fail("ÄãÒªºÈÊ²Ã´£¿\n");
-	if(!present(this_object(), this_player()))
+	if (!id(arg))
 		return notify_fail("ÄãÒªºÈÊ²Ã´£¿\n");
-	if( me->is_busy() )
+	if (!present(this_object(), this_player()))
+		return notify_fail("ÄãÒªºÈÊ²Ã´£¿\n");
+	if (me->is_busy())
 		return notify_fail("±ğ¼±£¬ÂıÂıºÈ£¬Ğ¡ĞÄ±ğÇº×ÅÁË¡£\n");
 
 	message_vision("$NÑöÍ·¹¾à½¹¾à½¹àÏÂÒ»Æ¿" + name() + "¡£\n", me);
-	me->set_temp("die_reason","ºÈÏÂº×¶¥ºì£¬×ÔÉ±ÉíÍöÁË");
+	me->set_temp("die_reason", "ºÈÏÂº×¶¥ºì£¬×ÔÉ±ÉíÍöÁË");
 	me->die();
 	destruct(this_object());
 	return 1;

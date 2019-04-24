@@ -11,7 +11,7 @@ void init()
 
 void create()
 {
-	set_name(HIG"鲨胆"NOR, ({"shadan", "dan"}));
+	set_name(HIG "鲨胆" NOR, ({"shadan", "dan"}));
 	set_weight(1000);
 	set("vegetable", 16);
 	set("value", 7000);
@@ -26,10 +26,11 @@ int do_eat(string arg)
 {
 	object me = this_player();
 
-	if(!id(arg)) return notify_fail("你要吃什么？\n");
-	if(!present(this_object(), me))
+	if (!id(arg))
 		return notify_fail("你要吃什么？\n");
-	if( me->is_busy() )
+	if (!present(this_object(), me))
+		return notify_fail("你要吃什么？\n");
+	if (me->is_busy())
 		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
 
 	me->set("eff_qi", this_player()->query("max_qi"));
@@ -37,4 +38,3 @@ int do_eat(string arg)
 	destruct(this_object());
 	return 1;
 }
-

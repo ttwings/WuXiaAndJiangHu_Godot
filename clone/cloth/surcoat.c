@@ -6,11 +6,12 @@ inherit SURCOAT;
 
 void create()
 {
-	set_name("Åû·ç", ({ "surcoat", "pi feng" }) );
+	set_name("Åû·ç", ({"surcoat", "pi feng"}));
 	set_weight(1600);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "¼þ");
 		set("material", "cloth");
 		set("value", 100);
@@ -18,4 +19,3 @@ void create()
 	}
 	setup();
 }
-

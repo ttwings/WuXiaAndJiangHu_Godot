@@ -9,13 +9,14 @@ void init();
 
 void create()
 {
-	set_name("豹子胆", ({ "baozi dan", "dan" }) );
+	set_name("豹子胆", ({"baozi dan", "dan"}));
 	set_weight(1000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "颗");
-		set("long", CYN"这是一颗象拳头一样大的豹子胆，又黑又绿。\n"NOR);
+		set("long", CYN "这是一颗象拳头一样大的豹子胆，又黑又绿。\n" NOR);
 		set("value", 10000);
 		set("medicine", 1);
 	}
@@ -26,7 +27,7 @@ int cure_ob(object me)
 {
 	me->add("food", 50);
 
-	if ( (int)me->query_condition("bonze_drug" ) > 0 )
+	if ((int)me->query_condition("bonze_drug") > 0)
 	{
 		me->add("max_jingli", -1);
 		me->add("eff_jingli", -1);
@@ -37,17 +38,20 @@ int cure_ob(object me)
 		return 1;
 	}
 
-	if( !me->query_temp("qz/baozidan") )
+	if (!me->query_temp("qz/baozidan"))
 	{
 		me->add_temp("apply/attack", 100);
 		me->set_temp("qz/baozidan", 1);
-		if(random(2)) me->set("max_jingli",me->query("max_jingli",1)+2);
-		me->start_call_out( (: call_other, __FILE__, "remove_effect", me :), me->query("con")*10);
+		if (random(2))
+			me->set("max_jingli", me->query("max_jingli", 1) + 2);
+		me->start_call_out((
+							   : call_other, __FILE__, "remove_effect", me:),
+						   me->query("con") * 10);
 	}
 
 	me->add("neili", 500);
 	me->apply_condition("bonze_drug",
-	me->query_condition("bonze_drug")+30);
+						me->query_condition("bonze_drug") + 30);
 	message_vision(HIY "$N吞下一颗豹子胆，只觉得全身充满热气，斗志昂扬，混身有劲。\n" NOR, me);
 	destruct(this_object());
 	return 1;
@@ -59,4 +63,3 @@ void remove_effect(object me)
 	me->delete_temp("qz/baozidan");
 	tell_object(me, "过了一会儿，豹子胆带来的余劲好象消失了。\n");
 }
-

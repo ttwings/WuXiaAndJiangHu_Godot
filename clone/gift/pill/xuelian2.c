@@ -1,15 +1,16 @@
 #include <ansi.h>
-inherit __DIR__"pill";
+inherit __DIR__ "pill";
 
 void create()
-{//2. 百年雪莲	CYN	30000		15000	5		产于大雪山之上的珍贵药材，服用后可提升轻功等级。
+{ //2. 百年雪莲	CYN	30000		15000	5		产于大雪山之上的珍贵药材，服用后可提升轻功等级。
 
-        set_name(CYN "百年雪莲" NOR, ({ "bainian xuelian",  "xuelian", "lian" }));
+        set_name(CYN "百年雪莲" NOR, ({"bainian xuelian", "xuelian", "lian"}));
         if (clonep())
                 set_default_object(__FILE__);
-        else {
-								set("long", CYN "产于大雪山之上的珍贵药材，服用后可提升轻功等级。\n" NOR);
-								set("unit", "株");
+        else
+        {
+                set("long", CYN "产于大雪山之上的珍贵药材，服用后可提升轻功等级。\n" NOR);
+                set("unit", "株");
                 set("value", 15000);
                 set("weight", 300);
                 set("pill_skill", "dodge");

@@ -12,5 +12,5 @@ inherit F_NAME;
 void setup()
 {
 	seteuid(getuid());
-	set("weight",100);
+	set("weight", 100);
 }

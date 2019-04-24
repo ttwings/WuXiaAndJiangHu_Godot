@@ -10,13 +10,14 @@ void create()
 	set_name(HIY "郁金香" NOR, ({"yu jinxiang", "jinxiang"}));
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
-		set("long","这是一朵金黄色的郁金香，花朵丰润美丽，是胜利美好的象征。\n");
+	else
+	{
+		set("long", "这是一朵金黄色的郁金香，花朵丰润美丽，是胜利美好的象征。\n");
 		set("unit", "束");
 		set("value", 25);
 		set("base_unit", "朵");
 		set("base_weight", 100);
-		set("flower",1);
+		set("flower", 1);
 	}
 	set_amount(1);
 }

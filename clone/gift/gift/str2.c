@@ -1,12 +1,13 @@
 #include <ansi.h>
-inherit __DIR__"gift";
+inherit __DIR__ "gift";
 
 void create()
 {
-        set_name(HIW "白虎赐元丹" NOR, ({ "baihu dan", "baihu", "dan" }));
+        set_name(HIW "白虎赐元丹" NOR, ({"baihu dan", "baihu", "dan"}));
         if (clonep())
                 set_default_object(__FILE__);
-        else {
+        else
+        {
                 set("long", HIW "这是一颗纯白无暇的药丸，据说吃了可以增强膂力。\n" NOR);
                 set("unit", "颗");
                 set("value", 50000);
@@ -18,4 +19,3 @@ void create()
         }
         setup();
 }
-

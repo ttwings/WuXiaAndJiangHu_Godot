@@ -6,13 +6,14 @@ inherit F_UNIQUE;
 
 void create()
 {
-        set_name(CYN "镇岳尚方" NOR, ({ "zhenyue shangfang", "zhenyue", 
-                                              "jian", "sword" }));
+        set_name(CYN "镇岳尚方" NOR, ({"zhenyue shangfang", "zhenyue",
+                                       "jian", "sword"}));
         set_weight(8000);
         if (clonep())
-//                destruct(this_object());
-						set_default_object(__FILE__);
-        else {
+                //                destruct(this_object());
+                set_default_object(__FILE__);
+        else
+        {
                 set("long", CYN"
 此剑乃周昭王瑕在位五十一年以二年岁次壬午，铸五剑，各投
 五岳，铭曰镇岳尚方，古文篆书，剑长五尺通体流光。剑脊与
@@ -35,7 +36,7 @@ void create()
                         "min_skill"    : 50
                 ]));
 
-           //     set("stable", 100);
+                //     set("stable", 100);
         }
         init_sword(160);
         setup();

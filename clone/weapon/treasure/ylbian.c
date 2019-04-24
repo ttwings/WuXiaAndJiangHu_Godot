@@ -7,11 +7,12 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(HIC "云龙鞭" NOR, ({ "yunlong bian", "bian" }));
+	set_name(HIC "云龙鞭" NOR, ({"yunlong bian", "bian"}));
 	set_weight(2000);
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "柄");
 		set("long", "这是天地会总舵主陈近南的贴身神兵。\n");
 		set("value", 100);

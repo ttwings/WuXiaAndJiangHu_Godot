@@ -6,22 +6,22 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIY"王叔和脉经"NOR,({"wangshuhe maijing", "maijing", "jing"}));
+	set_name(HIY "王叔和脉经" NOR, ({"wangshuhe maijing", "maijing", "jing"}));
 	set_weight(10);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "本");
-		set("long","这是一本王叔和脉。年代久远，纸质破旧。\n");
+		set("long", "这是一本王叔和脉。年代久远，纸质破旧。\n");
 		set("value", 1500);
 		set("material", "paper");
 		set("skill", ([
-			"name":         "medicine",
-			"exp_required": 2000,
-			"jing_cost":    10,
-			"difficulty":   20,
-			"min_skill":    60,
-			"max_skill":    100
-		]) );
+								 "name":"medicine",
+						 "exp_required":2000,
+							"jing_cost":10,
+						   "difficulty":20,
+							"min_skill":60,
+							"max_skill":100]));
 	}
 }

@@ -9,9 +9,10 @@ void create()
 {
 	set_name("宣花斧", ({"xuanhua fu", "fu", "axe"}));
 	set_weight(12000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "把");
 		set("long", "这是把沉重的大斧，有八尺多长，锋利无比。\n");
 		set("value", 5000);
@@ -22,4 +23,3 @@ void create()
 	init_axe(60);
 	setup();
 }
-

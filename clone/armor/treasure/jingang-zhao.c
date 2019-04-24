@@ -8,11 +8,12 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name("金刚罩", ({ "jingang zhao", "zhao" }));
+	set_name("金刚罩", ({"jingang zhao", "zhao"}));
 	set_weight(2000);
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("long", "这是一件金光闪闪的袈裟，通体用天山雪蚕丝织成，坚韧无比
 刀剑不能伤。此袈裟数百年前由达摩老祖携入中原，邪魔见之辟易，
 乃是佛家无上降魔法宝。\n");

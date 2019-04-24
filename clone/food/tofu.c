@@ -9,7 +9,8 @@ void create()
 	set_weight(40);
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("long", "一块水灵灵的大豆腐，嫩的令人不禁想到阿庆嫂的脸蛋儿。\n");
 		set("unit", "块");
 		set("value", 40);

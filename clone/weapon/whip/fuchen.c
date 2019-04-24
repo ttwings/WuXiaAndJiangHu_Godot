@@ -1,4 +1,4 @@
-// fuchen.c 
+// fuchen.c
 // Last Modified by winder on May. 25 2001
 
 #include <weapon.h>
@@ -6,11 +6,12 @@ inherit WHIP;
 
 void create()
 {
-	set_name("拂尘", ({ "fuchen" }));
+	set_name("拂尘", ({"fuchen"}));
 	set_weight(300);
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "柄");
 		set("long",
 "这是一柄拂尘，做工精细，本来只是抹灰驱蝇的工具
@@ -24,4 +25,3 @@ void create()
 	init_whip(15);
 	setup();
 }
-

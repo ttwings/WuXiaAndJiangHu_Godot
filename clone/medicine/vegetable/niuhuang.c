@@ -11,7 +11,7 @@ void init()
 
 void create()
 {
-	set_name(HIY"牛黄"NOR, ({"niuhuang"}));
+	set_name(HIY "牛黄" NOR, ({"niuhuang"}));
 	set_weight(500);
 	set("vegetable", 8);
 	set("value", 1000);
@@ -24,12 +24,13 @@ void create()
 
 int do_eat(string arg)
 {
-	if (!id(arg)) return notify_fail("你要吃什么？\n");
+	if (!id(arg))
+		return notify_fail("你要吃什么？\n");
 
 	if (!present(this_object(), this_player()))
 		return notify_fail("你要吃什么？\n");
 
-	if(arg=="niuhuang")
+	if (arg == "niuhuang")
 	{
 		write("牛黄不能这么吃。\n");
 	}

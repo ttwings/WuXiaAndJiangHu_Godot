@@ -8,7 +8,7 @@ void create()
 {
 	set_name("ÊÞÆ¤Åû·ç", ({"shoupi pifeng", "pifeng", "cloth"}));
 	set_weight(4500);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
@@ -20,5 +20,3 @@ void create()
 	}
 	setup();
 }
-
-

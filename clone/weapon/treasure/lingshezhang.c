@@ -5,11 +5,12 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(HIR"灵蛇杖"NOR, ({ "lingshe zhang", "zhang" }));
+	set_name(HIR "灵蛇杖" NOR, ({"lingshe zhang", "zhang"}));
 	set_weight(100000);
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "根");
 		set("long", "这是一根蛇杖, 杖头一条小蛇, 红舌伸缩, 十分诡异。\n");
 		set("value", 300);

@@ -7,11 +7,12 @@ inherit HAMMER;
 
 void create()
 {
-	set_name("木锤", ({ "muchui", "chui" }) );
+	set_name("木锤", ({"muchui", "chui"}));
 	set_weight(350);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("long", "一根削得很精致的短锤。\n");
 		set("unit", "根");
 		set("value", 100);

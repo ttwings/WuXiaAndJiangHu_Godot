@@ -1,16 +1,17 @@
 // 神话世界·西游记·版本４．５０
 /* <SecCrypt CPL V3R05> */
- 
+
 inherit ITEM;
 inherit F_FOOD;
 
 void create()
 {
-   set_name("粽子", ({"zongzi"}));
+        set_name("粽子", ({"zongzi"}));
         set_weight(100);
         if (clonep())
                 set_default_object(__FILE__);
-        else {
+        else
+        {
                 set("long", "一个香喷喷的肉粽子，包它的粽子叶泛出一股清香。\n");
                 set("unit", "个");
                 set("value", 100);
@@ -18,4 +19,3 @@ void create()
                 set("food_supply", 50);
         }
 }
-

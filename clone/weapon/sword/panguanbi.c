@@ -8,9 +8,10 @@ void create()
 {
 	set_name("ÅÐ¹Ù±Ê", ({"panguanbi", "sword"}));
 	set_weight(1000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "Ë«");
 		set("value", 300);
 	}

@@ -10,9 +10,10 @@ void create()
 {
 	set_name("ÊìÍ­ïµ", ({"copper mace", "mace", "coppermace", "tongjian", "jian"}));
 	set_weight(5000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "±ú");
 		set("value", 2000);
 		set("material", "copper");
@@ -23,4 +24,3 @@ void create()
 	init_mace(25);
 	setup();
 }
-

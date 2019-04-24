@@ -5,17 +5,17 @@
 #include <ansi.h>
 inherit CLOTH;
 
-string* clothname = ({
-	HIM"粉红绸衫"NOR,
-	HIW"白绸衫"NOR,
-	HIG"湖绿长裙"NOR,
-	HIY"鹅黄夹袄"NOR,
-	HIB"青衫小袖"NOR,
-	HIC"天青小袂"NOR,
-	HIR"散花衣"NOR,
-	MAG"紫纱小夹衫"NOR,
+string *clothname = ({
+	HIM "粉红绸衫" NOR,
+	HIW "白绸衫" NOR,
+	HIG "湖绿长裙" NOR,
+	HIY "鹅黄夹袄" NOR,
+	HIB "青衫小袖" NOR,
+	HIC "天青小袂" NOR,
+	HIR "散花衣" NOR,
+	MAG "紫纱小夹衫" NOR,
 });
-string* clothid = ({
+string *clothid = ({
 	"pink cloth",
 	"white cloth",
 	"green skirt",
@@ -25,7 +25,7 @@ string* clothid = ({
 	"flower cloth",
 	"purple jiashan",
 });
-string* clothlong = ({
+string *clothlong = ({
 	"这件粉红色的绸衫上面绣着几只黄鹊，闻起来还有一股淡香。\n",
 	"这是一件轻盈飘动的白绸轻衫。\n",
 	"这是一件清新可人的湖绿长裙。\n",
@@ -39,13 +39,14 @@ string* clothlong = ({
 void create()
 {
 	int i = random(sizeof(clothname));
-	set_name(clothname[i], ({ clothid[i], "cloth" }));
+	set_name(clothname[i], ({clothid[i], "cloth"}));
 	set_weight(1000);
 	set("long", clothlong[i]);
-        if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
-	      //  set("long", clothlong[i]);
+	else
+	{
+		//  set("long", clothlong[i]);
 		set("unit", "件");
 		set("value", 0);
 		set("material", "cloth");
@@ -55,4 +56,3 @@ void create()
 	}
 	setup();
 }
-

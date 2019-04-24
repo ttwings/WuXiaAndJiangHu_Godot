@@ -1,6 +1,6 @@
 // 神话世界·西游记·版本４．５０
 /* <SecCrypt CPL V3R05> */
- 
+
 // created by snowcat on 4/9/1997
 // egg.c
 
@@ -11,7 +11,7 @@ void create()
 {
   set_name("水煮蛋", ({"egg", "dan"}));
   set_weight(60);
-  if( clonep() )
+  if (clonep())
     set_default_object(__FILE__);
   else
   {
@@ -22,5 +22,3 @@ void create()
     set("food_supply", 60);
   }
 }
-
-

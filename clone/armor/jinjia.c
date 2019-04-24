@@ -6,11 +6,12 @@ inherit ARMOR;
 
 void create()
 {
-	set_name("金环锁子甲", ({"golden armor","jinjia", "jia", "armor"}));
+	set_name("金环锁子甲", ({"golden armor", "jinjia", "jia", "armor"}));
 	set_weight(30000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "件");
 		set("long", "一件金线织就的宝甲．\n");
 		set("material", "steel");
@@ -20,5 +21,3 @@ void create()
 	}
 	setup();
 }
-
-

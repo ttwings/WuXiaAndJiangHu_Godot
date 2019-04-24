@@ -9,7 +9,8 @@ void create()
 	set_weight(700);
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("long", "一个用来装米酒的大酒袋，大概装得八、九升的酒。\n");
 		set("unit", "个");
 		set("value", 100);
@@ -19,9 +20,9 @@ void create()
 	// because a container can contain different liquid
 	// we set it to contain wine at the beginning
 	set("liquid", ([
-		"type": "alcohol",
-		"name": "米酒",
-		"remaining": 15,
-		"drunk_apply": 3,
+							 "type":"alcohol",
+							 "name":"米酒",
+						"remaining":15,
+					  "drunk_apply":3,
 	]));
 }

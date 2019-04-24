@@ -9,9 +9,10 @@ void create()
 {
 	set_name("狼牙棒", ({"langya bang", "mace", "langyabang", "langya"}));
 	set_weight(8000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "柄");
 		set("value", 18000);
 		set("material", "iron");
@@ -19,8 +20,7 @@ void create()
 		set("wield_msg", "$N“呼”的一声抽出一柄$n，恶狠狠地盯着周围的人！\n");
 		set("unwield_msg", "$N小心翼翼地收起$n，差点被倒刺伤着自己。\n");
 	}
-	
+
 	init_mace(35);
 	setup();
 }
-

@@ -4,22 +4,23 @@ inherit ITEM;
 
 void create()
 {
-	set_name("道德经「下卷」", ({ "jing", "daode jing" }));
+	set_name("道德经「下卷」", ({"jing", "daode jing"}));
 	set_weight(200);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "本");
-		set("long","这是一册道德经「下卷」，由同异第四十一始至显质第八十一止。\n");
+		set("long", "这是一册道德经「下卷」，由同异第四十一始至显质第八十一止。\n");
 		set("value", 500);
 		set("material", "paper");
 		set("skill", ([
-			"name"        : "taoism",
-			"exp_required":	1000,
-			"jing_cost"   : 20+random(20),
-			"difficulty"  : 25,
-			"min_skill"   : 49,
-			"max_skill"   : 99,
-		]) );
+								 "name":"taoism",
+						 "exp_required":1000,
+							"jing_cost":20 + random(20),
+						   "difficulty":25,
+							"min_skill":49,
+							"max_skill":99,
+		]));
 	}
 }

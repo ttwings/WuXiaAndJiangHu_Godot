@@ -6,11 +6,12 @@ inherit HAMMER;
 
 void create()
 {
-	set_name("金瓜", ({ "golden hammer", "gua", "hammer" }) );
+	set_name("金瓜", ({"golden hammer", "gua", "hammer"}));
 	set_weight(8500);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "把");
 		set("long", "这是一把沉重的金瓜，是皇城卫士的专用武器。\n");
 		set("value", 1200);
@@ -21,4 +22,3 @@ void create()
 	init_hammer(25);
 	setup();
 }
-

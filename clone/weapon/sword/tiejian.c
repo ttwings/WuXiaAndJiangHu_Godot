@@ -8,10 +8,11 @@ void create()
 {
 	set_name("铁剑", ({"sword"}));
 	set_weight(6000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
-		set("long","一把锈迹驳驳的铁剑，但相当的锋利。\n");
+	else
+	{
+		set("long", "一把锈迹驳驳的铁剑，但相当的锋利。\n");
 		set("unit", "把");
 		set("value", 1000);
 		set("material", "steel");
@@ -21,4 +22,3 @@ void create()
 	init_sword(30);
 	setup();
 }
-

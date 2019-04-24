@@ -7,11 +7,12 @@ inherit BLADE;
 
 void create()
 {
-	set_name("Ä¾µ¶", ({"mu dao","mudao", "dao", "blade"}));
+	set_name("Ä¾µ¶", ({"mu dao", "mudao", "dao", "blade"}));
 	set_weight(1000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "±ú");
 		set("value", 100);
 		set("material", "wood");
@@ -22,4 +23,3 @@ void create()
 	init_blade(5);
 	setup();
 }
-

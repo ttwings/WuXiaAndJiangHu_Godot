@@ -8,9 +8,10 @@ void create()
 {
 	set_name("犁头", ({"li tou", "plow", "li"}));
 	set_weight(50000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "把");
 		set("long", "这是一把黑黝黝的犁头，看上去确实只有老牛才拉得动。\n");
 		set("value", 5000);
@@ -22,4 +23,3 @@ void create()
 	init_hammer(30, TWO_HANDED);
 	setup();
 }
-

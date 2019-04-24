@@ -6,11 +6,12 @@ inherit HAMMER;
 
 void create()
 {
-	set_name("药锄", ({ "yaochu", "chu" }) );
+	set_name("药锄", ({"yaochu", "chu"}));
 	set_weight(1000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "把");
 		set("long", "这是一把采药用的药锄，已经有些生锈了。\n");
 		set("value", 100);
@@ -22,4 +23,3 @@ void create()
 	init_hammer(5);
 	setup();
 }
-

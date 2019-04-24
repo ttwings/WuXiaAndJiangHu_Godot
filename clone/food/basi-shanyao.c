@@ -10,7 +10,8 @@ void create()
 	set_weight(200);
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("long", "Ò»ÅèÉ«ÈôÃµ¹å£¬ÌğÄÛÏãÄÛµÄ°ÎË¿É½Ò©¡£\n");
 		set("unit", "Åè");
 		set("value", 150);

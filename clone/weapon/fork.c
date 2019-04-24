@@ -6,11 +6,12 @@ inherit FORK;
 
 void create()
 {
-	set_name("¸Ö²æ", ({ "gangcha", "cha","fork" }) );
+	set_name("¸Ö²æ", ({"gangcha", "cha", "fork"}));
 	set_weight(8000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "±ú");
 		set("value", 1000);
 		set("material", "iron");
@@ -20,4 +21,3 @@ void create()
 	init_fork(25);
 	setup();
 }
-

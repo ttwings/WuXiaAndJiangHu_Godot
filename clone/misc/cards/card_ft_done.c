@@ -5,10 +5,11 @@ inherit ITEM;
 
 void create()
 {
-        set_name(HIR"新春贺卡"NOR, ({"spring festival card", "card"}));
-        if( clonep() )
+        set_name(HIR "新春贺卡" NOR, ({"spring festival card", "card"}));
+        if (clonep())
                 set_default_object(__FILE__);
-        else {
+        else
+        {
                 set("unit", "张");
                 set("long",
 "这是一张"HIR"新春贺卡"NOR"，送给每位在新春佳节连入飞雪连天
@@ -35,37 +36,38 @@ int do_dakai(string arg)
         if (arg == "card")
         {
                 tell_object(me,
-HIR"\n"+
-"                                              \n"+
-"        │       │       │       │         \n"+   
-"     ╭┴┴╮ ╭┴┴╮ ╭┴┴╮ ╭┴┴╮      \n"+
-"     │    │ │    │ │    │ │    │      \n"+
-"     │    │ │    │ │    │ │    │      \n"+
-"     │ 迎 │ │ 春 │ │ 接 │ │ 福 │      \n"+
-"     │    │ │    │ │    │ │    │      \n"+
-"     │    │ │    │ │    │ │    │      \n"+
-"     ╰┬┬╯ ╰┬┬╯ ╰┬┬╯ ╰┬┬╯      \n"+
-"        !!       !!       !!       !!         \n"+
-"        ;;       ;;       ;;       ;;         \n"+
-"\n"+
-HIY"                      「侠客行一百」恭贺    \n"+
+                            HIR "\n" +
+                                "                                              \n" +
+                                "        │       │       │       │         \n" +
+                                "     ╭┴┴╮ ╭┴┴╮ ╭┴┴╮ ╭┴┴╮      \n" +
+                                "     │    │ │    │ │    │ │    │      \n" +
+                                "     │    │ │    │ │    │ │    │      \n" +
+                                "     │ 迎 │ │ 春 │ │ 接 │ │ 福 │      \n" +
+                                "     │    │ │    │ │    │ │    │      \n" +
+                                "     │    │ │    │ │    │ │    │      \n" +
+                                "     ╰┬┬╯ ╰┬┬╯ ╰┬┬╯ ╰┬┬╯      \n" +
+                                "        !!       !!       !!       !!         \n" +
+                                "        ;;       ;;       ;;       ;;         \n" +
+                                "\n" +
+                                HIY "                      「侠客行一百」恭贺    \n" +
 
-"\n"NOR);
+                                "\n" NOR);
         }
         return 1;
 }
 
 int do_chaikai(string arg)
 {
-           object me = this_player();
+        object me = this_player();
 
-           if (!present(this_object(), this_player()))
-                   return 0;
+        if (!present(this_object(), this_player()))
+                return 0;
 
-           message_vision("$N试图拆开新春贺卡，发现这张卡已经被拆开过了。\n", me); 
+        message_vision("$N试图拆开新春贺卡，发现这张卡已经被拆开过了。\n", me);
         return 1;
 }
 
 string query_autoload()
-{ return 1 + ""; }
-
+{
+        return 1 + "";
+}

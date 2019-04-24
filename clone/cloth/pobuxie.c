@@ -8,8 +8,9 @@ void create()
 {
 	set_name("ÆÆ²¼Ð¬", ({"po buxie", "buxie", "shoes"}));
 	set_weight(800);
-	if( clonep() ) set_default_object(__FILE__);
-	else 
+	if (clonep())
+		set_default_object(__FILE__);
+	else
 	{
 		set("unit", "Ë«");
 		set("material", "cloth");
@@ -17,4 +18,3 @@ void create()
 	}
 	setup();
 }
-

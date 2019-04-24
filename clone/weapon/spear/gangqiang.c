@@ -8,11 +8,12 @@ inherit SPEAR;
 
 void create()
 {
-	set_name(HIC "µã¸ÖÇ¹" NOR, ({ "steel spear","qiang","spear" }));
+	set_name(HIC "µã¸ÖÇ¹" NOR, ({"steel spear", "qiang", "spear"}));
 	set_weight(9000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "¸Ë");
 		set("value", 14000);
 		set("material", "steel");
@@ -23,4 +24,3 @@ void create()
 	init_spear(60);
 	setup();
 }
-

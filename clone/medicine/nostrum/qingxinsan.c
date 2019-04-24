@@ -8,7 +8,8 @@ void create()
 	set_name("清心散", ({"qingxin san", "san"}));
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("long", "这是一包星宿派的清心散，专为星宿解毒之用。\n");
 		set("vegetable", 9);
 		set("nostrum", 35);
@@ -30,10 +31,11 @@ int do_eat(string arg)
 {
 	object me = this_player();
 
-	if(!id(arg)) return notify_fail("你要吃什么？\n");
-	if(!present(this_object(), me))
+	if (!id(arg))
 		return notify_fail("你要吃什么？\n");
-	if( me->is_busy() )
+	if (!present(this_object(), me))
+		return notify_fail("你要吃什么？\n");
+	if (me->is_busy())
 		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
 
 	message_vision("$N吃下一包" + name() + "。\n", me);

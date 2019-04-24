@@ -5,11 +5,12 @@ inherit SWORD;
 
 void create()
 {
-	set_name("长剑", ({ "long sword", "sword", "jian" }));
+	set_name("长剑", ({"long sword", "sword", "jian"}));
 	set_weight(5000);
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "柄");
 		set("long", "这是一柄比武专用的的精钢剑,威力非比寻常.\n");
 		set("value", 0);

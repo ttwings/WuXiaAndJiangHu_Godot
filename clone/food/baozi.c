@@ -9,7 +9,8 @@ void create()
 	set_weight(80);
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("long", "一个香喷喷的肉包子。\n");
 		set("unit", "个");
 		set("value", 50);

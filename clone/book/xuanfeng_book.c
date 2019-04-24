@@ -4,11 +4,12 @@ inherit ITEM;
 
 void create()
 {
-	set_name( "旋风扫叶腿法", ({ "paper" , "shu", "book" }));
+	set_name("旋风扫叶腿法", ({"paper", "shu", "book"}));
 	set_weight(200);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "本");
 		set("long", 
 "这是两张纸片，上面写的都是练功的口诀要旨，却是黄药师的
@@ -26,4 +27,3 @@ void create()
 		]) );
 	}
 }
-

@@ -6,11 +6,12 @@ inherit STAFF;
 
 void create()
 {
-	set_name("·½±ã²ù", ({ "fangbianchan","fangbian", "chan" }) );
+	set_name("·½±ã²ù", ({"fangbianchan", "fangbian", "chan"}));
 	set_weight(10000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "Ìõ");
 		set("value", 5);
 		set("material", "wood");

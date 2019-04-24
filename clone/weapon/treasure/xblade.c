@@ -8,13 +8,14 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name( HIR"血刀"NOR , ({ "blood blade", "blade", "dao" }));
+	set_name(HIR "血刀" NOR, ({"blood blade", "blade", "dao"}));
 	set_weight(30000);
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "把");
-		set("long", HIR "这是一把缠在腰间的宝刀，刀锋带着淡淡的血影。\n" NOR );
+		set("long", HIR "这是一把缠在腰间的宝刀，刀锋带着淡淡的血影。\n" NOR);
 		set("value", 1000);
 		set("material", "steel");
 		set("wield_msg", "$N「唰」的一声抽出一柄$n握在手中。\n");

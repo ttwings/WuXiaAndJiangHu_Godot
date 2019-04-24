@@ -9,9 +9,10 @@ void create()
 {
 	set_name("油瓶", ({"youping"}));
 	set_weight(350);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("long", "一个装油的瓶子．\n");
 		set("unit", "个");
 		set("value", 30);
@@ -20,11 +21,10 @@ void create()
 		set("material", "bone");
 	}
 	set("liquid", ([
-		"type": "water",
-		"name": "菜油",
-		"remaining": 5,
-	]) );
+						   "type":"water",
+						   "name":"菜油",
+					  "remaining":5,
+	]));
 	init_hammer(1);
 	setup();
 }
-

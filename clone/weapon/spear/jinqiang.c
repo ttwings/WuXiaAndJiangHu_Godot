@@ -7,11 +7,12 @@ inherit SPEAR;
 
 void create()
 {
-	set_name(HIY "点金枪" NOR, ({ "golden spear","qiang","spear" }));
+	set_name(HIY "点金枪" NOR, ({"golden spear", "qiang", "spear"}));
 	set_weight(14000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "杆");
 		set("value", 10000);
 		set("material", "gold");
@@ -21,4 +22,3 @@ void create()
 	init_spear(60);
 	setup();
 }
-

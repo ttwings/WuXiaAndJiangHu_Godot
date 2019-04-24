@@ -6,17 +6,17 @@
 
 inherit CLOTH;
 
-string* clothname = ({
+string *clothname = ({
 	"粗布衣",
-	HIB"青衫"NOR,
-	BBLK"黑色劲装"NOR,
-	HIC"短打劲装"NOR,
-	HIM"紫蟒袍"NOR,
-	BLU"蓝马褂"NOR,
-	HIY"明黄锦袍"NOR,
-	HIB"天蓝长袍"NOR,
+	HIB "青衫" NOR,
+	BBLK "黑色劲装" NOR,
+	HIC "短打劲装" NOR,
+	HIM "紫蟒袍" NOR,
+	BLU "蓝马褂" NOR,
+	HIY "明黄锦袍" NOR,
+	HIB "天蓝长袍" NOR,
 });
-string* clothid = ({
+string *clothid = ({
 	"rough cloth",
 	"blue cloth",
 	"black cloth",
@@ -26,7 +26,7 @@ string* clothid = ({
 	"yellow cloth",
 	"celeste cloth",
 });
-string* clothlong = ({
+string *clothlong = ({
 	"这是一件很普通的粗布衣。\n",
 	"这是一件很普通的粗布青衫。\n",
 	"这是一件很笔挺的黑色劲装。\n",
@@ -41,13 +41,14 @@ void create()
 {
 	int i = random(sizeof(clothname));
 
-	set_name(clothname[i], ({ clothid[i], "cloth" }));
+	set_name(clothname[i], ({clothid[i], "cloth"}));
 	set_weight(1000);
-        set("long", clothlong[i]);  
-	if( clonep() )
+	set("long", clothlong[i]);
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
-       // 	set("long", clothlong[i]);
+	else
+	{
+		// 	set("long", clothlong[i]);
 		set("unit", "件");
 		set("value", 0);
 		set("material", "cloth");
@@ -56,4 +57,3 @@ void create()
 	}
 	setup();
 }
-

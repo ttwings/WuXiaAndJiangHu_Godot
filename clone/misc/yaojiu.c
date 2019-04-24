@@ -6,14 +6,14 @@ int do_pour(string arg);
 
 void create()
 {
-	set_name("药臼", ({ "yao jiu", "jiu" }) );
+	set_name("药臼", ({"yao jiu", "jiu"}));
 	set("long",
 		"这是一个药臼，是医士们用来炼制丹药的容器：\n"
 		"put <药材>          将药材放入药臼中。\n"
 		"fill                向药臼中添加清水。\n"
 		"burn                点火折燃烧木柴。\n"
 		"putout              灭火冷却药臼。\n"
-//		"get <丹药>          取出丹药。\n"
+		//		"get <丹药>          取出丹药。\n"
 	);
 	set_weight(3000);
 	set_max_encumbrance(5000);
@@ -43,8 +43,8 @@ int do_fill(string arg)
 {
 	object room = environment(this_player());
 
-        if (!present(this_object(), this_player()))
-                return 0;
+	if (!present(this_object(), this_player()))
+		return 0;
 
 	if (!arg || arg != "water")
 		return notify_fail("你要往药臼里添加什么？\n");
@@ -63,26 +63,26 @@ int do_burn()
 	object me = this_player();
 	int seq, i = 0, j = 0;
 
-        if (!present(this_object(), this_player()))
-                return 0;
+	if (!present(this_object(), this_player()))
+		return 0;
 
 	if (!wizardp(me))
 	{
 		if (query("process") == 0)
 			return notify_fail("还没放水就点火，想干烧啊！\n");
 		if (query("process") != 1)
-			return notify_fail(HIY"现在不用你再点火了啦！\n"NOR);
+			return notify_fail(HIY "现在不用你再点火了啦！\n" NOR);
 		if (!present("fire", me))
 			return notify_fail("你身上没有带火折。这回糟了吧。\n");
-		if(!present("mu chai",me) && !present("mu chai",room))
+		if (!present("mu chai", me) && !present("mu chai", room))
 			return notify_fail("点燃火折你才发现没有木柴可烧。\n");
 	}
 	set("process", 2);
 	set("burntime", time());
 	message_vision("$N掏出火折一晃，火折亮了起来。火折点燃木柴后，再把药臼放在柴上。\n", this_player());
-	for ( seq = 0; seq < sizeof(inv); seq++)
+	for (seq = 0; seq < sizeof(inv); seq++)
 	{
-		if( !inv[seq]->query("vegetable"))
+		if (!inv[seq]->query("vegetable"))
 		{
 			set("process", 3);
 			message_vision("药臼里混进不能入药的东西。看来这臼药没用了。。。\n", this_player());
@@ -102,8 +102,8 @@ int do_putout()
 	object obj, room = environment(this_player());
 	int i;
 
-        if (!present(this_object(), this_player()))
-                return 0;
+	if (!present(this_object(), this_player()))
+		return 0;
 
 	seteuid(getuid());
 	if (query("vegetable") == 0)
@@ -125,9 +125,9 @@ int do_putout()
 	}
 	set("process", 0);
 	dir = get_dir("/clone/medicine/nostrum/");
-	for (i=0; i<sizeof(dir); i++)
+	for (i = 0; i < sizeof(dir); i++)
 	{
-		obj = new( "/clone/medicine/nostrum/" + dir[i] );
+		obj = new ("/clone/medicine/nostrum/" + dir[i]);
 		if (obj->query("vegetable") == query("vegetable") &&
 			obj->query("nostrum") == query("nostrum"))
 		{
@@ -135,24 +135,24 @@ int do_putout()
 		}
 		destruct(obj);
 	}
-	if(obj = new("/clone/medicine/nostrum/"+target))
+	if (obj = new ("/clone/medicine/nostrum/" + target))
 	{
-		if(obj->query("level") < this_player()->query_skill("medicine", 1))
+		if (obj->query("level") < this_player()->query_skill("medicine", 1))
 		{
 			obj->move(this_player());
 			obj->move(this_object());
-			message_vision("$N终于炼出一"+obj->query("unit")+obj->query("name")+"。\n", this_player());
+			message_vision("$N终于炼出一" + obj->query("unit") + obj->query("name") + "。\n", this_player());
 			this_player()->add("medicine_count", 1);
 		}
 		else
 		{
 			destruct(obj);
-			obj = new("/clone/medicine/nostrum/shit");
+			obj = new ("/clone/medicine/nostrum/shit");
 			obj->move(this_object());
-			message_vision("可能是$N医术不精，炼出一"+obj->query("unit")+obj->query("name")+"。\n", this_player());
+			message_vision("可能是$N医术不精，炼出一" + obj->query("unit") + obj->query("name") + "。\n", this_player());
 		}
 		return 1;
 	}
-	else return notify_fail("可能是因为配方不太对，这次熬药没成功！\n");
+	else
+		return notify_fail("可能是因为配方不太对，这次熬药没成功！\n");
 }
-

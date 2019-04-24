@@ -4,7 +4,8 @@ inherit ITEM;
 #include <ansi.h>
 
 void setup()
-{}
+{
+}
 
 void init()
 {
@@ -14,10 +15,11 @@ void init()
 
 void create()
 {
-	set_name(HIY"金创药"NOR, ({"jinchuang yao", "jinchuang", "yao"}));
+	set_name(HIY "金创药" NOR, ({"jinchuang yao", "jinchuang", "yao"}));
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "包");
 		set("vegetable", 49);
 		set("nostrum", 70);
@@ -32,15 +34,17 @@ int do_eat(string arg)
 {
 	object me = this_player();
 
-	if(!id(arg)) return notify_fail("你要吃什么？\n");
-	if(!present(this_object(), me))
+	if (!id(arg))
 		return notify_fail("你要吃什么？\n");
-	if( me->is_busy() )
+	if (!present(this_object(), me))
+		return notify_fail("你要吃什么？\n");
+	if (me->is_busy())
 		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
 
 	if ((int)me->query("eff_qi") == (int)me->query("max_qi"))
 		return notify_fail("你现在不需要用金创药。\n");
-	else {
+	else
+	{
 		me->receive_curing("qi", 50);
 		message_vision("$N吃下一包金创药，气色看起来好多了。\n", me);
 		me->start_busy(2);
@@ -48,4 +52,3 @@ int do_eat(string arg)
 		return 1;
 	}
 }
-

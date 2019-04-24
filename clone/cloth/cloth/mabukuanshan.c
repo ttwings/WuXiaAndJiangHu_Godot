@@ -8,9 +8,10 @@ void create()
 {
 	set_name("麻布宽衫", ({"mabu kuanshan", "cloth"}));
 	set_weight(1500);
-	if ( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("long", "一套灰色的麻布宽衫。\n");
 		set("unit", "套");
 		set("value", 300);
@@ -19,4 +20,3 @@ void create()
 	}
 	setup();
 }
-

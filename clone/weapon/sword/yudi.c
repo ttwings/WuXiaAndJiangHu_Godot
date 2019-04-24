@@ -6,11 +6,12 @@ inherit SWORD;
 
 void create()
 {
-	set_name("±ÌÓñµÑ", ({ "biyu di","yudi","biyudi", "di" }) );
+	set_name("±ÌÓñµÑ", ({"biyu di", "yudi", "biyudi", "di"}));
 	set_weight(1000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "¸ù");
 		set("value", 20000);
 		set("material", "wood");

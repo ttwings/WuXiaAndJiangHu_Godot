@@ -5,11 +5,12 @@ inherit HOOK;
 
 void create()
 {
-	set_name("钢钩", ({ "gang gou", "gou", "hook" }));
+	set_name("钢钩", ({"gang gou", "gou", "hook"}));
 	set_weight(5000);
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "柄");
 		set("long", "这是一柄比武专用的的精钢钢钩,威力非比寻常.\n");
 		set("value", 0);

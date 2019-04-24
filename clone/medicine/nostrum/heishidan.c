@@ -10,7 +10,7 @@ void init()
 }
 void create()
 {
-	set_name(HIB"ºÚÊ¯Óñ¶´µ¤"NOR, ({"heishi yudongdan", "dan"}));
+	set_name(HIB "ºÚÊ¯Óñ¶´µ¤" NOR, ({"heishi yudongdan", "dan"}));
 	set("unit", "Á£");
 	set("vegetable", 51);
 	set("nostrum", 80);
@@ -27,29 +27,30 @@ void create()
 
 int do_eat(string arg)
 {
-	object me=this_player();
+	object me = this_player();
 
-	if (!id(arg)) return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+	if (!id(arg))
+		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
 	if (!present(this_object(), me))
 		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
-	if (me->is_busy() )
+	if (me->is_busy())
 		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
 
-	message_vision(HIG"$N³ÔÏÂÒ»Á£ºÚÊ¯Óñ¶´µ¤£¬Ö»¾õÒ»¹É¿àÉ¬µÄ×ÌÎ¶Ö±Í¸ĞÄÒÜ¡£\n" NOR, me);
+	message_vision(HIG "$N³ÔÏÂÒ»Á£ºÚÊ¯Óñ¶´µ¤£¬Ö»¾õÒ»¹É¿àÉ¬µÄ×ÌÎ¶Ö±Í¸ĞÄÒÜ¡£\n" NOR, me);
 	if (me->query_condition("chanchu_poison"))
-		me->apply_condition("chanchu_poison",0);
+		me->apply_condition("chanchu_poison", 0);
 	if (me->query_condition("scorpion_poison"))
-		me->apply_condition("scorpion_poison",0);
+		me->apply_condition("scorpion_poison", 0);
 	if (me->query_condition("slumber_drug"))
-		me->apply_condition("slumber_drug",0);
+		me->apply_condition("slumber_drug", 0);
 	if (me->query_condition("snake_poison"))
-		me->apply_condition("snake_poison",0);
+		me->apply_condition("snake_poison", 0);
 	if (me->query_condition("xiezi_poison"))
-		me->apply_condition("xiezi_poison",0);
+		me->apply_condition("xiezi_poison", 0);
 	if (me->query_condition("zhizhu_poison"))
-		me->apply_condition("zhizhu_poison",0);
+		me->apply_condition("zhizhu_poison", 0);
 	if (me->query_condition("zhua_poison"))
-		me->apply_condition("zhua_poison",0);
+		me->apply_condition("zhua_poison", 0);
 	destruct(this_object());
 	me->start_busy(2);
 	return 1;

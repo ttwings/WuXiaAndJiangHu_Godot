@@ -7,11 +7,12 @@ inherit F_UNIQUE;
 
 void create()
 {
-        set_name("ÎÚ²ÏÒÂ", ({ "wucan yi", "cloth" }) );
+        set_name("ÎÚ²ÏÒÂ", ({"wucan yi", "cloth"}));
         set_weight(5000);
-        if( clonep() )
+        if (clonep())
                 set_default_object(__FILE__);
-        else {
+        else
+        {
                 set("unit", "¼ş");
                 set("material", "silk");
                 set("value", 50000);
@@ -23,4 +24,3 @@ void create()
         }
         setup();
 }
-

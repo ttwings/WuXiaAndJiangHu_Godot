@@ -7,9 +7,10 @@ void create()
 {
 	set_name(MAG "Ï¸Ëé×Ï»¨Ð¬" NOR, ({"zihua xie", "xie", "shoes"}));
 	set_weight(1000);
-	if ( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "Ë«");
 		set("value", 600);
 		set("material", "silk");

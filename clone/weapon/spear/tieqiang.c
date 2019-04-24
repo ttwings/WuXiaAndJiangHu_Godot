@@ -1,4 +1,4 @@
-// tieqiang.c 
+// tieqiang.c
 // Last Modified by winder on May. 25 2001
 
 #include <weapon.h>
@@ -8,9 +8,10 @@ void create()
 {
         set_name("铁枪", ({"spear", "qiang"}));
         set_weight(4000);
-        if( clonep() )
+        if (clonep())
                 set_default_object(__FILE__);
-        else {
+        else
+        {
                 set("unit", "把");
                 set("long", "这是一把铁枪，枪尖略显银光．\n");
                 set("value", 500);
@@ -22,4 +23,3 @@ void create()
         init_spear(25);
         setup();
 }
-

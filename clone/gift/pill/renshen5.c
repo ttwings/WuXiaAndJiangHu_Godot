@@ -1,15 +1,16 @@
 #include <ansi.h>
-inherit __DIR__"pill";
+inherit __DIR__ "pill";
 
 void create()
-{//5.  百年参心丹	HIR	39000		20000	100		由百年人参混合数种珍贵药材所炼制的灵药。
+{ //5.  百年参心丹	HIR	39000		20000	100		由百年人参混合数种珍贵药材所炼制的灵药。
 
-        set_name(HIR "百年参心丹" NOR, ({ "bainian shenxindan",  "renshen", "dan" }));
+        set_name(HIR "百年参心丹" NOR, ({"bainian shenxindan", "renshen", "dan"}));
         if (clonep())
                 set_default_object(__FILE__);
-        else {
-								set("long", HIR "由百年人参混合数种珍贵药材所炼制的灵药。\n" NOR);
-								set("unit", "颗");
+        else
+        {
+                set("long", HIR "由百年人参混合数种珍贵药材所炼制的灵药。\n" NOR);
+                set("unit", "颗");
                 set("value", 20000);
                 set("weight", 300);
                 set("pill_skill", "force");

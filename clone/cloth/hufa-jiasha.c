@@ -1,4 +1,4 @@
-// hufa-jiasha.c 
+// hufa-jiasha.c
 // Last Modified by winder on May. 25 2001
 
 #include <armor.h>
@@ -7,12 +7,13 @@ inherit CLOTH;
 
 void create()
 {
-	set_name(HIY"护法袈裟"NOR, ({ "hufa jiasha", "jiasha", "cloth" }) );
-	set("long","一件金光灿灿的护法袈裟。");
+	set_name(HIY "护法袈裟" NOR, ({"hufa jiasha", "jiasha", "cloth"}));
+	set("long", "一件金光灿灿的护法袈裟。");
 	set_weight(4000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "件");
 		set("value", 2000);
 		set("material", "cloth");
@@ -20,4 +21,3 @@ void create()
 	}
 	setup();
 }
-

@@ -7,9 +7,10 @@ inherit THROWING;
 void create()
 {
 	set_name("飞蝗石", ({"shi"}));
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("long", "飞蝗石是一种十分常见的暗器。\n");
 		set("unit", "些");
 		set("base_value", 0);
@@ -22,4 +23,3 @@ void create()
 	init_throwing(20);
 	setup();
 }
-

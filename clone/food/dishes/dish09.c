@@ -1,6 +1,6 @@
 // 神话世界·西游记·版本４．５０
 /* <SecCrypt CPL V3R05> */
- 
+
 // by snowcat oct 15 1997
 
 inherit ITEM;
@@ -13,8 +13,9 @@ void create()
   set_weight(1000);
   if (clonep())
     set_default_object(__FILE__);
-  else {
-    set("long", "一盘令人垂涎的"+name+"。\n");
+  else
+  {
+    set("long", "一盘令人垂涎的" + name + "。\n");
     set("unit", "盘");
     set("value", 250);
     set("food_remaining", 5);

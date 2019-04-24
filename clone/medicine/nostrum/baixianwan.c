@@ -11,7 +11,7 @@ void init()
 
 void create()
 {
-	set_name(HIW"百涎丸"NOR, ({"baixian wan", "wan"}));
+	set_name(HIW "百涎丸" NOR, ({"baixian wan", "wan"}));
 	set("unit", "粒");
 	set("vegetable", 36);
 	set("nostrum", 25);
@@ -23,15 +23,16 @@ void create()
 
 int do_eat(string arg)
 {
-	object me=this_player();
+	object me = this_player();
 
-	if(!id(arg)) return notify_fail("你要吃什么？\n");
-	if(!present(this_object(), me))
+	if (!id(arg))
 		return notify_fail("你要吃什么？\n");
-	if( me->is_busy() )
+	if (!present(this_object(), me))
+		return notify_fail("你要吃什么？\n");
+	if (me->is_busy())
 		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
 
-	message_vision(HIG"$N吃下一粒百涎丸，只觉得胸内气血翻腾，啊...！吃错药了！！！\n" NOR, me);
+	message_vision(HIG "$N吃下一粒百涎丸，只觉得胸内气血翻腾，啊...！吃错药了！！！\n" NOR, me);
 	me->set("qi", 10);
 	me->set("jing", 10);
 	destruct(this_object());

@@ -8,9 +8,10 @@ void create()
 {
 	set_name("黑袍", ({"hei pao", "black cloth", "cloth"}));
 	set_weight(2000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("material", "cloth");
 		set("long", "一件黑色的布袍，一丝杂色也没有．\n");
 		set("unit", "件");
@@ -19,4 +20,3 @@ void create()
 	}
 	setup();
 }
-

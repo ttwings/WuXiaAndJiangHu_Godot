@@ -11,7 +11,7 @@ void init()
 
 void create()
 {
-	set_name(WHT"何首乌"NOR, ({"heshouwu"}));
+	set_name(WHT "何首乌" NOR, ({"heshouwu"}));
 	set_weight(800);
 	set("vegetable", 4);
 	set("nostrum", 1);
@@ -25,19 +25,21 @@ int do_eat(string arg)
 {
 	object me = this_player();
 
-	if(!id(arg)) return notify_fail("你要吃什么？\n");
-	if(!present(this_object(), me))
+	if (!id(arg))
 		return notify_fail("你要吃什么？\n");
-	if( me->is_busy() )
+	if (!present(this_object(), me))
+		return notify_fail("你要吃什么？\n");
+	if (me->is_busy())
 		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
 
-	if ((int)me->query("max_jingli")<=200)
+	if ((int)me->query("max_jingli") <= 200)
 	{
 		write("你吃下了一支何首乌，只觉得精神健旺之极。\n");
-		me->add("max_jingli",2);
-		me->add("jingli",2);
+		me->add("max_jingli", 2);
+		me->add("jingli", 2);
 	}
-	else {
+	else
+	{
 		write("你吃下了一支何首乌，但是好象没什么用。\n");
 	}
 	me->unconcious();

@@ -8,11 +8,12 @@ inherit CLOTH;
 
 void create()
 {
-	set_name(HIG "轻纱长裙" NOR, ({ "qingsha changqun", "skirt", "cloth"}));
+	set_name(HIG "轻纱长裙" NOR, ({"qingsha changqun", "skirt", "cloth"}));
 	set_weight(1000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("long", "一条朦朦胧胧的纱裙，闻起来还有一股淡香。\n");
 		set("unit", "条");
 		set("value", 0);
@@ -25,4 +26,3 @@ void create()
 }
 
 //int query_autoload() { return 1; }
-

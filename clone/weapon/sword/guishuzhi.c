@@ -6,11 +6,12 @@ inherit SWORD;
 
 void create()
 {
-	set_name("桂树枝", ({ "guishuzhi","gui","zhi","jian", "sword" }) );
+	set_name("桂树枝", ({"guishuzhi", "gui", "zhi", "jian", "sword"}));
 	set_weight(400);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "根");
 		set("material", "wood");
 		set("long", "这是一根细长的桂树枝。\n");

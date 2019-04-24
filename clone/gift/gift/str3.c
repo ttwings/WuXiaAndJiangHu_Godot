@@ -1,13 +1,14 @@
 #include <ansi.h>
-inherit __DIR__"gift";
+inherit __DIR__ "gift";
 
 void create()
 {
-        set_name(HIY "蚩尤诛元仙丹" NOR, ({ "zhuyuan xiandan", "zhuyuan",
-                                            "xiandan", "dan" }));
+        set_name(HIY "蚩尤诛元仙丹" NOR, ({"zhuyuan xiandan", "zhuyuan",
+                                           "xiandan", "dan"}));
         if (clonep())
                 set_default_object(__FILE__);
-        else {
+        else
+        {
                 set("long", HIY "传说此丹乃是天宫中的神品，凡人吃了可以平增膂力。\n" NOR);
                 set("unit", "颗");
                 set("value", 100000);
@@ -19,4 +20,3 @@ void create()
         }
         setup();
 }
-

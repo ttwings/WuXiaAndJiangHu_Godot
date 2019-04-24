@@ -3,7 +3,8 @@
 inherit ITEM;
 #include <ansi.h>
 void setup()
-{}
+{
+}
 
 void init()
 {
@@ -13,10 +14,11 @@ void init()
 
 void create()
 {
-	set_name(HIY"老山参"NOR, ({"laoshan shen", "shen"}));
+	set_name(HIY "老山参" NOR, ({"laoshan shen", "shen"}));
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "株");
 		set("vegetable", 4);
 		set("nostrum", 64);
@@ -31,15 +33,15 @@ int do_eat(string arg)
 {
 	object me = this_player();
 
-	if(!id(arg)) return notify_fail("你要吃什么？\n");
-	if(!present(this_object(), me))
+	if (!id(arg))
 		return notify_fail("你要吃什么？\n");
-	if( me->is_busy() )
+	if (!present(this_object(), me))
+		return notify_fail("你要吃什么？\n");
+	if (me->is_busy())
 		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
 
 	me->receive_curing("qi", 200);
-	message_vision("$N吃下一株老山参，顿觉浑身一股热气兜底冒了上来！\n",me);
+	message_vision("$N吃下一株老山参，顿觉浑身一股热气兜底冒了上来！\n", me);
 	destruct(this_object());
 	return 1;
 }
-

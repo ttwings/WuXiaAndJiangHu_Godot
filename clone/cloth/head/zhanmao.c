@@ -5,13 +5,14 @@
 inherit HEAD;
 void create()
 {
-	set_name(HIR"∫Ï”ß’±√±"NOR, ({ "hongying zhanmao", "head" }) );
+	set_name(HIR "∫Ï”ß’±√±" NOR, ({"hongying zhanmao", "head"}));
 	set_weight(100);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "∂•");
-		set("value",700);
+		set("value", 700);
 		set("material", "cloth");
 		set("armor_prop/armor", 1);
 	}

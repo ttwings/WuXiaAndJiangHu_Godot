@@ -7,9 +7,10 @@ void create()
 {
     set_name(GRN "´ÐÂÌÐå»¨Ð¬" NOR, ({"xiuhua xie", "xie", "shoes"}));
     set_weight(1000);
-    if ( clonep() )
+    if (clonep())
         set_default_object(__FILE__);
-    else {
+    else
+    {
         set("unit", "Ë«");
         set("value", 1000);
         set("material", "grass");

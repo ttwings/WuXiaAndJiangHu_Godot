@@ -5,12 +5,12 @@ inherit NPC;
 
 void create()
 {
-	set_name("绵羊", ({ "mian yang", "yang", "sheep" }) );
+	set_name("绵羊", ({"mian yang", "yang", "sheep"}));
 	set("race", "走畜");
 	set("age", 6);
 	set("long", "一头温顺的小绵羊。\n");
 	set("attitude", "peaceful");
-	
+
 	set("str", 16);
 	set("dex", 15);
 
@@ -28,8 +28,7 @@ void die()
 {
 	object ob;
 	message_vision("$N凄惨的嚎了几声，倒在地上死了。\n", this_object());
-	ob = new(__DIR__"obj/yangrou2");
+	ob = new (__DIR__ "obj/yangrou2");
 	ob->move(environment(this_object()));
 	destruct(this_object());
 }
-

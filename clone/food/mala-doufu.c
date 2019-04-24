@@ -10,7 +10,8 @@ void create()
 	set_weight(200);
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("long", "一盆颜色红亮，细中带嫩，香辣可口的麻辣豆腐。\n");
 		set("unit", "盆");
 		set("value", 150);

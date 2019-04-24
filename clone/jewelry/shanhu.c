@@ -6,14 +6,14 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIR"Éºº÷"NOR, ({ "shan hu", "shanhu" }) );
+	set_name(HIR "Éºº÷" NOR, ({"shan hu", "shanhu"}));
 	set_weight(500);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("long", "Ò»Ê÷Èç»ð°ã¶áÄ¿¹â»ªµÄÆß³ßÉºº÷£¬ºÜÊÇÕä¹ó¡£\n");
 		set("unit", "Ê÷");
-		set("value", 50000 );
+		set("value", 50000);
 	}
-
 }

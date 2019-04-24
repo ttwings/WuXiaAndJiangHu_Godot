@@ -11,7 +11,7 @@ void init()
 
 void create()
 {
-	set_name(HIM"豹胎"NOR, ({"baotai"}));
+	set_name(HIM "豹胎" NOR, ({"baotai"}));
 	set_weight(500);
 	set("unit", "块");
 	set("value", 12000);
@@ -26,10 +26,11 @@ int do_eat(string arg)
 {
 	object me = this_player();
 
-	if(!id(arg)) return notify_fail("你要吃什么？\n");
-	if(!present(this_object(), me))
+	if (!id(arg))
 		return notify_fail("你要吃什么？\n");
-	if( me->is_busy() )
+	if (!present(this_object(), me))
+		return notify_fail("你要吃什么？\n");
+	if (me->is_busy())
 		return notify_fail("别急，慢慢吃，小心别噎着了。\n");
 
 	write("豹胎要配药吃。\n");

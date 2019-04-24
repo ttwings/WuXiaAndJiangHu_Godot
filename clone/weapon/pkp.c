@@ -5,11 +5,12 @@ inherit SWORD;
 
 void create()
 {
-	set_name("扑克牌", ({ "pkp" }));
+	set_name("扑克牌", ({"pkp"}));
 	set_weight(5000);
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "张");
 		set("long", "这是一张普通的扑克牌，一般的赌徒都使用它。\n");
 		set("value", 100);

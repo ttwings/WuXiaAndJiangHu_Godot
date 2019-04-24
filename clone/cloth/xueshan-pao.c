@@ -1,4 +1,4 @@
-// xueshan-pao.c 
+// xueshan-pao.c
 // Last Modified by winder on May. 25 2001
 
 #include <armor.h>
@@ -8,10 +8,11 @@ void create()
 {
 	set_name("雪山白袍", ({"xueshan baipao", "baipao", "pao", "cloth"}));
 	set_weight(3000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
-		set("long","一件丝制白袍，当胸绣着一只飞扬欲脱的大鹏鸟。\n");
+	else
+	{
+		set("long", "一件丝制白袍，当胸绣着一只飞扬欲脱的大鹏鸟。\n");
 		set("material", "cloth");
 		set("unit", "件");
 		set("value", 600);
@@ -20,5 +21,3 @@ void create()
 	}
 	setup();
 }
-
-

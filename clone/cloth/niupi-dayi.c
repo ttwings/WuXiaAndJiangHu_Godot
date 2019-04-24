@@ -7,9 +7,10 @@ void create()
 {
 	set_name("Å£Æ¤´óÒÂ", ({"niupi dayi", "dayi", "cloth"}));
 	set_weight(3000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "¼þ");
 		set("value", 4000);
 		set("material", "cloth");
@@ -19,4 +20,3 @@ void create()
 	}
 	setup();
 }
-

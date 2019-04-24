@@ -8,10 +8,11 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name("毒虫粉", ({ "duchong fen", "duchong", "fen" }) );
-	if( clonep() )
+	set_name("毒虫粉", ({"duchong fen", "duchong", "fen"}));
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("long", "一包以蜈蚣、蜘蛛等为原料制成的毒粉。
 可以用来生成(make)火堆(huodui)。也可以倒(pour)进酒水里，
 或涂(tu)在兵器上。(涂之前必须先点燃(dian)它)\n" );
@@ -23,7 +24,6 @@ void create()
 		set("drug2", __DIR__"duchongfen1");
 		set("pour_type", "xx_poison");
 	}
-//	set_amount(1);
+	//	set_amount(1);
 }
 #include "poison.h";
-

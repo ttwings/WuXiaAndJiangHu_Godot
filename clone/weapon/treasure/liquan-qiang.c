@@ -8,13 +8,14 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(HIW"沥泉枪"NOR,({"liquan spear", "spear", "qiang"}));
+	set_name(HIW "沥泉枪" NOR, ({"liquan spear", "spear", "qiang"}));
 	set_weight(100000);
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "杆");
-		set("long","这是武穆遗物。当年岳武穆捻灵蛇而得神兵，百战功成，多赖此枪。\n");
+		set("long", "这是武穆遗物。当年岳武穆捻灵蛇而得神兵，百战功成，多赖此枪。\n");
 		set("material", "steel");
 		set("no_drop", 1);
 		set("value", 100);

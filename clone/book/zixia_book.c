@@ -4,13 +4,14 @@ inherit ITEM;
 
 void create()
 {
-	set_name(MAG"紫霞密芨"NOR, ({ "zixia_book", "book" }));
+	set_name(MAG "紫霞密芨" NOR, ({"zixia_book", "book"}));
 	set_weight(600);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "本");
-//		set("no_drop",1);
+		//		set("no_drop",1);
 		set("long",
 HIM"天下武功，以练气为正。浩然正气，原为天授，惟常人不善
 养之，反以性伐气。武夫之患，在性暴、性骄、性酷、性贼。
@@ -34,4 +35,3 @@ HIM"天下武功，以练气为正。浩然正气，原为天授，惟常人不善
 	}
 }
 int query_autoload() { return 1; }
-

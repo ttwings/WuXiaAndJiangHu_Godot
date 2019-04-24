@@ -5,11 +5,12 @@
 inherit CLOTH;
 void create()
 {
-	set_name( HIR "银红红衫子" NOR, ({ "yinhong shanzi", "cloth" }) );
+	set_name(HIR "银红红衫子" NOR, ({"yinhong shanzi", "cloth"}));
 	set_weight(800);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "件");
 		set("value", 600);
 		set("armor_prop/armor", 1);

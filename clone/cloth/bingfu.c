@@ -1,4 +1,4 @@
-// bingfu.c 
+// bingfu.c
 // Last Modified by winder on May. 25 2001
 
 #include <armor.h>
@@ -8,9 +8,10 @@ void create()
 {
 	set_name("兵服", ({"bing fu", "cloth"}));
 	set_weight(3000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("long", "一件兵服，前后有铜镜护心，中绣大唐二字．\n");
 		set("material", "cloth");
 		set("value", 300);
@@ -19,4 +20,3 @@ void create()
 	}
 	setup();
 }
-

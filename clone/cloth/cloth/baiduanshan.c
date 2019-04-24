@@ -6,7 +6,7 @@ void create()
 {
 	set_name("╟в╤пию", ({"baiduan shan", "cloth"}));
 	set_weight(1000);
-	if ( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{

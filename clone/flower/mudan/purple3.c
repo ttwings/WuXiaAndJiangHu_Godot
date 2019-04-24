@@ -10,13 +10,14 @@ void create()
 	set_name(MAG "紫重楼" NOR, ({"zi chonglou", "mudan"}));
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
-		set("long", MAG"这是一朵雍容华贵的紫色牡丹花，花朵婀娜多姿，委实令人心醉神迷。\n"NOR);
+	else
+	{
+		set("long", MAG "这是一朵雍容华贵的紫色牡丹花，花朵婀娜多姿，委实令人心醉神迷。\n" NOR);
 		set("unit", "束");
 		set("value", 100);
 		set("base_unit", "朵");
 		set("base_weight", 100);
-		set("flower",1);
+		set("flower", 1);
 	}
 	set_amount(1);
 }

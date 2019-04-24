@@ -9,9 +9,10 @@ void create()
 {
 	set_name("酒葫芦", ({"jiu hulu", "jiuhulu", "hulu"}));
 	set_weight(350);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("long", "一个装酒的葫芦。\n");
 		set("unit", "个");
 		set("value", 30);
@@ -21,11 +22,10 @@ void create()
 	}
 
 	set("liquid", ([
-		"type": "water",
-		"name": "米酒",
-		"remaining": 5,
-	]) );
+						   "type":"water",
+						   "name":"米酒",
+					  "remaining":5,
+	]));
 	init_hammer(5);
 	setup();
 }
-

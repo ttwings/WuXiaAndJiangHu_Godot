@@ -4,12 +4,13 @@
 #include <armor.h>
 inherit CLOTH;
 void create()
-{				  
-	set_name( RED "桃花撒花袄" NOR, ({ "sahua ao", "cloth" }) );
+{
+	set_name(RED "桃花撒花袄" NOR, ({"sahua ao", "cloth"}));
 	set_weight(800);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "件");
 		set("value", 1000);
 		set("armor_prop/armor", 1);

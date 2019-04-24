@@ -1,15 +1,16 @@
 #include <ansi.h>
-inherit __DIR__"pill";
+inherit __DIR__ "pill";
 
 void create()
-{//6. 千年首乌丹	WHT	49000		25000	150		由千年何首乌混合数种珍贵药材所炼制的灵药。
+{ //6. 千年首乌丹	WHT	49000		25000	150		由千年何首乌混合数种珍贵药材所炼制的灵药。
 
-        set_name(WHT "千年首乌丹" NOR, ({ "qiannian shouwudan","shouwu", "dan" }));
+        set_name(WHT "千年首乌丹" NOR, ({"qiannian shouwudan", "shouwu", "dan"}));
         if (clonep())
                 set_default_object(__FILE__);
-        else {
-								set("long", WHT "由千年何首乌混合数种珍贵药材所炼制的灵药。\n" NOR);
-								set("unit", "颗");
+        else
+        {
+                set("long", WHT "由千年何首乌混合数种珍贵药材所炼制的灵药。\n" NOR);
+                set("unit", "颗");
                 set("value", 25000);
                 set("weight", 300);
                 set("pill_skill", "parry");

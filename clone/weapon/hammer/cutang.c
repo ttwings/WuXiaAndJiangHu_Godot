@@ -9,9 +9,10 @@ void create()
 {
 	set_name("醋坛子", ({"tanzi"}));
 	set_weight(2000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("long", "一个装醋的大坛子．\n");
 		set("unit", "个");
 		set("value", 50);
@@ -21,12 +22,10 @@ void create()
 	}
 
 	set("liquid", ([
-		"type": "water",
-		"name": "香醋",
-		"remaining": 5,
-	]) );
+						   "type":"water",
+						   "name":"香醋",
+					  "remaining":5,
+	]));
 	init_hammer(5);
 	setup();
-
 }
-

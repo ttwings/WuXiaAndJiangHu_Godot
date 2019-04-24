@@ -8,9 +8,10 @@ void create()
 {
 	set_name("铜锤", ({"hammer"}));
 	set_weight(8000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "把");
 		set("long", "这是一把沉重的铜锤，打造的相当坚实。\n");
 		set("value", 500);
@@ -22,4 +23,3 @@ void create()
 	init_hammer(25);
 	setup();
 }
-

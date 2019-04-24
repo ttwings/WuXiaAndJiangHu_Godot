@@ -8,9 +8,10 @@ void create()
 {
 	set_name("×ÏÉ«Ð¡¹Ó", ({"zise xiaogua", "purple cloth", "cloth"}));
 	set_weight(1000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("material", "cloth");
 		set("unit", "¼þ");
 		set("value", 100);
@@ -18,4 +19,3 @@ void create()
 	}
 	setup();
 }
-

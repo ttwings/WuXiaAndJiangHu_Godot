@@ -1,15 +1,16 @@
 #include <ansi.h>
-inherit __DIR__"pill";
+inherit __DIR__ "pill";
 
 void create()
-{//1.  高山人参	HIW	20000		10000	3		产于高山上的珍贵药材，服用后可提升基本内功等级。
+{ //1.  高山人参	HIW	20000		10000	3		产于高山上的珍贵药材，服用后可提升基本内功等级。
 
-        set_name(HIW "高山人参" NOR, ({ "gaoshan renshen", "renshen", "shen" }));
+        set_name(HIW "高山人参" NOR, ({"gaoshan renshen", "renshen", "shen"}));
         if (clonep())
                 set_default_object(__FILE__);
-        else {
-								set("long", HIW "产于高山上的珍贵药材，服用后可提升基本内功等级。\n" NOR);
-								set("unit", "株");
+        else
+        {
+                set("long", HIW "产于高山上的珍贵药材，服用后可提升基本内功等级。\n" NOR);
+                set("unit", "株");
                 set("value", 10000);
                 set("weight", 300);
                 set("pill_skill", "force");

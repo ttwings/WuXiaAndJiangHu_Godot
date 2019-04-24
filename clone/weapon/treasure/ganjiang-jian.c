@@ -8,13 +8,14 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name( HIC "干将剑" NOR , ({ "ganjiang jian", "jian", "sword" }));
+	set_name(HIC "干将剑" NOR, ({"ganjiang jian", "jian", "sword"}));
 	set_weight(8000);
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "柄");
-		set("long","这就是赫赫有名的干将剑，剑锋上隐隐透出一股清气，仔细凝望，只觉一股肃杀之气森然外散。\n");
+		set("long", "这就是赫赫有名的干将剑，剑锋上隐隐透出一股清气，仔细凝望，只觉一股肃杀之气森然外散。\n");
 		set("value", 20000);
 		set("material", "steel");
 		set("weapon_prop/personality", 8);
@@ -24,4 +25,3 @@ void create()
 	init_sword(130);
 	setup();
 }
-

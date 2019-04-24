@@ -6,11 +6,12 @@ inherit STICK;
 
 void create()
 {
-	set_name("ïÙÌú¹÷", ({ "bintiegun","tiegun","gun", "bang" }) );
+	set_name("ïÙÌú¹÷", ({"bintiegun", "tiegun", "gun", "bang"}));
 	set_weight(10000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "¸ù");
 		set("value", 2000);
 		set("material", "steel");

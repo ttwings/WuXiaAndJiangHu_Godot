@@ -6,15 +6,15 @@ inherit HAMMER;
 
 void create()
 {
-	set_name("石锁", ({"stone hammer","stone", "hammer"}));
+	set_name("石锁", ({"stone hammer", "stone", "hammer"}));
 	set_weight(5000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "个");
 		set("long", "一把沉重的石锁。\n");
 	}
 	init_hammer(25);
 	setup();
 }
-

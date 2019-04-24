@@ -10,7 +10,8 @@ void create()
 	set_weight(300);
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("long", "一只烤得香喷喷的羊腿。\n");
 		set("unit", "只");
 		set("value", 100);
@@ -18,4 +19,3 @@ void create()
 		set("food_supply", 60);
 	}
 }
-

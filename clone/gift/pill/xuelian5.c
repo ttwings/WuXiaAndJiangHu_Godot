@@ -1,15 +1,16 @@
 #include <ansi.h>
-inherit __DIR__"pill";
+inherit __DIR__ "pill";
 
 void create()
-{//5. 百年雪莲膏	HIC	39000		20000	100		由百年雪莲混合数种珍贵药材所炼制的灵药。
+{ //5. 百年雪莲膏	HIC	39000		20000	100		由百年雪莲混合数种珍贵药材所炼制的灵药。
 
-        set_name(HIC "百年雪莲膏" NOR, ({ "bainian xueliangao", "xuelian", "gao" }));
+        set_name(HIC "百年雪莲膏" NOR, ({"bainian xueliangao", "xuelian", "gao"}));
         if (clonep())
                 set_default_object(__FILE__);
-        else {
-								set("long", HIC "由百年雪莲混合数种珍贵药材所炼制的灵药。\n" NOR);
-								set("unit", "盒");
+        else
+        {
+                set("long", HIC "由百年雪莲混合数种珍贵药材所炼制的灵药。\n" NOR);
+                set("unit", "盒");
                 set("value", 20000);
                 set("weight", 300);
                 set("pill_skill", "dodge");

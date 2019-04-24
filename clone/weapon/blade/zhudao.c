@@ -6,11 +6,12 @@ inherit BLADE;
 
 void create()
 {
-	set_name("Öñµ¶", ({"zhu dao","dao", "blade"}));
+	set_name("Öñµ¶", ({"zhu dao", "dao", "blade"}));
 	set_weight(1000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "°Ñ");
 		set("value", 100);
 		set("material", "wood");
@@ -21,4 +22,3 @@ void create()
 	init_blade(15);
 	setup();
 }
-

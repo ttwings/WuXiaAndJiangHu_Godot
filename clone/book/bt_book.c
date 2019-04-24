@@ -5,7 +5,8 @@
 
 inherit ITEM;
 void setup()
-{}
+{
+}
 
 void init()
 {
@@ -16,11 +17,12 @@ void init()
 
 void create()
 {
-	set_name("线装书", ({ "xianzhuang shu", "shu", "book", "xianzhuang"}));
+	set_name("线装书", ({"xianzhuang shu", "shu", "book", "xianzhuang"}));
 	set_weight(600);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "本");
 		set("long", "一本薄薄的线装书。封面上写有“白驼欧阳锋”几个字。\n");
 		set("value", 1);
@@ -41,23 +43,23 @@ int do_du(string arg)
 		write("你现在正忙着呢。\n");
 		return 1;
 	}
-	if( me->is_fighting() )
+	if (me->is_fighting())
 	{
 		write("你无法在战斗中专心下来读书！\n");
 		return 1;
 	}
-	if( !me->query_skill("literate", 1) )
+	if (!me->query_skill("literate", 1))
 	{
 		write("你是个文盲，先学点文化(literate)吧。\n");
 		return 1;
 	}
-	if (arg=="xianzhuang shu" || arg=="shu")
+	if (arg == "xianzhuang shu" || arg == "shu")
 	{
-		write( "白驼秘要，分制药(zhiyao)、练功(liangong)、图解(tujie) 和功夫(gongfu)。\n");
+		write("白驼秘要，分制药(zhiyao)、练功(liangong)、图解(tujie) 和功夫(gongfu)。\n");
 		me->set_temp("baituo_book", 1);
 		return 1;
 	}
-	if (arg=="zhiyao" && me->query_temp("baituo_book"))
+	if (arg == "zhiyao" && me->query_temp("baituo_book"))
 	{
 		tell_object(me, "\n
 制药：
@@ -71,7 +73,7 @@ int do_du(string arg)
     白驼山庄庄主 欧阳锋字\n\n" NOR);  
 		return 1;
 	}
-	if (arg=="tujie" && me->query_temp("baituo_book"))
+	if (arg == "tujie" && me->query_temp("baituo_book"))
 	{
 		tell_object(me, "\n
 汝可推开后院铁门，于院中找到蓝、红、彩三块石块。将之顺序
@@ -82,7 +84,7 @@ int do_du(string arg)
     白驼山庄庄主 欧阳锋字\n\n" NOR); 
 		return 1;
 	}
-	if (arg=="liangong" && me->query_temp("baituo_book"))
+	if (arg == "liangong" && me->query_temp("baituo_book"))
 	{
 		tell_object(me, "\n
 蛤蟆神功是由当日捕捉玄冰蟾蜍时由此畜生身上习得。现我将玄
@@ -94,7 +96,7 @@ int do_du(string arg)
 		return 1;
 	}
 
-	if (arg=="gongfu" && me->query_temp("baituo_book"))
+	if (arg == "gongfu" && me->query_temp("baituo_book"))
 	{
 		tell_object(me, "\n
 白驼功夫分内外两种，内功便是蛤蟆功，汝可每日去后院乱石堆
@@ -107,34 +109,34 @@ int do_du(string arg)
 		me->set_temp("baituo_book", 2);	 
 		return 1;
 	}
-	if (arg=="xianzhuang" || arg=="book" && 
-		me->query_temp("baituo_book") == 2)
+	if (arg == "xianzhuang" || arg == "book" &&
+																 me->query_temp("baituo_book") == 2)
 	{
-		if( (int)me->query("jing") < 25 )
+		if ((int)me->query("jing") < 25)
 		{
 			write("你现在过于疲倦，无法专心下来研读新知。\n");
 			return 1;
-		}	
-		if( (int)me->query("neili") < 50)
+		}
+		if ((int)me->query("neili") < 50)
 		{
 			write("你内力不够，无法继续钻研。\n");
 			return 1;
 		}
 		level = me->query_skill("lingshe-zhangfa", 1);
-		if( (int)me->query("combat_exp") < (int)level*level*level/10 )
+		if ((int)me->query("combat_exp") < (int)level * level * level / 10)
 		{
 			write("你的实战经验不足，再怎么读也没用。\n");
 			return 1;
-		}	
-		if( me->query_skill("lingshe-zhangfa", 1) > 50)
+		}
+		if (me->query_skill("lingshe-zhangfa", 1) > 50)
 		{
-			write( "你研读了一会儿，但是发现上面所说的对你而言都太浅了，没有学到任何东西。\n");
+			write("你研读了一会儿，但是发现上面所说的对你而言都太浅了，没有学到任何东西。\n");
 			return 1;
 		}
 		me->receive_damage("jing", 15);
 		me->add("neili", -1);
-	
-		me->improve_skill("lingshe-zhangfa", (int)me->query_skill("literate", 1)/3+1);
+
+		me->improve_skill("lingshe-zhangfa", (int)me->query_skill("literate", 1) / 3 + 1);
 		write("你开始仔细研读蛇杖杖法。\n");
 		return 1;
 	}

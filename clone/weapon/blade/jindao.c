@@ -8,9 +8,10 @@ void create()
 {
 	set_name("金刀", ({"jin dao", "dao"}));
 	set_weight(8000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "把");
 		set("long", "一把金光闪闪的圆头长刀，刀把上镶嵌有白玉。\n");
 		set("value", 2500);
@@ -22,4 +23,3 @@ void create()
 	init_blade(50);
 	setup();
 }
-

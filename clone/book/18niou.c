@@ -4,11 +4,12 @@ inherit ITEM;
 
 void create()
 {
-	set_name("十八泥偶", ({ "18 niou", "niou" }));
+	set_name("十八泥偶", ({"18 niou", "niou"}));
 	set_weight(600);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "盒");
 		set("long", 
 "这是一个小木盒，盒中垫着棉花，并列着三排泥制玩偶，每排六
@@ -30,7 +31,7 @@ void create()
 
 void init()
 {
-	if( this_player() == environment() )
+	if (this_player() == environment())
 	{
 		add_action("do_nie", "nie");
 	}
@@ -41,7 +42,7 @@ int do_nie(string arg)
 	object me, muou;
 	object where;
 
-	if ( !arg )
+	if (!arg)
 	{
 		return notify_fail("什么？\n");
 	}
@@ -50,9 +51,9 @@ int do_nie(string arg)
 
 	me = this_player();
 
-	if ( arg == "niou" )
+	if (arg == "niou")
 	{
-		muou = new(__DIR__"18muou");
+		muou = new (__DIR__ "18muou");
 		where = environment(me);
 		message_vision(
 "$N轻轻一捏，刷刷刷几声，裹在泥人外面的粉饰、油彩和泥底

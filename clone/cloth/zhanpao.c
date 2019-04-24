@@ -8,7 +8,7 @@ void create()
 {
 	set_name("у╫еш", ({"zhan pao", "pao", "cloth"}));
 	set_weight(4000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
@@ -20,4 +20,3 @@ void create()
 	}
 	setup();
 }
-

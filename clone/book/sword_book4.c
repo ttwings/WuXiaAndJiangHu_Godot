@@ -4,11 +4,12 @@ inherit ITEM;
 
 void create()
 {
-	set_name("嵩山剑谱", ({ "sword book", "book" }));
+	set_name("嵩山剑谱", ({"sword book", "book"}));
 	set_weight(600);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "本");
 		set("long",
 "当年五岳剑派与魔教十长老两度会战华山，五派好手死伤殆尽，五派

@@ -8,9 +8,10 @@ void create()
 {
 	set_name("д╬ух", ({"mu zhang", "zhang", "staff"}));
 	set_weight(1000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "╟я");
 		set("value", 100);
 		set("material", "wood");
@@ -21,4 +22,3 @@ void create()
 	init_staff(15);
 	setup();
 }
-

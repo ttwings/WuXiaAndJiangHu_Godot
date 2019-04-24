@@ -7,9 +7,10 @@ void create()
 {
 	set_name("四缝干黄靴", ({"sifeng huangxue", "xie", "shoes"}));
 	set_weight(1000);
-	if ( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("long", "一双精心缝制的皮靴，轻便舒适。\n");
 		set("unit", "双");
 		set("value", 500);
@@ -19,6 +20,3 @@ void create()
 	}
 	setup();
 }
-
-
-

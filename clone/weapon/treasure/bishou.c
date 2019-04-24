@@ -8,11 +8,12 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(HIR "匕首" NOR, ({ "bishou","sword" }));
+	set_name(HIR "匕首" NOR, ({"bishou", "sword"}));
 	set_weight(20000);
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "柄");
 		set("long", "细看那匕首，剑身如墨，无半点光泽。\n");
 		set("value", 50000);

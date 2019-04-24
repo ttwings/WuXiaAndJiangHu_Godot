@@ -1,15 +1,16 @@
 #include <ansi.h>
-inherit __DIR__"pill";
+inherit __DIR__ "pill";
 
 void create()
-{//1. 何首乌	HIY	20000		10000	3		产于极北森林之中的珍贵药材，服用后可提升招架等级。
+{ //1. 何首乌	HIY	20000		10000	3		产于极北森林之中的珍贵药材，服用后可提升招架等级。
 
-        set_name(HIY "何首乌" NOR, ({ "heshouwu",  "shouwu" }));
+        set_name(HIY "何首乌" NOR, ({"heshouwu", "shouwu"}));
         if (clonep())
                 set_default_object(__FILE__);
-        else {
-								set("long", HIY "产于极北森林之中的珍贵药材，服用后可提升招架等级。\n" NOR);
-								set("unit", "支");
+        else
+        {
+                set("long", HIY "产于极北森林之中的珍贵药材，服用后可提升招架等级。\n" NOR);
+                set("unit", "支");
                 set("value", 10000);
                 set("weight", 300);
                 set("pill_skill", "parry");

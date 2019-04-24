@@ -1,6 +1,6 @@
 // 神话世界·西游记·版本４．５０
 /* <SecCrypt CPL V3R05> */
- 
+
 // by snowcat oct 15 1997
 
 inherit ITEM;
@@ -12,7 +12,8 @@ void create()
   set_weight(100);
   if (clonep())
     set_default_object(__FILE__);
-  else {
+  else
+  {
     set("long", "一包喷香的瓜子。\n");
     set("eat_msg", "$N抓出一颗瓜子往嘴里一扔，啪地一声脆响。\n");
     set("unit", "包");
@@ -21,4 +22,3 @@ void create()
     set("food_supply", 1);
   }
 }
-

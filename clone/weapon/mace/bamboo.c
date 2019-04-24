@@ -9,9 +9,10 @@ void create()
 {
 	set_name("短竹", ({"bamboo piece", "mace", "bamboo", "piece"}));
 	set_weight(2000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "根");
 		set("value", 100);
 		set("material", "wood");
@@ -19,8 +20,7 @@ void create()
 		set("wield_msg", "$N操起一根$n，摆了个架式。\n");
 		set("unwield_msg", "$N将$n别回腰间。\n");
 	}
-	
+
 	init_mace(5);
 	setup();
 }
-

@@ -4,11 +4,12 @@ inherit ITEM;
 
 void create()
 {
-	set_name("十八木偶", ({ "18 muou", "muou" }));
+	set_name("十八木偶", ({"18 muou", "muou"}));
 	set_weight(600);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "盒");
 		set("long", 
 "这是一个小木盒，盒中垫着棉花，并列着三排木偶，神情或喜

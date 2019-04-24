@@ -8,9 +8,10 @@ void create()
 {
 	set_name("É±Íþ´ó°ô", ({"shawei bang", "bang"}));
 	set_weight(3000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "°Ñ");
 		set("value", 200);
 		set("material", "wood");
@@ -18,4 +19,3 @@ void create()
 	init_stick(20);
 	setup();
 }
-

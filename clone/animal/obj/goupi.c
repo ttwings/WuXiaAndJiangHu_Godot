@@ -8,11 +8,12 @@ inherit CLOTH;
 
 void create()
 {
-	set_name(YEL"¹·Æ¤"NOR, ({ "gou pi", "pi" }) );
+	set_name(YEL "¹·Æ¤" NOR, ({"gou pi", "pi"}));
 	set_weight(5000);
-	if( clonep() )
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "¿é");
 		set("material", "fur");
 		set("value", 100);
@@ -20,4 +21,3 @@ void create()
 	}
 	setup();
 }
-

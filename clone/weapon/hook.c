@@ -5,11 +5,12 @@ inherit HOOK;
 
 void create()
 {
-	set_name("钢钩", ({ "gang gou", "gou" }));
+	set_name("钢钩", ({"gang gou", "gou"}));
 	set_weight(5000);
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "柄");
 		set("long", "这是一柄特殊的精钢剑，剑端带着一个倒钩。\n");
 		set("value", 100);

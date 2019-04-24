@@ -6,12 +6,13 @@ inherit THROWING;
 
 void create()
 {
-	set_name("毒镖", ({ "biao" }) );
-	if( clonep() )
+	set_name("毒镖", ({"biao"}));
+	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("long",
-"飞镖是一种十分常见的暗器，而毒镖却只有一个人有．\n");
+			"飞镖是一种十分常见的暗器，而毒镖却只有一个人有．\n");
 		set("unit", "些");
 		set("base_unit", "枝");
 		set("base_weight", 40);
@@ -22,4 +23,3 @@ void create()
 	init_throwing(20);
 	setup();
 }
-

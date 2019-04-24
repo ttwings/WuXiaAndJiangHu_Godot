@@ -5,7 +5,6 @@ inherit PILL;
 #include <ansi.h>
 int cure_ob(string);
 
-
 void create()
 {
 	set_name("毒蛇胆", ({"shedan", "dan"}));
@@ -35,8 +34,8 @@ int effect_in_liquid(object ob)
 {
 	if (ob->query("liquid/type") == "alcohol")
 	{
-		this_player()->add("qi", 10*ob->query("liquid/drunk_apply"));
-		message_vision(MAG"$N感到一股真气缓缓注入丹田，混身上下暖哄哄的。\n"NOR, this_player());
+		this_player()->add("qi", 10 * ob->query("liquid/drunk_apply"));
+		message_vision(MAG "$N感到一股真气缓缓注入丹田，混身上下暖哄哄的。\n" NOR, this_player());
 	}
 	return 0;
 }

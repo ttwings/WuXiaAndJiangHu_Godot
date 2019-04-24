@@ -8,11 +8,12 @@ inherit HOOK;
 
 void create()
 {
-	set_name("五毒剪", ({ "wudu jian", "jian" }));
+	set_name("五毒剪", ({"wudu jian", "jian"}));
 	set_weight(5000);
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "柄");
 		set("long", "这是一柄奇门兵器，好似一只大剪刀，上面喂了剧毒。\n");
 		set("value", 10000);

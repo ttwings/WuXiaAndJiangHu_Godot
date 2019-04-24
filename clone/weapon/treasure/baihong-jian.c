@@ -7,11 +7,12 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name("白虹剑", ({ "baihong jian", "sword", "jian" }));
+	set_name("白虹剑", ({"baihong jian", "sword", "jian"}));
 	set_weight(8000);
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("unit", "柄");
 		set("long", "这是一口削铁如泥的宝剑。\n");
 		set("value", 10000);

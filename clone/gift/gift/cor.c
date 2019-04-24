@@ -1,12 +1,13 @@
 #include <ansi.h>
-inherit __DIR__"gift";
+inherit __DIR__ "gift";
 
 void create()
 {
-        set_name( WHT "胆识丹" NOR, ({ "danshi dan", "danshi", "dan" }));
+        set_name(WHT "胆识丹" NOR, ({"danshi dan", "danshi", "dan"}));
         if (clonep())
                 set_default_object(__FILE__);
-        else {
+        else
+        {
                 set("long", WHT "这是一颗胆识丹，听说吃了可以增加胆识。\n" NOR);
                 set("unit", "颗");
                 set("value", 10000);
@@ -18,4 +19,3 @@ void create()
         }
         setup();
 }
-

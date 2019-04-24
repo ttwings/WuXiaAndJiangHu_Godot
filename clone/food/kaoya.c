@@ -9,7 +9,8 @@ void create()
 	set_weight(200);
 	if (clonep())
 		set_default_object(__FILE__);
-	else {
+	else
+	{
 		set("long", "一只肥得流油的北京烤鸭。\n");
 		set("unit", "只");
 		set("value", 150);
