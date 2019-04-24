@@ -4,6 +4,7 @@
 .lock-wscript
 *.import
 .import/
+.vscode/
 .vscode
 *.bin
 build
