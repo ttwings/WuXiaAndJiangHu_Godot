@@ -4,6 +4,8 @@
 .lock-wscript
 *.import
 .import/
+.vscode
+*.bin
 build
 *.pyc
 .project
