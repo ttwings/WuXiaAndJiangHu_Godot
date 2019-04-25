@@ -1,11 +1,11 @@
-// deer.c
-// Last Modified by winder on Aug. 1 2002
+# deer.c
+# Last Modified by winder on Aug. 1 2002
 
-inherit NPC;
+extends Npc;
 
-void create()
-{
-	set_name("梅花鹿", ({"deer"}));
+func create():
+
+	set_name("梅花鹿", ["deer"]);
 	set("race", "走畜");
 	set("age", 5);
 	set("long", "一只漂亮的梅花鹿。\n");
@@ -14,9 +14,7 @@ void create()
 	set("combat_exp", 800);
 
 	set("chat_chance", 6);
-	set("chat_msg_combat", ({
-							   "\n梅花鹿一转身，扬起鹿角朝你顶过来！\n",
-						   }));
+	set("chat_msg_combat", ["\n梅花鹿一转身，扬起鹿角朝你顶过来！\n",]);
 
 	set_temp("apply/attack", 20);
 	set_temp("apply/defense", 50);
@@ -24,4 +22,4 @@ void create()
 	set_temp("apply/armor", 10);
 
 	setup();
-}
+

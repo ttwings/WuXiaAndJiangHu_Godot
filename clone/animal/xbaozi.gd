@@ -1,12 +1,12 @@
-// /clone/beast/xbaozi.c 小豹子
-// Last Modified by winder on Aug. 1 2002
+# /clone/beast/xbaozi.c 小豹子
+# Last Modified by winder on Aug. 1 2002
 
 #include <ansi.h>
-inherit NPC;
+extends Npc;
 
-void create()
-{
-	set_name("小豹子", ({"xiao baozi", "baozi"}));
+func create():
+
+	set_name("小豹子", ["xiao baozi", "baozi"]);
 	set("race", "走兽");
 	set("age", 1);
 	set("long", "一只身体不大可是很结实的小豹子，它正瞪着眼睛看着你。\n");
@@ -28,14 +28,15 @@ void create()
 	set_temp("apply/armor", 10);
 
 	setup();
-}
 
-void die()
-{
-	object ob, ob2 = this_object();
 
-	ob = new (__DIR__ "obj/baodan");
-	ob->move(environment(this_object()));
+func die():
+
+	var ob
+	var ob2 = this_object();
+
+	ob = new (__DIR__ +  "obj/baodan");
+	ob.move(environment(this_object()));
 	message_vision("$N惨嚎一声，死了！\n", this_object());
 	destruct(ob2);
-}
+

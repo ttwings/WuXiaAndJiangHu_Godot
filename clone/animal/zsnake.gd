@@ -1,12 +1,12 @@
-// animal: snake.c
-// Last Modified by winder on Aug. 1 2002
+# animal: snake.c
+# Last Modified by winder on Aug. 1 2002
 
-// inherit NPC_TRAINEE;
-inherit "/inherit/char/trainee";
+# extends Npc_TRAINEE;
+# inherit "/# inherit/char/trainee";
 
-void create()
-{
-	set_name("竹叶青", ({"zhuye qing", "snake"}));
+func create():
+
+	set_name("竹叶青", ["zhuye qing", "snake"]);
 	set("race", "爬蛇");
 	set("age", 4);
 	set("long", "一只身体碧绿的蛇，显得特别细小。\n");
@@ -28,43 +28,42 @@ void create()
 	set_temp("apply/armor", 2);
 
 	setup();
-}
 
-void init()
-{
-	object ob;
+
+func _init():
+
+	var ob;
 	::init();
 	add_action("convert", "bian");
 	if (interactive(ob = this_player()) &&
-		ob->query("family/family_name") != "白驼山" &&
-		random(ob->query_kar() + ob->query_per()) < 30)
-	{
+		ob.query("family/family_name") != "白驼山" &&
+		random(ob.query_kar() + ob.query_per()) < 30)
+	
 		remove_call_out("kill_ob");
 		call_out("kill_ob", 1, ob);
-	}
-}
-void die()
-{
-	object ob;
+	
+
+func die():
+
+	var ob;
 	ob = new (NOSTRUM_DIR "shedan");
-	ob->move(environment(this_object()));
+	ob.move(environment(this_object()));
 	destruct(this_object());
-}
 
-mixed hit_ob(object me, object victim, int damage_bonus, int factor)
-{
-	victim->apply_condition("snake_poison", 20 +
-												victim->query_condition("snake_poison"));
-}
 
-int convert(string arg)
-{
-	object me = this_player();
-	object ob;
+func hit_ob(me, victim, damage_bonus, factor)
+
+	victim.apply_condition("snake_poison", 20 + victim.query_condition("snake_poison"));
+
+
+func convert(arg):
+
+	var me = this_player();
+	var ob;
 
 	if (arg != "snake" && arg != "zhuye qing")
 		return 0;
-	if (me->query("family/family_name") != "白驼山")
+	if (me.query("family/family_name") != "白驼山")
 		return notify_fail("你不能化蛇为杖。\n");
 	return notify_fail("竹叶青过于细小，不能化为杖。\n");
-}
+

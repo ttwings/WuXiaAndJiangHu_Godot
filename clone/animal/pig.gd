@@ -1,16 +1,16 @@
-// clone/animal/pig.c
-// Last Modified by winder on Aug. 1 2002
+# clone/animal/pig.c
+# Last Modified by winder on Aug. 1 2002
 
-inherit NPC;
+extends Npc;
 
-void create()
-{
-	set_name("小猪", ({"xiao zhu", "pig"}));
+func create():
+
+	set_name("小猪", ["xiao zhu", "pig"]);
 	set("race", "走畜");
 	set("age", 5);
 	set("long", "一头臭气熏天的小猪。\n");
 	set("attitude", "peaceful");
-	set("verbs", ({"bite"}));
+	set("verbs", ["bite"]);
 	set("combat_exp", 100);
 
 	set_temp("apply/attack", 5);
@@ -19,25 +19,25 @@ void create()
 	set_temp("apply/armor", 1);
 
 	setup();
-}
 
-void die()
-{
-	object ob;
-	int i;
+
+func die():
+
+	var ob;
+	var i;
 
 	message_vision("$N低低地哼了一声，倒在地上一动也不动了。\n", this_object());
 	i = random(5);
-	switch (i)
-	{
-	case 1:
-		ob = new (__DIR__ "obj/pork");
+	match (i)
+	
+	1:
+		ob = new (__DIR__ +  "obj/pork");
 		break;
-	default:
-		ob = new (__DIR__ "obj/pork");
+	_:
+		ob = new (__DIR__ +  "obj/pork");
 		break;
-	}
+	
 
-	ob->move(environment(this_object()));
+	ob.move(environment(this_object()));
 	destruct(this_object());
-}
+

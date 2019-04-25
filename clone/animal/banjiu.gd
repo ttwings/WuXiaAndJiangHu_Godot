@@ -1,11 +1,11 @@
-// banjiu.c 斑鸠
-// Last Modified by winder on Aug. 1 2002
+# banjiu.c 斑鸠
+# Last Modified by winder on Aug. 1 2002
 
-inherit NPC;
+extends Npc;
 
-void create()
-{
-	set_name("斑鸠", ({"ban jiu", "bird"}));
+func create():
+
+	set_name("斑鸠", ["ban jiu", "bird"]);
 	set("race", "飞禽");
 	set("age", 2);
 	set("long", "一只的小斑鸠。\n");
@@ -19,13 +19,13 @@ void create()
 	set_temp("apply/armor", 1);
 
 	setup();
-}
 
-void die()
-{
-	object ob = new (__DIR__ "obj/banjiu-rou");
+
+func die():
+
+	ob = new (__DIR__ +  "obj/banjiu-rou");
 
 	message_vision("$N从半空中栽了下来，死了。\n", this_object());
-	ob->move(environment(this_object()));
+	ob.move(environment(this_object()));
 	destruct(this_object());
-}
+
