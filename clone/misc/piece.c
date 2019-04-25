@@ -8,14 +8,14 @@ inherit ITEM;
 
 void create()
 {
-        set_name("ËéÆ¬", ({"piece"}));
+        set_name("ç¢ç‰‡", ({"piece"}));
         set_weight(1000);
         if (clonep())
                 set_default_object(__FILE__);
         else
         {
-                set("unit", "¶Ñ");
-                set("long", "Ò»¶Ñ²»ÖªµÀÊ²Ã´¶«Î÷µÄËéÆ¬¡£\n");
+                set("unit", "å †");
+                set("long", "ä¸€å †ä¸çŸ¥é“ä»€ä¹ˆä¸œè¥¿çš„ç¢ç‰‡ã€‚\n");
         }
         setup();
 }

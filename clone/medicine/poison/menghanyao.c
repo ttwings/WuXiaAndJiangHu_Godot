@@ -4,16 +4,16 @@ inherit COMBINED_ITEM;
 
 void create()
 {
-	set_name("ÃÉº¹Ò©", ({"menghan yao", "yao"}));
+	set_name("è’™æ±—è¯", ({"menghan yao", "yao"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("long", "ÕâÊÇ¼«ÆÕÍ¨µÄÃÉº¹Ò©. \n");
-		set("unit", "°ü");
+		set("long", "è¿™æ˜¯ææ™®é€šçš„è’™æ±—è¯. \n");
+		set("unit", "åŒ…");
 		set("pour_type", "slumber_drug");
 		set("base_value", 700);
-		set("base_unit", "Ğ©");
+		set("base_unit", "äº›");
 		set("base_weight", 30);
 	}
 	set_amount(1);

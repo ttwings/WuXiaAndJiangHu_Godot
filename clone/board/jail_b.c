@@ -4,10 +4,10 @@ inherit BULLETIN_BOARD;
 
 void create()
 {
-	set_name(HIG "ÎÒµÄ×Ô¹©×´" NOR, ({"board"}));
+	set_name(HIG "æˆ‘çš„è‡ªä¾›çŠ¶" NOR, ({"board"}));
 	set("location", "/d/beijing/jail");
 	set("board_id", "jail_b");
-	set("long", HIB "ÎÒ²»ÊÇÈË£¬ÎÒÊÇĞóÉú¡£ÎÒ¶Ô²»ÆğÑøÓıÎÒµÄ¸¸Ä¸°¡! \n" NOR);
+	set("long", HIB "æˆ‘ä¸æ˜¯äººï¼Œæˆ‘æ˜¯ç•œç”Ÿã€‚æˆ‘å¯¹ä¸èµ·å…»è‚²æˆ‘çš„çˆ¶æ¯å•Š! \n" NOR);
 	setup();
 	set("capacity", 100);
 	replace_program(BULLETIN_BOARD);

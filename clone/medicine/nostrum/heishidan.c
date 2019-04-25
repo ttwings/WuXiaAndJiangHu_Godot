@@ -1,4 +1,4 @@
-// heishidan.c ºÚÊ¯Óñ¶´µ¤
+// heishidan.c é»‘çŸ³ç‰æ´ä¸¹
 
 inherit ITEM;
 #include <ansi.h>
@@ -10,13 +10,13 @@ void init()
 }
 void create()
 {
-	set_name(HIB "ºÚÊ¯Óñ¶´µ¤" NOR, ({"heishi yudongdan", "dan"}));
-	set("unit", "Á£");
+	set_name(HIB "é»‘çŸ³ç‰æ´ä¸¹" NOR, ({"heishi yudongdan", "dan"}));
+	set("unit", "ç²’");
 	set("vegetable", 51);
 	set("nostrum", 80);
 	set("level", 100);
 	set("value", 100000);
-	set("long", "ÕâÊÇÒ»Á£ÄÜ½â°Ù¶¾µÄºÚÊ¯Óñ¶´µ¤¡£\n");
+	set("long", "è¿™æ˜¯ä¸€ç²’èƒ½è§£ç™¾æ¯’çš„é»‘çŸ³ç‰æ´ä¸¹ã€‚\n");
 	set("pour_type", "1");
 	set("no_sell", 1);
 	set("no_drop", 1);
@@ -30,13 +30,13 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 
-	message_vision(HIG "$N³ÔÏÂÒ»Á£ºÚÊ¯Óñ¶´µ¤£¬Ö»¾õÒ»¹É¿àÉ¬µÄ×ÌÎ¶Ö±Í¸ĞÄÒÜ¡£\n" NOR, me);
+	message_vision(HIG "$Nåƒä¸‹ä¸€ç²’é»‘çŸ³ç‰æ´ä¸¹ï¼Œåªè§‰ä¸€è‚¡è‹¦æ¶©çš„æ»‹å‘³ç›´é€å¿ƒè‡†ã€‚\n" NOR, me);
 	if (me->query_condition("chanchu_poison"))
 		me->apply_condition("chanchu_poison", 0);
 	if (me->query_condition("scorpion_poison"))

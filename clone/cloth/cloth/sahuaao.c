@@ -1,17 +1,17 @@
-// sahuaao.c ÌÒ»¨Èö»¨°À
+// sahuaao.c æ¡ƒèŠ±æ’’èŠ±è¢„
 
 #include <ansi.h>
 #include <armor.h>
 inherit CLOTH;
 void create()
 {
-	set_name(RED "ÌÒ»¨Èö»¨°À" NOR, ({"sahua ao", "cloth"}));
+	set_name(RED "æ¡ƒèŠ±æ’’èŠ±è¢„" NOR, ({"sahua ao", "cloth"}));
 	set_weight(800);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "¼þ");
+		set("unit", "ä»¶");
 		set("value", 1000);
 		set("armor_prop/armor", 1);
 		set("material", "cloth");

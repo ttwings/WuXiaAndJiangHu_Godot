@@ -1,4 +1,4 @@
-// Éñ»°ÊÀ½ç¡¤Î÷ÓÎ¼Ç¡¤°æ±¾£´£®£µ£°
+// ç¥è¯ä¸–ç•ŒÂ·è¥¿æ¸¸è®°Â·ç‰ˆæœ¬ï¼”ï¼ï¼•ï¼
 /* <SecCrypt CPL V3R05> */
 
 // created 3/31/1997 by snowcat
@@ -9,23 +9,23 @@ inherit F_LIQUID;
 
 void create()
 {
-  set_name("Ï¸µñÇàÖñÍ²", ({"bamboo", "long bamboo"}));
+  set_name("ç»†é›•é’ç«¹ç­’", ({"bamboo", "long bamboo"}));
   set_weight(600);
   if (clonep())
     set_default_object(__FILE__);
   else
   {
-    set("long", "ÕâÊÇÒ»¸ù³ß°Ñ³¤µÄÈı½Úó´ò°µñ»¨ÇàÖñÍ²¡£\n");
-    set("unit", "¸ù");
+    set("long", "è¿™æ˜¯ä¸€æ ¹å°ºæŠŠé•¿çš„ä¸‰èŠ‚èŸ è™¬é›•èŠ±é’ç«¹ç­’ã€‚\n");
+    set("unit", "æ ¹");
     set("value", 120);
     set("max_liquid", 100);
-    set("wield_msg", "$N³é³öÏ¸µñÇàÖñÍ²£¬Ë³ÊÖ»Îµ´ÁËÒ»ÏÂÀïÃæµÄË®¡£\n");
-    set("unwield_msg", "$N½«Ï¸µñÇàÖñÍ²²å»ØÑü¼ä¡£\n");
+    set("wield_msg", "$NæŠ½å‡ºç»†é›•é’ç«¹ç­’ï¼Œé¡ºæ‰‹æ™ƒè¡äº†ä¸€ä¸‹é‡Œé¢çš„æ°´ã€‚\n");
+    set("unwield_msg", "$Nå°†ç»†é›•é’ç«¹ç­’æ’å›è…°é—´ã€‚\n");
   }
 
   set("liquid", ([
                          "type":"water",
-                         "name":"ÇåÈª±ÌÖñ²è",
+                         "name":"æ¸…æ³‰ç¢§ç«¹èŒ¶",
                     "remaining":90,
   ]));
   init_stick(2);

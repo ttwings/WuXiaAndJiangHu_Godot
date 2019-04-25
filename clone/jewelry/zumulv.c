@@ -6,14 +6,14 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIG "×æÄ¸ÂÌ" NOR, ({"zumu lv", "zumulv"}));
+	set_name(HIG "ç¥–æ¯ç»¿" NOR, ({"zumu lv", "zumulv"}));
 	set_weight(50);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("long", "Ò»Á£ÁÁÂÌµÄ±¦Ê¯£¬ÕæÊÇÈË¼äÏ¡ÊÀÕä±¦¡£\n");
-		set("unit", "Á£");
+		set("long", "ä¸€ç²’äº®ç»¿çš„å®çŸ³ï¼ŒçœŸæ˜¯äººé—´ç¨€ä¸–çå®ã€‚\n");
+		set("unit", "ç²’");
 		set("value", 200000);
 	}
 }

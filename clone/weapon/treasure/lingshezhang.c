@@ -5,18 +5,18 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(HIR "ÁéÉßÕÈ" NOR, ({"lingshe zhang", "zhang"}));
+	set_name(HIR "çµè›‡æ–" NOR, ({"lingshe zhang", "zhang"}));
 	set_weight(100000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "¸ù");
-		set("long", "ÕâÊÇÒ»¸ùÉßÕÈ, ÕÈÍ·Ò»ÌõĞ¡Éß, ºìÉàÉìËõ, Ê®·Ö¹îÒì¡£\n");
+		set("unit", "æ ¹");
+		set("long", "è¿™æ˜¯ä¸€æ ¹è›‡æ–, æ–å¤´ä¸€æ¡å°è›‡, çº¢èˆŒä¼¸ç¼©, ååˆ†è¯¡å¼‚ã€‚\n");
 		set("value", 300);
 		set("material", "leather");
-		set("wield_msg", "$N¡¸à§¡¹µÄÒ»ÉùÌáÆğÒ»¸ù$nÎÕÔÚÊÖÖĞ¡£\n");
-		set("unwield_msg", "$N½«ÊÖÖĞµÄ$nÊÕ»Ø±³ºó¡£\n");
+		set("wield_msg", "$Nã€Œå”°ã€çš„ä¸€å£°æèµ·ä¸€æ ¹$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+		set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$næ”¶å›èƒŒåã€‚\n");
 	}
 	init_staff(150);
 	setup();

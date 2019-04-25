@@ -6,21 +6,21 @@ inherit F_LIQUID;
 
 void create()
 {
-	set_name("Áú¾®²è±­", ({"longjing chabei", "cha", "chabei"}));
+	set_name("é¾™äº•èŒ¶æ¯", ({"longjing chabei", "cha", "chabei"}));
 	set_weight(120);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("long", "Ò»±­ĞÂÆãµÄÁú¾®²è£¬ÓÆÓÆµØÃ°×ÅÏãÆø~~~~~~\n");
-		set("unit", "±­");
+		set("long", "ä¸€æ¯æ–°æ²çš„é¾™äº•èŒ¶ï¼Œæ‚ æ‚ åœ°å†’ç€é¦™æ°”~~~~~~\n");
+		set("unit", "æ¯");
 		set("value", 40);
 		set("remaining", 10);
 		set("drink_supply", 20);
 	}
 	set("liquid", ([
 							 "type":"tea",
-							 "name":"²è",
+							 "name":"èŒ¶",
 						"remaining":15,
 					  "drunk_apply":5,
 	]));

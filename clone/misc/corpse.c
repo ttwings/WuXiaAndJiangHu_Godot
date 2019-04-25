@@ -6,9 +6,9 @@ int decayed;
 
 void create()
 {
-	set_name("ÎŞÃûÊ¬Ìå", ({"corpse"}));
-	set("long", "ÕâÊÇÒ»¾ßÎŞÃûÊ¬Ìå¡£\n");
-	set("unit", "¾ß");
+	set_name("æ— åå°¸ä½“", ({"corpse"}));
+	set("long", "è¿™æ˜¯ä¸€å…·æ— åå°¸ä½“ã€‚\n");
+	set("unit", "å…·");
 	decayed = 0;
 	if (clonep(this_object()))
 		call_out("decay", 120, 1);
@@ -26,27 +26,27 @@ void decay(int phase)
 	switch (phase)
 	{
 	case 1:
-		say(query("name") + "¿ªÊ¼¸¯ÀÃÁË£¬·¢³öÒ»¹ÉÄÑÎÅµÄ¶ñ³ô¡£\n");
+		say(query("name") + "å¼€å§‹è…çƒ‚äº†ï¼Œå‘å‡ºä¸€è‚¡éš¾é—»çš„æ¶è‡­ã€‚\n");
 		switch (query("gender"))
 		{
-		case "ÄĞĞÔ":
-			set_name("¸¯ÀÃµÄÄĞÊ¬", ({"corpse", "Ê¬Ìå"}));
-		case "Å®ĞÔ":
-			set_name("¸¯ÀÃµÄÅ®Ê¬", ({"corpse", "Ê¬Ìå"}));
+		case "ç”·æ€§":
+			set_name("è…çƒ‚çš„ç”·å°¸", ({"corpse", "å°¸ä½“"}));
+		case "å¥³æ€§":
+			set_name("è…çƒ‚çš„å¥³å°¸", ({"corpse", "å°¸ä½“"}));
 		default:
-			set_name("¸¯ÀÃµÄÊ¬Ìå", ({"corpse", "Ê¬Ìå"}));
+			set_name("è…çƒ‚çš„å°¸ä½“", ({"corpse", "å°¸ä½“"}));
 		}
-		set("long", "Õâ¾ßÊ¬ÌåÏÔÈ»ÒÑ¾­ÌÉÔÚÕâÀïÓĞÒ»¶ÎÊ±¼äÁË£¬ÕıÉ¢·¢ÖøÒ»¹É¸¯Ê¬µÄÎ¶µÀ¡£\n");
+		set("long", "è¿™å…·å°¸ä½“æ˜¾ç„¶å·²ç»èººåœ¨è¿™é‡Œæœ‰ä¸€æ®µæ—¶é—´äº†ï¼Œæ­£æ•£å‘è‘—ä¸€è‚¡è…å°¸çš„å‘³é“ã€‚\n");
 		call_out("decay", 120, phase + 1);
 		break;
 	case 2:
-		say(query("name") + "±»·ç´µÇ¬ÁË£¬±ä³ÉÒ»¾ßº¡¹Ç¡£\n");
-		set_name("¿İÇ¬µÄº¡¹Ç", ({"skeleton", "º¡¹Ç"}));
-		set("long", "Õâ¸±º¡¹ÇÒÑ¾­ÌÉÔÚÕâÀïºÜ¾ÃÁË¡£\n");
+		say(query("name") + "è¢«é£å¹ä¹¾äº†ï¼Œå˜æˆä¸€å…·éª¸éª¨ã€‚\n");
+		set_name("æ¯ä¹¾çš„éª¸éª¨", ({"skeleton", "éª¸éª¨"}));
+		set("long", "è¿™å‰¯éª¸éª¨å·²ç»èººåœ¨è¿™é‡Œå¾ˆä¹…äº†ã€‚\n");
 		call_out("decay", 60, phase + 1);
 		break;
 	case 3:
-		say("Ò»Õó·ç´µ¹ı£¬°Ñ" + query("name") + "»¯³É¹Ç»Ò´µÉ¢ÁË¡£\n");
+		say("ä¸€é˜µé£å¹è¿‡ï¼ŒæŠŠ" + query("name") + "åŒ–æˆéª¨ç°å¹æ•£äº†ã€‚\n");
 		if (environment())
 		{
 			object *inv;

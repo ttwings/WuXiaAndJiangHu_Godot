@@ -3,19 +3,19 @@ inherit __DIR__ "gift";
 
 void create()
 {
-        set_name(BLK "ÄÍÁ¦µ¤" NOR, ({"naili dan", "naili", "dan"}));
+        set_name(BLK "è€åŠ›ä¸¹" NOR, ({"naili dan", "naili", "dan"}));
         if (clonep())
                 set_default_object(__FILE__);
         else
         {
-                set("long", WHT "ÕâÊÇÒ»¿ÅÄÍÁ¦µ¤£¬¾İËµ³ÔÁË¿ÉÒÔÔöÇ¿ÄÍÁ¦¡£\n" NOR);
-                set("unit", "¿Å");
+                set("long", WHT "è¿™æ˜¯ä¸€é¢—è€åŠ›ä¸¹ï¼Œæ®è¯´åƒäº†å¯ä»¥å¢å¼ºè€åŠ›ã€‚\n" NOR);
+                set("unit", "é¢—");
                 set("value", 10000);
                 set("weight", 50);
                 set("gift_type", "sta");
-                set("gift_name", "ÏÈÌìÄÍÁ¦");
+                set("gift_name", "å…ˆå¤©è€åŠ›");
                 set("gift_point", 75);
-                set("gift_msg", HIM "Äã¾õµÃÉíÉÏ·¢ÉúÁËÆæÒìµÄ±ä»¯£¬µ«Ëæ¼´ÓÖÆ½ºÍÁËÏÂÀ´¡£\n" NOR);
+                set("gift_msg", HIM "ä½ è§‰å¾—èº«ä¸Šå‘ç”Ÿäº†å¥‡å¼‚çš„å˜åŒ–ï¼Œä½†éšå³åˆå¹³å’Œäº†ä¸‹æ¥ã€‚\n" NOR);
         }
         setup();
 }

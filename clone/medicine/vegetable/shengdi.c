@@ -1,4 +1,4 @@
-// shengdi.c ÉúµØ
+// shengdi.c ç”Ÿåœ°
 
 inherit ITEM;
 #include <ansi.h>
@@ -11,13 +11,13 @@ void init()
 
 void create()
 {
-	set_name(BLK "ÉúµØ" NOR, ({"shengdi"}));
+	set_name(BLK "ç”Ÿåœ°" NOR, ({"shengdi"}));
 	set_weight(500);
 	set("vegetable", 16);
 	set("value", 500);
 	set("nostrum", 4);
-	set("unit", "¿é");
-	set("long", "ÕâÊÇÒ»¿é²»ÆğÑÛµÄÉúµØ£¬¿´À´¿ÉÒÔÈëÒ©¡£\n");
+	set("unit", "å—");
+	set("long", "è¿™æ˜¯ä¸€å—ä¸èµ·çœ¼çš„ç”Ÿåœ°ï¼Œçœ‹æ¥å¯ä»¥å…¥è¯ã€‚\n");
 	set("pour_type", "1");
 	setup();
 }
@@ -27,12 +27,12 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 
-	write("ÉúµØÄãÒ²³Ô£¿Åå·şÅå·ş£¡\n");
+	write("ç”Ÿåœ°ä½ ä¹Ÿåƒï¼Ÿä½©æœä½©æœï¼\n");
 	return 1;
 }

@@ -1,4 +1,4 @@
-// dingyangdan.c ¶¨Ñôµ¤
+// dingyangdan.c å®šé˜³ä¸¹
 
 inherit ITEM;
 #include <ansi.h>
@@ -15,13 +15,13 @@ void init()
 
 void create()
 {
-	set_name(HIY "ÐþÃÅ¶¨Ñôµ¤" NOR, ({"dingyang dan", "dan"}));
+	set_name(HIY "çŽ„é—¨å®šé˜³ä¸¹" NOR, ({"dingyang dan", "dan"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "¿Å");
-		set("long", "Ò»¿Å»ðºìÉ«µÄµ¤Ò©¡£´ËÄËÈ«ÕæÒì±¦¡£\n");
+		set("unit", "é¢—");
+		set("long", "ä¸€é¢—ç«çº¢è‰²çš„ä¸¹è¯ã€‚æ­¤ä¹ƒå…¨çœŸå¼‚å®ã€‚\n");
 		set("no_sell", 1);
 		set("no_drop", 1);
 		set("no_give", 1);
@@ -41,19 +41,19 @@ int do_eat(string arg)
 	neili_limit = me->query("max_neili");
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), this_player()))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ð¼±£¬ÂýÂý³Ô£¬Ð¡ÐÄ±ðÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™Žç€äº†ã€‚\n");
 
 	if ((int)me->query_condition("quanzhen_drug") > 0)
-		return notify_fail("ÄãÊÇ·ñ²ÅÁ¶µ¤Ò©»ò²Å·þÊ³ÁËµ¤Ò©£¿ÄãµÄÈ«ÉíÆøÑªÎ´¹éÎ»£¬²»ÒË³Ôµ¤Ò©¡£\n");
+		return notify_fail("ä½ æ˜¯å¦æ‰ç‚¼ä¸¹è¯æˆ–æ‰æœé£Ÿäº†ä¸¹è¯ï¼Ÿä½ çš„å…¨èº«æ°”è¡€æœªå½’ä½ï¼Œä¸å®œåƒä¸¹è¯ã€‚\n");
 
 	if (me->query_skill_mapped("force") != "xiantian-qigong")
 	{
 		me->add("max_neili", -10);
-		message_vision(HIR "$N³ÔÏÂÒ»¿ÅÐþÃÅ¶¨Ñôµ¤£¬Ö»¾õµÃ¸¹Í´Èç½Á£¬È«ÉíÈç±»³éÆø°ãµÄ¿ÕÐé¡£Ô­À´´Ëµ¤²»ÊÊÄãËùÁ·ÄÚ¹¦£¬½á¹û´óËðÕæÔª£¡\n" NOR, me);
+		message_vision(HIR "$Nåƒä¸‹ä¸€é¢—çŽ„é—¨å®šé˜³ä¸¹ï¼Œåªè§‰å¾—è…¹ç—›å¦‚æ…ï¼Œå…¨èº«å¦‚è¢«æŠ½æ°”èˆ¬çš„ç©ºè™šã€‚åŽŸæ¥æ­¤ä¸¹ä¸é€‚ä½ æ‰€ç»ƒå†…åŠŸï¼Œç»“æžœå¤§æŸçœŸå…ƒï¼\n" NOR, me);
 		me->start_busy(10);
 		return 1;
 	}
@@ -63,10 +63,10 @@ int do_eat(string arg)
 		if (neili_limit <= force_limit)
 		{
 			me->add("max_neili", 5);
-			message_vision(HIG "$N³ÔÏÂÒ»¿ÅÐþÃÅ¶¨Ñôµ¤£¬Ö»¾õµÃÌåÄÚÕæÁ¦Ô´Ô´×ÌÉú£¬¹ý×Ï¹¬£¬ÈëÄàÍèÍ¸Ê®¶þÖØÂ¥£¬±é²¼Ææ½î°ËÂö£¬È«Éí¹¦Á¦¶ÙÈ»Ìá¸ß£¡\n" NOR, me);
+			message_vision(HIG "$Nåƒä¸‹ä¸€é¢—çŽ„é—¨å®šé˜³ä¸¹ï¼Œåªè§‰å¾—ä½“å†…çœŸåŠ›æºæºæ»‹ç”Ÿï¼Œè¿‡ç´«å®«ï¼Œå…¥æ³¥ä¸¸é€åäºŒé‡æ¥¼ï¼Œéå¸ƒå¥‡ç­‹å…«è„‰ï¼Œå…¨èº«åŠŸåŠ›é¡¿ç„¶æé«˜ï¼\n" NOR, me);
 		}
 		else
-			message_vision(HIG "$N³ÔÏÂÒ»¿ÅÐþÃÅ¶¨Ñôµ¤£¬²»¹ýºÃÏóÃ»Ê²Ã´×÷ÓÃ¡£\n" NOR, me);
+			message_vision(HIG "$Nåƒä¸‹ä¸€é¢—çŽ„é—¨å®šé˜³ä¸¹ï¼Œä¸è¿‡å¥½è±¡æ²¡ä»€ä¹ˆä½œç”¨ã€‚\n" NOR, me);
 
 		me->apply_condition("quanzhen_drug", 60);
 	}

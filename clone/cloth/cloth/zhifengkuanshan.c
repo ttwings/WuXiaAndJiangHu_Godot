@@ -1,4 +1,4 @@
-// zhifeng_huanshan.c Ö±·ì¿íÉÀ
+// zhifeng_huanshan.c ç›´ç¼å®½è¡«
 
 #include <armor.h>
 
@@ -6,15 +6,15 @@ inherit CLOTH;
 
 void create()
 {
-	set_name("Ö±·ì¿íÉÀ", ({"zhifeng kuanshan", "cloth"}));
-	set("long", "Ò»Ì×¿í´óÈáÈíµÄ²¼ÉÀ£¬´©ÉÏÏë±ØºÜÊæÊÊ¡£\n");
+	set_name("ç›´ç¼å®½è¡«", ({"zhifeng kuanshan", "cloth"}));
+	set("long", "ä¸€å¥—å®½å¤§æŸ”è½¯çš„å¸ƒè¡«ï¼Œç©¿ä¸Šæƒ³å¿…å¾ˆèˆ’é€‚ã€‚\n");
 	set_weight(2000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
 		set("material", "cloth");
-		set("unit", "Ì×");
+		set("unit", "å¥—");
 		set("value", 700);
 		set("armor_prop/armor", 1);
 	}

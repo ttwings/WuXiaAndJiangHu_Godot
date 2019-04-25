@@ -1,4 +1,4 @@
-// shexiang.c ÷êÏã
+// shexiang.c éºé¦™
 
 inherit ITEM;
 #include <ansi.h>
@@ -11,13 +11,13 @@ void init()
 
 void create()
 {
-	set_name(HIB "÷êÏã" NOR, ({"shexiang"}));
+	set_name(HIB "éºé¦™" NOR, ({"shexiang"}));
 	set_weight(500);
 	set("vegetable", 16);
 	set("value", 1600);
 	set("nostrum", 8);
-	set("unit", "¿é");
-	set("long", "ÕâÊÇÒ»¿éÏãÆøğ¥ÓôµÄ÷êÏã£¬¿´À´¿ÉÒÔÈëÒ©¡£\n");
+	set("unit", "å—");
+	set("long", "è¿™æ˜¯ä¸€å—é¦™æ°”é¦¥éƒçš„éºé¦™ï¼Œçœ‹æ¥å¯ä»¥å…¥è¯ã€‚\n");
 	set("pour_type", "1");
 	setup();
 }
@@ -27,12 +27,12 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 
-	write("÷êÏãÃ»ÕâÖÖ³Ô·¨¡£\n");
+	write("éºé¦™æ²¡è¿™ç§åƒæ³•ã€‚\n");
 	return 1;
 }

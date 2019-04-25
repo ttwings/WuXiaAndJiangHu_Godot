@@ -4,10 +4,10 @@ inherit ITEM;
 inherit F_UNIQUE;
 
 string *titles = ({
-    "×ÓÕÅĞÄµÃ",
-    "×ÓÂ·ĞÄµÃ",
-    "×Ó¹±ĞÄµÃ",
-    "×ÓÏÄĞÄµÃ",
+    "å­å¼ å¿ƒå¾—",
+    "å­è·¯å¿ƒå¾—",
+    "å­è´¡å¿ƒå¾—",
+    "å­å¤å¿ƒå¾—",
 });
 
 void create()
@@ -18,8 +18,8 @@ void create()
                 set_default_object(__FILE__);
         else
         {
-                set("unit", "±¾");
-                set("long", "ÕâÊÇÒ»²á¹ÅÊé¡£\n");
+                set("unit", "æœ¬");
+                set("long", "è¿™æ˜¯ä¸€å†Œå¤ä¹¦ã€‚\n");
                 set("value", 1);
                 set("material", "paper");
                 //                set("no_get",1);

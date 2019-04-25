@@ -3,19 +3,19 @@ inherit __DIR__ "gift";
 
 void create()
 {
-        set_name(HIC "ÑøÑÕµ¤" NOR, ({"yangyan dan", "yangyan", "dan"}));
+        set_name(HIC "å…»é¢œä¸¹" NOR, ({"yangyan dan", "yangyan", "dan"}));
         if (clonep())
                 set_default_object(__FILE__);
         else
         {
-                set("long", WHT "ÕâÊÇÒ»¿ÅÑøÑÕµ¤£¬¾İËµ³ÔÁË¿ÉÒÔÔö¼ÓÈİÃ²¡£\n" NOR);
-                set("unit", "¿Å");
+                set("long", WHT "è¿™æ˜¯ä¸€é¢—å…»é¢œä¸¹ï¼Œæ®è¯´åƒäº†å¯ä»¥å¢åŠ å®¹è²Œã€‚\n" NOR);
+                set("unit", "é¢—");
                 set("value", 10000);
                 set("weight", 50);
                 set("gift_type", "per");
-                set("gift_name", "ÏÈÌìÈİÃ²");
+                set("gift_name", "å…ˆå¤©å®¹è²Œ");
                 set("gift_point", 75);
-                set("gift_msg", HIM "Äã¾õµÃÉíÉÏ·¢ÉúÁËÆæÒìµÄ±ä»¯£¬µ«Ëæ¼´ÓÖÆ½ºÍÁËÏÂÀ´¡£\n" NOR);
+                set("gift_msg", HIM "ä½ è§‰å¾—èº«ä¸Šå‘ç”Ÿäº†å¥‡å¼‚çš„å˜åŒ–ï¼Œä½†éšå³åˆå¹³å’Œäº†ä¸‹æ¥ã€‚\n" NOR);
         }
         setup();
 }

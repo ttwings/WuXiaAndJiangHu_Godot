@@ -7,18 +7,18 @@ inherit AXE;
 
 void create()
 {
-	set_name("Ğû»¨¸«", ({"xuanhua fu", "fu", "axe"}));
+	set_name("å®£èŠ±æ–§", ({"xuanhua fu", "fu", "axe"}));
 	set_weight(12000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "°Ñ");
-		set("long", "ÕâÊÇ°Ñ³ÁÖØµÄ´ó¸«£¬ÓĞ°Ë³ß¶à³¤£¬·æÀûÎŞ±È¡£\n");
+		set("unit", "æŠŠ");
+		set("long", "è¿™æ˜¯æŠŠæ²‰é‡çš„å¤§æ–§ï¼Œæœ‰å…«å°ºå¤šé•¿ï¼Œé”‹åˆ©æ— æ¯”ã€‚\n");
 		set("value", 5000);
 		set("material", "iron");
-		set("wield_msg", "$NÄÃ³öÒ»°Ñ$nÎÕÔÚÊÖÖĞ£¬ÑÛÇ°ÉÁ¹ıÒ»µÀº®¹â¡£\n");
-		set("unwield_msg", "$N·ÅÏÂÊÖÖĞµÄ$n¡£\n");
+		set("wield_msg", "$Næ‹¿å‡ºä¸€æŠŠ$næ¡åœ¨æ‰‹ä¸­ï¼Œçœ¼å‰é—ªè¿‡ä¸€é“å¯’å…‰ã€‚\n");
+		set("unwield_msg", "$Næ”¾ä¸‹æ‰‹ä¸­çš„$nã€‚\n");
 	}
 	init_axe(60);
 	setup();

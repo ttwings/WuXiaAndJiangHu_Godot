@@ -1,22 +1,22 @@
-// axe1.c ³¤½£
+// axe1.c é•¿å‰‘
 
 #include <weapon.h>
 inherit AXE;
 
 void create()
 {
-	set_name("°å¸«", ({"ban fu", "axe", "fu"}));
+	set_name("æ¿æ–§", ({"ban fu", "axe", "fu"}));
 	set_weight(5000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±ú");
-		set("long", "ÕâÊÇÒ»±ú³ÁÖØµÄ°å¸«¡£\n");
+		set("unit", "æŸ„");
+		set("long", "è¿™æ˜¯ä¸€æŸ„æ²‰é‡çš„æ¿æ–§ã€‚\n");
 		set("value", 0);
 		set("material", "steel");
-		set("wield_msg", "$N¡¸ºö¡¹µÄÒ»Éù³é³öÒ»±ú$nÎÕÔÚÊÖÖĞ¡£\n");
-		set("unwield_msg", "$N½«ÊÖÖĞµÄ$n²å»ØÑüºó¡£\n");
+		set("wield_msg", "$Nã€Œå¿½ã€çš„ä¸€å£°æŠ½å‡ºä¸€æŸ„$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+		set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$næ’å›è…°åã€‚\n");
 	}
 	init_axe(100);
 	setup();

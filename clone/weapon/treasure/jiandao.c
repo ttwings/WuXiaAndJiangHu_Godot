@@ -1,4 +1,4 @@
-// jiandao.c Îå¶¾¼ô
+// jiandao.c äº”æ¯’å‰ª
 // Last Modified by winder on Sep. 7 2001
 
 #include <weapon.h>
@@ -8,18 +8,18 @@ inherit HOOK;
 
 void create()
 {
-	set_name("Îå¶¾¼ô", ({"wudu jian", "jian"}));
+	set_name("äº”æ¯’å‰ª", ({"wudu jian", "jian"}));
 	set_weight(5000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±ú");
-		set("long", "ÕâÊÇÒ»±úÆæÃÅ±øÆ÷£¬ºÃËÆÒ»Ö»´ó¼ôµ¶£¬ÉÏÃæÎ¹ÁË¾ç¶¾¡£\n");
+		set("unit", "æŸ„");
+		set("long", "è¿™æ˜¯ä¸€æŸ„å¥‡é—¨å…µå™¨ï¼Œå¥½ä¼¼ä¸€åªå¤§å‰ªåˆ€ï¼Œä¸Šé¢å–‚äº†å‰§æ¯’ã€‚\n");
 		set("value", 10000);
 		set("material", "steel");
-		set("wield_msg", "$N¡¸à§¡¹µÄÒ»ÉùÌÍ³öÒ»±ú$nÎÕÔÚÊÖÖĞ¡£\n");
-		set("unwield_msg", "$N½«ÊÖÖĞµÄ$n¹ÒÔÚÑü¼ä¡£\n");
+		set("wield_msg", "$Nã€Œå”°ã€çš„ä¸€å£°æå‡ºä¸€æŸ„$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+		set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$næŒ‚åœ¨è…°é—´ã€‚\n");
 	}
 	init_hook(130);
 	setup();

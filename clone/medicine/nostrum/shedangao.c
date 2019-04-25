@@ -8,13 +8,13 @@ void init()
 
 void create()
 {
-	set_name("Éßµ¨¸à", ({"shedan gao", "gao"}));
+	set_name("è›‡èƒ†è†", ({"shedan gao", "gao"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "¿é");
-		set("long", "ÕâÊÇÕä¹ó²¹Æ·¡ºÉßµ¨¸à¡»¡£\n");
+		set("unit", "å—");
+		set("long", "è¿™æ˜¯çè´µè¡¥å“ã€è›‡èƒ†è†ã€ã€‚\n");
 		set("value", 100);
 	}
 	set("pour_type", "1");
@@ -26,14 +26,14 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 
 	if ((me->query("max_jing") >= 110) || (me->query("max_qi") >= 200))
-		return notify_fail("Äã³Ô¡ºÉßµ¨¸à¡»ÒÑÎŞĞ§ÓÃ£¡\n");
+		return notify_fail("ä½ åƒã€è›‡èƒ†è†ã€å·²æ— æ•ˆç”¨ï¼\n");
 	if (me->query("max_jing") < 105)
 	{
 		me->add("max_jing", 2);
@@ -52,7 +52,7 @@ int do_eat(string arg)
 		me->add("eff_qi", 3);
 		me->add("qi", 5);
 	}
-	message_vision("$N³ÔÏÂÒ»¿éÉßµ¨¸à£¬¶Ù¾õÒ»¹ÉºÆµ´ÕæÆøÖ±Ó¿ÉÏÀ´£¬¾«£¬Æø´óÔö...\n", me);
+	message_vision("$Nåƒä¸‹ä¸€å—è›‡èƒ†è†ï¼Œé¡¿è§‰ä¸€è‚¡æµ©è¡çœŸæ°”ç›´æ¶Œä¸Šæ¥ï¼Œç²¾ï¼Œæ°”å¤§å¢...\n", me);
 	destruct(this_object());
 	return 1;
 }

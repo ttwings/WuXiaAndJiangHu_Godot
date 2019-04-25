@@ -9,9 +9,9 @@ void init()
 }
 void create()
 {
-	set_name(HIG "¸¯ĞÄ²İ" NOR, ({"fuxin cao", "cao"}));
-	set("unit", "¸ù");
-	set("long", "ÕâÊÇÒ»¶äÎŞ¸ùĞ¡²İ£¬³¤µÃºÜĞ¡£¬È´¸øÈËÒ»ÖÖĞÀĞÀÏòÈÙµÄ¸Ğ¾õ¡£\n");
+	set_name(HIG "è…å¿ƒè‰" NOR, ({"fuxin cao", "cao"}));
+	set("unit", "æ ¹");
+	set("long", "è¿™æ˜¯ä¸€æœµæ— æ ¹å°è‰ï¼Œé•¿å¾—å¾ˆå°ï¼Œå´ç»™äººä¸€ç§æ¬£æ¬£å‘è£çš„æ„Ÿè§‰ã€‚\n");
 	set("pour_type", "1");
 	setup();
 }
@@ -21,13 +21,13 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 
-	message_vision(HIG "Éú³Ô¸¯ĞÄ²İ»¹²»Èç°¾ÁËÖàÔÙºÈ°É¡£\n" NOR, me);
+	message_vision(HIG "ç”Ÿåƒè…å¿ƒè‰è¿˜ä¸å¦‚ç†¬äº†ç²¥å†å–å§ã€‚\n" NOR, me);
 	force_limit = me->query_skill("force", 1) * 10;
 	neili_limit = me->query("max_neili");
 	if (neili_limit <= force_limit)
@@ -35,7 +35,7 @@ int do_eat(string arg)
 		me->add("max_neili", 5);
 		me->start_busy(20);
 	}
-	message_vision(HIG "$N³ÔÏÂÒ»Öê¸¯ĞÄ²İ£¬¶ÙÈ»¼äÓĞµã¶Ç×ÓÌÛ...\n" NOR, me);
+	message_vision(HIG "$Nåƒä¸‹ä¸€æ ªè…å¿ƒè‰ï¼Œé¡¿ç„¶é—´æœ‰ç‚¹è‚šå­ç–¼...\n" NOR, me);
 	destruct(this_object());
 	return 1;
 }

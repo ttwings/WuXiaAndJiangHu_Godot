@@ -1,4 +1,4 @@
-// dragonblade.c ÍÀÁúµ¶
+// dragonblade.c å± é¾™åˆ€
 // Last Modified by winder on Sep. 7 2001
 
 #include <weapon.h>
@@ -8,21 +8,21 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(BLU "ÍÀÁúµ¶" NOR, ({"dragon blade", "blade", "dao"}));
+	set_name(BLU "å± é¾™åˆ€" NOR, ({"dragon blade", "blade", "dao"}));
 	set_weight(30000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "°Ñ");
-		set("long", "´Ëµ¶ÓÉ¹ù¾¸»ÆÈØ·ò¸¾´òÔì£¬ÊÇÌìÏÂÉñ±ø¡£\n");
+		set("unit", "æŠŠ");
+		set("long", "æ­¤åˆ€ç”±éƒ­é–é»„è“‰å¤«å¦‡æ‰“é€ ï¼Œæ˜¯å¤©ä¸‹ç¥å…µã€‚\n");
 		set("material", "steel");
-		set("no_drop", "Èç´Ë±¦¹óµÄÎäÆ÷ÔÙÊÀÄÑÇó°¡¡£\n");
-		set("no_get", "ËÍÈË£¿¿÷ÄãÏëµÄ³öÀ´£¡\n");
-		set("no_put", "ÕäÏ§Ëü°É¡£\n");
+		set("no_drop", "å¦‚æ­¤å®è´µçš„æ­¦å™¨å†ä¸–éš¾æ±‚å•Šã€‚\n");
+		set("no_get", "é€äººï¼Ÿäºä½ æƒ³çš„å‡ºæ¥ï¼\n");
+		set("no_put", "çæƒœå®ƒå§ã€‚\n");
 		set("value", 100);
-		set("wield_msg", HIB "ÃÍ¼ûºÚ¹âÒ»ÉÁ£¬ÍÀÁúµ¶Ô¾Èë$NÕÆÖĞ¡£Ë²Ê±ÌìµØ¼äÃÖÂş×Å\nÒ»Æ¬ºÚ°µµÄÉ±ÒâÖĞ¡£\n" NOR);
-		set("unwield_msg", HIB "$NÕÆÖĞµ¶Æø½¥Á²£¬ÌìµØ¼äµÄËàÉ±Ö®ÆøÂıÂıÉ¢È¥¡£\n" NOR);
+		set("wield_msg", HIB "çŒ›è§é»‘å…‰ä¸€é—ªï¼Œå± é¾™åˆ€è·ƒå…¥$NæŒä¸­ã€‚ç¬æ—¶å¤©åœ°é—´å¼¥æ¼«ç€\nä¸€ç‰‡é»‘æš—çš„æ€æ„ä¸­ã€‚\n" NOR);
+		set("unwield_msg", HIB "$NæŒä¸­åˆ€æ°”æ¸æ•›ï¼Œå¤©åœ°é—´çš„è‚ƒæ€ä¹‹æ°”æ…¢æ…¢æ•£å»ã€‚\n" NOR);
 	}
 	init_blade(300);
 	setup();

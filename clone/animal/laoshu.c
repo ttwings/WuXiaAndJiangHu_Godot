@@ -1,14 +1,14 @@
-// laoshu.c ÀÏÊó
+// laoshu.c è€é¼ 
 // Last Modified by winder on Aug. 1 2002
 
 inherit NPC;
 
 void create()
 {
-	set_name("ÀÏÊó", ({"lao shu", "shu", "mouse"}));
-	set("race", "×ßÊÞ");
+	set_name("è€é¼ ", ({"lao shu", "shu", "mouse"}));
+	set("race", "èµ°å…½");
 	set("age", 2);
-	set("long", "Ò»Ö»ÔßÙâÙâµÄÐ¡ÀÏÊó¡£\n");
+	set("long", "ä¸€åªèµƒå…®å…®çš„å°è€é¼ ã€‚\n");
 	set("attitude", "peaceful");
 
 	set_weight(300);
@@ -27,7 +27,7 @@ void create()
 void die()
 {
 	object ob;
-	message_vision("$NÆà²ÒµÄº¿ÁË¼¸Éù£¬ËÀÁË¡£\n", this_object());
+	message_vision("$Nå‡„æƒ¨çš„åšŽäº†å‡ å£°ï¼Œæ­»äº†ã€‚\n", this_object());
 	ob = new (__DIR__ "obj/shurou");
 	ob->move(environment(this_object()));
 	destruct(this_object());

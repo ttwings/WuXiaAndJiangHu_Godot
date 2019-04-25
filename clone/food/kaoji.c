@@ -1,4 +1,4 @@
-// Éñ»°ÊÀ½ç¡¤Î÷ÓÎ¼Ç¡¤°æ±¾£´£®£µ£°
+// ç¥è¯ä¸–ç•ŒÂ·è¥¿æ¸¸è®°Â·ç‰ˆæœ¬ï¼”ï¼ï¼•ï¼
 /* <SecCrypt CPL V3R05> */
 
 // chicken.c
@@ -8,14 +8,14 @@ inherit F_FOOD;
 
 void create()
 {
-        set_name("¿¾¼¦", ({"chicken"}));
+        set_name("çƒ¤é¸¡", ({"chicken"}));
         set_weight(80);
         if (clonep())
                 set_default_object(__FILE__);
         else
         {
-                set("long", "Ò»Ö»ÏãÅçÅçµÄ¿¾¼¦¡£\n");
-                set("unit", "Ö»");
+                set("long", "ä¸€åªé¦™å–·å–·çš„çƒ¤é¸¡ã€‚\n");
+                set("unit", "åª");
                 set("value", 100);
                 set("food_remaining", 3);
                 set("food_supply", 30);

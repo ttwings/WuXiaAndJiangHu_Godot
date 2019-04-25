@@ -1,4 +1,4 @@
-// laoshanshen.c ÀÏÉ½²Î
+// laoshanshen.c è€å±±å‚
 
 inherit ITEM;
 #include <ansi.h>
@@ -14,15 +14,15 @@ void init()
 
 void create()
 {
-	set_name(HIY "ÀÏÉ½²Î" NOR, ({"laoshan shen", "shen"}));
+	set_name(HIY "è€å±±å‚" NOR, ({"laoshan shen", "shen"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "Öê");
+		set("unit", "æ ª");
 		set("vegetable", 4);
 		set("nostrum", 64);
-		set("long", "ÕâÊÇÒ»ÖêÕ´ÂúÉ½ÄàµÄ³¤°×ÀÏÉ½²Î¡£\n");
+		set("long", "è¿™æ˜¯ä¸€æ ªæ²¾æ»¡å±±æ³¥çš„é•¿ç™½è€å±±å‚ã€‚\n");
 		set("value", 10000);
 	}
 	set("pour_type", "1");
@@ -34,14 +34,14 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 
 	me->receive_curing("qi", 200);
-	message_vision("$N³ÔÏÂÒ»ÖêÀÏÉ½²Î£¬¶Ù¾õ»ëÉíÒ»¹ÉÈÈÆø¶µµ×Ã°ÁËÉÏÀ´£¡\n", me);
+	message_vision("$Nåƒä¸‹ä¸€æ ªè€å±±å‚ï¼Œé¡¿è§‰æµ‘èº«ä¸€è‚¡çƒ­æ°”å…œåº•å†’äº†ä¸Šæ¥ï¼\n", me);
 	destruct(this_object());
 	return 1;
 }

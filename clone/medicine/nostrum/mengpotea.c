@@ -1,4 +1,4 @@
-// tea.c ÃÏÆÅ²è
+// tea.c å­Ÿå©†èŒ¶
 
 #include <ansi.h>
 #include <command.h>
@@ -8,14 +8,14 @@ inherit ITEM;
 int mpc_effect(object me);
 void create()
 {
-	set_name(GRN "ÃÏÆÅ²è" NOR, ({GRN "mengpo tea" NOR, "cha", "tea"}));
+	set_name(GRN "å­Ÿå©†èŒ¶" NOR, ({GRN "mengpo tea" NOR, "cha", "tea"}));
 	set_weight(1);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("long", GRN "Õâ¾ÍÊÇ´«ËµÖĞÖøÃûµÄÃÏÆÅ²è¡£Ã¿¸ö¹í»êÔÚÍ¶Ì¥×ªÊÀÖ®Ç°£¬¶¼ÒªºÈÉÏÒ»ÍëÃÏÆÅ²è£¬¾İËµºÈÁËÕâÍë²èºó£¬ÄãÔÚÑô¼äµÄÒ»ÇĞÒ»ÇĞ¾Í¶¼»áÍüµÃ¸É¸É¾»¾»£¬¾Í´ËÓë½ñÊÀÍÑÀëÁËÒ»ÇĞ¹ØÏµ¡£\n");
-		set("unit", "Íë");
+		set("long", GRN "è¿™å°±æ˜¯ä¼ è¯´ä¸­è‘—åçš„å­Ÿå©†èŒ¶ã€‚æ¯ä¸ªé¬¼é­‚åœ¨æŠ•èƒè½¬ä¸–ä¹‹å‰ï¼Œéƒ½è¦å–ä¸Šä¸€ç¢—å­Ÿå©†èŒ¶ï¼Œæ®è¯´å–äº†è¿™ç¢—èŒ¶åï¼Œä½ åœ¨é˜³é—´çš„ä¸€åˆ‡ä¸€åˆ‡å°±éƒ½ä¼šå¿˜å¾—å¹²å¹²å‡€å‡€ï¼Œå°±æ­¤ä¸ä»Šä¸–è„±ç¦»äº†ä¸€åˆ‡å…³ç³»ã€‚\n");
+		set("unit", "ç¢—");
 	}
 	set("pour_type", "1");
 	setup();
@@ -32,18 +32,18 @@ int do_drink(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 	//if a ghost
 	if (!me->is_ghost())
 	{
-		write("ÄãµÃÏÈËÀÁË²ÅÄÜºÈÕâÍë²è......\n\n\nÒª²»£¬ÏÈËÀÒ»´Î£¿......\n");
+		write("ä½ å¾—å…ˆæ­»äº†æ‰èƒ½å–è¿™ç¢—èŒ¶......\n\n\nè¦ä¸ï¼Œå…ˆæ­»ä¸€æ¬¡ï¼Ÿ......\n");
 		return 1;
 	}
-	message_vision("$NÓÌÔ¥ÁËÒ»»á¶ù£¬»¹ÊÇ°ÑÒ»ÍëÃÏÆÅ²èºÈÁËÏÂÈ¥¡£\n\n\n\n", me);
+	message_vision("$NçŠ¹è±«äº†ä¸€ä¼šå„¿ï¼Œè¿˜æ˜¯æŠŠä¸€ç¢—å­Ÿå©†èŒ¶å–äº†ä¸‹å»ã€‚\n\n\n\n", me);
 	remove_call_out("mpc_effect");
 	call_out("mpc_effect", 5, me);
 	return 1;
@@ -61,8 +61,8 @@ int mpc_effect(object me)
 				me->set("eff_jing", (int)me->query("max_jing"));
 				me->set("jing", (int)me->query("max_jing"));
 			}
-	message_vision(BLU "$N¾õµÃÒ»ÕóÍ·ÔÎÄ¿Ñ££¬ÒÔÇ°·¢ÉúµÄÊÂÇéËÆºõÍü¼ÇÁËĞí¶àĞí¶à..........\n\n\n" NOR, me);
-	tell_object(me, BLU "Íü¼Ç°É...................\n\n\n\n" NOR);
+	message_vision(BLU "$Nè§‰å¾—ä¸€é˜µå¤´æ™•ç›®çœ©ï¼Œä»¥å‰å‘ç”Ÿçš„äº‹æƒ…ä¼¼ä¹å¿˜è®°äº†è®¸å¤šè®¸å¤š..........\n\n\n" NOR, me);
+	tell_object(me, BLU "å¿˜è®°å§...................\n\n\n\n" NOR);
 	destruct(this_object());
 	return 1;
 }

@@ -1,14 +1,14 @@
-// maque.c ��ȸ
+// maque.c 麻雀
 // Last Modified by winder on Aug. 1 2002
 
 inherit NPC;
 
 void create()
 {
-	set_name("��ȸ", ({"ma que", "que", "bird"}));
-	set("race", "����");
+	set_name("麻雀", ({"ma que", "que", "bird"}));
+	set("race", "飞禽");
 	set("age", 3);
-	set("long", "һֻߴߴ������������ȥ��С��ȸ��\n");
+	set("long", "一只叽叽喳喳，飞来飞去的小麻雀。\n");
 	set("attitude", "peaceful");
 
 	set("combat_exp", 100);
@@ -18,15 +18,15 @@ void create()
 						(
 							: this_object(), "random_move"
 							:),
-						"С��ȸߴߴ�����Ļ����ţ�����ͷ���Ϸ�����ȥ��\n",
-						"С��ȸ����ͣ��ǽͷ�������������ң�æµ����ʳ�ԡ�\n",
+						"小麻雀叽叽喳喳的欢叫着，在你头顶上飞来飞去。\n",
+						"小麻雀忽而停在墙头，忽而飞上树梢，忙碌着找食吃。\n",
 					}));
 
 	set("chat_msg_combat", ({
 							   (
 								   : this_object(), "random_move"
 								   :),
-							   "С��ȸߴߴߴ��ŭ���ţ�ȫ������ë������������\n",
+							   "小麻雀叽叽叽地怒叫着，全身的羽毛都抖竖起来！\n",
 						   }));
 
 	setup();

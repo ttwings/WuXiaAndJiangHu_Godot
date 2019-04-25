@@ -6,17 +6,17 @@ inherit AXE;
 
 void create()
 {
-	set_name("Ìú¸«", ({"tiefu", "axe", "fu", "tie fu"}));
+	set_name("é“æ–§", ({"tiefu", "axe", "fu", "tie fu"}));
 	set_weight(8000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "°Ñ");
-		set("long", "ÕâÊÇÒ»°ÑÅü²ñÓÃµÄÌú¸«£¬¿³Æğ¶«Î÷À´·Ç³£Ë³ÊÖ¡£\n");
+		set("unit", "æŠŠ");
+		set("long", "è¿™æ˜¯ä¸€æŠŠåŠˆæŸ´ç”¨çš„é“æ–§ï¼Œç èµ·ä¸œè¥¿æ¥éå¸¸é¡ºæ‰‹ã€‚\n");
 		set("value", 1000);
-		set("wield_msg", "$NÄÃ³öÒ»°Ñ¿³²ñµÄ$n£¬ÎÕÔÚÊÖÖĞµ±×÷ÎäÆ÷¡£\n");
-		set("unwield_msg", "$N·ÅÏÂÊÖÖĞµÄ$n¡£\n");
+		set("wield_msg", "$Næ‹¿å‡ºä¸€æŠŠç æŸ´çš„$nï¼Œæ¡åœ¨æ‰‹ä¸­å½“ä½œæ­¦å™¨ã€‚\n");
+		set("unwield_msg", "$Næ”¾ä¸‹æ‰‹ä¸­çš„$nã€‚\n");
 	}
 	init_axe(20);
 	setup();

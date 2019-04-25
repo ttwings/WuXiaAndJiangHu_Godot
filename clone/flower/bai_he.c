@@ -7,15 +7,15 @@ int value() { return query_amount() * (int)query("base_value"); }
 
 void create()
 {
-	set_name(HIC "°ÙºÏ" NOR, ({"bai he", "bai"}));
+	set_name(HIC "ç™¾åˆ" NOR, ({"bai he", "bai"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("long", "ÕâÊÇÒ»¶äµäÑÅ¹Â°ÁµÄ°ÙºÏ»¨£¬»¨µÄÁÛ¾¥Èé°×ËÆÓñ£¬°ê°ê½ô±§£¬\nÓÉ¶ş¡¢ÈıÊ®°êÖØµşÀÛÉúÔÚÒ»Æğ£¬ºÃÏó°ÙÆ¬ºÏ³É£¬Òşº¬×Å¡°°Ù\nÄêºÃºÏ£¬°ÙÊÂºÏĞÄ¡±Ö®Òâ¡£\n");
-		set("unit", "Êø");
+		set("long", "è¿™æ˜¯ä¸€æœµå…¸é›…å­¤å‚²çš„ç™¾åˆèŠ±ï¼ŒèŠ±çš„é³èŒä¹³ç™½ä¼¼ç‰ï¼Œç“£ç“£ç´§æŠ±ï¼Œ\nç”±äºŒã€ä¸‰åç“£é‡å ç´¯ç”Ÿåœ¨ä¸€èµ·ï¼Œå¥½è±¡ç™¾ç‰‡åˆæˆï¼Œéšå«ç€â€œç™¾\nå¹´å¥½åˆï¼Œç™¾äº‹åˆå¿ƒâ€ä¹‹æ„ã€‚\n");
+		set("unit", "æŸ");
 		set("value", 45);
-		set("base_unit", "¶ä");
+		set("base_unit", "æœµ");
 		set("base_weight", 100);
 		set("flower", 1);
 	}

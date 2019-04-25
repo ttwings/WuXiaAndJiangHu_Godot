@@ -5,9 +5,9 @@
 inherit BLADE;
 
 string *names = ({
-	"³¤Íäµ¶",
-	"¶ÌÍäµ¶",
-	"ÔÂÑÀÍäµ¶",
+	"é•¿å¼¯åˆ€",
+	"çŸ­å¼¯åˆ€",
+	"æœˆç‰™å¼¯åˆ€",
 });
 
 string *ids = ({
@@ -25,8 +25,8 @@ void create()
 		set_default_object(__FILE__);
 	else
 	{
-		set("long", "Ò»°ÑÍäÍäµÄÕ½µ¶£®\n");
-		set("unit", "°Ñ");
+		set("long", "ä¸€æŠŠå¼¯å¼¯çš„æˆ˜åˆ€ï¼\n");
+		set("unit", "æŠŠ");
 		set("value", 400);
 		set("material", "metal");
 	}

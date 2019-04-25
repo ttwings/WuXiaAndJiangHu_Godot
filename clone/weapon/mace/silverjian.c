@@ -7,18 +7,18 @@ inherit MACE;
 
 void create()
 {
-	set_name(HIW "Òø×°ïµ" NOR, ({"silver mace", "mace", "silvermace", "yinjian", "jian"}));
+	set_name(HIW "é“¶è£…é”" NOR, ({"silver mace", "mace", "silvermace", "yinjian", "jian"}));
 	set_weight(8000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±ú");
+		set("unit", "æŸ„");
 		set("value", 8000);
 		set("material", "silver");
-		set("long", "Ò»±úÉÁÉÁ·¢¹âµÄÒø×°ïµ£¬ÏÔÈ»ÊÇ±»ÈË²ÁÁËÓÖ²Á¡£\n");
-		set("wield_msg", "Ö»¼ûÒ»µÀÒø¹âÉÁ¹ı£¬$NÊÖÀïÒÑ¾­¶àÁËÒ»±ú$n£¡\n");
-		set("unwield_msg", "$NÊÕÆğÁË$n£¬ËÄÖÜ¹âÃ¢ÎªÖ®Ò»°µ£¡\n");
+		set("long", "ä¸€æŸ„é—ªé—ªå‘å…‰çš„é“¶è£…é”ï¼Œæ˜¾ç„¶æ˜¯è¢«äººæ“¦äº†åˆæ“¦ã€‚\n");
+		set("wield_msg", "åªè§ä¸€é“é“¶å…‰é—ªè¿‡ï¼Œ$Næ‰‹é‡Œå·²ç»å¤šäº†ä¸€æŸ„$nï¼\n");
+		set("unwield_msg", "$Næ”¶èµ·äº†$nï¼Œå››å‘¨å…‰èŠ’ä¸ºä¹‹ä¸€æš—ï¼\n");
 	}
 
 	init_mace(65);

@@ -1,4 +1,4 @@
-// jinlongbian.c ½ğÁú±Ş
+// jinlongbian.c é‡‘é¾™é­
 
 #include <ansi.h>
 #include <weapon.h>
@@ -7,19 +7,19 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(YEL "½ğÁú±Ş" NOR, ({"jinlong bian", "bian"}));
+	set_name(YEL "é‡‘é¾™é­" NOR, ({"jinlong bian", "bian"}));
 	set_weight(500);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±ú");
-		set("long", "ÕâÊÇÎ÷Óò¸»ÉÌ´ó¼ÖÒü¿ËÎ÷µÄÌùÉí±øÆ÷½ğÁú±Ş£¬\n"
-					"ËüµÄ±úÄË´¿½ğ´òÔì¶ø³É£¬Í¨ÉíÏâÂú¸÷ÖÖ±¦Ê¯¡£\n");
+		set("unit", "æŸ„");
+		set("long", "è¿™æ˜¯è¥¿åŸŸå¯Œå•†å¤§è´¾å°¹å…‹è¥¿çš„è´´èº«å…µå™¨é‡‘é¾™é­ï¼Œ\n"
+					"å®ƒçš„æŸ„ä¹ƒçº¯é‡‘æ‰“é€ è€Œæˆï¼Œé€šèº«é•¶æ»¡å„ç§å®çŸ³ã€‚\n");
 		set("value", 20000);
 		set("material", "leather");
-		set("wield_msg", "$N¡¸à§¡¹µÄÒ»Éù¶¶³öÒ»±ú$nÎÕÔÚÊÖÖĞ¡£\n");
-		set("unwield_msg", "$N½«ÊÖÖĞµÄ$n¾í»ØÑü¼ä¡£\n");
+		set("wield_msg", "$Nã€Œå”°ã€çš„ä¸€å£°æŠ–å‡ºä¸€æŸ„$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+		set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$nå·å›è…°é—´ã€‚\n");
 	}
 	init_whip(150);
 	setup();

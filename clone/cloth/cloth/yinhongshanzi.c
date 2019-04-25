@@ -1,17 +1,17 @@
-// yinhongshanzi.c ÒøºìºìÉÀ×Ó
+// yinhongshanzi.c é“¶çº¢çº¢è¡«å­
 
 #include <ansi.h>
 #include <armor.h>
 inherit CLOTH;
 void create()
 {
-	set_name(HIR "ÒøºìºìÉÀ×Ó" NOR, ({"yinhong shanzi", "cloth"}));
+	set_name(HIR "é“¶çº¢çº¢è¡«å­" NOR, ({"yinhong shanzi", "cloth"}));
 	set_weight(800);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "¼ş");
+		set("unit", "ä»¶");
 		set("value", 600);
 		set("armor_prop/armor", 1);
 		set("material", "cloth");

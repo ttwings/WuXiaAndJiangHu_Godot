@@ -1,21 +1,21 @@
-// Éñ»°ÊÀ½ç¡¤Î÷ÓÎ¼Ç¡¤°æ±¾£´£®£µ£°
+// ç¥è¯ä¸–ç•ŒÂ·è¥¿æ¸¸è®°Â·ç‰ˆæœ¬ï¼”ï¼ï¼•ï¼
 /* <SecCrypt CPL V3R05> */
 
-// wine.c ½­Ã×¾Æ
+// wine.c æ±Ÿç±³é…’
 
 inherit ITEM;
 inherit F_FOOD;
 
 void create()
 {
-        set_name("½­Ã×¾Æ", ({"mijiu"}));
+        set_name("æ±Ÿç±³é…’", ({"mijiu"}));
         set_weight(100);
         if (clonep())
                 set_default_object(__FILE__);
         else
         {
-                set("long", "ÄÏ·½ÈË°®³ÔµÄ½­Ã×¾Æ¡£\n");
-                set("unit", "Íë");
+                set("long", "å—æ–¹äººçˆ±åƒçš„æ±Ÿç±³é…’ã€‚\n");
+                set("unit", "ç¢—");
                 set("value", 120);
                 set("food_remaining", 6);
                 set("food_supply", 20);
@@ -25,7 +25,7 @@ void create()
         // we set it to contain wine at the beginning
         set("liquid", ([
                                  "type":"alcohol",
-                                 "name":"½­Ã×¾Æ",
+                                 "name":"æ±Ÿç±³é…’",
                           "drunk_apply":10,
         ]));
 }

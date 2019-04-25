@@ -6,18 +6,18 @@ inherit SPEAR;
 
 void create()
 {
-	set_name("±ÌÓñË«Ç¹", ({"jade spear", "spear"}));
+	set_name("ç¢§ç‰åŒæª", ({"jade spear", "spear"}));
 	set_weight(10000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "¸Ë");
-		set("long", "Ò»¶ÔÓñÖÆµÄÇàÉ«¶ÌÇ¹£¬ÏóÊÇÓĞÇ®ÈË¼ÒµÄ°ÚÉè£¬È´ÓÖ·æÀûÎŞ±È£®\n");
+		set("unit", "æ†");
+		set("long", "ä¸€å¯¹ç‰åˆ¶çš„é’è‰²çŸ­æªï¼Œè±¡æ˜¯æœ‰é’±äººå®¶çš„æ‘†è®¾ï¼Œå´åˆé”‹åˆ©æ— æ¯”ï¼\n");
 		set("value", 9000);
 		set("material", "blacksteel");
-		set("wield_msg", "$NË«ÊÖÒ»·Ö£¬´Ó±³ºó½âÏÂÒ»¶Ô¶ÌÇ¹ÎÕµ½ÊÖÖĞ£®\n");
-		set("unwield_msg", "$N½«ÊÖÖĞµÄ$nÏµµ½±³ºó£®\n");
+		set("wield_msg", "$NåŒæ‰‹ä¸€åˆ†ï¼Œä»èƒŒåè§£ä¸‹ä¸€å¯¹çŸ­æªæ¡åˆ°æ‰‹ä¸­ï¼\n");
+		set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$nç³»åˆ°èƒŒåï¼\n");
 	}
 	init_spear(20);
 	setup();

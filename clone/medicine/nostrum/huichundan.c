@@ -1,4 +1,4 @@
-// huichundan.c »Ø´ºµ¤
+// huichundan.c å›æ˜¥ä¸¹
 // Last Modified by Winder on Mar. 5 2001
 
 inherit ITEM;
@@ -12,12 +12,12 @@ void init()
 
 void create()
 {
-	set_name(HIG "»Ø´ºµ¤" NOR, ({"huichun dan", "dan"}));
-	set("unit", "Á£");
+	set_name(HIG "å›æ˜¥ä¸¹" NOR, ({"huichun dan", "dan"}));
+	set("unit", "ç²’");
 	set("vegetable", 0);
 	set("nostrum", 0);
 	set("level", 300);
-	set("long", "ÕâÊÇÒ»Á£ÇåÂÌÌŞÍ¸µÄ»Ø´ºµ¤¡£\n");
+	set("long", "è¿™æ˜¯ä¸€ç²’æ¸…ç»¿å‰”é€çš„å›æ˜¥ä¸¹ã€‚\n");
 	set("pour_type", "1");
 	setup();
 }
@@ -27,15 +27,15 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ğ¼±£¬ÂıÂıºÈ£¬Ğ¡ĞÄ±ğÇº×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢å–ï¼Œå°å¿ƒåˆ«å‘›ç€äº†ã€‚\n");
 
 	if (me->query("age") <= 39)
 	{
-		message_vision("$NÃ»±ØÒª³Ô»Ø´ºµ¤¡£\n", me);
+		message_vision("$Næ²¡å¿…è¦åƒå›æ˜¥ä¸¹ã€‚\n", me);
 	}
 	else
 	{
@@ -43,7 +43,7 @@ int do_eat(string arg)
 		me->add("vegetable/huichun", 1);
 		me->delete ("last_slp");
 		me->delete ("jingzuo_time");
-		message_vision("$N³ÔÏÂÒ»Á£»Ø´ºµ¤£¬ÉìÁË¸öÀÁÑü£¬¾õµÃÉí×Ó¹ÇÁé±ãÁËĞí¶à¡£\n", me);
+		message_vision("$Nåƒä¸‹ä¸€ç²’å›æ˜¥ä¸¹ï¼Œä¼¸äº†ä¸ªæ‡’è…°ï¼Œè§‰å¾—èº«å­éª¨çµä¾¿äº†è®¸å¤šã€‚\n", me);
 		destruct(this_object());
 	}
 	return 1;

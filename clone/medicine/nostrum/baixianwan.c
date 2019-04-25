@@ -1,4 +1,4 @@
-// baixianwan.c °ÙÏÑÍè
+// baixianwan.c ç™¾æ¶ä¸¸
 
 inherit ITEM;
 #include <ansi.h>
@@ -11,13 +11,13 @@ void init()
 
 void create()
 {
-	set_name(HIW "°ÙÏÑÍè" NOR, ({"baixian wan", "wan"}));
-	set("unit", "Á£");
+	set_name(HIW "ç™¾æ¶ä¸¸" NOR, ({"baixian wan", "wan"}));
+	set("unit", "ç²’");
 	set("vegetable", 36);
 	set("nostrum", 25);
 	set("level", 70);
 	set("pour_type", "1");
-	set("long", "ÕâÊÇÒ»Á£°ÙÏÑÍè£¬¿´ÉÏÈ¥°×ÎõÎõµÄ£¬»¹Í¸×ÅÁÁ¹â£¬²»ÖªµÀ³ÔÁË»á...\n");
+	set("long", "è¿™æ˜¯ä¸€ç²’ç™¾æ¶ä¸¸ï¼Œçœ‹ä¸Šå»ç™½ç†™ç†™çš„ï¼Œè¿˜é€ç€äº®å…‰ï¼Œä¸çŸ¥é“åƒäº†ä¼š...\n");
 	setup();
 }
 
@@ -26,13 +26,13 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 
-	message_vision(HIG "$N³ÔÏÂÒ»Á£°ÙÏÑÍè£¬Ö»¾õµÃĞØÄÚÆøÑª·­ÌÚ£¬°¡...£¡³Ô´íÒ©ÁË£¡£¡£¡\n" NOR, me);
+	message_vision(HIG "$Nåƒä¸‹ä¸€ç²’ç™¾æ¶ä¸¸ï¼Œåªè§‰å¾—èƒ¸å†…æ°”è¡€ç¿»è…¾ï¼Œå•Š...ï¼åƒé”™è¯äº†ï¼ï¼ï¼\n" NOR, me);
 	me->set("qi", 10);
 	me->set("jing", 10);
 	destruct(this_object());

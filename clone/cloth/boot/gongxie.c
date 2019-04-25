@@ -4,14 +4,14 @@
 inherit BOOTS;
 void create()
 {
-	set_name("¹­Ğ¬", ({"gong xie", "xie", "shoes"}));
+	set_name("å¼“é‹", ({"gong xie", "xie", "shoes"}));
 	set_weight(1000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("long", "Ò»Ë«Õ­Õ­µÄ¹­Ğ¬£¬ÎäÁÖÖĞµÄÏÀÅ®ÃÇµÄ½ÅÏÂÎï¡£\n");
-		set("unit", "Ë«");
+		set("long", "ä¸€åŒçª„çª„çš„å¼“é‹ï¼Œæ­¦æ—ä¸­çš„ä¾ å¥³ä»¬çš„è„šä¸‹ç‰©ã€‚\n");
+		set("unit", "åŒ");
 		set("value", 100);
 		set("material", "silk");
 		set("armor_prop/armor", 1);

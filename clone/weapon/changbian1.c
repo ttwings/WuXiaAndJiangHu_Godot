@@ -1,22 +1,22 @@
-// longsword.c ³¤±Ş
+// longsword.c é•¿é­
 
 #include <weapon.h>
 inherit WHIP;
 
 void create()
 {
-	set_name("³¤±Ş", ({"changbian", "bian"}));
+	set_name("é•¿é­", ({"changbian", "bian"}));
 	set_weight(500);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±ú");
-		set("long", "ÕâÊÇÒ»±ú±ÈÎä×¨ÓÃµÄ³¤±Ş,ÍşÁ¦·Ç±ÈÑ°³£¡£\n");
+		set("unit", "æŸ„");
+		set("long", "è¿™æ˜¯ä¸€æŸ„æ¯”æ­¦ä¸“ç”¨çš„é•¿é­,å¨åŠ›éæ¯”å¯»å¸¸ã€‚\n");
 		set("value", 0);
 		set("material", "leather");
-		set("wield_msg", "$N¡¸à§¡¹µÄÒ»Éù¶¶³öÒ»±ú$nÎÕÔÚÊÖÖĞ¡£\n");
-		set("unwield_msg", "$N½«ÊÖÖĞµÄ$n¾í»ØÑü¼ä¡£\n");
+		set("wield_msg", "$Nã€Œå”°ã€çš„ä¸€å£°æŠ–å‡ºä¸€æŸ„$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+		set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$nå·å›è…°é—´ã€‚\n");
 	}
 	init_whip(100);
 	setup();

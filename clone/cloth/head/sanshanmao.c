@@ -4,13 +4,13 @@
 inherit HEAD;
 void create()
 {
-	set_name("ÈýÉ½Ã±", ({"sanshan mao", "head"}));
+	set_name("ä¸‰å±±å¸½", ({"sanshan mao", "head"}));
 	set_weight(100);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "¶¥");
+		set("unit", "é¡¶");
 		set("value", 400);
 		set("material", "cloth");
 		set("armor_prop/armor", 1);

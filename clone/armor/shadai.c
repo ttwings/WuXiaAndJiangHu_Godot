@@ -8,20 +8,20 @@ inherit BOOTS;
 
 void create()
 {
-	set_name("É³´ü", ({"sha dai", "shadai"}));
+	set_name("æ²™è¢‹", ({"sha dai", "shadai"}));
 	set_weight(5000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "¸±");
-		set("long", "ÕâÊÇÒ»¸±É³´ü£¬ÀïÃæ×°ÂúÁËÌúÉ°£¬ÓÃÒÔÁ·Ï°Çá¹¦¡£\n");
+		set("unit", "å‰¯");
+		set("long", "è¿™æ˜¯ä¸€å‰¯æ²™è¢‹ï¼Œé‡Œé¢è£…æ»¡äº†é“ç ‚ï¼Œç”¨ä»¥ç»ƒä¹ è½»åŠŸã€‚\n");
 		set("value", 6000);
 		set("material", "wrists");
 		set("armor_prop/armor", 5);
 		set("shaolin", 1);
-		set("wear_msg", YEL "$NÄÃ³öÒ»¸±É³´ü°óÔÚÍÈÉÏ¡£\n" NOR);
-		set("remove_msg", YEL "$N°ÑÉ³´ü´ÓÍÈÉÏÈ¡ÁËÏÂÀ´¡£\n" NOR);
+		set("wear_msg", YEL "$Næ‹¿å‡ºä¸€å‰¯æ²™è¢‹ç»‘åœ¨è…¿ä¸Šã€‚\n" NOR);
+		set("remove_msg", YEL "$NæŠŠæ²™è¢‹ä»è…¿ä¸Šå–äº†ä¸‹æ¥ã€‚\n" NOR);
 	}
 	setup();
 }

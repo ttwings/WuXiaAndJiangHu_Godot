@@ -14,14 +14,14 @@ void create()
 {
 	int i = random(sizeof(skills));
 
-	set_name("Ê¯°å", ({"stone", "shu", "book"}));
+	set_name("çŸ³æ¿", ({"stone", "shu", "book"}));
 	set_weight(500);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "¿é");
-		set("long", "Ò×½î¾­È­·¨Æª¡£\nÕâÊÇÒ»¿éÔ²Ô²µÄÊ¯°å£¬ËÆºõÓÃÊÖÖ¸¿Ì»®ÁËÊı¸öÖ¸Ó¡¡£\n");
+		set("unit", "å—");
+		set("long", "æ˜“ç­‹ç»æ‹³æ³•ç¯‡ã€‚\nè¿™æ˜¯ä¸€å—åœ†åœ†çš„çŸ³æ¿ï¼Œä¼¼ä¹ç”¨æ‰‹æŒ‡åˆ»åˆ’äº†æ•°ä¸ªæŒ‡å°ã€‚\n");
 		set("value", 500);
 		set("material", "stone");
 		set("skill", ([

@@ -1,4 +1,4 @@
-// duanyun-axe.c ¶ÏÔÆ¸«
+// duanyun-axe.c æ–­äº‘æ–§
 // Last Modified by suncity on Feb. 13 2003
 
 #include <ansi.h>
@@ -8,18 +8,18 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(HIW "¶ÏÔÆ¸«" NOR, ({"duanyun fu", "axe", "fu"}));
+	set_name(HIW "æ–­äº‘æ–§" NOR, ({"duanyun fu", "axe", "fu"}));
 	set_weight(40000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "°Ñ");
+		set("unit", "æŠŠ");
 		set("value", 10000);
 		set("material", "iron");
-		set("long", HIW "ÕâÊÇÒ»°ÑÒø¹âÉÁÉÁµÄ¸«Í·¡£\n" NOR);
-		set("wield_msg", HIW "Ò»µÀ°×¹â£¬$nÒÑÔÚ$NÊÖÖĞ£¬Ö»¾õÆø³É·çÔÆ£¬ÉùÎªÀ×öª¡£\n" NOR);
-		set("unwield_msg", HIW "$N·ÅÏÂÊÖÖĞµÄ$n£¬»ª¹â¶ÙÁ²£¬ÌìµØ¼äÖ»ÎÅÁúÃù¡£\n" NOR);
+		set("long", HIW "è¿™æ˜¯ä¸€æŠŠé“¶å…‰é—ªé—ªçš„æ–§å¤´ã€‚\n" NOR);
+		set("wield_msg", HIW "ä¸€é“ç™½å…‰ï¼Œ$nå·²åœ¨$Næ‰‹ä¸­ï¼Œåªè§‰æ°”æˆé£äº‘ï¼Œå£°ä¸ºé›·éœ†ã€‚\n" NOR);
+		set("unwield_msg", HIW "$Næ”¾ä¸‹æ‰‹ä¸­çš„$nï¼Œåå…‰é¡¿æ•›ï¼Œå¤©åœ°é—´åªé—»é¾™é¸£ã€‚\n" NOR);
 	}
 	init_axe(250);
 	setup();

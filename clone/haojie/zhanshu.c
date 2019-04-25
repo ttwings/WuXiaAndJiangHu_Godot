@@ -7,15 +7,15 @@ int is_zhanshu() { return 1; }
 
 void create()
 {
-	set_name(HIR "ÌôÕ½Êé" NOR, ({"zhan shu", "shu", "book"}));
+	set_name(HIR "æŒ‘æˆ˜ä¹¦" NOR, ({"zhan shu", "shu", "book"}));
 	set_weight(200);
 	seteuid(getuid());
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±¾");
-		set("long", "ÕâÊÇÒ»ÕÅÆßÉ±ÃÅÊ×ÁìÌìÉ±ĞÇµÄÌôÕ½Êé(kan)¡£\n");
+		set("unit", "æœ¬");
+		set("long", "è¿™æ˜¯ä¸€å¼ ä¸ƒæ€é—¨é¦–é¢†å¤©æ€æ˜Ÿçš„æŒ‘æˆ˜ä¹¦(kan)ã€‚\n");
 		set("value", 5000);
 		set("material", "paper");
 	}
@@ -29,10 +29,10 @@ void init()
 int do_kan(string arg)
 {
 	if (!id(arg))
-		return notify_fail("ÄãÏë¿´Ê²Ã´£¿\n");
-	write(HIR "            ¡¶ÉúËÀÖ®Ô¼¡·\n\n" NOR);
-	write(WHT "    ÏŞÄãÔÚÊ®·ÖÖÓÖ®ÄÚ±±¾©Ìì°²ÃÅ¹ã³¡ÓëÎÒ¾ö\n");
-	write(WHT "Ò»ËÀÕ½£¬²»À´Õß¾ÍÊÇ¹·ĞÜ£¡\n\n");
-	write(WHT "                      ÆßÉ±ÃÅÊ×Áì£º" HIR "ÌìÉ±ĞÇ\n" NOR);
+		return notify_fail("ä½ æƒ³çœ‹ä»€ä¹ˆï¼Ÿ\n");
+	write(HIR "            ã€Šç”Ÿæ­»ä¹‹çº¦ã€‹\n\n" NOR);
+	write(WHT "    é™ä½ åœ¨ååˆ†é’Ÿä¹‹å†…åŒ—äº¬å¤©å®‰é—¨å¹¿åœºä¸æˆ‘å†³\n");
+	write(WHT "ä¸€æ­»æˆ˜ï¼Œä¸æ¥è€…å°±æ˜¯ç‹—ç†Šï¼\n\n");
+	write(WHT "                      ä¸ƒæ€é—¨é¦–é¢†ï¼š" HIR "å¤©æ€æ˜Ÿ\n" NOR);
 	return 1;
 }

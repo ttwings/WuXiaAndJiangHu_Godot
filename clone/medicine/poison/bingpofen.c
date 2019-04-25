@@ -8,16 +8,16 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(HIB "±ùÆÇ·Û" NOR, ({"bingpo fen", "fen", "bingpo"}));
+	set_name(HIB "å†°é­„ç²‰" NOR, ({"bingpo fen", "fen", "bingpo"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("long", "Ò»°üÒÔ±ùó¸¶¾Ö­¡¢¶Ï³¦²İµÈÎªÔ­ÁÏÖÆ³ÉµÄÍ¸×ÅÒõÉîÀäÆøµÄ¶¾·Û¡£¿ÉÒÔÓÃÀ´Éú³É(make)»ğ¶Ñ(huodui)¡£Ò²¿ÉÒÔµ¹(pour)½ø¾ÆË®Àï£¬»òÍ¿(tu)ÔÚ±øÆ÷ÉÏ¡££¨Í¿Ö®Ç°±ØĞëÏÈµãÈ¼(dian)Ëü£©\n");
-		//		set("unit", "Ğ©");
-		set("unit", "°ü");
+		set("long", "ä¸€åŒ…ä»¥å†°èŸ¾æ¯’æ±ã€æ–­è‚ è‰ç­‰ä¸ºåŸæ–™åˆ¶æˆçš„é€ç€é˜´æ·±å†·æ°”çš„æ¯’ç²‰ã€‚å¯ä»¥ç”¨æ¥ç”Ÿæˆ(make)ç«å †(huodui)ã€‚ä¹Ÿå¯ä»¥å€’(pour)è¿›é…’æ°´é‡Œï¼Œæˆ–æ¶‚(tu)åœ¨å…µå™¨ä¸Šã€‚ï¼ˆæ¶‚ä¹‹å‰å¿…é¡»å…ˆç‚¹ç‡ƒ(dian)å®ƒï¼‰\n");
+		//		set("unit", "äº›");
+		set("unit", "åŒ…");
 		//		set("base_value", 5000);
-		//		set("base_unit", "°ü");
+		//		set("base_unit", "åŒ…");
 		//		set("base_weight", 30);
 		set("drug2", __DIR__ "bingpofen1");
 		set("pour_type", "bing_poison");

@@ -5,7 +5,7 @@ inherit SHOP;
 
 void create()
 {
-	set("short", "ͬʢ��");
+	set("short", "同盛祥");
 	set("no_fight", 1);
 	set("no_beg", 1);
 	set("owner", "VOID_SHOP");
@@ -25,13 +25,13 @@ void init()
 {
 	if (query("shop_type") == 0)
 		set("long", @LONG
-				�����ǳ�������С�������ĵ��á���ͬʢ�顣���������ڸ�ԣ����
-				    ����۵Ļ���Ҳ�Ǳ��һ����������װ��÷ǳ����£�����������ȴ
-					����һ������Ѻܾ�û�˴����ˡ� LONG);
+				这里是长安城里小有名气的店堂——同盛祥。长安城民众富裕，铺
+				    里出售的货物也是别具一格。整个铺面装潢得非常雅致，不过货柜上却
+					空无一物，看来已很久没人打理了。 LONG);
 	else
 		set("long", @LONG
-				�����ǳ�������С�������ĵ��á���ͬʢ�顣���������ڸ�ԣ����
-				    ����۵Ļ���Ҳ�Ǳ��һ����������װ��÷ǳ����¡������ϰ�����
-					��ʽ������������Ŀ�Ļ�� LONG);
+				这里是长安城里小有名气的店堂——同盛祥。长安城民众富裕，铺
+				    里出售的货物也是别具一格。整个铺面装潢得非常雅致。货柜上摆满了
+					各式各样、琳琅满目的货物。 LONG);
 	return;
 }

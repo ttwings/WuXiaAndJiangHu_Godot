@@ -1,4 +1,4 @@
-// zhen.c Ğå»¨Õë
+// zhen.c ç»£èŠ±é’ˆ
 // Last Modified by winder on Sep. 7 2001
 
 #include <ansi.h>
@@ -8,18 +8,18 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name("Ğå»¨Õë", ({"xiuhua zhen", "zhen", "sword"}));
+	set_name("ç»£èŠ±é’ˆ", ({"xiuhua zhen", "zhen", "sword"}));
 	set_weight(500);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "Ã¶");
-		set("long", "Ò»Ã¶¾«¸Ö´òÖÆµÄĞå»¨Õë£¬¿´ÉÏÈ¥Ñ©ÁÁÑ©ÁÁµÄ¡£ÎäÁÖÖĞÈËºÜÉÙÒÔËüÎª±øÆ÷¡£\n");
+		set("unit", "æš");
+		set("long", "ä¸€æšç²¾é’¢æ‰“åˆ¶çš„ç»£èŠ±é’ˆï¼Œçœ‹ä¸Šå»é›ªäº®é›ªäº®çš„ã€‚æ­¦æ—ä¸­äººå¾ˆå°‘ä»¥å®ƒä¸ºå…µå™¨ã€‚\n");
 		set("value", 10000);
 		set("material", "steel");
-		set("wield_msg", "$NÊÖÍóÒ»¶¶£¬ÊÖÖĞÒÑ¶àÁËÒ»Ã¶Ñ©ÁÁµÄĞå»¨Õë¡£\n");
-		set("unwield_msg", "$NÊÖÍóÒ»×ª£¬Õ£ÑÛ¼äĞå»¨ÕëÒÑÈ»²»¼ûÓ°×Ù¡£\n");
+		set("wield_msg", "$Næ‰‹è…•ä¸€æŠ–ï¼Œæ‰‹ä¸­å·²å¤šäº†ä¸€æšé›ªäº®çš„ç»£èŠ±é’ˆã€‚\n");
+		set("unwield_msg", "$Næ‰‹è…•ä¸€è½¬ï¼Œçœ¨çœ¼é—´ç»£èŠ±é’ˆå·²ç„¶ä¸è§å½±è¸ªã€‚\n");
 	}
 	init_sword(100);
 	setup();

@@ -1,4 +1,4 @@
-// huangqi.c »ÆÜÎ
+// huangqi.c é»„èŠª
 
 #include <ansi.h>
 inherit ITEM;
@@ -15,13 +15,13 @@ void init()
 
 void create()
 {
-	set_name(YEL "»ÆÜÎ" NOR, ({"huang qi", "yao"}));
+	set_name(YEL "é»„èŠª" NOR, ({"huang qi", "yao"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "Öê");
-		set("long", YEL "ÕâÊÇÒ»ÖêÃ«È×È×µÄ¿ª×Åµ­»ÆÉ«Ğ¡»¨µÄ»ÆÜÎ¡£\n" NOR);
+		set("unit", "æ ª");
+		set("long", YEL "è¿™æ˜¯ä¸€æ ªæ¯›èŒ¸èŒ¸çš„å¼€ç€æ·¡é»„è‰²å°èŠ±çš„é»„èŠªã€‚\n" NOR);
 		set("value", 2500);
 	}
 	set("pour_type", "1");
@@ -33,21 +33,21 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 
 	if (me->query("eff_qi") == me->query("max_qi"))
 	{
 		me->receive_damage("qi", 50);
-		message_vision(HIR "$N³ÔÏÂÒ»Öê»ÆÜÎ£¬Ö»¾õµÃÍ·ÖØ½ÅÇá£¬Ò¡Ò¡Óûµ¹£¬Ô­À´Ã»²¡Ã»Í´ÂÒ³ÔÒ©£¬Ò©Ğ§ÊÊµÃÆä·´£¡\n" NOR, me);
+		message_vision(HIR "$Nåƒä¸‹ä¸€æ ªé»„èŠªï¼Œåªè§‰å¾—å¤´é‡è„šè½»ï¼Œæ‘‡æ‘‡æ¬²å€’ï¼ŒåŸæ¥æ²¡ç—…æ²¡ç—›ä¹±åƒè¯ï¼Œè¯æ•ˆé€‚å¾—å…¶åï¼\n" NOR, me);
 	}
 	else
 	{
 		me->receive_curing("qi", 50);
-		message_vision("$N³ÔÏÂÒ»Öê»ÆÜÎ£¬Ö»¾õµÃ»ëÉíÈÈÆøÌÚÌÚ£¬¶ÙÊ±ÊæÌ¹¶àÁË£¡\n", me);
+		message_vision("$Nåƒä¸‹ä¸€æ ªé»„èŠªï¼Œåªè§‰å¾—æµ‘èº«çƒ­æ°”è…¾è…¾ï¼Œé¡¿æ—¶èˆ’å¦å¤šäº†ï¼\n", me);
 	}
 
 	destruct(this_object());

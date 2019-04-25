@@ -1,7 +1,7 @@
-// Éñ»°ÊÀ½ç¡¤Î÷ÓÎ¼Ç¡¤°æ±¾£´£®£µ£°
+// ç¥è¯ä¸–ç•ŒÂ·è¥¿æ¸¸è®°Â·ç‰ˆæœ¬ï¼”ï¼ï¼•ï¼
 /* <SecCrypt CPL V3R05> */
 
-// xuelian.c Ñ©Á«
+// xuelian.c é›ªè²
 #include <ansi.h>
 inherit ITEM;
 
@@ -10,14 +10,14 @@ void eat();
 
 void create()
 {
-   set_name(HIW "Ñ©Á«" NOR, ({"xue lian", "xuelian", "lian"}));
+   set_name(HIW "é›ªè²" NOR, ({"xue lian", "xuelian", "lian"}));
    set_weight(20);
    if (clonep())
       set_default_object(__FILE__);
    else
    {
-      set("long", "Ò»¶äÑ©Á«»¨£¬Ö»Éú³¤ÓÚ¾ø·å¼«º®Ö®´¦¡£\n");
-      set("unit", "¶ä");
+      set("long", "ä¸€æœµé›ªè²èŠ±ï¼Œåªç”Ÿé•¿äºç»å³°æå¯’ä¹‹å¤„ã€‚\n");
+      set("unit", "æœµ");
       set("value", 300);
    }
 
@@ -34,21 +34,21 @@ int do_chi(string arg)
    if (!this_object()->id(arg))
       return 0;
    if (this_player()->is_busy())
-      return notify_fail("ÄãÉÏÒ»¸ö¶¯×÷»¹Ã»ÓĞÍê³É¡£\n");
+      return notify_fail("ä½ ä¸Šä¸€ä¸ªåŠ¨ä½œè¿˜æ²¡æœ‰å®Œæˆã€‚\n");
 
    if (!arg)
-      return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+      return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
    if ((int)this_player()->query("max_atman") > 0)
    {
-      message_vision(RED "$N³ÔÏÂÒ»¶äÑ©Á«»¨£¬ºö¾õÒ»Õó·´Î¸£¬ÓÖ¾¡ÊıÍÂÁË³öÀ´¡£\n" NOR, this_player());
+      message_vision(RED "$Nåƒä¸‹ä¸€æœµé›ªè²èŠ±ï¼Œå¿½è§‰ä¸€é˜µåèƒƒï¼Œåˆå°½æ•°åäº†å‡ºæ¥ã€‚\n" NOR, this_player());
    }
    else
    {
-      if (this_player()->query("gender") == "ÄĞĞÔ")
-         message_vision(GRN "$N³ÔÏÂÒ»¶äÑ©Á«»¨£¬¿´ÆğÀ´¾«Éñ¶àÁË¡£\n" NOR, this_player());
+      if (this_player()->query("gender") == "ç”·æ€§")
+         message_vision(GRN "$Nåƒä¸‹ä¸€æœµé›ªè²èŠ±ï¼Œçœ‹èµ·æ¥ç²¾ç¥å¤šäº†ã€‚\n" NOR, this_player());
       else
-         message_vision(GRN " $N³ÔÏÂÒ»¶äÑ©Á«»¨£¬Á³ÏÔõ¢ºì£¬±¶Ôö½¿ÑŞ¡£\n" NOR, this_player());
+         message_vision(GRN " $Nåƒä¸‹ä¸€æœµé›ªè²èŠ±ï¼Œè„¸æ˜¾é…¡çº¢ï¼Œå€å¢å¨‡è‰³ã€‚\n" NOR, this_player());
    }
    destruct(this_object());
    return 1;

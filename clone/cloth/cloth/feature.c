@@ -8,7 +8,7 @@ inherit CLOTH;
 
 void create()
 {
-        set_name(GRN "¿×È¸ÓğÒÂ" NOR, ({"kongque yi", "feather"}));
+        set_name(GRN "å­”é›€ç¾½è¡£" NOR, ({"kongque yi", "feather"}));
         set("no_drop", "1");
         set("no_get", "1");
         set_weight(600);
@@ -17,8 +17,8 @@ void create()
                 set_default_object(__FILE__);
         else
         {
-                set("long", "Õâ¼ş¿×È¸ÓğÒÂÊÇÓÃ¿×È¸ÓğÃ«Ö¯³ÉµÄ¡£\n");
-                set("unit", "¼ş");
+                set("long", "è¿™ä»¶å­”é›€ç¾½è¡£æ˜¯ç”¨å­”é›€ç¾½æ¯›ç»‡æˆçš„ã€‚\n");
+                set("unit", "ä»¶");
                 set("value", 5000);
                 set("material", "feature");
                 set("armor_prop/personality", 10);

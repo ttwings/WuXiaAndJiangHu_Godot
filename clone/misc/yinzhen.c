@@ -8,18 +8,18 @@ inherit THROWING;
 
 void create()
 {
-	set_name(HIW "ÒøÕë" NOR, ({"yin zhen", "yin", "zhen"}));
+	set_name(HIW "é“¶é’ˆ" NOR, ({"yin zhen", "yin", "zhen"}));
 	set_weight(200);
 
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "°Ñ");
-		set("long", HIW "ÕâÊÇÈı´ç³¤µÄÒøÕë£¬Ï¸¶øÈáÈÍ£¬¶àÎªÒ½¼Ò´ÌÑ¨ÁÆÉËÖ®ÓÃ¡£\nÄÜÔËÓÃÕâÖÖÒøÕëµÄÒ½Õß¶àÎª¿õÊÀÉñÒ½£¬²¢ÓĞÉîºñµÄÄÚ¹¦¡£\nÄã¿ÉÒÔÊÔ×ÅÓÃËüÀ´Õë¾Ä(zhenjiu)ÁÆÉË¡£\n" NOR);
+		set("unit", "æŠŠ");
+		set("long", HIW "è¿™æ˜¯ä¸‰å¯¸é•¿çš„é“¶é’ˆï¼Œç»†è€ŒæŸ”éŸ§ï¼Œå¤šä¸ºåŒ»å®¶åˆºç©´ç–—ä¼¤ä¹‹ç”¨ã€‚\nèƒ½è¿ç”¨è¿™ç§é“¶é’ˆçš„åŒ»è€…å¤šä¸ºæ—·ä¸–ç¥åŒ»ï¼Œå¹¶æœ‰æ·±åšçš„å†…åŠŸã€‚\nä½ å¯ä»¥è¯•ç€ç”¨å®ƒæ¥é’ˆç¸(zhenjiu)ç–—ä¼¤ã€‚\n" NOR);
 		set("value", 0);
 		set("yingdu", 50);
-		set("base_unit", "Ã¶");
+		set("base_unit", "æš");
 		set("base_weight", 10);
 		set("base_value", 0);
 		set("material", "crimsonsteel");
@@ -41,74 +41,74 @@ int do_heal(string arg)
 	string msg, s;
 
 	if (me->query_skill("acupuncture", 1) < 1)
-		return notify_fail("ÄãÕë¾ÄÊõ¶¼Ã»Ñ§£¬È¥É±ÈË°¡£¿\n");
+		return notify_fail("ä½ é’ˆç¸æœ¯éƒ½æ²¡å­¦ï¼Œå»æ€äººå•Šï¼Ÿ\n");
 	if (this_object()->query("equipped") != "wielded")
-		return notify_fail("Äã±ØĞë°ÑÒøÕëÄÃÔÚÊÖÀï²ÅÄÜÕë¾Ä¡£\n");
+		return notify_fail("ä½ å¿…é¡»æŠŠé“¶é’ˆæ‹¿åœ¨æ‰‹é‡Œæ‰èƒ½é’ˆç¸ã€‚\n");
 	if (!arg || !objectp(ob = present(arg, environment(me))))
-		return notify_fail("ÄãÏë¶ÔË­Ê©ĞĞÕë¾ÄÊõ£¿\n");
+		return notify_fail("ä½ æƒ³å¯¹è°æ–½è¡Œé’ˆç¸æœ¯ï¼Ÿ\n");
 	if (!ob->is_character())
-		return notify_fail("¿´Çå³şÁË£¬ÄÇ²»ÊÇ»îÈË£¡\n");
+		return notify_fail("çœ‹æ¸…æ¥šäº†ï¼Œé‚£ä¸æ˜¯æ´»äººï¼\n");
 	if (ob->query_temp("noliving") || !living(ob))
-		return notify_fail("Äã»¹ÊÇµÈËûĞÑÁËÖ®ºóÔÙÖÎÁÆ°É¡£\n");
+		return notify_fail("ä½ è¿˜æ˜¯ç­‰ä»–é†’äº†ä¹‹åå†æ²»ç–—å§ã€‚\n");
 	if (me->is_busy())
-		return notify_fail("ÄãÏÖÔÚÕıÃ¦×ÅÄØ¡£\n");
+		return notify_fail("ä½ ç°åœ¨æ­£å¿™ç€å‘¢ã€‚\n");
 	if (me->is_fighting() || ob->is_fighting())
-		return notify_fail("Õ½¶·ÖĞ»¹ÏëÁÆÉË£¬ÄãÕÒËÀ°¡£¿\n");
+		return notify_fail("æˆ˜æ–—ä¸­è¿˜æƒ³ç–—ä¼¤ï¼Œä½ æ‰¾æ­»å•Šï¼Ÿ\n");
 	if (ob->is_killing(me->query("id")))
-		return notify_fail("ÈË¼Ò²»»á¸øÄãÕâ¸ö»ú»áµÄ¡£\n");
-	if (ob->query("race") != "ÈËÀà")
-		return notify_fail("ÄãÒªµ±ÊŞÒ½£¿\n");
+		return notify_fail("äººå®¶ä¸ä¼šç»™ä½ è¿™ä¸ªæœºä¼šçš„ã€‚\n");
+	if (ob->query("race") != "äººç±»")
+		return notify_fail("ä½ è¦å½“å…½åŒ»ï¼Ÿ\n");
 	if (ob != me && userp(ob))
 	{
-		tell_object(me, YEL "Äã²»ÄÜÎªÍæ¼ÒÕë¾Ä¡£\n" NOR);
+		tell_object(me, YEL "ä½ ä¸èƒ½ä¸ºç©å®¶é’ˆç¸ã€‚\n" NOR);
 		return 1;
 	}
 	if (!userp(ob) && random(me->query_skill("acupuncture", 1) + me->query("cor")) < 1)
 	{
-		message_vision(HIY "$N" HIY "ÕıÏë¸ø$n" HIY "ÁÆÉË£¬¿É$n" HIY "Íû×Å$N" HIY "ÄÇ²»Í£²ü¶¶µÄË«ÊÖ£¬Á³ÉÏÂ¶³öº¦ÅÂµÄÉñÉ«¡£\n" NOR + CYN "$n" CYN "ÖåÁËÖåÃ¼Í·£¬¶Ô$N" CYN "ËµµÀ£ºÄãÄÇµãÊÖÒÕ»¹ÊÇËãÁË°É¡£\n" NOR, me, ob);
+		message_vision(HIY "$N" HIY "æ­£æƒ³ç»™$n" HIY "ç–—ä¼¤ï¼Œå¯$n" HIY "æœ›ç€$N" HIY "é‚£ä¸åœé¢¤æŠ–çš„åŒæ‰‹ï¼Œè„¸ä¸Šéœ²å‡ºå®³æ€•çš„ç¥è‰²ã€‚\n" NOR + CYN "$n" CYN "çš±äº†çš±çœ‰å¤´ï¼Œå¯¹$N" CYN "è¯´é“ï¼šä½ é‚£ç‚¹æ‰‹è‰ºè¿˜æ˜¯ç®—äº†å§ã€‚\n" NOR, me, ob);
 		return 1;
 	}
 	if (me != ob && ob->query_skill("force") >= 150)
-		return notify_fail("ÈË¼ÒÄÚ¹¦Éîºñ£¬²»Ö¸ÍûÄãÌæËûÁÆÉË¡£\n");
+		return notify_fail("äººå®¶å†…åŠŸæ·±åšï¼Œä¸æŒ‡æœ›ä½ æ›¿ä»–ç–—ä¼¤ã€‚\n");
 	if ((ob->query("max_qi") * 5 / 100 > ob->query("eff_qi")))
-		return notify_fail("ÏÖÔÚ´ËÈËÊÜÉË¹ıÖØ£¬Ê©ĞĞÕë¾ÄÌ«Î£ÏÕÁË£¡\n");
+		return notify_fail("ç°åœ¨æ­¤äººå—ä¼¤è¿‡é‡ï¼Œæ–½è¡Œé’ˆç¸å¤ªå±é™©äº†ï¼\n");
 	if (me->query("neili") < 80)
-		return notify_fail("ÄãµÄÄÚÁ¦²»×ã£¬ÎŞ·¨Ê¹ÓÃÕë¾ÄÊõÎªÈËÁÆÉË£¡\n");
+		return notify_fail("ä½ çš„å†…åŠ›ä¸è¶³ï¼Œæ— æ³•ä½¿ç”¨é’ˆç¸æœ¯ä¸ºäººç–—ä¼¤ï¼\n");
 	if (me->query("jing") < 50)
-		return notify_fail("ÄãµÄ¾«²»×ã£¬ÎŞ·¨¼¯ÖĞ¾«Á¦£¡\n");
+		return notify_fail("ä½ çš„ç²¾ä¸è¶³ï¼Œæ— æ³•é›†ä¸­ç²¾åŠ›ï¼\n");
 	if (time() - ob->query_temp("last/zhenjiu") < 60)
-		return notify_fail("ÈË¼Ò¸Õ¸Õ½ÓÊÕ¹ıÕë¾ÄÖÎÁÆ£¬ÏÖÔÚ²»ĞèÒªÄã°ïÃ¦¡£\n");
+		return notify_fail("äººå®¶åˆšåˆšæ¥æ”¶è¿‡é’ˆç¸æ²»ç–—ï¼Œç°åœ¨ä¸éœ€è¦ä½ å¸®å¿™ã€‚\n");
 	if (ob->query("max_qi") == ob->query("eff_qi"))
 	{
 		if (me != ob)
-			return notify_fail("ÕâÈË²¢Ã»ÓĞÊÜÉË£¡\n");
+			return notify_fail("è¿™äººå¹¶æ²¡æœ‰å—ä¼¤ï¼\n");
 		else
-			message_vision(HIW "$N" HIW "¾ö¶¨ÓÃ×Ô¼ºÀ´×öÊÔÑé£¬À´Ìá¸ß×Ô¼ºÕë¾ÄÊõµÄË®Æ½¡£\n" NOR, me);
+			message_vision(HIW "$N" HIW "å†³å®šç”¨è‡ªå·±æ¥åšè¯•éªŒï¼Œæ¥æé«˜è‡ªå·±é’ˆç¸æœ¯çš„æ°´å¹³ã€‚\n" NOR, me);
 	}
 	ob->set_temp("last/zhenjiu", time());
 	me->add("neili", -50);
 	me->add("jing", -30);
 	me->start_busy(1 + random(1));
 	me->improve_skill("acupuncture", 5 + random(me->query_skill("acupuncture", 1)));
-	tell_object(me, HIC "ÔÚÊµ¼ù¹ı³ÌÖĞÄãµÄ¡¸Õë¾ÄÊõ¡¹Ìá¸ßÁË£¡\n" NOR);
+	tell_object(me, HIC "åœ¨å®è·µè¿‡ç¨‹ä¸­ä½ çš„ã€Œé’ˆç¸æœ¯ã€æé«˜äº†ï¼\n" NOR);
 	if (me == ob)
 		s = "$N";
 	else
 		s = "$n";
-	msg = HIW "$N" HIW "ÊÖÄóÒøÕë£¬Ğ¡ĞÄÒíÒíµØÏò" + s + HIW "µÄÑ¨µÀ´ÌÈ¥£¬\n" NOR;
+	msg = HIW "$N" HIW "æ‰‹æé“¶é’ˆï¼Œå°å¿ƒç¿¼ç¿¼åœ°å‘" + s + HIW "çš„ç©´é“åˆºå»ï¼Œ\n" NOR;
 	if (random(120) > (int)me->query_skill("acupuncture", 1))
 	{
 		damage = 1 + random(ob->query("max_qi") / 2);
 		i = ob->query("max_qi") * 10 / damage;
 
 		if (i > 100)
-			msg += CYN "¿ÉÊÇ$N" CYN "ÓÃÁ¦ÉÔÆ«£¬Ã»´ÌÖĞÑ¨µÀ£¬" + s + CYN "Á³ÉÏÂ¶³öÒ»Ë¿ÄÑ¹ıµÄÉñÇé¡£" NOR;
+			msg += CYN "å¯æ˜¯$N" CYN "ç”¨åŠ›ç¨åï¼Œæ²¡åˆºä¸­ç©´é“ï¼Œ" + s + CYN "è„¸ä¸Šéœ²å‡ºä¸€ä¸éš¾è¿‡çš„ç¥æƒ…ã€‚" NOR;
 		else
 		{
 			if (i > 40)
-				msg += RED "µ«ÊÇ$N" RED "ÓÃÁ¦¹ıÃÍ£¬¾¹È»´Ì³öÁËÑª£¬Õâ¿ÉÊÇÕë¾ÄÖĞµÄ´ó¼É£¡" NOR;
+				msg += RED "ä½†æ˜¯$N" RED "ç”¨åŠ›è¿‡çŒ›ï¼Œç«Ÿç„¶åˆºå‡ºäº†è¡€ï¼Œè¿™å¯æ˜¯é’ˆç¸ä¸­çš„å¤§å¿Œï¼" NOR;
 			else
-				msg += RED "$N" RED "´ÌÁËÏÂÈ¥²Å·¢ÏÖ´Ì´íÁËÑ¨µÀ£¬" + s + RED "¡¸ÍÛ¡¹µÄÅç³öÁËÒ»¿ÚÏÊÑª£¡" NOR;
+				msg += RED "$N" RED "åˆºäº†ä¸‹å»æ‰å‘ç°åˆºé”™äº†ç©´é“ï¼Œ" + s + RED "ã€Œå“‡ã€çš„å–·å‡ºäº†ä¸€å£é²œè¡€ï¼" NOR;
 		}
 
 		ob->receive_wound("qi", damage);
@@ -116,7 +116,7 @@ int do_heal(string arg)
 	}
 	else
 	{
-		msg += HIW "$N" HIW "µÄÒøÕë×¼È·ÎŞÎóµØ´ÌÈëÑ¨µÀ£¬Ëæ×ÅÒøÕëµÄ»º»º×ª¶¯£¬" + s + HIW "³¤³¤µØ³öÁËÒ»¿ÚÆø£¬Á³É«ºÃ¿´¶àÁË¡£" NOR;
+		msg += HIW "$N" HIW "çš„é“¶é’ˆå‡†ç¡®æ— è¯¯åœ°åˆºå…¥ç©´é“ï¼Œéšç€é“¶é’ˆçš„ç¼“ç¼“è½¬åŠ¨ï¼Œ" + s + HIW "é•¿é•¿åœ°å‡ºäº†ä¸€å£æ°”ï¼Œè„¸è‰²å¥½çœ‹å¤šäº†ã€‚" NOR;
 		damage = -1;
 		if (me != ob /*&& me->query("combat_exp") < 200000*/)
 		{
@@ -126,7 +126,7 @@ int do_heal(string arg)
 			me->add("combat_exp", exp);
 			me->add("potential", pot);
 
-			tell_object(me, HIC "Äã»ñµÃÁË" + chinese_number(exp) + "µã¾­ÑéºÍ" + chinese_number(pot) + "µãÇ±ÄÜ¡£\n" NOR);
+			tell_object(me, HIC "ä½ è·å¾—äº†" + chinese_number(exp) + "ç‚¹ç»éªŒå’Œ" + chinese_number(pot) + "ç‚¹æ½œèƒ½ã€‚\n" NOR);
 		}
 
 		heals = me->query_skill("acupuncture", 1) + random(me->query_skill("acupuncture", 1));
@@ -153,9 +153,9 @@ int do_heal(string arg)
 			if (userp(ob))
 			{
 				if (me == ob)
-					message_vision(HIR "ºÃÏÕ°¡£¡$N" HIR "²îÒ»µã°Ñ×Ô¼ºÔúËÀ¡£\n" NOR, me);
+					message_vision(HIR "å¥½é™©å•Šï¼$N" HIR "å·®ä¸€ç‚¹æŠŠè‡ªå·±æ‰æ­»ã€‚\n" NOR, me);
 				else
-					message_vision(HIR "ºÃÏÕ°¡£¡$N" HIR "²îÒ»µã°Ñ$n" HIR "ÔúËÀ¡£\n" NOR, me, ob);
+					message_vision(HIR "å¥½é™©å•Šï¼$N" HIR "å·®ä¸€ç‚¹æŠŠ$n" HIR "æ‰æ­»ã€‚\n" NOR, me, ob);
 			}
 		}
 		else
@@ -164,13 +164,13 @@ int do_heal(string arg)
 			{
 				if (random(damage) < 40)
 				{
-					message_vision(HIR "$N" HIR "Í´µÃ¡¸ÍÛÍÛ¡¹´ó½Ğ²»Ö¹£¬Å­µÀ£º¾ÓÈ»¸ÒÏÂ¶¾ÊÖ£¬ÄãÏëÉ±ËÀÎÒ°¡£¡\n" NOR, ob);
+					message_vision(HIR "$N" HIR "ç—›å¾—ã€Œå“‡å“‡ã€å¤§å«ä¸æ­¢ï¼Œæ€’é“ï¼šå±…ç„¶æ•¢ä¸‹æ¯’æ‰‹ï¼Œä½ æƒ³æ€æ­»æˆ‘å•Šï¼\n" NOR, ob);
 					ob->kill_ob(me);
 					me->fight_ob(ob);
 				}
 				else
 				{
-					message_vision(HIR "$N" HIR "¡¸ÍÛ¡¹µÄ´ó½ĞÒ»Éù£¬²»ÂúµØµÀ£ººÃÍ´°¡£¡ÏÂ´ÎÄã¿ÉÇ§Íòµ±ĞÄµã£¡\n" NOR, ob);
+					message_vision(HIR "$N" HIR "ã€Œå“‡ã€çš„å¤§å«ä¸€å£°ï¼Œä¸æ»¡åœ°é“ï¼šå¥½ç—›å•Šï¼ä¸‹æ¬¡ä½ å¯åƒä¸‡å½“å¿ƒç‚¹ï¼\n" NOR, ob);
 				}
 			}
 		}

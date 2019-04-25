@@ -1,18 +1,18 @@
-// zhengqi_book.c  ÕıÆøÒ÷
+// zhengqi_book.c  æ­£æ°”åŸ
 #include <ansi.h>
 inherit ITEM;
 
 void create()
 {
-	set_name(HIR "ÕıÆøÒ÷" NOR, ({"zhengqi_book", "book"}));
+	set_name(HIR "æ­£æ°”åŸ" NOR, ({"zhengqi_book", "book"}));
 	set_weight(600);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±¾");
+		set("unit", "æœ¬");
 		set("long",
-			"ÕâÊÇÒ»±¾±¡±¡µÄ²áÒ³¡£\n");
+			"è¿™æ˜¯ä¸€æœ¬è–„è–„çš„å†Œé¡µã€‚\n");
 		set("value", 1000);
 		set("material", "paper");
 		set("skill", ([

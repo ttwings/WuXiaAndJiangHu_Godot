@@ -1,4 +1,4 @@
-// Éñ»°ÊÀ½ç¡¤Î÷ÓÎ¼Ç¡¤°æ±¾£´£®£µ£°
+// ç¥è¯ä¸–ç•ŒÂ·è¥¿æ¸¸è®°Â·ç‰ˆæœ¬ï¼”ï¼ï¼•ï¼
 /* <SecCrypt CPL V3R05> */
 
 // hulu.c
@@ -8,19 +8,19 @@ inherit F_LIQUID;
 
 void create()
 {
-  set_name("ÓÍºùÂ«", ({"you hulu", "youhulu", "hulu", "hu"}));
+  set_name("æ²¹è‘«èŠ¦", ({"you hulu", "youhulu", "hulu", "hu"}));
   set_weight(700);
   if (clonep())
     set_default_object(__FILE__);
   else
   {
-    set("long", "Ò»¸ö×°Âú²ËÓÍµÄºùÂ«¡£\n");
-    set("unit", "¸ö");
+    set("long", "ä¸€ä¸ªè£…æ»¡èœæ²¹çš„è‘«èŠ¦ã€‚\n");
+    set("unit", "ä¸ª");
     set("value", 100);
     set("max_liquid", 20);
     set("liquid", ([
                            "type":"oil",
-                           "name":"²ËÓÍ",
+                           "name":"èœæ²¹",
                       "remaining":12,
     ]));
   }
@@ -38,9 +38,9 @@ int do_drink(string arg)
   object me = this_object();
 
   if (me == present(arg, who) &&
-      me->query("liquid/name") == "²ËÓÍ")
+      me->query("liquid/name") == "èœæ²¹")
   {
-    message_vision("$NÄÃÆğ$nÍù×ìÀï¾Í¹à¡£\n", who, me);
+    message_vision("$Næ‹¿èµ·$nå¾€å˜´é‡Œå°±çŒã€‚\n", who, me);
     call_out("reacting", 1, who, me);
     return 1;
   }
@@ -50,5 +50,5 @@ int do_drink(string arg)
 void reacting(object who, object me)
 {
   if (who)
-    message_vision("$NÒ»Õó¶ñĞÄ£¬²îµãÍÂ³öÀ´¡£\n", who, me);
+    message_vision("$Nä¸€é˜µæ¶å¿ƒï¼Œå·®ç‚¹åå‡ºæ¥ã€‚\n", who, me);
 }

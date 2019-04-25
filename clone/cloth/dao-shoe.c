@@ -7,10 +7,10 @@
 inherit BOOTS;
 
 string *shoename = ({
-	"»Ò²¼Ğ¬",
-	HIC "Çà²¼Ğ¬" NOR,
-	HIY "ÂéĞ¬" NOR,
-	YEL "²İĞ¬" NOR,
+	"ç°å¸ƒé‹",
+	HIC "é’å¸ƒé‹" NOR,
+	HIY "éº»é‹" NOR,
+	YEL "è‰é‹" NOR,
 });
 string *shoeid = ({
 	"bu xie",
@@ -19,10 +19,10 @@ string *shoeid = ({
 	"cao xie",
 });
 string *shoelong = ({
-	"ÕâÊÇÒ»Ë«·¢°×µÄ»Ò²¼Ğ¬¡£\n",
-	"ÕâÊÇÒ»Ë«µÀ¼ÒĞŞĞĞµÄÇà²¼Ğ¬¡£\n",
-	"ÕâÊÇÒ»Ë«³ö¼ÒĞŞĞĞÈË³£´©µÄÂéĞ¬¡£\n",
-	"ÕâÊÇÒ»Ë«³ö¼ÒĞŞĞĞÈËµÄ²İĞ¬¡£\n",
+	"è¿™æ˜¯ä¸€åŒå‘ç™½çš„ç°å¸ƒé‹ã€‚\n",
+	"è¿™æ˜¯ä¸€åŒé“å®¶ä¿®è¡Œçš„é’å¸ƒé‹ã€‚\n",
+	"è¿™æ˜¯ä¸€åŒå‡ºå®¶ä¿®è¡Œäººå¸¸ç©¿çš„éº»é‹ã€‚\n",
+	"è¿™æ˜¯ä¸€åŒå‡ºå®¶ä¿®è¡Œäººçš„è‰é‹ã€‚\n",
 });
 
 void create()
@@ -36,7 +36,7 @@ void create()
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "Ë«");
+		set("unit", "åŒ");
 		//		set("long", shoelong[i]);
 		set("value", 0);
 		set("material", "boots");

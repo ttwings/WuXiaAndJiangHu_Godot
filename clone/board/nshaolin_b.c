@@ -5,10 +5,10 @@ inherit BULLETIN_BOARD;
 
 void create()
 {
-	set_name("ÄÏÉÙÁÖµÜ×ÓÁôÑÔ°å", ({"board"}));
+	set_name("å—å°‘æ—å¼Ÿå­ç•™è¨€æ¿", ({"board"}));
 	set("location", "/d/nanshaolin/pingtai");
 	set("board_id", "nshaolin_b");
-	set("long", "ÕâÊÇÒ»¸ö¹©ÄÏÉÙÁÖµÜ×Ó½»Á÷µÄÁôÑÔ°å¡£\n");
+	set("long", "è¿™æ˜¯ä¸€ä¸ªä¾›å—å°‘æ—å¼Ÿå­äº¤æµçš„ç•™è¨€æ¿ã€‚\n");
 	setup();
 	set("capacity", 100);
 	replace_program(BULLETIN_BOARD);

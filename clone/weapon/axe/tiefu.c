@@ -6,17 +6,17 @@ inherit AXE;
 
 void create()
 {
-	set_name("Ìú¸«", ({"lumber axe", "axe"}));
+	set_name("é“æ–§", ({"lumber axe", "axe"}));
 	set_weight(22000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "°Ñ");
-		set("long", "ÕâÊÇÒ»°Ñ³ÁÖØµÄÌú¸«£¬ÓÃÀ´¿³²ñ¡£\n");
+		set("unit", "æŠŠ");
+		set("long", "è¿™æ˜¯ä¸€æŠŠæ²‰é‡çš„é“æ–§ï¼Œç”¨æ¥ç æŸ´ã€‚\n");
 		set("value", 300);
-		set("wield_msg", "$NÄÃ³öÒ»°Ñ¿³²ñÓÃµÄ$n£¬ÎÕÔÚÊÖÖĞµ±×÷ÎäÆ÷¡£\n");
-		set("unwield_msg", "$N·ÅÏÂÊÖÖĞµÄ$n¡£\n");
+		set("wield_msg", "$Næ‹¿å‡ºä¸€æŠŠç æŸ´ç”¨çš„$nï¼Œæ¡åœ¨æ‰‹ä¸­å½“ä½œæ­¦å™¨ã€‚\n");
+		set("unwield_msg", "$Næ”¾ä¸‹æ‰‹ä¸­çš„$nã€‚\n");
 	}
 	init_axe(10);
 	setup();

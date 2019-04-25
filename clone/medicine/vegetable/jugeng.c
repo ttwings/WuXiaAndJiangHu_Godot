@@ -1,4 +1,4 @@
-// jugeng.c ¾Õ¹£
+// jugeng.c èŠæ¢—
 
 inherit ITEM;
 #include <ansi.h>
@@ -11,13 +11,13 @@ void init()
 
 void create()
 {
-	set_name(GRN "¾Õ¹£" NOR, ({"jugeng"}));
+	set_name(GRN "èŠæ¢—" NOR, ({"jugeng"}));
 	set_weight(500);
 	set("vegetable", 4);
 	set("value", 50);
 	set("nostrum", 32);
-	set("unit", "Ö§");
-	set("long", "ÕâÊÇÒ»Ö§ÄèÁËµÄ¾Õ¹££¬¿´À´¿ÉÒÔÈëÒ©¡£\n");
+	set("unit", "æ”¯");
+	set("long", "è¿™æ˜¯ä¸€æ”¯è”«äº†çš„èŠæ¢—ï¼Œçœ‹æ¥å¯ä»¥å…¥è¯ã€‚\n");
 	set("pour_type", "1");
 	setup();
 }
@@ -27,12 +27,12 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 
-	write("¾Õ¹£²»ÊÇÕâÑù³ÔµÄ¡£\n");
+	write("èŠæ¢—ä¸æ˜¯è¿™æ ·åƒçš„ã€‚\n");
 	return 1;
 }

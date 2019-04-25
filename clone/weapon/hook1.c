@@ -1,22 +1,22 @@
-// gou1.c ³¤½£
+// gou1.c é•¿å‰‘
 
 #include <weapon.h>
 inherit HOOK;
 
 void create()
 {
-	set_name("¸Ö¹³", ({"gang gou", "gou", "hook"}));
+	set_name("é’¢é’©", ({"gang gou", "gou", "hook"}));
 	set_weight(5000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±ú");
-		set("long", "ÕâÊÇÒ»±ú±ÈÎä×¨ÓÃµÄµÄ¾«¸Ö¸Ö¹³,ÍşÁ¦·Ç±ÈÑ°³£.\n");
+		set("unit", "æŸ„");
+		set("long", "è¿™æ˜¯ä¸€æŸ„æ¯”æ­¦ä¸“ç”¨çš„çš„ç²¾é’¢é’¢é’©,å¨åŠ›éæ¯”å¯»å¸¸.\n");
 		set("value", 0);
 		set("material", "steel");
-		set("wield_msg", "$N¡¸à§¡¹µÄÒ»Éù³é³öÒ»±ú$nÎÕÔÚÊÖÖĞ¡£\n");
-		set("unwield_msg", "$N½«ÊÖÖĞµÄ$n²å»ØÇÊÖĞ¡£\n");
+		set("wield_msg", "$Nã€Œå”°ã€çš„ä¸€å£°æŠ½å‡ºä¸€æŸ„$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+		set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$næ’å›é˜ä¸­ã€‚\n");
 	}
 	init_hook(100);
 	setup();

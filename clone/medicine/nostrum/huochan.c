@@ -11,15 +11,15 @@ void init()
 }
 void destguo()
 {
-	message_vision("$NÈ«ÉíÂıÂı±äºÚ£¬Ò»»á¾ÍÍáÍ·ËÀµôÁË¡£\n", this_object());
+	message_vision("$Nå…¨èº«æ…¢æ…¢å˜é»‘ï¼Œä¸€ä¼šå°±æ­ªå¤´æ­»æ‰äº†ã€‚\n", this_object());
 	destruct(this_object());
 }
 
 void create()
 {
-	set_name(HIR "»ğó¸" NOR, ({"huo chan", "chan"}));
-	set("unit", "Ö»");
-	set("long", "ÕâÊÇÒ»Ö»Éú³¤ÔÚÀ¥ÂØÉ½¶¥µÄ»ğó¸£¬Á½ÑÛÍ¶Éä³ö¶áÄ¿µÄºì¹â¡£\n");
+	set_name(HIR "ç«èŸ¾" NOR, ({"huo chan", "chan"}));
+	set("unit", "åª");
+	set("long", "è¿™æ˜¯ä¸€åªç”Ÿé•¿åœ¨æ˜†ä»‘å±±é¡¶çš„ç«èŸ¾ï¼Œä¸¤çœ¼æŠ•å°„å‡ºå¤ºç›®çš„çº¢å…‰ã€‚\n");
 	set("pour_type", "1");
 	setup();
 }
@@ -32,17 +32,17 @@ int do_eat(string arg)
 	neili_limit = me->query("max_neili");
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 	if (neili_limit <= force_limit)
 		me->add("max_neili", 5);
 	me->set("neili", me->query("max_neili"));
 	me->set("eff_qi", me->query("max_qi"));
 	me->set("qi", me->query("eff_qi"));
-	message_vision(HIY "$N³ÔÏÂÒ»Ö»»ğó¸£¬Ö»¾õÒ»¹ÉÈÈÏß×ÔÑÊ¶øÏÂ£¬ÑØ¶½ÂöÖ±³åĞş¹Ø£¬Ò»¹ÉÕæÁ¦Ô´Ô´²»¾ø»ãÈëµ¤Ìï¡£\n" NOR, me);
+	message_vision(HIY "$Nåƒä¸‹ä¸€åªç«èŸ¾ï¼Œåªè§‰ä¸€è‚¡çƒ­çº¿è‡ªå’½è€Œä¸‹ï¼Œæ²¿ç£è„‰ç›´å†²ç„å…³ï¼Œä¸€è‚¡çœŸåŠ›æºæºä¸ç»æ±‡å…¥ä¸¹ç”°ã€‚\n" NOR, me);
 	destruct(this_object());
 	return 1;
 }

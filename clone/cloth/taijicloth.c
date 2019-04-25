@@ -6,15 +6,15 @@ inherit CLOTH;
 
 void create()
 {
-	set_name("Ì«¼«µÀÅÛ", ({"taiji daopao", "cloth", "pao"}));
+	set_name("å¤ªæé“è¢", ({"taiji daopao", "cloth", "pao"}));
 	set_weight(2000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
 		set("long",
-			"Ò»¼şµÀÊ¿´©µÄ³¤ÅÛ£¬ÖĞÓĞÌ«¼«°ËØÔ£¬×óÓÒĞåÓĞÈÕÔÂÇ¬À¤£®\n");
-		set("unit", "¼ş");
+			"ä¸€ä»¶é“å£«ç©¿çš„é•¿è¢ï¼Œä¸­æœ‰å¤ªæå…«å¦ï¼Œå·¦å³ç»£æœ‰æ—¥æœˆä¹¾å¤ï¼\n");
+		set("unit", "ä»¶");
 		set("value", 500);
 		set("material", "cloth");
 		set("armor_prop/armor", 4);

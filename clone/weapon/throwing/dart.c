@@ -6,15 +6,15 @@ inherit THROWING;
 
 void create()
 {
-	set_name("¶¾ïÚ", ({"biao"}));
+	set_name("æ¯’é•–", ({"biao"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
 		set("long",
-			"·ÉïÚÊÇÒ»ÖÖÊ®·Ö³£¼ûµÄ°µÆ÷£¬¶ø¶¾ïÚÈ´Ö»ÓĞÒ»¸öÈËÓĞ£®\n");
-		set("unit", "Ğ©");
-		set("base_unit", "Ö¦");
+			"é£é•–æ˜¯ä¸€ç§ååˆ†å¸¸è§çš„æš—å™¨ï¼Œè€Œæ¯’é•–å´åªæœ‰ä¸€ä¸ªäººæœ‰ï¼\n");
+		set("unit", "äº›");
+		set("base_unit", "æ");
 		set("base_weight", 40);
 		set("base_value", 0);
 	}

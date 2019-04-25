@@ -7,22 +7,22 @@ inherit F_FRUIT;
 
 void create()
 {
-	set_name(YEL "ÊÁ×Ó" NOR, ({"shi zi", "shizi", "persimmon"}));
+	set_name(YEL "æŸ¿å­" NOR, ({"shi zi", "shizi", "persimmon"}));
 	set_weight(4000);
-	set("long", "Ò»¸ö»Æ³Î³ÎµÄ´óÊÁ×Ó¡£\n");
-	set("unit", "¸ö");
+	set("long", "ä¸€ä¸ªé»„æ¾„æ¾„çš„å¤§æŸ¿å­ã€‚\n");
+	set("unit", "ä¸ª");
 	set("life", 10);
 	set("value", 0);
-	set("fruit_remaining", 2); //¿ÉÒÔ³Ô5¿Ú
-	set("food_supply", 15);	//Ã¿¿Ú¼Ó5µÄfood
-	set("water_supply", 15);   //Ã¿¿Ú¿ÉÒÔ¼Ó5µÄwater
-	set("eat_msg", "$NÄÃÆğ$n£¬´ó´óµÄÒ§ÁËÒ»¿Ú¡£\n");
-	set("end_msg", "$N³ÔÍêÁË$n¡£\n");
-	set("over_msg", "³ÔÕâÃ´¶à£¿Ğ¡ĞÄ³ÅÆÆ¶ÇÆ¤£¡£¡£¡£¡\n");
-	set("core", "ÊÁ×ÓÆ¤");						  //name
+	set("fruit_remaining", 2); //å¯ä»¥åƒ5å£
+	set("food_supply", 15);	//æ¯å£åŠ 5çš„food
+	set("water_supply", 15);   //æ¯å£å¯ä»¥åŠ 5çš„water
+	set("eat_msg", "$Næ‹¿èµ·$nï¼Œå¤§å¤§çš„å’¬äº†ä¸€å£ã€‚\n");
+	set("end_msg", "$Nåƒå®Œäº†$nã€‚\n");
+	set("over_msg", "åƒè¿™ä¹ˆå¤šï¼Ÿå°å¿ƒæ’‘ç ´è‚šçš®ï¼ï¼ï¼ï¼\n");
+	set("core", "æŸ¿å­çš®");						  //name
 	set("core_id", ({"shizi pi", "pi", "peel"})); //id
-	set("core_unit", "¸ö");						  //unit
-	set("core_long", "Ò»¸öÊÁ×ÓÆ¤¡£\n");			  //long
+	set("core_unit", "ä¸ª");						  //unit
+	set("core_long", "ä¸€ä¸ªæŸ¿å­çš®ã€‚\n");			  //long
 	set("gifts", ([
 					 "per":1,
 	]));

@@ -1,4 +1,4 @@
-// shit.c ¹·Êº
+// shit.c ç‹—å±Ž
 
 inherit ITEM;
 #include <ansi.h>
@@ -10,10 +10,10 @@ void init()
 }
 void create()
 {
-	set_name(YEL "¹·Êº" NOR, ({"shit"}));
-	set("unit", "¶Ñ");
+	set_name(YEL "ç‹—å±Ž" NOR, ({"shit"}));
+	set("unit", "å †");
 	set("value", 0);
-	set("long", "ÕâÊÇÒ»¶Ñ³ô¹·Êº£¬²»ÖªµÀÊÇË­À­µÄ¡£\n");
+	set("long", "è¿™æ˜¯ä¸€å †è‡­ç‹—å±Žï¼Œä¸çŸ¥é“æ˜¯è°æ‹‰çš„ã€‚\n");
 	setup();
 }
 
@@ -22,14 +22,14 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ð¼±£¬ÂýÂý³Ô£¬Ð¡ÐÄ±ðÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™Žç€äº†ã€‚\n");
 
 	if (arg == "shit")
-		return notify_fail("ÕâÄãÒ²ÄÜ³Ô£¿ÕæÊÇÅå·þ°¡Åå·þ£¡\n");
+		return notify_fail("è¿™ä½ ä¹Ÿèƒ½åƒï¼ŸçœŸæ˜¯ä½©æœå•Šä½©æœï¼\n");
 	me->start_busy(2);
 	return 1;
 }

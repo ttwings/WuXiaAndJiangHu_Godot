@@ -16,16 +16,16 @@ void init()
 
 void create()
 {
-	set_name(HIR "¹ÖÉßÑª" NOR, ({"she xue", "blood"}));
+	set_name(HIR "æ€ªè›‡è¡€" NOR, ({"she xue", "blood"}));
 	set_weight(90);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "¹Ü");
-		set("long", "Ò»¹Ü¹ÖÉßµÄÑªÒº£¬ºÜÊÇĞÈ³ô£¬¿´ÆğÀ´ÂÌÓÍÓÍµÄ¡£\n");
+		set("unit", "ç®¡");
+		set("long", "ä¸€ç®¡æ€ªè›‡çš„è¡€æ¶²ï¼Œå¾ˆæ˜¯è…¥è‡­ï¼Œçœ‹èµ·æ¥ç»¿æ²¹æ²¹çš„ã€‚\n");
 		set("value", 1000);
-		set("drug_type", "²¹Æ·");
+		set("drug_type", "è¡¥å“");
 	}
 	set("is_monitored", 1);
 	set("no_put", 1);
@@ -42,16 +42,16 @@ int do_drink(string arg)
 	force_skill = me->query_skill("force", 1);
 
 	if (!id(arg))
-		return notify_fail("ÄãÒªºÈÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦å–ä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), this_player()))
-		return notify_fail("ÄãÒªºÈÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦å–ä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ğ¼±£¬ÂıÂıºÈ£¬Ğ¡ĞÄ±ğÇº×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢å–ï¼Œå°å¿ƒåˆ«å‘›ç€äº†ã€‚\n");
 
 	if (neili_limit <= force_limit)
 	{
 		me->add("max_neili", 5);
-		message_vision(HIR "$NÖ»¾õÒ»¹ÉÈÈÏß´ÓÑÊºíÖ±Í¨µ½¸¹ÖĞ£¬È»ºóµ¤Ìï¾ÍÏóÓĞÒ»ÍÅ»ğ°ãÉÕÁËÆğÀ´¡£\n" NOR, me);
+		message_vision(HIR "$Nåªè§‰ä¸€è‚¡çƒ­çº¿ä»å’½å–‰ç›´é€šåˆ°è…¹ä¸­ï¼Œç„¶åä¸¹ç”°å°±è±¡æœ‰ä¸€å›¢ç«èˆ¬çƒ§äº†èµ·æ¥ã€‚\n" NOR, me);
 	}
 	destruct(this_object());
 	return 1;
@@ -61,10 +61,10 @@ void decay()
 {
 	object where = environment(this_object());
 	if (interactive(where))
-		message("vision", MAG "Öñ¹ÜÅ¾µÄÒ»ÉùÆÆÁË£¬ÉßÑªÁ÷³öÅªµÃÄãÒ»ÉíÉõÊÇĞÈ³ô¡£\n" NOR,
+		message("vision", MAG "ç«¹ç®¡å•ªçš„ä¸€å£°ç ´äº†ï¼Œè›‡è¡€æµå‡ºå¼„å¾—ä½ ä¸€èº«ç”šæ˜¯è…¥è‡­ã€‚\n" NOR,
 				where);
 	else
-		message("vision", MAG "Öñ¹ÜÅ¾µÄÒ»ÉùÆÆÁË£¬ÉßÑªÁ÷ÁËÒ»µØ¡£\n" NOR,
+		message("vision", MAG "ç«¹ç®¡å•ªçš„ä¸€å£°ç ´äº†ï¼Œè›‡è¡€æµäº†ä¸€åœ°ã€‚\n" NOR,
 				where);
 	destruct(this_object());
 }

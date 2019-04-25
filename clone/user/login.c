@@ -1,5 +1,5 @@
-// ¼ÓÈëlogin_time_outº¯Êı£¬ºÍlogind.cÅäºÏ£¬¿¦²ÁµôÍ£Áô
-// ÔÚlogin»­Ãæ³¬¹ı30ÃëµÄÍæ¼Ò:PP
+// åŠ å…¥login_time_outå‡½æ•°ï¼Œå’Œlogind.cé…åˆï¼Œå–€æ“¦æ‰åœç•™
+// åœ¨loginç”»é¢è¶…è¿‡30ç§’çš„ç©å®¶:PP
 // Modified by Constant Apr 21 2000
 
 #include <login.h>
@@ -34,7 +34,7 @@ void time_out()
 	if (objectp(query_temp("body_ob")))
 		return;
 	if (interactive(this_object()))
-		write("Äú»¨ÔÚ´´ÔìĞÂ½ÇÉ«µÄÊ±¼äÌ«³¤ÁË£¬ÏÂ´ÎÔÙÀ´°É:))\n");
+		write("æ‚¨èŠ±åœ¨åˆ›é€ æ–°è§’è‰²çš„æ—¶é—´å¤ªé•¿äº†ï¼Œä¸‹æ¬¡å†æ¥å§:))\n");
 	destruct(this_object());
 }
 
@@ -43,7 +43,7 @@ void login_time_out()
 	if (query_temp("new_char"))
 		return;
 	if (interactive(this_object()))
-		write("Äú»¨ÔÚÁ¬Ïß½øÈëµÄÊ±¼äÌ«³¤ÁË£¬ÏÂ´ÎÔÙÀ´°É:))\n");
+		write("æ‚¨èŠ±åœ¨è¿çº¿è¿›å…¥çš„æ—¶é—´å¤ªé•¿äº†ï¼Œä¸‹æ¬¡å†æ¥å§:))\n");
 	destruct(this_object());
 }
 

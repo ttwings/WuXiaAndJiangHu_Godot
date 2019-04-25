@@ -2,7 +2,7 @@
 //last modified by sega 13/4/2000
 // Modified by Zeratul Jan 5 2001
 
-//ĞŞ¸Ä³É²»ÄÜ°ïÃ¦É±
+//ä¿®æ”¹æˆä¸èƒ½å¸®å¿™æ€
 #include <dbase.h>
 #include <login.h>
 #include <ansi.h>
@@ -12,18 +12,18 @@ inherit NPC;
 inherit F_UNIQUE;
 int ask_me(object who);
 string *name_msg = ({
-		"Á÷Ã¥",
-		"½øÏã¿Í",
-		"Ìô·ò",
-		"¼Ò¶¡",
-		"¹Ù±ø",
-		"Âô»¨¹ÃÄï",
-		"ÌË×ÓÊÖ",
-		"Ğ¡··",
-		"µ¶¿Í",
-		"½£¿Í",
-		"ÓÎ·½ºÍÉĞ",
-		"½­ºşºÀ¿Í",
+		"æµæ°“",
+		"è¿›é¦™å®¢",
+		"æŒ‘å¤«",
+		"å®¶ä¸",
+		"å®˜å…µ",
+		"å–èŠ±å§‘å¨˜",
+		"è¶Ÿå­æ‰‹",
+		"å°è´©",
+		"åˆ€å®¢",
+		"å‰‘å®¢",
+		"æ¸¸æ–¹å’Œå°š",
+		"æ±Ÿæ¹–è±ªå®¢",
 });
 
 string *long_id = ({
@@ -46,7 +46,7 @@ void create()
 	int i;
 	i = random(sizeof(name_msg));
 	set_name(name_msg[i], ({long_id[i]}));
-	set("gender", random(2) > 0 ? "Å®ĞÔ" : "ÄĞĞÔ");
+	set("gender", random(2) > 0 ? "å¥³æ€§" : "ç”·æ€§");
 	set("attitude", "friendly");
 	set("chat_chance", 30);
 	set("chat_msg", ({
@@ -55,7 +55,7 @@ void create()
 													:),
 									}));
 	set("inquiry", ([
-												"¼éÏ¸":(
+												"å¥¸ç»†":(
 																	 : ask_me:),
 										 "jian xi":(
 																	 : ask_me:),
@@ -84,7 +84,7 @@ int ask_me(object who)
 
 	if (this_object()->query("owner") == me->query("id"))
 	{
-		message_vision(HIY "$NÑÛÖĞÍ»È»ÉÁ¹ı¾ª¾åµÄÄ¿¹â£¬Ë«ÑÛÃ°»ğ°ãµÉ×Å$n£¬´óÉùº°µÀ£º" + RANK_D->query_self_rude(ob) + "¾ÍÊÇ" + ob->query("fname") + "£¡" + RANK_D->query_rude(me) + "£¡ÄÉÃüÀ´°É£¡\n" NOR, ob, me);
+		message_vision(HIY "$Nçœ¼ä¸­çªç„¶é—ªè¿‡æƒŠæƒ§çš„ç›®å…‰ï¼ŒåŒçœ¼å†’ç«èˆ¬çªç€$nï¼Œå¤§å£°å–Šé“ï¼š" + RANK_D->query_self_rude(ob) + "å°±æ˜¯" + ob->query("fname") + "ï¼" + RANK_D->query_rude(me) + "ï¼çº³å‘½æ¥å§ï¼\n" NOR, ob, me);
 		me->start_busy(1);
 		ob->fight_ob(me);
 		//		me->fight_ob(ob);
@@ -100,7 +100,7 @@ int ask_me(object who)
 			ob->add_temp("apply/dodge", 100);
 		else
 			ob->add_temp("apply/dodge", 50);
-		ob->set("title", ob->query("family_name") + "¼éÏ¸");
+		ob->set("title", ob->query("family_name") + "å¥¸ç»†");
 		ob->set("name", ob->query("fname"));
 		if (mapp(map_status = ob->query_skill_map()))
 		{
@@ -129,7 +129,7 @@ int ask_me(object who)
 		ob->set_temp("asked", 1);
 	}
 	else
-		message_vision(HIY "$NÑÛÖĞº®¹âÒ»ÉÁ£¬ÂíÉÏÓÖ±äµÃÄ®È»ÁË£¬Ö»ÊÇÆæ¹ÖµØ¿´×Å$n¡£\n" NOR, ob, me);
+		message_vision(HIY "$Nçœ¼ä¸­å¯’å…‰ä¸€é—ªï¼Œé©¬ä¸Šåˆå˜å¾—æ¼ ç„¶äº†ï¼Œåªæ˜¯å¥‡æ€ªåœ°çœ‹ç€$nã€‚\n" NOR, ob, me);
 	return 1;
 }
 
@@ -159,7 +159,7 @@ void init()
 }
 int accept_hit(object me)
 {
-	notify_fail(HIW "²»ÊÇÄãÒª×¥µÄÈË£¬´ÕÊ²Ã´ÈÈÄÖ£¡\n" NOR);
+	notify_fail(HIW "ä¸æ˜¯ä½ è¦æŠ“çš„äººï¼Œå‡‘ä»€ä¹ˆçƒ­é—¹ï¼\n" NOR);
 	if (this_object()->query("owner") == me->query("id") && this_object()->query_temp("asked"))
 	{
 		me->kill_ob(this_object());
@@ -179,7 +179,7 @@ int do_halt()
 
 	if (me->is_fighting(ob))
 	{
-		tell_object(me, HIR "¼éÏ¸Î´³ı£¬ÔõÄÜÁÙÕóÍËËõ£¿\n" NOR);
+		tell_object(me, HIR "å¥¸ç»†æœªé™¤ï¼Œæ€èƒ½ä¸´é˜µé€€ç¼©ï¼Ÿ\n" NOR);
 		return 1;
 	}
 	return 0;
@@ -187,6 +187,6 @@ int do_halt()
 
 void dest_me(object ob)
 {
-	message_vision("Ö»¼û$NºöÈ»¼±×ªÉíĞĞ£¬×İÉí×ê½øĞĞÈËÖĞ£¬×ªÑÛ¾Í×Ù¼£½ÔÎŞ¡£\n", ob);
+	message_vision("åªè§$Nå¿½ç„¶æ€¥è½¬èº«è¡Œï¼Œçºµèº«é’»è¿›è¡Œäººä¸­ï¼Œè½¬çœ¼å°±è¸ªè¿¹çš†æ— ã€‚\n", ob);
 	destruct(ob);
 }

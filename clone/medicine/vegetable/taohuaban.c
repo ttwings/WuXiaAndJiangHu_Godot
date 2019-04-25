@@ -1,4 +1,4 @@
-// taohuaban.c ÌÒ»¨°ê
+// taohuaban.c æ¡ƒèŠ±ç“£
 
 inherit ITEM;
 #include <ansi.h>
@@ -11,13 +11,13 @@ void init()
 
 void create()
 {
-	set_name(HIM "ÌÒ»¨°ê" NOR, ({"taohuaban"}));
+	set_name(HIM "æ¡ƒèŠ±ç“£" NOR, ({"taohuaban"}));
 	set_weight(500);
 	set("vegetable", 16);
 	set("value", 40);
 	set("nostrum", 16);
-	set("unit", "Æ¬");
-	set("long", "ÕâÊÇÒ»Æ¬·ç¸É±£´æµÄÌÒ»¨°ê£¬¿´À´¿ÉÒÔÈëÒ©¡£\n");
+	set("unit", "ç‰‡");
+	set("long", "è¿™æ˜¯ä¸€ç‰‡é£å¹²ä¿å­˜çš„æ¡ƒèŠ±ç“£ï¼Œçœ‹æ¥å¯ä»¥å…¥è¯ã€‚\n");
 	set("pour_type", "1");
 	setup();
 }
@@ -27,12 +27,12 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 
-	write("ÈË¼ÒÖ»ÓĞÃÛ·äºÍºûµû¶Ô»¨°êÓĞĞËÈ¤£¬Ô­À´ÄãÒ²......\n");
+	write("äººå®¶åªæœ‰èœœèœ‚å’Œè´è¶å¯¹èŠ±ç“£æœ‰å…´è¶£ï¼ŒåŸæ¥ä½ ä¹Ÿ......\n");
 	return 1;
 }

@@ -1,4 +1,4 @@
-// Éñ»°ÊÀ½ç¡¤Î÷ÓÎ¼Ç¡¤°æ±¾£´£®£µ£°
+// ç¥è¯ä¸–ç•ŒÂ·è¥¿æ¸¸è®°Â·ç‰ˆæœ¬ï¼”ï¼ï¼•ï¼
 /* <SecCrypt CPL V3R05> */
 
 // xianzhi.c
@@ -9,10 +9,10 @@ inherit F_LIQUID;
 void create()
 {
   string *names = ({
-      "Çí½¬",
-      "ÓñÒº",
-      "õ®õ­",
-      "ÑşÂ¶",
+      "ç¼æµ†",
+      "ç‰æ¶²",
+      "é†é†",
+      "ç‘¶éœ²",
   });
   string *ids = ({
       "qiong jiang",
@@ -28,7 +28,7 @@ void create()
     set_default_object(__FILE__);
   else
   {
-    set("unit", "Óñºø");
+    set("unit", "ç‰å£¶");
     set("value", 10000);
     set("max_liquid", 5000);
     set("no_get", 1);
@@ -41,6 +41,6 @@ void create()
                       "remaining":5000,
                     "drunk_apply":10,
   ]));
-  set("long", "Ò»ÓñºøÌìÉÏ²ÅÓĞµÄÏÉÖ­Õæ¾Æ£­£­" + names[i] + "¡£\n");
+  set("long", "ä¸€ç‰å£¶å¤©ä¸Šæ‰æœ‰çš„ä»™æ±çœŸé…’ï¼ï¼" + names[i] + "ã€‚\n");
   setup();
 }

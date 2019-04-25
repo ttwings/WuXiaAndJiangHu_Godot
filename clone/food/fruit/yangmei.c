@@ -7,18 +7,18 @@ inherit F_FRUIT;
 
 void create()
 {
-	set_name(RED "ÑîÃ·" NOR, ({"yang mei", "yangmei", "redbayberry"}));
+	set_name(RED "æ¨æ¢…" NOR, ({"yang mei", "yangmei", "redbayberry"}));
 	set_weight(4000);
-	set("long", "Ò»ÅõºìÑŞÑŞµÄÑîÃ·¡£\n");
-	set("unit", "Åõ");
+	set("long", "ä¸€æ§çº¢è‰³è‰³çš„æ¨æ¢…ã€‚\n");
+	set("unit", "æ§");
 	set("value", 0);
 	set("life", 3);
 	set("fruit_remaining", 8);
 	set("food_supply", 1);
 	set("water_supply", 4);
-	set("eat_msg", "$NÄÃÆğ$n£¬Íù×ìÀï¶ªÁËÒ»¿Å£¬¡°àÛ¡±µØÍÂ³öºË¡£\n");
-	set("end_msg", "$N³Ô¹âÁË×îºóÒ»¿Å$n£¬È´¾õµÃÑÀÓĞµãËá¡£\n");
-	set("over_msg", "³ÔÕâÃ´¶à£¿Ğ¡ĞÄ³ÅÆÆ¶ÇÆ¤£¡£¡£¡£¡\n");
+	set("eat_msg", "$Næ‹¿èµ·$nï¼Œå¾€å˜´é‡Œä¸¢äº†ä¸€é¢—ï¼Œâ€œå™—â€åœ°åå‡ºæ ¸ã€‚\n");
+	set("end_msg", "$Nåƒå…‰äº†æœ€åä¸€é¢—$nï¼Œå´è§‰å¾—ç‰™æœ‰ç‚¹é…¸ã€‚\n");
+	set("over_msg", "åƒè¿™ä¹ˆå¤šï¼Ÿå°å¿ƒæ’‘ç ´è‚šçš®ï¼ï¼ï¼ï¼\n");
 	/* 
 	set("gifts", ([
 		"per" : 1,

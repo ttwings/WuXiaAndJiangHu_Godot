@@ -1,175 +1,175 @@
 // Last Modified by Winder on May. 15 2001
 // /clone/misc/dache.c
-// sign/value±ØĞëÊÇÕû°ÙµÄÊı
+// sign/valueå¿…é¡»æ˜¯æ•´ç™¾çš„æ•°
 
 inherit ITEM;
 #include <ansi.h>
 int do_go(string);
 int look_sign();
 mapping *sign = ({
-	(["name":"ºÚÄ¾ÑÂ",
-		"target":"ºÚÄ¾ÑÂÂÒÊ¯ÆÂ",
+	(["name":"é»‘æœ¨å´–",
+		"target":"é»‘æœ¨å´–ä¹±çŸ³å¡",
 			"id":"heimuya",
 		   "out":"heimuya",
 		  "file":"/d/heimuya/road1",
 		 "value":200,
 		  "time":10]),
-	(["name":"ÌúÕÆ·å",
-		"target":"ÌúÕÆ·åÉ½½ÅÏÂ",
+	(["name":"é“æŒå³°",
+		"target":"é“æŒå³°å±±è„šä¸‹",
 			"id":"tiezhang",
 		   "out":"tiezhang",
 		  "file":"/d/tiezhang/shanjiao",
 		 "value":200,
 		  "time":10]),
-	(["name":"Ã·×¯",
-		"target":"Ã·×¯´óÃÅ",
+	(["name":"æ¢…åº„",
+		"target":"æ¢…åº„å¤§é—¨",
 			"id":"meizhuang",
 		   "out":"meizhuang",
 		  "file":"/d/meizhuang/gate",
 		 "value":200,
 		  "time":10]),
-	(["name":"Ì«ºş",
-		"target":"Ì«ºşºşÅÏ",
+	(["name":"å¤ªæ¹–",
+		"target":"å¤ªæ¹–æ¹–ç•”",
 			"id":"taihu",
 		   "out":"yanziwu",
 		  "file":"/d/yanziwu/hupan",
 		 "value":100,
 		  "time":10]),
-	(["name":"ÎŞÁ¿É½",
-		"target":"ÎŞÁ¿É½Ûê",
+	(["name":"æ— é‡å±±",
+		"target":"æ— é‡å±±å³",
 			"id":"wuliang",
 		   "out":"wuliang",
 		  "file":"/d/wuliang/shanlu6",
 		 "value":300,
 		  "time":10]),
-	(["name":"ÌìÉ½",
-		"target":"ÌìÉ½É½Â·",
+	(["name":"å¤©å±±",
+		"target":"å¤©å±±å±±è·¯",
 			"id":"tianshan",
 		   "out":"xiyu",
 		  "file":"/d/xingxiu/tianroad2",
 		 "value":300,
 		  "time":10]),
-	(["name":"ÁèÏö³Ç",
-		"target":"ÁèÏö³ÇÊ¯ÑÂ",
+	(["name":"å‡Œéœ„åŸ",
+		"target":"å‡Œéœ„åŸçŸ³å´–",
 			"id":"lingxiao",
 		   "out":"lingxiao",
 		  "file":"/d/lingxiao/shiya",
 		 "value":200,
 		  "time":10]),
-	(["name":"Ñ©É½ËÂ",
-		"target":"Ñ©É½ËÂÉ½ÃÅ",
+	(["name":"é›ªå±±å¯º",
+		"target":"é›ªå±±å¯ºå±±é—¨",
 			"id":"xueshan",
 		   "out":"xueshansi",
 		  "file":"/d/xueshan/shanmen",
 		 "value":300,
 		  "time":10]),
-	(["name":"¹âÃ÷¶¥",
-		"target":"¹âÃ÷¶¥É½ÃÅ",
+	(["name":"å…‰æ˜é¡¶",
+		"target":"å…‰æ˜é¡¶å±±é—¨",
 			"id":"mingjiao",
 		   "out":"mingjiao",
 		  "file":"/d/mingjiao/shanmen",
 		 "value":300,
 		  "time":10]),
-	(["name":"ÖĞÌõÉ½",
-		"target":"ÖĞÌõÉ½½ÅÏÂ",
+	(["name":"ä¸­æ¡å±±",
+		"target":"ä¸­æ¡å±±è„šä¸‹",
 			"id":"zhongtiao",
 		   "out":"zhongtiao",
 		  "file":"/d/huashan/jzroad3",
 		 "value":100,
 		  "time":10]),
-	(["name":"³¤°×É½",
-		"target":"³¤°×É½°×ºÓ",
+	(["name":"é•¿ç™½å±±",
+		"target":"é•¿ç™½å±±ç™½æ²³",
 			"id":"changbai",
 		   "out":"changbai",
 		  "file":"/d/guanwai/baihe",
 		 "value":300,
 		  "time":10]),
-	(["name":"ÖÕÄÏÉ½",
-		"target":"ÖÕÄÏÉ½½ÅÏÂ",
+	(["name":"ç»ˆå—å±±",
+		"target":"ç»ˆå—å±±è„šä¸‹",
 			"id":"zhongnan",
 		   "out":"zhongnan",
 		  "file":"/d/quanzhen/shanjiao",
 		 "value":100,
 		  "time":10]),
-	(["name":"ºãÉ½",
-		"target":"ºãÉ½½ğÁúÏ¿",
+	(["name":"æ’å±±",
+		"target":"æ’å±±é‡‘é¾™å³¡",
 			"id":"hengshan",
 		   "out":"hengshan",
 		  "file":"/d/hengshan/jinlongxia",
 		 "value":100,
 		  "time":10]),
-	(["name":"ºâÉ½",
-		"target":"ºâÉ½èùĞÇÃÅ",
+	(["name":"è¡¡å±±",
+		"target":"è¡¡å±±æ£‚æ˜Ÿé—¨",
 			"id":"henshan",
 		   "out":"henshan",
 		  "file":"/d/henshan/lingxingmen",
 		 "value":100,
 		  "time":10]),
-	(["name":"»ªÉ½",
-		"target":"»ªÉ½É¯ÂÜÆº",
+	(["name":"åå±±",
+		"target":"åå±±èèåª",
 			"id":"huashan",
 		   "out":"huashan",
 		  "file":"/d/huashan/shaluo",
 		 "value":100,
 		  "time":10]),
-	(["name":"Ì©É½",
-		"target":"Ì©É½á·×Ú·»",
+	(["name":"æ³°å±±",
+		"target":"æ³°å±±å²±å®—åŠ",
 			"id":"taishan",
 		   "out":"taishan",
 		  "file":"/d/taishan/daizong",
 		 "value":100,
 		  "time":10]),
-	(["name":"áÔÉ½",
-		"target":"áÔÉ½Ì«ÊÒãÚ",
+	(["name":"åµ©å±±",
+		"target":"åµ©å±±å¤ªå®¤é˜™",
 			"id":"songshan",
 		   "out":"songshan",
 		  "file":"/d/songshan/taishique",
 		 "value":100,
 		  "time":10]),
-	(["name":"Çà³ÇÉ½",
-		"target":"Çà³Ç½¨¸£¹¬",
+	(["name":"é’åŸå±±",
+		"target":"é’åŸå»ºç¦å®«",
 			"id":"qingcheng",
 		   "out":"qingcheng",
 		  "file":"/d/qingcheng/jianfugong",
 		 "value":200,
 		  "time":10]),
-	(["name":"À¥ÂØÉ½",
-		"target":"À¥ÂØÅÉÉ½ÃÅ",
+	(["name":"æ˜†ä»‘å±±",
+		"target":"æ˜†ä»‘æ´¾å±±é—¨",
 			"id":"kunlun",
 		   "out":"kunlun",
 		  "file":"/d/kunlun/shanmen",
 		 "value":300,
 		  "time":10]),
-	(["name":"¶ëÃ¼É½",
-		"target":"¶ëÃ¼±¨¹úËÂ",
+	(["name":"å³¨çœ‰å±±",
+		"target":"å³¨çœ‰æŠ¥å›½å¯º",
 			"id":"emei",
 		   "out":"emei",
 		  "file":"/d/emei/bgs",
 		 "value":200,
 		  "time":10]),
-	(["name":"Îäµ±É½",
-		"target":"Îäµ±½â½£ÑÒ",
+	(["name":"æ­¦å½“å±±",
+		"target":"æ­¦å½“è§£å‰‘å²©",
 			"id":"wudang",
 		   "out":"wudang",
 		  "file":"/d/wudang/jiejianyan",
 		 "value":100,
 		  "time":10]),
-	(["name":"ÄÏÉÙÁÖËÂ",
-		"target":"ÄÏÉÙÁÖÓ­¿ÍÍ¤",
+	(["name":"å—å°‘æ—å¯º",
+		"target":"å—å°‘æ—è¿å®¢äº­",
 			"id":"nanshaolin",
 		   "out":"nanshaolin",
 		  "file":"/d/nanshaolin/ting",
 		 "value":100,
 		  "time":10]),
-	(["name":"ÉÙÁÖËÂ",
-		"target":"ÉÙÁÖËÂÉ½ÃÅ",
+	(["name":"å°‘æ—å¯º",
+		"target":"å°‘æ—å¯ºå±±é—¨",
 			"id":"shaolin",
 		   "out":"shaolin",
 		  "file":"/d/shaolin/shanmen",
 		 "value":100,
 		  "time":10]),
-	(["name":"ÑïÖİ",
-		"target":"ÑïÖİÖĞÑë¹ã³¡",
+	(["name":"æ‰¬å·",
+		"target":"æ‰¬å·ä¸­å¤®å¹¿åœº",
 			"id":"yangzhou",
 		   "out":"yangzhouw",
 		  "file":"/d/city/shilijie4",
@@ -186,14 +186,14 @@ void init()
 }
 void create()
 {
-	set_name("´ó³µ", ({"da che", "che", "dache"}));
+	set_name("å¤§è½¦", ({"da che", "che", "dache"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("long","ÕâÊÇÒ»Á¾°ëĞÂ²»¾ÉµÄ´ó³µ£¬³µÉÏ×ø×ÅÒ»¸ö°ëÀÏ²»ÀÏµÄ³µ·ò¡£
-Äã¿ÉÒÔ×ĞÏ¸¿´¿´(kan)³µÉÏ¹Ò×ÅµÄÅÆ×Ó£¬ÄÇ¾ÍÊÇÄã³ËÉÏ´ó³µ£¬\n¿ÉÒÔÈ¥(qu)µÄµØ·½¡£\n");
-		set("unit", "Á¾");
+		set("long","è¿™æ˜¯ä¸€è¾†åŠæ–°ä¸æ—§çš„å¤§è½¦ï¼Œè½¦ä¸Šåç€ä¸€ä¸ªåŠè€ä¸è€çš„è½¦å¤«ã€‚
+ä½ å¯ä»¥ä»”ç»†çœ‹çœ‹(kan)è½¦ä¸ŠæŒ‚ç€çš„ç‰Œå­ï¼Œé‚£å°±æ˜¯ä½ ä¹˜ä¸Šå¤§è½¦ï¼Œ\nå¯ä»¥å»(qu)çš„åœ°æ–¹ã€‚\n");
+		set("unit", "è¾†");
 		set("no_fight",1);
 		set("no_get", 1);
 		set("no_steal", 1);
@@ -205,7 +205,7 @@ void create()
 }
 int look_sign()
 {
-	string adjstr1, adjstr2, str = "ÓÉ´ËÈ¥(qu)µ½ÏÂÁĞµØ·½£º\n  Ä¿µÄµØ        µØÃû          ¼ÛÂë\n================================================\n";
+	string adjstr1, adjstr2, str = "ç”±æ­¤å»(qu)åˆ°ä¸‹åˆ—åœ°æ–¹ï¼š\n  ç›®çš„åœ°        åœ°å          ä»·ç \n================================================\n";
 	int adj1, adj2, i = sizeof(sign);
 	while (i--)
 	{
@@ -221,7 +221,7 @@ int look_sign()
 			adj2 = 18 - strlen(adjstr2);
 			while (adj2--)
 				str += " ";
-			str += "£º" CYN + MONEY_D->price_str(sign[i]["value"]) + NOR "\n";
+			str += "ï¼š" CYN + MONEY_D->price_str(sign[i]["value"]) + NOR "\n";
 		}
 	}
 	write(str + "------------------------------------------------\n");
@@ -232,9 +232,9 @@ void do_move(object ob, int i)
 {
 	ob->delete_temp("block_msg/all");
 	ob->delete_temp("noliving");
-	write("ÖÕÓÚµ½" + sign[i]["name"] + "ÁË¡£\n\n");
+	write("ç»ˆäºåˆ°" + sign[i]["name"] + "äº†ã€‚\n\n");
 	ob->move(sign[i]["file"]);
-	tell_room(environment(ob), "\nºöÈ»Ô¶´¦ÓĞÒ»Á¾´ó³µ·É³Û¶øÀ´£¬¿ìµ½ÄãÉí±ßÊ±¾ÍÂıÂıÍ£ÁËÏÂÀ´¡£\n" + ob->name() + "´Ó´ó³µÉÏ×ßÁËÏÂÀ´¡£\n", ({ob}));
+	tell_room(environment(ob), "\nå¿½ç„¶è¿œå¤„æœ‰ä¸€è¾†å¤§è½¦é£é©°è€Œæ¥ï¼Œå¿«åˆ°ä½ èº«è¾¹æ—¶å°±æ…¢æ…¢åœäº†ä¸‹æ¥ã€‚\n" + ob->name() + "ä»å¤§è½¦ä¸Šèµ°äº†ä¸‹æ¥ã€‚\n", ({ob}));
 }
 
 int do_go(string arg)
@@ -243,42 +243,42 @@ int do_go(string arg)
 	int j, i = sizeof(sign);
 
 	if (!arg)
-		return notify_fail("ÄãÒªÈ¥ÄÄÀï£¿ÏÈ¿´¿´(kan)ÔÙ×ß°É£¡\n");
+		return notify_fail("ä½ è¦å»å“ªé‡Œï¼Ÿå…ˆçœ‹çœ‹(kan)å†èµ°å§ï¼\n");
 	if (ob->is_busy() || ob->is_fighting())
-		return notify_fail("ÄãÕıÃ¦×ÅÄØ£¡\n");
+		return notify_fail("ä½ æ­£å¿™ç€å‘¢ï¼\n");
 
 	inv = all_inventory(ob);
 	for (j = 0; j < sizeof(inv); j++)
 	{
 		if (inv[j]->is_character())
 		{
-			write("´ó³µÀïÀïÎ»ÖÃÓĞÏŞ£¬¼·²»ÏÂÄÇÃ´¶àÈË¡£\n");
+			write("å¤§è½¦é‡Œé‡Œä½ç½®æœ‰é™ï¼ŒæŒ¤ä¸ä¸‹é‚£ä¹ˆå¤šäººã€‚\n");
 			return 1;
 		}
 	}
 	if (ob->query_temp("LAST_PKER_TIME") &&
 		time() - ob->query_temp("LAST_PKER_TIME") < 7200 && !wizardp(ob))
-		return notify_fail("É±ÁËÈË£¬¿É²»ÄÜ×öËõÍ·ÎÚ¹ê£¡\n");
+		return notify_fail("æ€äº†äººï¼Œå¯ä¸èƒ½åšç¼©å¤´ä¹Œé¾Ÿï¼\n");
 
 	while (i--)
 	{
 		if (arg == sign[i]["id"])
 		{
 			if (environment(ob)->query("outdoors") == sign[i]["out"])
-				return notify_fail("³µ·òĞ¦ÂîµÀ£º¡°ÄãºıÍ¿À²£¬È¥Ê²Ã´È¥£¡Äã²»ÊÇÒÑ¾­ÔÚ" HIR + sign[i]["name"] + NOR "ÁËÂğ£¿£¡¡±\n");
+				return notify_fail("è½¦å¤«ç¬‘éª‚é“ï¼šâ€œä½ ç³Šæ¶‚å•¦ï¼Œå»ä»€ä¹ˆå»ï¼ä½ ä¸æ˜¯å·²ç»åœ¨" HIR + sign[i]["name"] + NOR "äº†å—ï¼Ÿï¼â€\n");
 			switch (MONEY_D->player_pay(ob, sign[i]["value"]))
 			{
 			case 0:
-				return notify_fail("Çî¹âµ°£¬Ò»±ß´ô×ÅÈ¥£¡\n");
+				return notify_fail("ç©·å…‰è›‹ï¼Œä¸€è¾¹å‘†ç€å»ï¼\n");
 			case 2:
-				return notify_fail("ÓĞÁãÇ®Âğ£¿\n");
+				return notify_fail("æœ‰é›¶é’±å—ï¼Ÿ\n");
 			}
-			message_vision("\n$NµÇÉÏÁË´ó³µ£¬Ò»ÑïÊÖ¶ªÁË" + chinese_number(sign[i]["value"] / 100) + "Á½Òø×Ó¸ø³µ·ò£¬ËµÁËÉù£º¡°È¥" + sign[i]["name"] + "¡£¡±\n$NËµÍêÏÆ¿ªÁ±×Ó£¬Ò»¹şÑü×ê½ø³µÈ¥¡£\n\n", ob);
-			write(HIC"´ó³µÄÚ"NOR" -
-    ³µÀï¸É¸É¾»¾»£¬·ÅÁËÁ½ÕÅÊæ·şµÄ´óÒÎ×Ó¡£´°Á±°ëÀ­ÁËÏÂÀ´£¬Ñô¹â´Ó
-·ìÏ¶ÖĞÍ¸½øÀ´£¬´°Íâ¿´²»¾¡µÄ¾°ÖÂ£¬ÓĞµÄ×³¹Û£¬ÓĞµÄÒ²ÎŞÈ¤¡£ÓÚÊÇ»è»è
-³Á³ÁµØË¯È¥£¬Ò²²»¹ÜÂ·ÉÏ×ßÁË¶à¾Ã¡£ÃÅÍâ¹ÒÁËÒ»´®·çÁå£¬¶£ßÊßÊÏì×Å¡£
-³µ·ò×øÔÚÇ°Ãæ£¬Ò»Â·¸Ï×ÅÂí£¬Ò»Â·µÃÒâµØºß×ÅÊ²Ã´Ğ¡µ÷¡£\n");
+			message_vision("\n$Nç™»ä¸Šäº†å¤§è½¦ï¼Œä¸€æ‰¬æ‰‹ä¸¢äº†" + chinese_number(sign[i]["value"] / 100) + "ä¸¤é“¶å­ç»™è½¦å¤«ï¼Œè¯´äº†å£°ï¼šâ€œå»" + sign[i]["name"] + "ã€‚â€\n$Nè¯´å®Œæ€å¼€å¸˜å­ï¼Œä¸€å“ˆè…°é’»è¿›è½¦å»ã€‚\n\n", ob);
+			write(HIC"å¤§è½¦å†…"NOR" -
+    è½¦é‡Œå¹²å¹²å‡€å‡€ï¼Œæ”¾äº†ä¸¤å¼ èˆ’æœçš„å¤§æ¤…å­ã€‚çª—å¸˜åŠæ‹‰äº†ä¸‹æ¥ï¼Œé˜³å…‰ä»
+ç¼éš™ä¸­é€è¿›æ¥ï¼Œçª—å¤–çœ‹ä¸å°½çš„æ™¯è‡´ï¼Œæœ‰çš„å£®è§‚ï¼Œæœ‰çš„ä¹Ÿæ— è¶£ã€‚äºæ˜¯æ˜æ˜
+æ²‰æ²‰åœ°ç¡å»ï¼Œä¹Ÿä¸ç®¡è·¯ä¸Šèµ°äº†å¤šä¹…ã€‚é—¨å¤–æŒ‚äº†ä¸€ä¸²é£é“ƒï¼Œå®å‘¤å‘¤å“ç€ã€‚
+è½¦å¤«ååœ¨å‰é¢ï¼Œä¸€è·¯èµ¶ç€é©¬ï¼Œä¸€è·¯å¾—æ„åœ°å“¼ç€ä»€ä¹ˆå°è°ƒã€‚\n");
 			ob->set_temp("noliving/journey", 1);
 			ob->set_temp("block_msg/all", 1);
 			ob->move("/clone/misc/dachenei");
@@ -286,27 +286,27 @@ int do_go(string arg)
 			return 1;
 		}
 	}
-	return notify_fail("ÄãÒªÈ¥ÄÄÀï£¿\n");
+	return notify_fail("ä½ è¦å»å“ªé‡Œï¼Ÿ\n");
 }
 /*
-ÉÙÁÖËÂÉ½ÃÅ   (shaolin)    /d/shaolin/shanmen
-Îäµ±½â½£ÑÒ   (wudang)     /d/wudang/jiejianyan
-¶ëÃ¼±¨¹úËÂ   (emei)       /d/emei/bgs
-À¥ÂØÅÉÉ½ÃÅ   (kunlun)     /d/kunlun/shanmen
-Çà³Ç½¨¸£¹¬   (qingcheng)  /d/qingcheng/jianfugong
-áÔÉ½Ì«ÊÒãÚ   (songshan)   /d/songshan/taishique
-Ì©É½á·×Ú·»   (taishan)    /d/taishan/daizong
-»ªÉ½É¯ÂÜÆº   (huashan)    /d/huashan/shaluo
-ºâÉ½èùĞÇÃÅ   (henshan)    /d/henshan/lingxingmen
-ºãÉ½½ğÁúÏ¿   (hengshan)   /d/hengshan/jinlongxia
-ÖÕÄÏÉ½½ÅÏÂ   (zhongnan)   /d/quanzhen/shanjiao
-ÖĞÌõÉ½½ÅÏÂ   (zhongtiao)  /d/huashan/jzroad3
-¹âÃ÷¶¥É½ÃÅ   (mingjiao)   /d/mingjiao/shanmen
-Ñ©É½ËÂÉ½ÃÅ   (xueshansi)  /d/xueshan/shanmen
-ÌìÉ½É½Â·     (xiyu)       /d/xingxiu/tianroad2
-ÎŞÁ¿É½Ûê     (wuliang)    /d/wuliang/shanlu6
-Ì«ºşºşÅÏ     (yanziwu)    /d/yanziwu/hupan
-Ã·×¯´óÃÅ     (meizhuang)  /d/meizhuang/gate
-ÌúÕÆ·åÉ½½ÅÏÂ (tiezhang)   /d/tiezhang/shanjiao
-ºÚÄ¾ÑÂÂÒÊ¯ÆÂ (heimuya)    /d/heimuya/road1
+å°‘æ—å¯ºå±±é—¨   (shaolin)    /d/shaolin/shanmen
+æ­¦å½“è§£å‰‘å²©   (wudang)     /d/wudang/jiejianyan
+å³¨çœ‰æŠ¥å›½å¯º   (emei)       /d/emei/bgs
+æ˜†ä»‘æ´¾å±±é—¨   (kunlun)     /d/kunlun/shanmen
+é’åŸå»ºç¦å®«   (qingcheng)  /d/qingcheng/jianfugong
+åµ©å±±å¤ªå®¤é˜™   (songshan)   /d/songshan/taishique
+æ³°å±±å²±å®—åŠ   (taishan)    /d/taishan/daizong
+åå±±èèåª   (huashan)    /d/huashan/shaluo
+è¡¡å±±æ£‚æ˜Ÿé—¨   (henshan)    /d/henshan/lingxingmen
+æ’å±±é‡‘é¾™å³¡   (hengshan)   /d/hengshan/jinlongxia
+ç»ˆå—å±±è„šä¸‹   (zhongnan)   /d/quanzhen/shanjiao
+ä¸­æ¡å±±è„šä¸‹   (zhongtiao)  /d/huashan/jzroad3
+å…‰æ˜é¡¶å±±é—¨   (mingjiao)   /d/mingjiao/shanmen
+é›ªå±±å¯ºå±±é—¨   (xueshansi)  /d/xueshan/shanmen
+å¤©å±±å±±è·¯     (xiyu)       /d/xingxiu/tianroad2
+æ— é‡å±±å³     (wuliang)    /d/wuliang/shanlu6
+å¤ªæ¹–æ¹–ç•”     (yanziwu)    /d/yanziwu/hupan
+æ¢…åº„å¤§é—¨     (meizhuang)  /d/meizhuang/gate
+é“æŒå³°å±±è„šä¸‹ (tiezhang)   /d/tiezhang/shanjiao
+é»‘æœ¨å´–ä¹±çŸ³å¡ (heimuya)    /d/heimuya/road1
 */

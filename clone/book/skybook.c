@@ -5,19 +5,19 @@ inherit ITEM;
 inherit F_AUTOLOAD;
 void create()
 {
-	set_name(HIB "ÎŞ×ÖÌìÊé" NOR, ({"skybook", "book"}));
+	set_name(HIB "æ— å­—å¤©ä¹¦" NOR, ({"skybook", "book"}));
 	set_weight(10);
 	set("no_steal", 1);
 	set("no_beg", 1);
 	//	set("no_get", 1);
-	set("no_drop", "ÍÛ£¿ÌìÊé¶¼Ïë¶ªµô,Ğ¡ĞÄÔâÌìÇ´¡£\n\n");
-	set("long", @LONG ´ËÄËµ±ÄêÏÉÈËÔùÓÚ "µ°Éú"µÄ±¦Îï, ÒòÎªµ°Éú²»Ê¶×Ö, ÏÉÈËÊ©ÁË·¨,
-°ÑÌìÊé±ä³ÉÁËÎŞ×ÖÌìÊé, ºÇºÇ !¾ÍÊÇÎÄÃ¤Ò²ÄÜ¶Á¶®, ¿ì¿´¿´(kan)°É£¡ LONG);
+	set("no_drop", "å“‡ï¼Ÿå¤©ä¹¦éƒ½æƒ³ä¸¢æ‰,å°å¿ƒé­å¤©è°´ã€‚\n\n");
+	set("long", @LONG æ­¤ä¹ƒå½“å¹´ä»™äººèµ äº "è›‹ç”Ÿ"çš„å®ç‰©, å› ä¸ºè›‹ç”Ÿä¸è¯†å­—, ä»™äººæ–½äº†æ³•,
+æŠŠå¤©ä¹¦å˜æˆäº†æ— å­—å¤©ä¹¦, å‘µå‘µ !å°±æ˜¯æ–‡ç›²ä¹Ÿèƒ½è¯»æ‡‚, å¿«çœ‹çœ‹(kan)å§ï¼ LONG);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±¾");
+		set("unit", "æœ¬");
 		set("material", "unknow");
 	}
 }
@@ -32,7 +32,7 @@ int query_autoload()
 {
 	return 1;
 }
-//½éÉÜ
+//ä»‹ç»
 int kan_book()
 {
 	object me;
@@ -41,40 +41,4 @@ int kan_book()
 		return 0;
 
 	tell_object(me,
-    "·¨¾÷ö		    ¹¦ÄÜ
-½î¶·ÔÆ(cloud)	 µ½ÏëÈ¥µÄµØ·½\n");
-	return 1;
-}
-// ½î¶·ÔÆ
-
-int cloud_goto(string arg)
-{
-	object obj, mme = this_player();
-	object *ob;
-	int i;
-	ob = users();
-
-	if (!present(this_object(), this_player()))
-		return 0;
-
-	for (i = sizeof(ob); i > 0; i--)
-	{
-		if ((ob[i - 1]->query("id") == arg) && (!wizardp(ob[i - 1])))
-		{
-			obj = environment(ob[i - 1]);
-			this_player()->move(obj);
-			tell_object(mme, HIM "ÄãÒ»¸ö½î¶·´ÜÏò¿ÕÖĞ,Ö»¼ûÑÛÇ°ºìÔÆ·É¹ı,¶ú±ß·çºôºô×÷Ïì ..\n\n" NOR);
-			tell_object(mme, "ÍÛà¸,ºÃÍ´¿ì,ºÃË¬,Ë¬ÍáÍá!\n\n");
-			mme->move(obj);
-			tell_object(mme, "Äã¼İ×ÅÔÆ»º»ºÏÂ½µ,°Èß´Ò»Éù,ºÙ!°²È«×ÅÂ½...\n");
-			return 1;
-		}
-	}
-	return 0;
-}
-
-void owner_is_killed()
-{
-	write(HIY "Ö»¼ûÑÛÇ°½ğ¹âÒ»ÉÁ...ºÃÏóÊÇ.....\n" NOR);
-	destruct(this_object());
-}
+    "æ³•è¯€

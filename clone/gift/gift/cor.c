@@ -3,19 +3,19 @@ inherit __DIR__ "gift";
 
 void create()
 {
-        set_name(WHT "µ¨Ê¶µ¤" NOR, ({"danshi dan", "danshi", "dan"}));
+        set_name(WHT "èƒ†è¯†ä¸¹" NOR, ({"danshi dan", "danshi", "dan"}));
         if (clonep())
                 set_default_object(__FILE__);
         else
         {
-                set("long", WHT "ÕâÊÇÒ»¿Åµ¨Ê¶µ¤£¬ÌıËµ³ÔÁË¿ÉÒÔÔö¼Óµ¨Ê¶¡£\n" NOR);
-                set("unit", "¿Å");
+                set("long", WHT "è¿™æ˜¯ä¸€é¢—èƒ†è¯†ä¸¹ï¼Œå¬è¯´åƒäº†å¯ä»¥å¢åŠ èƒ†è¯†ã€‚\n" NOR);
+                set("unit", "é¢—");
                 set("value", 10000);
                 set("weight", 50);
                 set("gift_type", "cor");
-                set("gift_name", "ÏÈÌìµ¨Ê¶");
+                set("gift_name", "å…ˆå¤©èƒ†è¯†");
                 set("gift_point", 75);
-                set("gift_msg", HIM "Äã¾õµÃÉíÌå·¢ÉúÁËÒ»Ğ©±ä»¯£¬µ«Ëæ¼´ÓÖÆ½ºÍÁËÏÂÀ´¡£\n" NOR);
+                set("gift_msg", HIM "ä½ è§‰å¾—èº«ä½“å‘ç”Ÿäº†ä¸€äº›å˜åŒ–ï¼Œä½†éšå³åˆå¹³å’Œäº†ä¸‹æ¥ã€‚\n" NOR);
         }
         setup();
 }

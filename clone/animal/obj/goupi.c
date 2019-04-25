@@ -8,13 +8,13 @@ inherit CLOTH;
 
 void create()
 {
-	set_name(YEL "¹·Æ¤" NOR, ({"gou pi", "pi"}));
+	set_name(YEL "ç‹—çš®" NOR, ({"gou pi", "pi"}));
 	set_weight(5000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "¿é");
+		set("unit", "å—");
 		set("material", "fur");
 		set("value", 100);
 		set("armor_prop/armor", 1);

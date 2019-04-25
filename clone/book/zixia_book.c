@@ -1,24 +1,24 @@
-// zixia_book.c  ×ÏÏ¼ÃØÜ¸
+// zixia_book.c  ç´«éœžç§˜èŠ¨
 #include <ansi.h>
 inherit ITEM;
 
 void create()
 {
-	set_name(MAG "×ÏÏ¼ÃÜÜ¸" NOR, ({"zixia_book", "book"}));
+	set_name(MAG "ç´«éœžå¯†èŠ¨" NOR, ({"zixia_book", "book"}));
 	set_weight(600);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±¾");
+		set("unit", "æœ¬");
 		//		set("no_drop",1);
 		set("long",
-HIM"ÌìÏÂÎä¹¦£¬ÒÔÁ·ÆøÎªÕý¡£ºÆÈ»ÕýÆø£¬Ô­ÎªÌìÊÚ£¬Î©³£ÈË²»ÉÆ
-ÑøÖ®£¬·´ÒÔÐÔ·¥Æø¡£Îä·òÖ®»¼£¬ÔÚÐÔ±©¡¢ÐÔ½¾¡¢ÐÔ¿á¡¢ÐÔÔô¡£
-±©ÔòÉñÈÅ¶øÆøÂÒ£¬½¾ÔòÕæÀë¶øÆø¸¡£¬¿áÔòÉ¥ÈÊ¶øÆøÊ§£¬ÔôÔò
-ÐÄºÝ¶øÆø´Ù¡£´ËËÄÊÂÕß£¬½ÔÊÇ½ØÆøÖ®µ¶¾â¡£Éá¶ûËÄÐÔ£¬·µÖî
-ÈáÉÆ£¬ÖÆÈê±©¿á£¬ÑøÈêÕýÆø£¬ÃùÌì¹Ä£¬ÒûÓñ½¬£¬µ´»ª³Ø£¬ßµ
-½ðÁº£¬¾Ý¶øÐÐÖ®£¬µ±ÓÐÐ¡³É¡£\n"NOR);
+HIM"å¤©ä¸‹æ­¦åŠŸï¼Œä»¥ç»ƒæ°”ä¸ºæ­£ã€‚æµ©ç„¶æ­£æ°”ï¼ŒåŽŸä¸ºå¤©æŽˆï¼ŒæƒŸå¸¸äººä¸å–„
+å…»ä¹‹ï¼Œåä»¥æ€§ä¼æ°”ã€‚æ­¦å¤«ä¹‹æ‚£ï¼Œåœ¨æ€§æš´ã€æ€§éª„ã€æ€§é…·ã€æ€§è´¼ã€‚
+æš´åˆ™ç¥žæ‰°è€Œæ°”ä¹±ï¼Œéª„åˆ™çœŸç¦»è€Œæ°”æµ®ï¼Œé…·åˆ™ä¸§ä»è€Œæ°”å¤±ï¼Œè´¼åˆ™
+å¿ƒç‹ è€Œæ°”ä¿ƒã€‚æ­¤å››äº‹è€…ï¼Œçš†æ˜¯æˆªæ°”ä¹‹åˆ€é”¯ã€‚èˆå°”å››æ€§ï¼Œè¿”è¯¸
+æŸ”å–„ï¼Œåˆ¶æ±æš´é…·ï¼Œå…»æ±æ­£æ°”ï¼Œé¸£å¤©é¼“ï¼Œé¥®çŽ‰æµ†ï¼Œè¡åŽæ± ï¼Œå©
+é‡‘æ¢ï¼Œæ®è€Œè¡Œä¹‹ï¼Œå½“æœ‰å°æˆã€‚\n"NOR);
 		set("value", 1000);
 		set("material", "paper");
 		set("skill", ([

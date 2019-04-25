@@ -7,14 +7,14 @@
 inherit CLOTH;
 
 string *clothname = ({
-	"´Ö²¼ÒÂ",
-	HIB "ÇàÉÀ" NOR,
-	BBLK "ºÚÉ«¾¢×°" NOR,
-	HIC "¶Ì´ò¾¢×°" NOR,
-	HIM "×ÏòþÅÛ" NOR,
-	BLU "À¶Âí¹Ó" NOR,
-	HIY "Ã÷»Æ½õÅÛ" NOR,
-	HIB "ÌìÀ¶³¤ÅÛ" NOR,
+	"ç²—å¸ƒè¡£",
+	HIB "é’è¡«" NOR,
+	BBLK "é»‘è‰²åŠ²è£…" NOR,
+	HIC "çŸ­æ‰“åŠ²è£…" NOR,
+	HIM "ç´«èŸ’è¢" NOR,
+	BLU "è“é©¬è¤‚" NOR,
+	HIY "æ˜Žé»„é”¦è¢" NOR,
+	HIB "å¤©è“é•¿è¢" NOR,
 });
 string *clothid = ({
 	"rough cloth",
@@ -27,14 +27,14 @@ string *clothid = ({
 	"celeste cloth",
 });
 string *clothlong = ({
-	"ÕâÊÇÒ»¼þºÜÆÕÍ¨µÄ´Ö²¼ÒÂ¡£\n",
-	"ÕâÊÇÒ»¼þºÜÆÕÍ¨µÄ´Ö²¼ÇàÉÀ¡£\n",
-	"ÕâÊÇÒ»¼þºÜ±ÊÍ¦µÄºÚÉ«¾¢×°¡£\n",
-	"ÕâÊÇÒ»¼þºÜÀûË÷µÄ¶Ì´ò¾¢×°¡£\n",
-	"ÕâÊÇÒ»¼þºÜÖØµÄ×ÏòþÅÛ¡£\n",
-	"ÕâÊÇÒ»¼þºÜÖØµÄÀ¶Âí¹Ó¡£\n",
-	"ÕâÊÇÒ»¼þÃ÷»Æ½õÅÛ¡£\n",
-	"ÕâÊÇÒ»¼þÌìÀ¶³¤ÅÛ¡£\n",
+	"è¿™æ˜¯ä¸€ä»¶å¾ˆæ™®é€šçš„ç²—å¸ƒè¡£ã€‚\n",
+	"è¿™æ˜¯ä¸€ä»¶å¾ˆæ™®é€šçš„ç²—å¸ƒé’è¡«ã€‚\n",
+	"è¿™æ˜¯ä¸€ä»¶å¾ˆç¬”æŒºçš„é»‘è‰²åŠ²è£…ã€‚\n",
+	"è¿™æ˜¯ä¸€ä»¶å¾ˆåˆ©ç´¢çš„çŸ­æ‰“åŠ²è£…ã€‚\n",
+	"è¿™æ˜¯ä¸€ä»¶å¾ˆé‡çš„ç´«èŸ’è¢ã€‚\n",
+	"è¿™æ˜¯ä¸€ä»¶å¾ˆé‡çš„è“é©¬è¤‚ã€‚\n",
+	"è¿™æ˜¯ä¸€ä»¶æ˜Žé»„é”¦è¢ã€‚\n",
+	"è¿™æ˜¯ä¸€ä»¶å¤©è“é•¿è¢ã€‚\n",
 });
 
 void create()
@@ -49,7 +49,7 @@ void create()
 	else
 	{
 		// 	set("long", clothlong[i]);
-		set("unit", "¼þ");
+		set("unit", "ä»¶");
 		set("value", 0);
 		set("material", "cloth");
 		set("armor_prop/armor", 1);

@@ -4,15 +4,15 @@
 inherit ITEM;
 inherit F_SAVE;
 
-// È«¾Ö±äÁ¿£¬¼´´¢´æÍæ¼ÒÑº×¢µÄËùÓĞÊı¾İ
+// å…¨å±€å˜é‡ï¼Œå³å‚¨å­˜ç©å®¶æŠ¼æ³¨çš„æ‰€æœ‰æ•°æ®
 mapping *all_biao;
-// È«¾Ö±äÁ¿£¬´Ë´¦ÎªÄ¿Ç°ÊıÁ¿
+// å…¨å±€å˜é‡ï¼Œæ­¤å¤„ä¸ºç›®å‰æ•°é‡
 int num;
-// È«¾Ö±äÁ¿£¬´Ë´¦Îª×îÖÕ½áê½
+// å…¨å±€å˜é‡ï¼Œæ­¤å¤„ä¸ºæœ€ç»ˆç»“æ²
 mapping *end_biao;
 int jieguo;
 
-// ÒÔÏÂÆßĞĞÎªº¯ÊıÉùÃ÷
+// ä»¥ä¸‹ä¸ƒè¡Œä¸ºå‡½æ•°å£°æ˜
 int do_read(string);
 int do_post(string);
 int do_ya(string);
@@ -21,10 +21,10 @@ string codetoteam(string arg);
 string ordercode(string arg, int arg1);
 string upcase(string arg);
 
-string *team = ({"°¢¸ùÍ¢", "°ÍÎ÷", "±ÈÀûÊ±", "¿¦ÂóÂ¡", "ÖĞ¹ú", "¸çË¹´ïÀè¼Ó", "µÂ¹ú", "µ¤Âó",
-				 "¶ò¹Ï¶à¶û", "Î÷°àÑÀ", "·¨¹ú", "¿ËÂŞµØÑÇ", "°®¶ûÀ¼", "Òâ´óÀû", "ÈÕ±¾", "º«¹ú",
-				 "Ä«Î÷¸ç", "ÄáÈÕÀûÑÇ", "²¨À¼", "ÆÏÌÑÑÀ", "°ÍÀ­¹ç", "¶íÂŞË¹", "É³ÌØ", "Èğµä",
-				 "Ë¹ÂåÎÄÄáÑÇ", "ÈûÄÚ¼Ó¶û", "Í»ÄáË¹", "ÍÁ¶úÆä", "Ó¢¸ñÀ¼", "ÃÀ¹ú", "ÎÚÀ­¹ç", "ÄÏ·Ç"});
+string *team = ({"é˜¿æ ¹å»·", "å·´è¥¿", "æ¯”åˆ©æ—¶", "å–€éº¦éš†", "ä¸­å›½", "å“¥æ–¯è¾¾é»åŠ ", "å¾·å›½", "ä¸¹éº¦",
+				 "å„ç“œå¤šå°”", "è¥¿ç­ç‰™", "æ³•å›½", "å…‹ç½—åœ°äºš", "çˆ±å°”å…°", "æ„å¤§åˆ©", "æ—¥æœ¬", "éŸ©å›½",
+				 "å¢¨è¥¿å“¥", "å°¼æ—¥åˆ©äºš", "æ³¢å…°", "è‘¡è„ç‰™", "å·´æ‹‰åœ­", "ä¿„ç½—æ–¯", "æ²™ç‰¹", "ç‘å…¸",
+				 "æ–¯æ´›æ–‡å°¼äºš", "å¡å†…åŠ å°”", "çªå°¼æ–¯", "åœŸè€³å…¶", "è‹±æ ¼å…°", "ç¾å›½", "ä¹Œæ‹‰åœ­", "å—é"});
 string *code = ({"AR", "BR", "BE", "CM", "CN", "CR", "DE", "DK",
 				 "EC", "ES", "FR", "HR", "IE", "IT", "JP", "KP",
 				 "MX", "NG", "PL", "PT", "PY", "RU", "SA", "SE",
@@ -32,13 +32,13 @@ string *code = ({"AR", "BR", "BE", "CM", "CN", "CR", "DE", "DK",
 
 void create()
 {
-	set_name(HIY "ÊÀ½ç±­¾º²Â°æ" NOR, ({"board", "ban"}));
-	set("long", "ÕâÊÇÒ»¸ö¼ÇÂ¼Íæ¼ÒµÄ¾º²ÂÑº×¢Çé¿öµÄ°æ¡£
-Ñº×¢Çëread rules£¬²é¿´Ä¿Ç°µÄÍ¶×¢Çé¿öÇëread ban¡£\n");
-	set("unit", "ÕÅ");
+	set_name(HIY "ä¸–ç•Œæ¯ç«çŒœç‰ˆ" NOR, ({"board", "ban"}));
+	set("long", "è¿™æ˜¯ä¸€ä¸ªè®°å½•ç©å®¶çš„ç«çŒœæŠ¼æ³¨æƒ…å†µçš„ç‰ˆã€‚
+æŠ¼æ³¨è¯·read rulesï¼ŒæŸ¥çœ‹ç›®å‰çš„æŠ•æ³¨æƒ…å†µè¯·read banã€‚\n");
+	set("unit", "å¼ ");
 	set("no_put", 1);
 	set("no_get", 1);
-//Éè´óµã²»ÈÃÍæ¼ÒGet
+//è®¾å¤§ç‚¹ä¸è®©ç©å®¶Get
 	set_weight(900000000);
 	seteuid(getuid());
 	restore();
@@ -55,11 +55,11 @@ void init()
 
 string query_save_file()
 {
-	// ¶¨ÒåÒ»¸ö´¢´æÎÄ¼şµÄÂ·¾¶
+	// å®šä¹‰ä¸€ä¸ªå‚¨å­˜æ–‡ä»¶çš„è·¯å¾„
 	return DATA_DIR + "board/fifa2002_b";
 }
 
-// Íæ¼ÒÏÂ×¢
+// ç©å®¶ä¸‹æ³¨
 int do_ya(string arg)
 {
 	int i;
@@ -67,46 +67,46 @@ int do_ya(string arg)
 	object ob, me = this_player();
 	mapping biao;
 
-	// ±íÊ¾Í£Ö¹ÏÂ×¢£¬ÓÉÎ×Ê¦ÔÚdo_post()º¯ÊıÀï¼ÓÈë
+	// è¡¨ç¤ºåœæ­¢ä¸‹æ³¨ï¼Œç”±å·«å¸ˆåœ¨do_post()å‡½æ•°é‡ŒåŠ å…¥
 	if (query("end_ya"))
-		return notify_fail("½ØÖ¹Ê±¼äÒÑ¹ı£¬ÏÂ»Ø¸ÏÔç¡£\n");
-	// ·ÀÖ¹¶àÈËÍ¬ÒâÑº×¢²úÉúÒâÍâ
+		return notify_fail("æˆªæ­¢æ—¶é—´å·²è¿‡ï¼Œä¸‹å›èµ¶æ—©ã€‚\n");
+	// é˜²æ­¢å¤šäººåŒæ„æŠ¼æ³¨äº§ç”Ÿæ„å¤–
 	if (query_temp("busy"))
-		return notify_fail("ÉÔºò........\n");
-	// ·ÖÎöÍæ¼ÒÖ¸Áî
+		return notify_fail("ç¨å€™........\n");
+	// åˆ†æç©å®¶æŒ‡ä»¤
 	if (!arg)
-		return notify_fail("ÃüÁî¸ñÊ½£ºya <Àà±ğ> <Çò¶Ó> <¶àÉÙÁ½»Æ½ğ>\n");
+		return notify_fail("å‘½ä»¤æ ¼å¼ï¼šya <ç±»åˆ«> <çƒé˜Ÿ> <å¤šå°‘ä¸¤é»„é‡‘>\n");
 	arg = upcase(arg);
 	if (sscanf(arg, "%s %s %d", t, c, i) != 3)
-		return notify_fail("ÃüÁî¸ñÊ½£ºya <Àà±ğ> <Çò¶Ó> <¶àÉÙÁ½»Æ½ğ>\n");
-	// ÅÅ³ıÒ»Ğ©²»¿ÉÄÜµÄÑº×¢¿ÉÄÜ
+		return notify_fail("å‘½ä»¤æ ¼å¼ï¼šya <ç±»åˆ«> <çƒé˜Ÿ> <å¤šå°‘ä¸¤é»„é‡‘>\n");
+	// æ’é™¤ä¸€äº›ä¸å¯èƒ½çš„æŠ¼æ³¨å¯èƒ½
 	if (t != "1" && t != "2" && t != "4" && t != "8")
-		return notify_fail("Äã×ÜÒªÏÈÑ¡¶¨Í¶×¢Àà±ğ°Õ£¿\n");
-	// ÖÁÉÙ1gold
+		return notify_fail("ä½ æ€»è¦å…ˆé€‰å®šæŠ•æ³¨ç±»åˆ«ç½¢ï¼Ÿ\n");
+	// è‡³å°‘1gold
 	if (i < 1)
-		return notify_fail("ÄãÏë°××¬°¡£¿\n");
-	// ÉÏÏŞ£¬¿ÉÒÔ×ÔÓÉµ÷Õû
+		return notify_fail("ä½ æƒ³ç™½èµšå•Šï¼Ÿ\n");
+	// ä¸Šé™ï¼Œå¯ä»¥è‡ªç”±è°ƒæ•´
 	if (i > 1000)
-		return notify_fail("ÑºµÃÌ«¶à£¬ÇëÉÙÓÚ1000¡£\n");
+		return notify_fail("æŠ¼å¾—å¤ªå¤šï¼Œè¯·å°‘äº1000ã€‚\n");
 	if ((int)i > me->query("balance") / 10000)
-		// Ç®×¯µÄ´æ¿î²»¹»ÑºµÄÇ®
-		return notify_fail("ÕâÀï²»ÊÕÏÖ½ğ£¡µ½Ç®×¯´æ¹»ÁËÇ®ÔÙÀ´£¡\n");
+		// é’±åº„çš„å­˜æ¬¾ä¸å¤ŸæŠ¼çš„é’±
+		return notify_fail("è¿™é‡Œä¸æ”¶ç°é‡‘ï¼åˆ°é’±åº„å­˜å¤Ÿäº†é’±å†æ¥ï¼\n");
 
-	// Ñº¹Ú¾ü
+	// æŠ¼å† å†›
 	switch (t)
 	{
 	case "1":
-		// µ÷Íæ¼ÒÉíÉÏµÄ²ÎÊı
+		// è°ƒç©å®¶èº«ä¸Šçš„å‚æ•°
 		if (me->query("fifa2002/1"))
-			return notify_fail("ÄãÖ»ÄÜ¸ø¹Ú¾üÏÂÒ»´Î×¢£¡\n");
-		if (codetoteam(c) == "Î´Öª¹úÃû")
-			return notify_fail("ÏÈ¿´ºÃ¹ú¼Ò´úÂëÔÙÀ´£¡\n");
-		message_vision("$NÏëÁË°ëÌì´óÉùº°µÀ£º¡°ÎÒÈÏÎª" HIR + codetoteam(c) + NOR "¶ÓÄÜÄÃµ½¹Ú¾ü£¡Ñº " HIY + chinese_number(i) + NOR " Á½»Æ½ğ£¡¡±\n", me);
-		// ÔÚÍæ¼ÒÉíÉÏÉèÏÂÑºµÄ½á¹û
+			return notify_fail("ä½ åªèƒ½ç»™å† å†›ä¸‹ä¸€æ¬¡æ³¨ï¼\n");
+		if (codetoteam(c) == "æœªçŸ¥å›½å")
+			return notify_fail("å…ˆçœ‹å¥½å›½å®¶ä»£ç å†æ¥ï¼\n");
+		message_vision("$Næƒ³äº†åŠå¤©å¤§å£°å–Šé“ï¼šâ€œæˆ‘è®¤ä¸º" HIR + codetoteam(c) + NOR "é˜Ÿèƒ½æ‹¿åˆ°å† å†›ï¼æŠ¼ " HIY + chinese_number(i) + NOR " ä¸¤é»„é‡‘ï¼â€\n", me);
+		// åœ¨ç©å®¶èº«ä¸Šè®¾ä¸‹æŠ¼çš„ç»“æœ
 		me->set("fifa2002/1", c);
-		// ÑºµÄ»Æ½ğÊı
+		// æŠ¼çš„é»„é‡‘æ•°
 		me->set("fifa2002/10", i);
-		// ÕâÊÇÒ»¸ö¼ÇÂ¼¸ÃÍæ¼ÒÑº×¢Êı¾İµÄÓ³Éä
+		// è¿™æ˜¯ä¸€ä¸ªè®°å½•è¯¥ç©å®¶æŠ¼æ³¨æ•°æ®çš„æ˜ å°„
 		biao = ([
 			  "id":me->query("id"),
 			"name":me->query("name"),
@@ -116,17 +116,17 @@ int do_ya(string arg)
 		]);
 		break;
 	case "2":
-		// µ÷Íæ¼ÒÉíÉÏµÄ²ÎÊı
+		// è°ƒç©å®¶èº«ä¸Šçš„å‚æ•°
 		if (me->query("fifa2002/2"))
-			return notify_fail("ÄãÖ»ÄÜ¸øÑÇ¾üÏÂÒ»´Î×¢£¡\n");
-		if (codetoteam(c) == "Î´Öª¹úÃû")
-			return notify_fail("ÏÈ¿´ºÃ¹ú¼Ò´úÂëÔÙÀ´£¡\n");
-		message_vision("$NÏëÁË°ëÌì´óÉùº°µÀ£º¡°ÎÒÈÏÎª" HIR + codetoteam(c) + NOR "¶ÓÄÜÄÃµ½ÑÇ¾ü£¡Ñº " HIY + chinese_number(i) + NOR " Á½»Æ½ğ£¡¡±\n", me);
-		// ÔÚÍæ¼ÒÉíÉÏÉèÏÂÑºµÄ½á¹û
+			return notify_fail("ä½ åªèƒ½ç»™äºšå†›ä¸‹ä¸€æ¬¡æ³¨ï¼\n");
+		if (codetoteam(c) == "æœªçŸ¥å›½å")
+			return notify_fail("å…ˆçœ‹å¥½å›½å®¶ä»£ç å†æ¥ï¼\n");
+		message_vision("$Næƒ³äº†åŠå¤©å¤§å£°å–Šé“ï¼šâ€œæˆ‘è®¤ä¸º" HIR + codetoteam(c) + NOR "é˜Ÿèƒ½æ‹¿åˆ°äºšå†›ï¼æŠ¼ " HIY + chinese_number(i) + NOR " ä¸¤é»„é‡‘ï¼â€\n", me);
+		// åœ¨ç©å®¶èº«ä¸Šè®¾ä¸‹æŠ¼çš„ç»“æœ
 		me->set("fifa2002/2", c);
-		// ÑºµÄ»Æ½ğÊı
+		// æŠ¼çš„é»„é‡‘æ•°
 		me->set("fifa2002/20", i);
-		// ÕâÊÇÒ»¸ö¼ÇÂ¼¸ÃÍæ¼ÒÑº×¢Êı¾İµÄÓ³Éä
+		// è¿™æ˜¯ä¸€ä¸ªè®°å½•è¯¥ç©å®¶æŠ¼æ³¨æ•°æ®çš„æ˜ å°„
 		biao = ([
 			  "id":me->query("id"),
 			"name":me->query("name"),
@@ -136,26 +136,26 @@ int do_ya(string arg)
 		]);
 		break;
 	case "4":
-		// µ÷Íæ¼ÒÉíÉÏµÄ²ÎÊı
+		// è°ƒç©å®¶èº«ä¸Šçš„å‚æ•°
 		if (me->query("fifa2002/4"))
-			return notify_fail("ÄãÖ»ÄÜ¸øËÄÇ¿ÏÂÒ»´Î×¢£¡\n");
+			return notify_fail("ä½ åªèƒ½ç»™å››å¼ºä¸‹ä¸€æ¬¡æ³¨ï¼\n");
 		if (sscanf(c, "%s-%s-%s-%s", c1, c2, c3, c4) != 4)
-			return notify_fail("¹ú¼Ò´úÂëÊäÈë¸ñÊ½´í£¡\n");
-		if (codetoteam(c1) == "Î´Öª¹úÃû")
-			return notify_fail("Ã»ÓĞ" HIR + c1 + NOR "Õâ¹ú¼Ò´úÂë£¡\n");
-		if (codetoteam(c2) == "Î´Öª¹úÃû")
-			return notify_fail("Ã»ÓĞ" HIR + c2 + NOR "Õâ¹ú¼Ò´úÂë£¡\n");
-		if (codetoteam(c3) == "Î´Öª¹úÃû")
-			return notify_fail("Ã»ÓĞ" HIR + c3 + NOR "Õâ¹ú¼Ò´úÂë£¡\n");
-		if (codetoteam(c4) == "Î´Öª¹úÃû")
-			return notify_fail("Ã»ÓĞ" HIR + c4 + NOR "Õâ¹ú¼Ò´úÂë£¡\n");
+			return notify_fail("å›½å®¶ä»£ç è¾“å…¥æ ¼å¼é”™ï¼\n");
+		if (codetoteam(c1) == "æœªçŸ¥å›½å")
+			return notify_fail("æ²¡æœ‰" HIR + c1 + NOR "è¿™å›½å®¶ä»£ç ï¼\n");
+		if (codetoteam(c2) == "æœªçŸ¥å›½å")
+			return notify_fail("æ²¡æœ‰" HIR + c2 + NOR "è¿™å›½å®¶ä»£ç ï¼\n");
+		if (codetoteam(c3) == "æœªçŸ¥å›½å")
+			return notify_fail("æ²¡æœ‰" HIR + c3 + NOR "è¿™å›½å®¶ä»£ç ï¼\n");
+		if (codetoteam(c4) == "æœªçŸ¥å›½å")
+			return notify_fail("æ²¡æœ‰" HIR + c4 + NOR "è¿™å›½å®¶ä»£ç ï¼\n");
 		c = ordercode(c, 4);
-		message_vision("$NÏëÁË°ëÌì´óÉùº°µÀ£º¡°ÎÒÈÏÎª" HIR + codetoteam(c1) + "¡¢" + codetoteam(c2) + "¡¢" + codetoteam(c3) + "¡¢" + codetoteam(c4) + NOR "¶ÓÄÜ½øÈëËÄÇ¿£¡Ñº " HIY + chinese_number(i) + NOR " Á½»Æ½ğ£¡¡±\n", me);
-		// ÔÚÍæ¼ÒÉíÉÏÉèÏÂÑºµÄ½á¹û
+		message_vision("$Næƒ³äº†åŠå¤©å¤§å£°å–Šé“ï¼šâ€œæˆ‘è®¤ä¸º" HIR + codetoteam(c1) + "ã€" + codetoteam(c2) + "ã€" + codetoteam(c3) + "ã€" + codetoteam(c4) + NOR "é˜Ÿèƒ½è¿›å…¥å››å¼ºï¼æŠ¼ " HIY + chinese_number(i) + NOR " ä¸¤é»„é‡‘ï¼â€\n", me);
+		// åœ¨ç©å®¶èº«ä¸Šè®¾ä¸‹æŠ¼çš„ç»“æœ
 		me->set("fifa2002/4", c);
-		// ÑºµÄ»Æ½ğÊı
+		// æŠ¼çš„é»„é‡‘æ•°
 		me->set("fifa2002/40", i);
-		// ÕâÊÇÒ»¸ö¼ÇÂ¼¸ÃÍæ¼ÒÑº×¢Êı¾İµÄÓ³Éä
+		// è¿™æ˜¯ä¸€ä¸ªè®°å½•è¯¥ç©å®¶æŠ¼æ³¨æ•°æ®çš„æ˜ å°„
 		biao = ([
 			  "id":me->query("id"),
 			"name":me->query("name"),
@@ -165,34 +165,34 @@ int do_ya(string arg)
 		]);
 		break;
 	case "8":
-		// µ÷Íæ¼ÒÉíÉÏµÄ²ÎÊı
+		// è°ƒç©å®¶èº«ä¸Šçš„å‚æ•°
 		if (me->query("fifa2002/8"))
-			return notify_fail("ÄãÖ»ÄÜ¸ø°ËÇ¿ÏÂÒ»´Î×¢£¡\n");
+			return notify_fail("ä½ åªèƒ½ç»™å…«å¼ºä¸‹ä¸€æ¬¡æ³¨ï¼\n");
 		if (sscanf(c, "%s-%s-%s-%s-%s-%s-%s-%s", c1, c2, c3, c4, c5, c6, c7, c8) != 8)
-			return notify_fail("¹ú¼Ò´úÂë¸ñÊ½ÊäÈë´í£¡\n");
-		if (codetoteam(c1) == "Î´Öª¹úÃû")
-			return notify_fail("Ã»ÓĞ" HIR + c1 + NOR "Õâ¹ú¼Ò´úÂë£¡\n");
-		if (codetoteam(c2) == "Î´Öª¹úÃû")
-			return notify_fail("Ã»ÓĞ" HIR + c2 + NOR "Õâ¹ú¼Ò´úÂë£¡\n");
-		if (codetoteam(c3) == "Î´Öª¹úÃû")
-			return notify_fail("Ã»ÓĞ" HIR + c3 + NOR "Õâ¹ú¼Ò´úÂë£¡\n");
-		if (codetoteam(c4) == "Î´Öª¹úÃû")
-			return notify_fail("Ã»ÓĞ" HIR + c4 + NOR "Õâ¹ú¼Ò´úÂë£¡\n");
-		if (codetoteam(c5) == "Î´Öª¹úÃû")
-			return notify_fail("Ã»ÓĞ" HIR + c5 + NOR "Õâ¹ú¼Ò´úÂë£¡\n");
-		if (codetoteam(c6) == "Î´Öª¹úÃû")
-			return notify_fail("Ã»ÓĞ" HIR + c6 + NOR "Õâ¹ú¼Ò´úÂë£¡\n");
-		if (codetoteam(c7) == "Î´Öª¹úÃû")
-			return notify_fail("Ã»ÓĞ" HIR + c7 + NOR "Õâ¹ú¼Ò´úÂë£¡\n");
-		if (codetoteam(c8) == "Î´Öª¹úÃû")
-			return notify_fail("Ã»ÓĞ" HIR + c8 + NOR "Õâ¹ú¼Ò´úÂë£¡\n");
+			return notify_fail("å›½å®¶ä»£ç æ ¼å¼è¾“å…¥é”™ï¼\n");
+		if (codetoteam(c1) == "æœªçŸ¥å›½å")
+			return notify_fail("æ²¡æœ‰" HIR + c1 + NOR "è¿™å›½å®¶ä»£ç ï¼\n");
+		if (codetoteam(c2) == "æœªçŸ¥å›½å")
+			return notify_fail("æ²¡æœ‰" HIR + c2 + NOR "è¿™å›½å®¶ä»£ç ï¼\n");
+		if (codetoteam(c3) == "æœªçŸ¥å›½å")
+			return notify_fail("æ²¡æœ‰" HIR + c3 + NOR "è¿™å›½å®¶ä»£ç ï¼\n");
+		if (codetoteam(c4) == "æœªçŸ¥å›½å")
+			return notify_fail("æ²¡æœ‰" HIR + c4 + NOR "è¿™å›½å®¶ä»£ç ï¼\n");
+		if (codetoteam(c5) == "æœªçŸ¥å›½å")
+			return notify_fail("æ²¡æœ‰" HIR + c5 + NOR "è¿™å›½å®¶ä»£ç ï¼\n");
+		if (codetoteam(c6) == "æœªçŸ¥å›½å")
+			return notify_fail("æ²¡æœ‰" HIR + c6 + NOR "è¿™å›½å®¶ä»£ç ï¼\n");
+		if (codetoteam(c7) == "æœªçŸ¥å›½å")
+			return notify_fail("æ²¡æœ‰" HIR + c7 + NOR "è¿™å›½å®¶ä»£ç ï¼\n");
+		if (codetoteam(c8) == "æœªçŸ¥å›½å")
+			return notify_fail("æ²¡æœ‰" HIR + c8 + NOR "è¿™å›½å®¶ä»£ç ï¼\n");
 		c = ordercode(c, 8);
-		message_vision("$NÏëÁË°ëÌì´óÉùº°µÀ£º¡°ÎÒÈÏÎª" HIR + codetoteam(c1) + "¡¢" + codetoteam(c2) + "¡¢" + codetoteam(c3) + "¡¢" + codetoteam(c4) + "¡¢" + codetoteam(c5) + "¡¢" + codetoteam(c6) + "¡¢" + codetoteam(c7) + "¡¢" + codetoteam(c8) + NOR "¶ÓÄÜ½øÈë°ËÇ¿£¡Ñº " HIY + chinese_number(i) + NOR " Á½»Æ½ğ£¡¡±\n", me);
-		// ÔÚÍæ¼ÒÉíÉÏÉèÏÂÑºµÄ½á¹û
+		message_vision("$Næƒ³äº†åŠå¤©å¤§å£°å–Šé“ï¼šâ€œæˆ‘è®¤ä¸º" HIR + codetoteam(c1) + "ã€" + codetoteam(c2) + "ã€" + codetoteam(c3) + "ã€" + codetoteam(c4) + "ã€" + codetoteam(c5) + "ã€" + codetoteam(c6) + "ã€" + codetoteam(c7) + "ã€" + codetoteam(c8) + NOR "é˜Ÿèƒ½è¿›å…¥å…«å¼ºï¼æŠ¼ " HIY + chinese_number(i) + NOR " ä¸¤é»„é‡‘ï¼â€\n", me);
+		// åœ¨ç©å®¶èº«ä¸Šè®¾ä¸‹æŠ¼çš„ç»“æœ
 		me->set("fifa2002/8", c);
-		// ÑºµÄ»Æ½ğÊı
+		// æŠ¼çš„é»„é‡‘æ•°
 		me->set("fifa2002/80", i);
-		// ÕâÊÇÒ»¸ö¼ÇÂ¼¸ÃÍæ¼ÒÑº×¢Êı¾İµÄÓ³Éä
+		// è¿™æ˜¯ä¸€ä¸ªè®°å½•è¯¥ç©å®¶æŠ¼æ³¨æ•°æ®çš„æ˜ å°„
 		biao = ([
 			  "id":me->query("id"),
 			"name":me->query("name"),
@@ -203,20 +203,20 @@ int do_ya(string arg)
 		break;
 	}
 	me->add("balance", -i * 10000);
-	tell_object(me, "Ç®×¯ÒÑ¾­¿Û³ıÁËÄãÑºÏÂµÄ" + chinese_number(i) + "Á½»Æ½ğ¡£ÇëµÈºò½á¹û°É£¡\n");
+	tell_object(me, "é’±åº„å·²ç»æ‰£é™¤äº†ä½ æŠ¼ä¸‹çš„" + chinese_number(i) + "ä¸¤é»„é‡‘ã€‚è¯·ç­‰å€™ç»“æœå§ï¼\n");
 	if (!pointerp(all_biao))
 		all_biao = ({biao});
 	else
 		all_biao += ({biao});
-	// ´¢´æ½øÕâ¸öÎÄ¼ş¶ÔÓ¦µÄ.oÎÄ¼şÀï
+	// å‚¨å­˜è¿›è¿™ä¸ªæ–‡ä»¶å¯¹åº”çš„.oæ–‡ä»¶é‡Œ
 	save();
 	remove_call_out("enough_rest");
-	// 1ÃëºóÈ¡Ïûbusy
+	// 1ç§’åå–æ¶ˆbusy
 	call_out("enough_rest", 1);
 	return 1;
 }
 
-// Î×Ê¦×¨ÓÃ£¬È·¶¨½á¹û
+// å·«å¸ˆä¸“ç”¨ï¼Œç¡®å®šç»“æœ
 int do_post(string arg)
 {
 	int i;
@@ -228,81 +228,81 @@ int do_post(string arg)
 		return 0;
 	if (arg == "end")
 	{
-		// Í£Ö¹Ñº×¢
+		// åœæ­¢æŠ¼æ³¨
 		set("end_ya", 1);
-		message("channel:sys", HIM "¡¾Ò¥ÑÔ¡¿" HIR "Ä³ÈË£º¾º²Â°æ¿ªÊ¼Í£Ö¹ÏÂ×¢£¬Çë¹Ø×¢±ÈÈü½á¹û£¡\n" NOR, users());
+		message("channel:sys", HIM "ã€è°£è¨€ã€‘" HIR "æŸäººï¼šç«çŒœç‰ˆå¼€å§‹åœæ­¢ä¸‹æ³¨ï¼Œè¯·å…³æ³¨æ¯”èµ›ç»“æœï¼\n" NOR, users());
 		save();
 		return 1;
 	}
-	// ·ÖÎöÎ×Ê¦Ö¸Áî
+	// åˆ†æå·«å¸ˆæŒ‡ä»¤
 	if (!arg)
-		return notify_fail("ÃüÁî¸ñÊ½£ºpost <Àà±ğ> <½á¹û>\n");
+		return notify_fail("å‘½ä»¤æ ¼å¼ï¼špost <ç±»åˆ«> <ç»“æœ>\n");
 	arg = upcase(arg);
 	if (sscanf(arg, "%d %s", i, c) != 2)
-		return notify_fail("ÃüÁî¸ñÊ½£ºpost <Àà±ğ> <½á¹û>\n");
+		return notify_fail("å‘½ä»¤æ ¼å¼ï¼špost <ç±»åˆ«> <ç»“æœ>\n");
 	switch (i)
 	{
 	case 1:
-		message("channel:sys", HIM "¡¾Ò¥ÑÔ¡¿" HIR "Ä³ÈË£º¾º²Â°æ¹Ú¾ü½á¹û¹«²¼£¬ÊÇ " HIY + codetoteam(c) + HIR " £¡Ñº¶ÔµÄ¿ìÈ¥¶Ò½±°¡£¡\n" NOR, users());
+		message("channel:sys", HIM "ã€è°£è¨€ã€‘" HIR "æŸäººï¼šç«çŒœç‰ˆå† å†›ç»“æœå…¬å¸ƒï¼Œæ˜¯ " HIY + codetoteam(c) + HIR " ï¼æŠ¼å¯¹çš„å¿«å»å…‘å¥–å•Šï¼\n" NOR, users());
 		break;
 	case 2:
-		message("channel:sys", HIM "¡¾Ò¥ÑÔ¡¿" HIR "Ä³ÈË£º¾º²Â°æÑÇ¾ü½á¹û¹«²¼£¬ÊÇ " HIY + codetoteam(c) + HIR " £¡Ñº¶ÔµÄ¿ìÈ¥¶Ò½±°¡£¡\n" NOR, users());
+		message("channel:sys", HIM "ã€è°£è¨€ã€‘" HIR "æŸäººï¼šç«çŒœç‰ˆäºšå†›ç»“æœå…¬å¸ƒï¼Œæ˜¯ " HIY + codetoteam(c) + HIR " ï¼æŠ¼å¯¹çš„å¿«å»å…‘å¥–å•Šï¼\n" NOR, users());
 		break;
 	case 4:
 		c = ordercode(c, 4);
 		if (sscanf(c, "%s-%s-%s-%s", c1, c2, c3, c4) != 4)
-			return notify_fail("¹ú¼Ò´úÂëÊäÈë¸ñÊ½´í£¡\n");
-		if (codetoteam(c1) == "Î´Öª¹úÃû")
-			return notify_fail("Ã»ÓĞ" HIR + c1 + NOR "Õâ¹ú¼Ò´úÂë£¡\n");
-		if (codetoteam(c2) == "Î´Öª¹úÃû")
-			return notify_fail("Ã»ÓĞ" HIR + c2 + NOR "Õâ¹ú¼Ò´úÂë£¡\n");
-		if (codetoteam(c3) == "Î´Öª¹úÃû")
-			return notify_fail("Ã»ÓĞ" HIR + c3 + NOR "Õâ¹ú¼Ò´úÂë£¡\n");
-		if (codetoteam(c4) == "Î´Öª¹úÃû")
-			return notify_fail("Ã»ÓĞ" HIR + c4 + NOR "Õâ¹ú¼Ò´úÂë£¡\n");
-		message("channel:sys", HIM "¡¾Ò¥ÑÔ¡¿" HIR "Ä³ÈË£º¾º²Â°æËÄÇ¿½á¹û¹«²¼£¬ÊÇ " HIY + codetoteam(c1) + "¡¢" + codetoteam(c2) + "¡¢" + codetoteam(c3) + "¡¢" + codetoteam(c4) + HIR " £¡Ñº¶ÔµÄ¿ìÈ¥¶Ò½±°¡£¡\n" NOR, users());
+			return notify_fail("å›½å®¶ä»£ç è¾“å…¥æ ¼å¼é”™ï¼\n");
+		if (codetoteam(c1) == "æœªçŸ¥å›½å")
+			return notify_fail("æ²¡æœ‰" HIR + c1 + NOR "è¿™å›½å®¶ä»£ç ï¼\n");
+		if (codetoteam(c2) == "æœªçŸ¥å›½å")
+			return notify_fail("æ²¡æœ‰" HIR + c2 + NOR "è¿™å›½å®¶ä»£ç ï¼\n");
+		if (codetoteam(c3) == "æœªçŸ¥å›½å")
+			return notify_fail("æ²¡æœ‰" HIR + c3 + NOR "è¿™å›½å®¶ä»£ç ï¼\n");
+		if (codetoteam(c4) == "æœªçŸ¥å›½å")
+			return notify_fail("æ²¡æœ‰" HIR + c4 + NOR "è¿™å›½å®¶ä»£ç ï¼\n");
+		message("channel:sys", HIM "ã€è°£è¨€ã€‘" HIR "æŸäººï¼šç«çŒœç‰ˆå››å¼ºç»“æœå…¬å¸ƒï¼Œæ˜¯ " HIY + codetoteam(c1) + "ã€" + codetoteam(c2) + "ã€" + codetoteam(c3) + "ã€" + codetoteam(c4) + HIR " ï¼æŠ¼å¯¹çš„å¿«å»å…‘å¥–å•Šï¼\n" NOR, users());
 		break;
 	case 8:
 		c = ordercode(c, 8);
 		if (sscanf(c, "%s-%s-%s-%s-%s-%s-%s-%s", c1, c2, c3, c4, c5, c6, c7, c8) != 8)
-			return notify_fail("¹ú¼Ò´úÂë¸ñÊ½ÊäÈë´í£¡\n");
-		if (codetoteam(c1) == "Î´Öª¹úÃû")
-			return notify_fail("Ã»ÓĞ" HIR + c1 + NOR "Õâ¹ú¼Ò´úÂë£¡\n");
-		if (codetoteam(c2) == "Î´Öª¹úÃû")
-			return notify_fail("Ã»ÓĞ" HIR + c2 + NOR "Õâ¹ú¼Ò´úÂë£¡\n");
-		if (codetoteam(c3) == "Î´Öª¹úÃû")
-			return notify_fail("Ã»ÓĞ" HIR + c3 + NOR "Õâ¹ú¼Ò´úÂë£¡\n");
-		if (codetoteam(c4) == "Î´Öª¹úÃû")
-			return notify_fail("Ã»ÓĞ" HIR + c4 + NOR "Õâ¹ú¼Ò´úÂë£¡\n");
-		if (codetoteam(c5) == "Î´Öª¹úÃû")
-			return notify_fail("Ã»ÓĞ" HIR + c5 + NOR "Õâ¹ú¼Ò´úÂë£¡\n");
-		if (codetoteam(c6) == "Î´Öª¹úÃû")
-			return notify_fail("Ã»ÓĞ" HIR + c6 + NOR "Õâ¹ú¼Ò´úÂë£¡\n");
-		if (codetoteam(c7) == "Î´Öª¹úÃû")
-			return notify_fail("Ã»ÓĞ" HIR + c7 + NOR "Õâ¹ú¼Ò´úÂë£¡\n");
-		if (codetoteam(c8) == "Î´Öª¹úÃû")
-			return notify_fail("Ã»ÓĞ" HIR + c8 + NOR "Õâ¹ú¼Ò´úÂë£¡\n");
-		message("channel:sys", HIM "¡¾Ò¥ÑÔ¡¿" HIR "Ä³ÈË£º¾º²Â°æ°ËÇ¿½á¹û¹«²¼£¬ÊÇ " HIY + codetoteam(c1) + "¡¢" + codetoteam(c2) + "¡¢" + codetoteam(c3) + "¡¢" + codetoteam(c4) + "¡¢" + codetoteam(c5) + "¡¢" + codetoteam(c6) + "¡¢" + codetoteam(c7) + "¡¢" + codetoteam(c8) + HIR " £¡Ñº¶ÔµÄ¿ìÈ¥¶Ò½±°¡£¡\n" NOR, users());
+			return notify_fail("å›½å®¶ä»£ç æ ¼å¼è¾“å…¥é”™ï¼\n");
+		if (codetoteam(c1) == "æœªçŸ¥å›½å")
+			return notify_fail("æ²¡æœ‰" HIR + c1 + NOR "è¿™å›½å®¶ä»£ç ï¼\n");
+		if (codetoteam(c2) == "æœªçŸ¥å›½å")
+			return notify_fail("æ²¡æœ‰" HIR + c2 + NOR "è¿™å›½å®¶ä»£ç ï¼\n");
+		if (codetoteam(c3) == "æœªçŸ¥å›½å")
+			return notify_fail("æ²¡æœ‰" HIR + c3 + NOR "è¿™å›½å®¶ä»£ç ï¼\n");
+		if (codetoteam(c4) == "æœªçŸ¥å›½å")
+			return notify_fail("æ²¡æœ‰" HIR + c4 + NOR "è¿™å›½å®¶ä»£ç ï¼\n");
+		if (codetoteam(c5) == "æœªçŸ¥å›½å")
+			return notify_fail("æ²¡æœ‰" HIR + c5 + NOR "è¿™å›½å®¶ä»£ç ï¼\n");
+		if (codetoteam(c6) == "æœªçŸ¥å›½å")
+			return notify_fail("æ²¡æœ‰" HIR + c6 + NOR "è¿™å›½å®¶ä»£ç ï¼\n");
+		if (codetoteam(c7) == "æœªçŸ¥å›½å")
+			return notify_fail("æ²¡æœ‰" HIR + c7 + NOR "è¿™å›½å®¶ä»£ç ï¼\n");
+		if (codetoteam(c8) == "æœªçŸ¥å›½å")
+			return notify_fail("æ²¡æœ‰" HIR + c8 + NOR "è¿™å›½å®¶ä»£ç ï¼\n");
+		message("channel:sys", HIM "ã€è°£è¨€ã€‘" HIR "æŸäººï¼šç«çŒœç‰ˆå…«å¼ºç»“æœå…¬å¸ƒï¼Œæ˜¯ " HIY + codetoteam(c1) + "ã€" + codetoteam(c2) + "ã€" + codetoteam(c3) + "ã€" + codetoteam(c4) + "ã€" + codetoteam(c5) + "ã€" + codetoteam(c6) + "ã€" + codetoteam(c7) + "ã€" + codetoteam(c8) + HIR " ï¼æŠ¼å¯¹çš„å¿«å»å…‘å¥–å•Šï¼\n" NOR, users());
 		break;
 	default:
-		return notify_fail(HIR "ÄÄÓĞÕâ¸öÀà±ğ£¡\n" NOR);
+		return notify_fail(HIR "å“ªæœ‰è¿™ä¸ªç±»åˆ«ï¼\n" NOR);
 	}
-	// ÕâÊÇÒ»¸ö¼ÇÂ¼½á¹ûÊı¾İµÄÓ³Éä
+	// è¿™æ˜¯ä¸€ä¸ªè®°å½•ç»“æœæ•°æ®çš„æ˜ å°„
 	end = ([
 		"type":i,
 		"code":c,
 	]);
-	// ×îÖÕ½á¹û´¢´æ½øÕâ¸öÎÄ¼ş¶ÔÓ¦µÄ.oÎÄ¼şÀï
+	// æœ€ç»ˆç»“æœå‚¨å­˜è¿›è¿™ä¸ªæ–‡ä»¶å¯¹åº”çš„.oæ–‡ä»¶é‡Œ
 	if (!pointerp(end_biao))
 		end_biao = ({end});
 	else
 		end_biao += ({end});
 	jieguo = 1;
 	save();
-	// ¸üĞÂ
+	// æ›´æ–°
 	return 1;
 }
-// Íæ¼Ò²é¿´
+// ç©å®¶æŸ¥çœ‹
 int do_read(string arg)
 {
 	int i, j;
@@ -312,61 +312,61 @@ int do_read(string arg)
 
 	if (arg == "rules")
 	{
-		//Õâ¸ö¹æÔò¸ù¾İÃ¿´ÎÎ×Ê¦Éè¼ÆµÄ¶¨
+		//è¿™ä¸ªè§„åˆ™æ ¹æ®æ¯æ¬¡å·«å¸ˆè®¾è®¡çš„å®š
 		write("
-    ÊÀ½ç±­µÄ¹Ú¾ü¡¢ÑÇ¾ü¡¢ËÄÇ¿¡¢°ËÇ¿·Ö±ğË­Êô£¿»¶Ó­ÔÚ´ËÑº×¢£º
-Ñº×¢ÕßÒÔ»Æ½ğÎªµ¥Î»£¬×î¸ß¿ÉÑºÒ»Ç§»Æ½ğ£¬×îÉÙÒ²ÒªÑºÒ»Á½»Æ½ğ¡£ÏÖ½ğ
-²»ÊÕ£¬±ØĞëÏÈ´æ½øÇ®×¯¡£Ñº¶ÄºóÇ®×¯Ö±½Ó¿ÛÇ®¡£Ñº¶ÄÊ±¼äµ½ÁùÔÂÊ®ÈÕ½Ø
-Ö¹¡£Ñº¶Ô°ËÇ¿µÄÒ»Åâ¶şÊ®£¬ËÄÇ¿µÄÒ»ÅâÊ®£¬¹ÚÑÇ¾üµÄÒ»Åâ°Ë£¬±ÈÈü½ÒÏş£¬
-ÑºÖĞÕß°´±¶Êı·µ»¹»Æ½ğ£¬²»ÖĞÕßÔò°Õ¡£
-    ÏëºÃÁËºó¾Í "HIR"ya <Àà±ğ> <¹úÃû±àºÅ> <¶àÉÙÁ½»Æ½ğ> "NOR"¡£
-    ÀıÈç£º
-    ÏëÑ¹Ò»Ç§»Æ½ğ¸ø°¢¸ùÍ¢Îª¹Ú¾ü£¬Ôòya 1 AR 1000¡£
-    Èç¹ûÈÏÎªËÄÇ¿ÊÇ°¢¸ùÍ¢¡¢·¨¹ú¡¢°ÍÎ÷¡¢µÂ¹ú£¬¶øÇÒÏëÑºÎå°Ù»Æ½ğµÄ
-»°£¬Ôòya 4 AR-BR-DE-FR 500¡£µ±È»£¬Ë³ĞòÊÇÎŞËùÎ½µÄ¡£
-    µ±È»Ã¿¸öIDÖ»ÄÜÑºÒ»´Î£¬Ñº¹ı²»Ğíºó»Ú£¡\n
+    ä¸–ç•Œæ¯çš„å† å†›ã€äºšå†›ã€å››å¼ºã€å…«å¼ºåˆ†åˆ«è°å±ï¼Ÿæ¬¢è¿åœ¨æ­¤æŠ¼æ³¨ï¼š
+æŠ¼æ³¨è€…ä»¥é»„é‡‘ä¸ºå•ä½ï¼Œæœ€é«˜å¯æŠ¼ä¸€åƒé»„é‡‘ï¼Œæœ€å°‘ä¹Ÿè¦æŠ¼ä¸€ä¸¤é»„é‡‘ã€‚ç°é‡‘
+ä¸æ”¶ï¼Œå¿…é¡»å…ˆå­˜è¿›é’±åº„ã€‚æŠ¼èµŒåé’±åº„ç›´æ¥æ‰£é’±ã€‚æŠ¼èµŒæ—¶é—´åˆ°å…­æœˆåæ—¥æˆª
+æ­¢ã€‚æŠ¼å¯¹å…«å¼ºçš„ä¸€èµ”äºŒåï¼Œå››å¼ºçš„ä¸€èµ”åï¼Œå† äºšå†›çš„ä¸€èµ”å…«ï¼Œæ¯”èµ›æ­æ™“ï¼Œ
+æŠ¼ä¸­è€…æŒ‰å€æ•°è¿”è¿˜é»„é‡‘ï¼Œä¸ä¸­è€…åˆ™ç½¢ã€‚
+    æƒ³å¥½äº†åå°± "HIR"ya <ç±»åˆ«> <å›½åç¼–å·> <å¤šå°‘ä¸¤é»„é‡‘> "NOR"ã€‚
+    ä¾‹å¦‚ï¼š
+    æƒ³å‹ä¸€åƒé»„é‡‘ç»™é˜¿æ ¹å»·ä¸ºå† å†›ï¼Œåˆ™ya 1 AR 1000ã€‚
+    å¦‚æœè®¤ä¸ºå››å¼ºæ˜¯é˜¿æ ¹å»·ã€æ³•å›½ã€å·´è¥¿ã€å¾·å›½ï¼Œè€Œä¸”æƒ³æŠ¼äº”ç™¾é»„é‡‘çš„
+è¯ï¼Œåˆ™ya 4 AR-BR-DE-FR 500ã€‚å½“ç„¶ï¼Œé¡ºåºæ˜¯æ— æ‰€è°“çš„ã€‚
+    å½“ç„¶æ¯ä¸ªIDåªèƒ½æŠ¼ä¸€æ¬¡ï¼ŒæŠ¼è¿‡ä¸è®¸åæ‚”ï¼\n
 
-Àà    ±ğ£º   "HIY"1-¹Ú¾ü 2-ÑÇ¾ü 4-ËÄÇ¿ 8-°ËÇ¿"NOR"
-¹ú¼Ò±àºÅ£º"HIC"
-           A×é ·¨¹úFR    µ¤ÂóDK    ÎÚÀ­¹çUY    ÈûÄÚ¼Ó¶ûSN
-           B×é ÄÏ·ÇZA    Î÷°àÑÀES  °ÍÀ­¹çPY    Ë¹ÂåÎÄÄáÑÇSI
-           C×é °ÍÎ÷BR    ÖĞ¹úCN    ÍÁ¶úÆäTU    ¸çË¹´ïÀè¼ÓCR
-           D×é ²¨À¼PL    ÃÀ¹úUS    º«¹úKP      ÆÏÌÑÑÀPT  
-           E×é µÂ¹úDE    É³ÌØSA    °®¶ûÀ¼IE    ¿¦ÂóÂ¡CM
-           F×é ÈğµäSE    °¢¸ùÍ¢AR  Ó¢¸ñÀ¼UK    ÄáÈÕÀûÑÇNG
-           G×é Òâ´óÀûIT  Ä«Î÷¸çMX  ¿ËÂŞµØÑÇHR  ¶ò¹Ï¶à¶ûEC
-           H×é ÈÕ±¾JP    ¶íÂŞË¹RU  ±ÈÀûÊ±BE    Í»ÄáË¹TN
+ç±»    åˆ«ï¼š   "HIY"1-å† å†› 2-äºšå†› 4-å››å¼º 8-å…«å¼º"NOR"
+å›½å®¶ç¼–å·ï¼š"HIC"
+           Aç»„ æ³•å›½FR    ä¸¹éº¦DK    ä¹Œæ‹‰åœ­UY    å¡å†…åŠ å°”SN
+           Bç»„ å—éZA    è¥¿ç­ç‰™ES  å·´æ‹‰åœ­PY    æ–¯æ´›æ–‡å°¼äºšSI
+           Cç»„ å·´è¥¿BR    ä¸­å›½CN    åœŸè€³å…¶TU    å“¥æ–¯è¾¾é»åŠ CR
+           Dç»„ æ³¢å…°PL    ç¾å›½US    éŸ©å›½KP      è‘¡è„ç‰™PT  
+           Eç»„ å¾·å›½DE    æ²™ç‰¹SA    çˆ±å°”å…°IE    å–€éº¦éš†CM
+           Fç»„ ç‘å…¸SE    é˜¿æ ¹å»·AR  è‹±æ ¼å…°UK    å°¼æ—¥åˆ©äºšNG
+           Gç»„ æ„å¤§åˆ©IT  å¢¨è¥¿å“¥MX  å…‹ç½—åœ°äºšHR  å„ç“œå¤šå°”EC
+           Hç»„ æ—¥æœ¬JP    ä¿„ç½—æ–¯RU  æ¯”åˆ©æ—¶BE    çªå°¼æ–¯TN
 \n"NOR);
-		write("¿ª½±ºóÇëÊ¹ÓÃduixian <Àà±ğ> Ö¸Áî£¬ÄãµÄ½±½ğ½«×Ô¶¯½øÈëÄãÕÊ»§¡£\n");
+		write("å¼€å¥–åè¯·ä½¿ç”¨duixian <ç±»åˆ«> æŒ‡ä»¤ï¼Œä½ çš„å¥–é‡‘å°†è‡ªåŠ¨è¿›å…¥ä½ å¸æˆ·ã€‚\n");
 		return 1;
 	}
 	if (arg == "ban")
 	{
-		//ÓĞÁË·ÖÊıµÄ²ÎÊı
+		//æœ‰äº†åˆ†æ•°çš„å‚æ•°
 		if (num)
-			write("¡ï¡ï¡ï¡ï¡ï¡ï¡ï¡ï¡ï¡ï¡ï¡ï¡ï¡ï¡ï¡ï¡ï¡ï¡ï¡ï¡ï¡ï¡ï¡ï¡ï¡ï¡ï¡ï¡ï¡ï¡ï¡ï¡ï¡ï¡ï\n" HIG "ÊÀ½ç±­ÈüÍ¶×¢¾º²Â°æ  ");
-		write(!jieguo ? RED "»¹ÔÚÍ¶×¢ÖĞ£¡" : HIR "¿ªÊ¼¶Ò½±(duijiang)ÁË£¡");
-		//±íÊ¾»¹Ã»ÓĞÊı¾İ
+			write("â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…\n" HIG "ä¸–ç•Œæ¯èµ›æŠ•æ³¨ç«çŒœç‰ˆ  ");
+		write(!jieguo ? RED "è¿˜åœ¨æŠ•æ³¨ä¸­ï¼" : HIR "å¼€å§‹å…‘å¥–(duijiang)äº†ï¼");
+		//è¡¨ç¤ºè¿˜æ²¡æœ‰æ•°æ®
 		if (!pointerp(end_biao) || !sizeof(end_biao))
-			write(HIY "\nÎ×Ê¦ÉĞÎ´Éè¶¨½á¹û¡£\n" NOR);
+			write(HIY "\nå·«å¸ˆå°šæœªè®¾å®šç»“æœã€‚\n" NOR);
 		else
 		{
-			write(HIY "\n±ÈÈü½á¹û\n" NOR);
+			write(HIY "\næ¯”èµ›ç»“æœ\n" NOR);
 			for (i = 0; i < sizeof(end_biao); i++)
 			{
 				switch ((int)end_biao[i]["type"])
 				{
 				case 1:
-					write(HIR "\n¹Ú¾ü ");
+					write(HIR "\nå† å†› ");
 					break;
 				case 2:
-					write(HIR "\nÑÇ¾ü ");
+					write(HIR "\näºšå†› ");
 					break;
 				case 4:
-					write(HIR "\nËÄÇ¿ ");
+					write(HIR "\nå››å¼º ");
 					break;
 				case 8:
-					write(HIR "\n°ËÇ¿ ");
+					write(HIR "\nå…«å¼º ");
 					break;
 				}
 				for (j = 0; j < sizeof(code); j++)
@@ -374,52 +374,52 @@ int do_read(string arg)
 						write(HIY + team[j] + " " NOR);
 			}
 		}
-		//±íÊ¾»¹Ã»ÓĞÊı¾İ
+		//è¡¨ç¤ºè¿˜æ²¡æœ‰æ•°æ®
 		if (!pointerp(all_biao) || !sizeof(all_biao))
 		{
-			write(HIG "\n\n»¹Ã»ÓĞÈË¿ªÊ¼Í¶×¢¡£\n");
+			write(HIG "\n\nè¿˜æ²¡æœ‰äººå¼€å§‹æŠ•æ³¨ã€‚\n");
 			return 1;
 		}
-		write(HIG "\n\nÒÑÓĞ " + sizeof(all_biao) + " ¸öÍæ¼ÒÍ¶×¢£º\n" HIY "Íæ¼ÒÃû         Í¶×¢Àà±ğ Ñº»Æ½ğÊı  ¡¡             ¹ú¼ÒÃû\n" HIG "¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª\n" NOR);
-		str1 = HIM "ÒÑ¾­¶Ò¹ı½±µÄÍæ¼Ò£º                \n" NOR;
-		str2 = HIM "»¹Î´¶Ò¹ı½±µÄÍæ¼Ò£º                \n" NOR;
-		// all_biaoÒ²ÊÇÈ«¾Ö±äÁ¿£¬¿´ÎÄ¼şÍ·
+		write(HIG "\n\nå·²æœ‰ " + sizeof(all_biao) + " ä¸ªç©å®¶æŠ•æ³¨ï¼š\n" HIY "ç©å®¶å         æŠ•æ³¨ç±»åˆ« æŠ¼é»„é‡‘æ•°  ã€€             å›½å®¶å\n" HIG "â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”\n" NOR);
+		str1 = HIM "å·²ç»å…‘è¿‡å¥–çš„ç©å®¶ï¼š                \n" NOR;
+		str2 = HIM "è¿˜æœªå…‘è¿‡å¥–çš„ç©å®¶ï¼š                \n" NOR;
+		// all_biaoä¹Ÿæ˜¯å…¨å±€å˜é‡ï¼Œçœ‹æ–‡ä»¶å¤´
 		for (i = 0; i < sizeof(all_biao); i++)
 		{
-			// È¡³öÃ¿¸öÑº×¢Íæ¼ÒµÄÃû×Ö
+			// å–å‡ºæ¯ä¸ªæŠ¼æ³¨ç©å®¶çš„åå­—
 			str = sprintf("%18s ", all_biao[i]["name"] + "(" + all_biao[i]["id"] + ")");
 			switch ((int)all_biao[i]["type"])
 			{
 			case 1:
-				str += HIR "¹Ú¾ü" NOR;
+				str += HIR "å† å†›" NOR;
 				break;
 			case 2:
-				str += HIR "ÑÇ¾ü" NOR;
+				str += HIR "äºšå†›" NOR;
 				break;
 			case 4:
-				str += HIR "ËÄÇ¿" NOR;
+				str += HIR "å››å¼º" NOR;
 				break;
 			case 8:
-				str += HIR "°ËÇ¿" NOR;
+				str += HIR "å…«å¼º" NOR;
 				break;
 			}
-			str += sprintf("%8s", all_biao[i]["gold"] + "Á½ ");
+			str += sprintf("%8s", all_biao[i]["gold"] + "ä¸¤ ");
 			for (j = 0; j < sizeof(code); j++)
 				if (strsrch(all_biao[i]["code"], code[j]) >= 0)
 					str += team[j] + " ";
-			// duiÕâ¸ö²ÎÊıÊÇÔÚ¶Ò½±ºó¼ÓÈëµÄ£¬Õâ±íÊ¾Ã»¶Ò½±µÄ£¬¼ÓÈëstr2
+			// duiè¿™ä¸ªå‚æ•°æ˜¯åœ¨å…‘å¥–ååŠ å…¥çš„ï¼Œè¿™è¡¨ç¤ºæ²¡å…‘å¥–çš„ï¼ŒåŠ å…¥str2
 			if (!(int)all_biao[i]["dui"])
 				str2 += str + "\n";
-			// ÓĞdui²ÎÊıµÄ£¬¼ÇÈëstr1
+			// æœ‰duiå‚æ•°çš„ï¼Œè®°å…¥str1
 			else
 				str1 += str + "\n";
 		}
-		// ÏÔÊ¾ĞÅÏ¢
+		// æ˜¾ç¤ºä¿¡æ¯
 		write(str1 + "\n" + str2 + "\n" NOR);
 		return 1;
 	}
 	else
-		write("ÄãÒª¿´Ê²Ã´£¿Ñº×¢¹æÔòÇëread rules£¬Ñº×¢Çé¿öÇëread ban¡£\n");
+		write("ä½ è¦çœ‹ä»€ä¹ˆï¼ŸæŠ¼æ³¨è§„åˆ™è¯·read rulesï¼ŒæŠ¼æ³¨æƒ…å†µè¯·read banã€‚\n");
 	return 1;
 }
 
@@ -427,7 +427,7 @@ void enough_rest()
 {
 	delete_temp("busy");
 }
-// ¶Ò½±Ö¸Áî
+// å…‘å¥–æŒ‡ä»¤
 int do_duijiang(string arg)
 {
 	int i, j, k, item, t;
@@ -435,18 +435,18 @@ int do_duijiang(string arg)
 	object ob, me = this_player();
 	mapping biao, fifa2002;
 
-	// Ã»ÓĞjieguo¾Í±íÊ¾Ã»ÓĞ¿ªÊ¼¶Ò½±
+	// æ²¡æœ‰jieguoå°±è¡¨ç¤ºæ²¡æœ‰å¼€å§‹å…‘å¥–
 	if (!jieguo)
-		return notify_fail("»¹Î´µ½¶Ò½±Ê±¼ä£¡\n");
+		return notify_fail("è¿˜æœªåˆ°å…‘å¥–æ—¶é—´ï¼\n");
 	if (!query("end_ya"))
-		return notify_fail("»¹Î´µ½¶Ò½±Ê±¼ä£¡\n");
+		return notify_fail("è¿˜æœªåˆ°å…‘å¥–æ—¶é—´ï¼\n");
 	if (query_temp("busy"))
-		return notify_fail("ÉÔºò........\n");
+		return notify_fail("ç¨å€™........\n");
 	set_temp("busy", 1);
 	k = 0;
-	// ·ÖÎöÖ¸Áî
+	// åˆ†ææŒ‡ä»¤
 	if (!arg)
-		return notify_fail("ÃüÁî¸ñÊ½£ºduijiang <Àà±ğ>\n");
+		return notify_fail("å‘½ä»¤æ ¼å¼ï¼šduijiang <ç±»åˆ«>\n");
 
 	switch (arg)
 	{
@@ -467,7 +467,7 @@ int do_duijiang(string arg)
 		t = 20;
 		break;
 	default:
-		return notify_fail("Ã»ÓĞÕâ¸öÏîÄ¿°É£¡\n");
+		return notify_fail("æ²¡æœ‰è¿™ä¸ªé¡¹ç›®å§ï¼\n");
 	}
 	for (i = 0; i < sizeof(all_biao); i++)
 	{
@@ -475,12 +475,12 @@ int do_duijiang(string arg)
 			all_biao[i]["id"] == me->query("id"))
 		{
 			if (all_biao[i]["dui"])
-				return notify_fail("ÄãÒÑ¶Ò¹ı½±À²£¡\n");
+				return notify_fail("ä½ å·²å…‘è¿‡å¥–å•¦ï¼\n");
 			result = all_biao[i]["code"];
 			j = all_biao[i]["gold"];
-			// ±íÊ¾´ËÈË¶Ò¹ı½±ÁË
+			// è¡¨ç¤ºæ­¤äººå…‘è¿‡å¥–äº†
 			all_biao[i]["dui"] = 1;
-			// ´æÅÌ
+			// å­˜ç›˜
 			save();
 		}
 	}
@@ -493,26 +493,26 @@ int do_duijiang(string arg)
 		}
 	}
 	if (k > 0)
-	// ÖĞ½±¾Í¸ø°É
+	// ä¸­å¥–å°±ç»™å§
 	{
-		write("ÄãÑº " + j + " Á½»Æ½ğ£¬°´¹æ¶¨µÃ½±½ğ " + k + " Á½»Æ½ğ£¬ÒÑ»®ÈëÄãµÄÇ®×¯ÕÊ»§£¡\n");
+		write("ä½ æŠ¼ " + j + " ä¸¤é»„é‡‘ï¼ŒæŒ‰è§„å®šå¾—å¥–é‡‘ " + k + " ä¸¤é»„é‡‘ï¼Œå·²åˆ’å…¥ä½ çš„é’±åº„å¸æˆ·ï¼\n");
 		me->add("balance", k * 10000);
-		message("channel:sys", HIM "¡¾Ò¥ÑÔ¡¿" HIR "Ä³ÈË£º" + me->name() + "¶Ò½±µÃµ½ " + chinese_number(k) + " Á½»Æ½ğ£¡\n" NOR, users());
+		message("channel:sys", HIM "ã€è°£è¨€ã€‘" HIR "æŸäººï¼š" + me->name() + "å…‘å¥–å¾—åˆ° " + chinese_number(k) + " ä¸¤é»„é‡‘ï¼\n" NOR, users());
 		return 1;
 	}
 	else
-	// Ã»ÓĞ¶ÔµÄÒ²À´¸ö¿ÕÃÅ½±°É
+	// æ²¡æœ‰å¯¹çš„ä¹Ÿæ¥ä¸ªç©ºé—¨å¥–å§
 	{
 		ob = new ("/clone/food/jitui");
 		ob->move(me);
-		write("ÄãÃ»Ñº¶Ô£¬µ«·¢Ò»¸ö°²Î¿½±£¬ËÍÄãÒ»¸ù¼¦ÍÈ°É£¡\n");
-		message_vision(HIY "¾º²Â±íÉÏÍ·Í»È»ÓÍ¹âÒ»ÉÁ£¬¡°ÆË¡±µØµôÏÂÒ»¸ùÓÍ¹â¹âµÄ¼¦ÍÈ£¬ÕıºÃµô½ø$NµÄÊÖÖĞ¡£\n" NOR, me);
+		write("ä½ æ²¡æŠ¼å¯¹ï¼Œä½†å‘ä¸€ä¸ªå®‰æ…°å¥–ï¼Œé€ä½ ä¸€æ ¹é¸¡è…¿å§ï¼\n");
+		message_vision(HIY "ç«çŒœè¡¨ä¸Šå¤´çªç„¶æ²¹å…‰ä¸€é—ªï¼Œâ€œæ‰‘â€åœ°æ‰ä¸‹ä¸€æ ¹æ²¹å…‰å…‰çš„é¸¡è…¿ï¼Œæ­£å¥½æ‰è¿›$Nçš„æ‰‹ä¸­ã€‚\n" NOR, me);
 	}
 	remove_call_out("enough_rest");
 	call_out("enough_rest", 1);
 	return 1;
 }
-// ¶ÔÍæ¼ÒÊäÈëµÄ¹ú¼Ò´úÂë½øĞĞ×ÖÄ¸ÅÅĞò
+// å¯¹ç©å®¶è¾“å…¥çš„å›½å®¶ä»£ç è¿›è¡Œå­—æ¯æ’åº
 string ordercode(string arg, int arg1)
 {
 	int i, j;
@@ -557,7 +557,7 @@ string ordercode(string arg, int arg1)
 		nc = nc1 + "-" + nc2 + "-" + nc3 + "-" + nc4 + "-" + nc5 + "-" + nc6 + "-" + nc7 + "-" + nc8;
 	return nc;
 }
-// ¹ú¼Ò´úÂë´óĞ´ĞŞÕı
+// å›½å®¶ä»£ç å¤§å†™ä¿®æ­£
 string upcase(string arg)
 {
 	arg = replace_string(arg, "a", "A");
@@ -588,7 +588,7 @@ string upcase(string arg)
 	arg = replace_string(arg, "z", "Z");
 	return arg;
 }
-// ¹ú¼Ò´úÂëºÍÖĞÎÄ¹ú¼ÒÃûµÄ±ä»»
+// å›½å®¶ä»£ç å’Œä¸­æ–‡å›½å®¶åçš„å˜æ¢
 string codetoteam(string arg)
 {
 	int i;
@@ -596,5 +596,5 @@ string codetoteam(string arg)
 	for (i = 0; i < sizeof(team); i++)
 		if (code[i] == arg)
 			return team[i];
-	return "Î´Öª¹úÃû";
+	return "æœªçŸ¥å›½å";
 }

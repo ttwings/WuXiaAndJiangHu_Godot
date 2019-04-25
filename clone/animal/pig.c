@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("С��", ({"xiao zhu", "pig"}));
-	set("race", "����");
+	set_name("小猪", ({"xiao zhu", "pig"}));
+	set("race", "走畜");
 	set("age", 5);
-	set("long", "һͷ����Ѭ���С����\n");
+	set("long", "一头臭气熏天的小猪。\n");
 	set("attitude", "peaceful");
 	set("verbs", ({"bite"}));
 	set("combat_exp", 100);
@@ -26,7 +26,7 @@ void die()
 	object ob;
 	int i;
 
-	message_vision("$N�͵͵غ���һ�������ڵ���һ��Ҳ�����ˡ�\n", this_object());
+	message_vision("$N低低地哼了一声，倒在地上一动也不动了。\n", this_object());
 	i = random(5);
 	switch (i)
 	{

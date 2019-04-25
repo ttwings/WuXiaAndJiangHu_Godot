@@ -1,14 +1,14 @@
 // Last Modified by winder on Sep. 12 2001
-// xuezhonglian.c Ñ©ÖĞÁ«
+// xuezhonglian.c é›ªä¸­è²
 
 inherit ITEM;
 #include <ansi.h>
 
 void create()
 {
-	set_name(HIW "Ñ©ÖĞÁ«" NOR, ({"xuezhong lian", "lian"}));
-	set("unit", "¶ä");
-	set("long", "ÕâÊÇÒ»¶äÉú³¤ÔÚÑ©É½ÉÏµÄÑ©Á«£¬Ëü½à°×µÄ»¨°êÉÏ¸½×Å¼¸¿Å¾§Ó¨µÄÂ¶Öé£¬ÕıÉ¢·¢×Åµ­µ­µÄÓÄÏã¡£\n");
+	set_name(HIW "é›ªä¸­è²" NOR, ({"xuezhong lian", "lian"}));
+	set("unit", "æœµ");
+	set("long", "è¿™æ˜¯ä¸€æœµç”Ÿé•¿åœ¨é›ªå±±ä¸Šçš„é›ªè²ï¼Œå®ƒæ´ç™½çš„èŠ±ç“£ä¸Šé™„ç€å‡ é¢—æ™¶è¹çš„éœ²ç ï¼Œæ­£æ•£å‘ç€æ·¡æ·¡çš„å¹½é¦™ã€‚\n");
 	set("pour_type", "1");
 	setup();
 }
@@ -22,18 +22,18 @@ int do_eat(string arg)
 	neili_limit = me->query("max_neili");
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 
 	if (neili_limit > force_limit)
 		me->add("max_neili", -10);
 	me->add("max_neili", random(10));
-	message_vision(HIG "$N³ÔÏÂÒ»¶ä" NOR, me);
-	message_vision(HIW "Ñ©ÖĞÁ«" NOR, me);
-	message_vision(HIG "£¬¶ÙÊ±¾õµÃÁéÌ¨Ò»Çå£¬Ò»¹ÉÈÈÆøÖ±´©ÈÎ¶½¶şÂö£¬Í·ÉÏÃ°³öË¿Ë¿ÈÈÆø¡£\n" NOR, me);
+	message_vision(HIG "$Nåƒä¸‹ä¸€æœµ" NOR, me);
+	message_vision(HIW "é›ªä¸­è²" NOR, me);
+	message_vision(HIG "ï¼Œé¡¿æ—¶è§‰å¾—çµå°ä¸€æ¸…ï¼Œä¸€è‚¡çƒ­æ°”ç›´ç©¿ä»»ç£äºŒè„‰ï¼Œå¤´ä¸Šå†’å‡ºä¸ä¸çƒ­æ°”ã€‚\n" NOR, me);
 	destruct(this_object());
 	return 1;
 }
@@ -46,6 +46,6 @@ void init()
 }
 void destlian()
 {
-	message_vision("$NÂıÂı¸É¿İÎ®Ëõ£¬Ò»»á¾ÍÈÜ»¯ÏûÊ§µôÁË¡£\n", this_object());
+	message_vision("$Næ…¢æ…¢å¹²æ¯èç¼©ï¼Œä¸€ä¼šå°±æº¶åŒ–æ¶ˆå¤±æ‰äº†ã€‚\n", this_object());
 	destruct(this_object());
 }

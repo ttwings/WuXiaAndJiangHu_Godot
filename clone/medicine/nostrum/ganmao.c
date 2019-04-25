@@ -1,4 +1,4 @@
-// ganmao.c ¸ĞÃ°Ò©
+// ganmao.c æ„Ÿå†’è¯
 
 inherit ITEM;
 #include <ansi.h>
@@ -10,14 +10,14 @@ void init()
 
 void create()
 {
-	set_name(HIW "ÌØĞ§¸ĞÃ°Ò©" NOR, ({"texiao yao", "ganmao yao", "yao"}));
+	set_name(HIW "ç‰¹æ•ˆæ„Ÿå†’è¯" NOR, ({"texiao yao", "ganmao yao", "yao"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "°ü");
-		set("long", "ÕâÊÇÒ»°üÌØĞ§¸ĞÃ°Ò©£¬ÓÃµÄÊÇÆ½Ò»Ö¸µÄ¶À¼ÒÅä·½¡£\n" +
-						"¶Ô¸÷ÖÖ¸ĞÃ°²¡Ö¢¶¼ÓĞÏÔÖøÁÆĞ§¡£\n");
+		set("unit", "åŒ…");
+		set("long", "è¿™æ˜¯ä¸€åŒ…ç‰¹æ•ˆæ„Ÿå†’è¯ï¼Œç”¨çš„æ˜¯å¹³ä¸€æŒ‡çš„ç‹¬å®¶é…æ–¹ã€‚\n" +
+						"å¯¹å„ç§æ„Ÿå†’ç—…ç—‡éƒ½æœ‰æ˜¾è‘—ç–—æ•ˆã€‚\n");
 		set("value", 20000);
 	}
 	setup();
@@ -29,14 +29,14 @@ int do_eat(string arg)
 	if (!id(arg))
 		return 0;
 	if (me->is_busy())
-		return notify_fail("±ğ¼±£¬ÂıÂıÀ´¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢æ¥ã€‚\n");
 	if (!me->query_condition("ill_kesou") &&
 		!me->query_condition("ill_shanghan") &&
 		!me->query_condition("ill_fashao") &&
 		!me->query_condition("ill_dongshang") &&
 		!me->query_condition("ill_zhongshu"))
 	{
-		write("ÄãÏÖÔÚÓÖÃ»ÓĞ¸ĞÃ°£¬±ğÂÒ³ÔÒ©¡£\n");
+		write("ä½ ç°åœ¨åˆæ²¡æœ‰æ„Ÿå†’ï¼Œåˆ«ä¹±åƒè¯ã€‚\n");
 		return 1;
 	}
 	else
@@ -46,7 +46,7 @@ int do_eat(string arg)
 		me->clear_condition("ill_fashao");
 		me->clear_condition("ill_dongshang");
 		me->clear_condition("ill_zhongshu");
-		message_vision(HIY "$N·şÏÂÒ»°üÌØĞ§¸ĞÃ°Ò©£¬¸ĞÃ°Ö¢×´»º½âÁËĞí¶à¡£\n" NOR, me);
+		message_vision(HIY "$Næœä¸‹ä¸€åŒ…ç‰¹æ•ˆæ„Ÿå†’è¯ï¼Œæ„Ÿå†’ç—‡çŠ¶ç¼“è§£äº†è®¸å¤šã€‚\n" NOR, me);
 		me->start_busy(3);
 		destruct(this_object());
 		return 1;

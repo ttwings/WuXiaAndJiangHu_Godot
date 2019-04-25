@@ -1,4 +1,4 @@
-// yuwang-jian.c Ô½Íõ¹´¼ù½£
+// yuwang-jian.c è¶Šç‹å‹¾è·µå‰‘
 // Edited by fandog, 02/15/2000
 // Last Modified by winder on Sep. 7 2001
 
@@ -9,18 +9,18 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(HIY "Ô½Íõ" HIR "¹´¼ù" HIB "½£" NOR, ({"yuewang jian", "goujian jian", "jian", "sword"}));
+	set_name(HIY "è¶Šç‹" HIR "å‹¾è·µ" HIB "å‰‘" NOR, ({"yuewang jian", "goujian jian", "jian", "sword"}));
 	set_weight(20000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±ú");
+		set("unit", "æŸ„");
 		set("value", 30000);
 		set("material", "iron");
-		set("long", "ÕâÊÇÔ½Íõ¹´¼ùÅå´÷¹ıµÄ±¦½££¬º®¹âÉÁÉÁ£¬ÀäÆø±ÆÈË¡£\n");
-		set("wield_msg", "º®Ã¢Ò»ÉÁ£¬ÀäÉ­É­µÄ$nÒÑÔÚ$NÊÖÖĞ¡£\n");
-		set("unwield_msg", "$NÊÖÍóÇá¶¶£¬$nÙ¿ºö¼äÒÑÈ»²»¼û¡£\n");
+		set("long", "è¿™æ˜¯è¶Šç‹å‹¾è·µä½©æˆ´è¿‡çš„å®å‰‘ï¼Œå¯’å…‰é—ªé—ªï¼Œå†·æ°”é€¼äººã€‚\n");
+		set("wield_msg", "å¯’èŠ’ä¸€é—ªï¼Œå†·æ£®æ£®çš„$nå·²åœ¨$Næ‰‹ä¸­ã€‚\n");
+		set("unwield_msg", "$Næ‰‹è…•è½»æŠ–ï¼Œ$nå€å¿½é—´å·²ç„¶ä¸è§ã€‚\n");
 	}
 	init_sword(180);
 	setup();

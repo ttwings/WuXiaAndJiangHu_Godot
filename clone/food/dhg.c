@@ -1,21 +1,21 @@
-// Éñ»°ÊÀ½ç¡¤Î÷ÓÎ¼Ç¡¤°æ±¾£´£®£µ£°
+// ç¥è¯ä¸–ç•ŒÂ·è¥¿æ¸¸è®°Â·ç‰ˆæœ¬ï¼”ï¼ï¼•ï¼
 /* <SecCrypt CPL V3R05> */
 
-// dhg.c ´ó»Æ¹Ï
+// dhg.c å¤§é»„ç“œ
 
 inherit ITEM;
 inherit F_FOOD;
 
 void create()
 {
-  set_name("´ó»Æ¹Ï", ({"dhg", "dahuanggua"}));
+  set_name("å¤§é»„ç“œ", ({"dhg", "dahuanggua"}));
   set_weight(40);
   if (clonep())
     set_default_object(__FILE__);
   else
   {
-    set("long", "Ò»ÌõĞÂÏÊÄÛÂÌµÄ´ó»Æ¹Ï¡£\n");
-    set("unit", "Ìõ");
+    set("long", "ä¸€æ¡æ–°é²œå«©ç»¿çš„å¤§é»„ç“œã€‚\n");
+    set("unit", "æ¡");
     set("value", 80);
     set("food_remaining", 4);
     set("food_supply", 30);

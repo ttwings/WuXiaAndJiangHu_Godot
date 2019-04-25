@@ -1,17 +1,17 @@
-// bt_book5.c Ò×¾­
+// bt_book5.c æ˜“ç»
 // Last Modified by Winder on May. 15 2001
 inherit ITEM;
 
 void create()
 {
-	set_name("Ò×¾­", ({"yi jing", "jing", "yi"}));
+	set_name("æ˜“ç»", ({"yi jing", "jing", "yi"}));
 	set_weight(1000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±¾");
-		set("long", "ÕâÊÇÒ»±¾Ò×¾­¡£\n");
+		set("unit", "æœ¬");
+		set("long", "è¿™æ˜¯ä¸€æœ¬æ˜“ç»ã€‚\n");
 		set("value", 500);
 		set("material", "paper");
 		set("skill", ([

@@ -5,17 +5,17 @@ inherit NPC;
 
 void create()
 {
-	set_name("Ã·»¨Â¹", ({"deer"}));
-	set("race", "×ßĞó");
+	set_name("æ¢…èŠ±é¹¿", ({"deer"}));
+	set("race", "èµ°ç•œ");
 	set("age", 5);
-	set("long", "Ò»Ö»Æ¯ÁÁµÄÃ·»¨Â¹¡£\n");
+	set("long", "ä¸€åªæ¼‚äº®çš„æ¢…èŠ±é¹¿ã€‚\n");
 	set("attitude", "peaceful");
 
 	set("combat_exp", 800);
 
 	set("chat_chance", 6);
 	set("chat_msg_combat", ({
-							   "\nÃ·»¨Â¹Ò»×ªÉí£¬ÑïÆğÂ¹½Ç³¯Äã¶¥¹ıÀ´£¡\n",
+							   "\næ¢…èŠ±é¹¿ä¸€è½¬èº«ï¼Œæ‰¬èµ·é¹¿è§’æœä½ é¡¶è¿‡æ¥ï¼\n",
 						   }));
 
 	set_temp("apply/attack", 20);

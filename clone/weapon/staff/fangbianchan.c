@@ -6,18 +6,18 @@ inherit STAFF;
 
 void create()
 {
-	set_name("·½±ã²ù", ({"fangbianchan", "fangbian", "chan"}));
+	set_name("æ–¹ä¾¿é“²", ({"fangbianchan", "fangbian", "chan"}));
 	set_weight(10000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "Ìõ");
+		set("unit", "æ¡");
 		set("value", 5);
 		set("material", "wood");
-		set("long", "Ò»Ìõ·Ç³£´Ö´ó½áÊµµÄ·½±ã²ù¡£\n");
-		set("wield_msg", "$NÄÃÆğÒ»¸ù$n£¬ÔÚÊÖÖĞµàÁ¿µàÁ¿¡£\n");
-		set("unwield_msg", "$NºßÁËÒ»Éù£¬½«$n·Å»ØÉíºó¡£\n");
+		set("long", "ä¸€æ¡éå¸¸ç²—å¤§ç»“å®çš„æ–¹ä¾¿é“²ã€‚\n");
+		set("wield_msg", "$Næ‹¿èµ·ä¸€æ ¹$nï¼Œåœ¨æ‰‹ä¸­æ‚é‡æ‚é‡ã€‚\n");
+		set("unwield_msg", "$Nå“¼äº†ä¸€å£°ï¼Œå°†$næ”¾å›èº«åã€‚\n");
 	}
 	init_staff(35);
 	setup();

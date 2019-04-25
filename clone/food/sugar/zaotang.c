@@ -7,16 +7,16 @@ inherit F_FOOD;
 
 void create()
 {
-	set_name(WHT "ÔîÌÇ" NOR, ({"zao tang", "tang"}));
+	set_name(WHT "ç¶ç³–" NOR, ({"zao tang", "tang"}));
 	set_weight(150);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("long", "³ÔÆğÀ´Õ³ÑÀµÄ¸øÔîÍõÒ¯³ÔµÄÔîÌÇ¡£\n");
-		set("unit", "¿é");
-		set("value", 20); //ºÜ±ãÒË£¬£¨»ù±¾Ê³Îï¶¼Ó¦¸ÃºÜ±ãÒË£©.
+		set("long", "åƒèµ·æ¥ç²˜ç‰™çš„ç»™ç¶ç‹çˆ·åƒçš„ç¶ç³–ã€‚\n");
+		set("unit", "å—");
+		set("value", 20); //å¾ˆä¾¿å®œï¼Œï¼ˆåŸºæœ¬é£Ÿç‰©éƒ½åº”è¯¥å¾ˆä¾¿å®œï¼‰.
 		set("food_remaining", 3);
-		set("food_supply", 10); //Õı³£·¹Á¿µÄÈËÒ»¶Ù³Ô¶ş½ï¡£
+		set("food_supply", 10); //æ­£å¸¸é¥­é‡çš„äººä¸€é¡¿åƒäºŒæ–¤ã€‚
 	}
 }

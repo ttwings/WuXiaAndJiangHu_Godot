@@ -7,14 +7,14 @@ inherit WRISTS;
 
 void create()
 {
-	set_name("»¤Íó", ({"hu wan", "huwan"}));
+	set_name("æŠ¤è…•", ({"hu wan", "huwan"}));
 	set_weight(500);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "Ë«");
-		set("long", "ÕâÊÇÒ»¼şÆ¤ÖÊµÄ»¤Íó£¬ÉÏÃæÂú²¼Ìú¶¤£¬ÓÃÒÔ±£»¤Íó²¿¡£\n");
+		set("unit", "åŒ");
+		set("long", "è¿™æ˜¯ä¸€ä»¶çš®è´¨çš„æŠ¤è…•ï¼Œä¸Šé¢æ»¡å¸ƒé“é’‰ï¼Œç”¨ä»¥ä¿æŠ¤è…•éƒ¨ã€‚\n");
 		set("value", 6000);
 		set("material", "wrists");
 		set("armor_prop/armor", 5);

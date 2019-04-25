@@ -6,14 +6,14 @@ inherit CLOTH;
 
 void create()
 {
-	set_name("Æ¤±³ĞÄ", ({"pi beixin", "beixin"}));
+	set_name("çš®èƒŒå¿ƒ", ({"pi beixin", "beixin"}));
 	set_weight(2000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("long", "Ò»¼şË®Å£Æ¤ÖÆµÄ±³ĞÄ£¬Ëä²»¾«ÖÂ£¬µ«ºÜ½áÊµ¡£\n");
-		set("unit", "¼ş");
+		set("long", "ä¸€ä»¶æ°´ç‰›çš®åˆ¶çš„èƒŒå¿ƒï¼Œè™½ä¸ç²¾è‡´ï¼Œä½†å¾ˆç»“å®ã€‚\n");
+		set("unit", "ä»¶");
 		set("value", 400);
 		set("material", "leather");
 		set("armor_prop/armor", 6);

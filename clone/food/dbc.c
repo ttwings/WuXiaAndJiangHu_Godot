@@ -1,21 +1,21 @@
-// Éñ»°ÊÀ½ç¡¤Î÷ÓÎ¼Ç¡¤°æ±¾£´£®£µ£°
+// ç¥è¯ä¸–ç•ŒÂ·è¥¿æ¸¸è®°Â·ç‰ˆæœ¬ï¼”ï¼ï¼•ï¼
 /* <SecCrypt CPL V3R05> */
 
-// dbc.c ´ó°×²Ë
+// dbc.c å¤§ç™½èœ
 
 inherit ITEM;
 inherit F_FOOD;
 
 void create()
 {
-  set_name("´ó°×²Ë", ({"dbc", "dabaicai"}));
+  set_name("å¤§ç™½èœ", ({"dbc", "dabaicai"}));
   set_weight(40);
   if (clonep())
     set_default_object(__FILE__);
   else
   {
-    set("long", "Ò»¿ÅĞÂÏÊ¿ÉÈËµÄ´ó°×²Ë¡£\n");
-    set("unit", "¿Å");
+    set("long", "ä¸€é¢—æ–°é²œå¯äººçš„å¤§ç™½èœã€‚\n");
+    set("unit", "é¢—");
     set("value", 80);
     set("food_remaining", 4);
     set("food_supply", 30);

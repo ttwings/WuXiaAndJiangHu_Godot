@@ -4,13 +4,13 @@ inherit ITEM;
 
 void create()
 {
-	set_name("ÈýÐ¦åÐÒ£É¢", ({"sanxiaoxiaoyao san", "xiaoyao san", "san"}));
+	set_name("ä¸‰ç¬‘é€é¥æ•£", ({"sanxiaoxiaoyao san", "xiaoyao san", "san"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("long", "Ò»°üÎÞÉ«µÄ·ÛÄ©, ¿´Ñù×Ó²»ÊÇÑ°³£ÎïÆ·. \n");
-		set("unit", "°ü");
+		set("long", "ä¸€åŒ…æ— è‰²çš„ç²‰æœ«, çœ‹æ ·å­ä¸æ˜¯å¯»å¸¸ç‰©å“. \n");
+		set("unit", "åŒ…");
 		set("pour_type", "sanxiao_poison");
 		set("value", 20000);
 	}
@@ -28,16 +28,16 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ð¼±£¬ÂýÂý³Ô£¬Ð¡ÐÄ±ðÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™Žç€äº†ã€‚\n");
 
 	if (arg == "san" || arg == "xiaoyao san")
 	{
-		message_vision("$NÑöÍ·ÑÊÏÂÒ»°ü" + name() + "¡£\n", me);
-		me->set_temp("die_reason", "³ÔÏÂ" + name() + ",×ÔÉ±ÉíÍöÁË");
+		message_vision("$Nä»°å¤´å’½ä¸‹ä¸€åŒ…" + name() + "ã€‚\n", me);
+		me->set_temp("die_reason", "åƒä¸‹" + name() + ",è‡ªæ€èº«äº¡äº†");
 		this_player()->die();
 		destruct(this_object());
 	}

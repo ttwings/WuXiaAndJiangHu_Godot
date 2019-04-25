@@ -6,16 +6,16 @@ inherit ITEM;
 
 void create()
 {
-        set_name(HIR "Ê¥µ®ºØ¿¨" NOR, ({"Christmas card", "card"}));
+        set_name(HIR "åœ£è¯žè´ºå¡" NOR, ({"Christmas card", "card"}));
         if (clonep())
                 set_default_object(__FILE__);
         else
         {
-                set("unit", "ÕÅ");
+                set("unit", "å¼ ");
                 set("long",
-"ÕâÊÇÒ»ÕÅ"HIR"Ê¥µ®ºØ¿¨"NOR"£¬ËÍ¸øÃ¿Î»ÔÚÊ¥µ®½Ú½øÈëÏÀ¿ÍÐÐÒ»°Ù
-µÄÍæ¼Ò¡£Äã¿ÉÒÔ´ò¿ª(dakai)À´¿´¿´£¬¼Ç×¡×Ô¼ºµÄ±àºÅ¡£
-ÐÂÄêÖÓÉùÇÃÏìµÄÊ±ºò£¬µÈ´ý×ÅÎÒÃÇµÄ³é½±ÀñÆ·¡£\n");
+"è¿™æ˜¯ä¸€å¼ "HIR"åœ£è¯žè´ºå¡"NOR"ï¼Œé€ç»™æ¯ä½åœ¨åœ£è¯žèŠ‚è¿›å…¥ä¾ å®¢è¡Œä¸€ç™¾
+çš„çŽ©å®¶ã€‚ä½ å¯ä»¥æ‰“å¼€(dakai)æ¥çœ‹çœ‹ï¼Œè®°ä½è‡ªå·±çš„ç¼–å·ã€‚
+æ–°å¹´é’Ÿå£°æ•²å“çš„æ—¶å€™ï¼Œç­‰å¾…ç€æˆ‘ä»¬çš„æŠ½å¥–ç¤¼å“ã€‚\n");
                 set("value", 0);
                 set_weight(10);
         }
@@ -39,47 +39,47 @@ int do_dakai(string arg)
         {
                 tell_object(me,
                             HIW "\n" +
-                                "     ©³©¥©¥©¥©¥©¥©¥©¥©¥ " HIR "Ê¥µ®¿ìÀÖ" HIW " ©¥©¥©¥©¥©¥©¥©¥©¥©·\n" +
-                                "     ©§  ©°©¤©¤©¤©¤ Merry  Christmas ©¤©¤©¤©¤©´  ©§\n" +
-                                "     ©§  ©¦                                  ©¦  ©§\n" +
-                                "     ©§  ©¦                                  ©¦  ©§\n");
+                                "     â”â”â”â”â”â”â”â”â” " HIR "åœ£è¯žå¿«ä¹" HIW " â”â”â”â”â”â”â”â”â”“\n" +
+                                "     â”ƒ  â”Œâ”€â”€â”€â”€ Merry  Christmas â”€â”€â”€â”€â”  â”ƒ\n" +
+                                "     â”ƒ  â”‚                                  â”‚  â”ƒ\n" +
+                                "     â”ƒ  â”‚                                  â”‚  â”ƒ\n");
                 if (strlen(me->query("name")) == 2)
                         tell_object(me,
-                                    HIW "     ©§  ©¦  Ç×°®µÄ" + me->query("name") + "£º                      ©¦  ©§\n");
+                                    HIW "     â”ƒ  â”‚  äº²çˆ±çš„" + me->query("name") + "ï¼š                      â”‚  â”ƒ\n");
                 if (strlen(me->query("name")) == 4)
                         tell_object(me,
-                                    HIW "     ©§  ©¦  Ç×°®µÄ" + me->query("name") + "£º                    ©¦  ©§\n");
+                                    HIW "     â”ƒ  â”‚  äº²çˆ±çš„" + me->query("name") + "ï¼š                    â”‚  â”ƒ\n");
                 if (strlen(me->query("name")) == 6)
                         tell_object(me,
-                                    HIW "     ©§  ©¦  Ç×°®µÄ" + me->query("name") + "£º                  ©¦  ©§\n");
+                                    HIW "     â”ƒ  â”‚  äº²çˆ±çš„" + me->query("name") + "ï¼š                  â”‚  â”ƒ\n");
                 if (strlen(me->query("name")) == 8)
                         tell_object(me,
-                                    HIW "     ©§  ©¦  Ç×°®µÄ" + me->query("name") + "£º                ©¦  ©§\n");
+                                    HIW "     â”ƒ  â”‚  äº²çˆ±çš„" + me->query("name") + "ï¼š                â”‚  â”ƒ\n");
                 if (strlen(me->query("name")) == 10)
                         tell_object(me,
-                                    HIW "     ©§  ©¦  Ç×°®µÄ" + me->query("name") + "£º              ©¦  ©§\n");
+                                    HIW "     â”ƒ  â”‚  äº²çˆ±çš„" + me->query("name") + "ï¼š              â”‚  â”ƒ\n");
                 tell_object(me,
-                            HIW "     ©§  ©¦      Ô¸ÄúºÍÄúµÄ¼ÒÈËÔÚÖ÷µÄ×£¸£    ©¦  ©§\n" +
-                                "     ©§  ©¦  ÏÂ£¬¿ìÀÖ¡¢Æ½°²£¡                ©¦  ©§\n" +
-                                "     ©§  ©¦                                  ©¦  ©§\n" +
-                                "     ©§  ©¦             *  *" HIR "r" HIW "*  *            ©¦  ©§\n" +
-                                "     ©§  ©¦          * *" HIR "a" HIW "* " HIG "^" HIY "Y" HIG "^" HIW " *" HIR "i" HIW "* *         ©¦  ©§\n" +
-                                "     ©§  ©¦         *" HIM "m" HIW "*" HIG "^" HIY "Y" HIG "^" HIW "*" HIG "^\\^" HIW "*" HIG "^" HIY "Y" HIG "^" HIW "*" RED "s" HIW "*        ©¦  ©§\n" +
-                                "     ©§  ©¦         " HIG "^" HIY "Y" HIG "^" HIW "*" HIG "\\" HIW "*" RED "e" HIW "*" HIG "/" HIW "*" HIG "l" HIW "*" HIG "/" HIW "*" HIG "^" HIY "Y" HIG "^" HIW "        ©¦  ©§\n" +
-                                "     ©§  ©¦         *" HIG "\\" HIW "*" CYN "t" HIW "*" HIG "|" HIY "Y" HIG "^\\^" HIY "Y" HIG "|" HIW "*" HIG "l" HIW "*" HIG "/" HIW "*        ©¦  ©§\n" +
-                                "     ©§  ©¦        *" MAG "s" HIW "*" HIG "|" HIY "Y" HIG "^\\\\^/^//^" HIY "Y" HIG "|" HIW "*" HIR "a" HIW "*       ©¦  ©§\n" +
-                                "     ©§  ©¦        " GRN "^" YEL "Y" GRN "^\\\\_^\\\\\\//^_//^" YEL "Y" GRN "^" HIW "       ©¦  ©§\n" +
-                                "     ©§  ©¦        " GRN "^\\_^\\_\\_\\//_/_/^_/^" HIW "       ©¦  ©§\n" +
-                                "     ©§  ©¦         " GRN "^^\\_^\\_\\\\/_/^_/^^" HIW "        ©¦  ©§\n" +
-                                "     ©§  ©¦           " GRN "^^\\_ \\// _/^^" HIW "          ©¦  ©§\n" +
-                                "     ©§  ©¦               " GRN "\\_\\_/" HIW "              ©¦  ©§\n" +
-                                "     ©§  ©¦                " GRN "/|\\" HIW "               ©¦  ©§\n" +
-                                "     ©§  ©¦               " GRN "/\\\\/\\" HIW "              ©¦  ©§\n" +
-                                "     ©§  ©¦                                  ©¦  ©§\n" +
-                                "     ©§  ©¦                  " RED "ÏÀ¿ÍÐÐÒ»°Ù¹§ºØ" HIW "  ©¦  ©§\n" +
-                                HIW "     ©§  ©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼  ©§\n" +
-                                "     ©»©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¿\n" +
-                                "\n" HIY + "         ¿¨±àºÅ£º" + me->query("holiday_cards") +
+                            HIW "     â”ƒ  â”‚      æ„¿æ‚¨å’Œæ‚¨çš„å®¶äººåœ¨ä¸»çš„ç¥ç¦    â”‚  â”ƒ\n" +
+                                "     â”ƒ  â”‚  ä¸‹ï¼Œå¿«ä¹ã€å¹³å®‰ï¼                â”‚  â”ƒ\n" +
+                                "     â”ƒ  â”‚                                  â”‚  â”ƒ\n" +
+                                "     â”ƒ  â”‚             *  *" HIR "r" HIW "*  *            â”‚  â”ƒ\n" +
+                                "     â”ƒ  â”‚          * *" HIR "a" HIW "* " HIG "^" HIY "Y" HIG "^" HIW " *" HIR "i" HIW "* *         â”‚  â”ƒ\n" +
+                                "     â”ƒ  â”‚         *" HIM "m" HIW "*" HIG "^" HIY "Y" HIG "^" HIW "*" HIG "^\\^" HIW "*" HIG "^" HIY "Y" HIG "^" HIW "*" RED "s" HIW "*        â”‚  â”ƒ\n" +
+                                "     â”ƒ  â”‚         " HIG "^" HIY "Y" HIG "^" HIW "*" HIG "\\" HIW "*" RED "e" HIW "*" HIG "/" HIW "*" HIG "l" HIW "*" HIG "/" HIW "*" HIG "^" HIY "Y" HIG "^" HIW "        â”‚  â”ƒ\n" +
+                                "     â”ƒ  â”‚         *" HIG "\\" HIW "*" CYN "t" HIW "*" HIG "|" HIY "Y" HIG "^\\^" HIY "Y" HIG "|" HIW "*" HIG "l" HIW "*" HIG "/" HIW "*        â”‚  â”ƒ\n" +
+                                "     â”ƒ  â”‚        *" MAG "s" HIW "*" HIG "|" HIY "Y" HIG "^\\\\^/^//^" HIY "Y" HIG "|" HIW "*" HIR "a" HIW "*       â”‚  â”ƒ\n" +
+                                "     â”ƒ  â”‚        " GRN "^" YEL "Y" GRN "^\\\\_^\\\\\\//^_//^" YEL "Y" GRN "^" HIW "       â”‚  â”ƒ\n" +
+                                "     â”ƒ  â”‚        " GRN "^\\_^\\_\\_\\//_/_/^_/^" HIW "       â”‚  â”ƒ\n" +
+                                "     â”ƒ  â”‚         " GRN "^^\\_^\\_\\\\/_/^_/^^" HIW "        â”‚  â”ƒ\n" +
+                                "     â”ƒ  â”‚           " GRN "^^\\_ \\// _/^^" HIW "          â”‚  â”ƒ\n" +
+                                "     â”ƒ  â”‚               " GRN "\\_\\_/" HIW "              â”‚  â”ƒ\n" +
+                                "     â”ƒ  â”‚                " GRN "/|\\" HIW "               â”‚  â”ƒ\n" +
+                                "     â”ƒ  â”‚               " GRN "/\\\\/\\" HIW "              â”‚  â”ƒ\n" +
+                                "     â”ƒ  â”‚                                  â”‚  â”ƒ\n" +
+                                "     â”ƒ  â”‚                  " RED "ä¾ å®¢è¡Œä¸€ç™¾æ­è´º" HIW "  â”‚  â”ƒ\n" +
+                                HIW "     â”ƒ  â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜  â”ƒ\n" +
+                                "     â”—â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”›\n" +
+                                "\n" HIY + "         å¡ç¼–å·ï¼š" + me->query("holiday_cards") +
                                 "\n" NOR);
         }
         return 1;
@@ -94,12 +94,12 @@ int do_chaikai(string arg)
         if (!present(this_object(), this_player()))
                 return 0;
 
-        //	return notify_fail("»¹Ã»µ½Ê±ºòÄØ£¬±ð¼±²ð¿ª°¡£¡\n");
+        //	return notify_fail("è¿˜æ²¡åˆ°æ—¶å€™å‘¢ï¼Œåˆ«æ€¥æ‹†å¼€å•Šï¼\n");
 
         if (arg == "card")
         {
-                message_vision("$N³äÂúã¿ã½µØ²ð¿ªÁËÊ¥µ®¿¨£¬Í»È»ÈçÄ§Êõ°ã£¬³öÏÖ
-Ò»¸öÀñÆ·ºÐ£¡\n", me);
+                message_vision("$Nå……æ»¡æ†§æ†¬åœ°æ‹†å¼€äº†åœ£è¯žå¡ï¼Œçªç„¶å¦‚é­”æœ¯èˆ¬ï¼Œå‡ºçŽ°
+ä¸€ä¸ªç¤¼å“ç›’ï¼\n", me);
                 box = new(__DIR__"giftbox");
                 newcard = new(__DIR__"card_cs_done");
                 newcard->move(me);

@@ -5,7 +5,7 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(HIY "¡¸Ò×¾­Ïµ´ÇÆª¡¹" NOR, ({
+	set_name(HIY "ã€Œæ˜“ç»ç³»è¾ç¯‡ã€" NOR, ({
 										   "yijing xici",
 										   "yijing3",
 									   }));
@@ -14,8 +14,8 @@ void create()
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±¾");
-		set("long", "ÕâÊÇÒ»±¾ÓÃ±¡¾îĞ´³ÉµÄÊé¡£ÉÏÊé£º¡°Ò×¾­Ïµ´ÇÆª¡±¡£\nÊéÆ¤·º»Æ£¬¿´À´ÒÑ¾­±£´æºÜ¾ÃÁË¡£\n");
+		set("unit", "æœ¬");
+		set("long", "è¿™æ˜¯ä¸€æœ¬ç”¨è–„ç»¢å†™æˆçš„ä¹¦ã€‚ä¸Šä¹¦ï¼šâ€œæ˜“ç»ç³»è¾ç¯‡â€ã€‚\nä¹¦çš®æ³›é»„ï¼Œçœ‹æ¥å·²ç»ä¿å­˜å¾ˆä¹…äº†ã€‚\n");
 		set("value", 0);
 		set("material", "silk");
 		set("skill", ([

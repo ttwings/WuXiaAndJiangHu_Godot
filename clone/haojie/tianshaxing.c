@@ -6,10 +6,10 @@ inherit NPC;
 void copyto(object ob);
 void create()
 {
-	set_name("ÌìÉ±ÐÇ", ({"tian shaxing", "tian"}));
-	set("gender", "ÄÐÐÔ");
+	set_name("å¤©æ€æ˜Ÿ", ({"tian shaxing", "tian"}));
+	set("gender", "ç”·æ€§");
 	set("age", 40);
-	set("long", "ËûÊÇÆßÉ±ÃÅµÄÊ×Áì¡£\n");
+	set("long", "ä»–æ˜¯ä¸ƒæ€é—¨çš„é¦–é¢†ã€‚\n");
 	set("per", 10);
 	set("attitude", "peaceful");
 	//  seteuid(getuid());
@@ -45,7 +45,7 @@ void create()
 	map_skill("dodge", "tiyunzong");
 	map_skill("parry", "taiji-jian");
 	map_skill("sword", "taiji-jian");
-	create_family("ÆßÉ±ÃÅ", 1, "É±ÊÖ");
+	create_family("ä¸ƒæ€é—¨", 1, "æ€æ‰‹");
 	set("chat_chance_combat", 60);
 	set("chat_msg_combat", ({
 														 (
@@ -96,9 +96,9 @@ void dest()
 		call_out("dest", 300);
 		return;
 	}
-	message("channel/snow", HIC "¡¾" HIM "ÏÀ¿ÍÐÐÒ»°Ù" HIC "¡¿" HIW "ÆßÉ±ÃÅÊ×ÁìÌìÉ±ÐÇ£º¿´À´ÖÐÔ­µÄ¸ßÊÖ¶¼ÊÇµ¨Ð¡¹í£¬ÎÒ»ØÈ¥¾íÍÁÖØÀ´£¡\n" NOR, users());
-	message("channel/snow", HIC "¡¾" HIM "ÏÀ¿ÍÐÐÒ»°Ù" HIC "¡¿" HIW "ÆßÉ±ÃÅÊ×ÁìÌìÉ±ÐÇÑöÌì¡°¹þ¹þ¡±³¤Ð¦¼¸Éù¡£\n" NOR, users());
-	message_vision("$NÒ»¸ö×ÝÉí£¬×ªÑÛ¾ÍÏûÊ§ÔÚÃ£Ã£ÈËº£Ö®ÖÐ¡£\n", ob);
+	message("channel/snow", HIC "ã€" HIM "ä¾ å®¢è¡Œä¸€ç™¾" HIC "ã€‘" HIW "ä¸ƒæ€é—¨é¦–é¢†å¤©æ€æ˜Ÿï¼šçœ‹æ¥ä¸­åŽŸçš„é«˜æ‰‹éƒ½æ˜¯èƒ†å°é¬¼ï¼Œæˆ‘å›žåŽ»å·åœŸé‡æ¥ï¼\n" NOR, users());
+	message("channel/snow", HIC "ã€" HIM "ä¾ å®¢è¡Œä¸€ç™¾" HIC "ã€‘" HIW "ä¸ƒæ€é—¨é¦–é¢†å¤©æ€æ˜Ÿä»°å¤©â€œå“ˆå“ˆâ€é•¿ç¬‘å‡ å£°ã€‚\n" NOR, users());
+	message_vision("$Nä¸€ä¸ªçºµèº«ï¼Œè½¬çœ¼å°±æ¶ˆå¤±åœ¨èŒ«èŒ«äººæµ·ä¹‹ä¸­ã€‚\n", ob);
 	destruct(ob);
 }
 
@@ -108,15 +108,15 @@ void die()
 	object shu;
 	me = query("pk_target");
 	shu = present("zhan shu", me);
-	message_vision("$NËµµÀ£º¡°°¥,¿´À´ÎÒÃü¸ÃÈç´Ë°¡£¡¡±ËµÍêÁ½ÑÛÒ»±Õµ¹µØËÀÁË¡£\n", this_object());
+	message_vision("$Nè¯´é“ï¼šâ€œå“Ž,çœ‹æ¥æˆ‘å‘½è¯¥å¦‚æ­¤å•Šï¼â€è¯´å®Œä¸¤çœ¼ä¸€é—­å€’åœ°æ­»äº†ã€‚\n", this_object());
 	if (userp(me) && environment(me) == environment(this_object()) &&
 			objectp(shu) && shu->is_zhanshu())
 	{
 		destruct(shu);
 		me->add("combat_exp", 25000);
 		me->add("potential", 2500);
-		tell_object(me, HIW "ÄãÉ±ËÀÆßÉ±ÃÅÊ×ÁìÌìÉ±ÐÇÓÐ¹¦£¬½±ÀøÄã 25K ¾­ÑéºÍ 2500 µãÇ±ÄÜ£¡\n" NOR);
-		message("channel/snow", HIM "¡¾Ò¥ÑÔ¡¿Ä³ÈË£ºÌìÉ±ÐÇ±»" + me->name() + HIM "É±ËÀÁË¡£\n" NOR, users());
+		tell_object(me, HIW "ä½ æ€æ­»ä¸ƒæ€é—¨é¦–é¢†å¤©æ€æ˜Ÿæœ‰åŠŸï¼Œå¥–åŠ±ä½  25K ç»éªŒå’Œ 2500 ç‚¹æ½œèƒ½ï¼\n" NOR);
+		message("channel/snow", HIM "ã€è°£è¨€ã€‘æŸäººï¼šå¤©æ€æ˜Ÿè¢«" + me->name() + HIM "æ€æ­»äº†ã€‚\n" NOR, users());
 	}
 	::die();
 }
@@ -129,8 +129,8 @@ void if_die()
 		call_out("if_die", 3);
 		return;
 	}
-	message("channel/snow", HIC "¡¾" HIM "ÏÀ¿ÍÐÐÒ»°Ù" HIC "¡¿" HIW "ÆßÉ±ÃÅÊ×ÁìÌìÉ±ÐÇ´óÐ¦µÀ£ºÖÐÔ­µÄÎä¹¦Ò²²»¹ýÈç´ËÂï£¡ÀÏ×ÓÌìÏÂµÚÒ»£¡´ýÎÒ»ØÈ¥¾íÍÁÖØÀ´£¡¹þ£¡¹þ£¡¹þ£¡\n" NOR, users());
-	message_vision("$NÒ»¸ö×ÝÉí£¬×ªÑÛ¾ÍÏûÊ§ÔÚÃ£Ã£ÈËº£Ö®ÖÐ¡£\n", this_object());
+	message("channel/snow", HIC "ã€" HIM "ä¾ å®¢è¡Œä¸€ç™¾" HIC "ã€‘" HIW "ä¸ƒæ€é—¨é¦–é¢†å¤©æ€æ˜Ÿå¤§ç¬‘é“ï¼šä¸­åŽŸçš„æ­¦åŠŸä¹Ÿä¸è¿‡å¦‚æ­¤å˜›ï¼è€å­å¤©ä¸‹ç¬¬ä¸€ï¼å¾…æˆ‘å›žåŽ»å·åœŸé‡æ¥ï¼å“ˆï¼å“ˆï¼å“ˆï¼\n" NOR, users());
+	message_vision("$Nä¸€ä¸ªçºµèº«ï¼Œè½¬çœ¼å°±æ¶ˆå¤±åœ¨èŒ«èŒ«äººæµ·ä¹‹ä¸­ã€‚\n", this_object());
 	destruct(this_object());
 }
 
@@ -147,10 +147,10 @@ int accept_hit(object me)
 			copyto(me);
 		return 1;
 	}
-	message_vision(HIW "$NÒ»¼û$nÔÚ´Ëµ·ÂÒ£¬Ìø³öÀ´´óºÈÒ»ÉùµÀ£º³ôÔô£¡¸øÎÒ¹öµ½Ò»±ßÈ¥£¬²»Òª·Á°­ÀÏ×Ó¾ö¶·£¡\n" NOR, ob, me);
-	message_vision("Ö»¼û$N·ÉÆðÒ»¸öÈý°ÙÁùÊ®¶ÈÐý·çÍÈ½«$nÌßÁË³öÈ¥¡£\n", ob, me);
+	message_vision(HIW "$Nä¸€è§$nåœ¨æ­¤æ£ä¹±ï¼Œè·³å‡ºæ¥å¤§å–ä¸€å£°é“ï¼šè‡­è´¼ï¼ç»™æˆ‘æ»šåˆ°ä¸€è¾¹åŽ»ï¼Œä¸è¦å¦¨ç¢è€å­å†³æ–—ï¼\n" NOR, ob, me);
+	message_vision("åªè§$Né£žèµ·ä¸€ä¸ªä¸‰ç™¾å…­ååº¦æ—‹é£Žè…¿å°†$nè¸¢äº†å‡ºåŽ»ã€‚\n", ob, me);
 	me->move("/d/city/wumiao");
-	message_vision("Ö»Ìý¡°Æ¹¡±µØÒ»Éù£¬$N±»ÈËÒ»½ÅÌßÁË¹ýÀ´£¬Ä£ÑùÀÇ±·Íò×´¡£\n", me);
+	message_vision("åªå¬â€œä¹’â€åœ°ä¸€å£°ï¼Œ$Nè¢«äººä¸€è„šè¸¢äº†è¿‡æ¥ï¼Œæ¨¡æ ·ç‹¼ç‹ˆä¸‡çŠ¶ã€‚\n", me);
 	me->unconcious();
 	me->start_busy(5);
 	return notify_fail("");
@@ -167,7 +167,7 @@ void killing(object ob)
 	if ((environment(ob)->query("no_fight")))
 		return;
 
-	message_vision("$N¶ÔÖø$nºÈµÀ£º¡¸" + RANK_D->query_rude(ob) + "£¡½ñÌì²»ÊÇÄãËÀ¾ÍÊÇÎÒÍö£¡¡¹\n", this_object(), ob);
+	message_vision("$Nå¯¹è‘—$nå–é“ï¼šã€Œ" + RANK_D->query_rude(ob) + "ï¼ä»Šå¤©ä¸æ˜¯ä½ æ­»å°±æ˜¯æˆ‘äº¡ï¼ã€\n", this_object(), ob);
 
 	copyto(ob);
 

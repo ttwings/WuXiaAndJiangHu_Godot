@@ -7,14 +7,14 @@ inherit CLOTH;
 
 void create()
 {
-	set_name(HIY "»¤·¨ôÂôÄ" NOR, ({"hufa jiasha", "jiasha", "cloth"}));
+	set_name(HIY "æŠ¤æ³•è¢ˆè£Ÿ" NOR, ({"hufa jiasha", "jiasha", "cloth"}));
 	set_weight(3000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
 		set("material", "cloth");
-		set("unit", "¼þ");
+		set("unit", "ä»¶");
 		set("armor_prop/armor", 15);
 	}
 	setup();

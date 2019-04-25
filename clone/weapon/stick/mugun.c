@@ -6,16 +6,16 @@ inherit STICK;
 
 void create()
 {
-	set_name("Ä¾¹÷", ({"bang"}));
+	set_name("æœ¨æ£", ({"bang"}));
 	set_weight(1400);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "¸ù");
+		set("unit", "æ ¹");
 		set("value", 100);
 		set("material", "wood");
-		set("wield_msg", "$N¡¸ºô¡¹µØÒ»Éù³é³öÒ»°Ñ$nÎÕÔÚÊÖÖĞ¡£\n");
+		set("wield_msg", "$Nã€Œå‘¼ã€åœ°ä¸€å£°æŠ½å‡ºä¸€æŠŠ$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
 	}
 	init_stick(15);
 	setup();

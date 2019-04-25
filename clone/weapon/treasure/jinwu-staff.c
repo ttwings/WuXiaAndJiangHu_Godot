@@ -1,4 +1,4 @@
-// jinwu-staff.c ½ğÎÚÕÈ
+// jinwu-staff.c é‡‘ä¹Œæ–
 // Last Modified by winder on Sep. 7 2001
 
 #include <ansi.h>
@@ -8,18 +8,18 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(YEL "½ğÎÚÕÈ" NOR, ({"jinwu zhang", "staff"}));
+	set_name(YEL "é‡‘ä¹Œæ–" NOR, ({"jinwu zhang", "staff"}));
 	set_weight(10000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "¸ù");
-		set("long", "ÕâÊÇÒ»¸ùÒÔÑ©É½½ğÎÚ¾«Ó¢ËùÖıµÄ³¤ÕÈ¡£\n");
+		set("unit", "æ ¹");
+		set("long", "è¿™æ˜¯ä¸€æ ¹ä»¥é›ªå±±é‡‘ä¹Œç²¾è‹±æ‰€é“¸çš„é•¿æ–ã€‚\n");
 		set("value", 5500);
 		set("material", "steel");
-		set("wield_msg", "$NÄÃÆğ½ğÎÚÕÈ£¬ÎèÁËÒ»È¦£¬Ö»¼ûÂşÌì½ğ¹âÉÁÒ«£¬Ñ¤ÈËÑÛÄ¿¡£\n");
-		set("unwield_msg", "$NºäµØÒ»Éù½«½ğÎÚÕÈ²åÔÚµØÉÏ£¬µØ¶¯É½Ò¡£¬ÍşÊÆ¾ªÈË¡£¡£\n");
+		set("wield_msg", "$Næ‹¿èµ·é‡‘ä¹Œæ–ï¼Œèˆäº†ä¸€åœˆï¼Œåªè§æ¼«å¤©é‡‘å…‰é—ªè€€ï¼Œç»šäººçœ¼ç›®ã€‚\n");
+		set("unwield_msg", "$Nè½°åœ°ä¸€å£°å°†é‡‘ä¹Œæ–æ’åœ¨åœ°ä¸Šï¼Œåœ°åŠ¨å±±æ‘‡ï¼Œå¨åŠ¿æƒŠäººã€‚ã€‚\n");
 	}
 	init_staff(100);
 	setup();

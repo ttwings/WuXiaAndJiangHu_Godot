@@ -6,15 +6,15 @@ inherit BOOTS;
 
 void create()
 {
-	set_name("²İĞ¬", ({"cao xie", "xie", "shoes"}));
+	set_name("è‰é‹", ({"cao xie", "xie", "shoes"}));
 	set_weight(900);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("long", "Ò»Ë«ÏçÏÂÈË´©µÄ²İĞ¬£®\n");
+		set("long", "ä¸€åŒä¹¡ä¸‹äººç©¿çš„è‰é‹ï¼\n");
 		set("material", "wood");
-		set("unit", "Ë«");
+		set("unit", "åŒ");
 		set("value", 10);
 	}
 	setup();

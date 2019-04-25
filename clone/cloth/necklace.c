@@ -6,13 +6,13 @@ inherit NECK;
 
 void create()
 {
-	set_name("ÏîÁ´", ({"xiang lian", "necklace"}));
+	set_name("é¡¹é“¾", ({"xiang lian", "necklace"}));
 	set_weight(800);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "´®");
+		set("unit", "ä¸²");
 		set("material", "pearl");
 		set("value", 100);
 		set("armor_prop/armor", 2);

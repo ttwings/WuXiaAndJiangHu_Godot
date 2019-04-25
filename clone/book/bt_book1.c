@@ -1,18 +1,18 @@
-// bt_book1.c Ò©Àí¾­
+// bt_book1.c è¯ç†ç»
 // Last Modified by Winder on May. 15 2001
 
 inherit ITEM;
 
 void create()
 {
-	set_name("Ò©Àí¾­", ({"yaoli jing", "jing", "yaoli"}));
+	set_name("è¯ç†ç»", ({"yaoli jing", "jing", "yaoli"}));
 	set_weight(1000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±¾");
-		set("long", "ÕâÊÇÒ»±¾½²ÊöÒ©ÀíµÄÊé¡£\n");
+		set("unit", "æœ¬");
+		set("long", "è¿™æ˜¯ä¸€æœ¬è®²è¿°è¯ç†çš„ä¹¦ã€‚\n");
 		set("value", 500);
 		set("material", "paper");
 		set("skill", ([

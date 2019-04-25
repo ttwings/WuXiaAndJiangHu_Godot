@@ -6,6 +6,7 @@
 .import/
 .vscode/
 .vscode
+*.vscode
 *.bin
 build
 *.pyc
@@ -14,3 +15,4 @@ build
 builtins
 .internal
 .import
+.vscode

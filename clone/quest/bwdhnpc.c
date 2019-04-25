@@ -11,8 +11,8 @@ inherit F_UNIQUE;
 
 void create()
 {
-        set_name("µÜ×Ó", ({"di zi"}));
-        set("gender", random(2) > 0 ? "Å®ĞÔ" : "ÄĞĞÔ");
+        set_name("å¼Ÿå­", ({"di zi"}));
+        set("gender", random(2) > 0 ? "å¥³æ€§" : "ç”·æ€§");
         set("attitude", "friendly");
         set("chat_chance", 30);
         set("chat_msg", ({
@@ -60,7 +60,7 @@ void init()
 
 void killing(object ob)
 {
-        message_vision("$N¶ÔÖø$nºÈµÀ£º¡¸" + RANK_D->query_rude(ob) + "£¡½ñÌì²»ÊÇÄãËÀ¾ÍÊÇÎÒÍö£¡¡¹\n", this_object(), ob);
+        message_vision("$Nå¯¹è‘—$nå–é“ï¼šã€Œ" + RANK_D->query_rude(ob) + "ï¼ä»Šå¤©ä¸æ˜¯ä½ æ­»å°±æ˜¯æˆ‘äº¡ï¼ã€\n", this_object(), ob);
         this_object()->kill_ob(ob);
         return;
 }
@@ -121,10 +121,10 @@ void die()
                 me->add("potential", pot);
                 me->add("score", score);
                 me->add_temp("bwdh_nknum", 1);
-                message_vision("$N¶Ô×ÅÄãºŞºŞµÄËµ£º¡°Ã÷Äê´ËÊ±ÔÙÀ´Áì½Ì¸óÏÂ¸ßÕĞ£¡¡±\n", ob);
-                tell_object(me, HIW "ÄãÔÚÂÛ½£ÖĞÕ½Ê¤¶ÔÊÖ£¬µÃµ½ÈçÏÂ½±Àø£º\n");
-                tell_object(me, chinese_number(exp) + "µãÊµÕ½¾­Ñé\n" +
-                                    chinese_number(pot) + "µãÇ±ÄÜ¡£\n" NOR);
+                message_vision("$Nå¯¹ç€ä½ æ¨æ¨çš„è¯´ï¼šâ€œæ˜å¹´æ­¤æ—¶å†æ¥é¢†æ•™é˜ä¸‹é«˜æ‹›ï¼â€\n", ob);
+                tell_object(me, HIW "ä½ åœ¨è®ºå‰‘ä¸­æˆ˜èƒœå¯¹æ‰‹ï¼Œå¾—åˆ°å¦‚ä¸‹å¥–åŠ±ï¼š\n");
+                tell_object(me, chinese_number(exp) + "ç‚¹å®æˆ˜ç»éªŒ\n" +
+                                    chinese_number(pot) + "ç‚¹æ½œèƒ½ã€‚\n" NOR);
         }
         destruct(ob);
         //        ::die();

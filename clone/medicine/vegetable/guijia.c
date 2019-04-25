@@ -1,4 +1,4 @@
-// guijia.c ÎÚ¹ê¼×
+// guijia.c ä¹Œé¾Ÿç”²
 
 inherit ITEM;
 #include <ansi.h>
@@ -11,13 +11,13 @@ void init()
 
 void create()
 {
-	set_name(HIB "ÎÚ¹ê¼×" NOR, ({"gui jia", "jia"}));
+	set_name(HIB "ä¹Œé¾Ÿç”²" NOR, ({"gui jia", "jia"}));
 	set_weight(800);
 	set("vegetable", 2);
 	set("value", 300);
 	set("nostrum", 64);
-	set("unit", "¿é");
-	set("long", "ÕâÊÇÒ»¿éÎÚ¹ê¼×£¬ÉÏÃæÓĞ¸÷ÖÖ»¨ÎÆ£¬¿´À´¿ÉÒÔÈëÒ©¡£\n");
+	set("unit", "å—");
+	set("long", "è¿™æ˜¯ä¸€å—ä¹Œé¾Ÿç”²ï¼Œä¸Šé¢æœ‰å„ç§èŠ±çº¹ï¼Œçœ‹æ¥å¯ä»¥å…¥è¯ã€‚\n");
 	set("pour_type", "1");
 	setup();
 }
@@ -27,12 +27,12 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 
-	write("Äã²»ÄÜÕâÑù¾Í¿Ğ¹ê¼×¡£\n");
+	write("ä½ ä¸èƒ½è¿™æ ·å°±å•ƒé¾Ÿç”²ã€‚\n");
 	return 1;
 }

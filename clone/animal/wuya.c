@@ -5,10 +5,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("��ѻ", ({"wuya", "crow"}));
-	set("race", "����");
+	set_name("乌鸦", ({"wuya", "crow"}));
+	set("race", "飞禽");
 	set("age", 3);
-	set("long", "һֻ��ɫ����ѻ����ª���ˡ�\n");
+	set("long", "一只黑色的乌鸦，丑陋极了。\n");
 	set("attitude", "peaceful");
 
 	set("combat_exp", 300);
@@ -20,8 +20,8 @@ void create()
 
 	set("chat_chance", 10);
 	set("chat_msg", ({
-						"��ѻ���¸¡����˼�����\n",
-						"��ѻ�е������¸¡���\n",
-						"��ѻ������ǰ���Ϸ��¡�\n",
+						"乌鸦「嘎嘎」叫了几声。\n",
+						"乌鸦叫道：「嘎嘎」。\n",
+						"乌鸦在你眼前飞上飞下。\n",
 					}));
 }

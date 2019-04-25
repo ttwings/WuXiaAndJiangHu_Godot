@@ -2,10 +2,10 @@
 inherit BULLETIN_BOARD;
 void create()
 {
-	set_name("bug´¦Àí°æ", ({"board"}));
+	set_name("bugå¤„ç†ç‰ˆ", ({"board"}));
 	set("location", "/d/wizard/bug_room");
 	set("board_id", "bug_b");
-	set("long", "ÕâÊÇÒ»¸ö×¨¹©Î×Ê¦´¦ÀíÍæ¼Ò¾Ù±¨bugµÄÁôÑÔ°å¡£\n");
+	set("long", "è¿™æ˜¯ä¸€ä¸ªä¸“ä¾›å·«å¸ˆå¤„ç†ç©å®¶ä¸¾æŠ¥bugçš„ç•™è¨€æ¿ã€‚\n");
 	setup();
 	set("capacity", 100);
 	replace_program(BULLETIN_BOARD);

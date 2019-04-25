@@ -1,23 +1,23 @@
-// changqiang.c ³¤Ç¹
+// changqiang.c é•¿æª
 
 #include <weapon.h>
 inherit SPEAR;
 
 void create()
 {
-	set_name("³¤Ç¹", ({"changqiang"}));
+	set_name("é•¿æª", ({"changqiang"}));
 	set_weight(5000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "¸Ë");
-		set("long", "ÕâÊÇÒ»¸ù°×Ó§³¤¸ÖÇ¹£¬³¤¿ÉÕÉ¶ş£¬Ç¹Í·ÒşÒşÍ¸³öº®¹â¡£\n");
+		set("unit", "æ†");
+		set("long", "è¿™æ˜¯ä¸€æ ¹ç™½ç¼¨é•¿é’¢æªï¼Œé•¿å¯ä¸ˆäºŒï¼Œæªå¤´éšéšé€å‡ºå¯’å…‰ã€‚\n");
 		set("value", 1500);
 		set("rigidity", 100);
 		set("material", "steel");
-		set("wield_msg", "$N³¸³öÒ»¸Ë$nÎÕÔÚÊÖÖĞ¡£\n");
-		set("unwield_msg", "$N½«ÊÖÖĞµÄ$n·´±ğÉíºó¡£\n");
+		set("wield_msg", "$Næ£å‡ºä¸€æ†$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+		set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$nååˆ«èº«åã€‚\n");
 	}
 	init_spear(25);
 	setup();

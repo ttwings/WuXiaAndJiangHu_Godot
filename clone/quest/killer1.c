@@ -6,12 +6,12 @@ int do_back(object me);
 
 void create()
 {
-	set_name("ºÚÒÂÈË", ({"heiyi ren", "ren"}));
-	set("gender", "ÄĞĞÔ");
+	set_name("é»‘è¡£äºº", ({"heiyi ren", "ren"}));
+	set("gender", "ç”·æ€§");
 	set("quest_no_guard", 1);
 	set("no_steal", 1);
 	set("no_ansuan", 1);
-	set("long", "Ò»¸ö´©×ÅºÚÉ«Ò¹ĞĞÒÂµÄÈË¡£\n");
+	set("long", "ä¸€ä¸ªç©¿ç€é»‘è‰²å¤œè¡Œè¡£çš„äººã€‚\n");
 	set("chat_chance_combat", 80);
 	set("chat_msg_combat", ({
 							   (
@@ -31,7 +31,7 @@ int do_back(object me)
 {
 	if (objectp(environment(me)))
 	{
-		tell_room(environment(me), me->query("name") + "´Ò´ÒÃ¦Ã¦µÄÀë¿ªÁË¡£\n", ({me}));
+		tell_room(environment(me), me->query("name") + "åŒ†åŒ†å¿™å¿™çš„ç¦»å¼€äº†ã€‚\n", ({me}));
 		destruct(me);
 	}
 	return 1;
@@ -77,14 +77,14 @@ void die()
 			}
 			me->add("combat_exp", exp);
 			me->add("potential", pot);
-			me->set_temp("prize_reason", "×·É±");
+			me->set_temp("prize_reason", "è¿½æ€");
 			me->set_temp("can_give_prize", 1);
 			me->set_temp("prize_exp", exp);
 			me->set_temp("prize_pot", pot);
 
-			tell_object(me, HIW "¾­¹ıÕâ·¬ÀúÁ·£¬\nÄã±»½±ÀøÁË£º\n");
-			tell_object(me, chinese_number(exp) + "µãÊµÕ½¾­Ñé\n" +
-								chinese_number(pot) + "µãÇ±ÄÜ\n" NOR);
+			tell_object(me, HIW "ç»è¿‡è¿™ç•ªå†ç»ƒï¼Œ\nä½ è¢«å¥–åŠ±äº†ï¼š\n");
+			tell_object(me, chinese_number(exp) + "ç‚¹å®æˆ˜ç»éªŒ\n" +
+								chinese_number(pot) + "ç‚¹æ½œèƒ½\n" NOR);
 		}
 	}
 	me = find_player(ob->query("owner"));
@@ -96,7 +96,7 @@ void die()
 int accept_fight(object ob)
 {
 	add_temp("killer", ob);
-	command("say ºÃ£¡ÔÛÃÇ¾Í±È»®±È»®£¡");
+	command("say å¥½ï¼å’±ä»¬å°±æ¯”åˆ’æ¯”åˆ’ï¼");
 	kill_ob(ob);
 	return 1;
 }
@@ -104,7 +104,7 @@ int accept_fight(object ob)
 int accept_hit(object ob)
 {
 	add_temp("killer", ob);
-	command("say ÄãËÀÈ¥°É£¡");
+	command("say ä½ æ­»å»å§ï¼");
 	kill_ob(ob);
 	return 1;
 }
@@ -112,8 +112,8 @@ int accept_hit(object ob)
 int accept_kill(object ob)
 {
 	add_temp("killer", ob);
-	command("say ºß£¡ÕÒËÀ£¡");
+	command("say å“¼ï¼æ‰¾æ­»ï¼");
 	return 1;
 }
-int accept_ansuan(object who) { return notify_fail("´ËÈË¾¯ÌèĞÔÌ«¸ß£¬Ã»·¨°µËã¡£\n"); }
+int accept_ansuan(object who) { return notify_fail("æ­¤äººè­¦æƒ•æ€§å¤ªé«˜ï¼Œæ²¡æ³•æš—ç®—ã€‚\n"); }
 int accept_touxi(object who) { return accept_kill(who); }

@@ -5,13 +5,13 @@
 inherit BOOTS;
 void create()
 {
-	set_name(MAG "ϸ���ϻ�Ь" NOR, ({"zihua xie", "xie", "shoes"}));
+	set_name(MAG "细碎紫花鞋" NOR, ({"zihua xie", "xie", "shoes"}));
 	set_weight(1000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "˫");
+		set("unit", "双");
 		set("value", 600);
 		set("material", "silk");
 		set("armor_prop/armor", 1);

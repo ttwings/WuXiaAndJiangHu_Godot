@@ -1,18 +1,18 @@
-// ziyun_book3.c  ×ÏëµÍâÆ×
+// ziyun_book3.c  ç´«æ°²å¤–è°±
 #include <ansi.h>
 inherit ITEM;
 
 void create()
 {
-	set_name(HIM "×ÏëµÍâÆ×" NOR, ({"ziyun_book", "book"}));
+	set_name(HIM "ç´«æ°²å¤–è°±" NOR, ({"ziyun_book", "book"}));
 	set_weight(600);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±¾");
+		set("unit", "æœ¬");
 		set("long",
-			"ÕâÊÇÒ»±¾±¡±¡µÄ²áÒ³¡£\n");
+			"è¿™æ˜¯ä¸€æœ¬è–„è–„çš„å†Œé¡µã€‚\n");
 		set("value", 1000);
 		set("material", "paper");
 		set("skill", ([

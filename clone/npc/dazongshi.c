@@ -1,4 +1,4 @@
-// dazongshi.c ´ó×ÚÊ¦
+// dazongshi.c å¤§å®—å¸ˆ
 
 #include <ansi.h>
 inherit NPC;
@@ -6,9 +6,9 @@ string ask_me();
 
 void create()
 {
-	set_name("´ó×ÚÊ¦", ({"da zongshi", "zongshi"}));
-	set("long", "Ëû¾ÍÊÇ½­ºþµÄ´ó×ÚÊ¦¡£ÄãÖ»ÓÐÏÈÏòËûÌôÕ½£¬²ÅÄÜ»ñµÃ½­ºþ¶ÔÄãÊµÁ¦ºÍµØÎ»µÄ³ÐÈÏ¡£\n");
-	set("gender", "ÄÐÐÔ");
+	set_name("å¤§å®—å¸ˆ", ({"da zongshi", "zongshi"}));
+	set("long", "ä»–å°±æ˜¯æ±Ÿæ¹–çš„å¤§å®—å¸ˆã€‚ä½ åªæœ‰å…ˆå‘ä»–æŒ‘æˆ˜ï¼Œæ‰èƒ½èŽ·å¾—æ±Ÿæ¹–å¯¹ä½ å®žåŠ›å’Œåœ°ä½çš„æ‰¿è®¤ã€‚\n");
+	set("gender", "ç”·æ€§");
 	set("age", 40);
 	set("class", "taoist");
 	set("attitude", "friendly");
@@ -75,17 +75,17 @@ void create()
 	map_skill("parry", "liangyi-jian");
 	map_skill("sword", "taiji-jian");
 	set("inquiry", ([
-					   "ÃëÉ±":(
+					   "ç§’æ€":(
 								  : ask_me:),
-					   "³öÊÖ":(
+					   "å‡ºæ‰‹":(
 								  : ask_me:),
-					   "É±ÊÖ":(
+					   "æ€æ‰‹":(
 								  : ask_me:),
-					   "ÌôÕ½":(
+					   "æŒ‘æˆ˜":(
 								  : ask_me:),
-					   "Æ·ÆÀ":(
+					   "å“è¯„":(
 								  : ask_me:),
-					   "Îä¹¦":(
+					   "æ­¦åŠŸ":(
 								  : ask_me:),
 	]));
 	setup();
@@ -98,7 +98,7 @@ string ask_me()
 	object me = this_player(), ob = this_object();
 
 	if (me->query("combat_exp") < 500000)
-		return "µÈÄãµÄ¾­Ñé´Õ¹»ÁËÎåÊ®Íò£¬ÔÙÀ´ÕÒÎÒ°É¡£";
+		return "ç­‰ä½ çš„ç»éªŒå‡‘å¤Ÿäº†äº”åä¸‡ï¼Œå†æ¥æ‰¾æˆ‘å§ã€‚";
 	ob->set("killer/id", me->query("id"));
 	ob->set("killer/time", time());
 	set("eff_qi", 6000);
@@ -112,7 +112,7 @@ string ask_me()
 	command("yun powerup");
 	set("neili", 5000);
 	set("jiali", 100);
-	return "ºÃ°É£¬ÄÇ¾ÍÀ´°É¡£";
+	return "å¥½å§ï¼Œé‚£å°±æ¥å§ã€‚";
 }
 void die()
 {
@@ -128,14 +128,14 @@ void die()
 			new_killer = 12345 / (time() - ob->query("killer/time"));
 			if (me[i]->query("KILLER") >= new_killer)
 			{
-				tell_object(me[i], HIR "\n´ó×ÚÊ¦ÁÙËÀÇ°¸æËßÄã£º¡°Ã»ÓÐ½ø²½£¬°×À´Ò»ÌË¡£¡±\n" NOR);
+				tell_object(me[i], HIR "\nå¤§å®—å¸ˆä¸´æ­»å‰å‘Šè¯‰ä½ ï¼šâ€œæ²¡æœ‰è¿›æ­¥ï¼Œç™½æ¥ä¸€è¶Ÿã€‚â€\n" NOR);
 				if (me[i]->quert("zongshi_winner") < 3)
 					me[i]->add("score", -5000);
 			}
 			else
 			{
-				tell_object(me[i], HIR "\n´ó×ÚÊ¦ÁÙËÀÇ°¸æËßÄã£º¡°ºÃ£¬ºÃ£¡ºÃ£¡Ã»ÓÐ°×À´ÕâÒ»ÌË¡£¡±\n" NOR);
-				message("channel:chat", HIM "¡¾ÏÐÁÄ¡¿Ä³ÈË£º" + me[i]->query("name") + chinese_number(time() - ob->query("killer/time")) + "ÃëÖÐ´ÌÉ±´ó×ÚÊ¦³É¹¦¡£\n" NOR, users());
+				tell_object(me[i], HIR "\nå¤§å®—å¸ˆä¸´æ­»å‰å‘Šè¯‰ä½ ï¼šâ€œå¥½ï¼Œå¥½ï¼å¥½ï¼æ²¡æœ‰ç™½æ¥è¿™ä¸€è¶Ÿã€‚â€\n" NOR);
+				message("channel:chat", HIM "ã€é—²èŠã€‘æŸäººï¼š" + me[i]->query("name") + chinese_number(time() - ob->query("killer/time")) + "ç§’ä¸­åˆºæ€å¤§å®—å¸ˆæˆåŠŸã€‚\n" NOR, users());
 				me[i]->set("KILLER", new_killer);
 				me[i]->add("zongshi_winner", 1);
 				if (me[i]->quert("zongshi_winner") < 3)

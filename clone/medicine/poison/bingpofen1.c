@@ -6,17 +6,17 @@ inherit COMBINED_ITEM;
 
 void create()
 {
-	set_name(HIB "µãÈ¼µÄ±ùÆÇ·Û" NOR, ({"bingpo fen", "fen", "bingpo"}));
+	set_name(HIB "ç‚¹ç‡ƒçš„å†°é­„ç²‰" NOR, ({"bingpo fen", "fen", "bingpo"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("long", "Ò»°üÍ¸×ÅÒõÉîÀäÆøµÄ¶¾·Û¡£ÒÑ¾­µãÈ¼£¬¿ÉÒÔÍ¿(tu)ÔÚ±øÆ÷ÉÏÁË¡£\n");
-		set("unit", "Ğ©");
+		set("long", "ä¸€åŒ…é€ç€é˜´æ·±å†·æ°”çš„æ¯’ç²‰ã€‚å·²ç»ç‚¹ç‡ƒï¼Œå¯ä»¥æ¶‚(tu)åœ¨å…µå™¨ä¸Šäº†ã€‚\n");
+		set("unit", "äº›");
 		set("base_value", 5000);
-		set("base_unit", "°ü");
+		set("base_unit", "åŒ…");
 		set("base_weight", 30);
-		set("drug_color", "" HIB "ÒõÆøÉ­É­" NOR "");
+		set("drug_color", "" HIB "é˜´æ°”æ£®æ£®" NOR "");
 		set("pour_type", "bing_poison");
 	}
 	set_amount(1);

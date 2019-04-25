@@ -1,21 +1,21 @@
-// Éñ»°ÊÀ½ç¡¤Î÷ÓÎ¼Ç¡¤°æ±¾£´£®£µ£°
+// ç¥è¯ä¸–ç•ŒÂ·è¥¿æ¸¸è®°Â·ç‰ˆæœ¬ï¼”ï¼ï¼•ï¼
 /* <SecCrypt CPL V3R05> */
 
-// xueli.c Ñ©Àæ
+// xueli.c é›ªæ¢¨
 
 inherit ITEM;
 inherit F_FOOD;
 
 void create()
 {
-  set_name("²İİ®", ({"cao mei", "strawberry", "caomei"}));
+  set_name("è‰è“", ({"cao mei", "strawberry", "caomei"}));
   set_weight(40);
   if (clonep())
     set_default_object(__FILE__);
   else
   {
-    set("long", "ÏÊºìµÄ²İİ®¡£\n");
-    set("unit", "°Ñ");
+    set("long", "é²œçº¢çš„è‰è“ã€‚\n");
+    set("unit", "æŠŠ");
     set("value", 120);
     set("food_remaining", 4);
     set("food_supply", 30);

@@ -1,16 +1,16 @@
-// head.c -ÄÔ´ü
+// head.c -è„‘è¢‹
 #include <ansi.h>
 inherit ITEM;
 void create()
 {
-    set_name(RED "Í·Â­" NOR, ({"head"}));
+    set_name(RED "å¤´é¢…" NOR, ({"head"}));
     set_weight(300);
     if (clonep())
         set_default_object(__FILE__);
     else
     {
-        set("unit", "¿Å");
+        set("unit", "é¢—");
         set("value", 10);
-        set("long", RED "Ò»¿ÅÏÊÑªÁÜÁÜµÄÊ×¼¶£¬Ğë·¢É¢ÂÒ£¬ÓàÑªÕı»º»ºÉø³ö¡£\n" NOR);
+        set("long", RED "ä¸€é¢—é²œè¡€æ·‹æ·‹çš„é¦–çº§ï¼Œé¡»å‘æ•£ä¹±ï¼Œä½™è¡€æ­£ç¼“ç¼“æ¸—å‡ºã€‚\n" NOR);
     }
 }

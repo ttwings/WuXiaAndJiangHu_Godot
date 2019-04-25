@@ -6,10 +6,10 @@ inherit NPC;
 void create()
 {
 	set("level", 0);
-	set_name("ÆßÉ±ÃÅÉ±ÊÖ", ({"sha shou", "sha", "shou"}));
-	set("gender", "ÄĞĞÔ");
+	set_name("ä¸ƒæ€é—¨æ€æ‰‹", ({"sha shou", "sha", "shou"}));
+	set("gender", "ç”·æ€§");
 	set("age", 30);
-	set("long", "ËûÊÇÆßÉ±ÃÅµÄÉ±ÊÖ¡£\n");
+	set("long", "ä»–æ˜¯ä¸ƒæ€é—¨çš„æ€æ‰‹ã€‚\n");
 	set("per", 10);
 	set("attitude", "peaceful");
 
@@ -82,7 +82,7 @@ void killing(object ob)
 		return;
 	if (player_exp >= query("min_kill_exp"))
 	{
-		message_vision("$N¶ÔÖø$nºÈµÀ£º¡¸" + RANK_D->query_rude(ob) + "£¡½ñÌì²»ÊÇÄãËÀ¾ÍÊÇÎÒÍö£¡¡¹\n", this_object(), ob);
+		message_vision("$Nå¯¹è‘—$nå–é“ï¼šã€Œ" + RANK_D->query_rude(ob) + "ï¼ä»Šå¤©ä¸æ˜¯ä½ æ­»å°±æ˜¯æˆ‘äº¡ï¼ã€\n", this_object(), ob);
 		this_object()->kill_ob(ob);
 	}
 	return;
@@ -113,11 +113,11 @@ void die()
 		me->add("potential", pot);
 		me->add("score", score);
 		me->add_temp("hj_killer", 1);
-		message_vision("$NÒ§ÑÀÇĞ³İµØ¶Ô×ÅÌì¿Õ´ó½Ğ£º¡°ÔôÀÏÌì£¡¡±\n", ob);
-		tell_object(me, HIW "ÄãÉ±µĞÓĞ¹¦£¬µÃµ½ÈçÏÂ½±Àø£º\n");
-		tell_object(me, chinese_number(exp) + "µãÊµÕ½¾­Ñé\n" +
-												chinese_number(pot) + "µãÇ±ÄÜ\n" +
-												chinese_number(score) + "µã½­ºşÔÄÀú\n" NOR);
+		message_vision("$Nå’¬ç‰™åˆ‡é½¿åœ°å¯¹ç€å¤©ç©ºå¤§å«ï¼šâ€œè´¼è€å¤©ï¼â€\n", ob);
+		tell_object(me, HIW "ä½ æ€æ•Œæœ‰åŠŸï¼Œå¾—åˆ°å¦‚ä¸‹å¥–åŠ±ï¼š\n");
+		tell_object(me, chinese_number(exp) + "ç‚¹å®æˆ˜ç»éªŒ\n" +
+												chinese_number(pot) + "ç‚¹æ½œèƒ½\n" +
+												chinese_number(score) + "ç‚¹æ±Ÿæ¹–é˜…å†\n" NOR);
 	}
 	if (sword = present("long sword", environment(ob)))
 		destruct(sword);

@@ -5,14 +5,14 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIW "Ñ©É½½£Æ×" NOR, ({"swordbook", "book"}));
+	set_name(HIW "é›ªå±±å‰‘è°±" NOR, ({"swordbook", "book"}));
 	set_weight(600);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±¾");
-		set("long", "ÕâÊÇÒ»±¾ÁèÏö³ÇµÄ½£·¨ÃØ¼®£¬·âÃæÉÏĞ´×ÅËÄ¸ö×Ö¡°Ñ©É½½£·¨¡±¡£\n");
+		set("unit", "æœ¬");
+		set("long", "è¿™æ˜¯ä¸€æœ¬å‡Œéœ„åŸçš„å‰‘æ³•ç§˜ç±ï¼Œå°é¢ä¸Šå†™ç€å››ä¸ªå­—â€œé›ªå±±å‰‘æ³•â€ã€‚\n");
 		set("value", 1000);
 		set("material", "paper");
 		set("skill", ([

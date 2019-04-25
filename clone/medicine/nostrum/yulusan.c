@@ -1,4 +1,4 @@
-// yulusan.c ÓñÂ¶ÇåĞÂÉ¢
+// yulusan.c ç‰éœ²æ¸…æ–°æ•£
 
 #include <ansi.h>
 
@@ -16,18 +16,18 @@ void init()
 
 void create()
 {
-	set_name(HIG "ÓñÂ¶ÇåĞÂÉ¢" NOR, ({"yulu qingxinsan", "yulu", "san"}));
+	set_name(HIG "ç‰éœ²æ¸…æ–°æ•£" NOR, ({"yulu qingxinsan", "yulu", "san"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "°ü");
+		set("unit", "åŒ…");
 		set("vegetable", 11);
 		set("nostrum", 22);
 		set("level", 130);
-		set("long", "ÕâÊÇÒ»°üµ­ÂÌ¾§Ó¨µÄÓñÂ¶ÇåĞÂÉ¢¡£¾İËµÄËÄ½ÈİÊÀ¼ÒµÄÕäÒ©£¬Ìá¸ß¹¦Á¦£¬ÁéĞ§ÎŞ±È¡£\n");
+		set("long", "è¿™æ˜¯ä¸€åŒ…æ·¡ç»¿æ™¶è¹çš„ç‰éœ²æ¸…æ–°æ•£ã€‚æ®è¯´ä¹ƒæ…•å®¹ä¸–å®¶çš„çè¯ï¼Œæé«˜åŠŸåŠ›ï¼Œçµæ•ˆæ— æ¯”ã€‚\n");
 		set("value", 10000);
-		set("no_drop", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄã¡£\n");
+		set("no_drop", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€ä½ ã€‚\n");
 	}
 	set("pour_type", "1");
 	setup();
@@ -42,17 +42,17 @@ int do_eat(string arg)
 	neili_limit = me->query("max_neili");
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 
 	me->start_busy(2);
 	if (me->query_skill_mapped("force") != "shenyuan-gong")
 	{
 		me->add("max_neili", -10);
-		message_vision(HIR "$N³ÔÏÂÒ»°üÓñÂ¶ÇåĞÂÉ¢£¬Ö»¾õµÃ¸Î³¦´ç¶Ï£¬Ô­À´ËùÁ·ÄÚ¹¦²»·û£¬·´¶ø´óËğÕæÔª£¡\n" NOR, me);
+		message_vision(HIR "$Nåƒä¸‹ä¸€åŒ…ç‰éœ²æ¸…æ–°æ•£ï¼Œåªè§‰å¾—è‚è‚ å¯¸æ–­ï¼ŒåŸæ¥æ‰€ç»ƒå†…åŠŸä¸ç¬¦ï¼Œåè€Œå¤§æŸçœŸå…ƒï¼\n" NOR, me);
 		//		me->unconcious();
 		me->start_busy(10);
 	}
@@ -61,12 +61,12 @@ int do_eat(string arg)
 		if ((int)me->query_condition("bonze_drug") > 0)
 		{
 			me->add("max_neili", -1);
-			message_vision(HIR "$N³ÔÏÂÒ»°üÓñÂ¶ÇåĞÂÉ¢£¬Ö»¾õµÃÍ·ÖØ½ÅÇá£¬Ò¡Ò¡Óûµ¹£¬Ô­À´·şÊ³Ì«¼±Ì«¶à£¬Ò©Ğ§ÊÊµÃÆä·´£¡\n" NOR, me);
+			message_vision(HIR "$Nåƒä¸‹ä¸€åŒ…ç‰éœ²æ¸…æ–°æ•£ï¼Œåªè§‰å¾—å¤´é‡è„šè½»ï¼Œæ‘‡æ‘‡æ¬²å€’ï¼ŒåŸæ¥æœé£Ÿå¤ªæ€¥å¤ªå¤šï¼Œè¯æ•ˆé€‚å¾—å…¶åï¼\n" NOR, me);
 		}
 		else if (neili_limit <= force_limit)
 		{
 			me->add("max_neili", 1);
-			message_vision(HIG "$N³ÔÏÂÒ»°üÓñÂ¶ÇåĞÂÉ¢£¬Ö»¾õµÃÌåÄÚÕæÁ¦Ô´Ô´×ÌÉú£¬¹ı×Ï¹¬£¬ÈëÄàÍè\nÍ¸Ê®¶şÖØÂ¥£¬±é²¼Ææ½î°ËÂö£¬È«Éí¹¦Á¦¶ÙÈ»Ìá¸ß !\n" NOR, me);
+			message_vision(HIG "$Nåƒä¸‹ä¸€åŒ…ç‰éœ²æ¸…æ–°æ•£ï¼Œåªè§‰å¾—ä½“å†…çœŸåŠ›æºæºæ»‹ç”Ÿï¼Œè¿‡ç´«å®«ï¼Œå…¥æ³¥ä¸¸\né€åäºŒé‡æ¥¼ï¼Œéå¸ƒå¥‡ç­‹å…«è„‰ï¼Œå…¨èº«åŠŸåŠ›é¡¿ç„¶æé«˜ !\n" NOR, me);
 		}
 		me->apply_condition("bonze_drug", 60);
 	}

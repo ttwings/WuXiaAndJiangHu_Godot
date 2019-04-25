@@ -1,4 +1,4 @@
-// muchui.c Ä¾´¸
+// muchui.c æœ¨é”¤
 
 #include <weapon.h>
 
@@ -6,18 +6,18 @@ inherit HAMMER;
 
 void create()
 {
-	set_name("Ä¾´¸", ({"hammer"}));
+	set_name("æœ¨é”¤", ({"hammer"}));
 	set_weight(8000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "°Ñ");
-		set("long", "Ò»¸ùÏ÷µÃºÜ¾«ÖÂµÄ¶Ì´¸¡£\n");
+		set("unit", "æŠŠ");
+		set("long", "ä¸€æ ¹å‰Šå¾—å¾ˆç²¾è‡´çš„çŸ­é”¤ã€‚\n");
 		set("value", 3);
 		set("material", "iron");
-		set("wield_msg", "$NÄÃ³öÒ»°Ñ$n£¬ÊÔÁËÊÔÖØÁ¿£¬È»ááÎÕÔÚÊÖÖĞ¡£\n");
-		set("unwield_msg", "$N·ÅÏÂÊÖÖĞµÄ$n¡£\n");
+		set("wield_msg", "$Næ‹¿å‡ºä¸€æŠŠ$nï¼Œè¯•äº†è¯•é‡é‡ï¼Œç„¶å¾Œæ¡åœ¨æ‰‹ä¸­ã€‚\n");
+		set("unwield_msg", "$Næ”¾ä¸‹æ‰‹ä¸­çš„$nã€‚\n");
 	}
 
 	init_hammer(2);

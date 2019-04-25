@@ -1,4 +1,4 @@
-// xue-dao.c Ñªµ¶
+// xue-dao.c è¡€åˆ€
 // Last Modified by winder on Sep. 7 2001
 
 #include <ansi.h>
@@ -8,18 +8,18 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(HIR "Ñªµ¶" NOR, ({"blood blade", "blade", "dao"}));
+	set_name(HIR "è¡€åˆ€" NOR, ({"blood blade", "blade", "dao"}));
 	set_weight(30000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "°Ñ");
-		set("long", HIR "ÕâÊÇÒ»°Ñ²øÔÚÑü¼äµÄ±¦µ¶£¬µ¶·æ´ø×Åµ­µ­µÄÑªÓ°¡£\n" NOR);
+		set("unit", "æŠŠ");
+		set("long", HIR "è¿™æ˜¯ä¸€æŠŠç¼ åœ¨è…°é—´çš„å®åˆ€ï¼Œåˆ€é”‹å¸¦ç€æ·¡æ·¡çš„è¡€å½±ã€‚\n" NOR);
 		set("value", 1000);
 		set("material", "steel");
-		set("wield_msg", "$N¡¸à§¡¹µÄÒ»Éù³é³öÒ»±ú$nÎÕÔÚÊÖÖÐ¡£\n");
-		set("unwield_msg", "$N½«ÊÖÖÐµÄ$n²å»Øµ¶ÇÊ¡£\n");
+		set("wield_msg", "$Nã€Œå”°ã€çš„ä¸€å£°æŠ½å‡ºä¸€æŸ„$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+		set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$næ’å›žåˆ€éž˜ã€‚\n");
 	}
 	init_blade(200);
 	setup();
@@ -39,18 +39,18 @@ int do_wield(string arg)
 	string str;
 	int i, count;
 
-	if (!id(arg)) return notify_fail("ÄãÒª×°±¸Ê²Ã´£¿\n");
+	if (!id(arg)) return notify_fail("ä½ è¦è£…å¤‡ä»€ä¹ˆï¼Ÿ\n");
 
 	if( !objectp(ob = present(arg, me)) )
-		return notify_fail("ÄãÉíÉÏÃ»ÓÐÕâÑù¶«Î÷¡£\n");
+		return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰è¿™æ ·ä¸œè¥¿ã€‚\n");
 
 	if( ob->query("equipped") )
-		return notify_fail("ÄãÒÑ¾­×°±¸ÖøÁË¡£\n");
+		return notify_fail("ä½ å·²ç»è£…å¤‡è‘—äº†ã€‚\n");
 
 
 	if( ob->wield() ) {
 	      if( !stringp(str = ob->query("wield_msg")) )
-			str = "$N×°±¸$n×÷ÎäÆ÷¡£\n";
+			str = "$Nè£…å¤‡$nä½œæ­¦å™¨ã€‚\n";
 	      message_vision(str, me, ob);
 	      if ( me->query_skill("xue-dao")
 	      && me->query_skill_mapped("blade") == "xue-dao" )
@@ -69,17 +69,17 @@ int do_unwield(string arg)
 	string str;
 	int i;
 
-	if( !arg ) return notify_fail("ÄãÒªÍÑµôÊ²Ã´£¿\n");
+	if( !arg ) return notify_fail("ä½ è¦è„±æŽ‰ä»€ä¹ˆï¼Ÿ\n");
 
 	if( !objectp(ob = present(arg, me)) )
-		return notify_fail("ÄãÉíÉÏÃ»ÓÐÕâÑù¶«Î÷¡£\n");
+		return notify_fail("ä½ èº«ä¸Šæ²¡æœ‰è¿™æ ·ä¸œè¥¿ã€‚\n");
 
 	if( (string)ob->query("equipped")!="wielded" )
-		return notify_fail("Äã²¢Ã»ÓÐ×°±¸ÕâÑù¶«Î÷×÷ÎªÎäÆ÷¡£\n");
+		return notify_fail("ä½ å¹¶æ²¡æœ‰è£…å¤‡è¿™æ ·ä¸œè¥¿ä½œä¸ºæ­¦å™¨ã€‚\n");
 
 	if( ob->unequip() ) {
 		if( !stringp(str = ob->query("unwield_msg")) )
-			str = "$N·ÅÏÂÊÖÖÐµÄ$n¡£\n";
+			str = "$Næ”¾ä¸‹æ‰‹ä¸­çš„$nã€‚\n";
 		message_vision(str, me, ob);
 		if ( me->query_skill("xue-dao")
 			&& me->query_skill_mapped("blade") == "xue-dao" )

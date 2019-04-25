@@ -1,9 +1,9 @@
 // mailbox.c
 // Last Modified by sir on 5.5.2002
-// ÏŞÖÆÍæ¼ÒÊÕĞÅ×ÜÊıÎª100·â wiz²»ÊÜ´ËÏŞÖÆ
+// é™åˆ¶ç©å®¶æ”¶ä¿¡æ€»æ•°ä¸º100å° wizä¸å—æ­¤é™åˆ¶
 
 #include <ansi.h>
-#define MAX_MAIL 20 //Íæ¼ÒÊÕĞÅ×ÜÊı
+#define MAX_MAIL 20 //ç©å®¶æ”¶ä¿¡æ€»æ•°
 
 inherit ITEM;
 inherit F_SAVE;
@@ -14,15 +14,15 @@ void confirm_copy(string yn, mapping mail);
 
 void create()
 {
-	set_name("ĞÅÏä", ({"mailbox", "box"}));
+	set_name("ä¿¡ç®±", ({"mailbox", "box"}));
 	set("long",
-		"ÕâÊÇ¸öÈËĞÅÏä£¬µ«ĞÅ¼şÄÚÈİ¶ÔÎ×Ê¦ÎŞ·¨±£ÃÜ£¬ÇëÎğÌ¸¼°¸öÈËÒşË½£º\n\n"
-		"mailto  <Ä³ÈË>            ¼ÄĞÅ¸ø±ğÈË¡£\n"
-		"forward <ĞÅ¼ş±àºÅ> <Ä³ÈË> ½«Ä³·âĞÅ×ª¼Ä¸ø±ğÈË¡£\n"
-		"from                      ²é¿´ĞÅÏäÖĞµÄĞÅ¼ş¡£\n"
-		"read    <ĞÅ¼ş±àºÅ>        ÔÄ¶ÁÄ³Ò»·âĞÅ¼ş¡£\n"
-		"discard <ĞÅ¼ş±àºÅ>        ¶ªÆúÒ»·âĞÅ¼ş¡£\n");
-	set("unit", "¸ö");
+		"è¿™æ˜¯ä¸ªäººä¿¡ç®±ï¼Œä½†ä¿¡ä»¶å†…å®¹å¯¹å·«å¸ˆæ— æ³•ä¿å¯†ï¼Œè¯·å‹¿è°ˆåŠä¸ªäººéšç§ï¼š\n\n"
+		"mailto  <æŸäºº>            å¯„ä¿¡ç»™åˆ«äººã€‚\n"
+		"forward <ä¿¡ä»¶ç¼–å·> <æŸäºº> å°†æŸå°ä¿¡è½¬å¯„ç»™åˆ«äººã€‚\n"
+		"from                      æŸ¥çœ‹ä¿¡ç®±ä¸­çš„ä¿¡ä»¶ã€‚\n"
+		"read    <ä¿¡ä»¶ç¼–å·>        é˜…è¯»æŸä¸€å°ä¿¡ä»¶ã€‚\n"
+		"discard <ä¿¡ä»¶ç¼–å·>        ä¸¢å¼ƒä¸€å°ä¿¡ä»¶ã€‚\n");
+	set("unit", "ä¸ª");
 	set("no_drop", 1);
 	set("no_steal", 1);
 	set("no_put", 1);
@@ -46,7 +46,7 @@ void init()
 	{
 		set_owner((string)this_player()->query("id"));
 		this_player()->set_temp("mbox_ob", this_object());
-		set_name(this_player()->name(1) + "µÄĞÅÏä", ({"mailbox", "box"}));
+		set_name(this_player()->name(1) + "çš„ä¿¡ç®±", ({"mailbox", "box"}));
 		add_action("do_mail", "mailto");
 		add_action("do_forward", "forward");
 		add_action("do_from", "from");
@@ -61,7 +61,7 @@ void init()
 		if (mails[i]["read"] == "N")
 			j++;
 	if (j > 0)
-		tell_object(this_player(), HIG "ÂÌÁÖÓÊ²îÅÜ²½¹ıÀ´µİ¸øÄã" + chinese_number(j) + "·âĞÅ£¬È»ºó×ªÉí¼²²½ÀëÈ¥¡£\n" NOR);
+		tell_object(this_player(), HIG "ç»¿æ—é‚®å·®è·‘æ­¥è¿‡æ¥é€’ç»™ä½ " + chinese_number(j) + "å°ä¿¡ï¼Œç„¶åè½¬èº«ç–¾æ­¥ç¦»å»ã€‚\n" NOR);
 }
 
 string query_save_file()
@@ -86,11 +86,11 @@ void receive_mail(string rcvr, mapping mail)
 	if (sizeof(mails) >= MAX_MAIL && !wizardp(this_player()) && !wizardp(ppl))
 	{
 		if (obj->query("id") == this_player()->query("id"))
-			write("ÄãĞÅÏäÒÑ¾­ÂúÁË£¡\n");
+			write("ä½ ä¿¡ç®±å·²ç»æ»¡äº†ï¼\n");
 		else
 		{
-			write(HIR "¶Ô·½ĞÅÏäÒÑ¾­ÂúÁË¡£ÄãÃ»·¨¼Ä³ö´ËĞÅ£¡\n" NOR);
-			tell_object(obj, HIR "ÄãµÄĞÅÏäÒÑ¾­ÂúÁË£¬±ğÈËÒÑ¾­ÎŞ·¨¼ÄĞÅ¸øÄã£¬¿ìÕûÀíÕûÀí°É£¡\n" NOR);
+			write(HIR "å¯¹æ–¹ä¿¡ç®±å·²ç»æ»¡äº†ã€‚ä½ æ²¡æ³•å¯„å‡ºæ­¤ä¿¡ï¼\n" NOR);
+			tell_object(obj, HIR "ä½ çš„ä¿¡ç®±å·²ç»æ»¡äº†ï¼Œåˆ«äººå·²ç»æ— æ³•å¯„ä¿¡ç»™ä½ ï¼Œå¿«æ•´ç†æ•´ç†å§ï¼\n" NOR);
 		}
 		mails = mails;
 		save();
@@ -103,11 +103,11 @@ void receive_mail(string rcvr, mapping mail)
 			mails += ({mail});
 		save();
 		if (obj->query("id") == this_player()->query("id"))
-			write("ÄãÒÑ¾­³É¹¦±¸·İÁË£¡\n");
+			write("ä½ å·²ç»æˆåŠŸå¤‡ä»½äº†ï¼\n");
 		else
 		{
-			tell_object(obj, HIG "ÂÌÁÖÓÊ²îÅÜ²½¹ıÀ´µİ¸øÄãÒ»·âĞÅ£¬È»ºó×ªÉí¼²²½ÀëÈ¥¡£\n" NOR);
-			write(HIG "ĞÅÒÑ·¢ËÍ³É¹¦¡£\n" NOR);
+			tell_object(obj, HIG "ç»¿æ—é‚®å·®è·‘æ­¥è¿‡æ¥é€’ç»™ä½ ä¸€å°ä¿¡ï¼Œç„¶åè½¬èº«ç–¾æ­¥ç¦»å»ã€‚\n" NOR);
+			write(HIG "ä¿¡å·²å‘é€æˆåŠŸã€‚\n" NOR);
 		}
 	}
 }
@@ -120,14 +120,14 @@ void send_mail(string rcvr, mapping mail)
 	for (i = 0; i < sizeof(rcvr); i++)
 		if (rcvr[i] < 'a' || rcvr[i] > 'z')
 		{
-			write("Ã»ÓĞÕâ¸öÈË´æÔÚ¡£\n");
+			write("æ²¡æœ‰è¿™ä¸ªäººå­˜åœ¨ã€‚\n");
 			return;
 		}
 	// Acquire the login object of receiver and mark the arrival of newmail.
 	ob = FINGER_D->acquire_login_ob(rcvr);
 	if (!ob)
 	{
-		write("Ã»ÓĞÕâ¸öÈË´æÔÚ¡£\n");
+		write("æ²¡æœ‰è¿™ä¸ªäººå­˜åœ¨ã€‚\n");
 		return;
 	}
 
@@ -139,7 +139,7 @@ void send_mail(string rcvr, mapping mail)
 		obj = ppl;
 	if (obj->query("env/no_mail"))
 	{
-		tell_object(this_player(), HIR "ÈË¼Ò²»ÏëÊÕÄãµÄĞÅÀ²¡£\n" NOR);
+		tell_object(this_player(), HIR "äººå®¶ä¸æƒ³æ”¶ä½ çš„ä¿¡å•¦ã€‚\n" NOR);
 		return;
 	}
 	else
@@ -169,15 +169,15 @@ int do_mail(string arg)
 	if (me != environment())
 		return 0;
 	if (!arg || arg == "")
-		return notify_fail("ÄãÒª¸øË­¼ÄĞÅ£¿\n");
+		return notify_fail("ä½ è¦ç»™è°å¯„ä¿¡ï¼Ÿ\n");
 	mail = ([
 		 "from":me->name(1) + "(" + me->query("id") + ")",
-		"title":"ÎŞÌâ",
+		"title":"æ— é¢˜",
 		   "to":arg,
 		 "time":time(),
 		 "text":"",
 		 "read":"N"]);
-	write("ĞÅ¼ş±êÌâ£º");
+	write("ä¿¡ä»¶æ ‡é¢˜ï¼š");
 	input_to("get_mail_title", mail);
 	return 1;
 }
@@ -186,7 +186,7 @@ void get_mail_title(string str, mapping mail)
 {
 	if (str != "")
 		mail["title"] = str;
-	write("ĞÅ¼şÄÚÈİ£º\n");
+	write("ä¿¡ä»¶å†…å®¹ï¼š\n");
 	this_player()->edit((
 		: get_mail_text, mail:));
 }
@@ -196,12 +196,12 @@ void get_mail_text(mapping mail, string str)
 	mail["text"] = str;
 	if (sizeof(mails) >= MAX_MAIL && !wizardp(this_player()))
 	{
-		write("ÄúĞÅÏäÒÑ¾­ÂúÁË£¡Çë¼°Ê±ÇåÀí¡£\n");
+		write("æ‚¨ä¿¡ç®±å·²ç»æ»¡äº†ï¼è¯·åŠæ—¶æ¸…ç†ã€‚\n");
 		confirm_copy("nonono", mail);
 	}
 	else
 	{
-		write("ÄúÒª¸ø×Ô¼ºÁôÒ»·İ±¸·İÂğ(y/n)£¿[n]");
+		write("æ‚¨è¦ç»™è‡ªå·±ç•™ä¸€ä»½å¤‡ä»½å—(y/n)ï¼Ÿ[n]");
 		input_to("confirm_copy", mail);
 	}
 }
@@ -221,13 +221,13 @@ int do_from()
 		return 0;
 	if (!pointerp(mails) || !sizeof(mails))
 	{
-		write("ÄúµÄĞÅÏäÖĞÄ¿Ç°Ã»ÓĞÈÎºÎĞÅ¼ş¡£\n");
+		write("æ‚¨çš„ä¿¡ç®±ä¸­ç›®å‰æ²¡æœ‰ä»»ä½•ä¿¡ä»¶ã€‚\n");
 		return 1;
 	}
-	write("ÄúµÄĞÅÏäÖĞÏÖÔÚ¹²ÓĞ " + sizeof(mails) + " ·âĞÅ¼ş£º\n\n");
+	write("æ‚¨çš„ä¿¡ç®±ä¸­ç°åœ¨å…±æœ‰ " + sizeof(mails) + " å°ä¿¡ä»¶ï¼š\n\n");
 	for (i = 0; i < sizeof(mails); i++)
-		printf("%4s %2d %-40s " HIY "À´×Ô" NOR "£º%-20s\n",
-			   mails[i]["read"] == "N" ? HIR "Î´ÔÄ" NOR : HIG "ÒÑÔÄ" NOR,
+		printf("%4s %2d %-40s " HIY "æ¥è‡ª" NOR "ï¼š%-20s\n",
+			   mails[i]["read"] == "N" ? HIR "æœªé˜…" NOR : HIG "å·²é˜…" NOR,
 			   i + 1, mails[i]["title"], mails[i]["from"]);
 	write("\n");
 
@@ -241,11 +241,11 @@ int do_read(string arg)
 	if (!present(this_object(), this_player()))
 		return 0;
 	if (!arg || !sscanf(arg, "%d", num))
-		return notify_fail("ÄúÒª¶ÁÄÄÒ»·âĞÅ£¿\n");
+		return notify_fail("æ‚¨è¦è¯»å“ªä¸€å°ä¿¡ï¼Ÿ\n");
 	if (!pointerp(mails) || num < 1 || num > sizeof(mails))
-		return notify_fail("Ã»ÓĞÕâ¸ö±àºÅµÄĞÅ¼ş¡£\n");
+		return notify_fail("æ²¡æœ‰è¿™ä¸ªç¼–å·çš„ä¿¡ä»¶ã€‚\n");
 	num--;
-	printf("ĞÅ¼ş±êÌâ£º%s\n¼Ä ĞÅ ÈË£º%s\n¼ÄĞÅÊ±¼ä£º%s\n\n%s\n", mails[num]["title"], mails[num]["from"], ctime(mails[num]["time"]), mails[num]["text"]);
+	printf("ä¿¡ä»¶æ ‡é¢˜ï¼š%s\nå¯„ ä¿¡ äººï¼š%s\nå¯„ä¿¡æ—¶é—´ï¼š%s\n\n%s\n", mails[num]["title"], mails[num]["from"], ctime(mails[num]["time"]), mails[num]["text"]);
 	mails[num]["read"] = "Y";
 	save();
 
@@ -259,16 +259,16 @@ int do_discard(string arg)
 	if (!present(this_object(), this_player()))
 		return 0;
 	if (!arg || !sscanf(arg, "%d", num))
-		return notify_fail("ÄúÒª¶ªÆúÄÄÒ»·âĞÅ£¿\n");
+		return notify_fail("æ‚¨è¦ä¸¢å¼ƒå“ªä¸€å°ä¿¡ï¼Ÿ\n");
 	if (!pointerp(mails) || num > sizeof(mails))
-		return notify_fail("Ã»ÓĞÕâ¸ö±àºÅµÄĞÅ¼ş¡£\n");
+		return notify_fail("æ²¡æœ‰è¿™ä¸ªç¼–å·çš„ä¿¡ä»¶ã€‚\n");
 	num--;
 	if (num == 0)
 		mails = mails[num + 1..sizeof(mails)-1];
 	else
 		mails = mails[0..num - 1] + mails[num + 1..sizeof(mails)-1];
 	save();
-	write("¶ªÆú³É¹¦¡£\n");
+	write("ä¸¢å¼ƒæˆåŠŸã€‚\n");
 
 	return 1;
 }
@@ -282,15 +282,15 @@ int do_forward(string arg)
 	if (!present(this_object(), this_player()))
 		return 0;
 	if (!arg || sscanf(arg, "%d %s", num, dest) != 2)
-		return notify_fail("ÄúÒª½«ÄÄÒ»·âĞÅ×ª¼Ä¸ø±ğÈË£¿\n");
+		return notify_fail("æ‚¨è¦å°†å“ªä¸€å°ä¿¡è½¬å¯„ç»™åˆ«äººï¼Ÿ\n");
 	if (!pointerp(mails) || num > sizeof(mails))
-		return notify_fail("Ã»ÓĞÕâ¸ö±àºÅµÄĞÅ¼ş¡£\n");
+		return notify_fail("æ²¡æœ‰è¿™ä¸ªç¼–å·çš„ä¿¡ä»¶ã€‚\n");
 	num--;
 	m = ([]);
 	m["title"] = mails[num]["title"];
 	m["text"] = mails[num]["text"];
 	m["time"] = mails[num]["time"];
-	m["from"] = mails[num]["from"] + "/×ª¼Ä×Ô" + this_player()->query("name");
+	m["from"] = mails[num]["from"] + "/è½¬å¯„è‡ª" + this_player()->query("name");
 	m["to"] = dest;
 	m["read"] = "N";
 	send_mail(dest, m);

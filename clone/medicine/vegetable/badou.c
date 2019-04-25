@@ -1,4 +1,4 @@
-// badou.c °Í¶¹
+// badou.c å·´è±†
 
 inherit ITEM;
 #include <ansi.h>
@@ -11,13 +11,13 @@ void init()
 
 void create()
 {
-	set_name(HIG "°Í¶¹" NOR, ({"badou"}));
+	set_name(HIG "å·´è±†" NOR, ({"badou"}));
 	set_weight(500);
-	set("unit", "Á£");
+	set("unit", "ç²’");
 	set("vegetable", 1);
 	set("value", 1000);
 	set("nostrum", 1);
-	set("long", "ÕâÊÇÒ»Á£ÂÌÓÍÓÍµÄ°Í¶¹£¬¿´À´¿ÉÒÔÈëÒ©¡£\n");
+	set("long", "è¿™æ˜¯ä¸€ç²’ç»¿æ²¹æ²¹çš„å·´è±†ï¼Œçœ‹æ¥å¯ä»¥å…¥è¯ã€‚\n");
 	set("pour_type", "1");
 	setup();
 }
@@ -27,13 +27,13 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ð¼±£¬ÂýÂý³Ô£¬Ð¡ÐÄ±ðÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™Žç€äº†ã€‚\n");
 
-	write("ÄãÒ»¿Ú¾Í°Ñ°Í¶¹³ÔÁËÏÂÈ¥¡£½á¹û¶×ÏÂ¾ÍÀ­£¬À­µÃÍ·ÔÎÑÛ»¨¡£\n");
+	write("ä½ ä¸€å£å°±æŠŠå·´è±†åƒäº†ä¸‹åŽ»ã€‚ç»“æžœè¹²ä¸‹å°±æ‹‰ï¼Œæ‹‰å¾—å¤´æ™•çœ¼èŠ±ã€‚\n");
 	me->set("qi", 1);
 	destruct(this_object());
 	return 1;

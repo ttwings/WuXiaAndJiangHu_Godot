@@ -10,10 +10,10 @@ void init()
 }
 void create()
 {
-	set_name(NOR "Ã§êô" HIR "Öì" NOR "¸ò", ({"ha"}));
-	set("unit", "Ö»");
+	set_name(NOR "èŽ½ç‰¯" HIR "æœ±" NOR "è›¤", ({"ha"}));
+	set("unit", "åª");
 	set("value", 40000);
-	set("long", "Ã§êôÖì¸òÊÇÎÁÉñÒ¯µÄ×øÆï£¬ÄÇÒ²ÊÇËµËµ°ÕÁË¡£ÎÄÊâÆÐÈøÆïÊ¨×Ó£¬ÆÕÏÍÆÐÈøÆï°×Ïó£¬Ì«ÉÏÀÏ¾ýÆïÇàÅ££¬ÕâÃ§êôÖì¸òÊÇÍò¶¾Ö®Íõ£¬ÉñÍ¨¹ã´ó£¬¶¾ÐÔÀ÷º¦£¬¹ÊÀÏÏà´«£¬¾ÍËµËüÊÇÎÁÆÐÈøµÄ×øÆï¡£\n");
+	set("long", "èŽ½ç‰¯æœ±è›¤æ˜¯ç˜Ÿç¥žçˆ·çš„åéª‘ï¼Œé‚£ä¹Ÿæ˜¯è¯´è¯´ç½¢äº†ã€‚æ–‡æ®Šè©è¨éª‘ç‹®å­ï¼Œæ™®è´¤è©è¨éª‘ç™½è±¡ï¼Œå¤ªä¸Šè€å›éª‘é’ç‰›ï¼Œè¿™èŽ½ç‰¯æœ±è›¤æ˜¯ä¸‡æ¯’ä¹‹çŽ‹ï¼Œç¥žé€šå¹¿å¤§ï¼Œæ¯’æ€§åŽ‰å®³ï¼Œæ•…è€ç›¸ä¼ ï¼Œå°±è¯´å®ƒæ˜¯ç˜Ÿè©è¨çš„åéª‘ã€‚\n");
 	set("pour_type", "1");
 	setup();
 }
@@ -23,13 +23,13 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy() || random(2) == 1)
-		return notify_fail("±ð¼±£¬ÂýÂý³Ô£¬Ð¡ÐÄ±ð¶¾ËÀÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«æ¯’æ­»äº†ã€‚\n");
 
-	message_vision(HIG "$N³ÔÏÂÒ»Ö»" + name() + HIG "£¬¶Ù¾õ¾«Á¦½¥Éú£¬È«ÉíÎ¯¶Ù½¥½¥ÏûÈ¥¡£\n" NOR, me);
+	message_vision(HIG "$Nåƒä¸‹ä¸€åª" + name() + HIG "ï¼Œé¡¿è§‰ç²¾åŠ›æ¸ç”Ÿï¼Œå…¨èº«å§”é¡¿æ¸æ¸æ¶ˆåŽ»ã€‚\n" NOR, me);
 	if (me->query_condition("drunk"))
 		me->apply_condition("drunk", 0);
 	if (me->query_condition("flower_poison"))

@@ -7,15 +7,15 @@ int value() { return query_amount() * (int)query("base_value"); }
 
 void create()
 {
-	set_name(BLK "ÎÚ½ğÒ«»Ô" NOR, ({"wujin yaohui", "mudan"}));
+	set_name(BLK "ä¹Œé‡‘è€€è¾‰" NOR, ({"wujin yaohui", "mudan"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("long", BLK "ÕâÊÇÒ»¶äÓºÈİ»ª¹óµÄºÚÉ«Äµµ¤»¨£¬»¨¶äæ¹ÄÈ¶à×Ë£¬Î¯ÊµÁîÈËĞÄ×íÉñÃÔ¡£\n" NOR);
-		set("unit", "Êø");
+		set("long", BLK "è¿™æ˜¯ä¸€æœµé›å®¹åè´µçš„é»‘è‰²ç‰¡ä¸¹èŠ±ï¼ŒèŠ±æœµå©€å¨œå¤šå§¿ï¼Œå§”å®ä»¤äººå¿ƒé†‰ç¥è¿·ã€‚\n" NOR);
+		set("unit", "æŸ");
 		set("value", 100);
-		set("base_unit", "¶ä");
+		set("base_unit", "æœµ");
 		set("base_weight", 100);
 		set("flower", 1);
 	}

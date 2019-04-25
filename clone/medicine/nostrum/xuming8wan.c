@@ -5,17 +5,17 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIW "ĞøÃü°ËÍè" NOR, ({"xuming bawan", "bawan", "8wan"}));
+	set_name(HIW "ç»­å‘½å…«ä¸¸" NOR, ({"xuming bawan", "bawan", "8wan"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "Á£");
+		set("unit", "ç²’");
 		set("vegetable", 86);
 		set("nostrum", 121);
 		set("no_sell", 1);
 		set("level", 160);
-		set("long", "ÕâÊÇ»¨ÁËÒ»Ê®¶şÄêÊ±¹â£¬²É¼¯Ç§ÄêÈË²Î¡¢·üÜß¡¢ÁéÖ¥¡¢Â¹È×¡¢Ê×ÎÚ¡¢ÁéÖ¬¡¢ĞÜµ¨¡¢ÈıÆß¡¢÷êÏãÖÖÖÖÕä¹óÖ®¼«µÄÒ©Îï£¬¾ÅÕô¾ÅÉ¹£¬ÖÆ³É°Ë¿ÅÆğËÀ»ØÉúµÄ¡°ĞøÃü°ËÍè¡±¡£ÓĞµÄ¼«³ô£¬ÓĞµÄ¼«¿à£¬ÓĞµÄÈë¿ÚÈçµ¶¸î£¬ÓĞµÄĞÁÀ±Èç»ğÖË¡£Ö»ÒªÍÌ·şÁËÕâ¡°ĞøÃü°ËÍè¡±£¬²»ÂÛ¶à´óµÄÄÚÉËÍâÉË£¬¶¨È»ÆğËÀ»ØÉú¡£\n");
+		set("long", "è¿™æ˜¯èŠ±äº†ä¸€åäºŒå¹´æ—¶å…‰ï¼Œé‡‡é›†åƒå¹´äººå‚ã€ä¼è‹“ã€çµèŠã€é¹¿èŒ¸ã€é¦–ä¹Œã€çµè„‚ã€ç†Šèƒ†ã€ä¸‰ä¸ƒã€éºé¦™ç§ç§çè´µä¹‹æçš„è¯ç‰©ï¼Œä¹è’¸ä¹æ™’ï¼Œåˆ¶æˆå…«é¢—èµ·æ­»å›ç”Ÿçš„â€œç»­å‘½å…«ä¸¸â€ã€‚æœ‰çš„æè‡­ï¼Œæœ‰çš„æè‹¦ï¼Œæœ‰çš„å…¥å£å¦‚åˆ€å‰²ï¼Œæœ‰çš„è¾›è¾£å¦‚ç«ç‚™ã€‚åªè¦åæœäº†è¿™â€œç»­å‘½å…«ä¸¸â€ï¼Œä¸è®ºå¤šå¤§çš„å†…ä¼¤å¤–ä¼¤ï¼Œå®šç„¶èµ·æ­»å›ç”Ÿã€‚\n");
 		set("value", 0);
 	}
 	set("pour_type", "1");
@@ -35,23 +35,23 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 
 	if (!wizardp(me) &&
 		(!me->query("dietime") || time() - me->query("dietime") > 600))
 	{
-		write("ÄãÏÖÔÚ²»ÒË³ÔĞøÃü°ËÍèÁË¡£\n");
+		write("ä½ ç°åœ¨ä¸å®œåƒç»­å‘½å…«ä¸¸äº†ã€‚\n");
 		return 1;
 	}
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
-	message_vision("$N³ÔÏÂÒ»Á£" + name() + "¡£\n", me);
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
+	message_vision("$Nåƒä¸‹ä¸€ç²’" + name() + "ã€‚\n", me);
 	log_file("eat_dan", sprintf("[%s] %s eat xuming8wan \n", ctime(time()), geteuid(me)));
 	me->delete ("dietime");
 	me->reincarnate();
@@ -74,6 +74,6 @@ int do_eat(string arg)
 
 void destwan()
 {
-	message_vision("$NÂıÂı¸ÉºÔ»¯³É»Ò£¬Ò»»á¾ÍÆ®ÂäµØÉÏÏûÊ§ÁË¡£\n", this_object());
+	message_vision("$Næ…¢æ…¢å¹²æ¶¸åŒ–æˆç°ï¼Œä¸€ä¼šå°±é£˜è½åœ°ä¸Šæ¶ˆå¤±äº†ã€‚\n", this_object());
 	destruct(this_object());
 }

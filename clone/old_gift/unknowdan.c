@@ -1,5 +1,5 @@
 // Last Modified by winder on Apr. 25 2001
-// unknow.c Î´ÃûÏÉµ¤
+// unknow.c æœªåä»™ä¸¹
 
 #include <ansi.h>
 
@@ -7,15 +7,15 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIR "ÏÉµ¤" NOR, ({"dan", "xian dan", "xiandan"}));
+	set_name(HIR "ä»™ä¸¹" NOR, ({"dan", "xian dan", "xiandan"}));
 	set_weight(200);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("long", "Ò»¿ÅÔ°Ô°µÄ»ğºìÏÉµ¤£¬²»ÖªµÀÓĞÊ²Ã´ÓÃ´¦¡£\n");
+		set("long", "ä¸€é¢—å›­å›­çš„ç«çº¢ä»™ä¸¹ï¼Œä¸çŸ¥é“æœ‰ä»€ä¹ˆç”¨å¤„ã€‚\n");
 		set("value", 10000);
-		set("unit", "¿Å");
+		set("unit", "é¢—");
 	}
 }
 
@@ -29,24 +29,24 @@ int do_eat(string arg)
 	object me;
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 
 	me = this_player();
-	message_vision("$NÒ»Ñö²±£¬ÍÌÏÂÁËÒ»¿Å" + this_object()->name() +
-					   "¡£\n",
+	message_vision("$Nä¸€ä»°è„–ï¼Œåä¸‹äº†ä¸€é¢—" + this_object()->name() +
+					   "ã€‚\n",
 				   me);
 	if (me->query("gift/unknowdan") >= 5)
 	{
-		message_vision("$NÒ¡Ò¡»Î»ÎµÄ£¬Í»È»¡°Å¾àª¡±Ò»ÏÂ×ÓË¤ÁË¸ö¸úÍ·¡£\n", me);
-		tell_object(me, "Äã¾õµÃ³ÔÍêÒÔºóÍ·ÖØ½ÅÇáµÄ¡£\n");
+		message_vision("$Næ‘‡æ‘‡æ™ƒæ™ƒçš„ï¼Œçªç„¶â€œå•ªå—’â€ä¸€ä¸‹å­æ‘”äº†ä¸ªè·Ÿå¤´ã€‚\n", me);
+		tell_object(me, "ä½ è§‰å¾—åƒå®Œä»¥åå¤´é‡è„šè½»çš„ã€‚\n");
 	}
 	else if (random(5) == 0)
 	{
-		tell_object(me, "²»¹ıÄã¾õµÃºÃÏñÃ»Ê²Ã´×÷ÓÃ¡£\n");
+		tell_object(me, "ä¸è¿‡ä½ è§‰å¾—å¥½åƒæ²¡ä»€ä¹ˆä½œç”¨ã€‚\n");
 	}
 	else
 	{
-		tell_object(me, HIM "ö®Ê±¼äÄã¾õµÃÍÈ¹ÇÓûÁÑ£¬Ò»Ê±ÌÛÍ´ÄÑÈÌ£¬ÔÎÁË¹ıÈ¥¡£\n" NOR);
+		tell_object(me, HIM "éœæ—¶é—´ä½ è§‰å¾—è…¿éª¨æ¬²è£‚ï¼Œä¸€æ—¶ç–¼ç—›éš¾å¿ï¼Œæ™•äº†è¿‡å»ã€‚\n" NOR);
 		me->add("dex", 1);
 		me->unconcious();
 	}

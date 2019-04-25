@@ -6,15 +6,15 @@ int query_autoload() { return 1; }
 
 void create()
 {
-	set_name("Ãæ¾ß", ({"mian ju", "mask"}));
+	set_name("é¢å…·", ({"mian ju", "mask"}));
 	set_weight(3000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "¸ö");
-		set("long", "ÕâËÆºõÊÇÒ»¸öÓÉÈËÆ¤ÖÆ³ÉµÄÃæ¾ß¡£\n");
-		set("no_drop", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄã¡£\n");
+		set("unit", "ä¸ª");
+		set("long", "è¿™ä¼¼ä¹æ˜¯ä¸€ä¸ªç”±äººçš®åˆ¶æˆçš„é¢å…·ã€‚\n");
+		set("no_drop", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€ä½ ã€‚\n");
 		set("no_put", 1);
 		set("no_get", 1);
 	}
@@ -37,11 +37,11 @@ int do_pretend(string arg)
 		return 0;
 
 	if (!arg)
-		return notify_fail("ÄãÏë¼Ù×°Ë­£¿\n");
+		return notify_fail("ä½ æƒ³å‡è£…è°ï¼Ÿ\n");
 	/*
 	if (userp(this_player()))
 	if (userp(this_player()) && !wizardp(this_player()))
-		return notify_fail("Ê²Ã´£¿\n");
+		return notify_fail("ä»€ä¹ˆï¼Ÿ\n");
 */
 	if (arg == "none" || arg == "cancel")
 	{
@@ -51,16 +51,16 @@ int do_pretend(string arg)
 		this_player()->delete_temp("apply/long");
 		this_player()->delete_temp("pretend");
 		this_player()->delete_temp("apply/come_msg");
-		message_vision("$N´ÓÁ³ÉÏÈ¡ÏÂÁËÒ»¸öÈËÆ¤Ãæ¾ß¡£\n", this_player());
+		message_vision("$Nä»è„¸ä¸Šå–ä¸‹äº†ä¸€ä¸ªäººçš®é¢å…·ã€‚\n", this_player());
 		return 1;
 	}
 	if (!objectp(who = present(arg, environment(this_player()))) ||
 		!living(who))
-		return notify_fail("ÄãÏë¼Ù×°Ë­£¿\n");
+		return notify_fail("ä½ æƒ³å‡è£…è°ï¼Ÿ\n");
 	if (wizardp(who))
-		return notify_fail("Äã²»ÄÜ¼Ù×°Î×Ê¦£¡\n");
-	write("Äã¿ªÊ¼¼Ù×°" + who->name() + "¡£\n");
-	//	message_vision("$N´÷ÉÏÁËÒ»¸ö¾«¹¦ÖÆ³ÉµÄÈËÆ¤Ãæ¾ß¡£\n", this_player());
+		return notify_fail("ä½ ä¸èƒ½å‡è£…å·«å¸ˆï¼\n");
+	write("ä½ å¼€å§‹å‡è£…" + who->name() + "ã€‚\n");
+	//	message_vision("$Næˆ´ä¸Šäº†ä¸€ä¸ªç²¾åŠŸåˆ¶æˆçš„äººçš®é¢å…·ã€‚\n", this_player());
 	this_player()->set_temp("apply/name", ({who->name()}));
 	//	this_player()->delete_temp("apply/id");
 	this_player()->set_temp("pretend", 1);
@@ -78,20 +78,20 @@ int do_pretend(string arg)
 		string thing_msg;
 		object env = environment(me);
 
-		dir = "Î÷±ß";
+		dir = "è¥¿è¾¹";
 		if (me->is_fighting())
 		{
-			if (me->query("race") == "ÈËÀà")
+			if (me->query("race") == "äººç±»")
 			{
 				if (me->query_temp("is_riding"))
 				{
-					mout = me->name() + "·üÔÚ" + me->query_temp("is_riding")->name() + "ÉíÉÏÍù" + dir + "Âä»Ä¶øÌÓÁË¡£\n";
-					min = me->name() + "Æï×Å" + me->query_temp("is_riding")->name() + "µøµø×²×²µØÅÜÁË¹ıÀ´£¬Ä£ÑùÓĞĞ©ÀÇ±·¡£\n";
+					mout = me->name() + "ä¼åœ¨" + me->query_temp("is_riding")->name() + "èº«ä¸Šå¾€" + dir + "è½è’è€Œé€ƒäº†ã€‚\n";
+					min = me->name() + "éª‘ç€" + me->query_temp("is_riding")->name() + "è·Œè·Œæ’æ’åœ°è·‘äº†è¿‡æ¥ï¼Œæ¨¡æ ·æœ‰äº›ç‹¼ç‹ˆã€‚\n";
 				}
 				else
 				{
-					mout = me->name() + "Íù" + dir + "Âä»Ä¶øÌÓÁË¡£\n";
-					min = me->name() + "µøµø×²×²µØÅÜÁË¹ıÀ´£¬Ä£ÑùÓĞĞ©ÀÇ±·¡£\n";
+					mout = me->name() + "å¾€" + dir + "è½è’è€Œé€ƒäº†ã€‚\n";
+					min = me->name() + "è·Œè·Œæ’æ’åœ°è·‘äº†è¿‡æ¥ï¼Œæ¨¡æ ·æœ‰äº›ç‹¼ç‹ˆã€‚\n";
 				}
 			}
 			else
@@ -102,30 +102,30 @@ int do_pretend(string arg)
 		}
 		else
 		{
-			if (me->query("race") == "ÈËÀà" && me->query("age") > 15)
+			if (me->query("race") == "äººç±»" && me->query("age") > 15)
 			{
-				face = "µÄ";
-				if (me->query("gender") == "Å®ĞÔ")
+				face = "çš„";
+				if (me->query("gender") == "å¥³æ€§")
 				{
 					if (me->query("per") >= 30)
-						face = "½¿ÑŞ¾øÂ×" + face;
+						face = "å¨‡è‰³ç»ä¼¦" + face;
 					if ((me->query("per") >= 28) &&
 						(me->query("per") < 30))
-						face = "ÇåÀö¾øË×" + face;
+						face = "æ¸…ä¸½ç»ä¿—" + face;
 					if ((me->query("per") >= 26) &&
 						(me->query("per") < 28))
-						face = "·çÇéÍòÖÖ" + face;
+						face = "é£æƒ…ä¸‡ç§" + face;
 					if ((me->query("per") >= 24) &&
 						(me->query("per") < 26))
-						face = "ÈİÉ«ĞãÀö" + face;
+						face = "å®¹è‰²ç§€ä¸½" + face;
 					if ((me->query("per") >= 21) &&
 						(me->query("per") < 24))
-						face = "ÃæÄ¿æ¯ºÃ" + face;
+						face = "é¢ç›®å§£å¥½" + face;
 					if (me->query("str") <= 16)
-						face = "Í¤Í¤ÓñÁ¢" + face;
+						face = "äº­äº­ç‰ç«‹" + face;
 					if ((me->query("str") <= 20) &&
 						(me->query("str") > 16))
-						face = "ÌåÌ¬ÇáÓ¯" + face;
+						face = "ä½“æ€è½»ç›ˆ" + face;
 					if ((me->query("per") < 21) &&
 							(me->query("str") > 20) ||
 						!userp(me))
@@ -134,18 +134,18 @@ int do_pretend(string arg)
 				else
 				{
 					if (me->query("per") >= 30)
-						face = "ÓñÊ÷ÁÙ·ç°ã" + face;
+						face = "ç‰æ ‘ä¸´é£èˆ¬" + face;
 					if ((me->query("per") >= 26) &&
 						(me->query("per") < 30))
-						face = "Ó¢¿¡äìÈ÷" + face;
+						face = "è‹±ä¿Šæ½‡æ´’" + face;
 					if ((me->query("per") >= 22) &&
 						(me->query("per") < 26))
-						face = "ÒÇ±íÌÃÌÃ" + face;
+						face = "ä»ªè¡¨å ‚å ‚" + face;
 					if (me->query("str") >= 23)
-						face = "Éí²Ä×³Ë¶" + face;
+						face = "èº«æå£®ç¡•" + face;
 					if ((me->query("str") >= 20) &&
 						(me->query("str") < 23))
-						face = "°ò´óÑüÔ²" + face;
+						face = "è†€å¤§è…°åœ†" + face;
 					if ((me->query("per") < 22) &&
 							(me->query("str") < 20) ||
 						!userp(me))
@@ -155,23 +155,23 @@ int do_pretend(string arg)
 			else
 				face = "";
 			if (objectp(thing = me->query_temp("armor/cloth")))
-				thing_msg = "Éí×Å" + thing->query("name");
+				thing_msg = "èº«ç€" + thing->query("name");
 			else
-				thing_msg = "È«ÉíÇå½àÁïÁï";
+				thing_msg = "å…¨èº«æ¸…æ´æºœæºœ";
 			if (objectp(thing = me->query_temp("weapon")))
-				thing_msg += "ÊÖÖ´" + thing->query("name");
-			if (me->query("race") == "ÈËÀà")
+				thing_msg += "æ‰‹æ‰§" + thing->query("name");
+			if (me->query("race") == "äººç±»")
 			{
 				if (env->query("outdoors") &&
 					me->query_temp("is_riding"))
 				{
-					mout = me->name() + "Æï×Å" + me->query_temp("is_riding")->name() + "Ïò" + dir + "¼²³Û¶øÈ¥¡£\n";
-					min = face + me->name() + thing_msg + "Æï×Å" + me->query_temp("is_riding")->name() + "Ò»Â·¼²³Û¶øÀ´¡£\n";
+					mout = me->name() + "éª‘ç€" + me->query_temp("is_riding")->name() + "å‘" + dir + "ç–¾é©°è€Œå»ã€‚\n";
+					min = face + me->name() + thing_msg + "éª‘ç€" + me->query_temp("is_riding")->name() + "ä¸€è·¯ç–¾é©°è€Œæ¥ã€‚\n";
 				}
 				else
 				{
-					mout = me->name() + "Íù" + dir + "Àë¿ª¡£\n";
-					min = face + me->name() + thing_msg + "×ßÁË¹ıÀ´¡£\n";
+					mout = me->name() + "å¾€" + dir + "ç¦»å¼€ã€‚\n";
+					min = face + me->name() + thing_msg + "èµ°äº†è¿‡æ¥ã€‚\n";
 				}
 			}
 			else

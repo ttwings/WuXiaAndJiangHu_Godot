@@ -4,14 +4,14 @@
 inherit CLOTH;
 
 string *name = ({
-	"ÇáÉ´³¤È¹",
-	GRN "±ÌÉ«É´ÒÂ" NOR,
-	CYN "ÎµÀ¶³¤È¹" NOR,
-	RED "Èö»¨È¹" NOR,
-	"ÃàÈ¹",
-	"°ÙñŞÈ¹",
-	"Ë¿È¹",
-	MAG "»¨½õ°À" NOR,
+	"è½»çº±é•¿è£™",
+	GRN "ç¢§è‰²çº±è¡£" NOR,
+	CYN "è”šè“é•¿è£™" NOR,
+	RED "æ’’èŠ±è£™" NOR,
+	"ç»µè£™",
+	"ç™¾è¤¶è£™",
+	"ä¸è£™",
+	MAG "èŠ±é”¦è¢„" NOR,
 });
 string *id = ({
 	"chang qun",
@@ -33,7 +33,7 @@ void create()
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "¼ş");
+		set("unit", "ä»¶");
 		set("value", 0);
 		set("armor_prop/armor", 1);
 		set("material", "cloth");

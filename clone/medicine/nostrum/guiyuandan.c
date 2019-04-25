@@ -5,16 +5,16 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIW "¹éÔªµ¤" NOR, ({"guiyuan dan", "dan"}));
+	set_name(HIW "å½’å…ƒä¸¹" NOR, ({"guiyuan dan", "dan"}));
 	if (clonep())
 	{
 		set_default_object(__FILE__);
 	}
 	else
 	{
-		set("unit", "Á£");
-		set("long", "¹éÔªµ¤ÊÇ¶ëáÒµÜ×ÓÒ»Éí¾«ÑªËù»¯£¬Õä¹óÎÞ±È£¬ÓÐÉúËÀ
-Èâ¹ÇÖ®¹¦£¬ÎªÎäÁÖÖÁ±¦¡£\n");
+		set("unit", "ç²’");
+		set("long", "å½’å…ƒä¸¹æ˜¯å³¨åµ‹å¼Ÿå­ä¸€èº«ç²¾è¡€æ‰€åŒ–ï¼Œçè´µæ— æ¯”ï¼Œæœ‰ç”Ÿæ­»
+è‚‰éª¨ä¹‹åŠŸï¼Œä¸ºæ­¦æž—è‡³å®ã€‚\n");
 		set("value", 0);
 	}
 	set("pour_type", "1");
@@ -33,16 +33,16 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!me->query("dietime") || time() - me->query("dietime") > 480)
-		return notify_fail("ÄãÏÖÔÚ²»ÒË³Ô¹éÔªµ¤ÁË¡£\n");
+		return notify_fail("ä½ çŽ°åœ¨ä¸å®œåƒå½’å…ƒä¸¹äº†ã€‚\n");
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), this_player()))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->query_skill("linji-zhuang", 1) < 180)
-		return notify_fail("ÄãÎ´ÔøÐÞ³ÉÓÄÚ¤×¯£¬¿ÖÅÂ³Ô²»µÃ´Ëµ¤¡£\n");
+		return notify_fail("ä½ æœªæ›¾ä¿®æˆå¹½å†¥åº„ï¼Œææ€•åƒä¸å¾—æ­¤ä¸¹ã€‚\n");
 	if (me->is_busy())
-		return notify_fail("±ð¼±£¬ÂýÂý³Ô£¬Ð¡ÐÄ±ðÒ­×ÅÁË¡£\n");
-	message_vision("$N³ÔÏÂÒ»Á£" + name() + "¡£\n", me);
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™Žç€äº†ã€‚\n");
+	message_vision("$Nåƒä¸‹ä¸€ç²’" + name() + "ã€‚\n", me);
 	log_file("eat_dan", sprintf("[%s] %s eat guiyuan \n", ctime(time()), geteuid(me)));
 	me->delete ("dietime");
 	me->reincarnate();

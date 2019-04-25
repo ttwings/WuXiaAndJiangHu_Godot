@@ -8,21 +8,21 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name("½ð¸ÕÕÖ", ({"jingang zhao", "zhao"}));
+	set_name("é‡‘åˆšç½©", ({"jingang zhao", "zhao"}));
 	set_weight(2000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("long", "ÕâÊÇÒ»¼þ½ð¹âÉÁÉÁµÄôÂôÄ£¬Í¨ÌåÓÃÌìÉ½Ñ©²ÏË¿Ö¯³É£¬¼áÈÍÎÞ±È
-µ¶½£²»ÄÜÉË¡£´ËôÂôÄÊý°ÙÄêÇ°ÓÉ´ïÄ¦ÀÏ×æÐ¯ÈëÖÐÔ­£¬Ð°Ä§¼ûÖ®±ÙÒ×£¬
-ÄËÊÇ·ð¼ÒÎÞÉÏ½µÄ§·¨±¦¡£\n");
+		set("long", "è¿™æ˜¯ä¸€ä»¶é‡‘å…‰é—ªé—ªçš„è¢ˆè£Ÿï¼Œé€šä½“ç”¨å¤©å±±é›ªèš•ä¸ç»‡æˆï¼ŒåšéŸ§æ— æ¯”
+åˆ€å‰‘ä¸èƒ½ä¼¤ã€‚æ­¤è¢ˆè£Ÿæ•°ç™¾å¹´å‰ç”±è¾¾æ‘©è€ç¥–æºå…¥ä¸­åŽŸï¼Œé‚ªé­”è§ä¹‹è¾Ÿæ˜“ï¼Œ
+ä¹ƒæ˜¯ä½›å®¶æ— ä¸Šé™é­”æ³•å®ã€‚\n");
 		set("material", "cloth");
-		set("unit", "¼þ");
+		set("unit", "ä»¶");
 		set("value",100000);
-		set("wear_msg", HIY "Ö»Ìý¡¸»©¡¹µÄÒ»Éù£¬$NÕ¹¿ªÒ»¼þ½ð¹âÉÁÉÁµÄôÂôÄÅûÔÚÉíÉÏ¡£
-Ë²Ê±¼äÈÕÔÂÎªÖ®Ê§É«£¬ÈðÆøÇ§Ìõ£¬ÏéÔÆ¶ä¶ä£¬Ò»ÅÉ×¯ÑÏÆøÏó¡£\n" NOR);
-		set("remove_msg", HIY "$N½«½ð¸ÕÕÖ´ÓÉíÉÏÍÑÁËÏÂÀ´£¬ÕÛµþ³ÉÐ¡Ð¡µÄÒ»ÍÅ¡£\n" NOR);
+		set("wear_msg", HIY "åªå¬ã€Œå“—ã€çš„ä¸€å£°ï¼Œ$Nå±•å¼€ä¸€ä»¶é‡‘å…‰é—ªé—ªçš„è¢ˆè£ŸæŠ«åœ¨èº«ä¸Šã€‚
+çž¬æ—¶é—´æ—¥æœˆä¸ºä¹‹å¤±è‰²ï¼Œç‘žæ°”åƒæ¡ï¼Œç¥¥äº‘æœµæœµï¼Œä¸€æ´¾åº„ä¸¥æ°”è±¡ã€‚\n" NOR);
+		set("remove_msg", HIY "$Nå°†é‡‘åˆšç½©ä»Žèº«ä¸Šè„±äº†ä¸‹æ¥ï¼ŒæŠ˜å æˆå°å°çš„ä¸€å›¢ã€‚\n" NOR);
 		set("armor_prop/armor", 300);
 	}
 	setup();

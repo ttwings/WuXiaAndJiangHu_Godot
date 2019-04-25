@@ -6,18 +6,18 @@ inherit STAFF;
 
 void create()
 {
-	set_name("¸ÖÕÈ", ({"gang zhang", "zhang", "staff"}));
+	set_name("é’¢æ–", ({"gang zhang", "zhang", "staff"}));
 	set_weight(6000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "°Ñ");
+		set("unit", "æŠŠ");
 		set("value", 300);
 		set("material", "steel");
-		set("long", "ÕâÊÇÒ»¸ÖÖÆµÄÕÈ£®\n");
-		set("wield_msg", "$N³é³öÒ»°Ñ$nÎÕÔÚÊÖÖĞ¡£\n");
-		set("unequip_msg", "$N½«ÊÖÖĞµÄ$n²åÈëÑüºó£®\n");
+		set("long", "è¿™æ˜¯ä¸€é’¢åˆ¶çš„æ–ï¼\n");
+		set("wield_msg", "$NæŠ½å‡ºä¸€æŠŠ$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+		set("unequip_msg", "$Nå°†æ‰‹ä¸­çš„$næ’å…¥è…°åï¼\n");
 	}
 	init_staff(35);
 	setup();

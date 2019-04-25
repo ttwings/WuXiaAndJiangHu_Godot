@@ -7,12 +7,12 @@
 inherit CLOTH;
 
 string *clothname = ({
-	CYN "�Ҳ�����" NOR,
-	HIB "�಼����" NOR,
-	YEL "�ֲ�����" NOR,
-	CYN "�Ҳ�ֱ��" NOR,
-	HIB "�಼ֱ��" NOR,
-	YEL "�ֲ�ֱ��" NOR,
+	CYN "灰布袈裟" NOR,
+	HIB "青布袈裟" NOR,
+	YEL "粗布袈裟" NOR,
+	CYN "灰布直裰" NOR,
+	HIB "青布直裰" NOR,
+	YEL "粗布直裰" NOR,
 });
 string *clothid = ({
 	"jia sha",
@@ -23,12 +23,12 @@ string *clothid = ({
 	"zhi duo",
 });
 string *clothlong = ({
-	"����һ�������˳����ĻҲ����ġ�\n",
-	"����һ�������˳������಼���ġ�\n",
-	"����һ�������˳����Ĵֲ����ġ�\n",
-	"����һ���������泣�����ĻҲ�ֱ�֡�\n",
-	"����һ���������泣�������಼ֱ�֡�\n",
-	"����һ���������泣�����Ĵֲ�ֱ�֡�\n",
+	"这是一件出家人常穿的灰布袈裟。\n",
+	"这是一件出家人常穿的青布袈裟。\n",
+	"这是一件出家人常穿的粗布袈裟。\n",
+	"这是一件出家人随常所穿的灰布直裰。\n",
+	"这是一件出家人随常所穿的青布直裰。\n",
+	"这是一件出家人随常所穿的粗布直裰。\n",
 });
 
 void create()
@@ -43,7 +43,7 @@ void create()
 	else
 	{
 		//	set("long", clothlong[i]);
-		set("unit", "��");
+		set("unit", "件");
 		set("value", 0);
 		set("material", "cloth");
 		set("armor_prop/armor", 1);

@@ -8,11 +8,11 @@ void init()
 }
 void create()
 {
-	set_name(HIC "³¤Ê¯Æ¬" NOR, ({"chang shipian", "stone", "shipian"}));
+	set_name(HIC "é•¿çŸ³ç‰‡" NOR, ({"chang shipian", "stone", "shipian"}));
 	set_weight(5000);
-	set("unit", "¿é");
+	set("unit", "å—");
 	set("long", HIC @LONG
-					Ò»¿éÆÕÆÕÍ¨Í¨µÄ³¤ÌõÊ¯Æ¬£¬ÉÏÃæÓĞĞ©Ï¸Ï¸µÄÎÆÂ·£¬¿´²»³öÊ²Ã´ÌØ±ğÖ®´¦¡£ LONG
+					ä¸€å—æ™®æ™®é€šé€šçš„é•¿æ¡çŸ³ç‰‡ï¼Œä¸Šé¢æœ‰äº›ç»†ç»†çš„çº¹è·¯ï¼Œçœ‹ä¸å‡ºä»€ä¹ˆç‰¹åˆ«ä¹‹å¤„ã€‚ LONG
 						NOR);
 	set("value", 1);
 	set("material", "stone");
@@ -23,18 +23,18 @@ int do_study(string arg)
 	object me = this_player();
 	int dugulevel = me->query_skill("sword", 1);
 	if ((arg != "stone") && (arg != "shipian") && (arg != "chang shipian"))
-		return notify_fail("ÄãÒªÑ§Ê²Ã´£¿\n");
+		return notify_fail("ä½ è¦å­¦ä»€ä¹ˆï¼Ÿ\n");
 	if ((dugulevel >= 150) && (dugulevel <= 200))
 	{
 		if ((int)me->query("combat_exp") < (int)dugulevel * dugulevel * dugulevel / 10)
-			return notify_fail("ÄãÖ»¾õµÃÊ¯Í·µÄÎÆÀíËÆºõÔÌº¬×Å¸ßÉîµÄ½£Òâ£¬¿ÉÊÇ¾ÍÊÇÀí²»³ö\nÍ·Ğ÷£¬¿´À´ÊÇÊµÕ½¾­Ñé²»¹»¡£\n");
+			return notify_fail("ä½ åªè§‰å¾—çŸ³å¤´çš„çº¹ç†ä¼¼ä¹è•´å«ç€é«˜æ·±çš„å‰‘æ„ï¼Œå¯æ˜¯å°±æ˜¯ç†ä¸å‡º\nå¤´ç»ªï¼Œçœ‹æ¥æ˜¯å®æˆ˜ç»éªŒä¸å¤Ÿã€‚\n");
 		if ((int)me->query("jing") < 25)
-			return notify_fail("ÄãÏÖÔÚ¹ıÓÚÆ£¾ë£¬ÎŞ·¨×¨ĞÄÏÂÀ´ÑĞ¶ÁĞÂÖª¡£\n");
+			return notify_fail("ä½ ç°åœ¨è¿‡äºç–²å€¦ï¼Œæ— æ³•ä¸“å¿ƒä¸‹æ¥ç ”è¯»æ–°çŸ¥ã€‚\n");
 		me->receive_damage("jing", 25);
 		me->improve_skill("sword", (me->query("int")) * (me->query("combat_exp") / 200000));
-		message("vision", "ÄãÄÃ³ö³¤Ê¯Ìõ×ĞÏ¸ÑĞ¾¿£¬¾¹´ÓÊ¯ÌõµÄÎÆÀíÉÏÁìÎò³ö½£µÀ£¬\nÄãµÄ»ù±¾½£·¨´óÓĞ³¤½ø¡£\n", me);
-		message("vision", me->query("name") + "×ĞÏ¸ÑĞ¶ÁÒ»¿éÊ¯Æ¬¡£\n", environment(me), me);
+		message("vision", "ä½ æ‹¿å‡ºé•¿çŸ³æ¡ä»”ç»†ç ”ç©¶ï¼Œç«Ÿä»çŸ³æ¡çš„çº¹ç†ä¸Šé¢†æ‚Ÿå‡ºå‰‘é“ï¼Œ\nä½ çš„åŸºæœ¬å‰‘æ³•å¤§æœ‰é•¿è¿›ã€‚\n", me);
+		message("vision", me->query("name") + "ä»”ç»†ç ”è¯»ä¸€å—çŸ³ç‰‡ã€‚\n", environment(me), me);
 		return 1;
 	}
-	return notify_fail("Äã¶Ô×ÅÊ¯Í·¿´À´¿´È¥£¬Ã»¿´³öÊ²Ã´µÀÀí³öÀ´¡£\n");
+	return notify_fail("ä½ å¯¹ç€çŸ³å¤´çœ‹æ¥çœ‹å»ï¼Œæ²¡çœ‹å‡ºä»€ä¹ˆé“ç†å‡ºæ¥ã€‚\n");
 }

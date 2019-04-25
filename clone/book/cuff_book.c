@@ -4,14 +4,14 @@ inherit ITEM;
 
 void create()
 {
-	set_name("È­·¨ÈëÃÅ", ({"cuff book", "shu", "book"}));
+	set_name("æ‹³æ³•å…¥é—¨", ({"cuff book", "shu", "book"}));
 	set_weight(600);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±¾");
-		set("long", "ÕâÊÇÒ»±¾ÆÕÆÕÍ¨Í¨µÄÈ­·¨ÈëÃÅ£¬´ó½ÖÉÏËæ´¦¿É¼û¡£\n");
+		set("unit", "æœ¬");
+		set("long", "è¿™æ˜¯ä¸€æœ¬æ™®æ™®é€šé€šçš„æ‹³æ³•å…¥é—¨ï¼Œå¤§è¡—ä¸Šéšå¤„å¯è§ã€‚\n");
 		set("value", 100);
 		set("material", "paper");
 		set("skill", ([

@@ -1,29 +1,29 @@
-// Éñ»°ÊÀ½ç¡¤Î÷ÓÎ¼Ç¡¤°æ±¾£´£®£µ£°
+// ç¥è¯ä¸–ç•ŒÂ·è¥¿æ¸¸è®°Â·ç‰ˆæœ¬ï¼”ï¼ï¼•ï¼
 /* <SecCrypt CPL V3R05> */
 
 // created by snowcat on 4/9/1997
-// jiunang.c ÑòÆ¤´ó¾ÆÄÒ
+// jiunang.c ç¾Šçš®å¤§é…’å›Š
 
 inherit ITEM;
 inherit F_LIQUID;
 
 void create()
 {
-  set_name("ÑòÆ¤´ó¾ÆÄÒ", ({"jiunang", "wineskin", "skin"}));
+  set_name("ç¾Šçš®å¤§é…’å›Š", ({"jiunang", "wineskin", "skin"}));
   set_weight(800);
   if (clonep())
     set_default_object(__FILE__);
   else
   {
-    set("long", "Ò»¸öÓÃÀ´×°ÑòÄÌ¾ÆµÄ´ó¾ÆÄÒ£¬´ó¸Å×°µÃÊ®À´ÉıµÄ¾Æ¡£\n");
-    set("unit", "¸ö");
+    set("long", "ä¸€ä¸ªç”¨æ¥è£…ç¾Šå¥¶é…’çš„å¤§é…’å›Šï¼Œå¤§æ¦‚è£…å¾—åæ¥å‡çš„é…’ã€‚\n");
+    set("unit", "ä¸ª");
     set("value", 100);
     set("max_liquid", 20);
   }
 
   set("liquid", ([
                             "type":"alcohol",
-                            "name":"ÑòÄÌ¾Æ",
+                            "name":"ç¾Šå¥¶é…’",
                        "remaining":20,
                     "drunk_supply":8,
   ]));

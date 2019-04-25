@@ -6,19 +6,19 @@ inherit DAGGER;
 
 void create()
 {
-	set_name("ÅĞ¹Ù±Ê", ({"panguan bi"}));
+	set_name("åˆ¤å®˜ç¬”", ({"panguan bi"}));
 	set_weight(5000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "Ö¦");
-		set("long", "ÕâÊÇÒ»Ö¦¾«Ìú´ò¾ÍµÄÅĞ¹Ù±Ê¡£\n");
+		set("unit", "æ");
+		set("long", "è¿™æ˜¯ä¸€æç²¾é“æ‰“å°±çš„åˆ¤å®˜ç¬”ã€‚\n");
 		set("value", 0);
 		set("rigidity", 100);
 		set("material", "steel");
-		set("wield_msg", "$N³¸³öÒ»Ö¦$nÎÕÔÚÊÖÖĞ¡£\n");
-		set("unwield_msg", "$N½«ÊÖÖĞµÄ$n·´±ğÑüºó¡£\n");
+		set("wield_msg", "$Næ£å‡ºä¸€æ$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+		set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$nååˆ«è…°åã€‚\n");
 	}
 	init_dagger(25);
 	setup();

@@ -5,10 +5,10 @@ inherit BULLETIN_BOARD;
 void create()
 {
 	seteuid(getuid());
-	set_name("¸üĞÂ¹«¸æ°æ", ({"board"}));
+	set_name("æ›´æ–°å…¬å‘Šç‰ˆ", ({"board"}));
 	set("location", "/u/lijia/workroom");
 	set("board_id", "news_b");
-	set("long", "ÕâÊÇÒ»¸öÎ×Ê¦Ìá¹©¸üĞÂÏûÏ¢Ê±ÓÃµÄÁôÑÔ°å¡£\n");
+	set("long", "è¿™æ˜¯ä¸€ä¸ªå·«å¸ˆæä¾›æ›´æ–°æ¶ˆæ¯æ—¶ç”¨çš„ç•™è¨€æ¿ã€‚\n");
 	setup();
 	set("capacity", 100);
 	replace_program(BULLETIN_BOARD);

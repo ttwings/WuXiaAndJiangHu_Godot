@@ -1,4 +1,4 @@
-// mabukuanshan.c Âé²¼¿íÉÀ
+// mabukuanshan.c éº»å¸ƒå®½è¡«
 
 #include <armor.h>
 
@@ -6,14 +6,14 @@ inherit CLOTH;
 
 void create()
 {
-	set_name("Âé²¼¿íÉÀ", ({"mabu kuanshan", "cloth"}));
+	set_name("éº»å¸ƒå®½è¡«", ({"mabu kuanshan", "cloth"}));
 	set_weight(1500);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("long", "Ò»Ì×»ÒÉ«µÄÂé²¼¿íÉÀ¡£\n");
-		set("unit", "Ì×");
+		set("long", "ä¸€å¥—ç°è‰²çš„éº»å¸ƒå®½è¡«ã€‚\n");
+		set("unit", "å¥—");
 		set("value", 300);
 		set("material", "cloth");
 		set("armor_prop/armor", 1);

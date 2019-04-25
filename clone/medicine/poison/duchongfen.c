@@ -8,18 +8,18 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name("¶¾³æ·Û", ({"duchong fen", "duchong", "fen"}));
+	set_name("æ¯’è™«ç²‰", ({"duchong fen", "duchong", "fen"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("long", "Ò»°üÒÔòÚò¼¡¢Ö©ÖëµÈÎªÔ­ÁÏÖÆ³ÉµÄ¶¾·Û¡£
-¿ÉÒÔÓÃÀ´Éú³É(make)»ğ¶Ñ(huodui)¡£Ò²¿ÉÒÔµ¹(pour)½ø¾ÆË®Àï£¬
-»òÍ¿(tu)ÔÚ±øÆ÷ÉÏ¡£(Í¿Ö®Ç°±ØĞëÏÈµãÈ¼(dian)Ëü)\n" );
-//		set("unit", "Ğ©");
-		set("unit", "°ü");
+		set("long", "ä¸€åŒ…ä»¥èœˆèš£ã€èœ˜è››ç­‰ä¸ºåŸæ–™åˆ¶æˆçš„æ¯’ç²‰ã€‚
+å¯ä»¥ç”¨æ¥ç”Ÿæˆ(make)ç«å †(huodui)ã€‚ä¹Ÿå¯ä»¥å€’(pour)è¿›é…’æ°´é‡Œï¼Œ
+æˆ–æ¶‚(tu)åœ¨å…µå™¨ä¸Šã€‚(æ¶‚ä¹‹å‰å¿…é¡»å…ˆç‚¹ç‡ƒ(dian)å®ƒ)\n" );
+//		set("unit", "äº›");
+		set("unit", "åŒ…");
 //		set("base_value", 3000);
-//		set("base_unit", "°ü");
+//		set("base_unit", "åŒ…");
 //		set("base_weight", 30);
 		set("drug2", __DIR__"duchongfen1");
 		set("pour_type", "xx_poison");

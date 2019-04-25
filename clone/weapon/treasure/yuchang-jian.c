@@ -1,4 +1,4 @@
-// yuchang-jian.c Óã³¦½£
+// yuchang-jian.c é±¼è‚ å‰‘
 // Last Modified by winder on Nov. 17 2000
 
 #include <ansi.h>
@@ -18,22 +18,22 @@ void init()
 
 void create()
 {
-	set_name(HIR "Óã³¦½£" NOR, ({"yuchang jian", "jian", "sword"}));
+	set_name(HIR "é±¼è‚ å‰‘" NOR, ({"yuchang jian", "jian", "sword"}));
 	set_weight(10000);
 
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±ú");
-		set("long", "Õâ¾ÍÊÇ´«ËµÖĞµÄÓã³¦½££¬Ã»Ïëµ½»áÔÚÕâÀï³öÏÖ£¡\n"
-								"ÄãÈÌ²»×¡Ïë°ÑËü¼ñ(jian)ÆğÀ´£¡£¡£¡\n");
+		set("unit", "æŸ„");
+		set("long", "è¿™å°±æ˜¯ä¼ è¯´ä¸­çš„é±¼è‚ å‰‘ï¼Œæ²¡æƒ³åˆ°ä¼šåœ¨è¿™é‡Œå‡ºç°ï¼\n"
+								"ä½ å¿ä¸ä½æƒ³æŠŠå®ƒæ¡(jian)èµ·æ¥ï¼ï¼ï¼\n");
 		set("material", "steel");
 		set("no_get", 1);
 		set("no_drop", 1);
 		set("count", 3);
-		set("wield_msg", HIR "Ò»µÀ°µºìÑª¹â»®¹ı£¬Óã³¦½£ÒÑÂäÈë$N" HIR "ÊÖÖĞ¡£\n" NOR);
-		set("unwield_msg", HIR "ÌìµØºö°µ£¬$N" HIR "ÊÖÖĞµÄÓã³¦½£ÒÑÇÄÈ»ÒşÃ» ¡£\n" NOR);
+		set("wield_msg", HIR "ä¸€é“æš—çº¢è¡€å…‰åˆ’è¿‡ï¼Œé±¼è‚ å‰‘å·²è½å…¥$N" HIR "æ‰‹ä¸­ã€‚\n" NOR);
+		set("unwield_msg", HIR "å¤©åœ°å¿½æš—ï¼Œ$N" HIR "æ‰‹ä¸­çš„é±¼è‚ å‰‘å·²æ‚„ç„¶éšæ²¡ ã€‚\n" NOR);
 	}
 	init_sword(1);
 	setup();
@@ -48,7 +48,7 @@ int do_jian(string arg)
 	{
 		if (query("count") <= 0)
 			set("count", 1);
-		message_vision(HIR "$NÇáÇáµØ¼ñÆğÓã³¦½££¬Í»È»´Ó½£ºóÉä³ö" + chinese_number(query("count")) + "Ã¶¸ÖÕë£¬ÉîÉîµÄ´ÌÈë$NµÄÌåÄÚ¡£\n" NOR, me);
+		message_vision(HIR "$Nè½»è½»åœ°æ¡èµ·é±¼è‚ å‰‘ï¼Œçªç„¶ä»å‰‘åå°„å‡º" + chinese_number(query("count")) + "æšé’¢é’ˆï¼Œæ·±æ·±çš„åˆºå…¥$Nçš„ä½“å†…ã€‚\n" NOR, me);
 		if (me->query_dex() > 40)
 			add("count", -1);
 		me->unconcious();
@@ -56,10 +56,10 @@ int do_jian(string arg)
 	}
 	else
 	{
-		message_vision(HIR "$NÇáÇáµØ¼ñÆğÓã³¦½££¬Í»È»´Ó½£ºóÉä³öÒ»Ã¶¸ÖÕë¡£µ«ÊÇ$NÔçÓĞ·À±¸£¬ÂíÉÏ¶ãÁË¿ªÈ¥¡£\n" NOR, me);
-		message("channel:rumor", MAG "¡¾Ò¥ÑÔ¡¿Ä³ÈË£º" + this_player()->query("name") + "ÄÃµ½" + this_object()->query("name") + MAG + "À²¡£\n" NOR, users());
-		tell_object(me, "Äã¼ñÆğÒ»°Ñ" + this_object()->query("name") + "¡£\n");
-		set("long", "ÕâÊÇ´ºÇïÃû½³Å·Ò±×ÓËùÖıµÄÎå¿Ú±¦½£Ö®Óã³¦½£¡£\n½£Éí³¤½ö´çÓà£¬Ï¸¿´Ö®ÏÂÒşÒşÓĞÑª¹â¸¡ÏÖ¡£\n");
+		message_vision(HIR "$Nè½»è½»åœ°æ¡èµ·é±¼è‚ å‰‘ï¼Œçªç„¶ä»å‰‘åå°„å‡ºä¸€æšé’¢é’ˆã€‚ä½†æ˜¯$Næ—©æœ‰é˜²å¤‡ï¼Œé©¬ä¸Šèº²äº†å¼€å»ã€‚\n" NOR, me);
+		message("channel:rumor", MAG "ã€è°£è¨€ã€‘æŸäººï¼š" + this_player()->query("name") + "æ‹¿åˆ°" + this_object()->query("name") + MAG + "å•¦ã€‚\n" NOR, users());
+		tell_object(me, "ä½ æ¡èµ·ä¸€æŠŠ" + this_object()->query("name") + "ã€‚\n");
+		set("long", "è¿™æ˜¯æ˜¥ç§‹ååŒ æ¬§å†¶å­æ‰€é“¸çš„äº”å£å®å‰‘ä¹‹é±¼è‚ å‰‘ã€‚\nå‰‘èº«é•¿ä»…å¯¸ä½™ï¼Œç»†çœ‹ä¹‹ä¸‹éšéšæœ‰è¡€å…‰æµ®ç°ã€‚\n");
 		//		remove_action(me,"jian");
 		set("got", 1);
 		set("weapon_prop/damage", 300);

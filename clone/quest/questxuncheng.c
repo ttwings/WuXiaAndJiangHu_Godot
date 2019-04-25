@@ -9,22 +9,22 @@ inherit NPC;
 //inherit F_CLEAN_UP;
 inherit F_UNIQUE;
 string *name_msg = ({
-    "¶ñ°Ô",
-    "Ğ¡Íµ",
-    "¶ñÉ®",
-    "Ğ¡Ã«Ôô",
-    "×íºº",
-    "É½Ôô",
-    "Âù±ø",
-    "¶ñÅ«",
-    "ÍÁ·Ë",
-    "Ğ¡»ì»ì",
-    "²É»¨Ôô",
-    "ÃÉÃæÈË",
-    "¶ñØ¤",
-    "¶ñÉÌ",
-    "µ¶¿Í",
-    "½£¿Í",
+    "æ¶éœ¸",
+    "å°å·",
+    "æ¶åƒ§",
+    "å°æ¯›è´¼",
+    "é†‰æ±‰",
+    "å±±è´¼",
+    "è›®å…µ",
+    "æ¶å¥´",
+    "åœŸåŒª",
+    "å°æ··æ··",
+    "é‡‡èŠ±è´¼",
+    "è’™é¢äºº",
+    "æ¶ä¸",
+    "æ¶å•†",
+    "åˆ€å®¢",
+    "å‰‘å®¢",
 });
 string *long_id = ({
     "e ba",
@@ -50,7 +50,7 @@ void create()
         int i;
         i = random(sizeof(name_msg));
         set_name(name_msg[i], ({long_id[i]}));
-        set("gender", random(2) > 0 ? "Å®ĞÔ" : "ÄĞĞÔ");
+        set("gender", random(2) > 0 ? "å¥³æ€§" : "ç”·æ€§");
         set("attitude", "friendly");
         set("max_qi", 2000 + random(1000));
         set("max_jing", 1000 + random(500));
@@ -111,7 +111,7 @@ void init()
                 {
                         command("kao " + ob->query("id"));
                         ob->start_busy(1 + random(3));
-                        command("say ÄãÕâ¸ö»ìµ°£¬Ã»ÊÂÅÜÀ´Ñ²³Ç£¿¸Ò¹Ü´óÒ¯ÏĞÊÂ£¡");
+                        command("say ä½ è¿™ä¸ªæ··è›‹ï¼Œæ²¡äº‹è·‘æ¥å·¡åŸï¼Ÿæ•¢ç®¡å¤§çˆ·é—²äº‹ï¼");
                         command("kick " + ob->query("id"));
                 }
         add_action("do_hit", "hit");
@@ -134,7 +134,7 @@ int do_look(string arg)
 
         else
         {
-                message_vision(ob->query("name") + "´óºÈµ½£º¿´Ê²Ã´¿´£¬¿ì¹ö£¡\n", me);
+                message_vision(ob->query("name") + "å¤§å–åˆ°ï¼šçœ‹ä»€ä¹ˆçœ‹ï¼Œå¿«æ»šï¼\n", me);
                 return 1;
         }
 }
@@ -150,7 +150,7 @@ int do_hit(string arg)
         {
                 if (userp(me))
                 {
-                        tell_object(me, HIW "²»ÊÇÄãÒª×¥µÄÈË£¬´ÕÊ²Ã´ÈÈÄÖ£¡\n" NOR);
+                        tell_object(me, HIW "ä¸æ˜¯ä½ è¦æŠ“çš„äººï¼Œå‡‘ä»€ä¹ˆçƒ­é—¹ï¼\n" NOR);
                         return 1;
                 }
                 else
@@ -165,7 +165,7 @@ int do_halt()
 
         if (me->is_fighting(ob))
         {
-                message_vision(HIW "$NºÈµÀ£º¡°ºÙºÙ£¬Ïë´ò¼Ü£¿²»·Ö³ö¸ö¸ßÏÂÔõÃ´ĞĞ£¡¡±\n" NOR, ob, me);
+                message_vision(HIW "$Nå–é“ï¼šâ€œå˜¿å˜¿ï¼Œæƒ³æ‰“æ¶ï¼Ÿä¸åˆ†å‡ºä¸ªé«˜ä¸‹æ€ä¹ˆè¡Œï¼â€\n" NOR, ob, me);
                 return 1;
         }
         return 0;

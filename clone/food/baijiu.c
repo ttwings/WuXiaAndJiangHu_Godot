@@ -1,4 +1,4 @@
-// Éñ»°ÊÀ½ç¡¤Î÷ÓÎ¼Ç¡¤°æ±¾£´£®£µ£°
+// ç¥è¯ä¸–ç•ŒÂ·è¥¿æ¸¸è®°Â·ç‰ˆæœ¬ï¼”ï¼ï¼•ï¼
 /* <SecCrypt CPL V3R05> */
 
 inherit ITEM;
@@ -6,21 +6,21 @@ inherit F_LIQUID;
 
 void create()
 {
-  set_name("´Ö´Å¾ÆÆ¿", ({"jiuping", "skin"}));
+  set_name("ç²—ç£é…’ç“¶", ({"jiuping", "skin"}));
   set_weight(800);
   if (clonep())
     set_default_object(__FILE__);
   else
   {
-    set("long", "Ò»¸öÓÃÀ´×°¾ÆµÄ´Ö´Å¾ÆÆ¿£¬ÄÜ×°Á½£¬Èı½ï°×¾Æ¡£\n");
-    set("unit", "¸ö");
+    set("long", "ä¸€ä¸ªç”¨æ¥è£…é…’çš„ç²—ç£é…’ç“¶ï¼Œèƒ½è£…ä¸¤ï¼Œä¸‰æ–¤ç™½é…’ã€‚\n");
+    set("unit", "ä¸ª");
     set("value", 100);
     set("max_liquid", 15);
   }
 
   set("liquid", ([
                             "type":"alcohol",
-                            "name":"ÀÏ°×¸É",
+                            "name":"è€ç™½å¹²",
                        "remaining":15,
                     "drunk_supply":15,
   ]));

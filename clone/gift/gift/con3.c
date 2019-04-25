@@ -3,21 +3,21 @@ inherit __DIR__ "gift";
 
 void create()
 {
-        set_name(NOR + YEL "Ï´ËèÔÙÔìÏÉµ¤" NOR, ({"xisui xiandan", "xisui",
+        set_name(NOR + YEL "æ´—é«“å†é€ ä»™ä¸¹" NOR, ({"xisui xiandan", "xisui",
                                                  "xiandan", "dan"}));
         if (clonep())
                 set_default_object(__FILE__);
         else
         {
-                set("long", YEL "´«Ëµ´Ëµ¤ÄËÊÇÌì¹¬ÖĞµÄÉñÆ·£¬·²ÈË³ÔÁË¿ÉÒÔÆ½Ôö¸ù¹Ç¡£\n" NOR);
-                set("unit", "¿Å");
+                set("long", YEL "ä¼ è¯´æ­¤ä¸¹ä¹ƒæ˜¯å¤©å®«ä¸­çš„ç¥å“ï¼Œå‡¡äººåƒäº†å¯ä»¥å¹³å¢æ ¹éª¨ã€‚\n" NOR);
+                set("unit", "é¢—");
                 set("value", 100000);
                 set("weight", 50);
                 set("gift_type", "con");
-                set("gift_name", "ÏÈÌì¸ù¹Ç");
+                set("gift_name", "å…ˆå¤©æ ¹éª¨");
                 set("gift_point", 85);
-                set("gift_msg", HIY "Äã»ëÉíµÄ¹Ç÷ÀµÇÊ±»©À²À²µÄÏì¸ö²»Í££¬¿É°ÑÄãÏÅ»µÁË£¬"
-                                    "ºÃÔÚÒ»»á¶ù¾ÍÍ£ÁËÏÂÀ´£¬ËÆºõ½î¹Ç¸üÁé»îÁË¡£\n" NOR);
+                set("gift_msg", HIY "ä½ æµ‘èº«çš„éª¨éª¼ç™»æ—¶å“—å•¦å•¦çš„å“ä¸ªä¸åœï¼Œå¯æŠŠä½ å“åäº†ï¼Œ"
+                                    "å¥½åœ¨ä¸€ä¼šå„¿å°±åœäº†ä¸‹æ¥ï¼Œä¼¼ä¹ç­‹éª¨æ›´çµæ´»äº†ã€‚\n" NOR);
         }
         setup();
 }

@@ -6,15 +6,15 @@ inherit SURCOAT;
 
 void create()
 {
-	set_name("ÊÞÆ¤Åû·ç", ({"shoupi pifeng", "pifeng", "cloth"}));
+	set_name("å…½çš®æŠ«é£Ž", ({"shoupi pifeng", "pifeng", "cloth"}));
 	set_weight(4500);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("long", "Ò»¼þÊÞÆ¤Åû·ç¡£\n");
+		set("long", "ä¸€ä»¶å…½çš®æŠ«é£Žã€‚\n");
 		set("material", "leather");
-		set("unit", "¼þ");
+		set("unit", "ä»¶");
 		set("value", 700);
 		set("armor_prop/armor", 35);
 	}

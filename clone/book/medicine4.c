@@ -6,14 +6,14 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIY "×ÓÎçÕë¾Ä¾­" NOR, ({"ziwu zhenjiujing", "ziwu", "jing"}));
+	set_name(HIY "å­åˆé’ˆç¸ç»" NOR, ({"ziwu zhenjiujing", "ziwu", "jing"}));
 	set_weight(10);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±¾");
-		set("long", "ÕâÊÇµû¹ÈÒ½ÏÉºúÇàÅ£ËùÖøÒ½Êé¡£\n");
+		set("unit", "æœ¬");
+		set("long", "è¿™æ˜¯è¶è°·åŒ»ä»™èƒ¡é’ç‰›æ‰€è‘—åŒ»ä¹¦ã€‚\n");
 		set("value", 15000);
 		set("material", "paper");
 		set("skill", ([

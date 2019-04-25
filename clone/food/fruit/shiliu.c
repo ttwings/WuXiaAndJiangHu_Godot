@@ -7,26 +7,26 @@ inherit F_FRUIT;
 
 void create()
 {
-	set_name(HIR "Ê¯Áñ" NOR, ({"shi liu", "shiliu", "pomegranate"}));
+	set_name(HIR "çŸ³æ¦´" NOR, ({"shi liu", "shiliu", "pomegranate"}));
 	set_weight(4000);
-	set("long", "Ò»¸öÁÑ¿ªÁË¿ÚµÄ±¡Æ¤´óÊ¯Áñ¡£\n");
-	set("unit", "¸ö");
+	set("long", "ä¸€ä¸ªè£‚å¼€äº†å£çš„è–„çš®å¤§çŸ³æ¦´ã€‚\n");
+	set("unit", "ä¸ª");
 	set("life", 30);
 	set("value", 0);
-	set("fruit_remaining", 5); //¿ÉÒÔ³Ô5¿Ú
-	set("food_supply", 5);	 //Ã¿¿Ú¼Ó5µÄfood
-	set("water_supply", 25);   //Ã¿¿Ú¿ÉÒÔ¼Ó5µÄwater
-	//Ã¿´Î³ÔµÄmsg,Ã»ÓĞÒ²¿ÉÒÔµÄ¡£
-	set("eat_msg", "$NÄÃÆğ$n£¬°şÁË¼¸¸ö×Ñ¶ù³ÔÏÂÈ¥¡£\n");
-	//×îºóÒ»¿ÚµÄmsg£¬Ã»ÓĞÒà¿É
-	set("end_msg", "$N×ĞÏ¸µÄ°ş³ö×îºó¼¸¸ö×Ñ³ÔÏÂÈ¥¡£\n");
-	//³Ô±¥ÁËµÄmsg, Ã»ÓĞÒà¿É£¬µ«²»ÄÜÓĞ´ú´Ê¡£
-	set("over_msg", "³ÔÕâÃ´¶à£¿Ğ¡ĞÄ³ÅÆÆ¶ÇÆ¤£¡£¡£¡£¡\n");
-	// Ë®¹û³ÔÍêÊ£ÏÂµÄ¶«Î÷ :-)
-	set("core", "Ê¯ÁñÆ¤");											   //name
+	set("fruit_remaining", 5); //å¯ä»¥åƒ5å£
+	set("food_supply", 5);	 //æ¯å£åŠ 5çš„food
+	set("water_supply", 25);   //æ¯å£å¯ä»¥åŠ 5çš„water
+	//æ¯æ¬¡åƒçš„msg,æ²¡æœ‰ä¹Ÿå¯ä»¥çš„ã€‚
+	set("eat_msg", "$Næ‹¿èµ·$nï¼Œå‰¥äº†å‡ ä¸ªç±½å„¿åƒä¸‹å»ã€‚\n");
+	//æœ€åä¸€å£çš„msgï¼Œæ²¡æœ‰äº¦å¯
+	set("end_msg", "$Nä»”ç»†çš„å‰¥å‡ºæœ€åå‡ ä¸ªç±½åƒä¸‹å»ã€‚\n");
+	//åƒé¥±äº†çš„msg, æ²¡æœ‰äº¦å¯ï¼Œä½†ä¸èƒ½æœ‰ä»£è¯ã€‚
+	set("over_msg", "åƒè¿™ä¹ˆå¤šï¼Ÿå°å¿ƒæ’‘ç ´è‚šçš®ï¼ï¼ï¼ï¼\n");
+	// æ°´æœåƒå®Œå‰©ä¸‹çš„ä¸œè¥¿ :-)
+	set("core", "çŸ³æ¦´çš®");											   //name
 	set("core_id", ({"shiliu pi", "pomegranate peel", "pi", "peel"})); //id
-	set("core_unit", "¸ö");											   //unit
-	set("core_long", "Ò»¸öÊ¯ÁñÆ¤¡£\n");								   //long
+	set("core_unit", "ä¸ª");											   //unit
+	set("core_long", "ä¸€ä¸ªçŸ³æ¦´çš®ã€‚\n");								   //long
 	set("gifts", ([
 					 "per":1,
 					 "cps":1,

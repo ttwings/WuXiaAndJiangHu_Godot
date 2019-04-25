@@ -7,9 +7,9 @@ int cure_ob(string);
 
 void create()
 {
-	set_name("¶¾Éßµ¨", ({"shedan", "dan"}));
-	set("unit", "Á£");
-	set("long", "ÕâÊÇÒ»Ö»ÂÌÓ¨Ó¨µÄ¶¾Éßµ¨¡£\n");
+	set_name("æ¯’è›‡èƒ†", ({"shedan", "dan"}));
+	set("unit", "ç²’");
+	set("long", "è¿™æ˜¯ä¸€åªç»¿è¹è¹çš„æ¯’è›‡èƒ†ã€‚\n");
 	set("value", 200);
 	set("medicine", 1);
 	setup();
@@ -20,17 +20,17 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 
 	if ((int)me->query_condition("snake_poison") > 7)
 	{
 		me->apply_condition("snake_poison", (int)me->query_condition("snake_poison") - 5);
 	}
-	message_vision("$N³ÔÏÂÒ»¸±¶¾Éßµ¨£¬Ò»²»Ğ¡ĞÄÒ§ÆÆÁË£¬ºÃ¿àÅ¶¡£\n", me);
+	message_vision("$Nåƒä¸‹ä¸€å‰¯æ¯’è›‡èƒ†ï¼Œä¸€ä¸å°å¿ƒå’¬ç ´äº†ï¼Œå¥½è‹¦å“¦ã€‚\n", me);
 	destruct(this_object());
 	return 1;
 }

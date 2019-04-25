@@ -5,7 +5,7 @@ inherit SHOP;
 
 void create()
 {
-	set("short", "¸£ÐËÕ«");
+	set("short", "ç¦å…´æ–‹");
 	set("no_fight", 1);
 	set("no_beg", 1);
 	set("owner", "VOID_SHOP");
@@ -25,11 +25,11 @@ void init()
 {
 	if (query("shop_type") == 0)
 		set("long", @LONG
-				ÕâÀïÊÇ¿ª·â³ÇÄÚÓÐÃûµÄµêÆÌ¸£ÐËÕ«£¬¿ª·âÎª°ÙÄê¹Å¶¼£¬ÃñÖÚ¸»ÈÄ¡£ µêÆÌÄÚ×°ÊÎµÃ·Ç³£ºÀ»ª£¬²»¹ý¹ñÉÏÈ´¿ÕÎÞÒ»Îï¡£»ï¼ÆÔÚÒ»ÅÔ´ò×Åíï£¬¿´
-				    Ñù×ÓÒÑ¾­ºÜ¾ÃÃ»ÈËÀ´´òÀíÁË¡£ LONG);
+				è¿™é‡Œæ˜¯å¼€å°åŸŽå†…æœ‰åçš„åº—é“ºç¦å…´æ–‹ï¼Œå¼€å°ä¸ºç™¾å¹´å¤éƒ½ï¼Œæ°‘ä¼—å¯Œé¥¶ã€‚ åº—é“ºå†…è£…é¥°å¾—éžå¸¸è±ªåŽï¼Œä¸è¿‡æŸœä¸Šå´ç©ºæ— ä¸€ç‰©ã€‚ä¼™è®¡åœ¨ä¸€æ—æ‰“ç€ç›¹ï¼Œçœ‹
+				    æ ·å­å·²ç»å¾ˆä¹…æ²¡äººæ¥æ‰“ç†äº†ã€‚ LONG);
 	else
 		set("long", @LONG
-				ÕâÀïÊÇ¿ª·â³ÇÄÚÓÐÃûµÄµêÆÌ¸£ÐËÕ«£¬µêÌÃÀïÈËÀ´ÈËÍù£¬´¨Á÷²»Ï¢¡£ ¿ª·âÎª°ÙÄê¹Å¶¼£¬³öÊÛµÄÎïÆ·Ò²ÊÇ±ð¾ßÒ»¸ñ¡£ÆÌÃæ¿í³¨Ã÷ÁÁ£¬¹ñÉÏ°ÚÂú
-				    ÁË¸÷Ê½¸÷Ñù¡¢ÁÕÀÅÂúÄ¿µÄ»õÎï¡£ LONG);
+				è¿™é‡Œæ˜¯å¼€å°åŸŽå†…æœ‰åçš„åº—é“ºç¦å…´æ–‹ï¼Œåº—å ‚é‡Œäººæ¥äººå¾€ï¼Œå·æµä¸æ¯ã€‚ å¼€å°ä¸ºç™¾å¹´å¤éƒ½ï¼Œå‡ºå”®çš„ç‰©å“ä¹Ÿæ˜¯åˆ«å…·ä¸€æ ¼ã€‚é“ºé¢å®½æ•žæ˜Žäº®ï¼ŒæŸœä¸Šæ‘†æ»¡
+				    äº†å„å¼å„æ ·ã€ç³ç…æ»¡ç›®çš„è´§ç‰©ã€‚ LONG);
 	return;
 }

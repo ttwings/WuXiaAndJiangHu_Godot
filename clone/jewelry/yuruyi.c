@@ -6,14 +6,14 @@ inherit ITEM;
 
 void create()
 {
-	set_name(WHT "ÓñÈçÒâ" NOR, ({"yu ruyi", "ruyi"}));
+	set_name(WHT "ç‰å¦‚æ„" NOR, ({"yu ruyi", "ruyi"}));
 	set_weight(50);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("long", "ÓñÈçÒâ¡£\n");
-		set("unit", "¸ö");
+		set("long", "ç‰å¦‚æ„ã€‚\n");
+		set("unit", "ä¸ª");
 		set("value", 200000);
 	}
 }

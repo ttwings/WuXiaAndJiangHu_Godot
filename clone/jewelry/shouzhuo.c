@@ -1,4 +1,4 @@
-// shuozhuo.c ÊÖïí
+// shuozhuo.c æ‰‹é•¯
 
 #include <armor.h>
 #include <ansi.h>
@@ -7,16 +7,16 @@ inherit WRISTS;
 
 void create()
 {
-	set_name(HIG "ÊÖïí" NOR, ({"shou zhuo", "zhuo"}));
-	set("long", "ÕâÊÇÒ»¶ÔÓñïí£¬Ó¨»¬ÎÂÈó£¬¹â½àÎŞè¦£¬ÕæÊÇÏ¡ÊÀº±ÓĞ¡£\n");
+	set_name(HIG "æ‰‹é•¯" NOR, ({"shou zhuo", "zhuo"}));
+	set("long", "è¿™æ˜¯ä¸€å¯¹ç‰é•¯ï¼Œè¹æ»‘æ¸©æ¶¦ï¼Œå…‰æ´æ— ç‘•ï¼ŒçœŸæ˜¯ç¨€ä¸–ç½•æœ‰ã€‚\n");
 	set("weight", 300);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "¶Ô");
+		set("unit", "å¯¹");
 		set("value", 50000);
-		set("material", "Óñ");
+		set("material", "ç‰");
 		set("armor_prop/armor", 2);
 		set("female_only", 1);
 	}

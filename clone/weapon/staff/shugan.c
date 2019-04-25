@@ -6,15 +6,15 @@ inherit STAFF;
 
 void create()
 {
-	set_name("Ê÷¸É", ({"shugan", "staff"}));
+	set_name("æ ‘å¹²", ({"shugan", "staff"}));
 	set_weight(1000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "¸ù");
+		set("unit", "æ ¹");
 		set("material", "wood");
-		set("long", "ÕâÊÇÒ»¸ù´Ö³¤µÄÊ÷Ö¦¡£\n");
+		set("long", "è¿™æ˜¯ä¸€æ ¹ç²—é•¿çš„æ ‘æã€‚\n");
 		set("weapon_prop/courage", -4);
 	}
 	init_staff(5);

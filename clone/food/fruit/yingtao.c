@@ -7,18 +7,18 @@ inherit F_FRUIT;
 
 void create()
 {
-	set_name(HIR "Ó£ÌÒ" NOR, ({"ying tao", "yingtao", "cherry"}));
+	set_name(HIR "æ¨±æ¡ƒ" NOR, ({"ying tao", "yingtao", "cherry"}));
 	set_weight(100);
-	set("long", "Ò»ÅõÏÊºìµÄÓ£ÌÒ£¬ÏÊÑŞÓûµÎ¡£\n");
-	set("unit", "Åõ");
+	set("long", "ä¸€æ§é²œçº¢çš„æ¨±æ¡ƒï¼Œé²œè‰³æ¬²æ»´ã€‚\n");
+	set("unit", "æ§");
 	//	set("value", 20);
 	set("life", 4);
 	set("fruit_remaining", 5);
 	set("food_supply", 10);
 	set("water_supply", 10);
-	set("eat_msg", "$NÄÃÆğ$n£¬Íù×ìÀï¶ªÁËÒ»¿Å\n");
-	set("end_msg", "$N³Ô¹âÁË×îºóÒ»¿Å$n¡£\n");
-	set("over_msg", "³ÔÕâÃ´¶à£¿Ğ¡ĞÄ³ÅÆÆ¶ÇÆ¤£¡£¡£¡£¡\n");
+	set("eat_msg", "$Næ‹¿èµ·$nï¼Œå¾€å˜´é‡Œä¸¢äº†ä¸€é¢—\n");
+	set("end_msg", "$Nåƒå…‰äº†æœ€åä¸€é¢—$nã€‚\n");
+	set("over_msg", "åƒè¿™ä¹ˆå¤šï¼Ÿå°å¿ƒæ’‘ç ´è‚šçš®ï¼ï¼ï¼ï¼\n");
 	set("gifts", ([
 					 "spi":1,
 	]));

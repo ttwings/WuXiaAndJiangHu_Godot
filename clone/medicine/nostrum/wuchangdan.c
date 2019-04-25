@@ -11,14 +11,14 @@ void init()
 }
 void create()
 {
-	set_name(HIR "ÎŞ³£µ¤" NOR, ({"wuchang dan", "dan"}));
+	set_name(HIR "æ— å¸¸ä¸¹" NOR, ({"wuchang dan", "dan"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "¿Å");
-		set("long", "ÕâÊÇÒ»¿Å¾§Ó¨»ğºìµÄÎŞ³£µ¤£¬¾­ÌÒ»¨µºÖ÷¾«ĞÄÁ·ÖÆ£¬
-ÓĞÆğËÀ»ØÉúÖ®¹¦¡£\n");
+		set("unit", "é¢—");
+		set("long", "è¿™æ˜¯ä¸€é¢—æ™¶è¹ç«çº¢çš„æ— å¸¸ä¸¹ï¼Œç»æ¡ƒèŠ±å²›ä¸»ç²¾å¿ƒç»ƒåˆ¶ï¼Œ
+æœ‰èµ·æ­»å›ç”Ÿä¹‹åŠŸã€‚\n");
 		set("value", 50000);
 	}
 	set("pour_type", "1");
@@ -38,16 +38,16 @@ int do_eat(string arg)
 	force_skill = me->query_skill("force", 1);
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 
 	if (me->query("eff_jing") >= me->query("max_jing") &&
 		me->query("eff_qi") >= me->query("max_qi"))
 	{
-		message_vision(HIG "$N³ÔÏÂÒ»Ö»ÎŞ³£µ¤£¬Ö»¾õÈ«Éí±ùÁ¹£¬¿´À´Äã²¹Ò©³ÔÌ«¶àÁË£¬ÄÖÆğ¶Ç×ÓÀ´ÁË£¡\n" NOR, me);
+		message_vision(HIG "$Nåƒä¸‹ä¸€åªæ— å¸¸ä¸¹ï¼Œåªè§‰å…¨èº«å†°å‡‰ï¼Œçœ‹æ¥ä½ è¡¥è¯åƒå¤ªå¤šäº†ï¼Œé—¹èµ·è‚šå­æ¥äº†ï¼\n" NOR, me);
 		me->receive_damage("jing", 30);
 		me->receive_damage("qi", 50);
 		me->receive_wound("jing", 20);
@@ -59,7 +59,7 @@ int do_eat(string arg)
 		me->set("jing", me->query("max_jing"));
 		me->set("eff_qi", me->query("max_qi"));
 		me->set("qi", me->query("max_qi"));
-		message_vision(HIR "$N³ÔÏÂÒ»¿ÅÎŞ³£µ¤£¬Ò»¹ÉÈÈÁ÷´Óµ¤ÌïÉıÆğ£¬¶ÙÊ±È«Éí³äÂúÁ¦Á¿£¡\n" NOR, me);
+		message_vision(HIR "$Nåƒä¸‹ä¸€é¢—æ— å¸¸ä¸¹ï¼Œä¸€è‚¡çƒ­æµä»ä¸¹ç”°å‡èµ·ï¼Œé¡¿æ—¶å…¨èº«å……æ»¡åŠ›é‡ï¼\n" NOR, me);
 	}
 	destruct(this_object());
 	me->start_busy(2);

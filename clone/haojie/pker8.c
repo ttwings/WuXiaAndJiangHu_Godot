@@ -4,8 +4,8 @@ void create()
 {
 	::create();
 	set("level", 8);
-	set_name("×ÏÒÂÉ±ÊÖ", ({"sha shou", "shashou", "zi", "ziyi"}));
-	set("long", "ËûÊÇÆßÉ±ÃÅµÄ×ÏÒÂÉ±ÊÖ¡£\n");
+	set_name("ç´«è¡£æ€æ‰‹", ({"sha shou", "shashou", "zi", "ziyi"}));
+	set("long", "ä»–æ˜¯ä¸ƒæ€é—¨çš„ç´«è¡£æ€æ‰‹ã€‚\n");
 	set("qi", 2000);
 	set("max_qi", 2000);
 	set("jing", 2000);
@@ -30,5 +30,5 @@ void create()
 	map_skill("dodge", "tiyunzong");
 	map_skill("parry", "taiji-jian");
 	map_skill("sword", "taiji-jian");
-	create_family("ÆßÉ±ÃÅ", 11 - query("level"), "É±ÊÖ");
+	create_family("ä¸ƒæ€é—¨", 11 - query("level"), "æ€æ‰‹");
 }

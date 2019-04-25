@@ -6,17 +6,17 @@ inherit COMBINED_ITEM;
 
 void create()
 {
-	set_name(HIR "µãÈ¼µÄºìÁ×·Û" NOR, ({"honglin fen", "fen", "honglin"}));
+	set_name(HIR "ç‚¹ç‡ƒçš„çº¢ç£·ç²‰" NOR, ({"honglin fen", "fen", "honglin"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("long", "Ò»°üĞÈºìÉ«µÄ¶¾·Û¡£ÒÑ¾­µãÈ¼£¬¿ÉÒÔÍ¿(tu)ÔÚ±øÆ÷ÉÏÁË¡£\n");
-		set("unit", "Ğ©");
+		set("long", "ä¸€åŒ…è…¥çº¢è‰²çš„æ¯’ç²‰ã€‚å·²ç»ç‚¹ç‡ƒï¼Œå¯ä»¥æ¶‚(tu)åœ¨å…µå™¨ä¸Šäº†ã€‚\n");
+		set("unit", "äº›");
 		set("base_value", 5000);
-		set("base_unit", "°ü");
+		set("base_unit", "åŒ…");
 		set("base_weight", 30);
-		set("drug_color", "" HIR "ºì¹âÉÁÉÁ" NOR "");
+		set("drug_color", "" HIR "çº¢å…‰é—ªé—ª" NOR "");
 		set("pour_type", "hot_poison");
 	}
 	set_amount(1);

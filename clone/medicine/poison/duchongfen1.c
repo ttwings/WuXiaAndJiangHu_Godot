@@ -6,16 +6,16 @@ inherit COMBINED_ITEM;
 
 void create()
 {
-	set_name("µãÈ¼µÄ¶¾³æ·Û", ({"duchong fen", "duchong", "fen"}));
+	set_name("ç‚¹ç‡ƒçš„æ¯’è™«ç²‰", ({"duchong fen", "duchong", "fen"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("long", "Ò»°üÒÔòÚò¼¡¢Ö©ÖëµÈÎªÔ­ÁÏÖÆ³ÉµÄ¶¾·Û¡£ÒÑ¾­µãÈ¼£¬¿ÉÒÔÍ¿(tu)ÔÚ±øÆ÷ÉÏÁË¡£\n");
-		set("unit", "Ğ©");
-		set("base_unit", "°ü");
+		set("long", "ä¸€åŒ…ä»¥èœˆèš£ã€èœ˜è››ç­‰ä¸ºåŸæ–™åˆ¶æˆçš„æ¯’ç²‰ã€‚å·²ç»ç‚¹ç‡ƒï¼Œå¯ä»¥æ¶‚(tu)åœ¨å…µå™¨ä¸Šäº†ã€‚\n");
+		set("unit", "äº›");
+		set("base_unit", "åŒ…");
 		set("base_weight", 30);
-		set("drug_color", "" BLU "À¶¹âÉÁÉÁ" NOR "");
+		set("drug_color", "" BLU "è“å…‰é—ªé—ª" NOR "");
 		set("pour_type", "xx_poison");
 	}
 	set_amount(1);

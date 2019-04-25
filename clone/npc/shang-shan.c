@@ -1,4 +1,4 @@
-// shang-shan.c ÉÍÉÆÊ¹Õß
+// shang-shan.c èµå–„ä½¿è€…
 
 #ifndef NPCDATA
 #define NPCDATA "/data/npc/"
@@ -21,12 +21,12 @@ void create()
 
 	if (!restore())
 	{
-		set_name("¶«·½ÈÕ", ({"shangshan shizhe", "shangshan", "shizhe"}));
-		set("title", "ÉÍÉÆÊ¹Õß");
-		set("gender", "ÄĞĞÔ");
+		set_name("ä¸œæ–¹æ—¥", ({"shangshan shizhe", "shangshan", "shizhe"}));
+		set("title", "èµå–„ä½¿è€…");
+		set("gender", "ç”·æ€§");
 		set("age", 35);
 		set("no_get", "1");
-		set("long", "Ò»Î»Ğ¦Èİ¿ÉŞäµÄÖĞÄêÈË£¬Ëû¾ÍÊÇÀÖÉÆºÃÊ©£¬°®Æ¶Èç×ÓµÄÎäÁÖÉÍÉÆÊ¹Õß¡£\n");
+		set("long", "ä¸€ä½ç¬‘å®¹å¯æ¬çš„ä¸­å¹´äººï¼Œä»–å°±æ˜¯ä¹å–„å¥½æ–½ï¼Œçˆ±è´«å¦‚å­çš„æ­¦æ—èµå–„ä½¿è€…ã€‚\n");
 		set("attitude", "heroism");
 		set("generation", 0);
 		set("winner", "none");
@@ -123,8 +123,8 @@ int do_kill()
 	if (!present(this_player(), environment(this_object())))
 		return 0;
 
-	command("say ÄãÏëÄ±º¦±¾Ê¹Õß£¬µ±ÕæÊÇ×ÔÕÒËÀÂ·£¡ ×ùÏÂºìÒÂÎäÊ¿ºÎÔÚ£¡");
-	message_vision("ËÄÖÜµÄºìÒÂÎäÊ¿ÈºÆğ¶Ô$N·¢¶¯¹¥»÷£¡\n", this_player());
+	command("say ä½ æƒ³è°‹å®³æœ¬ä½¿è€…ï¼Œå½“çœŸæ˜¯è‡ªæ‰¾æ­»è·¯ï¼ åº§ä¸‹çº¢è¡£æ­¦å£«ä½•åœ¨ï¼");
+	message_vision("å››å‘¨çš„çº¢è¡£æ­¦å£«ç¾¤èµ·å¯¹$Nå‘åŠ¨æ”»å‡»ï¼\n", this_player());
 
 	for (i = 0; i < 4; i++)
 	{
@@ -149,20 +149,20 @@ int accept_fight(object ob)
 	destruct(mengzhu);
 
 	if (this_player()->query("id") == name1)
-		return notify_fail("ÄãÒÑ¾­ÊÇÎäÁÖÃËÖ÷£¬»¹ÒªÇÀµ±ÉÍÉÆÊ¹Õß£¿£¡\n");
+		return notify_fail("ä½ å·²ç»æ˜¯æ­¦æ—ç›Ÿä¸»ï¼Œè¿˜è¦æŠ¢å½“èµå–„ä½¿è€…ï¼Ÿï¼\n");
 
 	fae = new ("/clone/npc/fa-e");
 	name2 = fae->query("winner");
 	destruct(fae);
 
 	if (this_player()->query("id") == name2)
-		return notify_fail("ÄãÒÑ¾­ÊÇ·£¶ñÊ¹Õß£¬»¹ÒªÇÀµ±ÉÍÉÆÊ¹Õß£¿£¡\n");
+		return notify_fail("ä½ å·²ç»æ˜¯ç½šæ¶ä½¿è€…ï¼Œè¿˜è¦æŠ¢å½“èµå–„ä½¿è€…ï¼Ÿï¼\n");
 
 	if (me->query("winner") == ob->query("id"))
-		return notify_fail("Äã¸úÄã×Ô¼º´òÊ²Ã´¼Ü£¿£¡\n");
+		return notify_fail("ä½ è·Ÿä½ è‡ªå·±æ‰“ä»€ä¹ˆæ¶ï¼Ÿï¼\n");
 
 	if (me->is_fighting())
-		return notify_fail("ÒÑ¾­ÓĞÈËÕıÔÚÌôÕ½ÉÍÉÆÊ¹Õß£¡\n");
+		return notify_fail("å·²ç»æœ‰äººæ­£åœ¨æŒ‘æˆ˜èµå–„ä½¿è€…ï¼\n");
 
 	me->set("eff_qi", me->query("max_qi"));
 	me->set("qi", me->query("max_qi"));
@@ -198,8 +198,8 @@ int checking(object me, object ob)
 
 	if (((int)me->query("qi") * 100 / my_max_qi) <= 50)
 	{
-		command("say Åå·şÅå·ş£¬¿´À´ÎÒµÄµ£×Ó¿ÉÒÔ½»Ğ¶ÁË£¬¹§Ï²Äã³ÉÎªÎäÁÖÉÍÉÆÊ¹Õß£¡\n");
-		command("chat ¹§Ï²" + ob->query("name") + "±»ÍÆ¾ÙÎªÏÖÈÎÎäÁÖÉÍÉÆÊ¹Õß£¡\n");
+		command("say ä½©æœä½©æœï¼Œçœ‹æ¥æˆ‘çš„æ‹…å­å¯ä»¥äº¤å¸äº†ï¼Œæ­å–œä½ æˆä¸ºæ­¦æ—èµå–„ä½¿è€…ï¼\n");
+		command("chat æ­å–œ" + ob->query("name") + "è¢«æ¨ä¸¾ä¸ºç°ä»»æ­¦æ—èµå–„ä½¿è€…ï¼\n");
 		remove_call_out("do_copy");
 		call_out("do_copy", 0, me, ob);
 		return 1;
@@ -207,8 +207,8 @@ int checking(object me, object ob)
 
 	if (((int)ob->query("qi") * 100 / his_max_qi) < 50)
 	{
-		command("say ¿´À´" + RANK_D->query_respect(ob) +
-				"»¹µÃ¶à¼ÓÁ·Ï°£¬·½ÄÜÔÚµ±½ñÎäÁÖÖĞÓĞËù×÷Îª !\n");
+		command("say çœ‹æ¥" + RANK_D->query_respect(ob) +
+				"è¿˜å¾—å¤šåŠ ç»ƒä¹ ï¼Œæ–¹èƒ½åœ¨å½“ä»Šæ­¦æ—ä¸­æœ‰æ‰€ä½œä¸º !\n");
 		return 1;
 	}
 
@@ -221,7 +221,7 @@ int do_copy(object me, object ob)
 	me->add("generation", 1);
 
 	me->set("name", ob->query("name"));
-	me->set("title", "µÚ" + chinese_number(me->query("generation")) + "´úÉÍÉÆÊ¹Õß");
+	me->set("title", "ç¬¬" + chinese_number(me->query("generation")) + "ä»£èµå–„ä½¿è€…");
 	me->set("short", me->query("title") + " " + me->query("name") + "(" + capitalize(ob->query("id")) + ")");
 	me->delete ("title");
 
@@ -229,7 +229,7 @@ int do_copy(object me, object ob)
 	//	ob->set_temp("apply/short", ({me->short()}));
 	ob->set_temp("apply/short", ({me->query("short")}));
 
-	me->set("title", "µÚ" + chinese_number(me->query("generation")) + "´úÉÍÉÆÊ¹Õß");
+	me->set("title", "ç¬¬" + chinese_number(me->query("generation")) + "ä»£èµå–„ä½¿è€…");
 	me->set("short", me->query("title") + " " + me->query("name") + "(shangshan shizhe)");
 	me->delete ("title");
 
@@ -373,7 +373,7 @@ int do_clone(object me, object ob)
 
 	save();
 
-	//	tell_object(ob, "×´Ì¬´¢´æÍê±Ï¡£\n");
+	//	tell_object(ob, "çŠ¶æ€å‚¨å­˜å®Œæ¯•ã€‚\n");
 
 	newtmp = new ("/clone/npc/shang-shan");
 	newtmp->move("/d/taishan/xiayi");

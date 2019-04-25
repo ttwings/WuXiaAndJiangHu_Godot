@@ -1,21 +1,21 @@
-// Éñ»°ÊÀ½ç¡¤Î÷ÓÎ¼Ç¡¤°æ±¾£´£®£µ£°
+// ç¥è¯ä¸–ç•ŒÂ·è¥¿æ¸¸è®°Â·ç‰ˆæœ¬ï¼”ï¼ï¼•ï¼
 /* <SecCrypt CPL V3R05> */
 
-// niupi-jiudai.c  ¾Æ´ü
+// niupi-jiudai.c  é…’è¢‹
 
 inherit ITEM;
 inherit F_LIQUID;
 
 void create()
 {
-  set_name("Å£Æ¤¾Æ´ü", ({"jiudai", "wineskin", "skin"}));
+  set_name("ç‰›çš®é…’è¢‹", ({"jiudai", "wineskin", "skin"}));
   set_weight(700);
   if (clonep())
     set_default_object(__FILE__);
   else
   {
-    set("long", "Ò»¸öÓÃÀ´×°Ã×¾ÆµÄ´ó¾Æ´ü£¬´ó¸Å×°µÃ°Ë¡¢¾ÅÉıµÄ¾Æ¡£\n");
-    set("unit", "¸ö");
+    set("long", "ä¸€ä¸ªç”¨æ¥è£…ç±³é…’çš„å¤§é…’è¢‹ï¼Œå¤§æ¦‚è£…å¾—å…«ã€ä¹å‡çš„é…’ã€‚\n");
+    set("unit", "ä¸ª");
     set("value", 100);
     set("max_liquid", 15);
   }
@@ -24,7 +24,7 @@ void create()
   // we set it to contain wine at the beginning
   set("liquid", ([
                             "type":"alcohol",
-                            "name":"Ã×¾Æ",
+                            "name":"ç±³é…’",
                        "remaining":15,
                     "drunk_supply":6,
   ]));

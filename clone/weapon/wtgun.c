@@ -1,22 +1,22 @@
-//Î¤ÍÔ¹÷
+//éŸ¦é©®æ£
 
 #include <weapon.h>
 inherit CLUB;
 
 void create()
 {
-        set_name("Î¤ÍÔ¹÷", ({"weituo gun", "gun"}));
+        set_name("éŸ¦é©®æ£", ({"weituo gun", "gun"}));
         set_weight(3000);
         if (clonep())
                 set_default_object(__FILE__);
         else
         {
-                set("unit", "¸ù");
-                set("long", "ÕâÊÇÒ»¸ùèëÄ¾°×À°¹÷£¬ÄËÉÙÁÖÖÁ±¦£¬ÇáÖØºÏÒË£¬¿É¹¥»÷´óÆ¬µĞÈË¡£\n");
+                set("unit", "æ ¹");
+                set("long", "è¿™æ˜¯ä¸€æ ¹æ¡¦æœ¨ç™½è…Šæ£ï¼Œä¹ƒå°‘æ—è‡³å®ï¼Œè½»é‡åˆå®œï¼Œå¯æ”»å‡»å¤§ç‰‡æ•Œäººã€‚\n");
                 set("value", 200);
                 set("material", "steel");
-                set("wield_msg", "$N³é³öÒ»¸ù$nÎÕÔÚÊÖÖĞ¡£\n");
-                set("unwield_msg", "$N½«ÊÖÖĞµÄ$n²å»ØÑü¼ä¡£\n");
+                set("wield_msg", "$NæŠ½å‡ºä¸€æ ¹$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+                set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$næ’å›è…°é—´ã€‚\n");
                 set("shaolin", 1);
         }
         init_club(80);

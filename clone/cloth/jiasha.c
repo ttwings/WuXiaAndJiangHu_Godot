@@ -8,14 +8,14 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(HIY "½õïçôÂôÄ" NOR, ({"jinlan jiasha", "jiasha", "cloth"}));
-	set("long", "Ò»¼þÉ«²Ê°ßìµµÄ½õìµôÂôÄ¡£\n");
+	set_name(HIY "é”¦é•§è¢ˆè£Ÿ" NOR, ({"jinlan jiasha", "jiasha", "cloth"}));
+	set("long", "ä¸€ä»¶è‰²å½©æ–‘æ–“çš„é”¦æ–“è¢ˆè£Ÿã€‚\n");
 	set_weight(3000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "¼þ");
+		set("unit", "ä»¶");
 		set("material", "cloth");
 		set("armor_prop/armor", 90);
 		set("armor_prop/dodge", 20);

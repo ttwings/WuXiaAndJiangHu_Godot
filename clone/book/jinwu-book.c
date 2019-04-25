@@ -6,14 +6,14 @@ inherit ITEM;
 
 void create()
 {
-	set_name(HIY "½ðÎÚµ¶Æ×" NOR, ({"jinwu-book"}));
+	set_name(HIY "é‡‘ä¹Œåˆ€è°±" NOR, ({"jinwu-book"}));
 	set_weight(600);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±¾");
-		set("long", "ÕâÊÇÒ»±¾Ñ§Ï°½ðÎÚµ¶·¨µÄÊé¡£\n");
+		set("unit", "æœ¬");
+		set("long", "è¿™æ˜¯ä¸€æœ¬å­¦ä¹ é‡‘ä¹Œåˆ€æ³•çš„ä¹¦ã€‚\n");
 		set("value", 1000);
 		set("material", "paper");
 		set("skill", ([

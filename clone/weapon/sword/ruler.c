@@ -6,18 +6,18 @@ inherit SWORD;
 
 void create()
 {
-	set_name("½ä³ß", ({"ruler"}));
+	set_name("æˆ’å°º", ({"ruler"}));
 	set_weight(700);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "°Ñ");
-		set("long", "Ò»°ÑºÚ÷î÷îµÄ½ä³ß£®\n");
+		set("unit", "æŠŠ");
+		set("long", "ä¸€æŠŠé»‘é»é»çš„æˆ’å°ºï¼\n");
 		set("value", 80);
 		set("material", "wood");
-		set("wield_msg", "$N¡¸à§¡¹µØÒ»Éù³é³öÒ»°Ñ$nÎÕÔÚÊÖÖĞ¡£\n");
-		set("unwield_msg", "$N½«ÊÖÖĞµÄ$n²åÈëÑü¼ä¡£\n");
+		set("wield_msg", "$Nã€Œå”°ã€åœ°ä¸€å£°æŠ½å‡ºä¸€æŠŠ$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+		set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$næ’å…¥è…°é—´ã€‚\n");
 	}
 	init_sword(10);
 	setup();

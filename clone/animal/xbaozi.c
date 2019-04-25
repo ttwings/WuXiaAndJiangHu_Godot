@@ -1,4 +1,4 @@
-// /clone/beast/xbaozi.c Ğ¡±ª×Ó
+// /clone/beast/xbaozi.c å°è±¹å­
 // Last Modified by winder on Aug. 1 2002
 
 #include <ansi.h>
@@ -6,10 +6,10 @@ inherit NPC;
 
 void create()
 {
-	set_name("Ğ¡±ª×Ó", ({"xiao baozi", "baozi"}));
-	set("race", "×ßÊŞ");
+	set_name("å°è±¹å­", ({"xiao baozi", "baozi"}));
+	set("race", "èµ°å…½");
 	set("age", 1);
-	set("long", "Ò»Ö»ÉíÌå²»´ó¿ÉÊÇºÜ½áÊµµÄĞ¡±ª×Ó£¬ËüÕıµÉ×ÅÑÛ¾¦¿´×ÅÄã¡£\n");
+	set("long", "ä¸€åªèº«ä½“ä¸å¤§å¯æ˜¯å¾ˆç»“å®çš„å°è±¹å­ï¼Œå®ƒæ­£çªç€çœ¼ç›çœ‹ç€ä½ ã€‚\n");
 	set("attitude", "aggressive");
 	set_weight(200000);
 	set("max_qi", 100);
@@ -36,6 +36,6 @@ void die()
 
 	ob = new (__DIR__ "obj/baodan");
 	ob->move(environment(this_object()));
-	message_vision("$N²Òº¿Ò»Éù£¬ËÀÁË£¡\n", this_object());
+	message_vision("$Næƒ¨åšä¸€å£°ï¼Œæ­»äº†ï¼\n", this_object());
 	destruct(ob2);
 }

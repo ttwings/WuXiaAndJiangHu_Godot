@@ -1,22 +1,22 @@
-// wizjian.c ÓùÓÃ½£
+// wizjian.c å¾¡ç”¨å‰‘
 
 #include <weapon.h>
 inherit SWORD;
 
 void create()
 {
-	set_name("ÓùÓÃ½£", ({"wizard sword", "sword", "jian"}));
+	set_name("å¾¡ç”¨å‰‘", ({"wizard sword", "sword", "jian"}));
 	set_weight(5000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±ú");
-		set("long", "ÕâÊÇÒ»±úÉñÏÉÓÃµÄÓùÓÃ½££¬Í¨ÌåÉ¢·¢×Å½ğÉ«µÄ¹âÃ¢¡£\n");
+		set("unit", "æŸ„");
+		set("long", "è¿™æ˜¯ä¸€æŸ„ç¥ä»™ç”¨çš„å¾¡ç”¨å‰‘ï¼Œé€šä½“æ•£å‘ç€é‡‘è‰²çš„å…‰èŠ’ã€‚\n");
 		set("value", 100);
 		set("material", "steel");
-		set("wield_msg", "$N¡¸à§¡¹µÄÒ»Éù³é³öÒ»±ú$nÎÕÔÚÊÖÖĞ¡£\n");
-		set("unwield_msg", "$N½«ÊÖÖĞµÄ$n²å»Ø½£ÇÊ¡£\n");
+		set("wield_msg", "$Nã€Œå”°ã€çš„ä¸€å£°æŠ½å‡ºä¸€æŸ„$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+		set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$næ’å›å‰‘é˜ã€‚\n");
 	}
 	init_sword(1000);
 	setup();

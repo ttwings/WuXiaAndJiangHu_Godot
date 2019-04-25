@@ -1,18 +1,18 @@
-// bt_book3.c ¶¾¾­
+// bt_book3.c æ¯’ç»
 // Last Modified by Winder on May. 15 2001
 
 inherit ITEM;
 
 void create()
 {
-	set_name("¶¾¾­", ({"du jing", "jing"}));
+	set_name("æ¯’ç»", ({"du jing", "jing"}));
 	set_weight(1000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±¾");
-		set("long", "ÕâÊÇÒ»±¾½²Êö¸÷Àà¶¾Ò©µÄÊé¡£\n");
+		set("unit", "æœ¬");
+		set("long", "è¿™æ˜¯ä¸€æœ¬è®²è¿°å„ç±»æ¯’è¯çš„ä¹¦ã€‚\n");
 		set("value", 5500);
 		set("material", "paper");
 		set("skill", ([

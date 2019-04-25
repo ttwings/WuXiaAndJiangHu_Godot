@@ -1,4 +1,4 @@
-// qin.c °×ÓñÑşÇÙ
+// qin.c ç™½ç‰ç‘¶ç´
 // Last Modified by winder on Sep. 7 2001
 
 #include <weapon.h>
@@ -8,18 +8,18 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(HIW "°×ÓñÑşÇÙ" NOR, ({"yao qin", "qin"}));
+	set_name(HIW "ç™½ç‰ç‘¶ç´" NOR, ({"yao qin", "qin"}));
 	set_weight(6000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "¾ß");
-		set("long", "ÕâÊÇÒ»¾ßÓÃ°×Óñ×ö³ÉµÄÑşÇÙ¡£\n");
+		set("unit", "å…·");
+		set("long", "è¿™æ˜¯ä¸€å…·ç”¨ç™½ç‰åšæˆçš„ç‘¶ç´ã€‚\n");
 		set("value", 2000);
 		set("material", "steel");
-		set("wield_msg", "$N´Ó±³ºó½«$nÄÃÔÚÊÖÖĞ¡£\n");
-		set("unwield_msg", "$N½«ÊÖÖĞµÄ$n·Å»Ø±³ºó¡£\n");
+		set("wield_msg", "$Nä»èƒŒåå°†$næ‹¿åœ¨æ‰‹ä¸­ã€‚\n");
+		set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$næ”¾å›èƒŒåã€‚\n");
 	}
 	init_sword(100);
 	setup();

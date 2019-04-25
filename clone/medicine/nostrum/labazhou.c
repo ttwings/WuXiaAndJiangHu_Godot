@@ -1,4 +1,4 @@
-// labazou.c À°°ËÖà
+// labazou.c è…Šå…«ç²¥
 
 #include <ansi.h>
 inherit ITEM;
@@ -15,13 +15,13 @@ void init()
 
 void create()
 {
-	set_name(GRN "À°°ËÖà" NOR, ({"laba zhou", "zhou", "laba"}));
+	set_name(GRN "è…Šå…«ç²¥" NOR, ({"laba zhou", "zhou", "laba"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "Íë");
-		set("long", "ÕâÊÇÒ»ÍëÈÈÖà£¬ÆäÖĞÕôÆøÉÏÃ°£¬Ø£×ÔÓĞÒ»¸ö¸öÆøÅİ´ÓÖàµ×³å½«ÉÏÀ´£¬Ò»ÍëÖà¾¡×÷ÉîÂÌÖ®É«£¬¿´ÉÏÈ¥Ëµ²»³öµÄ¹îÒì¡£ÎÅ×ÅÒ©Æø´Ì±Ç£¬Æä¶¾¿ÉÖª¡£\n");
+		set("unit", "ç¢—");
+		set("long", "è¿™æ˜¯ä¸€ç¢—çƒ­ç²¥ï¼Œå…¶ä¸­è’¸æ°”ä¸Šå†’ï¼Œå…€è‡ªæœ‰ä¸€ä¸ªä¸ªæ°”æ³¡ä»ç²¥åº•å†²å°†ä¸Šæ¥ï¼Œä¸€ç¢—ç²¥å°½ä½œæ·±ç»¿ä¹‹è‰²ï¼Œçœ‹ä¸Šå»è¯´ä¸å‡ºçš„è¯¡å¼‚ã€‚é—»ç€è¯æ°”åˆºé¼»ï¼Œå…¶æ¯’å¯çŸ¥ã€‚\n");
 		set("value", 50000);
 	}
 	set("pour_type", "1");
@@ -37,23 +37,23 @@ int do_eat(string arg)
 	neili_limit = me->query("max_neili");
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 
 	if ((int)me->query_condition("labazhou_drug") > 0)
 	{
 		me->add("max_neili", -100);
-		message_vision(HIR "$NÓÖºÈÏÂÒ»Íë" GRN "À°°ËÖà" HIR "£¬Ö»¾õµÃ¸Î³¦´ç¶Ï£¬ÎåÔàÓûÁÑ£¬Ô­À´ºÈµÃÌ«¼±Ì«¶à£¬Ò©Ğ§ÊÊµÃÆä·´£¡\n" NOR, me);
+		message_vision(HIR "$Nåˆå–ä¸‹ä¸€ç¢—" GRN "è…Šå…«ç²¥" HIR "ï¼Œåªè§‰å¾—è‚è‚ å¯¸æ–­ï¼Œäº”è„æ¬²è£‚ï¼ŒåŸæ¥å–å¾—å¤ªæ€¥å¤ªå¤šï¼Œè¯æ•ˆé€‚å¾—å…¶åï¼\n" NOR, me);
 	}
 
 	else if (neili_limit <= force_limit)
 	{
 		me->add("max_neili", 50);
 		me->add("neili", 50);
-		message_vision(HIY "$NºÈÏÂÒ»Íë" GRN "À°°ËÖà" HIY "£¬¶ÙÈ»¼äÖ»¾õÒ»¹ÉºÆµ´ÎŞ±ÈµÄÕæÆøÖ±³å¶¥ÃÅ...\n" NOR, this_player());
+		message_vision(HIY "$Nå–ä¸‹ä¸€ç¢—" GRN "è…Šå…«ç²¥" HIY "ï¼Œé¡¿ç„¶é—´åªè§‰ä¸€è‚¡æµ©è¡æ— æ¯”çš„çœŸæ°”ç›´å†²é¡¶é—¨...\n" NOR, this_player());
 		me->apply_condition("labazhou_drug", 500);
 	}
 	me->start_busy(50);

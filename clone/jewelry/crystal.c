@@ -7,15 +7,15 @@ inherit BOOTS;
 
 void create()
 {
-	set_name(HIW "Ë®¾§Ğ¬" NOR, ({"crystal shoes", "shoes"}));
-	set("long", "ÕâÊÇÒ»Ë«¾§Ğ¬¡£\n");
+	set_name(HIW "æ°´æ™¶é‹" NOR, ({"crystal shoes", "shoes"}));
+	set("long", "è¿™æ˜¯ä¸€åŒæ™¶é‹ã€‚\n");
 	set_weight(1000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("material", "Ë®¾§");
-		set("unit", "Ë«");
+		set("material", "æ°´æ™¶");
+		set("unit", "åŒ");
 		set("value", 5000);
 		set("armor_prop/armor", 3);
 		set("armor_prop/personality", 3);

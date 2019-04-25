@@ -6,18 +6,18 @@ inherit SWORD;
 
 void create()
 {
-	set_name("Çà·æ½£", ({"qingfeng sword", "jian", "sword"}));
+	set_name("é’é”‹å‰‘", ({"qingfeng sword", "jian", "sword"}));
 	set_weight(8000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "°Ñ");
+		set("unit", "æŠŠ");
 		set("value", 7000);
 		set("material", "steel");
-		set("long", "ÕâÊÇÒ»°ÑÓÖÏ¸ÓÖ³¤µÄ½££¬½£ÉíÈñÀû¡£\n");
-		set("wield_msg", "Ò»µÀÇà¹âÉÁ¹ı£¬$NÊÖÖĞÒÑ¶àÁË°Ñ$n¡£\n");
-		set("unequip_msg", "$N·ÅÏÂÊÖÖĞµÄ$n¡£\n");
+		set("long", "è¿™æ˜¯ä¸€æŠŠåˆç»†åˆé•¿çš„å‰‘ï¼Œå‰‘èº«é”åˆ©ã€‚\n");
+		set("wield_msg", "ä¸€é“é’å…‰é—ªè¿‡ï¼Œ$Næ‰‹ä¸­å·²å¤šäº†æŠŠ$nã€‚\n");
+		set("unequip_msg", "$Næ”¾ä¸‹æ‰‹ä¸­çš„$nã€‚\n");
 	}
 	init_sword(65);
 	setup();

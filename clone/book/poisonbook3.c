@@ -4,15 +4,15 @@ inherit ITEM;
 
 void create()
 {
-	set_name("¶¾¾­ÏÂÆª", ({"jing", "book"}));
+	set_name("æ¯’ç»ä¸‹ç¯‡", ({"jing", "book"}));
 	set_weight(50);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±¾");
-		set("long", "ÕâÊÇÒ»±¾±¡±¡µÄĞ¡²á£¬ÉÏÃæÃÜÃÜÂéÂéµÄ¼ÇÂúÁË¸÷ÖÖÓÃ¶¾µÄ·¨ÃÅ£¬¿ÉÒÔÓÃ(kan)¿´Ò»¿´¡£\n");
-		set("no_drop", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄã¡£\n");
+		set("unit", "æœ¬");
+		set("long", "è¿™æ˜¯ä¸€æœ¬è–„è–„çš„å°å†Œï¼Œä¸Šé¢å¯†å¯†éº»éº»çš„è®°æ»¡äº†å„ç§ç”¨æ¯’çš„æ³•é—¨ï¼Œå¯ä»¥ç”¨(kan)çœ‹ä¸€çœ‹ã€‚\n");
+		set("no_drop", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€ä½ ã€‚\n");
 		set("value", 0);
 		set("material", "silk");
 	}
@@ -30,7 +30,7 @@ void init()
 
 void destroy_book()
 {
-	message_vision("Ò»Õó·ç´µÀ´£¬" + (string)this_object()->query("name") + "Æ¬Æ¬ËéÂä£¬Ëæ·ç¶øÈ¥ÁË¡£\n", environment(this_object()));
+	message_vision("ä¸€é˜µé£å¹æ¥ï¼Œ" + (string)this_object()->query("name") + "ç‰‡ç‰‡ç¢è½ï¼Œéšé£è€Œå»äº†ã€‚\n", environment(this_object()));
 	destruct(this_object());
 }
 
@@ -40,33 +40,33 @@ int do_read(string arg)
 	int jing_cost, gain;
 	me = this_player();
 	if (!arg || !(arg == "jing" || arg == "book"))
-		return notify_fail("Ê²Ã´£¿\n");
+		return notify_fail("ä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), this_player()))
 		return 0;
 
 	if (me->is_busy())
-		return notify_fail("ÄãÏÖÔÚÃ¦×ÅÄØ£¬ÄÄÓĞ¿ÉÄÜ¾²ĞÄÑĞ¶Á...\n");
+		return notify_fail("ä½ ç°åœ¨å¿™ç€å‘¢ï¼Œå“ªæœ‰å¯èƒ½é™å¿ƒç ”è¯»...\n");
 	if (me->is_fighting())
-		return notify_fail("ÏÖÔÚ²ÅÏëµ½¾«ÑĞ¶¾¼¼£¬Ì«ÍíÁË°É£¿\n");
-	if ((string)me->query("family/family_name") != "Îå¶¾½Ì")
+		return notify_fail("ç°åœ¨æ‰æƒ³åˆ°ç²¾ç ”æ¯’æŠ€ï¼Œå¤ªæ™šäº†å§ï¼Ÿ\n");
+	if ((string)me->query("family/family_name") != "äº”æ¯’æ•™")
 	{
 		remove_call_out("destroy_book");
 		call_out("destroy_book", 0);
 	}
 	if ((int)me->query_skill("five-poison", 1) < 150 || (int)me->query("combat_exp") < 300000)
-		return notify_fail("Äã¿´À´¿´È¥£¬¾ÍÊÇÃ»Ã÷°×Õâ±¾ÊéÉÏĞ´µÄ¶¼ÊÇÉ¶¡£\n");
+		return notify_fail("ä½ çœ‹æ¥çœ‹å»ï¼Œå°±æ˜¯æ²¡æ˜ç™½è¿™æœ¬ä¹¦ä¸Šå†™çš„éƒ½æ˜¯å•¥ã€‚\n");
 	if ((int)me->query_skill("five-poison", 1) > 300)
-		return notify_fail("ÄãµÄ¶¾¼¼ÒÑ¾­ºÜÓĞÔìÒè£¬Õâ±¾Êé²»»áÈÃÄã³¤½ø¶àÉÙ¡£\n");
+		return notify_fail("ä½ çš„æ¯’æŠ€å·²ç»å¾ˆæœ‰é€ è¯£ï¼Œè¿™æœ¬ä¹¦ä¸ä¼šè®©ä½ é•¿è¿›å¤šå°‘ã€‚\n");
 
 	jing_cost = 35 + (20 - (int)me->query("int"));
 	if ((int)me->query("jing") < jing_cost)
-		return notify_fail("ÄãÏÖÔÚÍ·ÔÎÄÔÕÍ£¬¸ÃĞİÏ¢ĞİÏ¢ÁË¡£\n");
+		return notify_fail("ä½ ç°åœ¨å¤´æ™•è„‘èƒ€ï¼Œè¯¥ä¼‘æ¯ä¼‘æ¯äº†ã€‚\n");
 	me->receive_damage("jing", jing_cost);
 
 	gain = (int)me->query_skill("five-poison", 1) / 4 + (int)me->query_skill("literate", 1) / 2;
 	me->improve_skill("five-poison", gain);
 
-	message_vision("$NÄÃ×Å¾î²á×ĞÏ¸ÔÄ¶Á,Ö»¾õÉÏÃæËùÔØµÄÖÖÖÖÓÃ¶¾º¦ÈËµÄ\n·½·¨¶¼ÊÇÎÅËùÎ´ÎÅ£¬¿´×Å¿´×Å½û²»×¡³öÁËÒ»ÉíÀäº¹£¡\n", me);
+	message_vision("$Næ‹¿ç€ç»¢å†Œä»”ç»†é˜…è¯»,åªè§‰ä¸Šé¢æ‰€è½½çš„ç§ç§ç”¨æ¯’å®³äººçš„\næ–¹æ³•éƒ½æ˜¯é—»æ‰€æœªé—»ï¼Œçœ‹ç€çœ‹ç€ç¦ä¸ä½å‡ºäº†ä¸€èº«å†·æ±—ï¼\n", me);
 
 	return 1;
 }

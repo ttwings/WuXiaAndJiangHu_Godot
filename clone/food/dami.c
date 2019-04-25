@@ -1,4 +1,4 @@
-// Éñ»°ÊÀ½ç¡¤Î÷ÓÎ¼Ç¡¤°æ±¾£´£®£µ£°
+// ç¥è¯ä¸–ç•ŒÂ·è¥¿æ¸¸è®°Â·ç‰ˆæœ¬ï¼”ï¼ï¼•ï¼
 /* <SecCrypt CPL V3R05> */
 
 // chicken_leg.c
@@ -10,19 +10,19 @@ inherit F_FOOD;
 
 void create()
 {
-        set_name("Ò»´ü´óÃ×", ({"dami"}));
+        set_name("ä¸€è¢‹å¤§ç±³", ({"dami"}));
         set_weight(4000);
         if (clonep())
                 set_default_object(__FILE__);
         else
         {
-                set("long", "Ò»´ü´óÃ×£¬²»¹ıÊÇÉúµÄ£®\n");
-                set("unit", "´ü");
+                set("long", "ä¸€è¢‹å¤§ç±³ï¼Œä¸è¿‡æ˜¯ç”Ÿçš„ï¼\n");
+                set("unit", "è¢‹");
                 set("value", 200);
                 set("food_remaining", 100);
                 set("food_supply", 5);
-                set("wield_msg", "$N×¥ÆğÒ»´ü´óÃ×£¬ºÃÏóÒªºÍÈËÆ´Ãü£®\n");
-                set("eat_msg", "$NÄÃ³ö¼¸Á£´óÃ×·Åµ½×ìÀï½ÀÁË½À£¬²îµã°ÑÑÀ±Àµ÷£¡\n");
+                set("wield_msg", "$NæŠ“èµ·ä¸€è¢‹å¤§ç±³ï¼Œå¥½è±¡è¦å’Œäººæ‹¼å‘½ï¼\n");
+                set("eat_msg", "$Næ‹¿å‡ºå‡ ç²’å¤§ç±³æ”¾åˆ°å˜´é‡Œåš¼äº†åš¼ï¼Œå·®ç‚¹æŠŠç‰™å´©è°ƒï¼\n");
                 set("material", "bone");
         }
         //init_hammer(5);

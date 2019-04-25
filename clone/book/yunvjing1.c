@@ -1,4 +1,4 @@
-// yunvjing1.c ÓñÅ®ĞÄ¾­ÉÏ
+// yunvjing1.c ç‰å¥³å¿ƒç»ä¸Š
 
 #include <ansi.h>
 inherit ITEM;
@@ -6,7 +6,7 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(HIM "ÓñÅ®ĞÄ¾­ÉÏ²á" NOR, ({
+	set_name(HIM "ç‰å¥³å¿ƒç»ä¸Šå†Œ" NOR, ({
 										 "jing1",
 									 }));
 	set_weight(500);
@@ -14,8 +14,8 @@ void create()
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±¾");
-		set("long", "ÕâÊÇÒ»±¾Ğ´ÔÚ±¡¾îÉÏµÄÊé¡£·âÃæÉÏĞ´×Å ÓñÅ®ĞÄ¾­¡¸ÉÏ¡¹¡£\n");
+		set("unit", "æœ¬");
+		set("long", "è¿™æ˜¯ä¸€æœ¬å†™åœ¨è–„ç»¢ä¸Šçš„ä¹¦ã€‚å°é¢ä¸Šå†™ç€ ç‰å¥³å¿ƒç»ã€Œä¸Šã€ã€‚\n");
 		set("value", 0);
 		set("material", "silk");
 		set("skill", ([

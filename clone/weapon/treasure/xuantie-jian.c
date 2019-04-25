@@ -1,4 +1,4 @@
-// xuantie-jian.c ĞşÌúÖØ½£
+// xuantie-jian.c ç„é“é‡å‰‘
 // Last Modified by winder on Sep. 7 2001
 
 #include <weapon.h>
@@ -8,24 +8,24 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(WHT "ĞşÌúÖØ½£" NOR, ({"iron sword", "jian", "sword"}));
+	set_name(WHT "ç„é“é‡å‰‘" NOR, ({"iron sword", "jian", "sword"}));
 	set_weight(50000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "°Ñ");
+		set("unit", "æŠŠ");
 		set("long", WHT @LONG
-						Õâ°Ñ½£³¤Èı³ßÓĞÓà£¬ºÚ÷î÷îµÄ£¬¾¹ÓĞÆß°ËÊ®½ïÖØ¡£½£Á½±ß½£·æ¶¼ÊÇ¶Û¿Ú£¬
-							½£¼â¸üÔ²Ô²µÄËÆÊÇ¸ö°ëÇò¡£ LONG
+						è¿™æŠŠå‰‘é•¿ä¸‰å°ºæœ‰ä½™ï¼Œé»‘é»é»çš„ï¼Œç«Ÿæœ‰ä¸ƒå…«åæ–¤é‡ã€‚å‰‘ä¸¤è¾¹å‰‘é”‹éƒ½æ˜¯é’å£ï¼Œ
+							å‰‘å°–æ›´åœ†åœ†çš„ä¼¼æ˜¯ä¸ªåŠçƒã€‚ LONG
 								NOR);
 		set("value", 100000);
 		set("material", "iron");
 	}
 	init_sword(160);
-	set("no_drop", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄã¡£\n");
-	set("no_put", "Èç´Ë±¦½£ÈçºÎÄÜÂÒ·Å£¿\n");
-	set("wield_msg", "Ö»Ìı¼û¡¸îõ¡¹µØÒ»¾ŞÏì£¬$N°Î³öÁËÒ»°ÑºÚ÷î÷îµÄÎäÁÖÖØ±¦¡ª¡ª$n¡£\n");
-	set("unequip_msg", "$N½«ÊÖÖĞµÄ$n²åÈë±³ÉÏµÄ½£ÇÊ¡£\n");
+	set("no_drop", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€ä½ ã€‚\n");
+	set("no_put", "å¦‚æ­¤å®å‰‘å¦‚ä½•èƒ½ä¹±æ”¾ï¼Ÿ\n");
+	set("wield_msg", "åªå¬è§ã€Œé“›ã€åœ°ä¸€å·¨å“ï¼Œ$Næ‹”å‡ºäº†ä¸€æŠŠé»‘é»é»çš„æ­¦æ—é‡å®â€”â€”$nã€‚\n");
+	set("unequip_msg", "$Nå°†æ‰‹ä¸­çš„$næ’å…¥èƒŒä¸Šçš„å‰‘é˜ã€‚\n");
 	setup();
 }

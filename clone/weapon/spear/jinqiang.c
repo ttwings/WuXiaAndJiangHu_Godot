@@ -7,17 +7,17 @@ inherit SPEAR;
 
 void create()
 {
-	set_name(HIY "µã½ğÇ¹" NOR, ({"golden spear", "qiang", "spear"}));
+	set_name(HIY "ç‚¹é‡‘æª" NOR, ({"golden spear", "qiang", "spear"}));
 	set_weight(14000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "¸Ë");
+		set("unit", "æ†");
 		set("value", 10000);
 		set("material", "gold");
-		set("long", "´ËÇ¹ÒÔ»Æ½ğÎªÍ·Í­Îª¸Ë¡£\n");
-		set("wield_msg", "$N³­ÆğÒ»¸Ë$n£¬Ë³ÊÖ¶¶ÁË¸öÇ¹»¨¡£\n");
+		set("long", "æ­¤æªä»¥é»„é‡‘ä¸ºå¤´é“œä¸ºæ†ã€‚\n");
+		set("wield_msg", "$NæŠ„èµ·ä¸€æ†$nï¼Œé¡ºæ‰‹æŠ–äº†ä¸ªæªèŠ±ã€‚\n");
 	}
 	init_spear(60);
 	setup();

@@ -6,15 +6,15 @@ inherit BLADE;
 
 void create()
 {
-        set_name("¿³µ¶", ({"blade"}));
+        set_name("ç åˆ€", ({"blade"}));
         set_weight(2000);
         if (clonep())
                 set_default_object(__FILE__);
         else
         {
                 set("long",
-                    "Ò»°Ñ´ó¿³µ¶£®\n");
-                set("unit", "°Ñ");
+                    "ä¸€æŠŠå¤§ç åˆ€ï¼\n");
+                set("unit", "æŠŠ");
                 set("value", 1000);
                 set("material", "wood");
         }

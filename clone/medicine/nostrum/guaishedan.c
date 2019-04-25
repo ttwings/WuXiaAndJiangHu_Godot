@@ -10,9 +10,9 @@ void init()
 
 void create()
 {
-	set_name("¹ÖÉßÖ®µ¨", ({"guai shedan", "dan", "shedan"}));
-	set("unit", "Ö»");
-	set("long", "ÕâÊÇ¹ÖÉßµÄµ¨£¬Ô²Ô²µÄ£¬³ÊÉî×ÏÉ«£¬ĞÈ³ôÎŞ±È£¬²»ÖªÓĞÃ»ÓĞ¶¾¡£\n");
+	set_name("æ€ªè›‡ä¹‹èƒ†", ({"guai shedan", "dan", "shedan"}));
+	set("unit", "åª");
+	set("long", "è¿™æ˜¯æ€ªè›‡çš„èƒ†ï¼Œåœ†åœ†çš„ï¼Œå‘ˆæ·±ç´«è‰²ï¼Œè…¥è‡­æ— æ¯”ï¼Œä¸çŸ¥æœ‰æ²¡æœ‰æ¯’ã€‚\n");
 	set("value", 1000);
 	set("pour_type", "1");
 	setup();
@@ -29,20 +29,20 @@ int do_eat(string arg)
 	water_limit = me->max_water_capacity();
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ğ¼±£¬ÂıÂıºÈ£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢å–ï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 
 	if ((me->query("food") >= food_limit) || (me->query("water") >= water_limit))
-		return notify_fail("ÄãÒÑ¾­³Ô±¥ÁË£¬ÔÙÒ²³Ô²»ÏÂÈÎºÎÒ»µã¶«Î÷¡£\n");
+		return notify_fail("ä½ å·²ç»åƒé¥±äº†ï¼Œå†ä¹Ÿåƒä¸ä¸‹ä»»ä½•ä¸€ç‚¹ä¸œè¥¿ã€‚\n");
 	if (neili_limit <= force_limit)
 	{
 		me->add("max_neili", 2);
 		me->add("neili", 5);
 	}
-	message_vision(HIY "$N³ÔÏÂÒ»¿ÅÉßµ¨£¬Ö»¾õÖ­ÒºĞÈ¼«¿à¼«£¬ÄÑ³ÔÎŞ±È£¬Ö»ÏëÅçÁË³öÈ¥¡£\n" NOR, me);
+	message_vision(HIY "$Nåƒä¸‹ä¸€é¢—è›‡èƒ†ï¼Œåªè§‰æ±æ¶²è…¥æè‹¦æï¼Œéš¾åƒæ— æ¯”ï¼Œåªæƒ³å–·äº†å‡ºå»ã€‚\n" NOR, me);
 	me->add("food", 50);
 	me->add("water", 50);
 	destruct(this_object());
@@ -53,10 +53,10 @@ void decay()
 {
 	object where = environment(this_object());
 	if (interactive(where))
-		message("vision", GRN "Éßµ¨Å¾µÄÒ»ÉùÆÆÁË£¬ÅªµÃÄãÒ»ÉíÉõÊÇĞÈ³ô¡£\n" NOR,
+		message("vision", GRN "è›‡èƒ†å•ªçš„ä¸€å£°ç ´äº†ï¼Œå¼„å¾—ä½ ä¸€èº«ç”šæ˜¯è…¥è‡­ã€‚\n" NOR,
 				where);
 	else
-		message("vision", MAG "Éßµ¨Å¾µÄÒ»ÉùÆÆÁË£¬Ö­ÒºÁ÷ÁËÒ»µØ¡£\n" NOR,
+		message("vision", MAG "è›‡èƒ†å•ªçš„ä¸€å£°ç ´äº†ï¼Œæ±æ¶²æµäº†ä¸€åœ°ã€‚\n" NOR,
 				where);
 	destruct(this_object());
 }

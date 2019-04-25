@@ -1,4 +1,4 @@
-// baodan.c ±ª×Óµ¨
+// baodan.c è±¹å­èƒ†
 // Last Modified by winder on Aug. 1 2002
 
 #include <ansi.h>
@@ -9,14 +9,14 @@ void init();
 
 void create()
 {
-	set_name("±ª×Óµ¨", ({"baozi dan", "dan"}));
+	set_name("è±¹å­èƒ†", ({"baozi dan", "dan"}));
 	set_weight(1000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "¿Å");
-		set("long", CYN "ÕâÊÇÒ»¿ÅÏóÈ­Í·Ò»Ñù´óµÄ±ª×Óµ¨£¬ÓÖºÚÓÖÂÌ¡£\n" NOR);
+		set("unit", "é¢—");
+		set("long", CYN "è¿™æ˜¯ä¸€é¢—è±¡æ‹³å¤´ä¸€æ ·å¤§çš„è±¹å­èƒ†ï¼Œåˆé»‘åˆç»¿ã€‚\n" NOR);
 		set("value", 10000);
 		set("medicine", 1);
 	}
@@ -33,7 +33,7 @@ int cure_ob(object me)
 		me->add("eff_jingli", -1);
 		me->set("jingli", 0);
 		me->apply_condition("bonze_drug", 30);
-		message_vision(HIR "$N³ÔÏÂÒ»¿Å±ª×Óµ¨£¬Ö»¾õµÃ¸Î³¦´ç¶Ï£¬ÎåÔàÓûÁÑ£¬Ô­À´·şÊ³Ì«¶àÒ©Îï£¬Ò©Ğ§ÊÊµÃÆä·´£¡\n" NOR, this_player());
+		message_vision(HIR "$Nåƒä¸‹ä¸€é¢—è±¹å­èƒ†ï¼Œåªè§‰å¾—è‚è‚ å¯¸æ–­ï¼Œäº”è„æ¬²è£‚ï¼ŒåŸæ¥æœé£Ÿå¤ªå¤šè¯ç‰©ï¼Œè¯æ•ˆé€‚å¾—å…¶åï¼\n" NOR, this_player());
 		destruct(this_object());
 		return 1;
 	}
@@ -52,7 +52,7 @@ int cure_ob(object me)
 	me->add("neili", 500);
 	me->apply_condition("bonze_drug",
 						me->query_condition("bonze_drug") + 30);
-	message_vision(HIY "$NÍÌÏÂÒ»¿Å±ª×Óµ¨£¬Ö»¾õµÃÈ«Éí³äÂúÈÈÆø£¬¶·Ö¾°ºÑï£¬»ìÉíÓĞ¾¢¡£\n" NOR, me);
+	message_vision(HIY "$Nåä¸‹ä¸€é¢—è±¹å­èƒ†ï¼Œåªè§‰å¾—å…¨èº«å……æ»¡çƒ­æ°”ï¼Œæ–—å¿—æ˜‚æ‰¬ï¼Œæ··èº«æœ‰åŠ²ã€‚\n" NOR, me);
 	destruct(this_object());
 	return 1;
 }
@@ -61,5 +61,5 @@ void remove_effect(object me)
 {
 	me->add_temp("apply/attack", -100);
 	me->delete_temp("qz/baozidan");
-	tell_object(me, "¹ıÁËÒ»»á¶ù£¬±ª×Óµ¨´øÀ´µÄÓà¾¢ºÃÏóÏûÊ§ÁË¡£\n");
+	tell_object(me, "è¿‡äº†ä¸€ä¼šå„¿ï¼Œè±¹å­èƒ†å¸¦æ¥çš„ä½™åŠ²å¥½è±¡æ¶ˆå¤±äº†ã€‚\n");
 }

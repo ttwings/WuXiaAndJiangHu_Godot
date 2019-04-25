@@ -1,4 +1,4 @@
-// quest_book.c ÈÎÎñÊé¼®
+// quest_book.c ä»»åŠ¡ä¹¦ç±
 
 inherit ITEM;
 
@@ -16,17 +16,17 @@ void dest_me1()
 
 void create()
 {
-	set_name("±¾ÃÅÃØ¼®", ({"family book", "book"}));
+	set_name("æœ¬é—¨ç§˜ç±", ({"family book", "book"}));
 	set_weight(600);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±¾");
-		set("long", "ÕâÊÇÒ»±¾Ïß×°Êé£¬ÑÕÉ«ÓĞµãÀÏ¾É¡£\n");
+		set("unit", "æœ¬");
+		set("long", "è¿™æ˜¯ä¸€æœ¬çº¿è£…ä¹¦ï¼Œé¢œè‰²æœ‰ç‚¹è€æ—§ã€‚\n");
 		set("value", 0);
 		set("material", "paper");
 	}
-	//	call_out("dest_me",500);//500ÊÇÈÎÎñÊ±¼ä
-	call_out("dest_me1", 1500); //1500ÊÇÔÊĞíacceptÊ±¼ä
+	//	call_out("dest_me",500);//500æ˜¯ä»»åŠ¡æ—¶é—´
+	call_out("dest_me1", 1500); //1500æ˜¯å…è®¸acceptæ—¶é—´
 }

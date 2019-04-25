@@ -1,4 +1,4 @@
-// lurong.c Â¹È×
+// lurong.c é¹¿èŒ¸
 
 inherit ITEM;
 #include <ansi.h>
@@ -11,13 +11,13 @@ void init()
 
 void create()
 {
-	set_name(YEL "Â¹È×" NOR, ({"lurong"}));
+	set_name(YEL "é¹¿èŒ¸" NOR, ({"lurong"}));
 	set_weight(500);
 	set("vegetable", 8);
 	set("value", 12000);
 	set("nostrum", 4);
-	set("unit", "¸±");
-	set("long", "ÕâÊÇÒ»¸±Ã·»¨Â¹µÄÂ¹È×£¬¿´À´¿ÉÒÔÈëÒ©¡£\n");
+	set("unit", "å‰¯");
+	set("long", "è¿™æ˜¯ä¸€å‰¯æ¢…èŠ±é¹¿çš„é¹¿èŒ¸ï¼Œçœ‹æ¥å¯ä»¥å…¥è¯ã€‚\n");
 	set("pour_type", "1");
 	setup();
 }
@@ -27,12 +27,12 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 
-	write("Â¹È×²»ÄÜÕâÃ´³ÔµÄ¡£\n");
+	write("é¹¿èŒ¸ä¸èƒ½è¿™ä¹ˆåƒçš„ã€‚\n");
 	return 1;
 }

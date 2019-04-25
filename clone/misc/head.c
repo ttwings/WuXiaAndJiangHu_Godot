@@ -1,16 +1,16 @@
-// head.c -ÄÔ´ü
+// head.c -è„‘è¢‹
 #include <ansi.h>
 inherit ITEM;
 int decayed;
 
 void create()
 {
-	set_name(RED "Í·Â­" NOR, ({"head"}));
+	set_name(RED "å¤´é¢…" NOR, ({"head"}));
 	set_weight(300);
-	set("unit", "¿Å");
+	set("unit", "é¢—");
 	set("value", 0);
 	decayed = 0;
-	set("long", RED "Ò»¿ÅÏÊÑªÁÜÁÜµÄÊ×¼¶£¬Ğë·¢É¢ÂÒ£¬ÓàÑªÕı»º»ºÉø³ö¡£\n" NOR);
+	set("long", RED "ä¸€é¢—é²œè¡€æ·‹æ·‹çš„é¦–çº§ï¼Œé¡»å‘æ•£ä¹±ï¼Œä½™è¡€æ­£ç¼“ç¼“æ¸—å‡ºã€‚\n" NOR);
 	if (clonep(this_object()))
 		call_out("decay", 300, 1);
 }
@@ -34,19 +34,19 @@ void decay(int phase)
 	switch (phase)
 	{
 	case 1:
-		say(query("name") + "¿ªÊ¼¸¯ÀÃÁË£¬·¢³öÒ»¹ÉÄÑÎÅµÄ¶ñ³ô¡£\n");
-		set_name("¸¯ÀÃµÄÍ·Â­", ({"decomposite head"}));
-		set("long", "Õâ¿ÅÍ·Â­ÏÔÈ»ÒÑ¾­¸¯ÀÃÁËÒ»¶ÎÊ±¼äÁË£¬Ò»¹É¶ñ³ô¼ĞÔÓÑªĞÈµÄÎ¶µÀ¡£\n");
+		say(query("name") + "å¼€å§‹è…çƒ‚äº†ï¼Œå‘å‡ºä¸€è‚¡éš¾é—»çš„æ¶è‡­ã€‚\n");
+		set_name("è…çƒ‚çš„å¤´é¢…", ({"decomposite head"}));
+		set("long", "è¿™é¢—å¤´é¢…æ˜¾ç„¶å·²ç»è…çƒ‚äº†ä¸€æ®µæ—¶é—´äº†ï¼Œä¸€è‚¡æ¶è‡­å¤¹æ‚è¡€è…¥çš„å‘³é“ã€‚\n");
 		call_out("decay", 120, phase + 1);
 		break;
 	case 2:
-		say(query("name") + "±»·ç´µÇ¬ÁË£¬±ä³ÉÒ»¿Å÷¼÷ÃÍ·¡£\n");
-		set_name("°×²Ò²ÒµÄ÷¼÷ÃÍ·", ({"head bone"}));
-		set("long", "Õâ¿Å÷¼÷ÃÍ·ÒÑ¾­·ÅÌÉÔÚÕâÀïÓĞĞ©Ê±ºòÁË¡£\n");
+		say(query("name") + "è¢«é£å¹ä¹¾äº†ï¼Œå˜æˆä¸€é¢—éª·é«…å¤´ã€‚\n");
+		set_name("ç™½æƒ¨æƒ¨çš„éª·é«…å¤´", ({"head bone"}));
+		set("long", "è¿™é¢—éª·é«…å¤´å·²ç»æ”¾èººåœ¨è¿™é‡Œæœ‰äº›æ—¶å€™äº†ã€‚\n");
 		call_out("decay", 60, phase + 1);
 		break;
 	case 3:
-		say("Ò»Õó·ç´µ¹ı£¬°Ñ" + query("name") + "»¯³É¹Ç»Ò´µÉ¢ÁË¡£\n");
+		say("ä¸€é˜µé£å¹è¿‡ï¼ŒæŠŠ" + query("name") + "åŒ–æˆéª¨ç°å¹æ•£äº†ã€‚\n");
 		if (environment())
 		{
 			object *inv;

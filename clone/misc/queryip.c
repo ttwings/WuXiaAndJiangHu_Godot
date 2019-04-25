@@ -15,7 +15,7 @@ int connect_to(string arg)
     icheck(arg);
   else
   {
-    write("³¢ÊÔ½âÎöµØÖ·...Èç³¤Ê±¼äÃ»ÓĞ»ØÀ££¬ÇëÖ¸¶¨ip²éÑ¯\n");
+    write("å°è¯•è§£æåœ°å€...å¦‚é•¿æ—¶é—´æ²¡æœ‰å›æºƒï¼Œè¯·æŒ‡å®šipæŸ¥è¯¢\n");
     resolve(dest_addr, "resolve_callback");
     return 1;
   }
@@ -26,9 +26,9 @@ void resolve_callback(string address, string resolved, int key)
   int ret;
   if (!resolved)
   {
-    //²»»áÁË ÔõÃ´²ÅÄÜÏÔÊ¾
-    write("Ê§°Ü\n");
-    tell_object(previous_object(2), "ÎŞ·¨½âÎöµØÖ· " + address + " ¡£\n");
+    //ä¸ä¼šäº† æ€ä¹ˆæ‰èƒ½æ˜¾ç¤º
+    write("å¤±è´¥\n");
+    tell_object(previous_object(2), "æ— æ³•è§£æåœ°å€ " + address + " ã€‚\n");
     if (sscanf(dest_addr, "%*d.%*d.%*d.%*d") == 4)
       resolved = dest_addr;
     else if (sscanf(dest_addr, "%*d.%*d.%*d") == 3)
@@ -45,13 +45,13 @@ void icheck(string address)
 {
   int add1, add2, add3, add4;
   int read_from = 0;
-  int read_to = 167379; //Ä¿Ç°×Ü¹²167380ĞĞ Õâ¸öÔõÃ´ÓÃº¯ÊıÀ´×Ô¶¯¸³Öµ£¿
+  int read_to = 167379; //ç›®å‰æ€»å…±167380è¡Œ è¿™ä¸ªæ€ä¹ˆç”¨å‡½æ•°æ¥è‡ªåŠ¨èµ‹å€¼ï¼Ÿ
   int middle;
   before = rusage();
   sscanf(address, "%d.%d.%d.%d", add1, add2, add3, add4);
   if (add1 > 255 || add1 < 0 || add2 > 255 || add2 < 0 || add3 > 255 || add3 < 0 || add4 > 255 || add4 < 0)
   {
-    tell_object(me, "ÊäÈëµØÖ·´íÎó£¬ÇëºËÊµ\n");
+    tell_object(me, "è¾“å…¥åœ°å€é”™è¯¯ï¼Œè¯·æ ¸å®\n");
     return;
   }
   while (read_from <= read_to)
@@ -59,18 +59,18 @@ void icheck(string address)
     middle = (read_from + read_to) / 2;
     switch (compare(address, middle))
     {
-    case "°üº¬":
+    case "åŒ…å«":
       report(address, middle);
       return;
-    case "´óÓÚ":
+    case "å¤§äº":
       read_from = middle + 1;
       break;
-    case "Ğ¡ÓÚ":
+    case "å°äº":
       read_to = middle - 1;
       break;
     }
   }
-  tell_object(me, "ÎŞ·¨ÕÒµ½Æ¥ÅäÊı¾İ¡£\n");
+  tell_object(me, "æ— æ³•æ‰¾åˆ°åŒ¹é…æ•°æ®ã€‚\n");
   return;
 }
 
@@ -89,45 +89,45 @@ string compare(string address, int middle)
   sscanf(from, "%d.%d.%d.%d", from1, from2, from3, from4);
   sscanf(to, "%d.%d.%d.%d", to1, to2, to3, to4);
   if (add1 < from1)
-    return "Ğ¡ÓÚ";
+    return "å°äº";
   else if (add1 > to1)
-    return "´óÓÚ";
+    return "å¤§äº";
   else if (add1 < to1)
-    return "°üº¬";
+    return "åŒ…å«";
   else //   add1 == to1
       if (add2 < from2)
-    return "Ğ¡ÓÚ";
+    return "å°äº";
   else if (add2 > to2)
-    return "´óÓÚ";
+    return "å¤§äº";
   else if (add2 < to2)
-    return "°üº¬";
+    return "åŒ…å«";
   else // add1 == to1  && add2 == to2
       if (add3 < from3)
-    return "Ğ¡ÓÚ";
+    return "å°äº";
   else if (add3 > to3)
-    return "´óÓÚ";
+    return "å¤§äº";
   else if (add3 < to3)
-    return "°üº¬";
+    return "åŒ…å«";
   else // add1 == to1 && add2 == to2 && add3 == to3
       if (add4 < from4)
-    return "Ğ¡ÓÚ";
+    return "å°äº";
   else if (add4 > to4)
-    return "´óÓÚ";
+    return "å¤§äº";
   else if (add4 < to4)
-    return "°üº¬";
+    return "åŒ…å«";
   else //add1 == to1 && add2 == to2 && add3 == to3 && add4 == to4
-    return "°üº¬";
+    return "åŒ…å«";
 }
 
 void report(string address, int middle)
 {
   string line = read_file("/data/ipdata.o", middle, 1);
   if (!stringp(address))
-    tell_object(me, "Ã»ÓĞÕÒµ½ÏàÓ¦Êı¾İa\n");
+    tell_object(me, "æ²¡æœ‰æ‰¾åˆ°ç›¸åº”æ•°æ®a\n");
   if (!stringp(line))
-    tell_object(me, "Ã»ÓĞÕÒµ½ÏàÓ¦Êı¾İb\n");
-  tell_object(me, sprintf(HIC "²éÑ¯µØÖ·%s£º\n¶ÔÓ¦ÎïÀíµØÖ·Îª£º" YEL "%s\n" NOR, address, line[32..sizeof(line)]));
+    tell_object(me, "æ²¡æœ‰æ‰¾åˆ°ç›¸åº”æ•°æ®b\n");
+  tell_object(me, sprintf(HIC "æŸ¥è¯¢åœ°å€%sï¼š\nå¯¹åº”ç‰©ç†åœ°å€ä¸ºï¼š" YEL "%s\n" NOR, address, line[32..sizeof(line)]));
   after = rusage();
   usertime = after["utime"] - before["utime"];
-  tell_object(me, sprintf("´Ë´Î²éÕÒ»¨·ÑÊ±¼äÎª%d Î¢Ãë\n", usertime));
+  tell_object(me, sprintf("æ­¤æ¬¡æŸ¥æ‰¾èŠ±è´¹æ—¶é—´ä¸º%d å¾®ç§’\n", usertime));
 }

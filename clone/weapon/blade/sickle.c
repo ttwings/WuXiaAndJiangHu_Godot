@@ -6,18 +6,18 @@ inherit BLADE;
 
 void create()
 {
-	set_name("Á­µ¶", ({"sickle", "dao", "blade", "lian", "lian dao"}));
+	set_name("é•°åˆ€", ({"sickle", "dao", "blade", "lian", "lian dao"}));
 	set_weight(1500);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±ú");
+		set("unit", "æŸ„");
 		set("value", 200);
 		set("material", "wood");
-		set("long", "ÕâÊÇÒ»±úÅ©´åÖĞ³£¼ûµÄÁ­µ¶¡£\n");
-		set("wield_msg", "$N³é³öÒ»°Ñ$nÎÕÔÚÊÖÖĞ£¬µ¶ÈĞÉÏ»¹´ø×Åµ¾²İ¡£\n");
-		set("unequip_msg", "$N½«ÊÖÖĞµÄ$n±ğ»ØÑü´øÀï¡£\n");
+		set("long", "è¿™æ˜¯ä¸€æŸ„å†œæ‘ä¸­å¸¸è§çš„é•°åˆ€ã€‚\n");
+		set("wield_msg", "$NæŠ½å‡ºä¸€æŠŠ$næ¡åœ¨æ‰‹ä¸­ï¼Œåˆ€åˆƒä¸Šè¿˜å¸¦ç€ç¨»è‰ã€‚\n");
+		set("unequip_msg", "$Nå°†æ‰‹ä¸­çš„$nåˆ«å›è…°å¸¦é‡Œã€‚\n");
 	}
 	init_blade(5);
 	setup();

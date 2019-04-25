@@ -1,4 +1,4 @@
-// moye.c ÄªĞ°½£
+// moye.c è«é‚ªå‰‘
 // Last Modified by winder on Sep. 7 2001
 
 #include <weapon.h>
@@ -8,19 +8,19 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(MAG "ÄªĞ°½£" NOR, ({"moye jian", "jian", "sword"}));
+	set_name(MAG "è«é‚ªå‰‘" NOR, ({"moye jian", "jian", "sword"}));
 	set_weight(8000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±ú");
-		set("long", "Õâ¾ÍÊÇºÕºÕÓĞÃûµÄÄªĞ°£¬½£·æÉÏÒşÒşÍ¸³öÒ»¹É×ÏÆø£¬×ĞÏ¸ÄıÍû£¬Ö»¾õÒ»¹ÉËàÉ±Ö®ÆøÉ­È»ÍâÉ¢¡£\n");
+		set("unit", "æŸ„");
+		set("long", "è¿™å°±æ˜¯èµ«èµ«æœ‰åçš„è«é‚ªï¼Œå‰‘é”‹ä¸Šéšéšé€å‡ºä¸€è‚¡ç´«æ°”ï¼Œä»”ç»†å‡æœ›ï¼Œåªè§‰ä¸€è‚¡è‚ƒæ€ä¹‹æ°”æ£®ç„¶å¤–æ•£ã€‚\n");
 		set("value", 20000);
 		set("material", "steel");
 		set("weapon_prop/personality", 8);
-		set("wield_msg", "$N¡¸à§¡¹µÄÒ»Éù³é³öÒ»±ú$nÎÕÔÚÊÖÖĞ£¬¶ÙÊ±Ö»ÌıÔ©»ê²Òº¿£¬ÁîÈËÃ«¹Çã¤È»¡£\n");
-		set("unwield_msg", "$N½«ÊÖÖĞµÄ$n²å»Ø½£ÇÊ£¬Ò»ÏÂ×Ó·çÆ½ÀË¾²£¬Çç¿ÕÍòÀï¡£\n");
+		set("wield_msg", "$Nã€Œå”°ã€çš„ä¸€å£°æŠ½å‡ºä¸€æŸ„$næ¡åœ¨æ‰‹ä¸­ï¼Œé¡¿æ—¶åªå¬å†¤é­‚æƒ¨åšï¼Œä»¤äººæ¯›éª¨æ‚šç„¶ã€‚\n");
+		set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$næ’å›å‰‘é˜ï¼Œä¸€ä¸‹å­é£å¹³æµªé™ï¼Œæ™´ç©ºä¸‡é‡Œã€‚\n");
 	}
 	init_sword(120);
 	setup();

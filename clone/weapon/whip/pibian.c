@@ -6,14 +6,14 @@ inherit WHIP;
 
 void create()
 {
-	set_name("Æ¤±Ş", ({"whip"}));
+	set_name("çš®é­", ({"whip"}));
 	set_weight(1000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("long", "Ò»Ìõ³¤³¤µÄÆ¤±Ş£¬ÉÏÃæÕ´ÂúÁËÑª£®\n");
-		set("unit", "Ìõ");
+		set("long", "ä¸€æ¡é•¿é•¿çš„çš®é­ï¼Œä¸Šé¢æ²¾æ»¡äº†è¡€ï¼\n");
+		set("unit", "æ¡");
 		set("value", 500);
 	}
 	init_whip(10);

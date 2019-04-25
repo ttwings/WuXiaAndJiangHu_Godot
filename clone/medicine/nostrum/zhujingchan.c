@@ -1,4 +1,4 @@
-// zhujingchan.c Öì¾¦±ùó¸
+// zhujingchan.c æœ±ç›å†°èŸ¾
 
 inherit ITEM;
 #include <ansi.h>
@@ -10,10 +10,10 @@ void init()
 }
 void create()
 {
-	set_name(HIR "Öì" NOR "¾¦" HIC "±ù" NOR "ó¸" NOR, ({"chan"}));
-	set("unit", "Ö»");
+	set_name(HIR "æœ±" NOR "ç›" HIC "å†°" NOR "èŸ¾" NOR, ({"chan"}));
+	set("unit", "åª");
 	set("value", 40000);
-	set("long", "ÕâÊÇÒ»Ç§ÄêÄÑµÃÒ»¼ûµÄÖì¾¦±ùó¸£¬Í¨ÌåÍ¸Ã÷£¬Î©ÑÛ³Ê³àÉ«£¬ÄÜ½â°Ù¶¾¡£\n");
+	set("long", "è¿™æ˜¯ä¸€åƒå¹´éš¾å¾—ä¸€è§çš„æœ±ç›å†°èŸ¾ï¼Œé€šä½“é€æ˜ï¼ŒæƒŸçœ¼å‘ˆèµ¤è‰²ï¼Œèƒ½è§£ç™¾æ¯’ã€‚\n");
 	set("pour_type", "1");
 	setup();
 }
@@ -23,13 +23,13 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), this_player()))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 
-	message_vision(HIG "$N³ÔÏÂÒ»Ö»Öì¾¦±ùó¸£¬Ö»¾õÒ»¹ÉÇåÏãÇßÈëĞÄ·Î£¬¶ÙÊ±ÁéÌ¨Ò»Æ¬¿ÕÃ÷£¬ÉñÒâÇåË¬£¡\n" NOR, me);
+	message_vision(HIG "$Nåƒä¸‹ä¸€åªæœ±ç›å†°èŸ¾ï¼Œåªè§‰ä¸€è‚¡æ¸…é¦™æ²å…¥å¿ƒè‚ºï¼Œé¡¿æ—¶çµå°ä¸€ç‰‡ç©ºæ˜ï¼Œç¥æ„æ¸…çˆ½ï¼\n" NOR, me);
 	if (!userp(me))
 	{
 		if (me->query_condition("chanchu_poison"))

@@ -6,26 +6,26 @@ inherit F_FRUIT;
 
 void create()
 {
-	set_name(HIR "Æ»¹û" NOR, ({"ping guo", "pingguo", "apple"}));
+	set_name(HIR "è‹¹æœ" NOR, ({"ping guo", "pingguo", "apple"}));
 	set_weight(4000);
-	set("long", "Ò»¸öÓÖ´óÓÖºì£¬Ô²¹Ä¹ÄµÄ´óÆ»¹û¡£\n");
-	set("unit", "¸ö");
+	set("long", "ä¸€ä¸ªåˆå¤§åˆçº¢ï¼Œåœ†é¼“é¼“çš„å¤§è‹¹æœã€‚\n");
+	set("unit", "ä¸ª");
 	set("life", 7);
 	set("value", 0);
-	set("fruit_remaining", 4); //¿ÉÒÔ³Ô4¿Ú
-	set("food_supply", 15);	//Ã¿¿Ú¼Ó15µÄfood
-	set("water_supply", 4);	//Ã¿¿Ú¿ÉÒÔ¼Ó4µÄwater
-	//Ã¿´Î³ÔµÄmsg,Ã»ÓĞÒ²¿ÉÒÔµÄ¡£
-	set("eat_msg", "$NÄÃÆğ$n£¬´ó´óµÄÒ§ÁËÒ»¿Ú¡£\n");
-	//×îºóÒ»¿ÚµÄmsg£¬Ã»ÓĞÒà¿É
-	set("end_msg", "$NÈı¿ÚÁ½¿Ú³ÔÍêÁËÕâ¸ö$n¡£\n");
-	//³Ô±¥ÁËµÄmsg, Ã»ÓĞÒà¿É£¬µ«²»ÄÜÓĞ´ú´Ê¡£
-	set("over_msg", "³ÔÕâÃ´¶à£¿Ğ¡ĞÄ³ÅÆÆ¶ÇÆ¤£¡£¡£¡£¡\n");
-	// Ë®¹û³ÔÍêÊ£ÏÂµÄ¶«Î÷ :-)
-	set("core", "Æ»¹ûºË");										  //name
+	set("fruit_remaining", 4); //å¯ä»¥åƒ4å£
+	set("food_supply", 15);	//æ¯å£åŠ 15çš„food
+	set("water_supply", 4);	//æ¯å£å¯ä»¥åŠ 4çš„water
+	//æ¯æ¬¡åƒçš„msg,æ²¡æœ‰ä¹Ÿå¯ä»¥çš„ã€‚
+	set("eat_msg", "$Næ‹¿èµ·$nï¼Œå¤§å¤§çš„å’¬äº†ä¸€å£ã€‚\n");
+	//æœ€åä¸€å£çš„msgï¼Œæ²¡æœ‰äº¦å¯
+	set("end_msg", "$Nä¸‰å£ä¸¤å£åƒå®Œäº†è¿™ä¸ª$nã€‚\n");
+	//åƒé¥±äº†çš„msg, æ²¡æœ‰äº¦å¯ï¼Œä½†ä¸èƒ½æœ‰ä»£è¯ã€‚
+	set("over_msg", "åƒè¿™ä¹ˆå¤šï¼Ÿå°å¿ƒæ’‘ç ´è‚šçš®ï¼ï¼ï¼ï¼\n");
+	// æ°´æœåƒå®Œå‰©ä¸‹çš„ä¸œè¥¿ :-)
+	set("core", "è‹¹æœæ ¸");										  //name
 	set("core_id", ({"pingguo hu", "apple core", "hu", "core"})); //id
-	set("core_unit", "¸ö");										  //unit
-	set("core_long", "Ò»¸öÆ»¹ûºË¡£\n");							  //long
+	set("core_unit", "ä¸ª");										  //unit
+	set("core_long", "ä¸€ä¸ªè‹¹æœæ ¸ã€‚\n");							  //long
 	set("gifts", ([
 					 "int":1,
 					 "spi":1,

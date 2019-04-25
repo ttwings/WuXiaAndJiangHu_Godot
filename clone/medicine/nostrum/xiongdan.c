@@ -13,7 +13,7 @@ void init()
 void destdan()
 {
 	object ob;
-	message_vision("$NÂıÂı±»·ç´µ×Å£¬Ò»»á¾Í²»ÔÙĞÂÏÊÁË¡£\n", this_object());
+	message_vision("$Næ…¢æ…¢è¢«é£å¹ç€ï¼Œä¸€ä¼šå°±ä¸å†æ–°é²œäº†ã€‚\n", this_object());
 	ob = new ("/clone/medicine/vegetable/xiongdan");
 	ob->move(environment(this_object()));
 	destruct(this_object());
@@ -21,9 +21,9 @@ void destdan()
 
 void create()
 {
-	set_name(HIG "ĞÂÏÊĞÜµ¨" NOR, ({"dan", "xiong dan"}));
-	set("unit", "¸±");
-	set("long", "ÕâÊÇÒ»¸±±ÌÂÌÉ«µÄĞÂÏÊĞÜµ¨£¬ÈÈÆøÌÚÌÚµÄ£¬Ê®·ÖÓÕÈË¡£\n");
+	set_name(HIG "æ–°é²œç†Šèƒ†" NOR, ({"dan", "xiong dan"}));
+	set("unit", "å‰¯");
+	set("long", "è¿™æ˜¯ä¸€å‰¯ç¢§ç»¿è‰²çš„æ–°é²œç†Šèƒ†ï¼Œçƒ­æ°”è…¾è…¾çš„ï¼Œååˆ†è¯±äººã€‚\n");
 	set("pour_type", "1");
 	setup();
 }
@@ -37,17 +37,17 @@ int do_eat(string arg)
 	neili_limit = me->query("max_neili");
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 
 	if (neili_limit <= force_limit)
 		me->add("max_neili", 2);
 	me->set("neili", me->query("max_neili"));
 	me->set("qi", me->query("eff_qi"));
-	message_vision("$N³ÔÏÂÒ»¸±ĞÂÏÊĞÜµ¨£¬Ö»¾õµÃ¾«Éñ½¡Íú£¬ÌåÄÚÕæÁ¦Ô´Ô´×ÌÉú£¬ÆøÑª³äÓ¯¡£\n", me);
+	message_vision("$Nåƒä¸‹ä¸€å‰¯æ–°é²œç†Šèƒ†ï¼Œåªè§‰å¾—ç²¾ç¥å¥æ—ºï¼Œä½“å†…çœŸåŠ›æºæºæ»‹ç”Ÿï¼Œæ°”è¡€å……ç›ˆã€‚\n", me);
 
 	destruct(this_object());
 	return 1;

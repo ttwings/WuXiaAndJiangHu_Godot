@@ -1,4 +1,4 @@
-// shedan.c òşÉßµ¨
+// shedan.c èŸ’è›‡èƒ†
 inherit ITEM;
 #include <ansi.h>
 
@@ -12,9 +12,9 @@ void init()
 
 void create()
 {
-	set_name(HIG "òşÉßµ¨" NOR, ({"dan", "she dan"}));
-	set("unit", "¸±");
-	set("long", "ÕâÊÇÒ»¸±òşÉßµ¨£¬±ÌÂÌÈçÀ¶¡£\n");
+	set_name(HIG "èŸ’è›‡èƒ†" NOR, ({"dan", "she dan"}));
+	set("unit", "å‰¯");
+	set("long", "è¿™æ˜¯ä¸€å‰¯èŸ’è›‡èƒ†ï¼Œç¢§ç»¿å¦‚è“ã€‚\n");
 	set("pour_type", "1");
 	setup();
 }
@@ -28,16 +28,16 @@ int do_eat(string arg)
 	jingli_limit = me->query("max_jingli");
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 
 	if (jingli_limit <= taoism_limit)
 		me->add("max_jingli", 1);
 	me->set("qi", me->query("eff_qi"));
-	message_vision("$N³ÔÏÂÒ»¸±òşÉßµ¨£¬Ö»¾õµÃ¶ú´ÏÄ¿Ã÷£¬¾«Á¦¶¸³¤¡£\n", me);
+	message_vision("$Nåƒä¸‹ä¸€å‰¯èŸ’è›‡èƒ†ï¼Œåªè§‰å¾—è€³èªç›®æ˜ï¼Œç²¾åŠ›é™¡é•¿ã€‚\n", me);
 	destruct(this_object());
 	return 1;
 }
@@ -46,10 +46,10 @@ void decay()
 {
 	object where = environment(this_object());
 	if (interactive(where))
-		message("vision", BLU "òşÉßµ¨Å¾µÄÒ»ÉùÆÆÁË£¬ÅªµÃÄãÒ»ÉíÉõÊÇĞÈ³ô¡£\n" NOR,
+		message("vision", BLU "èŸ’è›‡èƒ†å•ªçš„ä¸€å£°ç ´äº†ï¼Œå¼„å¾—ä½ ä¸€èº«ç”šæ˜¯è…¥è‡­ã€‚\n" NOR,
 				where);
 	else
-		message("vision", BLU "òşÉßµ¨Å¾µÄÒ»ÉùÆÆÁË£¬ÉßÑªÁ÷ÁËÒ»µØ¡£\n" NOR,
+		message("vision", BLU "èŸ’è›‡èƒ†å•ªçš„ä¸€å£°ç ´äº†ï¼Œè›‡è¡€æµäº†ä¸€åœ°ã€‚\n" NOR,
 				where);
 	destruct(this_object());
 }

@@ -1,17 +1,17 @@
-// baiduanshan.c  °×¶ÐÉÀ
+// baiduanshan.c  ç™½ç¼Žè¡«
 
 #include <armor.h>
 inherit CLOTH;
 void create()
 {
-	set_name("°×¶ÐÉÀ", ({"baiduan shan", "cloth"}));
+	set_name("ç™½ç¼Žè¡«", ({"baiduan shan", "cloth"}));
 	set_weight(1000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("long", "Ò»Ì×°×É«µÄ³ñÉÀ£¬ÈáÈíÆ®ÒÝ¡£\n");
-		set("unit", "Ì×");
+		set("long", "ä¸€å¥—ç™½è‰²çš„ç»¸è¡«ï¼ŒæŸ”è½¯é£˜é€¸ã€‚\n");
+		set("unit", "å¥—");
 		set("value", 800);
 		set("material", "cloth");
 		set("armor_prop/armor", 1);

@@ -1,21 +1,21 @@
-// Éñ»°ÊÀ½ç¡¤Î÷ÓÎ¼Ç¡¤°æ±¾£´£®£µ£°
+// ç¥è¯ä¸–ç•ŒÂ·è¥¿æ¸¸è®°Â·ç‰ˆæœ¬ï¼”ï¼ï¼•ï¼
 /* <SecCrypt CPL V3R05> */
 
-// huasheng.c »¨Éú
+// huasheng.c èŠ±ç”Ÿ
 
 inherit ITEM;
 inherit F_FOOD;
 
 void create()
 {
-  set_name("ÎåÏã»¨Éú", ({"huasheng", "peanut"}));
+  set_name("äº”é¦™èŠ±ç”Ÿ", ({"huasheng", "peanut"}));
   set_weight(60);
   if (clonep())
     set_default_object(__FILE__);
   else
   {
-    set("long", "Ò»µúÏãÅçÅçµÄ»¨ÉúÃ×¡£\n");
-    set("unit", "µú");
+    set("long", "ä¸€ç¢Ÿé¦™å–·å–·çš„èŠ±ç”Ÿç±³ã€‚\n");
+    set("unit", "ç¢Ÿ");
     set("value", 20);
     set("food_remaining", 1);
     set("food_supply", 30);

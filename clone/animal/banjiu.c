@@ -1,14 +1,14 @@
-// banjiu.c °ßð¯
+// banjiu.c æ–‘é¸ 
 // Last Modified by winder on Aug. 1 2002
 
 inherit NPC;
 
 void create()
 {
-	set_name("°ßð¯", ({"ban jiu", "bird"}));
-	set("race", "·ÉÇÝ");
+	set_name("æ–‘é¸ ", ({"ban jiu", "bird"}));
+	set("race", "é£žç¦½");
 	set("age", 2);
-	set("long", "Ò»Ö»µÄÐ¡°ßð¯¡£\n");
+	set("long", "ä¸€åªçš„å°æ–‘é¸ ã€‚\n");
 	set("attitude", "peaceful");
 
 	set("combat_exp", 100);
@@ -25,7 +25,7 @@ void die()
 {
 	object ob = new (__DIR__ "obj/banjiu-rou");
 
-	message_vision("$N´Ó°ë¿ÕÖÐÔÔÁËÏÂÀ´£¬ËÀÁË¡£\n", this_object());
+	message_vision("$Nä»ŽåŠç©ºä¸­æ ½äº†ä¸‹æ¥ï¼Œæ­»äº†ã€‚\n", this_object());
 	ob->move(environment(this_object()));
 	destruct(this_object());
 }

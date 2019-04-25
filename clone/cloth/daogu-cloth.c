@@ -7,10 +7,10 @@
 inherit CLOTH;
 
 string *clothname = ({
-	HIM "»¨¸ñµÀÅÛ" NOR,
-	HIY "Âé¸ñµÀÅÛ" NOR,
-	HIB "Çà²¼µÀÅÛ" NOR,
-	"»Ò²¼µÀÅÛ" NOR,
+	HIM "èŠ±æ ¼é“è¢" NOR,
+	HIY "éº»æ ¼é“è¢" NOR,
+	HIB "é’å¸ƒé“è¢" NOR,
+	"ç°å¸ƒé“è¢" NOR,
 });
 string *clothid = ({
 	"dao pao",
@@ -19,10 +19,10 @@ string *clothid = ({
 	"dao pao",
 });
 string *clothlong = ({
-	"ÕâÊÇÒ»¼þ³ö¼ÒµÀ¹Ã³£´©µÄ»¨¸ñµÀÅÛ¡£\n",
-	"ÕâÊÇÒ»¼þ³ö¼ÒµÀ¹Ã³£´©µÄÂé¸ñµÀÅÛ¡£\n",
-	"ÕâÊÇÒ»¼þ³ö¼ÒµÀ¹Ã³£´©µÄÇà²¼µÀÅÛ¡£\n",
-	"ÕâÊÇÒ»¼þ³ö¼ÒµÀ¹Ã³£´©µÄ»Ò²¼µÀÅÛ¡£\n",
+	"è¿™æ˜¯ä¸€ä»¶å‡ºå®¶é“å§‘å¸¸ç©¿çš„èŠ±æ ¼é“è¢ã€‚\n",
+	"è¿™æ˜¯ä¸€ä»¶å‡ºå®¶é“å§‘å¸¸ç©¿çš„éº»æ ¼é“è¢ã€‚\n",
+	"è¿™æ˜¯ä¸€ä»¶å‡ºå®¶é“å§‘å¸¸ç©¿çš„é’å¸ƒé“è¢ã€‚\n",
+	"è¿™æ˜¯ä¸€ä»¶å‡ºå®¶é“å§‘å¸¸ç©¿çš„ç°å¸ƒé“è¢ã€‚\n",
 });
 
 void create()
@@ -36,7 +36,7 @@ void create()
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "¼þ");
+		set("unit", "ä»¶");
 		set("value", 0);
 		//		set("long", clothlong[i]);
 		set("material", "cloth");

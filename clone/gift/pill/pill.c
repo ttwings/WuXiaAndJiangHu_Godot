@@ -7,35 +7,35 @@ int query_autoload()
 
 void create()
 {
-  set_name(HIW "²¹Ò©" NOR, ({"bu yao", "yao"}));
+  set_name(HIW "è¡¥è¯" NOR, ({"bu yao", "yao"}));
   if (clonep())
     set_default_object(__FILE__);
   else
   {
-    set("long", HIY "ÕâÊÇÒ»¿ÅÔö¼ÓÄÚ¹¦µÄ²¹Ò©¡£\n" NOR);
-    set("unit", "¿Î");
+    set("long", HIY "è¿™æ˜¯ä¸€é¢—å¢žåŠ å†…åŠŸçš„è¡¥è¯ã€‚\n" NOR);
+    set("unit", "è¯¾");
     set("value", 10000);
     set("weight", 300);
-    //Ôö¼ÓµÄ¼¼ÄÜÃûÎªforce
-    //Èç¹û²»Îªforce ÄÇºóÃæµÄforce_point±íÊ¾Ôö¼Ó¾«Á¦
+    //å¢žåŠ çš„æŠ€èƒ½åä¸ºforce
+    //å¦‚æžœä¸ä¸ºforce é‚£åŽé¢çš„force_pointè¡¨ç¤ºå¢žåŠ ç²¾åŠ›
     set("pill_skill", "force");
-    // ÊÇ·ñÎªÌØÊâÎä¹¦
+    // æ˜¯å¦ä¸ºç‰¹æ®Šæ­¦åŠŸ
     set("skill_mapped", 1);
 
-    //Ôö¼ÓÎä¹¦¶àÉÙ¼¼ÄÜµã
+    //å¢žåŠ æ­¦åŠŸå¤šå°‘æŠ€èƒ½ç‚¹
     set("pill_point", 100);
 
-    //Ôö¼Ó¶àÉÙÄÚÁ¦»òÕß¾«Á¦
+    //å¢žåŠ å¤šå°‘å†…åŠ›æˆ–è€…ç²¾åŠ›
     set("force_point", 1);
 
-    //¼ÓÎä¹¦³É¹¦µÄÃèÊö
-    set("pill_msg1", HIR "ÄãÖ»¾õÒ»¹ÉÅ¯ÆøÉ¢²¼È«Éí£¬Ëµ²»³öµÄÊæ·þÊÜÓÃ¡£\n" NOR);
-    //¼ÓÎä¹¦Ê§°ÜµÄÃèÊö  ÕâÁ½Ïî½öµ±pill_point¶¨ÒåÊ±
-    set("pill_msg2", HIY "ÄãÖ»¾õÒ»¹ÉÈÈÁ÷Ó¿ÉÏ£¬ÄÚÏ¢µÃµ½ÁËÍêÈ«µÄ²¹³ä¡£\n" NOR);
+    //åŠ æ­¦åŠŸæˆåŠŸçš„æè¿°
+    set("pill_msg1", HIR "ä½ åªè§‰ä¸€è‚¡æš–æ°”æ•£å¸ƒå…¨èº«ï¼Œè¯´ä¸å‡ºçš„èˆ’æœå—ç”¨ã€‚\n" NOR);
+    //åŠ æ­¦åŠŸå¤±è´¥çš„æè¿°  è¿™ä¸¤é¡¹ä»…å½“pill_pointå®šä¹‰æ—¶
+    set("pill_msg2", HIY "ä½ åªè§‰ä¸€è‚¡çƒ­æµæ¶Œä¸Šï¼Œå†…æ¯å¾—åˆ°äº†å®Œå…¨çš„è¡¥å……ã€‚\n" NOR);
 
-    // Ôö¼ÓÄÚÁ¦»ò¾«Á¦µÄÃèÊö£¬Èç¹ûÓÐÇ°ÃæÁ½ÌõÐÅÏ¢£¬ÔòÓ¦×÷È±Ê¡
-    set("pill_msg3", HIM "Äã¸Ðµ½ÄÚÁ¦ÓÖÐÛºñÁËÒ»Ð©¡£\n" NOR);
-    set("pill_msg4", HIR "Äã¸Ðµ½ÄÚÏ¢ÅìÅÈ£¬ÄÑÒÔÎüÊÕÒ©Á¦¡£\n" NOR);
+    // å¢žåŠ å†…åŠ›æˆ–ç²¾åŠ›çš„æè¿°ï¼Œå¦‚æžœæœ‰å‰é¢ä¸¤æ¡ä¿¡æ¯ï¼Œåˆ™åº”ä½œç¼ºçœ
+    set("pill_msg3", HIM "ä½ æ„Ÿåˆ°å†…åŠ›åˆé›„åŽšäº†ä¸€äº›ã€‚\n" NOR);
+    set("pill_msg4", HIR "ä½ æ„Ÿåˆ°å†…æ¯æ¾Žæ¹ƒï¼Œéš¾ä»¥å¸æ”¶è¯åŠ›ã€‚\n" NOR);
   }
   setup();
 }
@@ -54,31 +54,31 @@ int do_eat(string arg)
   pot1 = query("pill_point");
   pot2 = query("force_point");
   time = query("pill_point") / 40;
-  //¼ÙÉè20000µãÊìÁ·¶È ¾ÍÊÇ500condition ==187 min ~= 3hour
+  //å‡è®¾20000ç‚¹ç†Ÿç»ƒåº¦ å°±æ˜¯500condition ==187 min ~= 3hour
 
-  //·Ç¼¼ÄÜÐÍµÄÒ©ÎïÖØÐÂ¼ÆËãÐ§ÓÃÊ±¼ä
+  //éžæŠ€èƒ½åž‹çš„è¯ç‰©é‡æ–°è®¡ç®—æ•ˆç”¨æ—¶é—´
   if (!query("pill_point"))
     time = 400 + query("force_point") * 10;
   if (!id(arg))
     return 0;
   if ((int)me->query_condition("pill_drug") > 0)
   {
-    write("Äã¾õµÃÏÖÔÚÄÚÏ¢Î´¶¨£¬¾­ÂöÒþÒþ»¹ÄÜ¸Ðµ½ÕæÆø³åµ´£¬²»¸ÒÃ³È»·þÊ³¡£\n");
+    write("ä½ è§‰å¾—çŽ°åœ¨å†…æ¯æœªå®šï¼Œç»è„‰éšéšè¿˜èƒ½æ„Ÿåˆ°çœŸæ°”å†²è¡ï¼Œä¸æ•¢è´¸ç„¶æœé£Ÿã€‚\n");
     return 1;
   }
   if (me->is_busy())
   {
-    write("ÄãÕýÃ¦×ÅÄØ¡£\n");
+    write("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
     return 1;
   }
   me->apply_condition("pill_drug", time);
-  message_vision(HIY + "$N" + HIY + "·þÏÂÒ»" + query("unit") + query("name") + HIY + "£¬¿ªÊ¼ÔË¹¦ÎüÊÕÒ©Á¦¡£\n" NOR, me);
+  message_vision(HIY + "$N" + HIY + "æœä¸‹ä¸€" + query("unit") + query("name") + HIY + "ï¼Œå¼€å§‹è¿åŠŸå¸æ”¶è¯åŠ›ã€‚\n" NOR, me);
   log_file("gift/eat_skill", sprintf("%-20s eat %-10s [%s]\n", me->query("name") + "(" + me->query("id") + ")", this_object()->name(), ctime(time())));
 
-  // Èç¹û¸ÃÒ©ÎïÓÐÔö¼Ó¼¼ÄÜµÄ¹¦ÄÜ£¬Ôò¼ÓÖ®
+  // å¦‚æžœè¯¥è¯ç‰©æœ‰å¢žåŠ æŠ€èƒ½çš„åŠŸèƒ½ï¼Œåˆ™åŠ ä¹‹
   if (query("pill_skill") && query("pill_point"))
   {
-    // ÅÐ¶ÏÔö¼ÓµÄ¼¼ÄÜÊÇ·ñÎªÌØÊâ¼¼ÄÜ
+    // åˆ¤æ–­å¢žåŠ çš„æŠ€èƒ½æ˜¯å¦ä¸ºç‰¹æ®ŠæŠ€èƒ½
     if (query("skill_mapped") >= 1)
       skill = me->query_skill_mapped(query("pill_skill"));
     else
@@ -86,30 +86,30 @@ int do_eat(string arg)
     tell_object(me, query("pill_msg1"));
     me->improve_skill(skill, pot1);
   }
-  // Èç¹û¸ÃÒ©ÎïÓÐÔö¼Ó¹¦Á¦µÄ¹¦ÄÜ£¬Ôò¼ÓÖ®
+  // å¦‚æžœè¯¥è¯ç‰©æœ‰å¢žåŠ åŠŸåŠ›çš„åŠŸèƒ½ï¼Œåˆ™åŠ ä¹‹
   if (query("pill_skill") && query("force_point"))
   {
-    // ÄÚ¹¦ÐÍÒ©ÎïÔö¼ÓÄÚÁ¦£¬·ñÔòÔòÔö¼Ó¾«Á¦
+    // å†…åŠŸåž‹è¯ç‰©å¢žåŠ å†…åŠ›ï¼Œå¦åˆ™åˆ™å¢žåŠ ç²¾åŠ›
     if (query("pill_skill") == "force")
     {
-      // Ìá¹©³öÐÅÏ¢
+      // æä¾›å‡ºä¿¡æ¯
       if (me->query("max_neili") < neili_limit && query("pill_msg3"))
         tell_object(me, query("pill_msg3"));
       else if (me->query("max_neili") >= neili_limit && query("pill_msg4"))
         tell_object(me, query("pill_msg4"));
-      //Ôö¼Ó
+      //å¢žåŠ 
       me->add("max_neili", pot2 + random(pot2));
       if (me->query("neili") < me->query("max_neili"))
         me->set("neili", me->query("max_neili"));
     }
     else
     {
-      // Ìá¹©³öÐÅÏ¢
+      // æä¾›å‡ºä¿¡æ¯
       if (me->query("max_jingli") < jingli_limit && query("pill_msg3"))
         tell_object(me, query("pill_msg3"));
       else if (me->query("max_jingli") >= jingli_limit && query("pill_msg4"))
         tell_object(me, query("pill_msg4"));
-      //Ôö¼Ó
+      //å¢žåŠ 
       me->add("max_jingli", pot2 + random(pot2));
       if (me->query("jingli") < me->query("max_jingli"))
         me->set("jingli", me->query("max_jingli"));

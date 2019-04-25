@@ -11,17 +11,17 @@ int save();
 void create()
 {
 	//	if (!restore()){
-	set_name("×øÆï", ({"pet"}));
-	set("race", "Ò°ÊŞ");
+	set_name("åéª‘", ({"pet"}));
+	set("race", "é‡å…½");
 	set("age", 1);
 	set("mud_age", 1);
 	set("combat_exp", 100);
-	set("limbs", ({"Í·²¿", "ÉíÌå", "Ç°ĞÄ", "ºó±³", "Ç°×¦", "ºóÍÈ", "Î²°Í"}));
+	set("limbs", ({"å¤´éƒ¨", "èº«ä½“", "å‰å¿ƒ", "åèƒŒ", "å‰çˆª", "åè…¿", "å°¾å·´"}));
 	set("verbs", ({"bite", "claw"}));
 
-	set("ride/msg", "Æï");
+	set("ride/msg", "éª‘");
 	set("ride/dodge", 5);
-	set("curiousness", 1); // ºÃÑ§µÄ¡£¿ÉÒÔÑ§Ï°µÄÌõ¼ş
+	set("curiousness", 1); // å¥½å­¦çš„ã€‚å¯ä»¥å­¦ä¹ çš„æ¡ä»¶
 	set("owner", "mudlib");
 	set_temp("owner", "mudlib");
 	set_temp("apply/attack", 5);
@@ -49,7 +49,7 @@ void die()
 {
 	int exp;
 
-	message("channel:rumor", HIM "¡¾Ò¥ÑÔ¡¿Ä³ÈË£ºÌıËµ" + query_temp("ownername") + "µÄ" + name() + "ËÀÁË£¬µÈ¼¶ÏÂ½µÁË¡£ÕæÊÇ¿ÉÏ§¡£\n" NOR, users());
+	message("channel:rumor", HIM "ã€è°£è¨€ã€‘æŸäººï¼šå¬è¯´" + query_temp("ownername") + "çš„" + name() + "æ­»äº†ï¼Œç­‰çº§ä¸‹é™äº†ã€‚çœŸæ˜¯å¯æƒœã€‚\n" NOR, users());
 
 	exp = (int)query("combat_exp");
 	set("combat_exp", exp / 10 * 9);
@@ -98,18 +98,18 @@ int do_modify(string arg)
 	object me = this_player();
 
 	if (!arg || sscanf(arg, "%s %s", item, msg) != 2)
-		return notify_fail("ÃüÁî´íÎó£ºmodify ¿îÏî ÄÚÈİ\n\n\t¿îÏîÁĞ±í£º
+		return notify_fail("å‘½ä»¤é”™è¯¯ï¼šmodify æ¬¾é¡¹ å†…å®¹\n\n\tæ¬¾é¡¹åˆ—è¡¨ï¼š
 
-                    °®³Æ         name
-                    ´ÂºÅ         nick
-                    Ï¸½ÚÃèÊö     long
-                    ÌÓÅÜÏµÊı     wimpy\n\n");
+                    çˆ±ç§°         name
+                    ç»°å·         nick
+                    ç»†èŠ‚æè¿°     long
+                    é€ƒè·‘ç³»æ•°     wimpy\n\n");
 	if(me->query("jing") < 20)
-		return notify_fail("ÄãµÄ¾«Æø²»×ã£¬ÔİÊ±Ã»·¨ĞŞ¸Ä³èÎï¡£\n");
+		return notify_fail("ä½ çš„ç²¾æ°”ä¸è¶³ï¼Œæš‚æ—¶æ²¡æ³•ä¿®æ”¹å® ç‰©ã€‚\n");
 	if(item == "wimpy")
 	{
 			set("env/wimpy", atoi(msg));
-			write("Éè¶¨³èÎïÌÓÅÜÏµÊı³É¹¦¡£\n");
+			write("è®¾å®šå® ç‰©é€ƒè·‘ç³»æ•°æˆåŠŸã€‚\n");
 			return 1;
 	}
 	msg = replace_string(msg, "$BLK$", BLK);
@@ -132,38 +132,38 @@ int do_modify(string arg)
 	if(item != "nick")
 	{
 			if (CHINESE_D->check_control(msg))
-				return notify_fail("ÃèÊöÎÄ×ÖÖĞ²»¿ÉÓĞ¿ØÖÆ·û¡£\n");
+				return notify_fail("æè¿°æ–‡å­—ä¸­ä¸å¯æœ‰æ§åˆ¶ç¬¦ã€‚\n");
 			if (!CHINESE_D->check_chinese(msg))
-				return notify_fail("ÃèÊö±ØĞëÊÇÖĞÎÄ¡£\n");
+				return notify_fail("æè¿°å¿…é¡»æ˜¯ä¸­æ–‡ã€‚\n");
 	}
 	if(CHINESE_D->check_space(msg))
-		return notify_fail("ÃèÊöÖĞ²»ÄÜº¬¿Õ¸ñ¡£\n");
+		return notify_fail("æè¿°ä¸­ä¸èƒ½å«ç©ºæ ¼ã€‚\n");
 	if(CHINESE_D->check_return(msg))
-		return notify_fail("ÃèÊöÎÄ×ÖÖĞ²»ÄÜº¬»Ø³µ¼ü£¡\n");
+		return notify_fail("æè¿°æ–‡å­—ä¸­ä¸èƒ½å«å›è½¦é”®ï¼\n");
 	me->receive_damage("jing", 10);
 	switch(item)
 	{
 		case "name":
 			if (CHINESE_D->check_length(msg) > 10)
-				return notify_fail("³èÎï°®³ÆÃèÊöÌ«³¤£¡\n");
+				return notify_fail("å® ç‰©çˆ±ç§°æè¿°å¤ªé•¿ï¼\n");
 			set("name", msg);
 			me->set("Pet/name", msg + NOR);
-			write("³èÎï°®³ÆÉè¶¨³É¹¦£¡\n");
+			write("å® ç‰©çˆ±ç§°è®¾å®šæˆåŠŸï¼\n");
 			return 1;
 		case "nick":
 			if (CHINESE_D->check_length(msg) > 20)
-				return notify_fail("³èÎï´ÂºÅÃèÊöÌ«³¤£¡\n");
+				return notify_fail("å® ç‰©ç»°å·æè¿°å¤ªé•¿ï¼\n");
 			set("nickname", msg + NOR);
-			write("³èÎï´ÂºÅÉè¶¨³É¹¦£¡\n");
+			write("å® ç‰©ç»°å·è®¾å®šæˆåŠŸï¼\n");
 			return 1;
 		case "long":
 			if (CHINESE_D->check_length(msg) > 100)
-				return notify_fail("³èÎïÏ¸½ÚÃèÊöÌ«³¤£¡\n");
+				return notify_fail("å® ç‰©ç»†èŠ‚æè¿°å¤ªé•¿ï¼\n");
 			set("long", msg + "\n" + NOR);
-			write("³èÎïÏ¸½ÚÉè¶¨³É¹¦£¡\n");
+			write("å® ç‰©ç»†èŠ‚è®¾å®šæˆåŠŸï¼\n");
 			return 1;
 	}
-	return notify_fail("ÄãÒªĞŞ¸ÄÊ²Ã´£¿\n");
+	return notify_fail("ä½ è¦ä¿®æ”¹ä»€ä¹ˆï¼Ÿ\n");
 }
 int do_xunlian(string arg)
 {
@@ -171,33 +171,33 @@ int do_xunlian(string arg)
 	int jing_cost, amount, exp, myskill, itskill;
 
 	if (!arg || arg == "")
-		return notify_fail("ÄãÒªÑµÁ·³èÎïÊ²Ã´¼¼ÄÜÄØ£¿\n");
+		return notify_fail("ä½ è¦è®­ç»ƒå® ç‰©ä»€ä¹ˆæŠ€èƒ½å‘¢ï¼Ÿ\n");
 	if (!myskill = me->query_skill(arg, 1))
-		return notify_fail("ÕâÏî¼¼ÄÜÄãºÃÏó»¹²»»áÄØ£¡\n");
+		return notify_fail("è¿™é¡¹æŠ€èƒ½ä½ å¥½è±¡è¿˜ä¸ä¼šå‘¢ï¼\n");
 	if (arg != "unarmed" && arg != "dodge" && arg != "parry")
-		return notify_fail("ËüÑ§²»»áÕâÏî¼¼ÄÜµÄ£¡\n");
+		return notify_fail("å®ƒå­¦ä¸ä¼šè¿™é¡¹æŠ€èƒ½çš„ï¼\n");
 	itskill = query_skill(arg, 1);
 	if (myskill <= itskill)
-		return notify_fail(name() + "ÒÔ³°Ğ¦µÄÄ¿¹âÍû×ÅÄã£ºÄã»¹Ã»ÎÒÅ£ÄØ£¬Ïë½ÌÎÒ£¿£¡\n");
+		return notify_fail(name() + "ä»¥å˜²ç¬‘çš„ç›®å…‰æœ›ç€ä½ ï¼šä½ è¿˜æ²¡æˆ‘ç‰›å‘¢ï¼Œæƒ³æ•™æˆ‘ï¼Ÿï¼\n");
 	if (me->is_busy())
-		return notify_fail("ÄãµÄ¶¯×÷»¹Ã»ÓĞÍê³É£¬²»ÄÜ½Ìµ¼³èÎï¡£\n");
+		return notify_fail("ä½ çš„åŠ¨ä½œè¿˜æ²¡æœ‰å®Œæˆï¼Œä¸èƒ½æ•™å¯¼å® ç‰©ã€‚\n");
 	if (me->is_fighting())
-		return notify_fail("ÄãÒÑ¾­ÔÚÕ½¶·ÖĞÁË£¬»¹Ïë½Ìµ¼³èÎï£¿\n");
+		return notify_fail("ä½ å·²ç»åœ¨æˆ˜æ–—ä¸­äº†ï¼Œè¿˜æƒ³æ•™å¯¼å® ç‰©ï¼Ÿ\n");
 	if (pet->is_busy())
-		return notify_fail("ËüµÄ¶¯×÷»¹Ã»ÓĞÍê³É£¬²»ÄÜÑ§Ï°¡£\n");
+		return notify_fail("å®ƒçš„åŠ¨ä½œè¿˜æ²¡æœ‰å®Œæˆï¼Œä¸èƒ½å­¦ä¹ ã€‚\n");
 	if (pet->is_fighting())
-		return notify_fail("ËûÒÑ¾­ÔÚÕ½¶·ÖĞÁË£¬»¹ÏëÑ§Ï°£¿\n");
+		return notify_fail("ä»–å·²ç»åœ¨æˆ˜æ–—ä¸­äº†ï¼Œè¿˜æƒ³å­¦ä¹ ï¼Ÿ\n");
 	if ((int)me->query("potential") - (int)me->query("learned_points") < 1)
-		return notify_fail("ÄãµÄÇ±ÄÜ²»¹»¡£\n");
+		return notify_fail("ä½ çš„æ½œèƒ½ä¸å¤Ÿã€‚\n");
 	jing_cost = (int)query_int();
 	if ((int)me->query("jing") < jing_cost)
-		return notify_fail("ÄãÏÔÈ»Ì«ÀÛÁË£¬Ã»ÓĞ°ì·¨¼ÌĞø½Ì£¡\n");
+		return notify_fail("ä½ æ˜¾ç„¶å¤ªç´¯äº†ï¼Œæ²¡æœ‰åŠæ³•ç»§ç»­æ•™ï¼\n");
 	me->receive_damage("jing", jing_cost);
 	amount = (int)((me->query("int") + query("int")) / 3);
-	message_vision(sprintf("$N²»ÑáÆä·³µØ½Ì$n¡¸%s¡¹¡£\n", to_chinese(arg)), me, pet);
+	message_vision(sprintf("$Nä¸åŒå…¶çƒ¦åœ°æ•™$nã€Œ%sã€ã€‚\n", to_chinese(arg)), me, pet);
 	if (random(100) > query("obe"))
 	{
-		message_vision("$NºÜ²»ÇéÔ¸µØºßÁËÒ»Éù¡£\n", pet);
+		message_vision("$Nå¾ˆä¸æƒ…æ„¿åœ°å“¼äº†ä¸€å£°ã€‚\n", pet);
 		return 1;
 	}
 	else
@@ -208,10 +208,10 @@ int do_xunlian(string arg)
 			pet->improve_skill(arg, amount);
 			pet->add("combat_exp", random(5));
 			me->add("learned_points", 1);
-			message_vision(sprintf("$NËÆºõÕæµÄÑ§»áÁËÒ»Ğ©¡¸%s¡¹£¡\n", to_chinese(arg)), pet);
+			message_vision(sprintf("$Nä¼¼ä¹çœŸçš„å­¦ä¼šäº†ä¸€äº›ã€Œ%sã€ï¼\n", to_chinese(arg)), pet);
 		}
 		else
-			message_vision(sprintf("ÓÉÓÚ¾­ÑéËùÏŞ£¬$NËÆºõ²»ÄÜÀí½â¸ü¸ßÉîµÄ¡¸%s¡¹¡£\n", to_chinese(arg)), pet);
+			message_vision(sprintf("ç”±äºç»éªŒæ‰€é™ï¼Œ$Nä¼¼ä¹ä¸èƒ½ç†è§£æ›´é«˜æ·±çš„ã€Œ%sã€ã€‚\n", to_chinese(arg)), pet);
 	}
 	return 1;
 }
@@ -242,29 +242,29 @@ int do_shape(string arg)
 	int at_pt, pa_pt, do_pt;
 	my = query_entire_dbase();
 
-	printf(HIC "¡Ô" HIY "©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤" HIC "¡Ô\n" NOR);
-	printf("Ö÷ÈË£º %s\t\t\tĞÕÃû£º %s\n" NOR, my["owner"], this_object()->query_temp("ownername"));
-	printf("ÄêÁä£º %d\tÖÖÀà£º %s\t°®³Æ£º %s\t´ÂºÅ£º %s\n" NOR, my["age"], my["title"], my["name"], my["nickname"]);
-	printf("²ÅÖÇ£º %d\tÌåÖÊ£º %d\tËÙ¶È£º %d\tÁ¦Á¿£º %d\n", query_int(), query_con(), query_dex(), query_str());
-	printf("ÌåÌ¬£º %d\tÁéĞÔ£º %d\tÃ°ÏÕ£º %d\t¿ËÖÆ£º %d\n", query_per(), query_kar(), query_cor(), query_cps());
-	printf("Ñ±·ş£º " HIM "%d" NOR "\tÉ±Æø£º " HIR "%d" NOR "\t¾­Ñé£º " HIG "%d" NOR "\tÌÓÃü£º " HIC "%d\n" NOR, query_obe(), my["shen"], my["combat_exp"], my["env/wimpy"]);
+	printf(HIC "â‰¡" HIY "â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€" HIC "â‰¡\n" NOR);
+	printf("ä¸»äººï¼š %s\t\t\tå§“åï¼š %s\n" NOR, my["owner"], this_object()->query_temp("ownername"));
+	printf("å¹´é¾„ï¼š %d\tç§ç±»ï¼š %s\tçˆ±ç§°ï¼š %s\tç»°å·ï¼š %s\n" NOR, my["age"], my["title"], my["name"], my["nickname"]);
+	printf("æ‰æ™ºï¼š %d\tä½“è´¨ï¼š %d\té€Ÿåº¦ï¼š %d\tåŠ›é‡ï¼š %d\n", query_int(), query_con(), query_dex(), query_str());
+	printf("ä½“æ€ï¼š %d\tçµæ€§ï¼š %d\tå†’é™©ï¼š %d\tå…‹åˆ¶ï¼š %d\n", query_per(), query_kar(), query_cor(), query_cps());
+	printf("é©¯æœï¼š " HIM "%d" NOR "\tæ€æ°”ï¼š " HIR "%d" NOR "\tç»éªŒï¼š " HIG "%d" NOR "\té€ƒå‘½ï¼š " HIC "%d\n" NOR, query_obe(), my["shen"], my["combat_exp"], my["env/wimpy"]);
 	at_pt = COMBAT_D->skill_power(this_object(), "unarmed", SKILL_USAGE_ATTACK);
 	pa_pt = COMBAT_D->skill_power(this_object(), "parry", SKILL_USAGE_DEFENSE);
 	do_pt = COMBAT_D->skill_power(this_object(), "dodge", SKILL_USAGE_DEFENSE);
-	printf("¹¥»÷£º " HIY "%d" NOR "\t·ÀÓù£º " HIC "%d\t" NOR "Ê³Îï£º %s%3d/ %3d\t" NOR "ÒûË®£º %s%3d/ %3d\n" NOR,
+	printf("æ”»å‡»ï¼š " HIY "%d" NOR "\té˜²å¾¡ï¼š " HIC "%d\t" NOR "é£Ÿç‰©ï¼š %s%3d/ %3d\t" NOR "é¥®æ°´ï¼š %s%3d/ %3d\n" NOR,
 		   at_pt + 1, pa_pt / 2 + do_pt / 2 + 1,
 		   status_color(my["food"], this_object()->max_food_capacity()),
 		   my["food"], this_object()->max_food_capacity(),
 		   status_color(my["water"], this_object()->max_water_capacity()),
 		   my["water"], this_object()->max_water_capacity());
-	printf("¾«Æø£º%s%3d/ %3d %s(%3d%%)\t\t" NOR "ÆøÑª£º%s%3d/ %3d %s(%3d%%)\n\n" NOR, status_color(my["jing"], my["eff_jing"]), my["jing"], my["eff_jing"], status_color(my["eff_jing"], my["max_jing"]), my["eff_jing"] * 100 / my["max_jing"], status_color(my["qi"], my["eff_qi"]), my["qi"], my["eff_qi"], status_color(my["eff_qi"], my["max_qi"]), my["eff_qi"] * 100 / my["max_qi"]);
-	printf(HIC "¡Ô" HIY "©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤" HIC "¡Ô\n" NOR);
+	printf("ç²¾æ°”ï¼š%s%3d/ %3d %s(%3d%%)\t\t" NOR "æ°”è¡€ï¼š%s%3d/ %3d %s(%3d%%)\n\n" NOR, status_color(my["jing"], my["eff_jing"]), my["jing"], my["eff_jing"], status_color(my["eff_jing"], my["max_jing"]), my["eff_jing"] * 100 / my["max_jing"], status_color(my["qi"], my["eff_qi"]), my["qi"], my["eff_qi"], status_color(my["eff_qi"], my["max_qi"]), my["eff_qi"] * 100 / my["max_qi"]);
+	printf(HIC "â‰¡" HIY "â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€" HIC "â‰¡\n" NOR);
 	printf("/cmds/skill/skills"->pet_skill(this_object()));
-	printf(HIC "¡Ô" HIY "©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤" HIC "¡Ô\n" NOR);
+	printf(HIC "â‰¡" HIY "â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€" HIC "â‰¡\n" NOR);
 	return 1;
 }
 string *cmds_exclude = ({
-	//¼ÓÈë±»½ûÖ¹µÄcmds
+	//åŠ å…¥è¢«ç¦æ­¢çš„cmds
 	"wiz",
 	"sys",
 	"go",
@@ -278,23 +278,23 @@ int do_command(string arg)
 	object me = this_object();
 
 	if (!arg || sscanf(arg, "%s to %s", id, cmd) != 2)
-		return notify_fail("ÄãÒªÃüÁîÊ²Ã´×öÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦å‘½ä»¤ä»€ä¹ˆåšä»€ä¹ˆï¼Ÿ\n");
 	if (id != (string)me->query("id"))
 		return 0;
 	if (who->query("id") != me->query_temp("owner"))
-		return notify_fail("Äã¶Ô" + me->query("name") + "ÃüÁîÁË¼¸¾ä£¬¿ÉÊÇËüÀí¶¼²»ÀíÄã¡£\n");
-	tell_object(who, "ÄãÃüÁî" + me->name() + "È¥: " + cmd + "\n");
+		return notify_fail("ä½ å¯¹" + me->query("name") + "å‘½ä»¤äº†å‡ å¥ï¼Œå¯æ˜¯å®ƒç†éƒ½ä¸ç†ä½ ã€‚\n");
+	tell_object(who, "ä½ å‘½ä»¤" + me->name() + "å»: " + cmd + "\n");
 	cmds = explode(cmd, " ");
 	for (i = 0; i < sizeof(cmds_exclude); i++)
 		if (!strcmp(cmds[0], cmds_exclude[i]))
 			j = i;
 	if (!strcmp(cmds[0], cmds_exclude[j]))
-		return notify_fail("ÄãºúÂÒ·¢ÁË¼¸¸öÖ¸Áî£¬" + me->query("name") + "µÉ×ÅÎŞ¹¼µÄ´óÑÛ¾¦@_@¿´×ÅÄã£º¡°ÎÒ²»¶®Ò®....¡±\n");
+		return notify_fail("ä½ èƒ¡ä¹±å‘äº†å‡ ä¸ªæŒ‡ä»¤ï¼Œ" + me->query("name") + "çªç€æ— è¾œçš„å¤§çœ¼ç›@_@çœ‹ç€ä½ ï¼šâ€œæˆ‘ä¸æ‡‚è€¶....â€\n");
 	//	err=me->command(cmd);
 	return me->force_me(cmd);
 	/*
 	if (!err )
-		return notify_fail("ÄãºúÂÒ·¢ÁË¼¸¸öÖ¸Áî£¬"+me->query("name")+"µÉ×ÅÎŞ¹¼µÄ´óÑÛ¾¦@_@¿´×ÅÄã£º¡°ÎÒ²»¶®Ò®....¡±\n");
+		return notify_fail("ä½ èƒ¡ä¹±å‘äº†å‡ ä¸ªæŒ‡ä»¤ï¼Œ"+me->query("name")+"çªç€æ— è¾œçš„å¤§çœ¼ç›@_@çœ‹ç€ä½ ï¼šâ€œæˆ‘ä¸æ‡‚è€¶....â€\n");
 	return 1;
 */
 }
@@ -304,12 +304,12 @@ int do_order(string arg)
 	object me = this_player();
 
 	if (me->query("jing") < 20)
-		return notify_fail("ÄãµÄ¾«Æø²»×ã£¬ÔİÊ±Ã»·¨Ê¹»½³èÎï¡£\n");
+		return notify_fail("ä½ çš„ç²¾æ°”ä¸è¶³ï¼Œæš‚æ—¶æ²¡æ³•ä½¿å”¤å® ç‰©ã€‚\n");
 	me->receive_damage("jing", 5);
 	obedience = query("obe");
 	if (random(100) < obedience)
 		command("emote " + arg);
 	else
-		command("emote ºÜ²»ÇéÔ¸µØºßÁËÒ»Éù¡£");
+		command("emote å¾ˆä¸æƒ…æ„¿åœ°å“¼äº†ä¸€å£°ã€‚");
 	return 1;
 }

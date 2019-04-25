@@ -7,10 +7,10 @@
 inherit CLOTH;
 
 string *clothname = ({
-	HIB "��ɫ����" NOR,
-	HIC "��ɫ����" NOR,
-	HIW "��ɫ����" NOR,
-	HIY "��ɫ����" NOR,
+	HIB "青色道袍" NOR,
+	HIC "灰色道袍" NOR,
+	HIW "白色道袍" NOR,
+	HIY "黄色道袍" NOR,
 });
 string *clothid = ({
 	"dao pao",
@@ -19,10 +19,10 @@ string *clothid = ({
 	"dao pao",
 });
 string *clothlong = ({
-	"����һ������ͨͨ���಼���ۡ�\n",
-	"����һ��������ߡ�Ļ�ɫ�����ۡ�\n",
-	"����һ��ϴ�úܸɾ��İײ����ۡ�\n",
-	"����һ��ϴ�ú���ɫ�ĻƲ����ۡ�\n",
+	"这是一件普普通通的青布道袍。\n",
+	"这是一件略有皱摺的灰色布道袍。\n",
+	"这是一件洗得很干净的白布道袍。\n",
+	"这是一件洗得很褪色的黄布道袍。\n",
 });
 
 void create()
@@ -35,7 +35,7 @@ void create()
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "��");
+		set("unit", "件");
 		set("value", 0);
 		//		set("long", clothlong[i]);
 		set("material", "cloth");

@@ -1,4 +1,4 @@
-// baiwei.c °×Ş±
+// baiwei.c ç™½è–‡
 
 inherit ITEM;
 #include <ansi.h>
@@ -11,13 +11,13 @@ void init()
 
 void create()
 {
-	set_name(HIW "°×Ş±" NOR, ({"baiwei"}));
+	set_name(HIW "ç™½è–‡" NOR, ({"baiwei"}));
 	set_weight(500);
-	set("unit", "¶ä");
+	set("unit", "æœµ");
 	set("value", 1200);
 	set("vegetable", 1);
 	set("nostrum", 2);
-	set("long", "ÕâÊÇÒ»¶äÊ¢¿ªµÄ°×Ş±£¬¿´À´¿ÉÒÔÈëÒ©¡£\n");
+	set("long", "è¿™æ˜¯ä¸€æœµç››å¼€çš„ç™½è–‡ï¼Œçœ‹æ¥å¯ä»¥å…¥è¯ã€‚\n");
 	set("pour_type", "1");
 	setup();
 }
@@ -27,13 +27,13 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 
-	write("ÄãÒ»¿Ú¾Í°Ñ°×Ş±³ÔÁËÏÂÈ¥¡£\n");
+	write("ä½ ä¸€å£å°±æŠŠç™½è–‡åƒäº†ä¸‹å»ã€‚\n");
 	destruct(this_object());
 	return 1;
 }

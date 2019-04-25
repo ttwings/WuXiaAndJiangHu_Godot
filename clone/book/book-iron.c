@@ -7,14 +7,14 @@ inherit HANDS;
 
 void create()
 {
-	set_name("ÌúÊÖÕÆ", ({"iron hand", "hand", "shu", "book"}));
+	set_name("é“æ‰‹æŒ", ({"iron hand", "hand", "shu", "book"}));
 	set_weight(2000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "¿é");
-		set("long", "Ò×½î¾­¹¥·ÀÆª\nÕâÊÇÒ»¿éÌúÊÖÕÆ£¬ÉÏÃæ°¼°¼Í¹Í¹¿ÌÂúÁËÈËĞÎ²«»÷µÄ³¡Ãæ¡£\n");
+		set("unit", "å—");
+		set("long", "æ˜“ç­‹ç»æ”»é˜²ç¯‡\nè¿™æ˜¯ä¸€å—é“æ‰‹æŒï¼Œä¸Šé¢å‡¹å‡¹å‡¸å‡¸åˆ»æ»¡äº†äººå½¢æå‡»çš„åœºé¢ã€‚\n");
 		set("value", 500);
 		set("material", "steel");
 		set("armor_prop/armor", 3);
@@ -40,7 +40,7 @@ int do_study(string arg)
 	int c_exp, c_skill;
 
 	if (arg != "iron hand" && arg != "hand")
-		return notify_fail("ÄãÒªÑ§Ê²Ã´£¿\n");
+		return notify_fail("ä½ è¦å­¦ä»€ä¹ˆï¼Ÿ\n");
 
 	if (!present(this_object(), me))
 		return 0;
@@ -49,7 +49,7 @@ int do_study(string arg)
 		(int)me->query_skill("parry", 1) <= 100)
 		if (me->query("jing") < 20)
 		{
-			//			write("ÄãÏÖÔÚ¹ıÓÚÆ£¾ë£¬ĞİÏ¢Ò»»á¶ùÔÙ¶Á°É£¡\n");
+			//			write("ä½ ç°åœ¨è¿‡äºç–²å€¦ï¼Œä¼‘æ¯ä¸€ä¼šå„¿å†è¯»å§ï¼\n");
 			me->unconcious();
 			return 1;
 		}
@@ -60,7 +60,7 @@ int do_study(string arg)
 			me->receive_damage("jing", 20);
 			if ((c_skill * c_skill * c_skill / 10) < c_exp)
 				me->improve_skill("parry", me->query("int"));
-			message_vision("$NÒ»±ßÕ½¶·£¬Ò»±ß³é¿Õ¼±¼±Ã¦Ã¦µØÄÃ³öÌúÊÖÕÆ×ĞÏ¸ÑĞ¾¿¡£\n", me);
+			message_vision("$Nä¸€è¾¹æˆ˜æ–—ï¼Œä¸€è¾¹æŠ½ç©ºæ€¥æ€¥å¿™å¿™åœ°æ‹¿å‡ºé“æ‰‹æŒä»”ç»†ç ”ç©¶ã€‚\n", me);
 			return 1;
 		}
 

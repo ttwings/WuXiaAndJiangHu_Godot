@@ -5,7 +5,7 @@ inherit SHOP;
 
 void create()
 {
-	set("short", "�۴�԰");
+	set("short", "聚春园");
 	set("no_fight", 1);
 	set("no_beg", 1);
 	set("owner", "VOID_SHOP");
@@ -25,13 +25,13 @@ void init()
 {
 	if (query("shop_type") == 0)
 		set("long", @LONG
-				�۴�԰�Ǹ��ݳ��������ĵ��̣��������й��ŵ�һ���Ҷ���ϴ�
-				    �顸��ɽ�۴����ĸ����֣��������ش󿪡���������Ļ�����ȴ����һ
-					��������Ѿ��ܾ�û���������ˡ� LONG);
+				聚春园是福州城内有名的店铺，店堂正中挂着的一块匾额，匾上大
+				    书「三山聚春」四个大字，令人心胸大开。不过店里的货柜上却空无一
+					物，看样子已经很久没人来打理了。 LONG);
 	else
 		set("long", @LONG
-				�۴�԰�Ǹ��ݳ��������ĵ��̣��������й��ŵ�һ���Ҷ���ϴ�
-				    �顸��ɽ�۴����ĸ����֣��������ش󿪡���������������������ϰ�
-					���˸�ʽ������������Ŀ�Ļ�� LONG);
+				聚春园是福州城内有名的店铺，店堂正中挂着的一块匾额，匾上大
+				    书「三山聚春」四个大字，令人心胸大开。整个铺面宽敞明亮，柜上摆
+					满了各式各样、琳琅满目的货物。 LONG);
 	return;
 }

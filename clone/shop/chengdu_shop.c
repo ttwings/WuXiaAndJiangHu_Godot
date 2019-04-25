@@ -5,7 +5,7 @@ inherit SHOP;
 
 void create()
 {
-	set("short", "����԰");
+	set("short", "清香园");
 	set("no_fight", 1);
 	set("no_beg", 1);
 	set("owner", "VOID_SHOP");
@@ -25,13 +25,13 @@ void init()
 {
 	if (query("shop_type") == 0)
 		set("long", @LONG
-				�ɶ��ų��츮֮���������ʢ������һʱ����������װ�����£���
-				    �ó������Ƿ���һ����˼�ģ���������Ļ�����ȴ����һ���������
-					���ܾ�û���������ˡ� LONG);
+				成都号称天府之国，物产丰盛，富甲一时。整个店铺装潢雅致，看
+				    得出店主是费了一番心思的，不过店里的货柜上却空无一物，看样子已
+					经很久没人来打理了。 LONG);
 	else
 		set("long", @LONG
-				�ɶ��ų��츮֮���������ʢ������һʱ����Ҳ���¥���۸�ʽ��
-				    ����ϡ����Ʒ�������ڱ�����ڹ���ġ���������װ�����£����ó���
-					���Ƿ���һ����˼�ġ� LONG);
+				成都号称天府之国，物产丰盛，富甲一时。这家残月楼出售各式各
+				    样的稀有物品，都是在别地难于购买的。整个店铺装潢雅致，看得出店
+					主是费了一番心思的。 LONG);
 	return;
 }

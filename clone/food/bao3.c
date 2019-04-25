@@ -1,4 +1,4 @@
-// Éñ»°ÊÀ½ç¡¤Î÷ÓÎ¼Ç¡¤°æ±¾£´£®£µ£°
+// ç¥è¯ä¸–ç•ŒÂ·è¥¿æ¸¸è®°Â·ç‰ˆæœ¬ï¼”ï¼ï¼•ï¼
 /* <SecCrypt CPL V3R05> */
 
 // dumpling.c
@@ -8,14 +8,14 @@ inherit F_FOOD;
 
 void create()
 {
-        set_name("ËØ²ËÏÚ°ü×Ó", ({"sucai bao", "bao"}));
+        set_name("ç´ èœé¦…åŒ…å­", ({"sucai bao", "bao"}));
         set_weight(80);
         if (clonep())
                 set_default_object(__FILE__);
         else
         {
-                set("long", "Ò»¸öÏãÅçÅç¡¢ÈÈÌÚÌÚµÄËØ²ËÏÚ¹àÌÀ°ü×Ó¡£\n");
-                set("unit", "¸ö");
+                set("long", "ä¸€ä¸ªé¦™å–·å–·ã€çƒ­è…¾è…¾çš„ç´ èœé¦…çŒæ±¤åŒ…å­ã€‚\n");
+                set("unit", "ä¸ª");
                 set("value", 25);
                 set("food_remaining", 2);
                 set("food_supply", 40);

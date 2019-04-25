@@ -7,14 +7,14 @@ inherit CLOTH;
 
 void create()
 {
-	set_name(CYN "Óñ´ø" NOR, ({"yu dai", "dai"}));
+	set_name(CYN "ç‰å¸¦" NOR, ({"yu dai", "dai"}));
 	set_weight(500);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("long", "°×Óñµñ³ÉµÄÓñ´ø£¬´¥ÊÖÏ¸ÄåÇåÁ¹¡£\n");
-		set("unit", "Ö»");
+		set("long", "ç™½ç‰é›•æˆçš„ç‰å¸¦ï¼Œè§¦æ‰‹ç»†è…»æ¸…å‡‰ã€‚\n");
+		set("unit", "åª");
 		set("value", 120000);
 		set("material", "gold");
 		set("armor_prop/armor", 12);

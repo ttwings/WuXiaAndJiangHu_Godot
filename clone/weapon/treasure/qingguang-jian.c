@@ -1,4 +1,4 @@
-// qingguang-jian.c Çà¹â½£
+// qingguang-jian.c é’å…‰å‰‘
 // Last Modified by winder on Sep. 7 2001
 
 #include <weapon.h>
@@ -8,21 +8,21 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(HIC "Çà¹â½£" NOR, ({"qingguang jian", "jian", "sword"}));
+	set_name(HIC "é’å…‰å‰‘" NOR, ({"qingguang jian", "jian", "sword"}));
 	set_weight(2000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "°Ñ");
-		set("long", HIC "Õâ°Ñ½£³¤Ô¼ËÄ³ß£¬Çà¹âÉÁÉÁ£¬µÄÈ·ÊÇ°ÑÀûÆ÷¡£\n" NOR);
+		set("unit", "æŠŠ");
+		set("long", HIC "è¿™æŠŠå‰‘é•¿çº¦å››å°ºï¼Œé’å…‰é—ªé—ªï¼Œçš„ç¡®æ˜¯æŠŠåˆ©å™¨ã€‚\n" NOR);
 		set("value", 10000);
 		set("material", "steel");
 	}
 	init_sword(120);
-	set("no_drop", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄã¡£\n");
-	set("no_put", "Èç´Ë±¦½£ÈçºÎÄÜÂÒ·Å£¿\n");
-	set("wield_msg", "Ö»Ìı¼û¡¸ì¬¡¹µØÒ»Éù£¬$NµÄÊÖÖĞÒÑ¾­¶àÁËÒ»°ÑÇà¹âËÄÉäº®Æø±ÆÈËµÄÀû½£¡ª¡ª$n¡£\n");
-	set("unequip_msg", "$N½«ÊÖÖĞµÄ$n²åÈëÑü¼äµÄ½£ÇÊ¡£\n");
+	set("no_drop", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€ä½ ã€‚\n");
+	set("no_put", "å¦‚æ­¤å®å‰‘å¦‚ä½•èƒ½ä¹±æ”¾ï¼Ÿ\n");
+	set("wield_msg", "åªå¬è§ã€Œé£•ã€åœ°ä¸€å£°ï¼Œ$Nçš„æ‰‹ä¸­å·²ç»å¤šäº†ä¸€æŠŠé’å…‰å››å°„å¯’æ°”é€¼äººçš„åˆ©å‰‘â€”â€”$nã€‚\n");
+	set("unequip_msg", "$Nå°†æ‰‹ä¸­çš„$næ’å…¥è…°é—´çš„å‰‘é˜ã€‚\n");
 	setup();
 }

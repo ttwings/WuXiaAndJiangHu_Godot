@@ -1,22 +1,22 @@
-//ÎŞ³£ÕÈ
+//æ— å¸¸æ–
 
 #include <weapon.h>
 inherit STAFF;
 
 void create()
 {
-        set_name("ÎŞ³£ÕÈ", ({"wuchang zhang", "zhang"}));
+        set_name("æ— å¸¸æ–", ({"wuchang zhang", "zhang"}));
         set_weight(6000);
         if (clonep())
                 set_default_object(__FILE__);
         else
         {
-                set("unit", "¸ù");
-                set("long", "ÕâÊÇÒ»¸ùºÚ÷î÷îµÄïÙÌúìøÕÈ£¬ÄËÉÙÁÖÖÁ±¦£¬Ô¼ËÄÊ®À´½ï£¬ÊÇ¼ş³ÆÊÖµÄÖØ±øÆ÷¡£\n");
+                set("unit", "æ ¹");
+                set("long", "è¿™æ˜¯ä¸€æ ¹é»‘é»é»çš„é•”é“ç¦…æ–ï¼Œä¹ƒå°‘æ—è‡³å®ï¼Œçº¦å››åæ¥æ–¤ï¼Œæ˜¯ä»¶ç§°æ‰‹çš„é‡å…µå™¨ã€‚\n");
                 set("value", 200);
                 set("material", "steel");
-                set("wield_msg", "$N³é³öÒ»¸ù$nÎÕÔÚÊÖÖĞ¡£\n");
-                set("unwield_msg", "$N½«ÊÖÖĞµÄ$n²å»ØÑü¼ä¡£\n");
+                set("wield_msg", "$NæŠ½å‡ºä¸€æ ¹$næ¡åœ¨æ‰‹ä¸­ã€‚\n");
+                set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$næ’å›è…°é—´ã€‚\n");
                 set("shaolin", 1);
         }
         init_staff(80);

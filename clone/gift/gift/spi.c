@@ -3,19 +3,19 @@ inherit __DIR__ "gift";
 
 void create()
 {
-        set_name(HIC "ÁéĞÔµ¤" NOR, ({"lingxing dan", "lingxing", "dan"}));
+        set_name(HIC "çµæ€§ä¸¹" NOR, ({"lingxing dan", "lingxing", "dan"}));
         if (clonep())
                 set_default_object(__FILE__);
         else
         {
-                set("long", WHT "ÕâÊÇÒ»¿ÅÁéĞÔµ¤£¬¾İËµ³ÔÁË¿ÉÒÔÔö¼ÓÁéĞÔ¡£\n" NOR);
-                set("unit", "¿Å");
+                set("long", WHT "è¿™æ˜¯ä¸€é¢—çµæ€§ä¸¹ï¼Œæ®è¯´åƒäº†å¯ä»¥å¢åŠ çµæ€§ã€‚\n" NOR);
+                set("unit", "é¢—");
                 set("value", 10000);
                 set("weight", 50);
                 set("gift_type", "spi");
-                set("gift_name", "ÏÈÌìÁéĞÔ");
+                set("gift_name", "å…ˆå¤©çµæ€§");
                 set("gift_point", 75);
-                set("gift_msg", HIM "Äã¾õµÃÉíÉÏ·¢ÉúÁËÆæÒìµÄ±ä»¯£¬µ«Ëæ¼´ÓÖÆ½ºÍÁËÏÂÀ´¡£\n" NOR);
+                set("gift_msg", HIM "ä½ è§‰å¾—èº«ä¸Šå‘ç”Ÿäº†å¥‡å¼‚çš„å˜åŒ–ï¼Œä½†éšå³åˆå¹³å’Œäº†ä¸‹æ¥ã€‚\n" NOR);
         }
         setup();
 }

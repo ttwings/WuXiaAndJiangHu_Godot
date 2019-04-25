@@ -5,13 +5,13 @@
 inherit BOOTS;
 void create()
 {
-    set_name(GRN "´ĞÂÌĞå»¨Ğ¬" NOR, ({"xiuhua xie", "xie", "shoes"}));
+    set_name(GRN "è‘±ç»¿ç»£èŠ±é‹" NOR, ({"xiuhua xie", "xie", "shoes"}));
     set_weight(1000);
     if (clonep())
         set_default_object(__FILE__);
     else
     {
-        set("unit", "Ë«");
+        set("unit", "åŒ");
         set("value", 1000);
         set("material", "grass");
         set("armor_prop/armor", 1);

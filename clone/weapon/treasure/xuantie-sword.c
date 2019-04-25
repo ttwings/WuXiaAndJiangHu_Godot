@@ -1,4 +1,4 @@
-// xuantie-sword.c ĞşÌú½£
+// xuantie-sword.c ç„é“å‰‘
 // Last Modified by winder on Sep. 7 2001
 
 #include <ansi.h>
@@ -8,18 +8,18 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(HIB "ĞşÌú½£" NOR, ({"iron sword", "sword", "jian"}));
+	set_name(HIB "ç„é“å‰‘" NOR, ({"iron sword", "sword", "jian"}));
 	set_weight(50000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±ú");
-		set("long", "´Ë½£ÓÉÌìÉÏÔÉÌú´ò¾Í£¬Ê®·Ö³ÁÖØ£¬ÎªÌìÏÂµÚ¶şÉñ±ø¡£\n");
+		set("unit", "æŸ„");
+		set("long", "æ­¤å‰‘ç”±å¤©ä¸Šé™¨é“æ‰“å°±ï¼Œååˆ†æ²‰é‡ï¼Œä¸ºå¤©ä¸‹ç¬¬äºŒç¥å…µã€‚\n");
 		set("material", "steel");
 		set("value", 100000);
-		set("wield_msg", HIB "Ò»ÍÅºÚÆøÃÍµØÆËÃæ¶øÀ´£¬ĞşÌú½£ÒÑÎÕÔÚ$NÊÖÖĞ¡£\n" NOR);
-		set("unwield_msg", HIB "$NÊÖÖĞĞşÌú½£Ò»Éù³ÁÖØµÄ°µÏì²åÈëÇÊÖĞ¡£\n" NOR);
+		set("wield_msg", HIB "ä¸€å›¢é»‘æ°”çŒ›åœ°æ‰‘é¢è€Œæ¥ï¼Œç„é“å‰‘å·²æ¡åœ¨$Næ‰‹ä¸­ã€‚\n" NOR);
+		set("unwield_msg", HIB "$Næ‰‹ä¸­ç„é“å‰‘ä¸€å£°æ²‰é‡çš„æš—å“æ’å…¥é˜ä¸­ã€‚\n" NOR);
 	}
 	init_sword(250);
 	setup();

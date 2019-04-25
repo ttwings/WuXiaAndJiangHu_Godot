@@ -6,17 +6,17 @@ inherit F_FRUIT;
 
 void create()
 {
-	set_name(HIY "°åÀõ" NOR, ({"ban li", "banli"}));
+	set_name(HIY "æ¿æ —" NOR, ({"ban li", "banli"}));
 	set_weight(4000);
-	set("long", "Ò»Åõ·Ê´óµÄ°åÀõ¡£\n");
-	set("unit", "Åõ");
+	set("long", "ä¸€æ§è‚¥å¤§çš„æ¿æ —ã€‚\n");
+	set("unit", "æ§");
 	set("value", 0);
 	set("fruit_remaining", 8);
 	set("food_supply", 23);
 	set("water_supply", 1);
-	set("eat_msg", "$NÄÃÆğ$n£¬êş¿ªÍâÃæµÄ¿Ç£¬ÏãÌğµØ³ÔÆğÀïÃæµÄÀõ×ÓÀ´¡£\n");
-	set("end_msg", "$N°ÑÊ£ÏÂµÄ$n³ÔÁË¸ö¸É¾»¡£\n");
-	set("over_msg", "³ÔÕâÃ´¶à£¿Ğ¡ĞÄ³ÅÆÆ¶ÇÆ¤£¡£¡£¡£¡\n");
+	set("eat_msg", "$Næ‹¿èµ·$nï¼Œæ°å¼€å¤–é¢çš„å£³ï¼Œé¦™ç”œåœ°åƒèµ·é‡Œé¢çš„æ —å­æ¥ã€‚\n");
+	set("end_msg", "$NæŠŠå‰©ä¸‹çš„$nåƒäº†ä¸ªå¹²å‡€ã€‚\n");
+	set("over_msg", "åƒè¿™ä¹ˆå¤šï¼Ÿå°å¿ƒæ’‘ç ´è‚šçš®ï¼ï¼ï¼ï¼\n");
 	set("gifts", ([
 					 "con":1,
 	]));

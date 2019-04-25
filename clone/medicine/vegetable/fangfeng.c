@@ -1,4 +1,4 @@
-// fangfeng.c ·À·ç
+// fangfeng.c é˜²é£
 
 inherit ITEM;
 #include <ansi.h>
@@ -11,13 +11,13 @@ void init()
 
 void create()
 {
-	set_name(HIY "·À·ç" NOR, ({"fangfeng"}));
+	set_name(HIY "é˜²é£" NOR, ({"fangfeng"}));
 	set_weight(500);
 	set("vegetable", 2);
 	set("value", 200);
 	set("nostrum", 4);
-	set("unit", "¿é");
-	set("long", "ÕâÊÇÒ»¿é±£´æºÃ¾ÃµÄ·À·ç£¬¿´À´¿ÉÒÔÈëÒ©¡£\n");
+	set("unit", "å—");
+	set("long", "è¿™æ˜¯ä¸€å—ä¿å­˜å¥½ä¹…çš„é˜²é£ï¼Œçœ‹æ¥å¯ä»¥å…¥è¯ã€‚\n");
 	set("pour_type", "1");
 	setup();
 }
@@ -27,12 +27,12 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 
-	write("·À·çÈëÒ©²ÅÄÜ³ÔµÄ¡£\n");
+	write("é˜²é£å…¥è¯æ‰èƒ½åƒçš„ã€‚\n");
 	return 1;
 }

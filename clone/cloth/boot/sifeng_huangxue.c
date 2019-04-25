@@ -1,18 +1,18 @@
-// sifeng_huangxue.c ËÄ·ì¸É»ÆÑ¥
+// sifeng_huangxue.c å››ç¼å¹²é»„é´
 
 #include <armor.h>
 inherit BOOTS;
 
 void create()
 {
-	set_name("ËÄ·ì¸É»ÆÑ¥", ({"sifeng huangxue", "xie", "shoes"}));
+	set_name("å››ç¼å¹²é»„é´", ({"sifeng huangxue", "xie", "shoes"}));
 	set_weight(1000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("long", "Ò»Ë«¾«ĞÄ·ìÖÆµÄÆ¤Ñ¥£¬Çá±ãÊæÊÊ¡£\n");
-		set("unit", "Ë«");
+		set("long", "ä¸€åŒç²¾å¿ƒç¼åˆ¶çš„çš®é´ï¼Œè½»ä¾¿èˆ’é€‚ã€‚\n");
+		set("unit", "åŒ");
 		set("value", 500);
 		set("material", "pi");
 		set("armor_prop/armor", 4);

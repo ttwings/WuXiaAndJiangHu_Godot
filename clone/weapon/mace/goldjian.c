@@ -7,17 +7,17 @@ inherit MACE;
 
 void create()
 {
-	set_name(HIY "½ğ×°ïµ" NOR, ({"gold mace", "mace", "goldmace", "jinjian"}));
+	set_name(HIY "é‡‘è£…é”" NOR, ({"gold mace", "mace", "goldmace", "jinjian"}));
 	set_weight(10000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±ú");
+		set("unit", "æŸ„");
 		set("value", 20000);
 		set("material", "gold");
-		set("wield_msg", "$N³é³öÁË$n£¬à«à«µÀ£ºïµ¶ù£¬ïµ¶ù£¬ÔÙÇëÄãÒ»»Ø£¡\n");
-		set("unwield_msg", "$NÊÕÆğÁË$n£¬³¤ÓõÁËÒ»¿ÚÆøµÀ£º±¦ïµ¹ûÈ»ÓÖÏÔĞÛ·ç£¡\n");
+		set("wield_msg", "$NæŠ½å‡ºäº†$nï¼Œå–ƒå–ƒé“ï¼šé”å„¿ï¼Œé”å„¿ï¼Œå†è¯·ä½ ä¸€å›ï¼\n");
+		set("unwield_msg", "$Næ”¶èµ·äº†$nï¼Œé•¿åäº†ä¸€å£æ°”é“ï¼šå®é”æœç„¶åˆæ˜¾é›„é£ï¼\n");
 	}
 
 	init_mace(95);

@@ -7,22 +7,22 @@ inherit F_FRUIT;
 
 void create()
 {
-	set_name(HIY "À³ÑôÀæ" NOR, ({"laiyang li", "li", "pear"}));
+	set_name(HIY "è±é˜³æ¢¨" NOR, ({"laiyang li", "li", "pear"}));
 	set_weight(4000);
-	set("long", "Ò»¸ö´ó´óµÄ´àÉúÉú»Æ³Î³ÎµÄÀ³Ñô²úµÄÑ¼Àæ¡£\n");
-	set("unit", "¸ö");
+	set("long", "ä¸€ä¸ªå¤§å¤§çš„è„†ç”Ÿç”Ÿé»„æ¾„æ¾„çš„è±é˜³äº§çš„é¸­æ¢¨ã€‚\n");
+	set("unit", "ä¸ª");
 	set("life", 7);
 	set("value", 0);
-	set("fruit_remaining", 2); //¿ÉÒÔ³Ô5¿Ú
-	set("food_supply", 15);	//Ã¿¿Ú¼Ó5µÄfood
-	set("water_supply", 25);   //Ã¿¿Ú¿ÉÒÔ¼Ó15µÄwater
-	set("eat_msg", "$NÄÃÆğ$n£¬´ó´óµÄ¿ĞÁËÒ»¿Ú¡£\n");
-	set("end_msg", "$N×ĞÏ¸µÄ¿ĞÍêÁËÕâ¸ö$n¡£\n");
-	set("over_msg", "³ÔÕâÃ´¶à£¿Ğ¡ĞÄ³ÅÆÆ¶ÇÆ¤£¡£¡£¡£¡\n");
-	set("core", "ÀæºË");									//name
+	set("fruit_remaining", 2); //å¯ä»¥åƒ5å£
+	set("food_supply", 15);	//æ¯å£åŠ 5çš„food
+	set("water_supply", 25);   //æ¯å£å¯ä»¥åŠ 15çš„water
+	set("eat_msg", "$Næ‹¿èµ·$nï¼Œå¤§å¤§çš„å•ƒäº†ä¸€å£ã€‚\n");
+	set("end_msg", "$Nä»”ç»†çš„å•ƒå®Œäº†è¿™ä¸ª$nã€‚\n");
+	set("over_msg", "åƒè¿™ä¹ˆå¤šï¼Ÿå°å¿ƒæ’‘ç ´è‚šçš®ï¼ï¼ï¼ï¼\n");
+	set("core", "æ¢¨æ ¸");									//name
 	set("core_id", ({"li hu", "pear core", "hu", "core"})); //id
-	set("core_unit", "¸ö");									//unit
-	set("core_long", "Ò»¸ö¿ĞµÃ¸É¸É¾»¾»µÄÀæºË¡£\n");			//long
+	set("core_unit", "ä¸ª");									//unit
+	set("core_long", "ä¸€ä¸ªå•ƒå¾—å¹²å¹²å‡€å‡€çš„æ¢¨æ ¸ã€‚\n");			//long
 	set("gifts", ([
 					 "per":2,
 					 "int":2,

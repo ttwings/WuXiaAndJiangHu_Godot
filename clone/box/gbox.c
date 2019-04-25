@@ -1,4 +1,4 @@
-// baihudan.c °×»¢¶áÃüµ¤
+// baihudan.c ç™½è™å¤ºå‘½ä¸¹
 
 inherit ITEM;
 #include <ansi.h>
@@ -11,13 +11,13 @@ void init()
 
 void create()
 {
-	set_name(HIW "°×»¢¶áÃüµ¤" NOR, ({"baihu duomingdan", "dan"}));
-	set("unit", "Á£");
+	set_name(HIW "ç™½è™å¤ºå‘½ä¸¹" NOR, ({"baihu duomingdan", "dan"}));
+	set("unit", "ç²’");
 	set("vegetable", 39);
 	set("nostrum", 20);
 	set("level", 30);
 	set("pour_type", "1");
-	set("long", "ÕâÊÇÒ»Á£°×»¢¶áÃüµ¤£¬Ñ©°×Í¸ÁÁ¡£\n");
+	set("long", "è¿™æ˜¯ä¸€ç²’ç™½è™å¤ºå‘½ä¸¹ï¼Œé›ªç™½é€äº®ã€‚\n");
 	setup();
 }
 
@@ -26,16 +26,16 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ğ¼±£¬ÂıÂı³Ô£¬Ğ¡ĞÄ±ğÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™ç€äº†ã€‚\n");
 
 	if (me->query("eff_jing") >= me->query("max_jing") &&
 		me->query("eff_qi") >= me->query("max_qi"))
 	{
-		message_vision("$NÃ»±ØÒª³Ô°×»¢¶áÃüµ¤¡£\n", me);
+		message_vision("$Næ²¡å¿…è¦åƒç™½è™å¤ºå‘½ä¸¹ã€‚\n", me);
 	}
 	else
 	{
@@ -43,7 +43,7 @@ int do_eat(string arg)
 		me->set("jing", me->query("eff_jing"));
 		me->set("eff_qi", me->query("max_qi"));
 		me->set("qi", me->query("eff_qi"));
-		message_vision("$N³ÔÏÂÒ»Á£°×»¢¶áÃüµ¤£¬Ö»¾õµÃÖÜÉíÍ¨Ì©¡£\n", me);
+		message_vision("$Nåƒä¸‹ä¸€ç²’ç™½è™å¤ºå‘½ä¸¹ï¼Œåªè§‰å¾—å‘¨èº«é€šæ³°ã€‚\n", me);
 		destruct(this_object());
 	}
 	return 1;

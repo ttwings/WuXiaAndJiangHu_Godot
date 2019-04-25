@@ -1,4 +1,4 @@
-// yitianjian.c ÒĞÌì½£
+// yitianjian.c å€šå¤©å‰‘
 // Last Modified by winder on Sep. 7 2001
 
 #include <weapon.h>
@@ -7,19 +7,19 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name("ÒĞÌì½£", ({"yitian jian", "sword", "jian"}));
+	set_name("å€šå¤©å‰‘", ({"yitian jian", "sword", "jian"}));
 	set_weight(15000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±ú");
+		set("unit", "æŸ„");
 		set("value", 50000);
 		//		set("no_drop", "1");
 		set("material", "iron");
-		set("long", "ÕâÊÇÌìÏÂµÚÒ»ÀûÆ÷£¬ÓĞ¡°ÒĞÌì²»³ö£¬Ë­ÓëÕù·æ¡±Ö®Ëµ¡£\n");
-		set("wield_msg", "Ö±Èç½ÃÁúÍÌË®£¬³¤ºç¹ÚÈÕÒ»°ã£¬$nÒÑÔÚ$NÊÖÖĞ£¬ÌìµØÎªÖ®±äÉ«¡£\n");
-		set("unwield_msg", "$N½«$n²å»ØÑü¼ä£¬»ª¹â¶ÙÁ²£¬ÌìµØ¼äÖ»ÎÅÁúÃù¡£\n");
+		set("long", "è¿™æ˜¯å¤©ä¸‹ç¬¬ä¸€åˆ©å™¨ï¼Œæœ‰â€œå€šå¤©ä¸å‡ºï¼Œè°ä¸äº‰é”‹â€ä¹‹è¯´ã€‚\n");
+		set("wield_msg", "ç›´å¦‚çŸ«é¾™åæ°´ï¼Œé•¿è™¹å† æ—¥ä¸€èˆ¬ï¼Œ$nå·²åœ¨$Næ‰‹ä¸­ï¼Œå¤©åœ°ä¸ºä¹‹å˜è‰²ã€‚\n");
+		set("unwield_msg", "$Nå°†$næ’å›è…°é—´ï¼Œåå…‰é¡¿æ•›ï¼Œå¤©åœ°é—´åªé—»é¾™é¸£ã€‚\n");
 	}
 	init_sword(170);
 	enable_commands();
@@ -41,7 +41,7 @@ int init()
 void destyitianjian()
 {
 	object ob;
-	message_vision("Í»È»ÓĞ¸öºÚÒÂÈË´Ò´ÒºÍÄã²ÁÉí¶ø¹ı£¬ÏûÊ§ÔÚ½Ö¿Ú¹Õ½Ç´¦£¬Ôã¸â£¬ÄãµÄ$N¶ªÁË¡£\n", this_object());
+	message_vision("çªç„¶æœ‰ä¸ªé»‘è¡£äººåŒ†åŒ†å’Œä½ æ“¦èº«è€Œè¿‡ï¼Œæ¶ˆå¤±åœ¨è¡—å£æ‹è§’å¤„ï¼Œç³Ÿç³•ï¼Œä½ çš„$Nä¸¢äº†ã€‚\n", this_object());
 	destruct(this_object());
-	/*	message("channel:rumor", MAG"¡¾Ò¥ÑÔ¡¿Ä³ÈË£º"+"ÒÅÊ§¶àÄêµÄÒĞÌì½£ÓÖÖØÏÖ½­ºşÀ²¡£\n"NOR, users());*/
+	/*	message("channel:rumor", MAG"ã€è°£è¨€ã€‘æŸäººï¼š"+"é—å¤±å¤šå¹´çš„å€šå¤©å‰‘åˆé‡ç°æ±Ÿæ¹–å•¦ã€‚\n"NOR, users());*/
 }

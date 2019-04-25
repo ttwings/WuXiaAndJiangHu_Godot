@@ -1,16 +1,16 @@
-// literateb4.c ¾ÅÕÂËãÊõ
+// literateb4.c ä¹ç« ç®—æœ¯
 #include <ansi.h>
 inherit ITEM;
 void create()
 {
-	set_name(YEL "¡¸¾ÅÕÂËãÊõ¡¹" NOR, ({"literateb4", "shu4", "book4"}));
+	set_name(YEL "ã€Œä¹ç« ç®—æœ¯ã€" NOR, ({"literateb4", "shu4", "book4"}));
 	set_weight(300);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±¾");
-		set("long", "Ò»±¾¶ÁµÃºÜÆÆ¾ÉµÄ¡¶¾ÅÕÂËãÊõ¡·¡£\n");
+		set("unit", "æœ¬");
+		set("long", "ä¸€æœ¬è¯»å¾—å¾ˆç ´æ—§çš„ã€Šä¹ç« ç®—æœ¯ã€‹ã€‚\n");
 		set("value", 5000);
 		set("material", "paper");
 		set("skill", ([

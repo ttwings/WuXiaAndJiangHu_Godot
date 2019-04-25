@@ -7,18 +7,18 @@ inherit F_FRUIT;
 
 void create()
 {
-	set_name(YEL "·ğÊÖ" NOR, ({"fo shou", "foshou"}));
+	set_name(YEL "ä½›æ‰‹" NOR, ({"fo shou", "foshou"}));
 	set_weight(4000);
-	set("long", "Ò»¸ö½¿»ÆµÄ·ğÊÖ¡£\n");
-	set("unit", "¸ö");
+	set("long", "ä¸€ä¸ªå¨‡é»„çš„ä½›æ‰‹ã€‚\n");
+	set("unit", "ä¸ª");
 	set("life", 7);
 	set("value", 0);
-	set("fruit_remaining", 2); //¿ÉÒÔ³Ô5¿Ú
-	set("food_supply", 15);	//Ã¿¿Ú¼Ó5µÄfood
-	set("water_supply", 25);   //Ã¿¿Ú¿ÉÒÔ¼Ó15µÄwater
-	set("eat_msg", "$NÄÃÆğ$n£¬´ó´óµÄ¿ĞÁËÒ»¿Ú¡£\n");
-	set("end_msg", "$N×ĞÏ¸µÄ¿ĞÍêÁËÕâ¸ö$n¡£\n");
-	set("over_msg", "³ÔÕâÃ´¶à£¿Ğ¡ĞÄ³ÅÆÆ¶ÇÆ¤£¡£¡£¡£¡\n");
+	set("fruit_remaining", 2); //å¯ä»¥åƒ5å£
+	set("food_supply", 15);	//æ¯å£åŠ 5çš„food
+	set("water_supply", 25);   //æ¯å£å¯ä»¥åŠ 15çš„water
+	set("eat_msg", "$Næ‹¿èµ·$nï¼Œå¤§å¤§çš„å•ƒäº†ä¸€å£ã€‚\n");
+	set("end_msg", "$Nä»”ç»†çš„å•ƒå®Œäº†è¿™ä¸ª$nã€‚\n");
+	set("over_msg", "åƒè¿™ä¹ˆå¤šï¼Ÿå°å¿ƒæ’‘ç ´è‚šçš®ï¼ï¼ï¼ï¼\n");
 	set("gifts", ([
 					 "per":2,
 	]));

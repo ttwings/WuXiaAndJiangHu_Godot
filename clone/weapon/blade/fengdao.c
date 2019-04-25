@@ -6,18 +6,18 @@ inherit BLADE;
 
 void create()
 {
-	set_name("·ïÔÂµ¶", ({"fengyue dao", "dao", "blade"}));
+	set_name("å‡¤æœˆåˆ€", ({"fengyue dao", "dao", "blade"}));
 	set_weight(6000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±ú");
+		set("unit", "æŸ„");
 		set("value", 500);
 		set("material", "iron");
-		set("long", "ÕâÊÇÒ»±úÆ¯ÁÁµÄË«·ïÏ·ÔÂµ¶¡£\n");
-		set("wield_msg", "$N³é³öÒ»±ú$n£¬à§µØÎÕÔÚÊÖÖĞ¡£\n");
-		set("unequip_msg", "$N½«ÊÖÖĞµÄ$n²åÈëÑü¼äµÄµ¶ÇÊ¡£\n");
+		set("long", "è¿™æ˜¯ä¸€æŸ„æ¼‚äº®çš„åŒå‡¤æˆæœˆåˆ€ã€‚\n");
+		set("wield_msg", "$NæŠ½å‡ºä¸€æŸ„$nï¼Œå”°åœ°æ¡åœ¨æ‰‹ä¸­ã€‚\n");
+		set("unequip_msg", "$Nå°†æ‰‹ä¸­çš„$næ’å…¥è…°é—´çš„åˆ€é˜ã€‚\n");
 	}
 	init_blade(55);
 	setup();

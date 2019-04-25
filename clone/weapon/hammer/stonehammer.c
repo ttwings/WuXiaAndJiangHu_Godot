@@ -6,14 +6,14 @@ inherit HAMMER;
 
 void create()
 {
-	set_name("Ê¯Ëø", ({"stone hammer", "stone", "hammer"}));
+	set_name("çŸ³é”", ({"stone hammer", "stone", "hammer"}));
 	set_weight(5000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "¸ö");
-		set("long", "Ò»°Ñ³ÁÖØµÄÊ¯Ëø¡£\n");
+		set("unit", "ä¸ª");
+		set("long", "ä¸€æŠŠæ²‰é‡çš„çŸ³é”ã€‚\n");
 	}
 	init_hammer(25);
 	setup();

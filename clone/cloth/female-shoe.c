@@ -7,16 +7,16 @@
 inherit BOOTS;
 
 string *shoename = ({
-	HIM "Ğå»¨Ğ¡Ğ¬" NOR,
-	"²¼Ğ¬",
+	HIM "ç»£èŠ±å°é‹" NOR,
+	"å¸ƒé‹",
 });
 string *shoeid = ({
 	"flower shoes",
 	"cloth shoes",
 });
 string *shoelong = ({
-	"ÕâÊÇÒ»Ë«Å®ÈË´©µÄ·ìÖÆµÃºÜ¾«ÃÀµÄĞå»¨Ğ¬¡£\n",
-	"ÕâÊÇÒ»Ë«ºÜÆÕÍ¨µÄ´Ö²¼Ğ¬¡£\n",
+	"è¿™æ˜¯ä¸€åŒå¥³äººç©¿çš„ç¼åˆ¶å¾—å¾ˆç²¾ç¾çš„ç»£èŠ±é‹ã€‚\n",
+	"è¿™æ˜¯ä¸€åŒå¾ˆæ™®é€šçš„ç²—å¸ƒé‹ã€‚\n",
 });
 
 void create()
@@ -31,7 +31,7 @@ void create()
 	else
 	{
 		set("material", "cloth");
-		set("unit", "Ë«");
+		set("unit", "åŒ");
 		//	set("long", shoelong[i]);
 		set("value", 0);
 		set("armor_prop/armor", 1);

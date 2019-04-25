@@ -5,22 +5,22 @@ inherit F_LIQUID;
 
 void create()
 {
-	//Êµ¼ÊÍæ¼ÒÂòµ½Ó¦¸ÃÊÇ¸ö²èºø¡£Ò»¿ªÊ¼ÊÇÂúµÄ¡£
-	set_name("¸»´º²è", ({"fuchun cha", "cha hu", "hu", "tea"}));
+	//å®é™…ç©å®¶ä¹°åˆ°åº”è¯¥æ˜¯ä¸ªèŒ¶å£¶ã€‚ä¸€å¼€å§‹æ˜¯æ»¡çš„ã€‚
+	set_name("å¯Œæ˜¥èŒ¶", ({"fuchun cha", "cha hu", "hu", "tea"}));
 	set_weight(120);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("long", "Ò»ºøĞÂÆãµÄ¸»´º²è£¬ÓÆÓÆµØÃ°×ÅÏãÆø~~~~~~\n");
-		set("unit", "ºø");
+		set("long", "ä¸€å£¶æ–°æ²çš„å¯Œæ˜¥èŒ¶ï¼Œæ‚ æ‚ åœ°å†’ç€é¦™æ°”~~~~~~\n");
+		set("unit", "å£¶");
 		set("value", 60);
 		set("remaining", 10);
 		set("drink_supply", 20);
 	}
 	set("liquid", ([
 							 "type":"tea",
-							 "name":"¸»´º²è",
+							 "name":"å¯Œæ˜¥èŒ¶",
 						"remaining":15,
 					  "drunk_apply":3,
 	]));

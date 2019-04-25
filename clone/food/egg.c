@@ -1,4 +1,4 @@
-// Éñ»°ÊÀ½ç¡¤Î÷ÓÎ¼Ç¡¤°æ±¾£´£®£µ£°
+// ç¥è¯ä¸–ç•ŒÂ·è¥¿æ¸¸è®°Â·ç‰ˆæœ¬ï¼”ï¼ï¼•ï¼
 /* <SecCrypt CPL V3R05> */
 
 // created by snowcat on 4/9/1997
@@ -9,14 +9,14 @@ inherit F_FOOD;
 
 void create()
 {
-  set_name("Ë®Öóµ°", ({"egg", "dan"}));
+  set_name("æ°´ç…®è›‹", ({"egg", "dan"}));
   set_weight(60);
   if (clonep())
     set_default_object(__FILE__);
   else
   {
-    set("long", "Ò»Ö»ÖóÊìµÄ¼¦µ°¡£\n");
-    set("unit", "Ö»");
+    set("long", "ä¸€åªç…®ç†Ÿçš„é¸¡è›‹ã€‚\n");
+    set("unit", "åª");
     set("value", 50);
     set("food_remaining", 1);
     set("food_supply", 60);

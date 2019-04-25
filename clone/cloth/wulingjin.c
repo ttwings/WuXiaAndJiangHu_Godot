@@ -6,14 +6,14 @@ inherit HEAD;
 
 void create()
 {
-	set_name("ÎÚç±½í", ({"wuling jin", "jin"}));
+	set_name("ä¹Œç»«å·¾", ({"wuling jin", "jin"}));
 	set_weight(700);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "¶¥");
-		set("long", "Ò»¶¥ºÚ¶Ğ×ÓÖÆ³ÉµÄË¿´ø£¬ÓÃÀ´Êø·¢¡£\n");
+		set("unit", "é¡¶");
+		set("long", "ä¸€é¡¶é»‘ç¼å­åˆ¶æˆçš„ä¸å¸¦ï¼Œç”¨æ¥æŸå‘ã€‚\n");
 		set("value", 300);
 		set("material", "cloth");
 		set("armor_prop/armor", 1);

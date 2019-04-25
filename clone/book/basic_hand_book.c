@@ -4,14 +4,14 @@ inherit ITEM;
 
 void create()
 {
-	set_name("ÊÖ·¨¾«Òª", ({"shoufa pu", "pu"}));
+	set_name("æ‰‹æ³•ç²¾è¦", ({"shoufa pu", "pu"}));
 	set_weight(50);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±¾");
-		set("long", "ÕâÊÇÁ½ÕÅÖ½Æ¬£¬ÉÏÃæÃÜÃÜÂéÂéµÄĞ´×ÅÁ·¹¦µÄ¿Ú¾÷ÒªÖ¼¡£\n");
+		set("unit", "æœ¬");
+		set("long", "è¿™æ˜¯ä¸¤å¼ çº¸ç‰‡ï¼Œä¸Šé¢å¯†å¯†éº»éº»çš„å†™ç€ç»ƒåŠŸçš„å£è¯€è¦æ—¨ã€‚\n");
 		set("value", 500);
 		set("material", "paper");
 		set("skill", ([

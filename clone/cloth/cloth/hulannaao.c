@@ -1,4 +1,4 @@
-// hulannaao.c ºşÀ¶ñÄ°À
+// hulannaao.c æ¹–è“è¡²è¢„
 
 #include <armor.h>
 #include <ansi.h>
@@ -7,14 +7,14 @@ inherit CLOTH;
 
 void create()
 {
-	set_name(HIB "ºşÀ¶ñÄ°À" NOR, ({"hulan naao", "cloth"}));
+	set_name(HIB "æ¹–è“è¡²è¢„" NOR, ({"hulan naao", "cloth"}));
 	set_weight(1500);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("long", "Ò»Ì×ºşÀ¶É«µÄ²¼°À£¬½­ºşÈË¶à´©´ËÀàÒÂ·şÓùº®¡£\n");
-		set("unit", "Ì×");
+		set("long", "ä¸€å¥—æ¹–è“è‰²çš„å¸ƒè¢„ï¼Œæ±Ÿæ¹–äººå¤šç©¿æ­¤ç±»è¡£æœå¾¡å¯’ã€‚\n");
+		set("unit", "å¥—");
 		set("value", 500);
 		set("material", "cloth");
 		set("armor_prop/armor", 3);

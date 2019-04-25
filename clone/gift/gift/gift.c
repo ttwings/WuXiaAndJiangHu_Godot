@@ -8,27 +8,27 @@ int query_autoload()
 
 void create()
 {
-        set_name(HIY "ÏÉµ¤" NOR, ({"gift"}));
+        set_name(HIY "ä»™ä¸¹" NOR, ({"gift"}));
         if (clonep())
                 set_default_object(__FILE__);
         else
         {
-                set("long", HIY "ÕâÊÇÒ»¿ÅÔö¼ÓÈÝÃ²µÄÏÉµ¤¡£\n" NOR);
-                set("unit", "¿Å");
+                set("long", HIY "è¿™æ˜¯ä¸€é¢—å¢žåŠ å®¹è²Œçš„ä»™ä¸¹ã€‚\n" NOR);
+                set("unit", "é¢—");
                 set("value", 10000);
                 set("weight", 50);
 
-                // Ôö¼ÓÌì¸³µÄÖÖÀà
+                // å¢žåŠ å¤©èµ‹çš„ç§ç±»
                 set("gift_type", "per");
 
-                // Ìì¸³ÖÖÀàµÄÃû³Æ
-                set("gift_name", "ÈÝÃ²");
+                // å¤©èµ‹ç§ç±»çš„åç§°
+                set("gift_name", "å®¹è²Œ");
 
-                // ³É¹¦µÄ¼¸ÂÊ
+                // æˆåŠŸçš„å‡ çŽ‡
                 set("gift_point", 100);
 
-                // ³É¹¦µÄÃèÊö
-                set("gift_msg", HIC "Í»È»¼äÄãµÄÆ¤·ôÍ¸¹ýÒ»µÀ¹âÔó¡£\n" NOR);
+                // æˆåŠŸçš„æè¿°
+                set("gift_msg", HIC "çªç„¶é—´ä½ çš„çš®è‚¤é€è¿‡ä¸€é“å…‰æ³½ã€‚\n" NOR);
         }
         setup();
 }
@@ -46,53 +46,53 @@ int do_eat(string arg)
                 return 0;
         if (me->is_busy())
         {
-                write("ÄãÕýÃ¦×ÅÄØ¡£\n");
+                write("ä½ æ­£å¿™ç€å‘¢ã€‚\n");
                 return 1;
         }
-        //¿¼ÂÇÌØÊâÒòËØ¿ÉÒÔµ÷½Ú³É¹¦ÂÊ
+        //è€ƒè™‘ç‰¹æ®Šå› ç´ å¯ä»¥è°ƒèŠ‚æˆåŠŸçŽ‡
 
         //     max = 10 + SCBORN_D->query_scborn_times(me) * 5;
         max = 10;
         if (SCBORN_D->query_scborn_times(me) == 6)
                 max = 10000;
         top = 35 + SCBORN_D->query_scborn_times(me) * 5;
-        message_vision(WHT "$N" WHT "Ò»Ñö²±£¬ÍÌÏÂÁËÒ»" +
-                           query("unit") + name() + WHT "¡£\n" NOR,
+        message_vision(WHT "$N" WHT "ä¸€ä»°è„–ï¼Œåžä¸‹äº†ä¸€" +
+                           query("unit") + name() + WHT "ã€‚\n" NOR,
                        me);
 
         if (me->query("gift/" + query("gift_type") + "/all") >= max || me->query(query("gift_type")) >= top)
         {
-                tell_object(me, "Äã¾õµÃÕâÒ©ºÃÏóÃ»Ê²Ã´Ð§¹û¡£\n");
+                tell_object(me, "ä½ è§‰å¾—è¿™è¯å¥½è±¡æ²¡ä»€ä¹ˆæ•ˆæžœã€‚\n");
         }
         else if (random(100) >= point)
         {
-                tell_object(me, HIR "²»¹ýÄã¾õµÃÕâÒ©ºÃÏñÃ»Æðµ½Ê²Ã´"
-                                    "×÷ÓÃ¡£\n" NOR);
+                tell_object(me, HIR "ä¸è¿‡ä½ è§‰å¾—è¿™è¯å¥½åƒæ²¡èµ·åˆ°ä»€ä¹ˆ"
+                                    "ä½œç”¨ã€‚\n" NOR);
 
-                // ¼ÇÂ¼Ê§°ÜµÄ¼ÇºÅ
+                // è®°å½•å¤±è´¥çš„è®°å·
                 me->add("gift/" + query("gift_type") + "/fail", 1);
                 log_file("gift/eat_dan", sprintf("%-20s eat %-10s(%s) fail [%s]\n", me->query("name") + "(" + me->query("id") + ")", this_object()->name(), this_object()->query("gift_type"), ctime(time())));
         }
         else
         {
                 tell_object(me, query("gift_msg"));
-                tell_object(me, HIC "ÄãµÄ" + query("gift_name") +
-                                    HIC "ÓÀ¾ÃÔö¼ÓÒ»µã¡£\n" NOR);
+                tell_object(me, HIC "ä½ çš„" + query("gift_name") +
+                                    HIC "æ°¸ä¹…å¢žåŠ ä¸€ç‚¹ã€‚\n" NOR);
 
-                // ¼ÇÂ¼³É¹¦µÄ¼ÇºÅ
+                // è®°å½•æˆåŠŸçš„è®°å·
                 me->add("gift/" + query("gift_type") + "/succeed", 1);
                 log_file("gift/eat_dan", sprintf("%-20s eat %-10s(%s) success [%s]\n", me->query("name") + "(" + me->query("id") + ")", this_object()->name(), this_object()->query("gift_type"), ctime(time())));
                 log_file("gift/tianfu",
-                         sprintf("%-20s ³ÔÏÂ%-10sÔö¼ÓÁË%s(%s) [%s]\n",
+                         sprintf("%-20s åƒä¸‹%-10så¢žåŠ äº†%s(%s) [%s]\n",
                                  me->query("name") + "(" + me->query("id") + ")",
                                  base_name(this_object()),
                                  query("gift_name"), query("gift_type"), ctime(time())));
 
-                // Ôö¼ÓÏàÓ¦µÄÌì¸³ÊôÐÔ
+                // å¢žåŠ ç›¸åº”çš„å¤©èµ‹å±žæ€§
                 me->add(query("gift_type"), 1);
         }
 
-        // ¼ÇÂ¼Èë³Ôµ¤µÄ×ÜÁ¿
+        // è®°å½•å…¥åƒä¸¹çš„æ€»é‡
         me->add("gift/" + query("gift_type") + "/all", 1);
         destruct(this_object());
         return 1;

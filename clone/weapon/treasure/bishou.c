@@ -1,4 +1,4 @@
-// bishou.c Ø°Ê×
+// bishou.c åŒ•é¦–
 // Last Modified by winder on Sep. 7 2001
 
 #include <weapon.h>
@@ -8,20 +8,20 @@ inherit F_UNIQUE;
 
 void create()
 {
-	set_name(HIR "Ø°Ê×" NOR, ({"bishou", "sword"}));
+	set_name(HIR "åŒ•é¦–" NOR, ({"bishou", "sword"}));
 	set_weight(20000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "±ú");
-		set("long", "Ï¸¿´ÄÇØ°Ê×£¬½£ÉíÈçÄ«£¬ÎŞ°ëµã¹âÔó¡£\n");
+		set("unit", "æŸ„");
+		set("long", "ç»†çœ‹é‚£åŒ•é¦–ï¼Œå‰‘èº«å¦‚å¢¨ï¼Œæ— åŠç‚¹å…‰æ³½ã€‚\n");
 		set("value", 50000);
 		set("material", "steel");
-		set("no_drop", "ÕâÑù¶«Î÷²»ÄÜÀë¿ªÄã¡£\n");
-		set("no_give", "ÕâÑù¶«Î÷²»ÄÜ¸øÈË¡£\n");
-		set("wield_msg", "$N¡¸à§¡¹µÄÒ»Éù³é³öÒ»±ú$nÎÕÔÚÊÖÖĞ£¬Ö»¾õÒ»¹Éº®ÆøÆËÃæ¶øÀ´¡£\n");
-		set("unwield_msg", "$N½«ÊÖÖĞµÄ$n²å»Ø½£ÇÊ£¬Ö»Ìı¡°àÍ¡±µÄÒ»ÉùÇáÏì¡£\n");
+		set("no_drop", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç¦»å¼€ä½ ã€‚\n");
+		set("no_give", "è¿™æ ·ä¸œè¥¿ä¸èƒ½ç»™äººã€‚\n");
+		set("wield_msg", "$Nã€Œå”°ã€çš„ä¸€å£°æŠ½å‡ºä¸€æŸ„$næ¡åœ¨æ‰‹ä¸­ï¼Œåªè§‰ä¸€è‚¡å¯’æ°”æ‰‘é¢è€Œæ¥ã€‚\n");
+		set("unwield_msg", "$Nå°†æ‰‹ä¸­çš„$næ’å›å‰‘é˜ï¼Œåªå¬â€œå—¤â€çš„ä¸€å£°è½»å“ã€‚\n");
 	}
 	init_sword(150);
 	setup();

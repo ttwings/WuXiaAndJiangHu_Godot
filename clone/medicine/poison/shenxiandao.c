@@ -7,15 +7,15 @@ inherit COMBINED_ITEM;
 void create()
 {
 
-	set_name("ÉñÏÉµ¹", ({"shenxiandao", "yao"}));
+	set_name("ç¥ä»™å€’", ({"shenxiandao", "yao"}));
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("long", "ÕâÊÇÒ»°üÎå¶¾½ÌµÄÊ¥Ò©£¬³ÔÁËËüÁ¬´óÂŞ½ğÏÉÒ²Òªµ¹ÏÂ¡£\nÄã¿ÉÒÔÓÃ(pour)ÃüÁîÊÔÊÔ¡£\n");
-		set("unit", "Ğ©");
+		set("long", "è¿™æ˜¯ä¸€åŒ…äº”æ¯’æ•™çš„åœ£è¯ï¼Œåƒäº†å®ƒè¿å¤§ç½—é‡‘ä»™ä¹Ÿè¦å€’ä¸‹ã€‚\nä½ å¯ä»¥ç”¨(pour)å‘½ä»¤è¯•è¯•ã€‚\n");
+		set("unit", "äº›");
 		set("base_value", 200);
-		set("base_unit", "°ü");
+		set("base_unit", "åŒ…");
 		set("base_weight", 30);
 		set("value", 800);
 	}
@@ -37,31 +37,31 @@ int do_pour(string arg)
 
 	me = this_player();
 	if (!arg || sscanf(arg, "%s in %s", who, what) != 2 || victim == me)
-		return notify_fail("ÃüÁî¸ñÊ½: pour <ÈËÎï> in <ÎïÆ·>¡£\n");
+		return notify_fail("å‘½ä»¤æ ¼å¼: pour <äººç‰©> in <ç‰©å“>ã€‚\n");
 	if (environment(me)->query("no_fight"))
-		return notify_fail("ÕâÀï²»ÄÜÏÂ¶¾µÄÅ¶¡£\n");
+		return notify_fail("è¿™é‡Œä¸èƒ½ä¸‹æ¯’çš„å“¦ã€‚\n");
 	victim = present(who, environment(me));
 	if (!victim || victim == me)
-		return notify_fail("Ã»ÓĞÄãÏëÏÂ¶¾µÄÈËÅ¶¡£\n");
-	if ((string)me->query("family/family_name") != "Îå¶¾½Ì")
-		return notify_fail("ÏÂ¶¾£¡£¡ÄãÔõÃ´ÄÜ¸ÉÕâÃ´±°±ÉµÄÊÂÅ¶£¿\n");
+		return notify_fail("æ²¡æœ‰ä½ æƒ³ä¸‹æ¯’çš„äººå“¦ã€‚\n");
+	if ((string)me->query("family/family_name") != "äº”æ¯’æ•™")
+		return notify_fail("ä¸‹æ¯’ï¼ï¼ä½ æ€ä¹ˆèƒ½å¹²è¿™ä¹ˆå‘é„™çš„äº‹å“¦ï¼Ÿ\n");
 	if ((int)me->query_skill("five_poison", 1) < 50)
-		return notify_fail("²ÅÕâÃ´µã±¾ÊÂ¾ÍÏëº¦ÈË£¿±ğÈõÁËÎÒÎå¶¾½ÌµÄÍşÃû°¡£¡\n");
+		return notify_fail("æ‰è¿™ä¹ˆç‚¹æœ¬äº‹å°±æƒ³å®³äººï¼Ÿåˆ«å¼±äº†æˆ‘äº”æ¯’æ•™çš„å¨åå•Šï¼\n");
 	ob = present(what, victim);
 	if (!ob)
-		return notify_fail("¶Ô·½ÉíÉÏÃ»ÓĞ" + what + "ÕâÑù¶«Î÷¡£\n");
+		return notify_fail("å¯¹æ–¹èº«ä¸Šæ²¡æœ‰" + what + "è¿™æ ·ä¸œè¥¿ã€‚\n");
 	//	if( me->query_temp("being_toudu") )
-	//		return notify_fail("ÄãÒÑ¾­ÔÚÕÒ»ú»áÏÂÊÖÁË£¡\n");
+	//		return notify_fail("ä½ å·²ç»åœ¨æ‰¾æœºä¼šä¸‹æ‰‹äº†ï¼\n");
 	if (ob->query("max_liquid"))
 	{
 		int myskill = (me->query_skill("five_poison", 1)) * 10 + me->query("neili");
 		int skill = victim->query("neili");
 		if ((int)ob->query("liquid/remaining") < 1)
-			return notify_fail("ÄÇ¸öÈİÆ÷ÊÇ¿ÕµÄ£¬²»ÄÜÓÃÀ´ÈÜ½â¶¾·Û£¡\n");
+			return notify_fail("é‚£ä¸ªå®¹å™¨æ˜¯ç©ºçš„ï¼Œä¸èƒ½ç”¨æ¥æº¶è§£æ¯’ç²‰ï¼\n");
 		if (random(myskill) < random(skill))
 		{
-			tell_object(me, HIR "Ôã¸â£¡ÄãÊ§ÊÖÁË£¡\n\n" NOR);
-			message_vision("$NÒ»»ØÍ·£¬ÕıºÃ·¢ÏÖ$nÕıÏëÏò$PÉíÉÏµÄ" + ob->name() + "ÏÂ¶¾£¡\n\n" + "$NºÈµÀ£º¡¸¸ÉÊ²Ã´£¡¡¹\n\n", victim, me);
+			tell_object(me, HIR "ç³Ÿç³•ï¼ä½ å¤±æ‰‹äº†ï¼\n\n" NOR);
+			message_vision("$Nä¸€å›å¤´ï¼Œæ­£å¥½å‘ç°$næ­£æƒ³å‘$Pèº«ä¸Šçš„" + ob->name() + "ä¸‹æ¯’ï¼\n\n" + "$Nå–é“ï¼šã€Œå¹²ä»€ä¹ˆï¼ã€\n\n", victim, me);
 			if (userp(victim))
 			{
 				victim->fight_ob(me);
@@ -80,15 +80,15 @@ int do_pour(string arg)
 			:);
 		ob->set("liquid/drink_func", bind(f, ob));
 		ob->add("liquid/slumber_effect", 1000);
-		message("vision", "ÄãÓë" + victim->name() + "²ÁÉí¶ø¹ı£¬ÍµÍµ½«¡¶" + name() + "¡·È÷½øËûµÄ" + ob->name() + "ÀïÃæ¡£\n", this_player());
+		message("vision", "ä½ ä¸" + victim->name() + "æ“¦èº«è€Œè¿‡ï¼Œå·å·å°†ã€Š" + name() + "ã€‹æ´’è¿›ä»–çš„" + ob->name() + "é‡Œé¢ã€‚\n", this_player());
 		add_amount(-1);
 		me->start_busy(2);
 		if (random(myskill) < skill / 2)
-			message("vision", "Äã¿´µ½" + me->name() + "¹í¹íËîËîµØÔÚ" + victim->name() + "ÉíÉÏµÄÒ»" + ob->query("unit") + ob->name() + "ÀïÈ÷ÈëÁËÒ»Ğ©" + name() + "£¡\n", environment(me), ({me, victim}));
+			message("vision", "ä½ çœ‹åˆ°" + me->name() + "é¬¼é¬¼ç¥Ÿç¥Ÿåœ°åœ¨" + victim->name() + "èº«ä¸Šçš„ä¸€" + ob->query("unit") + ob->name() + "é‡Œæ´’å…¥äº†ä¸€äº›" + name() + "ï¼\n", environment(me), ({me, victim}));
 		return 1;
 	}
 	else
-		return notify_fail("¶¾Ö»ÄÜÏÂÔÚÒûË®ÀïÃæ£¡\n");
+		return notify_fail("æ¯’åªèƒ½ä¸‹åœ¨é¥®æ°´é‡Œé¢ï¼\n");
 	return 1;
 }
 

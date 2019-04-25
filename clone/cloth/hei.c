@@ -6,15 +6,15 @@ inherit CLOTH;
 
 void create()
 {
-	set_name("╨зеш", ({"hei pao", "black cloth", "cloth"}));
+	set_name("И╩▒Х╒█", ({"hei pao", "black cloth", "cloth"}));
 	set_weight(2000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
 		set("material", "cloth");
-		set("long", "р╩╪Ч╨зи╚╣д╡╪ешё╛р╩к©тси╚р╡ц╩спё╝\n");
-		set("unit", "╪Ч");
+		set("long", "Д╦─Д╩╤И╩▒Х┴╡Г └Е╦┐Х╒█О╪▄Д╦─Д╦²Ф²┌Х┴╡Д╧÷Ф╡║Ф°┴О╪▌\n");
+		set("unit", "Д╩╤");
 		set("value", 200);
 		set("armor_prop/armor", 5);
 	}

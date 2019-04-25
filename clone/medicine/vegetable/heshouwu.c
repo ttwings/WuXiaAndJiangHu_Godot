@@ -1,4 +1,4 @@
-// heshouwu.c ºÎÊ×ÎÚ
+// heshouwu.c ä½•é¦–ä¹Œ
 
 inherit ITEM;
 #include <ansi.h>
@@ -11,12 +11,12 @@ void init()
 
 void create()
 {
-	set_name(WHT "ºÎÊ×ÎÚ" NOR, ({"heshouwu"}));
+	set_name(WHT "ä½•é¦–ä¹Œ" NOR, ({"heshouwu"}));
 	set_weight(800);
 	set("vegetable", 4);
 	set("nostrum", 1);
-	set("unit", "Ö§");
-	set("long", "ÕâÊÇÒ»Ö§ÒÑ³ÉÈËÐÎµÄºÎÊ×ÎÚ£¬¿´À´¿ÉÒÔÈëÒ©¡£\n");
+	set("unit", "æ”¯");
+	set("long", "è¿™æ˜¯ä¸€æ”¯å·²æˆäººå½¢çš„ä½•é¦–ä¹Œï¼Œçœ‹æ¥å¯ä»¥å…¥è¯ã€‚\n");
 	set("pour_type", "1");
 	setup();
 }
@@ -26,21 +26,21 @@ int do_eat(string arg)
 	object me = this_player();
 
 	if (!id(arg))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (!present(this_object(), me))
-		return notify_fail("ÄãÒª³ÔÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦åƒä»€ä¹ˆï¼Ÿ\n");
 	if (me->is_busy())
-		return notify_fail("±ð¼±£¬ÂýÂý³Ô£¬Ð¡ÐÄ±ðÒ­×ÅÁË¡£\n");
+		return notify_fail("åˆ«æ€¥ï¼Œæ…¢æ…¢åƒï¼Œå°å¿ƒåˆ«å™Žç€äº†ã€‚\n");
 
 	if ((int)me->query("max_jingli") <= 200)
 	{
-		write("Äã³ÔÏÂÁËÒ»Ö§ºÎÊ×ÎÚ£¬Ö»¾õµÃ¾«Éñ½¡ÍúÖ®¼«¡£\n");
+		write("ä½ åƒä¸‹äº†ä¸€æ”¯ä½•é¦–ä¹Œï¼Œåªè§‰å¾—ç²¾ç¥žå¥æ—ºä¹‹æžã€‚\n");
 		me->add("max_jingli", 2);
 		me->add("jingli", 2);
 	}
 	else
 	{
-		write("Äã³ÔÏÂÁËÒ»Ö§ºÎÊ×ÎÚ£¬µ«ÊÇºÃÏóÃ»Ê²Ã´ÓÃ¡£\n");
+		write("ä½ åƒä¸‹äº†ä¸€æ”¯ä½•é¦–ä¹Œï¼Œä½†æ˜¯å¥½è±¡æ²¡ä»€ä¹ˆç”¨ã€‚\n");
 	}
 	me->unconcious();
 	destruct(this_object());

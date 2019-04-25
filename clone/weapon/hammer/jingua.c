@@ -6,18 +6,18 @@ inherit HAMMER;
 
 void create()
 {
-	set_name("½ğ¹Ï", ({"golden hammer", "gua", "hammer"}));
+	set_name("é‡‘ç“œ", ({"golden hammer", "gua", "hammer"}));
 	set_weight(8500);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "°Ñ");
-		set("long", "ÕâÊÇÒ»°Ñ³ÁÖØµÄ½ğ¹Ï£¬ÊÇ»Ê³ÇÎÀÊ¿µÄ×¨ÓÃÎäÆ÷¡£\n");
+		set("unit", "æŠŠ");
+		set("long", "è¿™æ˜¯ä¸€æŠŠæ²‰é‡çš„é‡‘ç“œï¼Œæ˜¯çš‡åŸå«å£«çš„ä¸“ç”¨æ­¦å™¨ã€‚\n");
 		set("value", 1200);
 		set("material", "iron");
-		set("wield_msg", "$NÄÃ³öÒ»°Ñ$n£¬ÊÔÁËÊÔÖØÁ¿£¬È»ºóÎÕÔÚÊÖÖĞ¡£\n");
-		set("unwield_msg", "$N·ÅÏÂÊÖÖĞµÄ$n¡£\n");
+		set("wield_msg", "$Næ‹¿å‡ºä¸€æŠŠ$nï¼Œè¯•äº†è¯•é‡é‡ï¼Œç„¶åæ¡åœ¨æ‰‹ä¸­ã€‚\n");
+		set("unwield_msg", "$Næ”¾ä¸‹æ‰‹ä¸­çš„$nã€‚\n");
 	}
 	init_hammer(25);
 	setup();

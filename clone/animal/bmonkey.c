@@ -7,13 +7,13 @@ int do_drink(string);
 
 void create()
 {
-	set_name("ÀÏºï×Ó", ({"monkey", "hou", "houzi"}));
-	set("race", "×ßÊŞ");
+	set_name("è€çŒ´å­", ({"monkey", "hou", "houzi"}));
+	set("race", "èµ°å…½");
 	set("age", 200 + random(50));
-	set("long", "Ò»Ö»ÀÏÌ¬ÁúÖÓµÄÀÏºï×Ó£¬ËäÈ»¶¯×÷³Ù»º£¬µ«Ë¿ºÁ²»¼õ½ÆÕ©µÄĞÔ×Ó¡£\n");
+	set("long", "ä¸€åªè€æ€é¾™é’Ÿçš„è€çŒ´å­ï¼Œè™½ç„¶åŠ¨ä½œè¿Ÿç¼“ï¼Œä½†ä¸æ¯«ä¸å‡ç‹¡è¯ˆçš„æ€§å­ã€‚\n");
 	set("attitude", "peaceful");
 
-	set("limbs", ({"Í·²¿", "ÉíÌå", "Ç°ÍÈ", "ºóÍÈ", "Î²°Í"}));
+	set("limbs", ({"å¤´éƒ¨", "èº«ä½“", "å‰è…¿", "åè…¿", "å°¾å·´"}));
 	set("verbs", ({"bite", "claw"}));
 
 	// make sure those shenlong dizis can not catch it without using tricks
@@ -48,7 +48,7 @@ void init()
 		}
 		else
 		{
-			message_vision("ÀÏºï×Ó±»$NÏÅÁËÒ»Ìø£¬¸Ï½ô¶ãÔÚÒ»ÅÔ¡£\n", me);
+			message_vision("è€çŒ´å­è¢«$Nå“äº†ä¸€è·³ï¼Œèµ¶ç´§èº²åœ¨ä¸€æ—ã€‚\n", me);
 			command("look " + ob->query("id"));
 		}
 	}
@@ -81,16 +81,16 @@ int do_drink(string arg)
 			command("get " + inv[i]->query("id"));
 			if (!inv[i]->query("liquid/remaining"))
 			{
-				say("ÀÏºï×ÓÒ¡ÁËÒ¡" + inv[i]->query("name") + "ºó£¬Ê§ÍûµØÒ¡ÁËÒ¡Í·¡£\n");
-				say("ÀÏºï×ÓÓÃÁ¦Ò»Ë¦£¬°Ñ" + inv[i]->query("name") + "ÂÕµÃÎŞÓ°ÎŞ×Ù¡£\n");
+				say("è€çŒ´å­æ‘‡äº†æ‘‡" + inv[i]->query("name") + "åï¼Œå¤±æœ›åœ°æ‘‡äº†æ‘‡å¤´ã€‚\n");
+				say("è€çŒ´å­ç”¨åŠ›ä¸€ç”©ï¼ŒæŠŠ" + inv[i]->query("name") + "æŠ¡å¾—æ— å½±æ— è¸ªã€‚\n");
 				destruct(inv[i]);
 			}
 			else
 			{
-				say("ÀÏºï×Ó¸ßĞËµÃÖ¨Ö¨ÂÒ½Ğ£¬Ò»¿ÚÈ«ºÈÁËÏÂÈ¥¡£\n");
+				say("è€çŒ´å­é«˜å…´å¾—å±å±ä¹±å«ï¼Œä¸€å£å…¨å–äº†ä¸‹å»ã€‚\n");
 				inv[i]->set("liquid/remaining", 0);
 				command("drop " + inv[i]->query("id"));
-				say("ÀÏºï×Ó¿´ÆğÀ´ÓĞµãÁ¦²»´ÓĞÄ£¬Ò¡Ò¡Óû×¹¡£\n");
+				say("è€çŒ´å­çœ‹èµ·æ¥æœ‰ç‚¹åŠ›ä¸ä»å¿ƒï¼Œæ‘‡æ‘‡æ¬²å ã€‚\n");
 				set_temp("drunk", 1);
 				add_temp("apply/attack", -20);
 				add_temp("apply/defense", -20);
@@ -131,6 +131,6 @@ void die()
 	if (objectp(obj = this_object()->query_temp("last_damage_from")))
 		ob->set("owner", obj->query("id"));
 
-	message_vision("$N²Òº¿Ò»Éù£¬ËÀÁË£¡\n", this_object());
+	message_vision("$Næƒ¨åšä¸€å£°ï¼Œæ­»äº†ï¼\n", this_object());
 	destruct(this_object());
 }

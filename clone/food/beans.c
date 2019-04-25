@@ -1,21 +1,21 @@
-// Éñ»°ÊÀ½ç¡¤Î÷ÓÎ¼Ç¡¤°æ±¾£´£®£µ£°
+// ç¥è¯ä¸–ç•ŒÂ·è¥¿æ¸¸è®°Â·ç‰ˆæœ¬ï¼”ï¼ï¼•ï¼
 /* <SecCrypt CPL V3R05> */
 
-// beans.c ¶¹¶¹
+// beans.c è±†è±†
 
 inherit ITEM;
 inherit F_FOOD;
 
 void create()
 {
-  set_name("¶¹¶¹", ({"beans", "doudou"}));
+  set_name("è±†è±†", ({"beans", "doudou"}));
   set_weight(40);
   if (clonep())
     set_default_object(__FILE__);
   else
   {
-    set("long", "Ò»°Ñ¿É°®µÄĞ¡¶¹¶¹¡£\n");
-    set("unit", "°Ñ");
+    set("long", "ä¸€æŠŠå¯çˆ±çš„å°è±†è±†ã€‚\n");
+    set("unit", "æŠŠ");
     set("value", 80);
     set("food_remaining", 4);
     set("food_supply", 30);

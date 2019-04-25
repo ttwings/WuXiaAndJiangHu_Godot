@@ -6,13 +6,13 @@ inherit STICK;
 
 void create()
 {
-	set_name("Ê÷Ö¦", ({"shuzhi"}));
+	set_name("æ ‘æ", ({"shuzhi"}));
 	set_weight(7000);
 	if (clonep())
 		set_default_object(__FILE__);
 	else
 	{
-		set("unit", "°Ñ");
+		set("unit", "æŠŠ");
 		set("material", "wood");
 	}
 	init_stick(8);
