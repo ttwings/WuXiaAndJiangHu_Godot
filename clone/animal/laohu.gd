@@ -1,12 +1,12 @@
-// laohu.c 老虎
-// Last Modified by winder on Aug. 1 2002
+# laohu.c 老虎
+# Last Modified by winder on Aug. 1 2002
 
-// inherit NPC_TRAINEE;
-inherit "/inherit/char/trainee";
+# extends Npc_TRAINEE;
+# inherit "/# inherit/char/trainee";
 
-void create()
-{
-	set_name("老虎", ({"lao hu", "hu", "tiger"}));
+func create():
+
+	set_name("老虎", ["lao hu", "hu", "tiger"]);
 	set("race", "走兽");
 	set("age", 25);
 	set("long", "这是一头吊睛白额，气势汹汹的大虎，正恶狠狠地盯着你，好象随时随地都会扑上来择人而噬！\n");
@@ -34,43 +34,43 @@ void create()
 	set_weight(150000);
 
 	set("chat_chance", 10);
-	set("chat_msg", ({
+	set("chat_msg", [
 						(
 							: this_object(), "random_move"
 							:),
 						"老虎用前爪拍击着地面，口中荷荷发威，好象随时都要扑上来！\n",
 						"老虎微微侧着脑袋，双目炯炯，紧紧地注视着你的一举一动。\n",
 						"老虎突然立了起来，绕着你走了半圈，似乎在观察着什么。\n",
-					}));
+					]);
 
-	set("chat_msg_combat", ({
+	set("chat_msg_combat", [
 							   (
 								   : this_object(), "random_move"
 								   :),
 							   "\n老虎怒啸一声，一反身，长长的尾巴向铁棍一样挥了过来！\n",
 							   "\n老虎全身一曲一弓，忽然跃起半空，猛地扑了下来！\n",
-						   }));
+						   ]);
 
 	setup();
-}
 
-void die()
-{
+
+func die():
+
 	message_vision("\n$N仰天惨嚎了一声，趴在地上不动了。\n", this_object());
 	::die();
-}
 
-void init()
-{
-	object ob;
+
+func _init():
+
+	var ob;
 
 	::init();
-	if (interactive(ob = this_player()) && ob->query_weight() >= 50000)
-	{
-		if (!this_object()->query_lord(ob))
-		{
+	if (interactive(ob = this_player()) && ob.query_weight() >= 50000):
+	
+		if (!this_object().query_lord(ob)):
+		
 			remove_call_out("kill_ob");
 			call_out("kill_ob", 1, ob);
-		}
-	}
-}
+		
+	
+

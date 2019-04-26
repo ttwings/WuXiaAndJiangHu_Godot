@@ -1,11 +1,11 @@
-// little_monkey.c
-// Last Modified by winder on Aug. 1 2002
+# little_monkey.c
+# Last Modified by winder on Aug. 1 2002
 
-inherit NPC;
+extends Npc;
 
-void create()
-{
-	set_name("小猴", ({"little monkey", "monkey"}));
+func create():
+
+	set_name("小猴", ["little monkey", "monkey"]);
 	set("race", "走兽");
 	set("gender", "雄性");
 	set("age", 7);
@@ -18,5 +18,5 @@ void create()
 	set("int", 11);
 	set("attitude", "peaceful");
 	setup();
-	carry_object("/d/wudang/obj/greyrobe")->wear();
-}
+	carry_object("/d/wudang/obj/greyrobe").wear();
+

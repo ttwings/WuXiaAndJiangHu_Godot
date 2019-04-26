@@ -1,12 +1,12 @@
-// tuying.c
-// Last Modified by winder on Aug. 1 2002
+# tuying.c
+# Last Modified by winder on Aug. 1 2002
 
-// inherit NPC_TRAINEE;
-inherit "/inherit/char/trainee";
+# extends Npc_TRAINEE;
+# inherit "/# inherit/char/trainee";
 
-void create()
-{
-	set_name("秃鹰", ({"eagle", "ying", "tuying"}));
+func create():
+
+	set_name("秃鹰", ["eagle", "ying", "tuying"]);
 	set("race", "飞禽");
 	set("age", 15);
 	set("long", "一只生活在高原上，黑色的秃鹰，一身乱蓬蓬的羽毛，凶悍丑陋。\n");
@@ -30,22 +30,20 @@ void create()
 	setup();
 
 	set("chat_chance", 7);
-	set("chat_msg", ({
+	set("chat_msg", [
 						"「嘎~~嘎~~」秃鹰发出几声凄厉的哀叫。\n",
 						"秃鹰突然从高空盘旋着朝你俯冲下来，停落在你不远处。\n",
 						"秃鹰犹犹豫豫地来回走着，贪婪的眼睛狠狠地盯着你。\n",
 						"秃鹰扑腾了几下翅膀。\n",
-					}));
-}
-void init()
-{
-	object ob;
+					]);
+
+func _init():
+
+	var ob;
 	::init();
-	if (interactive(ob = this_player()) &&
-		this_object()->query_lord() != ob &&
-		random(ob->query_kar() + ob->query_per()) < 5)
-	{
+	if (interactive(ob = this_player()) && this_object().query_lord() != ob && random(ob.query_kar() + ob.query_per()) < 5):
+	
 		remove_call_out("kill_ob");
 		call_out("kill_ob", 1, ob);
-	}
-}
+	
+
