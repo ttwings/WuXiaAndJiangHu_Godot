@@ -1,0 +1,991 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/graphics/tiles/Outside Objects.png" type="Texture" id=1]
+
+[node name="TileOutside" type="Node2D"]
+
+[node name="船" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 544, 832, 480, 64 )
+
+[node name="船_小1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 608, 896, 128, 64 )
+
+[node name="船_小2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 736, 896, 128, 64 )
+
+[node name="船_小3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 608, 960, 128, 64 )
+
+[node name="船_小4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 736, 960, 128, 64 )
+
+[node name="木柴1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 384, 448, 32, 64 )
+
+[node name="木柴2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 416, 448, 64, 32 )
+
+[node name="木柴3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 416, 480, 32, 32 )
+
+[node name="木柴4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 480, 448, 64, 64 )
+
+[node name="木柴5" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 544, 448, 32, 32 )
+
+[node name="木柴6" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 544, 480, 32, 32 )
+
+[node name="铁砧1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 576, 448, 32, 32 )
+
+[node name="铁砧2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 576, 480, 32, 32 )
+
+[node name="锤子钳子" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 576, 512, 32, 32 )
+
+[node name="打铁_半成品1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 608, 448, 64, 32 )
+
+[node name="打铁_半成品2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 608, 480, 32, 32 )
+
+[node name="打铁_半成品3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 640, 480, 32, 32 )
+
+[node name="锤子" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 608, 512, 32, 32 )
+
+[node name="钳子" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 640, 512, 32, 32 )
+
+[node name="木栅栏1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 544, 32, 32 )
+
+[node name="木栅栏2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 544, 32, 32 )
+
+[node name="木栅栏3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 544, 32, 32 )
+
+[node name="木栅栏4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 576, 32, 32 )
+
+[node name="木栅栏5" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 576, 32, 32 )
+
+[node name="木栅栏6" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 576, 32, 32 )
+
+[node name="木栅栏7" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 608, 32, 32 )
+
+[node name="木栅栏8" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 608, 32, 32 )
+
+[node name="木栅栏9" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 608, 32, 32 )
+
+[node name="木栅栏10" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 640, 32, 32 )
+
+[node name="木栅栏11" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 640, 32, 32 )
+
+[node name="木栅栏12" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 640, 32, 32 )
+
+[node name="木栅栏13" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 672, 32, 32 )
+
+[node name="木栅栏14" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 672, 32, 32 )
+
+[node name="木栅栏15" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 672, 32, 32 )
+
+[node name="木栅栏16" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 96, 544, 32, 32 )
+
+[node name="木栅栏17" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 128, 544, 32, 32 )
+
+[node name="木栅栏18" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 160, 544, 32, 32 )
+
+[node name="木栅栏19" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 96, 576, 32, 32 )
+
+[node name="木栅栏20" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 128, 576, 32, 32 )
+
+[node name="木栅栏21" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 160, 576, 32, 32 )
+
+[node name="木栅栏22" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 96, 608, 32, 32 )
+
+[node name="木栅栏23" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 128, 608, 32, 32 )
+
+[node name="木栅栏24" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 160, 608, 32, 32 )
+
+[node name="木栅栏25" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 96, 640, 32, 32 )
+
+[node name="木栅栏26" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 128, 640, 32, 32 )
+
+[node name="木栅栏27" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 160, 640, 32, 32 )
+
+[node name="木栅栏28" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 96, 672, 32, 32 )
+
+[node name="木栅栏29" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 128, 672, 32, 32 )
+
+[node name="木栅栏30" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 160, 672, 32, 32 )
+
+[node name="木栅栏31" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 192, 544, 32, 32 )
+
+[node name="木栅栏32" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 224, 544, 32, 32 )
+
+[node name="木栅栏33" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 256, 544, 32, 32 )
+
+[node name="木栅栏34" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 288, 544, 32, 32 )
+
+[node name="木栅栏35" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 288, 640, 32, 32 )
+
+[node name="路牌1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 192, 576, 32, 32 )
+
+[node name="路牌2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 224, 576, 32, 32 )
+
+[node name="路牌3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 256, 576, 32, 32 )
+
+[node name="路牌4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 288, 576, 32, 32 )
+
+[node name="路牌5" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 192, 608, 32, 32 )
+
+[node name="路牌6" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 224, 608, 32, 32 )
+
+[node name="路牌7" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 192, 640, 32, 32 )
+
+[node name="路牌8" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 224, 640, 32, 32 )
+
+[node name="路牌9" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 256, 608, 32, 64 )
+
+[node name="草垛" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 320, 544, 64, 96 )
+
+[node name="麻袋1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 384, 512, 32, 64 )
+
+[node name="麻袋2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 416, 512, 64, 32 )
+
+[node name="麻袋3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 416, 544, 32, 32 )
+
+[node name="麻袋4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 480, 512, 64, 64 )
+
+[node name="麻袋(黄豆)1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 384, 576, 32, 64 )
+
+[node name="麻袋(黄豆)2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 416, 576, 64, 32 )
+
+[node name="麻袋(黄豆)3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 416, 608, 32, 32 )
+
+[node name="麻袋(黄豆)4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 480, 576, 64, 64 )
+
+[node name="麻袋(绿豆)4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 384, 640, 32, 64 )
+
+[node name="麻袋(绿豆)5" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 416, 640, 64, 32 )
+
+[node name="麻袋(绿豆)6" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 416, 672, 32, 32 )
+
+[node name="麻袋(绿豆)7" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 480, 640, 64, 64 )
+
+[node name="五花肉1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 384, 704, 32, 64 )
+
+[node name="五花肉2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 416, 704, 64, 32 )
+
+[node name="五花肉3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 416, 736, 32, 32 )
+
+[node name="五花肉4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 480, 704, 64, 64 )
+
+[node name="肝脏1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 384, 768, 32, 64 )
+
+[node name="肝脏2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 416, 768, 64, 32 )
+
+[node name="肝脏3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 416, 800, 32, 32 )
+
+[node name="肝脏4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 480, 768, 64, 64 )
+
+[node name="鸡腿1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 384, 832, 32, 64 )
+
+[node name="鸡腿2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 416, 832, 64, 32 )
+
+[node name="鸡腿3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 416, 864, 32, 32 )
+
+[node name="鸡腿4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 480, 832, 64, 64 )
+
+[node name="鸡肉1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 384, 896, 32, 64 )
+
+[node name="鸡肉2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 416, 896, 64, 32 )
+
+[node name="鸡肉3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 416, 928, 32, 32 )
+
+[node name="鸡肉4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 480, 896, 64, 64 )
+
+[node name="猪火腿1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 384, 960, 32, 64 )
+
+[node name="猪火腿2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 416, 960, 64, 32 )
+
+[node name="猪火腿3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 416, 992, 32, 32 )
+
+[node name="猪火腿4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 480, 960, 64, 64 )
+
+[node name="辣椒_货1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 640, 672, 32, 32 )
+
+[node name="辣椒_货2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 640, 704, 32, 32 )
+
+[node name="辣椒_货3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 640, 736, 32, 32 )
+
+[node name="辣椒_货4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 640, 768, 32, 64 )
+
+[node name="胡萝卜_货1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 672, 672, 32, 32 )
+
+[node name="胡萝卜_货2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 672, 704, 32, 32 )
+
+[node name="胡萝卜_货3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 672, 736, 32, 32 )
+
+[node name="胡萝卜_货4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 672, 768, 32, 64 )
+
+[node name="西蓝花_货1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 704, 672, 32, 32 )
+
+[node name="西蓝花_货2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 704, 704, 32, 32 )
+
+[node name="西蓝花_货3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 704, 736, 32, 32 )
+
+[node name="西蓝花_货4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 704, 768, 32, 64 )
+
+[node name="土豆_货1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 768, 672, 32, 32 )
+
+[node name="土豆_货2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 768, 704, 32, 32 )
+
+[node name="土豆_货3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 768, 736, 32, 32 )
+
+[node name="土豆_货4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 768, 768, 32, 64 )
+
+[node name="西红柿_货1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 800, 672, 32, 32 )
+
+[node name="西红柿_货2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 800, 704, 32, 32 )
+
+[node name="西红柿_货3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 800, 736, 32, 32 )
+
+[node name="西红柿_货4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 800, 768, 32, 64 )
+
+[node name="玉米_货1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 832, 672, 32, 32 )
+
+[node name="玉米_货2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 832, 704, 32, 32 )
+
+[node name="玉米_货3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 832, 736, 32, 32 )
+
+[node name="玉米_货4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 832, 768, 32, 64 )
+
+[node name="辣椒_生1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 864, 64, 32, 32 )
+
+[node name="辣椒_生2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 864, 96, 32, 32 )
+
+[node name="辣椒_生3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 864, 128, 32, 64 )
+
+[node name="辣椒_生4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 864, 192, 32, 64 )
+
+[node name="辣椒_生5" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 864, 256, 32, 64 )
+
+[node name="辣椒_生6" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 896, 256, 32, 32 )
+
+[node name="西蓝花_生1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 896, 64, 32, 32 )
+
+[node name="西蓝花_生2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 896, 96, 32, 32 )
+
+[node name="西蓝花_生3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 896, 128, 32, 32 )
+
+[node name="西蓝花_生4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 896, 160, 32, 32 )
+
+[node name="西蓝花_生5" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 896, 192, 32, 32 )
+
+[node name="西蓝花_生6" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 896, 224, 32, 32 )
+
+[node name="西红柿_生1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 928, 64, 32, 32 )
+
+[node name="西红柿_生2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 928, 96, 32, 32 )
+
+[node name="西红柿_生3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 928, 128, 32, 64 )
+
+[node name="西红柿_生4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 928, 192, 32, 64 )
+
+[node name="西红柿_生5" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 928, 256, 32, 64 )
+
+[node name="西红柿_生6" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 960, 256, 32, 32 )
+
+[node name="胡萝卜_生1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 960, 64, 32, 32 )
+
+[node name="胡萝卜_生2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 960, 96, 32, 32 )
+
+[node name="胡萝卜_生3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 960, 128, 32, 32 )
+
+[node name="胡萝卜_生4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 960, 160, 32, 32 )
+
+[node name="胡萝卜_生5" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 960, 192, 32, 32 )
+
+[node name="胡萝卜_生6" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 960, 224, 32, 32 )
+
+[node name="土豆_生1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 992, 64, 32, 32 )
+
+[node name="土豆_生2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 992, 96, 32, 32 )
+
+[node name="土豆_生3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 992, 128, 32, 32 )
+
+[node name="土豆_生4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 992, 160, 32, 32 )
+
+[node name="土豆_生5" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 992, 192, 32, 32 )
+
+[node name="土豆_生6" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 992, 224, 32, 32 )
+
+[node name="玉米_生1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 640, 288, 32, 32 )
+
+[node name="玉米_生2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 672, 288, 32, 32 )
+
+[node name="玉米_生3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 704, 288, 32, 32 )
+
+[node name="玉米_生4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 736, 256, 32, 64 )
+
+[node name="玉米_生5" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 768, 256, 32, 64 )
+
+[node name="玉米_生6" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 800, 256, 32, 64 )
+
+[node name="玉米_生7" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 832, 256, 32, 64 )
+
+[node name="玉米_生8" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 896, 288, 32, 32 )
+
+[node name="茄子_生1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 608, 320, 32, 32 )
+
+[node name="茄子_生2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 640, 320, 32, 32 )
+
+[node name="茄子_生3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 672, 320, 32, 32 )
+
+[node name="茄子_生4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 704, 320, 32, 32 )
+
+[node name="茄子_生5" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 736, 320, 32, 32 )
+
+[node name="茄子_生6" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 768, 320, 32, 32 )
+
+[node name="手推车1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 128, 832, 64, 64 )
+
+[node name="手推车2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 288, 800, 64, 64 )
+
+[node name="手推车3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 192, 832, 96, 64 )
+
+[node name="树叶_绿1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 512, 256, 32, 32 )
+
+[node name="树叶_绿2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 544, 256, 32, 32 )
+
+[node name="树叶_绿3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 576, 256, 32, 32 )
+
+[node name="树叶_绿4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 608, 256, 32, 32 )
+
+[node name="树叶_黄1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 512, 288, 32, 32 )
+
+[node name="树叶_黄2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 544, 288, 32, 32 )
+
+[node name="树叶_黄3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 576, 288, 32, 32 )
+
+[node name="树叶_黄4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 608, 288, 32, 32 )
+
+[node name="树叶_橙1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 384, 352, 32, 32 )
+
+[node name="树叶_橙2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 416, 352, 32, 32 )
+
+[node name="树叶_橙3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 448, 352, 32, 32 )
+
+[node name="树叶_橙4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 480, 352, 32, 32 )
+
+[node name="树叶_棕1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 384, 384, 32, 32 )
+
+[node name="树叶_棕2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 416, 384, 32, 32 )
+
+[node name="树叶_棕3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 448, 384, 32, 32 )
+
+[node name="树叶_棕4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 480, 384, 32, 32 )
+
+[node name="树叶_粉1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 384, 416, 32, 32 )
+
+[node name="树叶_粉2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 416, 416, 32, 32 )
+
+[node name="树叶_粉3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 448, 416, 32, 32 )
+
+[node name="树叶_粉4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 480, 416, 32, 32 )
+
+[node name="码头_木_大1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 672, 448, 96, 32 )
+
+[node name="码头_木_大2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 672, 480, 96, 32 )
+
+[node name="码头_木_大3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 672, 512, 96, 32 )
+
+[node name="码头_木_小1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 768, 448, 32, 32 )
+
+[node name="码头_木_小2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 768, 480, 32, 32 )
+
+[node name="码头_木_小3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 768, 512, 32, 32 )
+
+[node name="码头_木_小4" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 768, 512, 32, 32 )
+
+[node name="码头_木_中1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 768, 544, 96, 32 )
+
+[node name="码头_木_中2" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 768, 576, 96, 32 )
+
+[node name="码头_木_中3" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 768, 608, 96, 32 )
+

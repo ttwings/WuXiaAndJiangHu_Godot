@@ -29,11 +29,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://inherit/Equip.gd"
 }, {
-"base": "Reference",
-"class": "F_move",
-"language": "GDScript",
-"path": "res://feature/F_move.gd"
-}, {
 "base": "GameObject",
 "class": "Food",
 "language": "GDScript",
@@ -94,7 +89,6 @@ _global_script_class_icons={
 "Char": "",
 "DmgObj": "",
 "Equip": "",
-"F_move": "",
 "Food": "",
 "Fruit": "",
 "GameObject": "",
