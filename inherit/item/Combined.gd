@@ -21,7 +21,8 @@ func destruct_me() :
 	destruct(this_object())
 
 func set_amount(v:int):
-	if( v < 0 ) error("combine:set_amount less than 1.\n");
+	if( v < 0 ):
+		error("combine:set_amount less than 1.\n");
 # //	if( v==0 ) destruct(this_object()); 
 	if( v == 0 ) :
 		# ::move(VOID_OB);
@@ -30,16 +31,16 @@ func set_amount(v:int):
 		amount = v;
 		this_object().set_weight(v * int(query("base_weight")));
 
-func add_amount(int v) :
+func add_amount(v:int) :
 	set_amount(amount+v)
 
-func short():
+func short(raw=true):
 	if (query_amount()>1):
 		return chinese_number(query_amount()) + query("base_unit") + .short();
 	else:
 		return .short();
 
-func move(mixed dest, int silent):
+func move(dest,silent:int = 0):
 	var env
 	var inv;
 	var i

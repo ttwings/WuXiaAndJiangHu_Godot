@@ -121,7 +121,7 @@ func set_name(name,id):
 	set("id", id);
 	my_id = id;
 
-func name(raw=1):
+func name(raw=true):
 	var st
 	var mask;
 	mask = query_temp("apply/name")
@@ -134,7 +134,7 @@ func name(raw=1):
 		else:
 			return file_name(this_object());
 
-func short(raw=1):
+func short(raw=true):
 	var party;
 	var guard
 	var degree
@@ -144,9 +144,9 @@ func short(raw=1):
 	var string
 	var str1
 	var mask;
-#
-#	if( !stringp(string = query("short")) ):
-#		string = name(raw) + "(" + capitalize(query("id")) + ")";
+	string = query("short")
+	if !stringp(string) :
+		string = name(raw) + "(" + query("id") + ")";
 
 	return string
 	pass
