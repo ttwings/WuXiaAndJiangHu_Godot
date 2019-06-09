@@ -115,6 +115,10 @@ CHINESED="*res://adm/daemons/CHINESED.gd"
 COLORD="*res://adm/daemons/COLORD.gd"
 CHAR_D="*res://adm/daemons/CHAR_D.gd"
 
+[debug]
+
+gdscript/warnings/enable=false
+
 [display]
 
 window/size/width=1280

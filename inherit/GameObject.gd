@@ -131,7 +131,9 @@ func setup():
 	setuid(getuid())
 	pass
 
-
+# TODO 判断对象是否还在
+func living(ob=self):
+	return -1
 	
 # 销毁这件物品	
 func destruct(ob=self):

@@ -434,9 +434,11 @@ func reset_action():
 	else :
 # Else, let weapon handle it.
 		if( ob ) :
-			set("actions", ob.query("actions",1) );
+#			set("actions", ob.query("actions",1) );
+			set("actions",ob.query("actions"))
 		else :
-			set("actions", query("default_actions",1) );
+#			set("actions", query("default_actions",1) );
+			set("actions",query("default_actions"))
 
 
 # This is called in heart_beat() to perform attack action.

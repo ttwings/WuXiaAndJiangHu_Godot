@@ -1788,7 +1788,6 @@ margin_top = 200.761
 margin_right = 845.722
 margin_bottom = 363.761
 theme = ExtResource( 3 )
-
 [connection signal="pressed" from="NinePatchRect4/VBoxContainer/SaveRooms" to="." method="_on_SaveRooms_pressed"]
 [connection signal="item_selected" from="CharacterPanel/PropContainer/ItemList" to="." method="_on_ItemList_item_selected"]
 [connection signal="pressed" from="ChatMessagePanel/ChatMessage/ChatClose" to="." method="_on_ChatClose_pressed"]
