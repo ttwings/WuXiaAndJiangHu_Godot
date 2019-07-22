@@ -3,7 +3,8 @@ class_name Npc
 
 func carry_object(file):
 	var ob
-	ob = new_ob(file)
+	# ob = new_ob(file)
+	ob = load(file).new()
 	if( !objectp(ob) ) :
 		return 0;
 	# 将物品移动到人物身上
@@ -36,7 +37,7 @@ func return_home(home):
 		return 0;
 
 	# Leave for home now.
-	message("vision", this_object().name() + "急急忙忙地离开了。\n",environment(), this_object());
+	message(this_object().name() + "急急忙忙地离开了。\n",environment(), this_object());
 	return move(home);
 
 # This is the chat function dispatcher. If you use function type chat
@@ -88,10 +89,9 @@ func compelete_trade(me, what:String):
 	var ob;
 	ob_file = query("vendor_goods/" + what)
 	if( stringp(ob_file) ):
-		ob = new(ob_file);
+		ob = load(ob_file).new();
 		ob.move(me);
-		message_vision("$N向$n买下一" + ob.query("unit") + ob.query("name") + "。\n",
-			me, this_object() );
+		message_vision("$N向$n买下一" + ob.query("unit") + ob.query("name") + "。\n",me, this_object() );
 
 func price_string(v:int):
 	if( v%10000 == 0 ):
@@ -118,5 +118,7 @@ func do_vendor_list(arg:String):
 			goods[name[i]].query("name") + "(" +
 			goods[name[i]].query("id") + ")",
 			price_string(goods[name[i]].query("value")) );
-	write(list);
+			
+#	write(list);
+	print_debug(list)
 	return 1;	

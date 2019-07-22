@@ -1,4 +1,4 @@
-extends GameObject
+extends Node2D
 
 class_name Skill
 

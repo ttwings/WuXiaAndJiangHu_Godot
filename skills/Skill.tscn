@@ -54,4 +54,3 @@ __meta__ = {
 position = Vector2( 483.104, 162.881 )
 frames = SubResource( 2 )
 flip_h = true
-

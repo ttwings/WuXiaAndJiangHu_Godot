@@ -20,7 +20,7 @@ func create():
 		__DIR__ + "obj/wa",
 	});
 	setup();
-	carry_object("/clone/misc/cloth").wear();
+	# carry_object("/clone/misc/cloth").wear();
 	add_money("silver", 2);
 
 func _init():

@@ -53,8 +53,8 @@ func setup_human(ob):
 	var i;
 
 	my = ob.query_entire_dbase();
-
-	ob.set("default_actions", (: call_other, __FILE__, "query_action" :));
+	# 调用文件对应的动作
+	# ob.set("default_actions", (: call_other, __FILE__, "query_action" :));
 
 	if( undefinedp(my["age"} ) :
 		my["age"] = 14;

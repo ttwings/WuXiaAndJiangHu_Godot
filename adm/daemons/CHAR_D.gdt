@@ -56,7 +56,7 @@ func setup_char(ob):
 
 # /* 为通用兽类保留 */
 
-	if (race != "人类" && ! ob.query("dead_message")):
+	if (race != "人类" && !ob.query("dead_message")):
 		ob.set("dead_message", "\n$N仰天惨嚎了一声，趴在地上不动了。\n\n");
 		ob.set("unconcious_message", "\n$N低低地吼了一声，滚倒在地了过去。\n\n");
 		ob.set("revive_message", "\n$N四肢慢慢动弹了一下，睁开眼醒了过来。\n\n");

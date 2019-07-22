@@ -1,13 +1,9 @@
 extends Node
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
 var deffence_skills
 var foods
 var herbs
 var user_class
-var player
 # 全局房间字典，key为房间路径，v为实例
 
 var all_current_rooms = {}
@@ -24,18 +20,6 @@ func load_room(path:String):
 func save_current_rooms():
 	for path in all_current_rooms:
 		ResourceSaver.save(path,all_current_rooms[path])		
-
-# 从数据字典,生成角色
-func creat_user(file):
-	var user = load(file).new()
-	var player = Char.new()
-	player.dbase = user.dbase
-	return player
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	player = creat_user("res://data/user/l/lijia.gd")
-	pass # Replace with function body.
 
 func save():
 	var  save_dict = {
@@ -131,10 +115,14 @@ func dir_files(path,suffix):
 func creat_sprite_frames_from_path(anim:String,path:String,suffix:String):
 	var sprite_files = dir_files(path,suffix)
 	var sprite_frames = SpriteFrames.new()
+	var texture_files = []
 	var texture
 	#sprite_frames.add_animation(anim)
 	for i in sprite_files.size() :
-		texture = load(path + "/" + sprite_files[i])
+		texture_files.append(path + "/" + sprite_files[i])
+	texture_files.sort()
+	for i in texture_files.size() :
+		texture = load(texture_files[i])
 		sprite_frames.add_frame(anim,texture)
 	return sprite_frames
 						
@@ -144,15 +132,17 @@ func get_number_color(number):
 		return "red" 
 	else:
 		return "green"
+		
 # 将整数数字转为中文文字	
-func get_chinese_number(n:int):
+func chinese_number(n:int):
 	var number_str = str(n)
 	var l = number_str.length()
 	var output = []
 	for i in range(l):
 		number_str[i] = swap_to_font(number_str[i])
 	return number_str
-# 配合上面转化		
+	
+# 配合上面转化
 func swap_to_font(number):
 	match number:
 		"1":return "一"
@@ -166,22 +156,3 @@ func swap_to_font(number):
 		"9":return "九"
 		"0":return "〇"
 		_:return "X"	
-
-# 返回当前玩家
-func this_player():
-	return player
-
-#################################  延迟调用  ##############################
-# call out
-
-
-	
-#func update_call(delta):
-#	# var delta = get_process_delta_time()
-#	for c in call_funcs :
-#		call_funcs[c] -= delta
-#		if call_funcs[c] <= 0 :
-##			call_func(c)
-#			call_funcs.erase(c)	
-
-

@@ -464,7 +464,6 @@ position = Vector2( -7.60004, 21.85 )
 points = PoolVector2Array( 7.40326, 42.0586, -48.3873, 42.2114 )
 width = 40.0
 default_color = Color( 0.431373, 0.435294, 0.466667, 1 )
-texture_mode = -31317904
 
 [node name="room_s" type="Button" parent="Rooms"]
 editor/display_folded = true
@@ -1428,6 +1427,7 @@ margin_bottom = 132.0
 theme = ExtResource( 3 )
 
 [node name="ObjectRect" parent="." instance=ExtResource( 9 )]
+visible = false
 
 [node name="CharacterPanel" type="NinePatchRect" parent="."]
 editor/display_folded = true
@@ -1617,6 +1617,7 @@ bbcode_text = "[right]3件[color=#F42254]物品[/color] 457[color=yellow]钱[/co
 text = "3件物品 457钱"
 
 [node name="ObjectMessage" type="NinePatchRect" parent="."]
+editor/display_folded = true
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 173.0

@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://inherit/Armor.gd"
 }, {
+"base": "Reference",
+"class": "CHINESE_D",
+"language": "GDScript",
+"path": "res://adm/daemons/CHINESE_D.gd"
+}, {
 "base": "GameObject",
 "class": "Char",
 "language": "GDScript",
@@ -64,12 +69,17 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://inherit/Npc.gd"
 }, {
+"base": "Node",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Player.gd"
+}, {
 "base": "GameObject",
 "class": "Room",
 "language": "GDScript",
 "path": "res://inherit/Room.gd"
 }, {
-"base": "GameObject",
+"base": "Node2D",
 "class": "Skill",
 "language": "GDScript",
 "path": "res://skills/Skill.gd"
@@ -86,6 +96,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Armor": "",
+"CHINESE_D": "",
 "Char": "",
 "DmgObj": "",
 "Equip": "",
@@ -96,6 +107,7 @@ _global_script_class_icons={
 "Item": "",
 "Money": "",
 "Npc": "",
+"Player": "",
 "Room": "",
 "Skill": "",
 "User": "",
@@ -111,9 +123,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://Global.gd"
-CHINESED="*res://adm/daemons/CHINESED.gd"
-COLORD="*res://adm/daemons/COLORD.gd"
-CHAR_D="*res://adm/daemons/CHAR_D.gd"
+CHINESE_D="*res://adm/daemons/CHINESE_D.gd"
 
 [debug]
 

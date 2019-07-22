@@ -77,7 +77,7 @@ func _ready():
 #	current_room.get_dir()
 	food = load("res://clone/food/apple.gd").new()
 	object_panel(food)
-	player = Global.this_player()
+	player = Player.new().creat_user("res://data/user/l/lijia.gd")
 	player.carry_object("/clone/food/apple")
 	character_panel(player)
 #	npc test 对话
@@ -132,7 +132,7 @@ func object_panel(ob:GameObject):
 	print_debug(ob.name())
 	$ObjectRect.show()
 	$ObjectRect/Name.bbcode_text = ob.query("name")
-	$ObjectRect/Type.text = ob.query("type")
+#	$ObjectRect/Type.text = ob.query("type")
 	$ObjectRect/Description.bbcode_text = ob.query("long")
 	var props = []
 	var prop_nodes = []
@@ -190,8 +190,8 @@ func creat_props(ob:GameObject):
 func character_panel(ob:Char):
 	#$CharacterRect.show()
 	$CharacterPanel/PropContainer/HBoxContainer/VBoxContainer/Name.bbcode_text = ob.query("name")
-	$CharacterPanel/PropContainer/HBoxContainer/VBoxContainer/Title.text = ob.query("titile")
-	$CharacterPanel/PropContainer/HBoxContainer/VBoxContainer/Nackname.text = ob.query("nackname")
+#	$CharacterPanel/PropContainer/HBoxContainer/VBoxContainer/Title.text = ob.query("titile")
+#	$CharacterPanel/PropContainer/HBoxContainer/VBoxContainer/Nackname.text = ob.query("nackname")
 #	$CharacterRect/Description.bbcode_text = ob.query("long")
 	var props = []
 	var prop_nodes = []
