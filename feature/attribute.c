@@ -82,7 +82,7 @@ int query_spi()
 		if ( query_skill("zhengqijue", 1) >= improve * 10)
 			improve = (int)query_skill("zhengqijue", 1) / 10;
 		if ( query_skill("poison", 1) >= improve * 10)
-			improve = (int)query_skill("poison", 1) / 10;		
+			improve = (int)query_skill("poison", 1) / 10;
 	}
 	return (int)query("spi") + query_temp("apply/spirit") + improve;
 }
@@ -111,9 +111,9 @@ int query_cor()
 	return (int)query("cor") + query_temp("apply/courage");
 }
 
-// 兽类驯服度 -- 
+// 兽类驯服度 --
 int query_obe()
-{	
+{
 	return (int)query("obe") + query_temp("apply/obedience");
 }
 

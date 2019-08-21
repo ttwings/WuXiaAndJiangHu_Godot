@@ -1,20 +1,18 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://objs/StageRoom.gd" type="Script" id=1]
-[ext_resource path="res://assets/graphics/tiles.png" type="Texture" id=2]
-[ext_resource path="res://new_theme.tres" type="Theme" id=3]
-[ext_resource path="res://uis/TimeLine.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/graphics/ui/ui_p.png" type="Texture" id=5]
-[ext_resource path="res://assets/graphics/faces/297.png" type="Texture" id=6]
-[ext_resource path="res://assets/graphics/faces/2.png" type="Texture" id=7]
-[ext_resource path="res://assets/fonts/SourceHanSerifCN-Medium.otf" type="DynamicFontData" id=8]
-[ext_resource path="res://ObjectRect.tscn" type="PackedScene" id=9]
-[ext_resource path="res://assets/graphics/faces/0.png" type="Texture" id=10]
-[ext_resource path="res://assets/graphics/faces/64.png" type="Texture" id=11]
+[ext_resource path="res://new_theme.tres" type="Theme" id=2]
+[ext_resource path="res://uis/TimeLine.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/graphics/ui/ui_p.png" type="Texture" id=4]
+[ext_resource path="res://assets/graphics/faces/297.png" type="Texture" id=5]
+[ext_resource path="res://assets/graphics/faces/2.png" type="Texture" id=6]
+[ext_resource path="res://assets/fonts/SourceHanSerifCN-Medium.otf" type="DynamicFontData" id=7]
+[ext_resource path="res://ObjectRect.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/graphics/faces/0.png" type="Texture" id=9]
+[ext_resource path="res://assets/graphics/faces/64.png" type="Texture" id=10]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tiles.png 0"
-0/texture = ExtResource( 2 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 2528, 160, 96, 96 )
@@ -33,7 +31,6 @@
 0/shapes = [  ]
 0/z_index = 0
 1/name = "tiles.png 1"
-1/texture = ExtResource( 2 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 2528, 256, 96, 96 )
@@ -52,7 +49,6 @@
 1/shapes = [  ]
 1/z_index = 0
 2/name = "tiles.png 2"
-2/texture = ExtResource( 2 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 2912, 800, 96, 96 )
@@ -71,7 +67,6 @@
 2/shapes = [  ]
 2/z_index = 0
 3/name = "tiles.png 3"
-3/texture = ExtResource( 2 )
 3/tex_offset = Vector2( 0, 0 )
 3/modulate = Color( 1, 1, 1, 1 )
 3/region = Rect2( 3008, 0, 192, 224 )
@@ -87,7 +82,6 @@
 3/shapes = [  ]
 3/z_index = 0
 4/name = "tiles.png 4"
-4/texture = ExtResource( 2 )
 4/tex_offset = Vector2( 0, 0 )
 4/modulate = Color( 1, 1, 1, 1 )
 4/region = Rect2( 4096, 896, 64, 96 )
@@ -103,7 +97,6 @@
 4/shapes = [  ]
 4/z_index = 0
 5/name = "tiles.png 5"
-5/texture = ExtResource( 2 )
 5/tex_offset = Vector2( 0, 0 )
 5/modulate = Color( 1, 1, 1, 1 )
 5/region = Rect2( 5824, 32, 224, 32 )
@@ -119,7 +112,6 @@
 5/shapes = [  ]
 5/z_index = 0
 6/name = "tiles.png 6"
-6/texture = ExtResource( 2 )
 6/tex_offset = Vector2( 0, 0 )
 6/modulate = Color( 1, 1, 1, 1 )
 6/region = Rect2( 5696, 192, 32, 32 )
@@ -129,7 +121,6 @@
 6/shapes = [  ]
 6/z_index = 0
 7/name = "tiles.png 7"
-7/texture = ExtResource( 2 )
 7/tex_offset = Vector2( 0, 0 )
 7/modulate = Color( 1, 1, 1, 1 )
 7/region = Rect2( 5728, 192, 32, 32 )
@@ -139,7 +130,6 @@
 7/shapes = [  ]
 7/z_index = 0
 8/name = "tiles.png 8"
-8/texture = ExtResource( 2 )
 8/tex_offset = Vector2( 0, 0 )
 8/modulate = Color( 1, 1, 1, 1 )
 8/region = Rect2( 5760, 192, 32, 32 )
@@ -149,7 +139,6 @@
 8/shapes = [  ]
 8/z_index = 0
 9/name = "tiles.png 9"
-9/texture = ExtResource( 2 )
 9/tex_offset = Vector2( 0, 0 )
 9/modulate = Color( 1, 1, 1, 1 )
 9/region = Rect2( 5696, 224, 32, 32 )
@@ -159,7 +148,6 @@
 9/shapes = [  ]
 9/z_index = 0
 10/name = "tiles.png 10"
-10/texture = ExtResource( 2 )
 10/tex_offset = Vector2( 0, 0 )
 10/modulate = Color( 1, 1, 1, 1 )
 10/region = Rect2( 5728, 224, 32, 32 )
@@ -169,7 +157,6 @@
 10/shapes = [  ]
 10/z_index = 0
 11/name = "tiles.png 11"
-11/texture = ExtResource( 2 )
 11/tex_offset = Vector2( 0, 0 )
 11/modulate = Color( 1, 1, 1, 1 )
 11/region = Rect2( 5760, 224, 32, 32 )
@@ -179,7 +166,6 @@
 11/shapes = [  ]
 11/z_index = 0
 12/name = "tiles.png 12"
-12/texture = ExtResource( 2 )
 12/tex_offset = Vector2( 0, 0 )
 12/modulate = Color( 1, 1, 1, 1 )
 12/region = Rect2( 5696, 64, 32, 32 )
@@ -189,7 +175,6 @@
 12/shapes = [  ]
 12/z_index = 0
 13/name = "tiles.png 13"
-13/texture = ExtResource( 2 )
 13/tex_offset = Vector2( 0, 0 )
 13/modulate = Color( 1, 1, 1, 1 )
 13/region = Rect2( 5696, 96, 32, 32 )
@@ -199,7 +184,6 @@
 13/shapes = [  ]
 13/z_index = 0
 14/name = "tiles.png 14"
-14/texture = ExtResource( 2 )
 14/tex_offset = Vector2( 0, 0 )
 14/modulate = Color( 1, 1, 1, 1 )
 14/region = Rect2( 5696, 128, 32, 32 )
@@ -209,7 +193,6 @@
 14/shapes = [  ]
 14/z_index = 0
 15/name = "tiles.png 15"
-15/texture = ExtResource( 2 )
 15/tex_offset = Vector2( 0, 0 )
 15/modulate = Color( 1, 1, 1, 1 )
 15/region = Rect2( 5696, 32, 32, 32 )
@@ -219,7 +202,6 @@
 15/shapes = [  ]
 15/z_index = 0
 16/name = "tiles.png 16"
-16/texture = ExtResource( 2 )
 16/tex_offset = Vector2( 0, 0 )
 16/modulate = Color( 1, 1, 1, 1 )
 16/region = Rect2( 2912, 800, 96, 96 )
@@ -241,13 +223,13 @@
 size = 12
 outline_size = 1
 outline_color = Color( 0.466667, 0.466667, 0.466667, 1 )
-font_data = ExtResource( 8 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 12
 outline_size = 1
 outline_color = Color( 0.196078, 0.196078, 0.196078, 1 )
-font_data = ExtResource( 8 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.952941, 0.145098, 0.12549, 1 )
@@ -320,13 +302,13 @@ size = 12
 outline_size = 1
 outline_color = Color( 0.386719, 0.386719, 0.386719, 1 )
 use_mipmaps = true
-font_data = ExtResource( 8 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=14]
-font_data = ExtResource( 8 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=15]
-font_data = ExtResource( 8 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="StyleBoxFlat" id=16]
 bg_color = Color( 0, 0, 0, 1 )
@@ -337,7 +319,7 @@ outline_size = 1
 outline_color = Color( 0.301961, 0.294118, 0.294118, 1 )
 use_mipmaps = true
 use_filter = true
-font_data = ExtResource( 8 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="StyleBoxFlat" id=18]
 bg_color = Color( 0.32549, 0.278431, 0.254902, 1 )
@@ -397,7 +379,7 @@ __meta__ = {
 [node name="RichTextLabel" type="RichTextLabel" parent="Rooms/room"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 bbcode_enabled = true
 bbcode_text = "百花谷"
 text = "百花谷"
@@ -417,13 +399,13 @@ margin_top = -140.908
 margin_right = -129.094
 margin_bottom = -7.90796
 rect_pivot_offset = Vector2( 62.8445, 69.1595 )
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Rooms/room_w"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = -100.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 bbcode_enabled = true
 
 [node name="Position2D" type="Position2D" parent="Rooms/room_w"]
@@ -453,7 +435,7 @@ rect_pivot_offset = Vector2( 62.3897, 62.4628 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = -99.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 bbcode_enabled = true
 
 [node name="Position2D" type="Position2D" parent="Rooms/room_e"]
@@ -483,7 +465,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -1.0
 margin_bottom = -96.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 bbcode_enabled = true
 
 [node name="Position2D" type="Position2D" parent="Rooms/room_s"]
@@ -512,7 +494,7 @@ rect_pivot_offset = Vector2( 62.3897, 62.4628 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = -91.0004
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 bbcode_enabled = true
 
 [node name="Position2D" type="Position2D" parent="Rooms/room_n"]
@@ -541,7 +523,7 @@ rect_pivot_offset = Vector2( 62.3897, 62.4628 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = -88.9995
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 bbcode_enabled = true
 
 [node name="Position2D" type="Position2D" parent="Rooms/room_in"]
@@ -570,7 +552,7 @@ rect_pivot_offset = Vector2( 62.3897, 62.4628 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = -88.9995
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 bbcode_enabled = true
 
 [node name="Position2D" type="Position2D" parent="Rooms/room_enter"]
@@ -600,7 +582,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -2.0
 margin_bottom = -94.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 bbcode_enabled = true
 
 [node name="Position2D" type="Position2D" parent="Rooms/room_out"]
@@ -630,7 +612,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -2.0
 margin_bottom = -94.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 bbcode_enabled = true
 
 [node name="Position2D" type="Position2D" parent="Rooms/room_wu"]
@@ -661,7 +643,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -2.0
 margin_bottom = -94.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 bbcode_enabled = true
 
 [node name="Position2D" type="Position2D" parent="Rooms/room_nw"]
@@ -692,7 +674,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -2.0
 margin_bottom = -94.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 bbcode_enabled = true
 
 [node name="Position2D" type="Position2D" parent="Rooms/room_wd"]
@@ -723,7 +705,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -2.0
 margin_bottom = -94.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 bbcode_enabled = true
 
 [node name="Position2D" type="Position2D" parent="Rooms/room_sw"]
@@ -754,7 +736,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -2.0
 margin_bottom = -94.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 bbcode_enabled = true
 
 [node name="Position2D" type="Position2D" parent="Rooms/room_d"]
@@ -785,7 +767,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -2.0
 margin_bottom = -94.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 bbcode_enabled = true
 
 [node name="Position2D" type="Position2D" parent="Rooms/room_ed"]
@@ -816,7 +798,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -2.0
 margin_bottom = -94.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 bbcode_enabled = true
 
 [node name="Position2D" type="Position2D" parent="Rooms/room_se"]
@@ -847,7 +829,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -2.0
 margin_bottom = -94.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 bbcode_enabled = true
 
 [node name="Position2D" type="Position2D" parent="Rooms/room_eu"]
@@ -878,7 +860,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -2.0
 margin_bottom = -94.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 bbcode_enabled = true
 
 [node name="Position2D" type="Position2D" parent="Rooms/room_ne"]
@@ -909,7 +891,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -2.0
 margin_bottom = -94.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 bbcode_enabled = true
 
 [node name="Position2D" type="Position2D" parent="Rooms/room_u"]
@@ -932,7 +914,7 @@ margin_right = 967.0
 margin_bottom = 40.0
 color = Color( 0, 0, 0, 0.560784 )
 
-[node name="Node2D" parent="TimeNode/ColorRect" instance=ExtResource( 4 )]
+[node name="Node2D" parent="TimeNode/ColorRect" instance=ExtResource( 3 )]
 position = Vector2( 304.625, 3.25802 )
 
 [node name="RoomPanel" type="NinePatchRect" parent="."]
@@ -941,7 +923,7 @@ margin_left = 1.0
 margin_top = 1.0
 margin_right = 293.0
 margin_bottom = 259.0
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 patch_margin_left = 8
 patch_margin_top = 8
 patch_margin_right = 8
@@ -954,7 +936,7 @@ margin_left = 5.0
 margin_top = 10.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 20 )
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 
 [node name="Button" type="Button" parent="RoomPanel/Objects"]
 margin_right = 60.0
@@ -968,14 +950,14 @@ margin_left = 8.0
 margin_top = 8.0
 margin_right = -8.0
 margin_bottom = -8.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 
 [node name="RoomName" type="RichTextLabel" parent="RoomPanel/VBoxContainer"]
 margin_right = 276.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 0, 30 )
 size_flags_horizontal = 3
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 bbcode_enabled = true
 bbcode_text = "百花谷"
 text = "百花谷"
@@ -986,7 +968,7 @@ margin_right = 276.0
 margin_bottom = 238.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 bbcode_enabled = true
 bbcode_text = "这里是一座极大的菜园，种满了油菜，萝卜，茄子，丝瓜之类。周围的篱笆都破了，看来要整修了。菜园旁有几口大缸，里面盛满了水，可是菜地看起来都干裂了，几棵菜蔫蔫的长着，是缺水太多了"
 text = "这里是一座极大的菜园，种满了油菜，萝卜，茄子，丝瓜之类。周围的篱笆都破了，看来要整修了。菜园旁有几口大缸，里面盛满了水，可是菜地看起来都干裂了，几棵菜蔫蔫的长着，是缺水太多了"
@@ -997,7 +979,7 @@ editor/display_folded = true
 margin_top = 242.0
 margin_right = 276.0
 margin_bottom = 242.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 
 [node name="Button" type="Button" parent="RoomPanel/VBoxContainer/Items"]
 visible = false
@@ -1012,8 +994,8 @@ margin_left = 0.0505371
 margin_top = 261.0
 margin_right = 298.051
 margin_bottom = 572.0
-theme = ExtResource( 3 )
-texture = ExtResource( 5 )
+theme = ExtResource( 2 )
+texture = ExtResource( 4 )
 patch_margin_left = 8
 patch_margin_top = 8
 patch_margin_right = 8
@@ -1034,7 +1016,7 @@ margin_bottom = -8.0
 margin_right = 282.0
 margin_bottom = 295.0
 size_flags_vertical = 3
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 bbcode_enabled = true
 
 [node name="ActorList" type="ItemList" parent="RoomMessage/VBoxContainer"]
@@ -1043,8 +1025,8 @@ margin_top = 165.0
 margin_right = 282.0
 margin_bottom = 261.0
 rect_min_size = Vector2( 0, 96 )
-theme = ExtResource( 3 )
-items = [ "管家", ExtResource( 6 ), false, "孙悟", ExtResource( 7 ), false ]
+theme = ExtResource( 2 )
+items = [ "管家", ExtResource( 5 ), false, "孙悟", ExtResource( 6 ), false ]
 max_columns = 6
 same_column_width = true
 icon_mode = 0
@@ -1062,35 +1044,35 @@ alignment = 2
 margin_left = 30.0
 margin_right = 58.0
 margin_bottom = 30.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 text = "吃"
 
 [node name="ActionButton2" type="Button" parent="RoomMessage/VBoxContainer/Actions"]
 margin_left = 70.0
 margin_right = 114.0
 margin_bottom = 30.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 text = "动作"
 
 [node name="ActionButton3" type="Button" parent="RoomMessage/VBoxContainer/Actions"]
 margin_left = 126.0
 margin_right = 170.0
 margin_bottom = 30.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 text = "动作"
 
 [node name="ActionButton4" type="Button" parent="RoomMessage/VBoxContainer/Actions"]
 margin_left = 182.0
 margin_right = 226.0
 margin_bottom = 30.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 text = "动作"
 
 [node name="ActionButton5" type="Button" parent="RoomMessage/VBoxContainer/Actions"]
 margin_left = 238.0
 margin_right = 282.0
 margin_bottom = 30.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 text = "动作"
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="."]
@@ -1099,7 +1081,7 @@ margin_left = 2.0
 margin_top = 574.0
 margin_right = 169.0
 margin_bottom = 714.0
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 patch_margin_left = 8
 patch_margin_top = 8
 patch_margin_right = 8
@@ -1124,7 +1106,7 @@ margin_right = 46.0
 margin_bottom = 37.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 
 [node name="Door02" type="Button" parent="NinePatchRect2/GridContainer"]
 margin_left = 50.0
@@ -1132,7 +1114,7 @@ margin_right = 96.0
 margin_bottom = 37.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 
 [node name="Door03" type="Button" parent="NinePatchRect2/GridContainer"]
 margin_left = 100.0
@@ -1140,7 +1122,7 @@ margin_right = 146.0
 margin_bottom = 37.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 
 [node name="Door04" type="Button" parent="NinePatchRect2/GridContainer"]
 margin_top = 41.0
@@ -1148,7 +1130,7 @@ margin_right = 46.0
 margin_bottom = 78.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 
 [node name="Door05" type="Button" parent="NinePatchRect2/GridContainer"]
 margin_left = 50.0
@@ -1157,7 +1139,7 @@ margin_right = 96.0
 margin_bottom = 78.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 
 [node name="Door06" type="Button" parent="NinePatchRect2/GridContainer"]
 margin_left = 100.0
@@ -1166,7 +1148,7 @@ margin_right = 146.0
 margin_bottom = 78.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 
 [node name="Door07" type="Button" parent="NinePatchRect2/GridContainer"]
 margin_top = 82.0
@@ -1174,7 +1156,7 @@ margin_right = 46.0
 margin_bottom = 119.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 
 [node name="Door08" type="Button" parent="NinePatchRect2/GridContainer"]
 margin_left = 50.0
@@ -1183,7 +1165,7 @@ margin_right = 96.0
 margin_bottom = 119.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 
 [node name="Door09" type="Button" parent="NinePatchRect2/GridContainer"]
 margin_left = 100.0
@@ -1192,7 +1174,7 @@ margin_right = 146.0
 margin_bottom = 119.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 
 [node name="ActorStatus" type="NinePatchRect" parent="."]
 editor/display_folded = true
@@ -1200,7 +1182,7 @@ margin_left = 813.004
 margin_top = 570.385
 margin_right = 1135.0
 margin_bottom = 715.385
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 patch_margin_left = 8
 patch_margin_top = 8
 patch_margin_right = 8
@@ -1256,7 +1238,7 @@ percent_visible = false
 margin_left = 238.0
 margin_right = 301.0
 margin_bottom = 24.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 text = "[50/100]"
 
 [node name="Jingbox" type="HBoxContainer" parent="ActorStatus/VBoxContainer"]
@@ -1286,7 +1268,7 @@ percent_visible = false
 margin_left = 238.0
 margin_right = 301.0
 margin_bottom = 24.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 text = "[50/100]"
 
 [node name="Neibox" type="HBoxContainer" parent="ActorStatus/VBoxContainer"]
@@ -1316,7 +1298,7 @@ percent_visible = false
 margin_left = 238.0
 margin_right = 301.0
 margin_bottom = 24.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 text = "[50/100]"
 
 [node name="FoodBox" type="HBoxContainer" parent="ActorStatus/VBoxContainer"]
@@ -1346,7 +1328,7 @@ percent_visible = false
 margin_left = 238.0
 margin_right = 301.0
 margin_bottom = 24.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 text = "[50/100]"
 
 [node name="WaterBox" type="HBoxContainer" parent="ActorStatus/VBoxContainer"]
@@ -1376,7 +1358,7 @@ percent_visible = false
 margin_left = 238.0
 margin_right = 301.0
 margin_bottom = 24.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 text = "[50/100]"
 
 [node name="NinePatchRect4" type="NinePatchRect" parent="."]
@@ -1385,7 +1367,7 @@ margin_left = 1135.0
 margin_top = 571.0
 margin_right = 1277.0
 margin_bottom = 716.0
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 patch_margin_left = 8
 patch_margin_top = 8
 patch_margin_right = 8
@@ -1405,28 +1387,28 @@ margin_bottom = -10.0
 [node name="SaveRooms" type="Button" parent="NinePatchRect4/VBoxContainer"]
 margin_right = 122.0
 margin_bottom = 30.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 text = "SaveRooms"
 
 [node name="ActionButton02" type="Button" parent="NinePatchRect4/VBoxContainer"]
 margin_top = 34.0
 margin_right = 122.0
 margin_bottom = 64.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 
 [node name="ActionButton03" type="Button" parent="NinePatchRect4/VBoxContainer"]
 margin_top = 68.0
 margin_right = 122.0
 margin_bottom = 98.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 
 [node name="ActionButton04" type="Button" parent="NinePatchRect4/VBoxContainer"]
 margin_top = 102.0
 margin_right = 122.0
 margin_bottom = 132.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 
-[node name="ObjectRect" parent="." instance=ExtResource( 9 )]
+[node name="ObjectRect" parent="." instance=ExtResource( 8 )]
 visible = false
 
 [node name="CharacterPanel" type="NinePatchRect" parent="."]
@@ -1435,7 +1417,7 @@ margin_left = 972.0
 margin_top = 2.0
 margin_right = 1276.0
 margin_bottom = 570.0
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 patch_margin_left = 8
 patch_margin_top = 8
 patch_margin_right = 8
@@ -1456,7 +1438,7 @@ margin_bottom = 89.0
 [node name="Head" type="TextureRect" parent="CharacterPanel/PropContainer/HBoxContainer"]
 margin_right = 86.0
 margin_bottom = 89.0
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CharacterPanel/PropContainer/HBoxContainer"]
 editor/display_folded = true
@@ -1471,7 +1453,7 @@ margin_right = 198.0
 margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 bbcode_enabled = true
 bbcode_text = "老顽童"
 text = "老顽童"
@@ -1483,7 +1465,7 @@ margin_right = 198.0
 margin_bottom = 58.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 bbcode_enabled = true
 bbcode_text = "周伯通"
 text = "周伯通"
@@ -1495,7 +1477,7 @@ margin_right = 198.0
 margin_bottom = 89.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 bbcode_enabled = true
 bbcode_text = "全真教第一代弟子"
 text = "全真教第一代弟子"
@@ -1624,8 +1606,8 @@ margin_left = 173.0
 margin_top = 574.0
 margin_right = 814.0
 margin_bottom = 714.0
-theme = ExtResource( 3 )
-texture = ExtResource( 5 )
+theme = ExtResource( 2 )
+texture = ExtResource( 4 )
 patch_margin_left = 8
 patch_margin_top = 8
 patch_margin_right = 8
@@ -1638,7 +1620,7 @@ margin_left = 8.0
 margin_top = 8.0
 margin_right = -8.0
 margin_bottom = -8.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 bbcode_enabled = true
 scroll_following = true
 
@@ -1659,7 +1641,7 @@ margin_right = 507.0
 margin_bottom = 410.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 patch_margin_left = 8
 patch_margin_top = 8
 patch_margin_right = 8
@@ -1678,7 +1660,7 @@ margin_right = -124.5
 margin_bottom = 100.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 bbcode_enabled = true
 bbcode_text = "老顽童
 周伯通
@@ -1693,7 +1675,7 @@ margin_left = 8.0
 margin_top = 8.0
 margin_right = 94.0
 margin_bottom = 97.0
-texture = ExtResource( 11 )
+texture = ExtResource( 10 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -1704,7 +1686,7 @@ margin_left = 136.0
 margin_top = 4.0
 margin_right = -7.0
 margin_bottom = 79.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 custom_styles/normal = SubResource( 18 )
 bbcode_enabled = true
 bbcode_text = "他就是人称「老顽童」的周伯通。
@@ -1722,7 +1704,7 @@ margin_left = 135.0
 margin_top = 81.0
 margin_right = -8.0
 margin_bottom = 240.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 custom_styles/normal = SubResource( 19 )
 bbcode_enabled = true
 scroll_following = true
@@ -1731,21 +1713,21 @@ scroll_following = true
 anchor_left = 1.0
 anchor_right = 1.0
 margin_bottom = 30.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 text = "X"
 
 [node name="Actions" type="VBoxContainer" parent="ChatMessagePanel"]
 margin_top = 414.0
 margin_right = 507.0
 margin_bottom = 414.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 alignment = 2
 
 [node name="ActionButton1" type="Button" parent="ChatMessagePanel/Actions"]
 visible = false
 margin_right = 507.0
 margin_bottom = 30.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 text = "吃"
 
 [node name="ActionButton2" type="Button" parent="ChatMessagePanel/Actions"]
@@ -1753,7 +1735,7 @@ visible = false
 margin_top = 34.0
 margin_right = 507.0
 margin_bottom = 64.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 text = "动作"
 
 [node name="ActionButton3" type="Button" parent="ChatMessagePanel/Actions"]
@@ -1761,7 +1743,7 @@ visible = false
 margin_top = 68.0
 margin_right = 507.0
 margin_bottom = 98.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 text = "动作"
 
 [node name="ActionButton4" type="Button" parent="ChatMessagePanel/Actions"]
@@ -1769,14 +1751,14 @@ visible = false
 margin_top = 102.0
 margin_right = 507.0
 margin_bottom = 132.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 text = "动作"
 
 [node name="ActionButton5" type="Button" parent="ChatMessagePanel/Actions"]
 visible = false
 margin_right = 507.0
 margin_bottom = 30.0
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 text = "动作"
 
 [node name="AcceptDialog" type="AcceptDialog" parent="."]
@@ -1788,7 +1770,7 @@ margin_left = 473.722
 margin_top = 200.761
 margin_right = 845.722
 margin_bottom = 363.761
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 [connection signal="pressed" from="NinePatchRect4/VBoxContainer/SaveRooms" to="." method="_on_SaveRooms_pressed"]
 [connection signal="item_selected" from="CharacterPanel/PropContainer/ItemList" to="." method="_on_ItemList_item_selected"]
 [connection signal="pressed" from="ChatMessagePanel/ChatMessage/ChatClose" to="." method="_on_ChatClose_pressed"]

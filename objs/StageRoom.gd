@@ -131,13 +131,13 @@ func move_to_room(direct):
 func object_panel(ob:GameObject):
 	print_debug(ob.name())
 	$ObjectRect.show()
-	$ObjectRect/Name.bbcode_text = ob.query("name")
+	$ObjectRect/Name.text = ob.query("name")
 #	$ObjectRect/Type.text = ob.query("type")
 	$ObjectRect/Description.bbcode_text = ob.query("long")
 	var props = []
 	var prop_nodes = []
-	prop_nodes.append($ObjectRect/GridContainer/Prop1)
-	prop_nodes.append($ObjectRect/GridContainer/Prop2)
+#	prop_nodes.append($ObjectRect/GridContainer/Prop1)
+#	prop_nodes.append($ObjectRect/GridContainer/Prop2)
 	prop_nodes.append($ObjectRect/GridContainer/Prop3)
 	prop_nodes.append($ObjectRect/GridContainer/Prop4)
 	prop_nodes.append($ObjectRect/GridContainer/Prop5)
