@@ -790,4 +790,3 @@ allow_reselect = true
 max_columns = 5
 same_column_width = true
 icon_mode = 0
-

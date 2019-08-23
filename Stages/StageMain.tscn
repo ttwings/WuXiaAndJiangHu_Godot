@@ -6,8 +6,10 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
-outline_color = Color( 0, 0, 0, 1 )
+outline_size = 2
+outline_color = Color( 0, 0, 0, 0.52549 )
 use_mipmaps = true
+use_filter = true
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -96,4 +98,3 @@ custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.968627, 0.184314, 0.184314, 1 )
 text = "云游"
 flat = true
-

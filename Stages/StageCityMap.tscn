@@ -1,5 +1,0 @@
-[gd_scene format=2]
-
-[node name="StageCityMap" type="Node2D"]
-
-[node name="TileMapFloor" type="TileMap" parent="."]

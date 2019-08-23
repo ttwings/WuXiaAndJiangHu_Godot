@@ -446,6 +446,7 @@ position = Vector2( -7.60004, 21.85 )
 points = PoolVector2Array( 7.40326, 42.0586, -48.3873, 42.2114 )
 width = 40.0
 default_color = Color( 0.431373, 0.435294, 0.466667, 1 )
+texture_mode = 0
 
 [node name="room_s" type="Button" parent="Rooms"]
 editor/display_folded = true
@@ -1412,7 +1413,6 @@ theme = ExtResource( 2 )
 visible = false
 
 [node name="CharacterPanel" type="NinePatchRect" parent="."]
-editor/display_folded = true
 margin_left = 972.0
 margin_top = 2.0
 margin_right = 1276.0
@@ -1493,7 +1493,6 @@ text = "属性"
 align = 1
 
 [node name="GridContainer" type="GridContainer" parent="CharacterPanel/PropContainer"]
-editor/display_folded = true
 margin_top = 115.0
 margin_right = 288.0
 margin_bottom = 213.0

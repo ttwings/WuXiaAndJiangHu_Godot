@@ -53,7 +53,8 @@ func recruit_apprentice(ob):
 
 	if( ob.is_apprentice_of( this_object() ) ):
 		return 0;
-	if( !mapp(my_family = query("family")) ):
+	my_family = query("family")	
+	if( !mapp(my_family) ):
 		return 0;
 
 	family = allocate_mapping(sizeof(my_family));
