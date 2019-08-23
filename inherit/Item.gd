@@ -3,9 +3,9 @@ extends GameObject
 class_name Item
 
 ########################################  F_MOVE #####################################
-var weight : int = 0
-var encumb : int = 0
-var max_encumb : int = 0
+#var weight : int = 0
+#var encumb : int = 0
+#var max_encumb : int = 0
 func query_encumbrance():
 	return encumb
 func over_encumbranced():
@@ -106,16 +106,16 @@ func move(dest, silently:int = 1):
 	return 1;		
 
 # TODO. 先测试，后完善
-func move_object(ob):
-	print_debug(ob.name())
-	self.add_temp("objects",ob)
+#func move_object(ob):
+#	print_debug(ob.name())
+#	self.add_temp("objects",ob)
 
 ########################################  name ####################
 func set_name_cn(value1:String,value2:String):
 	dbase.name = value1
 	dbase.id = value2
 
-var my_id
+#var my_id
 func set_name(name,id):
 	set("name", name);
 	set("id", id);

@@ -31,6 +31,12 @@ const HBBLU = "[color=#3b2e7e]"
 const HBMAG = "[color=#815463]"
 const HBCYN = "[color=#00e09e]"
 const HBWHT = "[color=#f0fcff]"
+
+
+var dbase = {"objects" : {}}
+var tmp_dbase = {}
+var default_ob;
+
 var __DIR__ = dir()
 var __FILE__ = file_name()
 
@@ -46,10 +52,6 @@ func getuid(ob=self):
 func setuid(uid):
 	set("uid",uid)		
 
-var dbase = {"objects" : {}}
-var tmp_dbase = {}
-
-var default_ob;
 
 func query_default_object():
 	return default_ob
@@ -133,7 +135,7 @@ func setup():
 
 # TODO 判断对象是否还在
 func living(ob=self):
-	return -1
+	return is_instance_valid(ob)
 	
 # 销毁这件物品	
 func destruct(ob=self):

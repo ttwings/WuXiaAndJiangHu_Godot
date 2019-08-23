@@ -6,7 +6,7 @@ const RED = "[color=#ff0000]"
 const GRN = "[color=#00ff00]"
 const YEL = "[color=#ffff00]"
 const BLU = "[color=#0000ff]"
-const MAG = "[color=#ff0.0ff]"
+const MAG = "[color=#ff00ff]"
 const CYN = "[color=#00ffff]"
 const WHT = "[color=#ffffff]"   
 const HIR = "[color=#ff0000]"
@@ -32,6 +32,9 @@ const HBWHT = "[color=#f0fcff]"
 
 
 var player = Char.new()
+
+var player_save_data = gdutils.utils.json.load_json("res://data/user/l/lijia.json")
+
 var Room_gd
 var current_room
 var rooms = {}
@@ -45,6 +48,8 @@ var food
 var npc
 
 func _ready():
+	player.dbase = player_save_data.dbase
+	
 	# 初始房间. 等角色创建登录功能完成后.这里根据角色的home 属性,设置.
 	current_room = Global.load_room("res://d/changan/shuyuan.gd")
 	# 不同方向的房间房间太多,后期考虑精简. up 与 north  west up 和 north west等.
@@ -76,10 +81,10 @@ func _ready():
 	$RoomMessage/VBoxContainer/RichTextLabel.bbcode_text = map_file.get_as_text()
 #	current_room.get_dir()
 	food = load("res://clone/food/apple.gd").new()
-	object_panel(food)
+
 	player = Player.new().creat_user("res://data/user/l/lijia.gd")
 	player.carry_object("/clone/food/apple")
-	character_panel(player)
+
 #	npc test 对话
 	npc = load("res://d/baihuagu/npc/zhou.gd").new()
 	creat_chat_panel(npc)
@@ -124,92 +129,6 @@ func move_to_room(direct):
 #	生成房间包含对象,如物品,人物等
 	create_room_objects()
 	pass
-
-	
-
-#  object panel 	
-func object_panel(ob:GameObject):
-	print_debug(ob.name())
-	$ObjectRect.show()
-	$ObjectRect/Name.text = ob.query("name")
-#	$ObjectRect/Type.text = ob.query("type")
-	$ObjectRect/Description.bbcode_text = ob.query("long")
-	var props = []
-	var prop_nodes = []
-#	prop_nodes.append($ObjectRect/GridContainer/Prop1)
-#	prop_nodes.append($ObjectRect/GridContainer/Prop2)
-	prop_nodes.append($ObjectRect/GridContainer/Prop3)
-	prop_nodes.append($ObjectRect/GridContainer/Prop4)
-	prop_nodes.append($ObjectRect/GridContainer/Prop5)
-	prop_nodes.append($ObjectRect/GridContainer/Prop6)
-	prop_nodes.append($ObjectRect/GridContainer/Prop7)
-	prop_nodes.append($ObjectRect/GridContainer/Prop8)
-	
-	props = creat_props(ob)
-	for i in props.size() :
-#		if props[i]:
-#		var path = "ObjectRect/GridContainer/Prop" + str(1)
-		prop_nodes[i].show()
-		prop_nodes[i].text = props[i]
-	
-func creat_props(ob:GameObject):
-	var props = []
-	for k in ob.dbase:
-		match k:
-			"unit":
-				props.append("单位:" + ob.query(k))
-			"value":
-				props.append("价值:" + str(ob.query(k)))
-			"material":
-				props.append("材质:" + ob.query(k))
-			"food_remaining":
-				props.append("分量:" + str(ob.query(k)))
-			"food_supply":
-				props.append("饱腹:" + str(ob.query(k)))
-			"water_supply":
-				props.append("解渴:" + str(ob.query(k)))
-			"max_liquid":
-				props.append("容量:" + str(ob.query(k)))
-			"liquid":
-				var liquid = ob.query("liquid")
-				for k in liquid:
-					match k:
-						"name":
-							props.append("盛装:" + str(liquid.name))
-						"remaining":
-							props.append("分量:" + str(liquid.remaining))
-						"drunk_supply":
-							props.append("饮酒:" + str(liquid.drunk_supply))
-						"water_supply":
-							props.append("解渴:" + str(liquid.water_supply))
-	return props
-	
-
-# cha panel
-
-func character_panel(ob:Char):
-	#$CharacterRect.show()
-	$CharacterPanel/PropContainer/HBoxContainer/VBoxContainer/Name.bbcode_text = ob.query("name")
-#	$CharacterPanel/PropContainer/HBoxContainer/VBoxContainer/Title.text = ob.query("titile")
-#	$CharacterPanel/PropContainer/HBoxContainer/VBoxContainer/Nackname.text = ob.query("nackname")
-#	$CharacterRect/Description.bbcode_text = ob.query("long")
-	var props = []
-	var prop_nodes = []
-	prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop1)
-	prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop2)
-	prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop3)
-	prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop4)
-	prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop5)
-	prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop6)
-	prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop7)
-	prop_nodes.append($CharacterPanel/PropContainer/GridContainer/Prop8)
-#
-	props = creat_character_props(ob)
-	for i in props.size() :
-	#	if props[i]:
-	#	var path = "CharacterRect/GridContainer/Prop" + str(1)
-		prop_nodes[i].show()
-		prop_nodes[i].bbcode_text = props[i]
 		
 func creat_character_props(ob:Char):
 	var props = []
@@ -263,35 +182,35 @@ func message_ob(msg,ob):
 	
 func _process(delta):
 #	$RichTextLabelCharacter.bbcode_text = character_panel(me)
-	player_status(player)
+#	player_status(player)
 	pass	
 
-func player_status(player):
-	var qi = player.query("qi")
-	var max_qi = player.query("max_qi")
-	var jing = player.query("jing")
-	var max_jing = player.query("max_jing")
-	var neili = player.query("neili")
-	var max_neili = player.query("max_neili")
-	var food = player.query("food")
-	var water = player.query("water")
-	var max_food = player.max_food_capacity()
-	var max_water = player.max_water_capacity()
-	$ActorStatus/VBoxContainer/Qibox/ProgressBar.value = int(qi)
-	$ActorStatus/VBoxContainer/Qibox/ProgressBar.max_value = int(max_qi)
-	$ActorStatus/VBoxContainer/Qibox/Label2.text = "[" + str(qi) + "/" + str(max_qi) + "]"
-	$ActorStatus/VBoxContainer/Jingbox/ProgressBar.value  = int(jing)
-	$ActorStatus/VBoxContainer/Jingbox/ProgressBar.max_value  = int(max_jing)
-	$ActorStatus/VBoxContainer/Jingbox/Label2.text  = "[" + str(jing) + "/" + str(max_jing) + "]"
-	$ActorStatus/VBoxContainer/Neibox/ProgressBar.value = int(neili)
-	$ActorStatus/VBoxContainer/Neibox/ProgressBar.max_value = int(max_neili)
-	$ActorStatus/VBoxContainer/Neibox/Label2.text  = "[" + str(neili) + "/" + str(max_neili) + "]"
-	$ActorStatus/VBoxContainer/FoodBox/ProgressBar.value = int(food)
-	$ActorStatus/VBoxContainer/FoodBox/ProgressBar.max_value = max_food
-	$ActorStatus/VBoxContainer/FoodBox/Label2.text  = "[" + str(food) + "/" + str(max_food) + "]"
-	$ActorStatus/VBoxContainer/WaterBox/ProgressBar.value = int(water)
-	$ActorStatus/VBoxContainer/WaterBox/ProgressBar.max_value = max_water
-#	$ActorStatus/VBoxContainer/Waterbox/Label2.text  = "[" + str(water) + "/" + str(max_water) + "]"
+#func player_status(player):
+#	var qi = player.query("qi")
+#	var max_qi = player.query("max_qi")
+#	var jing = player.query("jing")
+#	var max_jing = player.query("max_jing")
+#	var neili = player.query("neili")
+#	var max_neili = player.query("max_neili")
+#	var food = player.query("food")
+#	var water = player.query("water")
+#	var max_food = player.max_food_capacity()
+#	var max_water = player.max_water_capacity()
+#	$ActorStatus/VBoxContainer/Qibox/ProgressBar.value = int(qi)
+#	$ActorStatus/VBoxContainer/Qibox/ProgressBar.max_value = int(max_qi)
+#	$ActorStatus/VBoxContainer/Qibox/Label2.text = "[" + str(qi) + "/" + str(max_qi) + "]"
+#	$ActorStatus/VBoxContainer/Jingbox/ProgressBar.value  = int(jing)
+#	$ActorStatus/VBoxContainer/Jingbox/ProgressBar.max_value  = int(max_jing)
+#	$ActorStatus/VBoxContainer/Jingbox/Label2.text  = "[" + str(jing) + "/" + str(max_jing) + "]"
+#	$ActorStatus/VBoxContainer/Neibox/ProgressBar.value = int(neili)
+#	$ActorStatus/VBoxContainer/Neibox/ProgressBar.max_value = int(max_neili)
+#	$ActorStatus/VBoxContainer/Neibox/Label2.text  = "[" + str(neili) + "/" + str(max_neili) + "]"
+#	$ActorStatus/VBoxContainer/FoodBox/ProgressBar.value = int(food)
+#	$ActorStatus/VBoxContainer/FoodBox/ProgressBar.max_value = max_food
+#	$ActorStatus/VBoxContainer/FoodBox/Label2.text  = "[" + str(food) + "/" + str(max_food) + "]"
+#	$ActorStatus/VBoxContainer/WaterBox/ProgressBar.value = int(water)
+#	$ActorStatus/VBoxContainer/WaterBox/ProgressBar.max_value = max_water
+##	$ActorStatus/VBoxContainer/Waterbox/Label2.text  = "[" + str(water) + "/" + str(max_water) + "]"
 
 # 初始化玩家物品栏.
 # 进入游戏后.玩家的objects里面由路径变为对象.
@@ -405,8 +324,8 @@ func create_room_object_panel(ob):
 	if ob is Char:
 		creat_chat_panel(ob)
 #	TODO all object except food use only 1 panel
-	elif ob is Food:
-		object_panel(ob)
+#	elif ob is Food:
+#		object_panel(ob)
 #		object_panel(o)
 #		creat_chat_panel(objects[o])
 #	包裹ItemList 生成
@@ -422,33 +341,33 @@ func _on_ChatClose_pressed():
 	$ChatMessagePanel.hide()
 	pass # Replace with function body.
 
+#
+#func _on_ActionButton1_pressed():
+#	# food.do_eat(player)
+#	var msg = food.do_eat(player)
+#	var old_msg = $ObjectMessage/RichTextLabel.bbcode_text
+#	# print_debug(old_msg)
+#	object_panel(food)
+#	var time = OS.get_datetime()
+#	$ObjectMessage/RichTextLabel.bbcode_text =old_msg + "[%2d:%2d:%2d] " % [time.hour,time.minute,time.second] +  msg
+#	pass # Replace with function body.
 
-func _on_ActionButton1_pressed():
-	# food.do_eat(player)
-	var msg = food.do_eat(player)
-	var old_msg = $ObjectMessage/RichTextLabel.bbcode_text
-	# print_debug(old_msg)
-	object_panel(food)
-	var time = OS.get_datetime()
-	$ObjectMessage/RichTextLabel.bbcode_text =old_msg + "[%2d:%2d:%2d] " % [time.hour,time.minute,time.second] +  msg
+
+func _on_ObjectPanelButton_pressed():
+	$ObjectPanel.hide()
 	pass # Replace with function body.
 
-
-func _on_ObjectRectButton_pressed():
-	$ObjectRect.hide()
-	pass # Replace with function body.
-
-
-func _on_ItemList_item_selected(list):
-	var item = $CharacterPanel/PropContainer/ItemList.get_item_text(list)
-	var objs = player.query("objects")
-	print_debug(objs)
-	var ob
-	for o in objs:
-		ob = o
-	print_debug(ob)	
-	object_panel(ob)
-	$ObjectRect.show()
+#
+#func _on_ItemList_item_selected(list):
+#	var item = $CharacterPanel/PropContainer/ItemList.get_item_text(list)
+#	var objs = player.query("objects")
+#	print_debug(objs)
+#	var ob
+#	for o in objs:
+#		ob = o
+#	print_debug(ob)	
+##	object_panel(ob)
+#	$ObjectPanel.show()
 	
 	pass # Replace with function body.
 # Replace with function body.

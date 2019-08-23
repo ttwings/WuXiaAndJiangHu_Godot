@@ -32,3 +32,12 @@ func _init():
 
 func  destruct_me(me):
 	destruct(me);
+
+func sizeof(array):
+	if not array is Array :
+		return 0
+	else:
+		return array.size()
+		
+func random(n:int):
+	return randi()%n		

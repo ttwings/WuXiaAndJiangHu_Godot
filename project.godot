@@ -124,6 +124,7 @@ config/icon="res://icon.png"
 
 Global="*res://Global.gd"
 CHINESE_D="*res://adm/daemons/CHINESE_D.gd"
+gdutils="*res://addons/gdutils/__init__.gd"
 
 [debug]
 
@@ -199,6 +200,12 @@ B={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":75,"unicode":0,"echo":false,"script":null)
  ]
 }
+
+[locale]
+
+fallback="zh_CN"
+translations=PoolStringArray( "res://lang/lang_base.en.translation", "res://lang/lang_base.zh_CN.translation" )
+locale_filter=[ 0, [ "zh_CN" ] ]
 
 [physics]
 
