@@ -15,7 +15,28 @@ food_supply,饱腹,Supply
 Save,保存,Save
 Load,载入,Load
 int,悟性,INT
-str,臂力,STR
+str,膂力,STR
 dex,身法,DEX
 qi,气血,HP
 jin,精力,AP
+con,根骨,CON
+sta,耐力,STA
+spi,灵性,SPI
+kar,福源,KAR
+per,容貌,PER
+cps,定力,CPS
+cor,胆识,COR
+name,名称,Name
+age,年龄,Age
+inquiry,话题,Inquiry
+long,描述,"long
+Long"
+family,所属,family
+family_name,势力名称,family name
+generation,辈分,generation
+quest_exp,阅历,quest exp
+combat_exp,经验,combat exp
+armor,防御,armor
+start_room,来自,start room
+master_dir,师承,master dir
+attitude,态度,attitude

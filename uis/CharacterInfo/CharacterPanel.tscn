@@ -580,7 +580,7 @@ margin_left = 70.0
 margin_top = 0.340569
 margin_right = 110.0
 margin_bottom = 17.3406
-text = "65"
+text = "0"
 valign = 1
 
 [node name="Label_neili" type="Label" parent="PanelAttribute"]

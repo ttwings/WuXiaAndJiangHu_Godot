@@ -3,7 +3,7 @@ extends Control
 
 #var player_data setget ,get_player_data
 
-var player_data = gdutils.utils.json.load_json("res://data/user/l/lijia.json")
+var player_data = gdutils.utils.json.load_json("user://data/user/id.json")
 
 func _ready():
 #	player_data = gdutils.utils.json.load_json("res://data/user/l/lijia.json")

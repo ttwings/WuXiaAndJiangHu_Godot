@@ -33,7 +33,7 @@ const HBWHT = "[color=#f0fcff]"
 
 var player = Char.new()
 
-var player_save_data = gdutils.utils.json.load_json("res://data/user/l/lijia.json")
+var player_save_data = gdutils.utils.json.load_json("user://data/user/id.json")
 
 var Room_gd
 var current_room

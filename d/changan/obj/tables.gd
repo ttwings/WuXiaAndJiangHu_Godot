@@ -23,7 +23,9 @@ var suffixs  = [
 ]
 
 func create():
-	set_name(prefixs[random(sizeof(prefixs))]+names[random(sizeof(names))]+suffixs[random(sizeof(suffixs))],"table"));
+	var name = prefixs[random(sizeof(prefixs))]+ \
+		names[random(sizeof(names))]+suffixs[random(sizeof(suffixs))]
+	set_name(name,"table");
 	set_weight(30000);
 	set("long",  "这是一张桌子。\n"  );
 	set("unit",  "张");

@@ -9,6 +9,6 @@ func _ready():
 	dbase = player_data.dbase
 	max_food = dbase["str"]*5 + 300
 	max_value = max_food
-	value = int(get_node("../../Label_food/value").text)
+	value = int(dbase.food)
 	get_node("../value").text = str(player_data.dbase["food"])
 	pass

@@ -1,16 +1,21 @@
 ﻿,zh_CN,en
-do_eat,吃,eat
-do_drink,喝,drink
-do_read,读,read
-do_look,看,look
-race,种族,race
-where,地点,where
+do_eat,吃,Eat
+do_drink,喝,Drink
+do_read,读,Read
+do_look,看,Look
+race,种族,Race
+where,地点,Where
 current_master,师傅,current master
-max_qi,最大气血,max qi
-neili,内力,neili
-unit,单位,unit
-value,价值,value
-food_remaining,份量,remaining
-food_supply,饱腹,supply
+max_qi,最大气血,HP.Max
+neili,内力,SP
+unit,单位,Unit
+value,价值,Value
+food_remaining,份量,Remaining
+food_supply,饱腹,Supply
 Save,保存,Save
 Load,载入,Load
+int,悟性,INT
+str,臂力,STR
+dex,身法,DEX
+qi,气血,HP
+jin,精力,AP

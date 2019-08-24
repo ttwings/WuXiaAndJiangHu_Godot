@@ -1176,6 +1176,9 @@ patch_margin_bottom = 8
 [node name="NinePatchRect" parent="CharacterPanel/Panel/PanelAttribute" index="0"]
 visible = false
 
+[node name="value" parent="CharacterPanel/Panel/PanelAttribute/Label_food" index="0"]
+text = "100"
+
 [node name="ObjectMessage" type="NinePatchRect" parent="."]
 editor/display_folded = true
 anchor_top = 1.0
