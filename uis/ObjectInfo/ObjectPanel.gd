@@ -4,7 +4,7 @@ var player
 var item
 
 func _ready() -> void:
-	TranslationServer.set_locale("en")
+	TranslationServer.set_locale("zh_CN")
 	player = load("res://d/baihuagu/npc/zhou.gd").new()
 #	player.creat_user("res://data/user/l/lijia.gd")
 	item = load("res://clone/food/apple.gd").new()
@@ -20,18 +20,6 @@ var actions = {
 	do_drink = "喝",
 	do_read = "读",
 	do_look = "看",
-}
-
-var classes = {
-	Food = "食物",
-	
-}
-
-var translates = {
-	unit = "单位",
-	value = "价格",
-	food_remaining = "份数",
-	food_supply = "饱腹"
 }
 
 func get_item_info(item):
@@ -52,7 +40,7 @@ func connect_action(item,actor):
 	for key in actions :
 		if item.has_method(key):
 			var button = Button.new()
-			button.text = actions[key]
+			button.text = tr(key)
 			button.connect("pressed",item,key,[actor])	
 			$HBoxContainer.add_child(button)
 
