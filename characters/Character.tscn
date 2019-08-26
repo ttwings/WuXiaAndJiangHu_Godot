@@ -111,5 +111,4 @@ cast_to = Vector2( 0, -32 )
 [node name="HeadImage" type="Sprite" parent="."]
 visible = false
 texture = ExtResource( 2 )
-
 [connection signal="tween_completed" from="MoveTween" to="." method="_on_MoveTween_tween_completed"]

@@ -4,10 +4,53 @@
 #	should inherit this as its skeleton.
 
 # inherit F_CLEAN_UP;
+# const color -----------------------------------
+const NOR = "[/color]"
+const BLK = "[color=#000000]"
+const RED = "[color=#ff0000]"
+const GRN = "[color=#00ff00]"
+const YEL = "[color=#ffff00]"
+const BLU = "[color=#0000ff]"
+const MAG = "[color=#ff0.0ff]"
+const CYN = "[color=#00ffff]"
+const WHT = "[color=#ffffff]"   
+const HIR = "[color=#ff0000]"
+const HIG = "[color=#00ff00]"
+const HIY = "[color=#ffff00]"
+const HIB = "[color=#44cef6]"
+const HIM = "[color=#ff00ff]"
+const HIC = "[color=#177cb0]"
+const HIW = "[color=#e9e7ef]"
+const BRED = "[color=#ff2121]"
+const BGRN = "[color=#00e500]"
+const BYEL = "[color=#ffb61e]"
+const BBLU = "[color=#4b5cc4]"
+const BMAG = "[color=#8d4bbb]"
+const BCYN = "[color=#1685a9]"
+const HBRED = "[color=#ff2121]"
+const HBGRN = "[color=#40de5a]"
+const HBYEL = "[color=#eacd76]"
+const HBBLU = "[color=#3b2e7e]"
+const HBMAG = "[color=#815463]"
+const HBCYN = "[color=#00e09e]"
+const HBWHT = "[color=#f0fcff]"
+
 class_name Skill
 
+var info = []
+
+func _init() -> void:
+	help()
+	
+func help():
+	pass
+	
+func notify_fail(s):
+	print_debug(s)		
+
 func create():
-	seteuid(getuid());
+#	seteuid(getuid());
+	pass
 
 #
 # valid_learn()
@@ -58,67 +101,71 @@ func skill_improved(me) :
 # that takes the function name as argument and return the file name that
 # defines the specified function. 
 
-func exert_function(me,arg:String):
-	var func_
-	var target
-	var file
-	var target_ob;
-
-	if( sscanf(arg, "%s %s", func_, target)==2 ) :
-		target_ob = present(target, environment(me));
-		if( !target_ob ) return notify_fail("这里没有 " + target + "。\n");
-	else :
-		func_ = arg;
-		target_ob = me;
-	
-	file = this_object().exert_function_file(func_)
-	if( !stringp(file) || file_size(file + ".c") <= 0 ):
-		return 0;
-
-	return call_other( file, "exert", me, target_ob);
-
-func perform_action(object me, string arg):
-	string action, target, file;
-	object target_ob;
-
-	if( sscanf(arg, "%s %s", action, target)==2 ) :
-		target_ob = present(target, environment(me));
-		if( !target_ob ) return notify_fail("这里没有 " + target + "。\n");
-	else :
-		action = arg;
-
-	file = this_object().perform_action_file(action)
-	if( !stringp(file) || file_size(file + ".c") <= 0 ):
-		return 0;
-
-	return call_other( file, "perform", me, target_ob);
-
-
-func cast_spell(object me, string spell, object target):
-	string file;
-
-	notify_fail("你所选用的咒文系中没有这种咒文。\n");
-	file = this_object().cast_spell_file(spell)
-	if( !stringp(file) || file_size(file + ".c") <= 0 ):
-		return 0;
-
-	return (int)call_other( file, "cast", me, target);
+#func exert_function(me,arg:String):
+#	var func_
+#	var target
+#	var file
+#	var target_ob;
+#
+#	if( sscanf(arg, "%s %s", func_, target)==2 ) :
+#		target_ob = present(target, environment(me));
+#		if( !target_ob ) :
+#			return notify_fail("这里没有 " + target + "。\n");
+#	else :
+#		func_ = arg;
+#		target_ob = me;
+#
+#	file = this_object().exert_function_file(func_)
+#	if( !stringp(file) || file_size(file + ".c") <= 0 ):
+#		return 0;
+#
+#	return call_other( file, "exert", me, target_ob);
+#
+#func perform_action(me, arg):
+#	var action
+#	var target
+#	var file;
+#	var target_ob;
+#
+#	if( sscanf(arg, "%s %s", action, target)==2 ) :
+#		target_ob = present(target, environment(me));
+#		if( !target_ob ) :
+#			return notify_fail("这里没有 " + target + "。\n");
+#	else :
+#		action = arg;
+#
+#	file = this_object().perform_action_file(action)
+#	if( !stringp(file) || file_size(file + ".c") <= 0 ):
+#		return 0;
+#
+#	return call_other( file, "perform", me, target_ob);
 
 
-func conjure_magic(object me, string spell, object target):
-	var file;
-	notify_fail("你所选用的法术系中没有这种法术。\n");
-	file = this_object().conjure_magic_file(spell)
-	if( !stringp(file) || file_size(file + ".c") <= 0 ):
-		return 0;
-	return call_other( file, "conjure", me, target);
-
-func scribe_spell(object me, object ob, string spell):
-	var file;
-	file = this_object().scribe_spell_file(spell)
-	if( !stringp(file) || file_size(file + ".c") <= 0 ):
-		return 0;
-	return call_other( file, "scribe", me, ob );
+#func cast_spell(var me, string spell, object target):
+#	string file;
+#
+#	notify_fail("你所选用的咒文系中没有这种咒文。\n");
+#	file = this_object().cast_spell_file(spell)
+#	if( !stringp(file) || file_size(file + ".c") <= 0 ):
+#		return 0;
+#
+#	return (int)call_other( file, "cast", me, target);
+#
+#
+#func conjure_magic(object me, string spell, object target):
+#	var file;
+#	notify_fail("你所选用的法术系中没有这种法术。\n");
+#	file = this_object().conjure_magic_file(spell)
+#	if( !stringp(file) || file_size(file + ".c") <= 0 ):
+#		return 0;
+#	return call_other( file, "conjure", me, target);
+#
+#func scribe_spell(object me, object ob, string spell):
+#	var file;
+#	file = this_object().scribe_spell_file(spell)
+#	if( !stringp(file) || file_size(file + ".c") <= 0 ):
+#		return 0;
+#	return call_other( file, "scribe", me, ob );
 
 # The following two functions are used to modify the random function
 # for shaolin wugong.
@@ -128,7 +175,7 @@ func sum(n:int,base:int,d:int):
 
 func NewRandom(n:int,base:int,d:int):
 	var i = 1;
-	var randnum = random(sum(n,base,d));
+	var randnum = randi()%(sum(n,base,d));
 
 	if (sum(6,base,d) < randnum):
 		i = 7;
@@ -138,3 +185,12 @@ func NewRandom(n:int,base:int,d:int):
 		while (sum(i,base,d) < randnum):
 			i= i + 1;
 	return (i-1);
+	
+func write(arg):
+	info.append(arg)
+	
+func get_info()	:
+	var msg = ""
+	for i in range(info.size()) :
+		msg	+= info[i]
+	return msg
