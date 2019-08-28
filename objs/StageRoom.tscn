@@ -823,7 +823,6 @@ color = Color( 0, 0, 0, 0.560784 )
 position = Vector2( 304.625, 3.25802 )
 
 [node name="RoomPanel" type="NinePatchRect" parent="."]
-editor/display_folded = true
 margin_left = 1.0
 margin_top = 1.0
 margin_right = 293.0
@@ -892,12 +891,12 @@ margin_right = 12.0
 margin_bottom = 30.0
 
 [node name="RoomMessage" type="NinePatchRect" parent="."]
+editor/display_folded = true
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 0.0505371
-margin_top = 259.568
-margin_right = 298.051
-margin_bottom = 570.568
+margin_top = 260.0
+margin_right = 294.0
+margin_bottom = 571.0
 theme = ExtResource( 2 )
 texture = ExtResource( 4 )
 patch_margin_left = 8
@@ -917,7 +916,7 @@ margin_right = -8.0
 margin_bottom = -8.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="RoomMessage/VBoxContainer"]
-margin_right = 282.0
+margin_right = 278.0
 margin_bottom = 295.0
 size_flags_vertical = 3
 theme = ExtResource( 2 )
@@ -980,7 +979,6 @@ theme = ExtResource( 2 )
 text = "动作"
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="."]
-editor/display_folded = true
 margin_left = 2.0
 margin_top = 574.0
 margin_right = 169.0
@@ -1011,6 +1009,7 @@ margin_bottom = 37.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 2 )
+text = "skill"
 
 [node name="Door02" type="Button" parent="NinePatchRect2/GridContainer"]
 margin_left = 50.0
@@ -1081,10 +1080,11 @@ size_flags_vertical = 3
 theme = ExtResource( 2 )
 
 [node name="ActorStatus" type="NinePatchRect" parent="."]
-margin_left = 814.232
-margin_top = 570.385
-margin_right = 1136.23
-margin_bottom = 715.385
+editor/display_folded = true
+margin_left = 814.0
+margin_top = 570.0
+margin_right = 968.0
+margin_bottom = 715.0
 texture = ExtResource( 4 )
 patch_margin_left = 8
 patch_margin_top = 8
@@ -1103,7 +1103,7 @@ margin_right = -10.0
 margin_bottom = -10.0
 
 [node name="Stage" type="RichTextLabel" parent="ActorStatus/VBoxContainer"]
-margin_right = 301.0
+margin_right = 134.0
 margin_bottom = 125.0
 rect_min_size = Vector2( 0, 20 )
 size_flags_vertical = 3
@@ -1114,8 +1114,7 @@ bbcode_text = "[center]状态[/center]"
 text = "状态"
 
 [node name="NinePatchRect4" type="NinePatchRect" parent="."]
-editor/display_folded = true
-margin_left = 1135.0
+margin_left = 972.0
 margin_top = 571.0
 margin_right = 1277.0
 margin_bottom = 716.0
@@ -1137,30 +1136,31 @@ margin_right = -10.0
 margin_bottom = -10.0
 
 [node name="SaveRooms" type="Button" parent="NinePatchRect4/VBoxContainer"]
-margin_right = 122.0
+margin_right = 285.0
 margin_bottom = 30.0
 theme = ExtResource( 2 )
 text = "SaveRooms"
 
 [node name="ActionButton02" type="Button" parent="NinePatchRect4/VBoxContainer"]
 margin_top = 34.0
-margin_right = 122.0
+margin_right = 285.0
 margin_bottom = 64.0
 theme = ExtResource( 2 )
 
 [node name="ActionButton03" type="Button" parent="NinePatchRect4/VBoxContainer"]
 margin_top = 68.0
-margin_right = 122.0
+margin_right = 285.0
 margin_bottom = 98.0
 theme = ExtResource( 2 )
 
 [node name="ActionButton04" type="Button" parent="NinePatchRect4/VBoxContainer"]
 margin_top = 102.0
-margin_right = 122.0
+margin_right = 285.0
 margin_bottom = 132.0
 theme = ExtResource( 2 )
 
 [node name="CharacterPanel" type="NinePatchRect" parent="."]
+editor/display_folded = true
 margin_left = 972.0
 margin_top = 2.0
 margin_right = 1276.0
@@ -1176,11 +1176,7 @@ patch_margin_bottom = 8
 [node name="NinePatchRect" parent="CharacterPanel/Panel/PanelAttribute" index="0"]
 visible = false
 
-[node name="value" parent="CharacterPanel/Panel/PanelAttribute/Label_food" index="0"]
-text = "100"
-
 [node name="ObjectMessage" type="NinePatchRect" parent="."]
-editor/display_folded = true
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 173.0

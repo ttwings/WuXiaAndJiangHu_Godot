@@ -119,6 +119,8 @@ func set_name_cn(value1:String,value2:String):
 func set_name(name,id):
 	set("name", name);
 	set("id", id);
+#	dbase.name = name
+#	dbase.id = id
 	my_id = id;
 
 func name(raw=true):

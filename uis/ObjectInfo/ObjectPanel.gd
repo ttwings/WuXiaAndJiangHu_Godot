@@ -2,18 +2,18 @@ extends NinePatchRect
 
 var player
 var item
-
-func _ready() -> void:
-	TranslationServer.set_locale("zh_CN")
-	player = load("res://d/baihuagu/npc/zhou.gd").new()
-#	player.creat_user("res://data/user/l/lijia.gd")
-	item = load("res://clone/food/apple.gd").new()
-	get_item_info(item)
-	connect_action(item,player)
+#
+#func _ready() -> void:
+#	TranslationServer.set_locale("zh_CN")
+#	player = load("res://d/baihuagu/npc/zhou.gd").new()
+##	player.creat_user("res://data/user/l/lijia.gd")
+#	item = load("res://clone/food/apple.gd").new()
+#	get_item_info(item)
+#	connect_action(item,player)
 	
 func start(item):
 	get_item_info(item)
-#	connect_action(item)	
+	connect_action(item,null)	
 
 var actions = {
 	do_eat = "吃",
@@ -22,7 +22,13 @@ var actions = {
 	do_look = "看",
 }
 
+func init_item_info():
+	$Name.bbcode_text = ""
+	$Type.bbcode_text = ""
+	$Description.bbcode_text = ""
+
 func get_item_info(item):
+	init_item_info()
 	$Name.bbcode_text = item.query("name")
 	$Type.bbcode_text = str(item.query("type")) if item.query("type") else "物品"
 	$Description.bbcode_text = item.query("long")

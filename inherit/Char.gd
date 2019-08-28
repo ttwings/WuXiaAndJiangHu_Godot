@@ -1437,7 +1437,7 @@ func carry_object(path):
 	self.add_temp("objects",ob)
 #	if ob is Weapon :
 #		self.set("weapon",ob)
-	print_debug(self.query("objects"))
+#	print_debug(self.query("objects"),self.query("objects")[path])
 	pass
 	
 #func create():
@@ -1631,10 +1631,10 @@ func map_skill(skill:String, mapped_to:String):
 # 	if( !mapp(skills) || undefinedp(skills[mapped_to]) ):
 # 		return;
 		
-# 	if( !mapp(skill_map) ) :
-# 		skill_map = {skill: mapped_to}
-# 	else :
-# 		skill_map[skill] = mapped_to;
+	if( !mapp(skill_map) ) :
+		skill_map = {skill: mapped_to}
+	else :
+		skill_map[skill] = mapped_to;
 
 # This function 'prepare' a skill <skill> to another skill <mapped_to>.
 # If 2nd argument not given, cancel the prepared skill <skill>.
@@ -1679,11 +1679,11 @@ func query_skill_prepared(skill:String,raw:int = 0):
 # 		return skills[skill];
 # 	return 0;
 
-# func query_skill_map():
-# 	return skill_map;
+func query_skill_map():
+	return skill_map;
 
-# func query_skill_prepare():
-# 	return skill_prepare;
+func query_skill_prepare():
+	return skill_prepare;
 
 # func skill_death_penalty():
 # 	var sk;
