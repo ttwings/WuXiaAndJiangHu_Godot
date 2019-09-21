@@ -2,183 +2,59 @@
 
 [ext_resource path="res://addons/zylann.translation_editor/tools/string_edition_dialog.gd" type="Script" id=1]
 
-[node name="StringEditionDialog" type="WindowDialog" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="StringEditionDialog" type="WindowDialog"]
 margin_left = 118.0
 margin_top = 154.0
 margin_right = 446.0
 margin_bottom = 259.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-popup_exclusive = false
 window_title = "New string ID"
-resizable = false
 script = ExtResource( 1 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 8.0
 margin_top = 8.0
 margin_right = -8.0
 margin_bottom = -32.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
-_sections_unfolded = [ "Margin" ]
 
-[node name="HintLabel" type="Label" parent="VBoxContainer" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="HintLabel" type="Label" parent="VBoxContainer"]
 margin_right = 312.0
 margin_bottom = 14.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
 margin_top = 18.0
 margin_right = 312.0
 margin_bottom = 42.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 1
-size_flags_horizontal = 1
-size_flags_vertical = 1
-focus_mode = 2
-context_menu_enabled = true
-placeholder_alpha = 0.6
-caret_blink = false
-caret_blink_speed = 0.65
-caret_position = 0
 
-[node name="Spacer" type="Control" parent="VBoxContainer" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Spacer" type="Control" parent="VBoxContainer"]
 margin_top = 46.0
 margin_right = 312.0
 margin_bottom = 54.0
 rect_min_size = Vector2( 0, 8 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-_sections_unfolded = [ "Rect" ]
 
-[node name="Buttons" type="HBoxContainer" parent="VBoxContainer" index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Buttons" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 58.0
 margin_right = 312.0
 margin_bottom = 78.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 custom_constants/separation = 16
 alignment = 1
-_sections_unfolded = [ "custom_constants" ]
 
-[node name="OkButton" type="Button" parent="VBoxContainer/Buttons" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="OkButton" type="Button" parent="VBoxContainer/Buttons"]
 margin_left = 48.0
 margin_right = 148.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 100, 0 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 disabled = true
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 text = "OK"
-flat = false
-align = 1
-_sections_unfolded = [ "Rect" ]
 
-[node name="CancelButton" type="Button" parent="VBoxContainer/Buttons" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="CancelButton" type="Button" parent="VBoxContainer/Buttons"]
 margin_left = 164.0
 margin_right = 264.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 100, 0 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 text = "Cancel"
-flat = false
-align = 1
-_sections_unfolded = [ "Rect" ]
-
 [connection signal="text_changed" from="VBoxContainer/LineEdit" to="." method="_on_LineEdit_text_changed"]
-
 [connection signal="text_entered" from="VBoxContainer/LineEdit" to="." method="_on_LineEdit_text_entered"]
-
 [connection signal="pressed" from="VBoxContainer/Buttons/OkButton" to="." method="_on_OkButton_pressed"]
-
 [connection signal="pressed" from="VBoxContainer/Buttons/CancelButton" to="." method="_on_CancelButton_pressed"]
-
-

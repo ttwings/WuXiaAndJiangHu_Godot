@@ -147,7 +147,9 @@ func destruct(ob=self):
 
 
 func sizeof(array):
-	return array.size()	
+	if array is Array :
+		return array.size()
+	return -1	
 
 func this_object(ob=self):
 	return ob	

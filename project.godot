@@ -72,7 +72,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Player",
 "language": "GDScript",
-"path": "res://Player.gd"
+"path": "res://inherit/Player.gd"
 }, {
 "base": "GameObject",
 "class": "Room",
