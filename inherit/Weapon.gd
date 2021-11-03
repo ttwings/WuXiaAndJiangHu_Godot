@@ -1,6 +1,6 @@
 extends GameObject
 
-class_name Weapon
+#class_name Weapon
 
 
 ##include <weapon.h>

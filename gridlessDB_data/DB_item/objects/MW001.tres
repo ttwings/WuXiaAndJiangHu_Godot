@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://gridlessDB_data/DB_item/classes/Misc.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "木偶"
+price = 0
+is_icon = false
+is_unique = false
+imgae = ""
+desc = ""
+material = 0

@@ -44,7 +44,7 @@ __meta__ = {
 }
 
 [node name="ButtonUse" type="Button" parent="HBoxContainerAction"]
-margin_right = 14.0
+margin_right = 44.0
 margin_bottom = 45.0
 theme = ExtResource( 2 )
 text = "使用"
@@ -54,8 +54,8 @@ __meta__ = {
 }
 
 [node name="ButtonEquip" type="Button" parent="HBoxContainerAction"]
-margin_left = 24.0
-margin_right = 38.0
+margin_left = 54.0
+margin_right = 98.0
 margin_bottom = 45.0
 theme = ExtResource( 2 )
 text = "装备"
@@ -65,8 +65,8 @@ __meta__ = {
 }
 
 [node name="ButtonInfo" type="Button" parent="HBoxContainerAction"]
-margin_left = 48.0
-margin_right = 62.0
+margin_left = 108.0
+margin_right = 152.0
 margin_bottom = 45.0
 theme = ExtResource( 2 )
 text = "信息"
@@ -76,8 +76,8 @@ __meta__ = {
 }
 
 [node name="ButtonDrop" type="Button" parent="HBoxContainerAction"]
-margin_left = 72.0
-margin_right = 86.0
+margin_left = 162.0
+margin_right = 206.0
 margin_bottom = 45.0
 theme = ExtResource( 2 )
 text = "丢弃"

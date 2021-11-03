@@ -40,3 +40,9 @@ armor,防御,armor
 start_room,来自,start room
 master_dir,师承,master dir
 attitude,态度,attitude
+dodge,闪避,dodge
+force,伤害,force
+parry,格挡,parry
+strike,拳法,strike lvl
+claw,爪法,claw lvl
+posion,毒术,posion lvl

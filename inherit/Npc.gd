@@ -104,7 +104,6 @@ func do_vendor_list(arg:String):
 	var goods;
 	var list
 	var name;
-	var i;
 	goods = query("vendor_goods")
 	if( !mapp(goods) ) :
 		return 0;

@@ -21,7 +21,7 @@ func help(me):
 	write(HIC + "\n基本棒法："+ NOR"\n")
 	write("""
 	
-    棒类武技的基本功。
+	棒类武技的基本功。
 
 	学习要求：
 		无

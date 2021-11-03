@@ -157,8 +157,8 @@ func creat_character_props(ob:Char):
 #				props.append("容量:" + str(ob.query(k)))
 			"liquid":
 				var liquid = ob.query("liquid")
-				for k in liquid:
-					match k:
+				for name_liquid in liquid:
+					match name_liquid:
 						"name":
 							props.append("盛装:" + str(liquid.name))
 						"remaining":

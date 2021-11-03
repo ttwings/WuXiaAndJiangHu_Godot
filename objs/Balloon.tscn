@@ -157,7 +157,7 @@ tracks/0/keys = {
 texture = ExtResource( 1 )
 vframes = 10
 hframes = 8
-frame = 79
+frame = 31
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -172,5 +172,6 @@ anims/ballon08 = SubResource( 8 )
 anims/ballon09 = SubResource( 9 )
 anims/ballon10 = SubResource( 10 )
 
+[node name="Camera2D" type="Camera2D" parent="."]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]

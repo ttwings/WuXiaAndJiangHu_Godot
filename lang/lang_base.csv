@@ -50,3 +50,29 @@ throwing,暗器,throwing lvl
 staff,杖法,staff
 food,食物,food
 water,饮水,water
+max_capacity,最大容量,Max Capactiy
+basket,篮子,basket
+acid,酸,acid
+sweet,甘,sweet
+bitter,苦,bitter
+salty,咸,salty
+pungent,辛,pungent
+acerbity,涩,acerbity
+taste,味道,taste
+nature,性地,nature
+cold,寒,cold
+cool,凉,cool
+flat,平,flat
+warm,温,warm
+hot,热,hot
+channel_tropism,归经,channel tropism
+heart,心,heart
+liver,肝,liver
+spleen,脾,spleen
+stomach,胃,stomach
+kidney,肾,kidney
+large_intestine,大肠,large intestine
+small_intestine,小肠,small intestine
+lungs,肺,lungs
+bladder,膀胱,bladder
+mingmen,命门,mingmen

@@ -39,11 +39,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/TriggerSystem/BattleSystem/Buffer.gd"
 }, {
-"base": "Reference",
-"class": "CHINESE_D",
-"language": "GDScript",
-"path": "res://adm/daemons/CHINESE_D.gd"
-}, {
 "base": "GameObject",
 "class": "Char",
 "language": "GDScript",
@@ -79,10 +74,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://objs/HealObj.gd"
 }, {
-"base": "GameObject",
+"base": "Resource",
 "class": "Item",
 "language": "GDScript",
-"path": "res://inherit/Item.gd"
+"path": "res://gridlessDB_data/DB_item/classes/Item.gd"
+}, {
+"base": "Item",
+"class": "Misc",
+"language": "GDScript",
+"path": "res://gridlessDB_data/DB_item/classes/Misc.gd"
 }, {
 "base": "Combined_item",
 "class": "Money",
@@ -119,10 +119,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://inherit/User.gd"
 }, {
-"base": "GameObject",
+"base": "Item",
 "class": "Weapon",
 "language": "GDScript",
-"path": "res://inherit/Weapon.gd"
+"path": "res://gridlessDB_data/DB_item/classes/Weapon.gd"
 } ]
 _global_script_class_icons={
 "Armor": "",
@@ -131,7 +131,6 @@ _global_script_class_icons={
 "BattleEnemy": "",
 "BattlePlayer": "",
 "Buffer": "",
-"CHINESE_D": "",
 "Char": "",
 "DmgObj": "",
 "Equip": "",
@@ -140,6 +139,7 @@ _global_script_class_icons={
 "GameObject": "",
 "HealObj": "",
 "Item": "",
+"Misc": "",
 "Money": "",
 "Npc": "",
 "Player": "",
@@ -257,8 +257,9 @@ locale_filter=[ 0, [ "zh_CN" ] ]
 
 quality/intended_usage/framebuffer_allocation=0
 quality/intended_usage/framebuffer_allocation.mobile=1
-quality/2d/use_pixel_snap=true
+2d/snapping/use_gpu_pixel_snap=true
 environment/default_environment="res://default_env.tres"
+quality/2d/use_pixel_snap=true
 
 [tiled_importer]
 

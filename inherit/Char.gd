@@ -214,8 +214,8 @@ var killer = [];
 
 # # This function returns 1 if we are fighting anyone (or with ob)
 func is_fighting(ob=self):
- 	if( !ob ) :
- 		return sizeof(enemy) > 0;
+	if( !ob ) :
+		return sizeof(enemy) > 0;
 
 # 	return member_array(ob, enemy)!=-1;
 
@@ -1077,10 +1077,10 @@ func is_fighting(ob=self):
 
 
 func max_food_capacity() :
- 	return query_weight() / 200;
+	return query_weight() / 200;
 
 func max_water_capacity() :
- 	return query_weight() / 200;
+	return query_weight() / 200;
 
 # func reincarnate():
 # 	ghost = 0;

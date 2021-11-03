@@ -1,6 +1,6 @@
 extends GameObject
 
-class_name Item
+#class_name Item
 
 ########################################  F_MOVE #####################################
 #var weight : int = 0

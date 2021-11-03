@@ -18,6 +18,9 @@ tint_under = Color( 1, 1, 1, 0.521569 )
 tint_over = Color( 1, 1, 1, 0.521569 )
 tint_progress = Color( 1, 1, 1, 0.541176 )
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="."]
 margin_left = 367.211
