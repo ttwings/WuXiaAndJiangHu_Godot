@@ -18,6 +18,14 @@ func success():
 func power_point(me): 
 	return 1
 
+var desc = HIC + "\n基本爪法："+ NOR +"\n" + """
+
+	爪类武技的基本功，并能改善你后天的膂力。
+
+	学习要求：
+		无
+	"""
+
 func help(me=null):
 	write(HIC + "\n基本爪法："+ NOR +"\n")
 	write("""

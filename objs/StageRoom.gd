@@ -369,5 +369,5 @@ func _on_ObjectPanelButton_pressed():
 ##	object_panel(ob)
 #	$ObjectPanel.show()
 	
-	pass # Replace with function body.
+#	pass # Replace with function body.
 # Replace with function body.
