@@ -1,6 +1,6 @@
+@tool
 # This module implements some useful functions on file path.
 
-tool
 
 # Return a list containing the names of the files in the directory.  
 # It does not include the special entries '.' and '..' even if they are present in the directory.
@@ -13,11 +13,11 @@ tool
 # * Return `[]` if failed to search the target directory
 static func list_dir(path):
 	var pathes = []
-	var dir = Directory.new()
+	var dir = DirAccess.new()
 	if dir.open(path) == OK:
-		dir.list_dir_begin()
+		dir.list_dir_begin() # TODOGODOT4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 		var cwd = dir.get_next()
-		while not cwd.empty():
+		while not cwd.is_empty():
 			if not cwd in ['.', '..']:
 				pathes.append(cwd)
 			cwd = dir.get_next()
@@ -35,11 +35,11 @@ static func list_dir(path):
 # * File pathes in an array
 static func list_files(path, with_dirs=false,recurse=false):
 	var files = []
-	var dir = Directory.new()
+	var dir = DirAccess.new()
 	if dir.open(path) == OK:
-		dir.list_dir_begin()
+		dir.list_dir_begin() # TODOGODOT4 fill missing arguments https://github.com/godotengine/godot/pull/40547
 		var file_name = dir.get_next()
-		while not file_name.empty():
+		while not file_name.is_empty():
 			if dir.current_is_dir() and not (file_name in [".", "..", "./"]):
 				if recurse:
 					var childfiles = list_files(str(path, "/", file_name), with_dirs, recurse)
@@ -76,7 +76,7 @@ static func join(p0, p1, p2='', p3='', p4='', p5='', p6='', p7='', p8='', p9='')
 	for p in args:
 		index += 1
 		p = normalize(p)
-		if p.empty():
+		if p.is_empty():
 			continue
 		var sep = '/'
 		if path.ends_with('/') or p.begins_with('/') or index <= 0:

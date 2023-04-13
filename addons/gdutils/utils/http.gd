@@ -1,6 +1,6 @@
+@tool
 # The node to make http requests
 
-tool
 extends Node
 
 signal request_completed(url, headers, body)
@@ -24,7 +24,7 @@ func request(url, method = HTTPClient.METHOD_GET, headers=[], body = ""):
     var rq = HTTPRequest.new()
     # rq.name = url.replace("/", '\\')
     rq.use_threads = true
-    rq.connect("request_completed", self, "_on_request_completed", [url])
+    rq.connect("request_completed", Callable(self, "_on_request_completed").bind(url))
     add_child(rq)
     var ret = rq.request(url, headers, false, method, body)
     if OK == ret:
@@ -53,7 +53,7 @@ func cancel_request(url):
 # *Returns* Variant  
 # * Return the resolved result or the body if not resolved
 static func resolve_respose_body(headers, body):
-    if typeof(body) == TYPE_RAW_ARRAY:
+    if typeof(body) == TYPE_PACKED_BYTE_ARRAY:
         var type = get_content_type(headers)
         match type:
             'image/jpeg', 'application/x-jpg':
@@ -69,7 +69,9 @@ static func resolve_respose_body(headers, body):
                 img.load_webp_from_buffer(body)
                 return img
             'application/json':
-                return parse_json(body.get_string_from_utf8())
+                var test_json_conv = JSON.new()
+                test_json_conv.parse(body.get_string_from_utf8())
+                return test_json_conv.get_data()
         if type.begins_with("text/"):
             return body.get_string_from_utf8()
     return body
@@ -83,7 +85,7 @@ static func resolve_respose_body(headers, body):
 # * The content type with lower case or an empty string if parse faild
 static func get_content_type(headers):
     var type = ''
-    if typeof(headers) in [TYPE_STRING_ARRAY, TYPE_ARRAY]:
+    if typeof(headers) in [TYPE_PACKED_STRING_ARRAY, TYPE_ARRAY]:
         for item in headers:
             item = item.to_lower()
             if item.begins_with('content-type:'):

@@ -1,5 +1,5 @@
-tool
-extends Reference
+@tool
+extends RefCounted
 
 # Menu type
 enum {
@@ -138,7 +138,7 @@ func clone():
 # - - - - - - - - - -  
 # @return [Menu|Nil] Return the found menu item or null if not found  
 func find_item(path):
-	if typeof(path) == TYPE_STRING and not path.empty():
+	if typeof(path) == TYPE_STRING and not path.is_empty():
 		var titles = path.split("/")
 		var menu = self
 		for t in titles:
@@ -159,19 +159,19 @@ func render_to_menu_button(p_button):
 # @param [popup:PopupMenu] The PopupMenu node instance
 var popups = []
 func render_to_popup(popup):
-	if not children.empty() and typeof(popup) == TYPE_OBJECT and popup is PopupMenu:
+	if not children.is_empty() and typeof(popup) == TYPE_OBJECT and popup is PopupMenu:
 		popup.clear()
 		for subpop in popup.get_children():
 			if subpop is PopupMenu:
 				subpop.queue_free()
-		if not popup.is_connected("id_pressed", self, "_on_item_pressed"):
-			popup.connect("id_pressed", self, "_on_item_pressed", [popup])
+		if not popup.is_connected("id_pressed", Callable(self, "_on_item_pressed")):
+			popup.connect("id_pressed", Callable(self, "_on_item_pressed").bind(popup))
 			popups.append(popup)
 		var idx = 0
 		for item in children:
 			if item.type == SEPARATOR:
 				popup.add_separator()
-			elif item.children.empty():
+			elif item.children.is_empty():
 				if item.type == CHECKABLE:
 					if item.icon != null:
 						popup.add_icon_check_item(item.icon, item.title, idx)

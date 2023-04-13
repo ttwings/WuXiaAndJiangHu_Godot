@@ -8,11 +8,11 @@ extends  Npc;
 var  room  =  0;
 
 func create():
-    set_name("白髯鸡仙", "ji  xian");
-    set("gender",  "男性");
+    set_name("  准  ", "ji  xian");
+    set("gender",  "  ");
     set("age",  60);
     set("per",  30);
-    set("long",  "一位留着白髯的鸡仙。\n");
+    set("long",  "一位    椎募    \n");
     set("combat_exp",  5000);
     set_skill("force",  50);
     set_skill("unarmed",  50);
@@ -29,7 +29,7 @@ func create():
 
 
 func init():
-    .init();
+    super.init();
     add_action("do_fight",  "fight");
     add_action("do_kill",  "kill");
     if(room  ==  0):
@@ -37,14 +37,14 @@ func init():
 
 
 func refuse_message(me,  who):
-    message_vision  ("$N说：人斗人？还是看鸡斗鸡有趣些吧。\n",me,who);
+    message_vision  ("$N说                    趣些 伞 \n",me,who);
 
 func do_fight(arg):
     var who  =  this_player();
     var me  =  this_object();
 
     if(arg  &&  present(arg,environment(who))==me):
-        message_vision  ("$N看样子输红了眼，想找$n打架。\n",who,me);
+        message_vision  ("$N        郏   $n    \n",who,me);
         refuse_message  (me,who);
         return  1;
     return  0;
@@ -55,7 +55,7 @@ func do_kill(arg):
     var me  =  this_object();
 
     if(arg  &&  present(arg,environment(who))==me):
-        message_vision  ("$N看样子输红了眼，想杀$n。\n",who,me);
+        message_vision  ("$N        郏  杀$n  \n",who,me);
         refuse_message  (me,who);
         return  1;
     return  0;

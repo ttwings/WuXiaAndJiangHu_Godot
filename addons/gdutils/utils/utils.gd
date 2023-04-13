@@ -18,7 +18,7 @@ static func implements(obj: Object, interface:GDScript) -> bool:
 	for m in interface_obj.get_method_list():
 		if m.flags & METHOD_FLAG_FROM_SCRIPT:
 			required_methods.append(m.name)
-	if not interface_obj is Reference:
+	if not interface_obj is RefCounted:
 		interface_obj.free()
 	for mid in required_methods:
 		if not obj.has_method(mid):

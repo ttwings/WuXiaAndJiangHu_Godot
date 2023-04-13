@@ -1,18 +1,18 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://new_theme.tres" type="Theme" id=1]
-[ext_resource path="res://assets/graphics/ui/ui_p.png" type="Texture" id=2]
+[ext_resource path="res://assets/graphics/ui/ui_p.png" type="Texture2D" id=2]
 [ext_resource path="res://uis/ObjectInfo/ObjectPanel.gd" type="Script" id=3]
-[ext_resource path="res://assets/fonts/SourceHanSerifCN-Medium.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/fonts/SourceHanSerifCN-Medium.otf" type="FontFile" id=4]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="FontFile" id=1]
 font_data = ExtResource( 4 )
 
 [node name="ObjectPanel" type="NinePatchRect"]
-margin_left = 505.0
-margin_top = 162.0
-margin_right = 797.0
-margin_bottom = 516.0
+offset_left = 505.0
+offset_top = 162.0
+offset_right = 797.0
+offset_bottom = 516.0
 theme = ExtResource( 1 )
 texture = ExtResource( 2 )
 patch_margin_left = 8
@@ -27,12 +27,12 @@ __meta__ = {
 [node name="Name" type="RichTextLabel" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 27.4651
-margin_right = -90.0
-margin_bottom = -300.535
+offset_left = 10.0
+offset_top = 27.4651
+offset_right = -90.0
+offset_bottom = -300.535
 bbcode_enabled = true
-bbcode_text = "<降龙十八掌>秘籍"
+text = "<降龙十八掌>秘籍"
 text = "<降龙十八掌>秘籍"
 scroll_following = true
 __meta__ = {
@@ -42,50 +42,50 @@ __meta__ = {
 [node name="Type" type="RichTextLabel" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 4.0
-margin_right = -90.0
-margin_bottom = -324.0
+offset_left = 10.0
+offset_top = 4.0
+offset_right = -90.0
+offset_bottom = -324.0
 bbcode_enabled = true
-bbcode_text = "秘籍残页"
+text = "秘籍残页"
 text = "秘籍残页"
 scroll_following = true
 
 [node name="Description" type="RichTextLabel" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 65.0
-margin_right = -8.0
-margin_bottom = -139.0
+offset_left = 8.0
+offset_top = 65.0
+offset_right = -8.0
+offset_bottom = -139.0
 bbcode_enabled = true
-bbcode_text = "这里是一座极大的菜园，种满了油菜，萝卜，茄子，丝瓜之类。周围的篱笆都破了，看来要整修了。菜园旁有几口大缸，里面盛满了水，可是菜地看起来都干裂了，几棵菜蔫蔫的长着，是缺水太多了"
+text = "这里是一座极大的菜园，种满了油菜，萝卜，茄子，丝瓜之类。周围的篱笆都破了，看来要整修了。菜园旁有几口大缸，里面盛满了水，可是菜地看起来都干裂了，几棵菜蔫蔫的长着，是缺水太多了"
 text = "这里是一座极大的菜园，种满了油菜，萝卜，茄子，丝瓜之类。周围的篱笆都破了，看来要整修了。菜园旁有几口大缸，里面盛满了水，可是菜地看起来都干裂了，几棵菜蔫蔫的长着，是缺水太多了"
 scroll_following = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -96.0
-margin_top = 10.0
-margin_right = -292.0
+offset_left = -96.0
+offset_top = 10.0
+offset_right = -292.0
 
 [node name="GridContainer" type="GridContainer" parent="."]
-margin_left = 9.0
-margin_top = 214.0
-margin_right = 286.0
-margin_bottom = 320.0
+offset_left = 9.0
+offset_top = 214.0
+offset_right = 286.0
+offset_bottom = 320.0
 columns = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 9.36969
-margin_top = -33.2605
-margin_right = -10.6303
-margin_bottom = -3.2605
-custom_constants/separation = 12
+offset_left = 9.36969
+offset_top = -33.2605
+offset_right = -10.6303
+offset_bottom = -3.2605
+theme_override_constants/separation = 12
 alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -93,45 +93,45 @@ __meta__ = {
 
 [node name="ActionButton1" type="Button" parent="HBoxContainer"]
 visible = false
-margin_left = 20.0
-margin_right = 48.0
-margin_bottom = 30.0
+offset_left = 20.0
+offset_right = 48.0
+offset_bottom = 30.0
 text = "吃"
 
 [node name="ActionButton2" type="Button" parent="HBoxContainer"]
 visible = false
-margin_left = 60.0
-margin_right = 104.0
-margin_bottom = 30.0
+offset_left = 60.0
+offset_right = 104.0
+offset_bottom = 30.0
 text = "动作"
 
 [node name="ActionButton3" type="Button" parent="HBoxContainer"]
 visible = false
-margin_left = 116.0
-margin_right = 160.0
-margin_bottom = 30.0
+offset_left = 116.0
+offset_right = 160.0
+offset_bottom = 30.0
 text = "动作"
 
 [node name="ActionButton4" type="Button" parent="HBoxContainer"]
 visible = false
-margin_left = 172.0
-margin_right = 216.0
-margin_bottom = 30.0
+offset_left = 172.0
+offset_right = 216.0
+offset_bottom = 30.0
 text = "动作"
 
 [node name="ActionButton5" type="Button" parent="HBoxContainer"]
 visible = false
-margin_left = 228.0
-margin_right = 272.0
-margin_bottom = 30.0
+offset_left = 228.0
+offset_right = 272.0
+offset_bottom = 30.0
 text = "动作"
 
 [node name="ObjectRectButton" type="Button" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 20, 20 )
-custom_fonts/font = SubResource( 1 )
+offset_bottom = 30.0
+custom_minimum_size = Vector2( 20, 20 )
+theme_override_fonts/font = SubResource( 1 )
 text = "X"
 __meta__ = {
 "_edit_use_anchors_": false

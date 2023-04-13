@@ -1,6 +1,6 @@
+@tool
 # Serialize and unserialize for GDScript instances
 
-tool
 const json = preload('json.gd')
 
 const TYPE_ATOMIC_PREFIX     = "@Atomic:"
@@ -9,7 +9,7 @@ const LEN_TYPE_ATOMIC_PREFIX = 8
 const TYPE_OBJECT_PREFIX     = "@Object:"
 const LEN_TYPE_OBJECT_PREFIX = 8
 
-const TYPE_REF_PREFIX		 = "@Reference:"
+const TYPE_REF_PREFIX		 = "@RefCounted:"
 const LEN_TYPE_REF_PREFIX    = 11
 
 const MEATA_NAME_INST_UID 	 = "@InstanceID"
@@ -21,10 +21,10 @@ const SERIALIZED_ATOMIC_TYPES = [
 	TYPE_VECTOR3,
 	TYPE_TRANSFORM2D,
 	TYPE_PLANE,
-	TYPE_QUAT,
+	TYPE_QUATERNION,
 	TYPE_AABB,
 	TYPE_BASIS,
-	TYPE_TRANSFORM,
+	TYPE_TRANSFORM3D,
 	TYPE_COLOR,
 ]
 
@@ -51,7 +51,7 @@ func get(p_key):
 	var key = str(p_key)
 	if data.has(key):
 		return data[key]
-	return .get(key)
+	return super.get(key)
 
 # Load the saved json file  
 func load(path):
@@ -107,7 +107,9 @@ func deep_clone_instance(inst):
 	var im = get_script().new()
 	im.put("o", inst)
 	var im2 = get_script().new()
-	if OK == im2.parse_serialized_dict(parse_json(to_json(im.serialize_to_dict()))):
+	var test_json_conv = JSON.new()
+	test_json_conv.parse(JSON.new().stringify(im.serialize_to_dict()))):
+	if OK == im2.parse_serialized_dict(test_json_conv.get_data()
 		return im2.get("o")
 	return null
 
@@ -130,7 +132,7 @@ func _reset():
 func _serialize(inst):
 	var ret = inst
 	if typeof(inst) in SERIALIZED_ATOMIC_TYPES:
-		ret = str(TYPE_ATOMIC_PREFIX, var2str(inst))
+		ret = str(TYPE_ATOMIC_PREFIX, var_to_str(inst))
 	elif typeof(inst) == TYPE_OBJECT:
 		if inst is WeakRef:
 			var obj = inst.get_ref()
@@ -155,7 +157,7 @@ func _serialize(inst):
 			else:
 				uid = _instance_uid_map[InstID]
 			if is_replace or (not self.pool.has(uid)):
-				var dict = inst2dict(inst)
+				var dict = inst_to_dict(inst)
 				self.pool[uid] = dict
 				for key in dict:
 					dict[key] = _serialize(dict[key])
@@ -172,7 +174,7 @@ func _serialize(inst):
 
 func _unserialize(any, rawPool):
 	var ret = any
-	if typeof(any) == TYPE_REAL:
+	if typeof(any) == TYPE_FLOAT:
 		if int(any) == any:
 			ret = int(any)
 	elif typeof(any) == TYPE_STRING:
@@ -184,13 +186,13 @@ func _unserialize(any, rawPool):
 				self.pool[id] = any
 		elif any.begins_with(TYPE_ATOMIC_PREFIX):
 			var text  = any.substr(LEN_TYPE_ATOMIC_PREFIX, any.length())
-			ret = str2var(text)
+			ret = str_to_var(text)
 	elif typeof(any) == TYPE_DICTIONARY:
 		for key in any:
 			var prop = any[key]
 			any[_unserialize(key, rawPool)] = _unserialize(prop, rawPool)
 		if any.has("@path") and any.has("@subpath"):
-			ret = dict2inst(any)
+			ret = dict_to_inst(any)
 			if typeof(ret) == TYPE_OBJECT:
 				ret.set_meta(MEATA_NAME_INST_UID, _parsing_instance_uid)
 	elif typeof(any) == TYPE_ARRAY:

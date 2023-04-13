@@ -1,4 +1,4 @@
-tool
+@tool
 
 const AsyncHttpTextutreRect = preload("AsyncHttpTextutreRect.gd")
 const AsyncTextureRect = preload("AsyncTextureRect.gd")

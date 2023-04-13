@@ -1,6 +1,6 @@
+@tool
 # some useful functions for image files
 
-tool
 
 # Load image texture from external path  
 # - - -  

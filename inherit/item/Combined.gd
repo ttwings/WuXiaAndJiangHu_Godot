@@ -36,9 +36,9 @@ func add_amount(v:int) :
 
 func short(raw=true):
 	if (query_amount()>1):
-		return chinese_number(query_amount()) + query("base_unit") + .short();
+		return chinese_number(query_amount()) + query("base_unit") + super.short();
 	else:
-		return .short();
+		return super.short();
 
 func move(dest,silent:int = 0):
 	var env
@@ -47,7 +47,7 @@ func move(dest,silent:int = 0):
 	var total;
 	var file;
 
-	if( .move(dest, silent) ):
+	if( super.move(dest, silent) ):
 #		if( living(env = environment()) ) {
 		env = environment();
 		file = base_name(this_object());

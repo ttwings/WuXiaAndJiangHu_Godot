@@ -1,4 +1,4 @@
-extends TextureProgress
+extends TextureProgressBar
 var v
 
 func _ready():

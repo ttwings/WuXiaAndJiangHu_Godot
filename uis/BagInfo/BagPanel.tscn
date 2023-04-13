@@ -20,7 +20,7 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="PanelInfo"]
 anchor_right = 1.0
-margin_bottom = 40.0
+offset_bottom = 40.0
 text = "背包"
 align = 1
 valign = 1
@@ -32,9 +32,9 @@ __meta__ = {
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -30.0
-margin_top = 90.0
-margin_right = 20.0
+offset_left = -30.0
+offset_top = 90.0
+offset_right = 20.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -42,153 +42,153 @@ __meta__ = {
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelInfo"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 90.0
-margin_right = -650.0
-margin_bottom = -10.0
+offset_left = 10.0
+offset_top = 90.0
+offset_right = -650.0
+offset_bottom = -10.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelInfo/ScrollContainer"]
-margin_right = 520.0
-margin_bottom = 1368.0
+offset_right = 520.0
+offset_bottom = 1368.0
 
 [node name="Item01" parent="PanelInfo/ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_right = 520.0
-margin_bottom = 45.0
+offset_right = 520.0
+offset_bottom = 45.0
 
 [node name="Item02" parent="PanelInfo/ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 49.0
-margin_right = 520.0
-margin_bottom = 94.0
+offset_top = 49.0
+offset_right = 520.0
+offset_bottom = 94.0
 
 [node name="Item03" parent="PanelInfo/ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 98.0
-margin_right = 520.0
-margin_bottom = 143.0
+offset_top = 98.0
+offset_right = 520.0
+offset_bottom = 143.0
 
 [node name="Item04" parent="PanelInfo/ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 147.0
-margin_right = 520.0
-margin_bottom = 192.0
+offset_top = 147.0
+offset_right = 520.0
+offset_bottom = 192.0
 
 [node name="Item05" parent="PanelInfo/ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 196.0
-margin_right = 520.0
-margin_bottom = 241.0
+offset_top = 196.0
+offset_right = 520.0
+offset_bottom = 241.0
 
 [node name="Item06" parent="PanelInfo/ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 245.0
-margin_right = 520.0
-margin_bottom = 290.0
+offset_top = 245.0
+offset_right = 520.0
+offset_bottom = 290.0
 
 [node name="Item07" parent="PanelInfo/ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 294.0
-margin_right = 520.0
-margin_bottom = 339.0
+offset_top = 294.0
+offset_right = 520.0
+offset_bottom = 339.0
 
 [node name="Item08" parent="PanelInfo/ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 343.0
-margin_right = 520.0
-margin_bottom = 388.0
+offset_top = 343.0
+offset_right = 520.0
+offset_bottom = 388.0
 
 [node name="Item09" parent="PanelInfo/ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 392.0
-margin_right = 520.0
-margin_bottom = 437.0
+offset_top = 392.0
+offset_right = 520.0
+offset_bottom = 437.0
 
 [node name="Item10" parent="PanelInfo/ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 441.0
-margin_right = 520.0
-margin_bottom = 486.0
+offset_top = 441.0
+offset_right = 520.0
+offset_bottom = 486.0
 
 [node name="Item11" parent="PanelInfo/ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 490.0
-margin_right = 520.0
-margin_bottom = 535.0
+offset_top = 490.0
+offset_right = 520.0
+offset_bottom = 535.0
 
 [node name="Item12" parent="PanelInfo/ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 539.0
-margin_right = 520.0
-margin_bottom = 584.0
+offset_top = 539.0
+offset_right = 520.0
+offset_bottom = 584.0
 
 [node name="Item13" parent="PanelInfo/ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 588.0
-margin_right = 520.0
-margin_bottom = 633.0
+offset_top = 588.0
+offset_right = 520.0
+offset_bottom = 633.0
 
 [node name="Item14" parent="PanelInfo/ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 637.0
-margin_right = 520.0
-margin_bottom = 682.0
+offset_top = 637.0
+offset_right = 520.0
+offset_bottom = 682.0
 
 [node name="Item15" parent="PanelInfo/ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 686.0
-margin_right = 520.0
-margin_bottom = 731.0
+offset_top = 686.0
+offset_right = 520.0
+offset_bottom = 731.0
 
 [node name="Item16" parent="PanelInfo/ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 735.0
-margin_right = 520.0
-margin_bottom = 780.0
+offset_top = 735.0
+offset_right = 520.0
+offset_bottom = 780.0
 
 [node name="Item17" parent="PanelInfo/ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 784.0
-margin_right = 520.0
-margin_bottom = 829.0
+offset_top = 784.0
+offset_right = 520.0
+offset_bottom = 829.0
 
 [node name="Item18" parent="PanelInfo/ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 833.0
-margin_right = 520.0
-margin_bottom = 878.0
+offset_top = 833.0
+offset_right = 520.0
+offset_bottom = 878.0
 
 [node name="Item19" parent="PanelInfo/ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 882.0
-margin_right = 520.0
-margin_bottom = 927.0
+offset_top = 882.0
+offset_right = 520.0
+offset_bottom = 927.0
 
 [node name="Item20" parent="PanelInfo/ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 931.0
-margin_right = 520.0
-margin_bottom = 976.0
+offset_top = 931.0
+offset_right = 520.0
+offset_bottom = 976.0
 
 [node name="Item21" parent="PanelInfo/ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 980.0
-margin_right = 520.0
-margin_bottom = 1025.0
+offset_top = 980.0
+offset_right = 520.0
+offset_bottom = 1025.0
 
 [node name="Item22" parent="PanelInfo/ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 1029.0
-margin_right = 520.0
-margin_bottom = 1074.0
+offset_top = 1029.0
+offset_right = 520.0
+offset_bottom = 1074.0
 
 [node name="Item23" parent="PanelInfo/ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 1078.0
-margin_right = 520.0
-margin_bottom = 1123.0
+offset_top = 1078.0
+offset_right = 520.0
+offset_bottom = 1123.0
 
 [node name="Item24" parent="PanelInfo/ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 1127.0
-margin_right = 520.0
-margin_bottom = 1172.0
+offset_top = 1127.0
+offset_right = 520.0
+offset_bottom = 1172.0
 
 [node name="Item25" parent="PanelInfo/ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 1176.0
-margin_right = 520.0
-margin_bottom = 1221.0
+offset_top = 1176.0
+offset_right = 520.0
+offset_bottom = 1221.0
 
 [node name="Item26" parent="PanelInfo/ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 1225.0
-margin_right = 520.0
-margin_bottom = 1270.0
+offset_top = 1225.0
+offset_right = 520.0
+offset_bottom = 1270.0
 
 [node name="Item27" parent="PanelInfo/ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 1274.0
-margin_right = 520.0
-margin_bottom = 1319.0
+offset_top = 1274.0
+offset_right = 520.0
+offset_bottom = 1319.0
 
 [node name="Item28" parent="PanelInfo/ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 1323.0
-margin_right = 520.0
-margin_bottom = 1368.0
+offset_top = 1323.0
+offset_right = 520.0
+offset_bottom = 1368.0

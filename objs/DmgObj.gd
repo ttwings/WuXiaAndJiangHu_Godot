@@ -1,4 +1,4 @@
-extends Reference
+extends RefCounted
 class_name DmgObj
 
 var from = null

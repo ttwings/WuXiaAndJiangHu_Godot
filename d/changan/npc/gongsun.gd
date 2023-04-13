@@ -56,7 +56,7 @@ func do_something():
 	command(sprintf("bet  %d  silver",  1+random(5)));
 	call_out  ("do_something",  120);	
 
-func apply_dancer(var me):
+func apply_dancer(me):
 	me=this_player();
 	if(  (string)me.query("gender")  ==  "男性"  ):  
 		return  "这就要看阁下的本事了，我可帮不上多少忙。\n";

@@ -1,16 +1,16 @@
+@tool
 # A simple object pool to cache and reuse objects
 
-tool
 var objects = []
 var _using_objects = {}
 
 # Pool size
-var size = 0 setget resize, get_size
+var size = 0: get = get_size, set = resize
 func get_size() -> int:
 	return objects.size()
 
 # Using object count in the pool
-var using_count setget , get_using_count
+var using_count : get = get_using_count
 func get_using_count() -> int:
 	var count = 0
 	for i in range(objects.size()):
@@ -81,5 +81,5 @@ func release_object(p_object: Object):
 
 # The method to override to destroy object for the pool
 func destroy_object(p_object: Object):
-	if not p_object is Reference:
+	if not p_object is RefCounted:
 		p_object.free()

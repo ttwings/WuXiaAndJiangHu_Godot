@@ -3,11 +3,12 @@
 extends "AsyncTextureRect.gd"
 var http = preload("../../utils/http.gd").new()
 
-func _init().():
+func _init():
+	super()
 	http.name = "http"
-	http.connect("request_completed", self, '_on_http_request_done')
-	http.connect("request_failed", self, '_on_http_request_failed')
-	http.connect("request_progress", self, '_on_http_request_progress')
+	http.connect("request_completed", Callable(self, '_on_http_request_done'))
+	http.connect("request_failed", Callable(self, '_on_http_request_failed'))
+	http.connect("request_progress", Callable(self, '_on_http_request_progress'))
 	add_child(http)
 
 func _async_load_url():

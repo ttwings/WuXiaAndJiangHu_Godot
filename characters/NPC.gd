@@ -10,7 +10,7 @@ func _ready():
 	print(typeof(texture))
 	texture = load("res://assets/graphics/characters/%s" % texture)
 	print(typeof(texture))
-	$Sprite.texture = texture
+	$Sprite2D.texture = texture
 	facing = moves.keys()[randi() % 4]
 
 func _process(delta):

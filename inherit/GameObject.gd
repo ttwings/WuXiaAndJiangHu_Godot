@@ -72,7 +72,7 @@ func add(key,value):
 			dbase[key] = dbase[key] + value
 		elif dbase[key] is Array:
 			dbase[key].append(value)
-		elif dbase[key] is Directory:
+		elif dbase[key] is DirAccess:
 			dbase[key][value] = dbase[key][value] + 1
 	else:
 		dbase[key] = value	
@@ -147,7 +147,10 @@ func destruct(ob=self):
 
 
 func sizeof(array):
-	return array.size()	
+	if array is Array :
+		return array.size()
+	else:
+		return -1	
 
 func this_object(ob=self):
 	return ob	
@@ -167,7 +170,7 @@ func present(name:String,to):
 	to.add("present",name)
 
 func is_character():
-	return false
+	return self as Character
 			
 func random(n:int):
 	return randi()%n

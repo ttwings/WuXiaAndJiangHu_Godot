@@ -1,6 +1,6 @@
 extends Area2D
 
-export(int) var head_id = 0
+@export var head_id: int = 0
 var tile_size = 32
 var can_move = true
 var can_attack = false

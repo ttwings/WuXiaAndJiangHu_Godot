@@ -1,52 +1,52 @@
-ï»¿,zh_CN,en
-do_eat,åƒ,Eat
-do_drink,å–,Drink
-do_read,è¯»,Read
-do_look,çœ‹,Look
-race,ç§æ—,Race
-where,åœ°ç‚¹,Where
-current_master,å¸ˆå‚…,current master
-max_qi,æœ€å¤§æ°”è¡€,HP.Max
-neili,å†…åŠ›,SP
-unit,å•ä½,Unit
-value,ä»·å€¼,Value
-food_remaining,ä»½é‡,Remaining
-food_supply,é¥±è…¹,Supply
-Save,ä¿å­˜,Save
-Load,è½½å…¥,Load
-int,æ‚Ÿæ€§,INT
-str,è†‚åŠ›,STR
-dex,èº«æ³•,DEX
-qi,æ°”è¡€,HP
-jin,ç²¾åŠ›,AP
-con,æ ¹éª¨,CON
-sta,è€åŠ›,STA
-spi,çµæ€§,SPI
-kar,ç¦æº,KAR
-per,å®¹è²Œ,PER
-cps,å®šåŠ›,CPS
-cor,èƒ†è¯†,COR
-name,åç§°,Name
-age,å¹´é¾„,Age
-inquiry,è¯é¢˜,Inquiry
-long,æè¿°,"Long
+	zh_CN	en
+do_eat	³Ô	Eat
+do_drink	ºÈ	Drink
+do_read	¶Á	Read
+do_look	¿´	Look
+race	ÖÖ×å	Race
+where	µØµã	Where
+current_master	Ê¦¸µ	current master
+max_qi	×î´óÆøÑª	HP.Max
+neili	ÄÚÁ¦	SP
+unit	µ¥Î»	Unit
+value	¼ÛÖµ	Value
+food_remaining	·İÁ¿	Remaining
+food_supply	±¥¸¹	Supply
+Save	±£´æ	Save
+Load	ÔØÈë	Load
+int	ÎòĞÔ	INT
+str	ëöÁ¦	STR
+dex	Éí·¨	DEX
+qi	ÆøÑª	HP
+jin	¾«Á¦	AP
+con	¸ù¹Ç	CON
+sta	ÄÍÁ¦	STA
+spi	ÁéĞÔ	SPI
+kar	¸£Ô´	KAR
+per	ÈİÃ²	PER
+cps	¶¨Á¦	CPS
+cor	µ¨Ê¶	COR
+name	Ãû³Æ	Name
+age	ÄêÁä	Age
+inquiry	»°Ìâ	Inquiry
+long	ÃèÊö	"Long
 Long"
-family,æ‰€å±,family
-family_name,åŠ¿åŠ›åç§°,family name
-generation,è¾ˆåˆ†,generation
-quest_exp,é˜…å†,quest exp
-combat_exp,ç»éªŒ,combat exp
-armor,é˜²å¾¡,armor
-start_room,æ¥è‡ª,start room
-master_dir,å¸ˆæ‰¿,master dir
-attitude,æ€åº¦,attitude
-dodge,é—ªé¿,dodge
-force,ä¼¤å®³,force
-parry,æ ¼æŒ¡,parry
-strike,æ‹³æ³•,strike lvl
-claw,çˆªæ³•,claw lvl
-posion,æ¯’æœ¯,posion lvl
-throwing,æš—å™¨,throwing lvl
-staff,æ–æ³•,staff
-food,é£Ÿç‰©,food
-water,é¥®æ°´,water
+family	ËùÊô	family
+family_name	ÊÆÁ¦Ãû³Æ	family name
+generation	±²·Ö	generation
+quest_exp	ÔÄÀú	quest exp
+combat_exp	¾­Ñé	combat exp
+start_room	À´×Ô	start room
+master_dir	Ê¦³Ğ	master dir
+attitude	Ì¬¶È	attitude
+force	ÉËº¦	force
+armor	·ÀÓù	armor
+dodge	ÉÁ±Ü	dodge
+parry	¸ñµ²	parry
+strike	È­·¨	strike lvl
+claw	×¦·¨	claw lvl
+posion	¶¾Êõ	posion lvl
+throwing	°µÆ÷	throwing lvl
+staff	ÕÈ·¨	staff
+food	Ê³Îï	food
+water	ÒûË®	water

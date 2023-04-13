@@ -1,6 +1,6 @@
+@tool
 # Simple tool to pack images into an atlas
 
-tool
 const json = preload("json.gd")
 
 var	max_size = Vector2(2048, 2048)

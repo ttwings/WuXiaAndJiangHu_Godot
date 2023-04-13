@@ -32,6 +32,7 @@ const TYPE_HANDS	= "hands"		# 手套
 const TYPE_BOOTS	= "boots"		# 靴子
 # inherit EQUIP;
 
+enum TYPE {HEAD = 1,NECK = 2,CLOTH = 3,ARMOR = 4,SURCOAT = 5,WAIST = 6,SHIELD = 7,FINGER = 8,HANDS = 9,BOOTS = 10}
 
 
 func wear():

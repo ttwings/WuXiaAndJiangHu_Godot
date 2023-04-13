@@ -1,6 +1,6 @@
+@tool
 # The json module offers a number of high-level operations on JSON data
 
-tool
 
 # Load json file instance  
 # - - - - - - - - - -  
@@ -12,7 +12,9 @@ tool
 static func load_json(json_path):
 	var file = File.new()
 	if OK == file.open(json_path, File.READ):
-		return parse_json(file.get_as_text())
+		var test_json_conv = JSON.new()
+		test_json_conv.parse(file.get_as_text())
+		return test_json_conv.get_data()
 	return {}
 
 # Save dictionary into json file  
@@ -27,12 +29,12 @@ static func save_json(dict, path):
 	var err = OK
 	if dict == null or typeof(dict) != TYPE_DICTIONARY or path == null or typeof(path) != TYPE_STRING:
 		err = ERR_INVALID_PARAMETER
-	if not Directory.new().dir_exists(path.get_base_dir()):
-		Directory.new().make_dir_recursive(path.get_base_dir())
+	if not DirAccess.new().dir_exists(path.get_base_dir()):
+		DirAccess.new().make_dir_recursive(path.get_base_dir())
 	var f = File.new()
 	err = f.open(path, File.WRITE)
 	if OK == err:
-		f.store_string(to_json(dict))
+		f.store_string(JSON.new().stringify(dict))
 		f.close()
 		return OK
 	else:
@@ -81,7 +83,7 @@ static func get_elements(ds, format= {}):
 # * Dictionary The duplicated dictionary instance  
 static func duplicate(dict):
 	if typeof(dict) == TYPE_DICTIONARY:
-		return bytes2var(var2bytes(dict))
+		return bytes_to_var(var_to_bytes(dict))
 	else:
 		return dict
 
@@ -104,7 +106,7 @@ enum {
 # * Dictionary The new merged dictionary   
 static func merge(src_data, new_data, strategy = MERGE_OVERRIDE):
 	if typeof(src_data) == TYPE_DICTIONARY and typeof(new_data) == TYPE_DICTIONARY:
-		var ret = bytes2var(var2bytes(src_data))
+		var ret = bytes_to_var(var_to_bytes(src_data))
 		for key in new_data:
 			if not ret.has(key) or strategy == MERGE_OVERRIDE:
 				ret[key] = new_data[key]
@@ -122,7 +124,7 @@ static func merge(src_data, new_data, strategy = MERGE_OVERRIDE):
 static func serialize_instance(inst):
 	var ret = inst
 	if typeof(inst) == TYPE_OBJECT and inst.get_script() != null:
-		var dict = inst2dict(inst)
+		var dict = inst_to_dict(inst)
 		for key in dict:
 			var prop = dict[key]
 			dict[key] = serialize_instance(prop)
@@ -145,14 +147,14 @@ static func serialize_instance(inst):
 # * ScriptInstance The unserialized object instance
 static func unserialize_instance(dict):
 	var ret = dict
-	if typeof(dict) == TYPE_REAL and int(dict) == dict:
+	if typeof(dict) == TYPE_FLOAT and int(dict) == dict:
 		ret = int(dict)
 	elif typeof(dict) == TYPE_DICTIONARY:
 		for key in dict:
 			var prop = dict[key]
 			dict[key] = unserialize_instance(prop)
 		if dict.has("@path") and dict.has("@subpath"):
-			ret = dict2inst(dict)
+			ret = dict_to_inst(dict)
 	elif typeof(dict) == TYPE_ARRAY:
 		ret = []
 		for ele in dict:
@@ -168,5 +170,7 @@ static func unserialize_instance(dict):
 # The same structured data cloned from inst
 static func deep_clone_instance(inst):
 	var dict = serialize_instance(inst)
-	var newdict = parse_json(to_json(dict))
+	var test_json_conv = JSON.new()
+	test_json_conv.parse(JSON.new().stringify(dict))
+	var newdict = test_json_conv.get_data()
 	return unserialize_instance(newdict)

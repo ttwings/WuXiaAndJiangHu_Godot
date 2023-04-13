@@ -18,8 +18,8 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [node name="ProgressButton" type="Control"]
-margin_right = 97.0
-margin_bottom = 33.0
+offset_right = 97.0
+offset_bottom = 33.0
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
 
@@ -27,8 +27,8 @@ script = ExtResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
-custom_styles/fg = SubResource( 1 )
-custom_styles/bg = SubResource( 2 )
+theme_override_styles/fg = SubResource( 1 )
+theme_override_styles/bg = SubResource( 2 )
 percent_visible = false
 
 [node name="Button" type="Button" parent="ProgressBar"]

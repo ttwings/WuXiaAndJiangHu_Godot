@@ -18,17 +18,17 @@ func start(obj,pos:Vector2):
 		#暴击伤害显示为红色
 		if obj.isCrit:
 			scale = Vector2(2,2)
-			modulate = Color.red
+			modulate = Color.RED
 		position = pos
 		#特殊伤害显示为黄色
 		if obj.type == 1 :
 			scale = Vector2(1.5,1.5)
-			modulate = Color.yellow
+			modulate = Color.YELLOW
 	# 如果是治疗
 	if obj is HealObj :
 		number_label.text = String(obj.heal)
 		position = pos
-		modulate = Color.green
+		modulate = Color.GREEN
 	
 func _process(delta):
 	timer = timer - delta

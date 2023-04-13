@@ -8,24 +8,27 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Panel" type="Panel" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 416.0
-margin_top = 64.0
-margin_right = -368.0
-margin_bottom = -128.0
+offset_left = 416.0
+offset_top = 64.0
+offset_right = -368.0
+offset_bottom = -128.0
 
 [node name="Save" type="Button" parent="Panel"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 102.0
-margin_top = -200.0
-margin_right = 228.0
-margin_bottom = -168.0
+offset_left = 102.0
+offset_top = -200.0
+offset_right = 228.0
+offset_bottom = -168.0
 text = "Save"
 
 [node name="Load" type="Button" parent="Panel"]
@@ -33,33 +36,34 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 104.0
-margin_top = -248.0
-margin_right = 230.0
-margin_bottom = -216.0
+offset_left = 104.0
+offset_top = -248.0
+offset_right = 230.0
+offset_bottom = -216.0
 text = "Load"
 
 [node name="TextEdit" type="TextEdit" parent="Panel"]
-margin_left = 16.0
-margin_top = 128.0
-margin_right = 480.0
-margin_bottom = 480.0
-syntax_highlighting = true
+offset_left = 16.0
+offset_top = 128.0
+offset_right = 480.0
+offset_bottom = 480.0
+syntax_highlighter = true
 show_line_numbers = true
 
 [node name="FileDialog" type="FileDialog" parent="Panel"]
-margin_left = 48.0
-margin_top = 165.0
-margin_right = 459.0
-margin_bottom = 437.0
-window_title = "打开单个文件"
+offset_left = 48.0
+offset_top = 165.0
+offset_right = 459.0
+offset_bottom = 437.0
+window_title = "打开文件"
 mode = 0
 
 [node name="LabelMessage" type="Label" parent="Panel"]
-margin_left = 16.0
-margin_top = 496.0
-margin_right = 476.0
-margin_bottom = 520.0
+offset_left = 16.0
+offset_top = 496.0
+offset_right = 476.0
+offset_bottom = 520.0
+
 [connection signal="pressed" from="Panel/Save" to="." method="_on_Save_pressed"]
 [connection signal="pressed" from="Panel/Load" to="." method="_on_Load_pressed"]
 [connection signal="text_changed" from="Panel/TextEdit" to="." method="_on_TextEdit_text_changed"]

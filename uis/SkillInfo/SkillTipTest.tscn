@@ -10,7 +10,7 @@ anchor_bottom = 1.0
 [node name="SkillButton" parent="." instance=ExtResource( 1 )]
 
 [node name="SkillTip" parent="." instance=ExtResource( 2 )]
-margin_left = 403.322
-margin_top = 7.36642
-margin_right = 403.322
-margin_bottom = 7.36646
+offset_left = 403.322
+offset_top = 7.36642
+offset_right = 403.322
+offset_bottom = 7.36646

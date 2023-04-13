@@ -1,7 +1,7 @@
 # chinesed.c
 # by Annihilator@ES
 # modified by Xiang@XKX
-class_name CHINESE_D
+#class_name CHINESE_D
 # inherit F_SAVE;
 
 #include <localtime.h>

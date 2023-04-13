@@ -30,7 +30,7 @@ func create():
 
 
 func init():
-    .init();
+    super.init();
     add_action("do_fight",  "fight");
     add_action("do_kill",  "kill");
     add_action("do_steal",  "steal");

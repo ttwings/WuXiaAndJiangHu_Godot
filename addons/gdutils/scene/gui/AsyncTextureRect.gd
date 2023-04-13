@@ -1,6 +1,6 @@
+@tool
 # The control to load texture in background
 
-tool
 extends TextureRect
 
 enum State {
@@ -12,17 +12,17 @@ enum State {
 
 
 var container = CenterContainer.new()
-var state = State.IDLE	setget _set_state
-export var url = "" setget _set_url
-export(PackedScene) var progress_template = null
+var state = State.IDLE: set = _set_state
+@export var url = "": set = _set_url
+@export var progress_template: PackedScene = null
 var progress_node = null
-export(PackedScene) var failed_template = null
+@export var failed_template: PackedScene = null
 var failed_node = null
 var _pending_load = false
 
 func _init():
 	container.name = "PresetControls"
-	container.set_anchors_and_margins_preset(Control.PRESET_WIDE)
+	container.set_anchors_and_offsets_preset(Control.PRESET_WIDE)
 	container.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(container)
 
@@ -31,7 +31,7 @@ func _set_url(value):
 		return
 	url = value
 	self.texture = null
-	if not value.empty():
+	if not value.is_empty():
 		_pending_load = true
 		set_process(true)
 
@@ -51,7 +51,7 @@ func _set_state(p_state):
 
 func _ready():
 	if progress_template != null:
-		var node = progress_template.instance()
+		var node = progress_template.instantiate()
 		if node != null:
 			progress_node = node
 			progress_node.name = "progress"
@@ -59,7 +59,7 @@ func _ready():
 			if progress_node.has_method('set_min'):
 				progress_node.set_min(0)
 	if failed_template != null:
-		var node = failed_template.instance()
+		var node = failed_template.instantiate()
 		if node != null:
 			failed_node = node
 			failed_node.name = "failed"
@@ -73,7 +73,7 @@ func _process(delta):
 		_pending_load = false
 		set_process(false)
 		# Don't load the image in the editor as it will save the data to the scene
-		if Engine.editor_hint:
+		if Engine.is_editor_hint():
 			printt("AsyncTextureRect: ignored loading url ", url)
 			return
 		# run async load action

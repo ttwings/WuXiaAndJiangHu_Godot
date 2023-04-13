@@ -1,6 +1,6 @@
+@tool
 # The task queue to run tasks in a seperated thread
 
-tool
 var running = false
 var frame_interval = 1
 var thread = Thread.new()
@@ -27,7 +27,7 @@ func cancel(object, method, callback_caller = null, callback = ''):
 
 func start():
 	running = true
-	thread.start(self, "thread_main", get_instance_id())
+	thread.start(Callable(self, "thread_main").bind(get_instance_id()))
 
 func stop():
 	running = false

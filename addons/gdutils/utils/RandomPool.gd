@@ -1,6 +1,6 @@
+@tool
 # A random pool to select random items in the pool with weight support
 
-tool
 class RandomItem:
 	var weight: float = 1
 	var start: float = 0
@@ -51,7 +51,7 @@ func random(count: int = 1, norepeat = false) -> Array:
 		ret.shuffle()
 		return ret
 	var selected_item: RandomItem = null
-	var rand_num = rand_range(0, self._next_item_weight_start)
+	var rand_num = randf_range(0, self._next_item_weight_start)
 	for item in self._items:
 		if rand_num >= item.start and rand_num < item.start + item.weight:
 			selected_item = item

@@ -1,13 +1,13 @@
-extends Sprite
+extends Sprite2D
 
 func _ready():
-	.hide()
+	super.hide()
 
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	.hide()
+	super.hide()
 
 
 func _on_AnimationPlayer_animation_started(anim_name):
-	.show()
+	super.show()

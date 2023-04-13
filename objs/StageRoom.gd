@@ -33,7 +33,7 @@ const HBWHT = "[color=#f0fcff]"
 
 var player = Char.new()
 
-var player_save_data = gdutils.utils.json.load_json("user://data/user/id.json")
+var player_save_data = gdutils.utils.json.load_json("user://save/1/player.json")
 
 var Room_gd
 var current_room
@@ -73,16 +73,18 @@ func _ready():
 	rooms.down  = $Rooms/room_d
 	
 	creat_exits(current_room,neighbor_rooms)
-	$RoomPanel/VBoxContainer/RoomName.bbcode_text = "[center]" + current_room.query("short") +"[/center]"
-	$RoomPanel/VBoxContainer/Description.bbcode_text  = current_room.query("long")
+	$RoomPanel/VBoxContainer/RoomName.text = "[center]" + current_room.query("short") +"[/center]"
+	$RoomPanel/VBoxContainer/Description.text  = current_room.query("long")
 	# load map
 	map_file.open("res://doc/map/changan",File.READ)
 #	print(map_file.get_as_text())
-	$RoomMessage/VBoxContainer/RichTextLabel.bbcode_text = map_file.get_as_text()
+	$RoomMessage/VBoxContainer/RichTextLabel.text = map_file.get_as_text()
 #	current_room.get_dir()
 	food = load("res://clone/food/apple.gd").new()
 
-	player = Player.new().creat_user("res://data/user/l/lijia.gd")
+#	player = Player.new().creat_user("res://data/user/l/lijia.gd")
+	player = Char.new()
+	player.dbase = player_save_data.dbase
 	player.carry_object("/clone/food/apple")
 
 #	npc test 对话
@@ -94,14 +96,14 @@ func _ready():
 # 信号链接一次就好
 func pressed_connect():
 	for direct in rooms:	
-		rooms[direct].connect("pressed",self,"move_to_room",[direct])
+		rooms[direct].connect("pressed", Callable(self, "move_to_room").bind(direct))
 # 生成出口
 func creat_exits(room:GameObject,neighbor_rooms):
 	var x
 	var line = Line2D.new()
 	var exits = room.query("exits")
 	$Rooms/room.show()
-	$Rooms/room/RichTextLabel.bbcode_text = "[center]" + room.query("short") +"[/center]"
+	$Rooms/room/RichTextLabel.text = "[center]" + room.query("short") +"[/center]"
 	for direct in exits:
 		if exits[direct] :
 			neighbor_room_creat(room,direct,neighbor_rooms)	
@@ -112,7 +114,7 @@ func neighbor_room_creat(room,direct,neighbor_rooms):
 	# neighbor_rooms[direct] = load(exits[direct] + ".gd").new()
 	neighbor_rooms[direct] = Global.load_room(exits[direct] + ".gd")
 	rooms[direct].show()
-	rooms[direct].get_child(0).bbcode_text = "[center]" + neighbor_rooms[direct].query("short") +"[/center]"
+	rooms[direct].get_child(0).text = "[center]" + neighbor_rooms[direct].query("short") +"[/center]"
 #	rooms[direct].get_child().(neighbor_rooms[direct].query("short"))
 	pass			
 # 房间之间的移动
@@ -122,8 +124,8 @@ func move_to_room(direct):
 	for i in rooms:
 		rooms[i].hide()
 	creat_exits(current_room,neighbor_rooms)
-	$RoomPanel/VBoxContainer/RoomName.bbcode_text = "[center]" + current_room.query("short") +"[/center]"
-	$RoomPanel/VBoxContainer/Description.bbcode_text = current_room.query("long")
+	$RoomPanel/VBoxContainer/RoomName.text = "[center]" + current_room.query("short") +"[/center]"
+	$RoomPanel/VBoxContainer/Description.text = current_room.query("long")
 #	生成房间固定物品 如牌子类
 	create_room_items()
 #	生成房间包含对象,如物品,人物等
@@ -157,8 +159,8 @@ func creat_character_props(ob:Char):
 #				props.append("容量:" + str(ob.query(k)))
 			"liquid":
 				var liquid = ob.query("liquid")
-				for k in liquid:
-					match k:
+				for l in liquid:
+					match l:
 						"name":
 							props.append("盛装:" + str(liquid.name))
 						"remaining":
@@ -177,65 +179,24 @@ func notify_fail(message:String):
 	pass
 	
 func message_ob(msg,ob):
-	$ObjectMessage/RichTextLabel.bbcode_text = msg
+	$ObjectMessage/RichTextLabel.text = msg
 	
 	
 func _process(delta):
 #	$RichTextLabelCharacter.bbcode_text = character_panel(me)
 #	player_status(player)
 	pass	
-
-#func player_status(player):
-#	var qi = player.query("qi")
-#	var max_qi = player.query("max_qi")
-#	var jing = player.query("jing")
-#	var max_jing = player.query("max_jing")
-#	var neili = player.query("neili")
-#	var max_neili = player.query("max_neili")
-#	var food = player.query("food")
-#	var water = player.query("water")
-#	var max_food = player.max_food_capacity()
-#	var max_water = player.max_water_capacity()
-#	$ActorStatus/VBoxContainer/Qibox/ProgressBar.value = int(qi)
-#	$ActorStatus/VBoxContainer/Qibox/ProgressBar.max_value = int(max_qi)
-#	$ActorStatus/VBoxContainer/Qibox/Label2.text = "[" + str(qi) + "/" + str(max_qi) + "]"
-#	$ActorStatus/VBoxContainer/Jingbox/ProgressBar.value  = int(jing)
-#	$ActorStatus/VBoxContainer/Jingbox/ProgressBar.max_value  = int(max_jing)
-#	$ActorStatus/VBoxContainer/Jingbox/Label2.text  = "[" + str(jing) + "/" + str(max_jing) + "]"
-#	$ActorStatus/VBoxContainer/Neibox/ProgressBar.value = int(neili)
-#	$ActorStatus/VBoxContainer/Neibox/ProgressBar.max_value = int(max_neili)
-#	$ActorStatus/VBoxContainer/Neibox/Label2.text  = "[" + str(neili) + "/" + str(max_neili) + "]"
-#	$ActorStatus/VBoxContainer/FoodBox/ProgressBar.value = int(food)
-#	$ActorStatus/VBoxContainer/FoodBox/ProgressBar.max_value = max_food
-#	$ActorStatus/VBoxContainer/FoodBox/Label2.text  = "[" + str(food) + "/" + str(max_food) + "]"
-#	$ActorStatus/VBoxContainer/WaterBox/ProgressBar.value = int(water)
-#	$ActorStatus/VBoxContainer/WaterBox/ProgressBar.max_value = max_water
-##	$ActorStatus/VBoxContainer/Waterbox/Label2.text  = "[" + str(water) + "/" + str(max_water) + "]"
-
-# 初始化玩家物品栏.
-# 进入游戏后.玩家的objects里面由路径变为对象.
-# 待定,当有需要的时候,再进行转化.
-
-#var player_objects = {}
-#func init_player_objects(player):
-#	var objects = player.query("objects")
-#	for ob in objects:
-#		if objects[ob] is GameObject :
-#			continue
-#		else:
-#			player_objects[ob] = player.carry_object(objects[ob])
-	
 # ----------------------------------------------------- 对话窗口 -------------------------------------
 # 根据人物信息显示基本窗口
 func creat_chat_panel(actor:Char):
-	$ChatMessagePanel/ChatMessage/names.bbcode_text = ""
-	$ChatMessagePanel/ChatMessage/Description.bbcode_text = ""
-	$ChatMessagePanel/ChatMessage/Chat.bbcode_text = ""
+	$ChatMessagePanel/ChatMessage/names.text = ""
+	$ChatMessagePanel/ChatMessage/Description.text = ""
+	$ChatMessagePanel/ChatMessage/Chat.text = ""
 	$ChatMessagePanel.show()
 #	print_debug("chat panel message")
 	print_debug(actor.name())
-	$ChatMessagePanel/ChatMessage/names.bbcode_text = actor.query("nickname") + "\n"  + actor.name()+ "\n" + actor.query("title")
-	$ChatMessagePanel/ChatMessage/Description.bbcode_text = actor.query("long")
+	$ChatMessagePanel/ChatMessage/names.text = actor.query("nickname") + "\n"  + actor.name()+ "\n" + actor.query("title")
+	$ChatMessagePanel/ChatMessage/Description.text = actor.query("long")
 	
 	creat_chat_inquiry_button(actor.query("inquiry"),actor)
 	print_debug("chat panel message")
@@ -247,9 +208,9 @@ func create_chat_inquiry(inquiry,key,ob):
 	
 	if inquiry and inquiry.has(key):
 		if inquiry[key] is String:
-			$ChatMessagePanel/ChatMessage/Chat.bbcode_text ="[" +  key  + "]\n" + inquiry[key]
+			$ChatMessagePanel/ChatMessage/Chat.text ="[" +  key  + "]\n" + inquiry[key]
 		elif inquiry[key] is Array:
-			$ChatMessagePanel/ChatMessage/Chat.bbcode_text ="[" +  key  + "]\n" + inquiry_func(inquiry[key],ob)
+			$ChatMessagePanel/ChatMessage/Chat.text ="[" +  key  + "]\n" + inquiry_func(inquiry[key],ob)
 			pass
 #	else:
 #		$ChatMessagePanel/ChatMessage/Chat.bbcode_text = ""
@@ -260,8 +221,8 @@ func creat_chat_inquiry_button(inquiry,ob=null):
 		for i in inquiry :
 			var action_button = Button.new()
 			action_button.text = i
-			action_button.rect_min_size = Vector2(200,30)
-			action_button.connect("pressed",self,"create_chat_inquiry",[inquiry,i,ob])
+			action_button.custom_minimum_size = Vector2(200,30)
+			action_button.connect("pressed", Callable(self, "create_chat_inquiry").bind(inquiry,i,ob))
 			$ChatMessagePanel/Actions.add_child(action_button)
 	else:
 		var actions = $ChatMessagePanel/Actions
@@ -289,13 +250,13 @@ func create_room_items():
 	for i in items :
 		var item_button = Button.new()
 		item_button.text = i
-		item_button.rect_min_size = Vector2(30,30)
-		item_button.connect("pressed",self,"create_room_item_desc",[items,i])
+		item_button.custom_minimum_size = Vector2(30,30)
+		item_button.connect("pressed", Callable(self, "create_room_item_desc").bind(items,i))
 		$RoomPanel/VBoxContainer/Items.add_child(item_button)		
 
 func create_room_item_desc(items,key):
 	if items and items.has(key):
-		$RoomMessage/VBoxContainer/RichTextLabel.bbcode_text ="[" +  key  + "]\n" + items[key]
+		$RoomMessage/VBoxContainer/RichTextLabel.text ="[" +  key  + "]\n" + items[key]
 
 # 生成房间内的 objects 
 
@@ -312,8 +273,8 @@ func create_room_objects():
 		print_debug(o + ".gd")
 		var ob = load(o + ".gd").new()
 		obj_button.text = ob.name()
-		obj_button.rect_min_size = Vector2(30,30)
-		obj_button.connect("pressed",self,"create_room_object_panel",[ob])
+		obj_button.custom_minimum_size = Vector2(30,30)
+		obj_button.connect("pressed", Callable(self, "create_room_object_panel").bind(ob))
 		$RoomPanel/Objects.add_child(obj_button)			
 
 func create_room_object_panel(ob):

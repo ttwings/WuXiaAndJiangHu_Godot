@@ -1,12 +1,12 @@
+@tool
 # This Node is used to detect gestures
 
-tool
 extends Node
 
 enum SlideDetectMethod { DISTANCE, SPEED }
-export(SlideDetectMethod) var silde_detect_method = SlideDetectMethod.SPEED
-export var slide_distance = 100
-export var slide_speed = 600
+@export var silde_detect_method: SlideDetectMethod = SlideDetectMethod.SPEED
+@export var slide_distance = 100
+@export var slide_speed = 600
 
 enum SlideGesture {
 	SLIDE_NONE,

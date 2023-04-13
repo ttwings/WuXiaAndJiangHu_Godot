@@ -1,5 +1,5 @@
+@tool
 
-tool
 extends Node
 
 const editor = preload("editor/__init__.gd")

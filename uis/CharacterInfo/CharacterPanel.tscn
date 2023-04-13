@@ -2,12 +2,12 @@
 
 [ext_resource path="res://new_theme.tres" type="Theme" id=1]
 [ext_resource path="res://uis/CharacterInfo/PanelAttribute.gd" type="Script" id=2]
-[ext_resource path="res://uis/texture/ui_p.png" type="Texture" id=3]
+[ext_resource path="res://uis/texture/ui_p.png" type="Texture2D" id=3]
 [ext_resource path="res://uis/CharacterInfo/Bar_qi.gd" type="Script" id=4]
 [ext_resource path="res://uis/CharacterInfo/Bar_tili.gd" type="Script" id=5]
 [ext_resource path="res://uis/CharacterInfo/Bar_jing.gd" type="Script" id=6]
-[ext_resource path="res://uis/CharacterInfo/ui_neili_outer.png" type="Texture" id=7]
-[ext_resource path="res://uis/CharacterInfo/ui_neili_inner.png" type="Texture" id=8]
+[ext_resource path="res://uis/CharacterInfo/ui_neili_outer.png" type="Texture2D" id=7]
+[ext_resource path="res://uis/CharacterInfo/ui_neili_inner.png" type="Texture2D" id=8]
 [ext_resource path="res://uis/CharacterInfo/Bar_neili.gd" type="Script" id=9]
 [ext_resource path="res://uis/CharacterInfo/Bar_food.gd" type="Script" id=10]
 [ext_resource path="res://uis/CharacterInfo/Bar_water.gd" type="Script" id=11]
@@ -85,10 +85,10 @@ theme = ExtResource( 1 )
 
 [node name="PanelAttribute" type="Panel" parent="."]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 290.0
-margin_bottom = 560.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 290.0
+offset_bottom = 560.0
 script = ExtResource( 2 )
 
 [node name="NinePatchRect" type="NinePatchRect" parent="PanelAttribute"]
@@ -101,19 +101,19 @@ patch_margin_right = 8
 patch_margin_bottom = 8
 
 [node name="Qi" type="Label" parent="PanelAttribute"]
-margin_top = 320.0
-margin_right = 64.0
-margin_bottom = 340.0
+offset_top = 320.0
+offset_right = 64.0
+offset_bottom = 340.0
 text = "气血"
 align = 1
 valign = 1
 
 [node name="Bar_qi" type="ProgressBar" parent="PanelAttribute/Qi"]
-margin_left = 64.0
-margin_right = 270.0
-margin_bottom = 19.0
-custom_styles/fg = SubResource( 1 )
-custom_styles/bg = SubResource( 2 )
+offset_left = 64.0
+offset_right = 270.0
+offset_bottom = 19.0
+theme_override_styles/fg = SubResource( 1 )
+theme_override_styles/bg = SubResource( 2 )
 value = 34.0
 percent_visible = false
 script = ExtResource( 4 )
@@ -122,54 +122,54 @@ __meta__ = {
 }
 
 [node name="Tili" type="Label" parent="PanelAttribute"]
-margin_top = 340.0
-margin_right = 64.0
-margin_bottom = 360.0
+offset_top = 340.0
+offset_right = 64.0
+offset_bottom = 360.0
 text = "体力"
 align = 1
 valign = 1
 
 [node name="Bar_tiili" type="ProgressBar" parent="PanelAttribute/Tili"]
-margin_left = 64.0
-margin_right = 270.0
-margin_bottom = 19.0
-custom_styles/fg = SubResource( 3 )
-custom_styles/bg = SubResource( 4 )
+offset_left = 64.0
+offset_right = 270.0
+offset_bottom = 19.0
+theme_override_styles/fg = SubResource( 3 )
+theme_override_styles/bg = SubResource( 4 )
 value = 64.0
 percent_visible = false
 script = ExtResource( 5 )
 
 [node name="Jing" type="Label" parent="PanelAttribute"]
-margin_top = 360.0
-margin_right = 64.0
-margin_bottom = 380.0
+offset_top = 360.0
+offset_right = 64.0
+offset_bottom = 380.0
 text = "精神"
 align = 1
 valign = 1
 
 [node name="Bar_jing" type="ProgressBar" parent="PanelAttribute/Jing"]
-margin_left = 64.0
-margin_right = 270.0
-margin_bottom = 19.0
-custom_styles/fg = SubResource( 5 )
-custom_styles/bg = SubResource( 6 )
+offset_left = 64.0
+offset_right = 270.0
+offset_bottom = 19.0
+theme_override_styles/fg = SubResource( 5 )
+theme_override_styles/bg = SubResource( 6 )
 value = 64.0
 percent_visible = false
 script = ExtResource( 6 )
 
 [node name="Neili" type="Label" parent="PanelAttribute"]
-margin_left = 190.0
-margin_top = 390.0
-margin_right = 254.0
-margin_bottom = 414.0
+offset_left = 190.0
+offset_top = 390.0
+offset_right = 254.0
+offset_bottom = 414.0
 text = "内力"
 align = 1
 valign = 1
 
-[node name="Bar_neili" type="TextureProgress" parent="PanelAttribute/Neili"]
-margin_top = 32.0
-margin_right = 64.0
-margin_bottom = 96.0
+[node name="Bar_neili" type="TextureProgressBar" parent="PanelAttribute/Neili"]
+offset_top = 32.0
+offset_right = 64.0
+offset_bottom = 96.0
 value = 15.0
 texture_under = ExtResource( 7 )
 texture_progress = ExtResource( 8 )
@@ -178,27 +178,27 @@ tint_progress = Color( 0.0509804, 0.0862745, 0.94902, 1 )
 script = ExtResource( 9 )
 
 [node name="value" type="Label" parent="PanelAttribute/Neili"]
-margin_left = 14.3789
-margin_top = 100.0
-margin_right = 54.3789
-margin_bottom = 117.0
+offset_left = 14.3789
+offset_top = 100.0
+offset_right = 54.3789
+offset_bottom = 117.0
 text = "0"
 align = 1
 valign = 1
 
 [node name="Food" type="Label" parent="PanelAttribute"]
-margin_left = 22.0
-margin_top = 390.0
-margin_right = 86.0
-margin_bottom = 410.0
+offset_left = 22.0
+offset_top = 390.0
+offset_right = 86.0
+offset_bottom = 410.0
 text = "food"
 align = 1
 valign = 1
 
-[node name="Bar_food" type="TextureProgress" parent="PanelAttribute/Food"]
-margin_top = 32.0
-margin_right = 64.0
-margin_bottom = 96.0
+[node name="Bar_food" type="TextureProgressBar" parent="PanelAttribute/Food"]
+offset_top = 32.0
+offset_right = 64.0
+offset_bottom = 96.0
 value = 28.0
 texture_under = ExtResource( 7 )
 texture_progress = ExtResource( 8 )
@@ -208,36 +208,36 @@ tint_progress = Color( 0.894118, 0.921569, 0.0784314, 1 )
 script = ExtResource( 10 )
 
 [node name="value" type="Label" parent="PanelAttribute/Food"]
-margin_left = 12.635
-margin_top = 100.0
-margin_right = 52.635
-margin_bottom = 117.0
+offset_left = 12.635
+offset_top = 100.0
+offset_right = 52.635
+offset_bottom = 117.0
 text = "0"
 align = 1
 valign = 1
 
 [node name="Water" type="Label" parent="PanelAttribute"]
-margin_left = 100.0
-margin_top = 390.0
-margin_right = 164.0
-margin_bottom = 410.0
+offset_left = 100.0
+offset_top = 390.0
+offset_right = 164.0
+offset_bottom = 410.0
 text = "饮水"
 align = 1
 valign = 1
 
 [node name="value" type="Label" parent="PanelAttribute/Water"]
-margin_left = 14.19
-margin_top = 100.0
-margin_right = 54.19
-margin_bottom = 117.0
+offset_left = 14.19
+offset_top = 100.0
+offset_right = 54.19
+offset_bottom = 117.0
 text = "0"
 align = 1
 valign = 1
 
-[node name="Bar_water" type="TextureProgress" parent="PanelAttribute/Water"]
-margin_top = 32.0
-margin_right = 64.0
-margin_bottom = 96.0
+[node name="Bar_water" type="TextureProgressBar" parent="PanelAttribute/Water"]
+offset_top = 32.0
+offset_right = 64.0
+offset_bottom = 96.0
 value = 72.0
 texture_under = ExtResource( 7 )
 texture_progress = ExtResource( 8 )
@@ -247,138 +247,138 @@ tint_progress = Color( 0.141176, 0.694118, 0.964706, 1 )
 script = ExtResource( 11 )
 
 [node name="Label_name" type="Label" parent="PanelAttribute"]
-margin_left = 110.0
-margin_top = 10.3406
-margin_right = 150.0
-margin_bottom = 27.3406
+offset_left = 110.0
+offset_top = 10.3406
+offset_right = 150.0
+offset_bottom = 27.3406
 text = "姓名"
 valign = 1
 
 [node name="value" type="Label" parent="PanelAttribute/Label_name"]
-margin_left = 38.8241
-margin_top = 0.340569
-margin_right = 78.8241
-margin_bottom = 17.3406
+offset_left = 38.8241
+offset_top = 0.340569
+offset_right = 78.8241
+offset_bottom = 17.3406
 text = "李嘉"
 valign = 1
 
 [node name="Label_age" type="Label" parent="PanelAttribute"]
-margin_left = 110.0
-margin_top = 70.0
-margin_right = 150.0
-margin_bottom = 94.0
+offset_left = 110.0
+offset_top = 70.0
+offset_right = 150.0
+offset_bottom = 94.0
 text = "年龄"
 valign = 1
 
 [node name="value" type="Label" parent="PanelAttribute/Label_age"]
-margin_left = 38.8241
-margin_top = 0.340569
-margin_right = 78.8241
-margin_bottom = 17.3406
+offset_left = 38.8241
+offset_top = 0.340569
+offset_right = 78.8241
+offset_bottom = 17.3406
 text = "14"
 valign = 1
 
 [node name="Label_gender" type="Label" parent="PanelAttribute"]
-margin_left = 110.0
-margin_top = 30.3406
-margin_right = 150.0
-margin_bottom = 47.3406
+offset_left = 110.0
+offset_top = 30.3406
+offset_right = 150.0
+offset_bottom = 47.3406
 text = "性别"
 valign = 1
 
 [node name="value" type="Label" parent="PanelAttribute/Label_gender"]
-margin_left = 38.8241
-margin_top = 0.340569
-margin_right = 78.8241
-margin_bottom = 17.3406
+offset_left = 38.8241
+offset_top = 0.340569
+offset_right = 78.8241
+offset_bottom = 17.3406
 text = "男性"
 valign = 1
 
 [node name="Label_title" type="Label" parent="PanelAttribute"]
-margin_left = 110.0
-margin_top = 50.0
-margin_right = 150.0
-margin_bottom = 67.0
+offset_left = 110.0
+offset_top = 50.0
+offset_right = 150.0
+offset_bottom = 67.0
 text = "身份"
 valign = 1
 
 [node name="value" type="Label" parent="PanelAttribute/Label_title"]
-margin_left = 38.8241
-margin_top = 0.340569
-margin_right = 78.8241
-margin_bottom = 17.3406
+offset_left = 38.8241
+offset_top = 0.340569
+offset_right = 78.8241
+offset_bottom = 17.3406
 text = "普通百姓"
 valign = 1
 
 [node name="Label_str" type="Label" parent="PanelAttribute"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 50.0
-margin_bottom = 27.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 27.0
 text = "膂力"
 valign = 1
 
 [node name="value" type="Label" parent="PanelAttribute/Label_str"]
-margin_left = 38.8241
-margin_top = 0.340569
-margin_right = 78.8241
-margin_bottom = 17.3406
+offset_left = 38.8241
+offset_top = 0.340569
+offset_right = 78.8241
+offset_bottom = 17.3406
 text = "20"
 valign = 1
 
 [node name="Label_int" type="Label" parent="PanelAttribute"]
-margin_left = 10.0
-margin_top = 30.0
-margin_right = 50.0
-margin_bottom = 47.0
+offset_left = 10.0
+offset_top = 30.0
+offset_right = 50.0
+offset_bottom = 47.0
 text = "悟性"
 valign = 1
 
 [node name="value" type="Label" parent="PanelAttribute/Label_int"]
-margin_left = 38.8241
-margin_top = 0.340569
-margin_right = 78.8241
-margin_bottom = 17.3406
+offset_left = 38.8241
+offset_top = 0.340569
+offset_right = 78.8241
+offset_bottom = 17.3406
 text = "20"
 valign = 1
 
 [node name="Label_dex" type="Label" parent="PanelAttribute"]
-margin_left = 10.0
-margin_top = 50.0
-margin_right = 50.0
-margin_bottom = 67.0
+offset_left = 10.0
+offset_top = 50.0
+offset_right = 50.0
+offset_bottom = 67.0
 text = "身法"
 valign = 1
 
 [node name="value" type="Label" parent="PanelAttribute/Label_dex"]
-margin_left = 38.8241
-margin_top = 0.340569
-margin_right = 78.8241
-margin_bottom = 17.3406
+offset_left = 38.8241
+offset_top = 0.340569
+offset_right = 78.8241
+offset_bottom = 17.3406
 text = "20"
 valign = 1
 
 [node name="Label_sta" type="Label" parent="PanelAttribute"]
-margin_left = 10.0
-margin_top = 90.0
-margin_right = 50.0
-margin_bottom = 107.0
+offset_left = 10.0
+offset_top = 90.0
+offset_right = 50.0
+offset_bottom = 107.0
 text = "耐力"
 valign = 1
 
 [node name="value" type="Label" parent="PanelAttribute/Label_sta"]
-margin_left = 38.8241
-margin_top = 0.340569
-margin_right = 78.8241
-margin_bottom = 17.3406
+offset_left = 38.8241
+offset_top = 0.340569
+offset_right = 78.8241
+offset_bottom = 17.3406
 text = "18"
 valign = 1
 
 [node name="Label_spi" type="Label" parent="PanelAttribute"]
-margin_left = 10.0
-margin_top = 110.0
-margin_right = 50.0
-margin_bottom = 127.0
+offset_left = 10.0
+offset_top = 110.0
+offset_right = 50.0
+offset_bottom = 127.0
 text = "灵性"
 valign = 1
 __meta__ = {
@@ -386,18 +386,18 @@ __meta__ = {
 }
 
 [node name="value" type="Label" parent="PanelAttribute/Label_spi"]
-margin_left = 38.8241
-margin_top = 0.340569
-margin_right = 78.8241
-margin_bottom = 17.3406
+offset_left = 38.8241
+offset_top = 0.340569
+offset_right = 78.8241
+offset_bottom = 17.3406
 text = "19"
 valign = 1
 
 [node name="Label_kar" type="Label" parent="PanelAttribute"]
-margin_left = 10.0
-margin_top = 130.0
-margin_right = 50.0
-margin_bottom = 147.0
+offset_left = 10.0
+offset_top = 130.0
+offset_right = 50.0
+offset_bottom = 147.0
 text = "福缘"
 valign = 1
 __meta__ = {
@@ -405,18 +405,18 @@ __meta__ = {
 }
 
 [node name="value" type="Label" parent="PanelAttribute/Label_kar"]
-margin_left = 38.8241
-margin_top = 0.340569
-margin_right = 78.8241
-margin_bottom = 17.3406
+offset_left = 38.8241
+offset_top = 0.340569
+offset_right = 78.8241
+offset_bottom = 17.3406
 text = "12"
 valign = 1
 
 [node name="Label_per" type="Label" parent="PanelAttribute"]
-margin_left = 10.0
-margin_top = 167.0
-margin_right = 50.0
-margin_bottom = 184.0
+offset_left = 10.0
+offset_top = 167.0
+offset_right = 50.0
+offset_bottom = 184.0
 text = "容貌"
 valign = 1
 __meta__ = {
@@ -424,18 +424,18 @@ __meta__ = {
 }
 
 [node name="value" type="Label" parent="PanelAttribute/Label_per"]
-margin_left = 38.8241
-margin_top = 0.340569
-margin_right = 78.8241
-margin_bottom = 17.3406
+offset_left = 38.8241
+offset_top = 0.340569
+offset_right = 78.8241
+offset_bottom = 17.3406
 text = "22"
 valign = 1
 
 [node name="Label_cps" type="Label" parent="PanelAttribute"]
-margin_left = 10.0
-margin_top = 190.0
-margin_right = 50.0
-margin_bottom = 207.0
+offset_left = 10.0
+offset_top = 190.0
+offset_right = 50.0
+offset_bottom = 207.0
 text = "定力"
 valign = 1
 __meta__ = {
@@ -443,18 +443,18 @@ __meta__ = {
 }
 
 [node name="value" type="Label" parent="PanelAttribute/Label_cps"]
-margin_left = 38.8241
-margin_top = 0.340569
-margin_right = 78.8241
-margin_bottom = 17.3406
+offset_left = 38.8241
+offset_top = 0.340569
+offset_right = 78.8241
+offset_bottom = 17.3406
 text = "17"
 valign = 1
 
 [node name="Label_cor" type="Label" parent="PanelAttribute"]
-margin_left = 10.0
-margin_top = 210.0
-margin_right = 50.0
-margin_bottom = 227.0
+offset_left = 10.0
+offset_top = 210.0
+offset_right = 50.0
+offset_bottom = 227.0
 text = "胆识"
 valign = 1
 __meta__ = {
@@ -462,18 +462,18 @@ __meta__ = {
 }
 
 [node name="value" type="Label" parent="PanelAttribute/Label_cor"]
-margin_left = 38.8241
-margin_top = 0.340569
-margin_right = 78.8241
-margin_bottom = 17.3406
+offset_left = 38.8241
+offset_top = 0.340569
+offset_right = 78.8241
+offset_bottom = 17.3406
 text = "21"
 valign = 1
 
 [node name="Label_qi" type="Label" parent="PanelAttribute"]
-margin_left = 114.19
-margin_top = 100.0
-margin_right = 154.19
-margin_bottom = 124.0
+offset_left = 114.19
+offset_top = 100.0
+offset_right = 154.19
+offset_bottom = 124.0
 text = "气血"
 valign = 1
 __meta__ = {
@@ -481,18 +481,18 @@ __meta__ = {
 }
 
 [node name="value" type="Label" parent="PanelAttribute/Label_qi"]
-margin_left = 38.8241
-margin_top = 0.340569
-margin_right = 78.8241
-margin_bottom = 17.3406
+offset_left = 38.8241
+offset_top = 0.340569
+offset_right = 78.8241
+offset_bottom = 17.3406
 text = "64"
 valign = 1
 
 [node name="Label_max_qi" type="Label" parent="PanelAttribute"]
-margin_left = 114.19
-margin_top = 120.341
-margin_right = 178.19
-margin_bottom = 144.341
+offset_left = 114.19
+offset_top = 120.341
+offset_right = 178.19
+offset_bottom = 144.341
 text = "最大气血"
 valign = 1
 __meta__ = {
@@ -500,18 +500,18 @@ __meta__ = {
 }
 
 [node name="value" type="Label" parent="PanelAttribute/Label_max_qi"]
-margin_left = 78.8241
-margin_top = 0.340569
-margin_right = 118.824
-margin_bottom = 17.3406
+offset_left = 78.8241
+offset_top = 0.340569
+offset_right = 118.824
+offset_bottom = 17.3406
 text = "100"
 valign = 1
 
 [node name="Label_eff_qi" type="Label" parent="PanelAttribute"]
-margin_left = 114.19
-margin_top = 140.341
-margin_right = 178.19
-margin_bottom = 164.341
+offset_left = 114.19
+offset_top = 140.341
+offset_right = 178.19
+offset_bottom = 164.341
 text = "当前气血"
 valign = 1
 __meta__ = {
@@ -519,18 +519,18 @@ __meta__ = {
 }
 
 [node name="value" type="Label" parent="PanelAttribute/Label_eff_qi"]
-margin_left = 70.0
-margin_top = 0.340569
-margin_right = 110.0
-margin_bottom = 17.3406
+offset_left = 70.0
+offset_top = 0.340569
+offset_right = 110.0
+offset_bottom = 17.3406
 text = "65"
 valign = 1
 
 [node name="Label_jing" type="Label" parent="PanelAttribute"]
-margin_left = 114.19
-margin_top = 240.0
-margin_right = 154.19
-margin_bottom = 264.0
+offset_left = 114.19
+offset_top = 240.0
+offset_right = 154.19
+offset_bottom = 264.0
 text = "精神"
 valign = 1
 __meta__ = {
@@ -538,18 +538,18 @@ __meta__ = {
 }
 
 [node name="value" type="Label" parent="PanelAttribute/Label_jing"]
-margin_left = 38.8241
-margin_top = 0.340569
-margin_right = 78.8241
-margin_bottom = 17.3406
+offset_left = 38.8241
+offset_top = 0.340569
+offset_right = 78.8241
+offset_bottom = 17.3406
 text = "64"
 valign = 1
 
 [node name="Label_max_jing" type="Label" parent="PanelAttribute"]
-margin_left = 114.19
-margin_top = 260.341
-margin_right = 178.19
-margin_bottom = 284.341
+offset_left = 114.19
+offset_top = 260.341
+offset_right = 178.19
+offset_bottom = 284.341
 text = "最大精神"
 valign = 1
 __meta__ = {
@@ -557,18 +557,18 @@ __meta__ = {
 }
 
 [node name="value" type="Label" parent="PanelAttribute/Label_max_jing"]
-margin_left = 78.8241
-margin_top = 0.340569
-margin_right = 118.824
-margin_bottom = 17.3406
+offset_left = 78.8241
+offset_top = 0.340569
+offset_right = 118.824
+offset_bottom = 17.3406
 text = "100"
 valign = 1
 
 [node name="Label_eff_jing" type="Label" parent="PanelAttribute"]
-margin_left = 114.19
-margin_top = 280.341
-margin_right = 178.19
-margin_bottom = 304.341
+offset_left = 114.19
+offset_top = 280.341
+offset_right = 178.19
+offset_bottom = 304.341
 text = "当前精神"
 valign = 1
 __meta__ = {
@@ -576,19 +576,19 @@ __meta__ = {
 }
 
 [node name="value" type="Label" parent="PanelAttribute/Label_eff_jing"]
-margin_left = 70.0
-margin_top = 0.340569
-margin_right = 110.0
-margin_bottom = 17.3406
+offset_left = 70.0
+offset_top = 0.340569
+offset_right = 110.0
+offset_bottom = 17.3406
 text = "0"
 valign = 1
 
 [node name="Label_neili" type="Label" parent="PanelAttribute"]
 visible = false
-margin_left = 260.0
-margin_top = 240.0
-margin_right = 300.0
-margin_bottom = 264.0
+offset_left = 260.0
+offset_top = 240.0
+offset_right = 300.0
+offset_bottom = 264.0
 text = "内力"
 valign = 1
 __meta__ = {
@@ -596,19 +596,19 @@ __meta__ = {
 }
 
 [node name="value" type="Label" parent="PanelAttribute/Label_neili"]
-margin_left = 38.8241
-margin_top = 0.340569
-margin_right = 78.8241
-margin_bottom = 17.3406
+offset_left = 38.8241
+offset_top = 0.340569
+offset_right = 78.8241
+offset_bottom = 17.3406
 text = "0"
 valign = 1
 
 [node name="Label_max_neili" type="Label" parent="PanelAttribute"]
 visible = false
-margin_left = 260.0
-margin_top = 260.341
-margin_right = 324.0
-margin_bottom = 284.341
+offset_left = 260.0
+offset_top = 260.341
+offset_right = 324.0
+offset_bottom = 284.341
 text = "最大内力"
 valign = 1
 __meta__ = {
@@ -616,19 +616,19 @@ __meta__ = {
 }
 
 [node name="value" type="Label" parent="PanelAttribute/Label_max_neili"]
-margin_left = 78.8241
-margin_top = 0.340569
-margin_right = 118.824
-margin_bottom = 17.3406
+offset_left = 78.8241
+offset_top = 0.340569
+offset_right = 118.824
+offset_bottom = 17.3406
 text = "0"
 valign = 1
 
 [node name="Label_eff_neili" type="Label" parent="PanelAttribute"]
 visible = false
-margin_left = 260.0
-margin_top = 280.341
-margin_right = 324.0
-margin_bottom = 304.341
+offset_left = 260.0
+offset_top = 280.341
+offset_right = 324.0
+offset_bottom = 304.341
 text = "当前内力"
 valign = 1
 __meta__ = {
@@ -636,17 +636,17 @@ __meta__ = {
 }
 
 [node name="value" type="Label" parent="PanelAttribute/Label_eff_neili"]
-margin_left = 70.0
-margin_top = 0.340569
-margin_right = 110.0
-margin_bottom = 17.3406
+offset_left = 70.0
+offset_top = 0.340569
+offset_right = 110.0
+offset_bottom = 17.3406
 valign = 1
 
 [node name="Label_tili" type="Label" parent="PanelAttribute"]
-margin_left = 114.19
-margin_top = 170.0
-margin_right = 154.19
-margin_bottom = 194.0
+offset_left = 114.19
+offset_top = 170.0
+offset_right = 154.19
+offset_bottom = 194.0
 text = "体力"
 valign = 1
 __meta__ = {
@@ -654,18 +654,18 @@ __meta__ = {
 }
 
 [node name="value" type="Label" parent="PanelAttribute/Label_tili"]
-margin_left = 38.8241
-margin_top = 0.340569
-margin_right = 78.8241
-margin_bottom = 17.3406
+offset_left = 38.8241
+offset_top = 0.340569
+offset_right = 78.8241
+offset_bottom = 17.3406
 text = "100"
 valign = 1
 
 [node name="Label_max_tili" type="Label" parent="PanelAttribute"]
-margin_left = 114.19
-margin_top = 190.341
-margin_right = 178.19
-margin_bottom = 214.341
+offset_left = 114.19
+offset_top = 190.341
+offset_right = 178.19
+offset_bottom = 214.341
 text = "最大体力"
 valign = 1
 __meta__ = {
@@ -673,18 +673,18 @@ __meta__ = {
 }
 
 [node name="value" type="Label" parent="PanelAttribute/Label_max_tili"]
-margin_left = 78.8241
-margin_top = 0.340569
-margin_right = 118.824
-margin_bottom = 17.3406
+offset_left = 78.8241
+offset_top = 0.340569
+offset_right = 118.824
+offset_bottom = 17.3406
 text = "100"
 valign = 1
 
 [node name="Label_eff_tili" type="Label" parent="PanelAttribute"]
-margin_left = 114.19
-margin_top = 210.341
-margin_right = 178.19
-margin_bottom = 234.341
+offset_left = 114.19
+offset_top = 210.341
+offset_right = 178.19
+offset_bottom = 234.341
 text = "当前体力"
 valign = 1
 __meta__ = {
@@ -692,18 +692,18 @@ __meta__ = {
 }
 
 [node name="value" type="Label" parent="PanelAttribute/Label_eff_tili"]
-margin_left = 70.0
-margin_top = 0.340569
-margin_right = 110.0
-margin_bottom = 17.3406
+offset_left = 70.0
+offset_top = 0.340569
+offset_right = 110.0
+offset_bottom = 17.3406
 valign = 1
 
 [node name="Label_food" type="Label" parent="PanelAttribute"]
 visible = false
-margin_left = 250.0
-margin_top = 10.0
-margin_right = 314.0
-margin_bottom = 27.0
+offset_left = 250.0
+offset_top = 10.0
+offset_right = 314.0
+offset_bottom = 27.0
 text = "食物"
 valign = 1
 __meta__ = {
@@ -711,19 +711,19 @@ __meta__ = {
 }
 
 [node name="value" type="Label" parent="PanelAttribute/Label_food"]
-margin_left = 70.0
-margin_top = 0.340569
-margin_right = 110.0
-margin_bottom = 17.3406
+offset_left = 70.0
+offset_top = 0.340569
+offset_right = 110.0
+offset_bottom = 17.3406
 text = "100"
 valign = 1
 
 [node name="Label_water" type="Label" parent="PanelAttribute"]
 visible = false
-margin_left = 250.0
-margin_top = 30.6811
-margin_right = 314.0
-margin_bottom = 47.6811
+offset_left = 250.0
+offset_top = 30.6811
+offset_right = 314.0
+offset_bottom = 47.6811
 text = "饮水"
 valign = 1
 __meta__ = {
@@ -731,18 +731,18 @@ __meta__ = {
 }
 
 [node name="value" type="Label" parent="PanelAttribute/Label_water"]
-margin_left = 70.0
-margin_top = 0.340569
-margin_right = 110.0
-margin_bottom = 17.3406
+offset_left = 70.0
+offset_top = 0.340569
+offset_right = 110.0
+offset_bottom = 17.3406
 text = "235"
 valign = 1
 
 [node name="Label_behavior_exp" type="Label" parent="PanelAttribute"]
-margin_left = 10.0
-margin_top = 240.0
-margin_right = 74.0
-margin_bottom = 257.0
+offset_left = 10.0
+offset_top = 240.0
+offset_right = 74.0
+offset_bottom = 257.0
 text = "阅历"
 valign = 1
 __meta__ = {
@@ -750,18 +750,18 @@ __meta__ = {
 }
 
 [node name="value" type="Label" parent="PanelAttribute/Label_behavior_exp"]
-margin_left = 70.0
-margin_top = 0.340569
-margin_right = 110.0
-margin_bottom = 17.3406
+offset_left = 70.0
+offset_top = 0.340569
+offset_right = 110.0
+offset_bottom = 17.3406
 text = "0"
 valign = 1
 
 [node name="Label_quest_exp" type="Label" parent="PanelAttribute"]
-margin_left = 10.0
-margin_top = 260.341
-margin_right = 74.0
-margin_bottom = 277.341
+offset_left = 10.0
+offset_top = 260.341
+offset_right = 74.0
+offset_bottom = 277.341
 text = "经验"
 valign = 1
 __meta__ = {
@@ -769,18 +769,18 @@ __meta__ = {
 }
 
 [node name="value" type="Label" parent="PanelAttribute/Label_quest_exp"]
-margin_left = 70.0
-margin_top = 0.340569
-margin_right = 110.0
-margin_bottom = 17.3406
+offset_left = 70.0
+offset_top = 0.340569
+offset_right = 110.0
+offset_bottom = 17.3406
 text = "140"
 valign = 1
 
 [node name="Label_potential" type="Label" parent="PanelAttribute"]
-margin_left = 10.0
-margin_top = 279.659
-margin_right = 74.0
-margin_bottom = 296.659
+offset_left = 10.0
+offset_top = 279.659
+offset_right = 74.0
+offset_bottom = 296.659
 text = "潜能"
 valign = 1
 __meta__ = {
@@ -788,18 +788,18 @@ __meta__ = {
 }
 
 [node name="value" type="Label" parent="PanelAttribute/Label_potential"]
-margin_left = 70.0
-margin_top = 0.340569
-margin_right = 110.0
-margin_bottom = 17.3406
+offset_left = 70.0
+offset_top = 0.340569
+offset_right = 110.0
+offset_bottom = 17.3406
 text = "99"
 valign = 1
 
 [node name="Label_id" type="Label" parent="PanelAttribute"]
-margin_left = 10.0
-margin_top = 520.0
-margin_right = 74.0
-margin_bottom = 544.0
+offset_left = 10.0
+offset_top = 520.0
+offset_right = 74.0
+offset_bottom = 544.0
 text = "ID"
 valign = 1
 __meta__ = {
@@ -807,9 +807,9 @@ __meta__ = {
 }
 
 [node name="value" type="Label" parent="PanelAttribute/Label_id"]
-margin_left = 70.0
-margin_top = 0.340569
-margin_right = 110.0
-margin_bottom = 17.3406
+offset_left = 70.0
+offset_top = 0.340569
+offset_right = 110.0
+offset_bottom = 17.3406
 text = "lijia"
 valign = 1

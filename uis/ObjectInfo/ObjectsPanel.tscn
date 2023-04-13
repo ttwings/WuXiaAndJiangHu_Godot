@@ -11,14 +11,14 @@ theme = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="ObjectPanel" parent="." instance=ExtResource( 3 )]
-margin_left = 515.0
-margin_top = 10.0
-margin_right = 807.0
-margin_bottom = 364.0
+offset_left = 515.0
+offset_top = 10.0
+offset_right = 807.0
+offset_bottom = 364.0
 
 [node name="Panel" type="Panel" parent="."]
-margin_right = 250.0
-margin_bottom = 380.0
+offset_right = 250.0
+offset_bottom = 380.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
 anchor_right = 1.0

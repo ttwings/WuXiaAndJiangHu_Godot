@@ -1,8 +1,8 @@
-tool
+@tool
 extends TextureRect
-export var color1 = Color("#666666") setget _set_color1
-export var color2 = Color("#999999") setget _set_color2
-export(int) var cell_size = 10 setget _set_cell_size
+@export var color1 = Color("#666666"): set = _set_color1
+@export var color2 = Color("#999999"): set = _set_color2
+@export var cell_size: int = 10: set = _set_cell_size
 
 var grid_texture = preload("../../resource/GridBackgroundTexture.gd").new()
 
@@ -21,7 +21,7 @@ func _set_color2(p_color):
 
 func _set_cell_size(p_size):
 	cell_size = p_size
-	var cell_size_dpi_related = int(p_size * OS.get_screen_dpi() / 72.0)
+	var cell_size_dpi_related = int(p_size * DisplayServer.screen_get_dpi() / 72.0)
 	grid_texture.cell_size = cell_size_dpi_related
 
 

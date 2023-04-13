@@ -10,7 +10,7 @@ func _ready() -> void:
 #	skill.help()
 #	print(skill.get_info())
 	skill = load(path).new()
-	$NinePatchRect/RichTextLabel.bbcode_text = skill.get_info()
+	$NinePatchRect/RichTextLabel.text = skill.get_info()
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

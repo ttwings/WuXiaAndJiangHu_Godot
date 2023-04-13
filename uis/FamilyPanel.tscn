@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://doc/img/TIM截图20190214164605.png" type="Texture" id=1]
-[ext_resource path="res://assets/graphics/ui/ui_p.png" type="Texture" id=2]
+[ext_resource path="res://doc/img/TIM截图20190214164605.png" type="Texture2D" id=1]
+[ext_resource path="res://assets/graphics/ui/ui_p.png" type="Texture2D" id=2]
 [ext_resource path="res://new_theme.tres" type="Theme" id=3]
-[ext_resource path="res://assets/graphics/faces/53.png" type="Texture" id=4]
-[ext_resource path="res://assets/graphics/faces/49.png" type="Texture" id=5]
-[ext_resource path="res://assets/graphics/faces/1.png" type="Texture" id=6]
-[ext_resource path="res://assets/graphics/faces/334.png" type="Texture" id=7]
-[ext_resource path="res://assets/graphics/faces/0.png" type="Texture" id=8]
+[ext_resource path="res://assets/graphics/faces/53.png" type="Texture2D" id=4]
+[ext_resource path="res://assets/graphics/faces/49.png" type="Texture2D" id=5]
+[ext_resource path="res://assets/graphics/faces/1.png" type="Texture2D" id=6]
+[ext_resource path="res://assets/graphics/faces/334.png" type="Texture2D" id=7]
+[ext_resource path="res://assets/graphics/faces/0.png" type="Texture2D" id=8]
 
 [node name="CharacterPanel" type="Control"]
 anchor_right = 1.0
@@ -15,18 +15,18 @@ anchor_bottom = 1.0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false
-margin_top = -56.0
-margin_right = 1099.0
-margin_bottom = 779.0
-rect_scale = Vector2( 1.16, 1.16413 )
+offset_top = -56.0
+offset_right = 1099.0
+offset_bottom = 779.0
+scale = Vector2( 1.16, 1.16413 )
 texture = ExtResource( 1 )
 
 [node name="Relationship21" type="NinePatchRect" parent="."]
 editor/display_folded = true
-margin_left = 33.0
-margin_top = 371.0
-margin_right = 178.0
-margin_bottom = 659.0
+offset_left = 33.0
+offset_top = 371.0
+offset_right = 178.0
+offset_bottom = 659.0
 texture = ExtResource( 2 )
 patch_margin_left = 8
 patch_margin_top = 8
@@ -40,10 +40,10 @@ __meta__ = {
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 8.0
-margin_right = -8.0
-margin_bottom = -8.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
 theme = ExtResource( 3 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Relationship21/Panel"]
@@ -53,24 +53,24 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="Relationship21/Panel/VBoxContainer"]
-margin_right = 129.0
-margin_bottom = 24.0
+offset_right = 129.0
+offset_bottom = 24.0
 text = "义结金兰"
 align = 1
 
 [node name="ColorRect" type="ColorRect" parent="Relationship21/Panel/VBoxContainer"]
-margin_top = 28.0
-margin_right = 129.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 0, 2 )
+offset_top = 28.0
+offset_right = 129.0
+offset_bottom = 30.0
+custom_minimum_size = Vector2( 0, 2 )
 size_flags_horizontal = 3
 
 [node name="CharacterList" type="ItemList" parent="Relationship21/Panel/VBoxContainer"]
-margin_top = 34.0
-margin_right = 129.0
-margin_bottom = 284.0
+offset_top = 34.0
+offset_right = 129.0
+offset_bottom = 284.0
 grow_horizontal = 0
-rect_min_size = Vector2( 0, 250 )
+custom_minimum_size = Vector2( 0, 250 )
 items = [ "段誉", ExtResource( 4 ), false, "虚竹", ExtResource( 5 ), false, "乔峰", ExtResource( 6 ), false, "慕容复", ExtResource( 7 ), false ]
 allow_reselect = true
 same_column_width = true
@@ -78,10 +78,10 @@ icon_mode = 0
 
 [node name="Relationship24" type="NinePatchRect" parent="."]
 editor/display_folded = true
-margin_left = 805.0
-margin_top = 372.0
-margin_right = 950.0
-margin_bottom = 660.0
+offset_left = 805.0
+offset_top = 372.0
+offset_right = 950.0
+offset_bottom = 660.0
 texture = ExtResource( 2 )
 patch_margin_left = 8
 patch_margin_top = 8
@@ -95,10 +95,10 @@ __meta__ = {
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 8.0
-margin_right = -8.0
-margin_bottom = -8.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
 theme = ExtResource( 3 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Relationship24/Panel"]
@@ -108,24 +108,24 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="Relationship24/Panel/VBoxContainer"]
-margin_right = 129.0
-margin_bottom = 24.0
+offset_right = 129.0
+offset_bottom = 24.0
 text = "倾心爱慕"
 align = 1
 
 [node name="ColorRect" type="ColorRect" parent="Relationship24/Panel/VBoxContainer"]
-margin_top = 28.0
-margin_right = 129.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 0, 2 )
+offset_top = 28.0
+offset_right = 129.0
+offset_bottom = 30.0
+custom_minimum_size = Vector2( 0, 2 )
 size_flags_horizontal = 3
 
 [node name="CharacterList" type="ItemList" parent="Relationship24/Panel/VBoxContainer"]
-margin_top = 34.0
-margin_right = 129.0
-margin_bottom = 284.0
+offset_top = 34.0
+offset_right = 129.0
+offset_bottom = 284.0
 grow_horizontal = 0
-rect_min_size = Vector2( 0, 250 )
+custom_minimum_size = Vector2( 0, 250 )
 items = [ "段誉", ExtResource( 4 ), false, "虚竹", ExtResource( 5 ), false, "乔峰", ExtResource( 6 ), false, "慕容复", ExtResource( 7 ), false ]
 allow_reselect = true
 same_column_width = true
@@ -133,10 +133,10 @@ icon_mode = 0
 
 [node name="Relationship22" type="NinePatchRect" parent="."]
 editor/display_folded = true
-margin_left = 180.0
-margin_top = 371.0
-margin_right = 325.0
-margin_bottom = 659.0
+offset_left = 180.0
+offset_top = 371.0
+offset_right = 325.0
+offset_bottom = 659.0
 texture = ExtResource( 2 )
 patch_margin_left = 8
 patch_margin_top = 8
@@ -150,10 +150,10 @@ __meta__ = {
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 8.0
-margin_right = -8.0
-margin_bottom = -8.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
 theme = ExtResource( 3 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Relationship22/Panel"]
@@ -163,24 +163,24 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="Relationship22/Panel/VBoxContainer"]
-margin_right = 129.0
-margin_bottom = 24.0
+offset_right = 129.0
+offset_bottom = 24.0
 text = "情深意重"
 align = 1
 
 [node name="ColorRect" type="ColorRect" parent="Relationship22/Panel/VBoxContainer"]
-margin_top = 28.0
-margin_right = 129.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 0, 2 )
+offset_top = 28.0
+offset_right = 129.0
+offset_bottom = 30.0
+custom_minimum_size = Vector2( 0, 2 )
 size_flags_horizontal = 3
 
 [node name="CharacterList" type="ItemList" parent="Relationship22/Panel/VBoxContainer"]
-margin_top = 34.0
-margin_right = 129.0
-margin_bottom = 284.0
+offset_top = 34.0
+offset_right = 129.0
+offset_bottom = 284.0
 grow_horizontal = 0
-rect_min_size = Vector2( 0, 250 )
+custom_minimum_size = Vector2( 0, 250 )
 items = [ "段誉", ExtResource( 4 ), false, "虚竹", ExtResource( 5 ), false, "乔峰", ExtResource( 6 ), false, "慕容复", ExtResource( 7 ), false ]
 allow_reselect = true
 same_column_width = true
@@ -188,10 +188,10 @@ icon_mode = 0
 
 [node name="Relationship25" type="NinePatchRect" parent="."]
 editor/display_folded = true
-margin_left = 952.0
-margin_top = 372.0
-margin_right = 1097.0
-margin_bottom = 660.0
+offset_left = 952.0
+offset_top = 372.0
+offset_right = 1097.0
+offset_bottom = 660.0
 texture = ExtResource( 2 )
 patch_margin_left = 8
 patch_margin_top = 8
@@ -205,10 +205,10 @@ __meta__ = {
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 8.0
-margin_right = -8.0
-margin_bottom = -8.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
 theme = ExtResource( 3 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Relationship25/Panel"]
@@ -218,24 +218,24 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="Relationship25/Panel/VBoxContainer"]
-margin_right = 129.0
-margin_bottom = 24.0
+offset_right = 129.0
+offset_bottom = 24.0
 text = "势不两立"
 align = 1
 
 [node name="ColorRect" type="ColorRect" parent="Relationship25/Panel/VBoxContainer"]
-margin_top = 28.0
-margin_right = 129.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 0, 2 )
+offset_top = 28.0
+offset_right = 129.0
+offset_bottom = 30.0
+custom_minimum_size = Vector2( 0, 2 )
 size_flags_horizontal = 3
 
 [node name="CharacterList" type="ItemList" parent="Relationship25/Panel/VBoxContainer"]
-margin_top = 34.0
-margin_right = 129.0
-margin_bottom = 284.0
+offset_top = 34.0
+offset_right = 129.0
+offset_bottom = 284.0
 grow_horizontal = 0
-rect_min_size = Vector2( 0, 250 )
+custom_minimum_size = Vector2( 0, 250 )
 items = [ "段誉", ExtResource( 4 ), false, "虚竹", ExtResource( 5 ), false, "乔峰", ExtResource( 6 ), false, "慕容复", ExtResource( 7 ), false ]
 allow_reselect = true
 same_column_width = true
@@ -243,10 +243,10 @@ icon_mode = 0
 
 [node name="Relationship23" type="NinePatchRect" parent="."]
 editor/display_folded = true
-margin_left = 327.0
-margin_top = 371.0
-margin_right = 472.0
-margin_bottom = 659.0
+offset_left = 327.0
+offset_top = 371.0
+offset_right = 472.0
+offset_bottom = 659.0
 texture = ExtResource( 2 )
 patch_margin_left = 8
 patch_margin_top = 8
@@ -260,10 +260,10 @@ __meta__ = {
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 8.0
-margin_right = -8.0
-margin_bottom = -8.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
 theme = ExtResource( 3 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Relationship23/Panel"]
@@ -273,34 +273,34 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="Relationship23/Panel/VBoxContainer"]
-margin_right = 129.0
-margin_bottom = 24.0
+offset_right = 129.0
+offset_bottom = 24.0
 text = "两情相悦"
 align = 1
 
 [node name="ColorRect" type="ColorRect" parent="Relationship23/Panel/VBoxContainer"]
-margin_top = 28.0
-margin_right = 129.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 0, 2 )
+offset_top = 28.0
+offset_right = 129.0
+offset_bottom = 30.0
+custom_minimum_size = Vector2( 0, 2 )
 size_flags_horizontal = 3
 
 [node name="CharacterList" type="ItemList" parent="Relationship23/Panel/VBoxContainer"]
-margin_top = 34.0
-margin_right = 129.0
-margin_bottom = 284.0
+offset_top = 34.0
+offset_right = 129.0
+offset_bottom = 284.0
 grow_horizontal = 0
-rect_min_size = Vector2( 0, 250 )
+custom_minimum_size = Vector2( 0, 250 )
 items = [ "段誉", ExtResource( 4 ), false, "虚竹", ExtResource( 5 ), false, "乔峰", ExtResource( 6 ), false, "慕容复", ExtResource( 7 ), false ]
 allow_reselect = true
 same_column_width = true
 icon_mode = 0
 
 [node name="Relationship26" type="NinePatchRect" parent="."]
-margin_left = 1099.0
-margin_top = 372.0
-margin_right = 1244.0
-margin_bottom = 660.0
+offset_left = 1099.0
+offset_top = 372.0
+offset_right = 1244.0
+offset_bottom = 660.0
 texture = ExtResource( 2 )
 patch_margin_left = 8
 patch_margin_top = 8
@@ -314,10 +314,10 @@ __meta__ = {
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 8.0
-margin_right = -8.0
-margin_bottom = -8.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
 theme = ExtResource( 3 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Relationship26/Panel"]
@@ -327,24 +327,24 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="Relationship26/Panel/VBoxContainer"]
-margin_right = 129.0
-margin_bottom = 24.0
+offset_right = 129.0
+offset_bottom = 24.0
 text = "血海深仇"
 align = 1
 
 [node name="ColorRect" type="ColorRect" parent="Relationship26/Panel/VBoxContainer"]
-margin_top = 28.0
-margin_right = 129.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 0, 2 )
+offset_top = 28.0
+offset_right = 129.0
+offset_bottom = 30.0
+custom_minimum_size = Vector2( 0, 2 )
 size_flags_horizontal = 3
 
 [node name="CharacterList" type="ItemList" parent="Relationship26/Panel/VBoxContainer"]
-margin_top = 34.0
-margin_right = 129.0
-margin_bottom = 284.0
+offset_top = 34.0
+offset_right = 129.0
+offset_bottom = 284.0
 grow_horizontal = 0
-rect_min_size = Vector2( 0, 250 )
+custom_minimum_size = Vector2( 0, 250 )
 items = [ "段誉", ExtResource( 4 ), false, "虚竹", ExtResource( 5 ), false, "乔峰", ExtResource( 6 ), false, "慕容复", ExtResource( 7 ), false ]
 allow_reselect = true
 same_column_width = true
@@ -352,10 +352,10 @@ icon_mode = 0
 
 [node name="Relationship12" type="NinePatchRect" parent="."]
 editor/display_folded = true
-margin_left = 805.0
-margin_top = 192.0
-margin_right = 1244.0
-margin_bottom = 372.0
+offset_left = 805.0
+offset_top = 192.0
+offset_right = 1244.0
+offset_bottom = 372.0
 texture = ExtResource( 2 )
 patch_margin_left = 8
 patch_margin_top = 8
@@ -374,32 +374,32 @@ theme = ExtResource( 3 )
 [node name="VBoxContainer" type="VBoxContainer" parent="Relationship12/Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 8.0
-margin_right = -8.0
-margin_bottom = 10.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 10.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="Relationship12/Panel/VBoxContainer"]
-margin_right = 423.0
-margin_bottom = 24.0
+offset_right = 423.0
+offset_bottom = 24.0
 text = "义结金兰"
 align = 1
 
 [node name="ColorRect" type="ColorRect" parent="Relationship12/Panel/VBoxContainer"]
-margin_top = 28.0
-margin_right = 423.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 0, 2 )
+offset_top = 28.0
+offset_right = 423.0
+offset_bottom = 30.0
+custom_minimum_size = Vector2( 0, 2 )
 size_flags_horizontal = 3
 
 [node name="CharacterList" type="ItemList" parent="Relationship12/Panel/VBoxContainer"]
-margin_top = 34.0
-margin_right = 423.0
-margin_bottom = 168.0
+offset_top = 34.0
+offset_right = 423.0
+offset_bottom = 168.0
 grow_horizontal = 0
-rect_min_size = Vector2( 0, 134 )
+custom_minimum_size = Vector2( 0, 134 )
 items = [ "段誉", ExtResource( 4 ), false, "虚竹", ExtResource( 5 ), false, "乔峰", ExtResource( 6 ), false, "慕容复", ExtResource( 7 ), false ]
 allow_reselect = true
 max_columns = 5
@@ -408,10 +408,10 @@ icon_mode = 0
 
 [node name="Relationship13" type="NinePatchRect" parent="."]
 editor/display_folded = true
-margin_left = 33.0
-margin_top = 189.0
-margin_right = 472.0
-margin_bottom = 369.0
+offset_left = 33.0
+offset_top = 189.0
+offset_right = 472.0
+offset_bottom = 369.0
 texture = ExtResource( 2 )
 patch_margin_left = 8
 patch_margin_top = 8
@@ -430,32 +430,32 @@ theme = ExtResource( 3 )
 [node name="VBoxContainer" type="VBoxContainer" parent="Relationship13/Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 8.0
-margin_right = -8.0
-margin_bottom = 10.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 10.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="Relationship13/Panel/VBoxContainer"]
-margin_right = 423.0
-margin_bottom = 24.0
+offset_right = 423.0
+offset_bottom = 24.0
 text = "兄弟姐妹"
 align = 1
 
 [node name="ColorRect" type="ColorRect" parent="Relationship13/Panel/VBoxContainer"]
-margin_top = 28.0
-margin_right = 423.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 0, 2 )
+offset_top = 28.0
+offset_right = 423.0
+offset_bottom = 30.0
+custom_minimum_size = Vector2( 0, 2 )
 size_flags_horizontal = 3
 
 [node name="CharacterList" type="ItemList" parent="Relationship13/Panel/VBoxContainer"]
-margin_top = 34.0
-margin_right = 423.0
-margin_bottom = 168.0
+offset_top = 34.0
+offset_right = 423.0
+offset_bottom = 168.0
 grow_horizontal = 0
-rect_min_size = Vector2( 0, 134 )
+custom_minimum_size = Vector2( 0, 134 )
 items = [ "段誉", ExtResource( 4 ), false, "虚竹", ExtResource( 5 ), false, "乔峰", ExtResource( 6 ), false, "慕容复", ExtResource( 7 ), false ]
 allow_reselect = true
 max_columns = 5
@@ -463,11 +463,11 @@ same_column_width = true
 icon_mode = 0
 
 [node name="Relationship01" type="NinePatchRect" parent="."]
-margin_left = 257.0
-margin_top = 9.0
-margin_right = 473.0
-margin_bottom = 189.0
-rect_pivot_offset = Vector2( -1.39996, -0.349976 )
+offset_left = 257.0
+offset_top = 9.0
+offset_right = 473.0
+offset_bottom = 189.0
+pivot_offset = Vector2( -1.39996, -0.349976 )
 texture = ExtResource( 2 )
 patch_margin_left = 8
 patch_margin_top = 8
@@ -486,32 +486,32 @@ theme = ExtResource( 3 )
 [node name="VBoxContainer" type="VBoxContainer" parent="Relationship01/Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 8.0
-margin_right = -8.0
-margin_bottom = 10.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 10.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="Relationship01/Panel/VBoxContainer"]
-margin_right = 200.0
-margin_bottom = 24.0
+offset_right = 200.0
+offset_bottom = 24.0
 text = "义父义母"
 align = 1
 
 [node name="ColorRect" type="ColorRect" parent="Relationship01/Panel/VBoxContainer"]
-margin_top = 28.0
-margin_right = 200.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 0, 2 )
+offset_top = 28.0
+offset_right = 200.0
+offset_bottom = 30.0
+custom_minimum_size = Vector2( 0, 2 )
 size_flags_horizontal = 3
 
 [node name="CharacterList" type="ItemList" parent="Relationship01/Panel/VBoxContainer"]
-margin_top = 34.0
-margin_right = 200.0
-margin_bottom = 168.0
+offset_top = 34.0
+offset_right = 200.0
+offset_bottom = 168.0
 grow_horizontal = 0
-rect_min_size = Vector2( 0, 134 )
+custom_minimum_size = Vector2( 0, 134 )
 items = [ "段誉", ExtResource( 4 ), false, "虚竹", ExtResource( 5 ), false ]
 allow_reselect = true
 max_columns = 5
@@ -520,10 +520,10 @@ icon_mode = 0
 
 [node name="Relationship02" type="NinePatchRect" parent="."]
 editor/display_folded = true
-margin_left = 805.0
-margin_top = 11.0
-margin_right = 1021.0
-margin_bottom = 191.0
+offset_left = 805.0
+offset_top = 11.0
+offset_right = 1021.0
+offset_bottom = 191.0
 texture = ExtResource( 2 )
 patch_margin_left = 8
 patch_margin_top = 8
@@ -542,32 +542,32 @@ theme = ExtResource( 3 )
 [node name="VBoxContainer" type="VBoxContainer" parent="Relationship02/Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 8.0
-margin_right = -8.0
-margin_bottom = 10.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 10.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="Relationship02/Panel/VBoxContainer"]
-margin_right = 200.0
-margin_bottom = 24.0
+offset_right = 200.0
+offset_bottom = 24.0
 text = "授业恩师"
 align = 1
 
 [node name="ColorRect" type="ColorRect" parent="Relationship02/Panel/VBoxContainer"]
-margin_top = 28.0
-margin_right = 200.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 0, 2 )
+offset_top = 28.0
+offset_right = 200.0
+offset_bottom = 30.0
+custom_minimum_size = Vector2( 0, 2 )
 size_flags_horizontal = 3
 
 [node name="CharacterList" type="ItemList" parent="Relationship02/Panel/VBoxContainer"]
-margin_top = 34.0
-margin_right = 200.0
-margin_bottom = 168.0
+offset_top = 34.0
+offset_right = 200.0
+offset_bottom = 168.0
 grow_horizontal = 0
-rect_min_size = Vector2( 0, 134 )
+custom_minimum_size = Vector2( 0, 134 )
 items = [ "段誉", ExtResource( 4 ), false, "虚竹", ExtResource( 5 ), false ]
 allow_reselect = true
 max_columns = 5
@@ -575,10 +575,10 @@ same_column_width = true
 icon_mode = 0
 
 [node name="Relationship03" type="NinePatchRect" parent="."]
-margin_left = 539.0
-margin_top = 9.0
-margin_right = 755.0
-margin_bottom = 189.0
+offset_left = 539.0
+offset_top = 9.0
+offset_right = 755.0
+offset_bottom = 189.0
 texture = ExtResource( 2 )
 patch_margin_left = 8
 patch_margin_top = 8
@@ -597,32 +597,32 @@ theme = ExtResource( 3 )
 [node name="VBoxContainer" type="VBoxContainer" parent="Relationship03/Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 8.0
-margin_right = -8.0
-margin_bottom = 10.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 10.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="Relationship03/Panel/VBoxContainer"]
-margin_right = 200.0
-margin_bottom = 24.0
+offset_right = 200.0
+offset_bottom = 24.0
 text = "生父生母"
 align = 1
 
 [node name="ColorRect" type="ColorRect" parent="Relationship03/Panel/VBoxContainer"]
-margin_top = 28.0
-margin_right = 200.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 0, 2 )
+offset_top = 28.0
+offset_right = 200.0
+offset_bottom = 30.0
+custom_minimum_size = Vector2( 0, 2 )
 size_flags_horizontal = 3
 
 [node name="CharacterList" type="ItemList" parent="Relationship03/Panel/VBoxContainer"]
-margin_top = 34.0
-margin_right = 200.0
-margin_bottom = 168.0
+offset_top = 34.0
+offset_right = 200.0
+offset_bottom = 168.0
 grow_horizontal = 0
-rect_min_size = Vector2( 0, 134 )
+custom_minimum_size = Vector2( 0, 134 )
 items = [ "段誉", ExtResource( 4 ), false, "虚竹", ExtResource( 5 ), false ]
 allow_reselect = true
 max_columns = 5
@@ -630,10 +630,10 @@ same_column_width = true
 icon_mode = 0
 
 [node name="Relationship00" type="NinePatchRect" parent="."]
-margin_left = 580.0
-margin_top = 200.0
-margin_right = 712.0
-margin_bottom = 341.0
+offset_left = 580.0
+offset_top = 200.0
+offset_right = 712.0
+offset_bottom = 341.0
 texture = ExtResource( 2 )
 patch_margin_left = 8
 patch_margin_top = 8
@@ -652,40 +652,40 @@ theme = ExtResource( 3 )
 [node name="VBoxContainer" type="VBoxContainer" parent="Relationship00/Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 8.0
-margin_right = -8.0
-margin_bottom = 10.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 10.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="Relationship00/Panel/VBoxContainer"]
-margin_right = 116.0
-margin_bottom = 24.0
+offset_right = 116.0
+offset_bottom = 24.0
 text = "悟道"
 align = 1
 
 [node name="ColorRect" type="ColorRect" parent="Relationship00/Panel/VBoxContainer"]
-margin_top = 28.0
-margin_right = 116.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 0, 2 )
+offset_top = 28.0
+offset_right = 116.0
+offset_bottom = 30.0
+custom_minimum_size = Vector2( 0, 2 )
 size_flags_horizontal = 3
 
 [node name="TextureRect" type="TextureRect" parent="Relationship00/Panel/VBoxContainer"]
-margin_top = 34.0
-margin_right = 116.0
-margin_bottom = 123.0
+offset_top = 34.0
+offset_right = 116.0
+offset_bottom = 123.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource( 8 )
 stretch_mode = 4
 
 [node name="Relationship04" type="NinePatchRect" parent="."]
-margin_left = 539.0
-margin_top = 351.0
-margin_right = 755.0
-margin_bottom = 531.0
+offset_left = 539.0
+offset_top = 351.0
+offset_right = 755.0
+offset_bottom = 531.0
 texture = ExtResource( 2 )
 patch_margin_left = 8
 patch_margin_top = 8
@@ -704,32 +704,32 @@ theme = ExtResource( 3 )
 [node name="VBoxContainer" type="VBoxContainer" parent="Relationship04/Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 8.0
-margin_right = -8.0
-margin_bottom = 10.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 10.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="Relationship04/Panel/VBoxContainer"]
-margin_right = 200.0
-margin_bottom = 24.0
+offset_right = 200.0
+offset_bottom = 24.0
 text = "结发夫妻"
 align = 1
 
 [node name="ColorRect" type="ColorRect" parent="Relationship04/Panel/VBoxContainer"]
-margin_top = 28.0
-margin_right = 200.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 0, 2 )
+offset_top = 28.0
+offset_right = 200.0
+offset_bottom = 30.0
+custom_minimum_size = Vector2( 0, 2 )
 size_flags_horizontal = 3
 
 [node name="CharacterList" type="ItemList" parent="Relationship04/Panel/VBoxContainer"]
-margin_top = 34.0
-margin_right = 200.0
-margin_bottom = 168.0
+offset_top = 34.0
+offset_right = 200.0
+offset_bottom = 168.0
 grow_horizontal = 0
-rect_min_size = Vector2( 0, 134 )
+custom_minimum_size = Vector2( 0, 134 )
 items = [ "段誉", ExtResource( 4 ), false, "虚竹", ExtResource( 5 ), false ]
 allow_reselect = true
 max_columns = 5
@@ -737,10 +737,10 @@ same_column_width = true
 icon_mode = 0
 
 [node name="Relationship05" type="NinePatchRect" parent="."]
-margin_left = 539.0
-margin_top = 531.0
-margin_right = 755.0
-margin_bottom = 711.0
+offset_left = 539.0
+offset_top = 531.0
+offset_right = 755.0
+offset_bottom = 711.0
 texture = ExtResource( 2 )
 patch_margin_left = 8
 patch_margin_top = 8
@@ -759,32 +759,32 @@ theme = ExtResource( 3 )
 [node name="VBoxContainer" type="VBoxContainer" parent="Relationship05/Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 8.0
-margin_right = -8.0
-margin_bottom = 10.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 10.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="Relationship05/Panel/VBoxContainer"]
-margin_right = 200.0
-margin_bottom = 24.0
+offset_right = 200.0
+offset_bottom = 24.0
 text = "儿女子嗣"
 align = 1
 
 [node name="ColorRect" type="ColorRect" parent="Relationship05/Panel/VBoxContainer"]
-margin_top = 28.0
-margin_right = 200.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 0, 2 )
+offset_top = 28.0
+offset_right = 200.0
+offset_bottom = 30.0
+custom_minimum_size = Vector2( 0, 2 )
 size_flags_horizontal = 3
 
 [node name="CharacterList" type="ItemList" parent="Relationship05/Panel/VBoxContainer"]
-margin_top = 34.0
-margin_right = 200.0
-margin_bottom = 168.0
+offset_top = 34.0
+offset_right = 200.0
+offset_bottom = 168.0
 grow_horizontal = 0
-rect_min_size = Vector2( 0, 134 )
+custom_minimum_size = Vector2( 0, 134 )
 items = [ "段誉", ExtResource( 4 ), false, "虚竹", ExtResource( 5 ), false ]
 allow_reselect = true
 max_columns = 5

@@ -1,4 +1,4 @@
-tool
+@tool
 extends ItemList
 
 signal double_clicked()
@@ -7,28 +7,28 @@ signal selection_changed(selected_items)
 
 const ACCEPT_DS_TYPES = [
 	TYPE_ARRAY,
-	TYPE_INT_ARRAY,
-	TYPE_REAL_ARRAY,
-	TYPE_COLOR_ARRAY,
-	TYPE_STRING_ARRAY,
-	TYPE_VECTOR2_ARRAY,
-	TYPE_VECTOR3_ARRAY
+	TYPE_PACKED_INT32_ARRAY,
+	TYPE_PACKED_FLOAT32_ARRAY,
+	TYPE_PACKED_COLOR_ARRAY,
+	TYPE_PACKED_STRING_ARRAY,
+	TYPE_PACKED_VECTOR2_ARRAY,
+	TYPE_PACKED_VECTOR3_ARRAY
 ]
 
 func _init():
-	connect("item_selected", self, "__on_select_changed")
-	connect("multi_selected", self, "__on_select_changed")
-	connect("nothing_selected", self, "__on_select_changed")
+	connect("item_selected", Callable(self, "__on_select_changed"))
+	connect("multi_selected", Callable(self, "__on_select_changed"))
+	connect("nothing_selected", Callable(self, "__on_select_changed"))
 
 # ListItemProvider  
 # The provider of the item list it decides how the data is shown in the list
-var provider = ListItemProvider.new() setget _set_provider
+var provider = ListItemProvider.new(): set = _set_provider
 func _set_provider(p):
 	if typeof(p) == TYPE_OBJECT:# and p is ListItemProvider:# FIXME: BUG of GDScript?
 		provider = p
 		update_list()
 
-var menu_handler = MenuActionHandler.new() setget _set_menu_handler
+var menu_handler = MenuActionHandler.new(): set = _set_menu_handler
 var _popupmenu = null
 func _set_menu_handler(h):
 	menu_handler = h
@@ -39,19 +39,19 @@ func _set_menu_handler(h):
 	if typeof(h) == TYPE_OBJECT:# and h is MenuActionHandler:# FIXME: BUG of GDScript?
 		_popupmenu = h.create_popupmenu()
 		if _popupmenu != null:
-			_popupmenu.connect("id_pressed", self, "_on_menu_id_pressed")
+			_popupmenu.connect("id_pressed", Callable(self, "_on_menu_id_pressed"))
 			add_child(_popupmenu)
 
 # Arrary<Variant>  
 # The item data source of the list
-var data_source = [] setget _set_data_source
+var data_source = []: set = _set_data_source
 func _set_data_source(arr):
 	data_source = arr
 	update_list()
 
 # Variant  
 # The filter to decide is item in the `data_source` should be shown in the list
-var filter = null setget _set_filter
+var filter = null: set = _set_filter
 func _set_filter(f):
 	filter = f
 	update_list()
@@ -74,7 +74,7 @@ func update_list():
 			data_for_show = []
 			for data in data_source:
 				data_for_show.append(data)
-			data_for_show.sort_custom(provider, 'sort')
+			data_for_show.sort_custom(Callable(provider, 'sort'))
 
 		var index = 0
 		for data in data_for_show:
@@ -105,7 +105,7 @@ func selecte_items(p_items):
 	if not typeof(p_items) in ACCEPT_DS_TYPES:
 		p_items = [p_items]
 	for id in get_selected_items():
-		unselect(id)
+		deselect(id)
 	var single = p_items.size() == 1
 	var selected = false
 	for item in p_items:
@@ -128,7 +128,7 @@ func get_selected_item_list():
 func _gui_input(event):
 	# Mouse button actions
 	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_RIGHT and not event.pressed:
+		if event.button_index == MOUSE_BUTTON_RIGHT and not event.pressed:
 			if _popupmenu != null:
 				_popupmenu.set_global_position(get_global_mouse_position())
 				var selectedItems = get_selected_item_list()
@@ -156,7 +156,7 @@ func _gui_input(event):
 		for i in range(_popupmenu.get_item_count()):
 			var id = _popupmenu.get_item_id(i)
 			var shortcut = _popupmenu.get_item_shortcut(i)
-			if shortcut != null and shortcut is ShortCut and event.action_match(shortcut.shortcut):
+			if shortcut != null and shortcut is Shortcut and event.action_match(shortcut.shortcut):
 				if not _popupmenu.is_item_disabled(i):
 					menu_handler.id_pressed(id, selectedItems)
 

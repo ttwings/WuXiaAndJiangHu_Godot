@@ -1,4 +1,4 @@
-tool
+@tool
 
 const GridBackgroundTexture = preload("GridBackgroundTexture.gd")
 const image = preload("image.gd")

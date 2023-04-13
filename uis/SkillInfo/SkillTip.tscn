@@ -1,15 +1,15 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://uis/SkillInfo/SkillTip.gd" type="Script" id=1]
-[ext_resource path="res://uis/texture/ui_p.png" type="Texture" id=2]
+[ext_resource path="res://uis/texture/ui_p.png" type="Texture2D" id=2]
 [ext_resource path="res://new_theme.tres" type="Theme" id=3]
 
 [node name="SkillTip" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 2.0
-margin_right = -1030.0
-margin_bottom = -329.0
+offset_left = 2.0
+offset_right = -1030.0
+offset_bottom = -329.0
 script = ExtResource( 1 )
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
@@ -24,9 +24,9 @@ patch_margin_bottom = 8
 [node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 8.0
-margin_right = -8.0
-margin_bottom = -8.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
 theme = ExtResource( 3 )
 bbcode_enabled = true

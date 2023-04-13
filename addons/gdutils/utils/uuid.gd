@@ -1,3 +1,4 @@
+@tool
 # The uuid module offers functions to generate unique id
 
 
@@ -22,7 +23,6 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-tool
 
 static func get_random_int(max_value):
 	randomize()

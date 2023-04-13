@@ -1,27 +1,17 @@
 extends Control
 
-# Declare member variables here. Examples:
-# var a: int = 2
-# var b: String = "text"
 var json_data
 var current_path
-var path = "user://data/user/id.json"
+var path = "user://save/1/player.json"
 var pool = {path=""}
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-#	TranslationServer.set_locale("zh_CN")
-	
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
-
+	pass
 
 func _on_Save_pressed() -> void:
 	json_data.dbase["food"] = 100
 	var id = json_data.dbase["id"]
-	gdutils.utils.json.save_json(json_data,"user://data/user/id.json")
+	gdutils.utils.json.save_json(json_data,"user://save/1/player.json")
 	print(json_data)
 	print(path)
 	pass

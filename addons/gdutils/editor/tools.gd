@@ -1,4 +1,4 @@
-tool
+@tool
 const MENUS = {
 	"Open user://": 0,
 }

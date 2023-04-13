@@ -1,6 +1,6 @@
+@tool
 # The csv module offers a number of high-level operations on csv files
 
-tool
 
 # Load tabel data from a csv file  
 # The CSV must be encoded with UTF8  
@@ -20,7 +20,7 @@ static func load_csv(path, delim=','):
 			var line = file.get_csv_line(delim)
 			var empty = true
 			for column in line:
-				empty = column.empty() and empty
+				empty = column.is_empty() and empty
 			if line.size() > 0 and not empty:
 				array.append(line)
 	return array
@@ -41,7 +41,7 @@ static func csv2dict(array):
 			keys = array[0]
 		for i in range(1, array.size()):
 			var line = array[i]
-			if typeof(line) == TYPE_STRING_ARRAY and line.size() == keys.size():
+			if typeof(line) == TYPE_PACKED_STRING_ARRAY and line.size() == keys.size():
 				var dictLine = {}
 				for j in range(keys.size()):
 					var key = keys[j]

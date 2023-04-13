@@ -1,7 +1,7 @@
-extends TextureProgress
+extends TextureProgressBar
 var v
 var max_food
-onready var player_data = get_node("../../../PanelAttribute").player_data
+@onready var player_data = get_node("../../../PanelAttribute").player_data
 var dbase
 func _ready():
 	# 食物的计算方法与其他的不同
