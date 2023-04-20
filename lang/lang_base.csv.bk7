@@ -12,5 +12,3 @@ unit,单位,unit
 value,价值,value
 food_remaining,份量,remaining
 food_supply,饱腹,supply
-Save,保存,Save
-Load,载入,Load

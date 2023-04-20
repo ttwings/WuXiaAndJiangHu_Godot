@@ -29,7 +29,7 @@ cor,胆识,COR
 name,名称,Name
 age,年龄,Age
 inquiry,话题,Inquiry
-long,描述,"long
+long,描述,"Long
 Long"
 family,所属,family
 family_name,势力名称,family name
@@ -46,3 +46,5 @@ parry,格挡,parry
 strike,拳法,strike lvl
 claw,爪法,claw lvl
 posion,毒术,posion lvl
+throwing,暗器,throwing lvl
+staff,杖法,staff

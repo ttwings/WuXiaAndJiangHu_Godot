@@ -11,8 +11,8 @@ func create():
 云，这里却没有一条路可以上山。西面是往长安的大道，东面前往中原。"""
 );
 	set("exits",  {
-    	"east"  :  __DIR__ + "road2",
-    	"west"  :  __DIR__ + "road3",
+		"east"  :  __DIR__ + "road2",
+		"west"  :  __DIR__ + "road3",
 	});
 	set("outdoors", "guanzhong");
 

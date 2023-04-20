@@ -2,14 +2,6 @@ extends NinePatchRect
 
 var player
 var item
-#
-#func _ready() -> void:
-#	TranslationServer.set_locale("zh_CN")
-#	player = load("res://d/baihuagu/npc/zhou.gd").new()
-##	player.creat_user("res://data/user/l/lijia.gd")
-#	item = load("res://clone/food/apple.gd").new()
-#	get_item_info(item)
-#	connect_action(item,player)
 	
 func start(item):
 	get_item_info(item)

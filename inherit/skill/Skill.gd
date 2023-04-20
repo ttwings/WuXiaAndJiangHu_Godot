@@ -4,6 +4,9 @@
 #	should inherit this as its skeleton.
 
 # inherit F_CLEAN_UP;
+extends Reference
+class_name Skill
+
 # const color -----------------------------------
 const NOR = "[/color]"
 const BLK = "[color=#000000]"
@@ -35,7 +38,14 @@ const HBMAG = "[color=#815463]"
 const HBCYN = "[color=#00e09e]"
 const HBWHT = "[color=#f0fcff]"
 
-class_name Skill
+
+
+export(String) var type = "martial" 
+export(String) var martialtype = "skill"
+export(int,0,100) var learn_bonus = 30
+export(int,0,100) var practice_bonus = 30
+export(int,0,100) var success = 30
+export(int,0,10) var power_point = 1
 
 var info = []
 

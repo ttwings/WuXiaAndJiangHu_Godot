@@ -21,7 +21,7 @@ func help(me=null):
 	write(HIC + "\n基本杖法："+ NOR + "\n")
 	write("""
 
-    杖类武技的基本功。
+	杖类武技的基本功。
 
 	学习要求：
 		无

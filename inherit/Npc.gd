@@ -1,8 +1,9 @@
 extends Char
 class_name Npc
 
+var ob
+
 func carry_object(file):
-	var ob
 	# ob = new_ob(file)
 	ob = load(file).new()
 	if( !objectp(ob) ) :
@@ -12,8 +13,6 @@ func carry_object(file):
 	return ob;
 	
 func add_money(type:String,amount:int):
-	var ob;
-
 	ob = carry_object("/clone/money/" + type);
 	if( !ob ) :
 		return 0;
@@ -77,7 +76,6 @@ func random_move():
 
 ################################# vendor ###########################
 func buy_object(me,what:String):
-	var ob;
 	ob = query("vendor_goods/" + what)
 	if( stringp(ob) ):
 		return ob.query("value");
@@ -104,7 +102,6 @@ func do_vendor_list(arg:String):
 	var goods;
 	var list
 	var name;
-	var i;
 	goods = query("vendor_goods")
 	if( !mapp(goods) ) :
 		return 0;

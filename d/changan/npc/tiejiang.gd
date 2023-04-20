@@ -1,8 +1,7 @@
-# // tiejiang.c
-
-# inherit NPC;
-# inherit F_DEALER;
 extends Npc
+
+signal on_do_list
+signal on_do_buy
 
 func create():
 	set_name("铁匠", "tiejiang");
@@ -24,6 +23,6 @@ func create():
 
 func _init():
 	create()
-	add_action("do_list", "list");
-	add_action("do_buy", "buy");
-
+#	add_action("do_list", "list");
+#	add_action("do_buy", "buy");
+	
