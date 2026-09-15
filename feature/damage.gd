@@ -30,13 +30,13 @@ func set_ghost(i) :
 	if (query("max_nuqi") && this_object().is_fighting()):
 		add( "nuqi" , imp );
 	if ( query("nuqi")>query("max_nuqi") ):
-		set("nuqi",query("max_nuqi"));
+		set_attr("nuqi",query("max_nuqi"));
 	val = query(type) - damage;
 
 	if( val >= 0 ) :
-		set(type, val);
+		set_attr(type, val);
 	else :
-		set( type, -1 );
+		set_attr( type, -1 );
 
 	set_heart_beat(1);
 
@@ -60,17 +60,17 @@ func receive_wound(type:String, damage:int,reason):
 	if (query("max_nuqi") && this_object().is_fighting()):
 		add( "nuqi" , imp );
 		if ( query("nuqi")>query("max_nuqi") ):
-			set("nuqi",query("max_nuqi"));
+			set_attr("nuqi",query("max_nuqi"));
 	val = query("eff_" + type) - damage;
 
 	if( val >= 0 ) :
-		set("eff_" + type, val);
+		set_attr("eff_" + type, val);
 	else :
-		set( "eff_" + type, -1 );
+		set_attr( "eff_" + type, -1 );
 		val = -1;
 
 	if( query(type) > val ) :
-		set(type, val);
+		set_attr(type, val);
 
 	set_heart_beat(1);
 
@@ -86,9 +86,9 @@ func receive_heal(type:String, heal:int)
 		error("F_DAMAGE: 恢复种类错误( 只能是 jing, qi 其中之一 )。\n");
 	val = query(type) + heal;
 	if( val > query("eff_"+type) ) :
-		set(type, query("eff_"+type));
+		set_attr(type, query("eff_"+type));
 	else :
-		set( type, val );
+		set_attr( type, val );
 
 	return heal;
 
@@ -105,10 +105,10 @@ func receive_curing(type:String, heal:int)
 	max = query("max_" + type);
 
 	if( val + heal > max ) :
-		set("eff_" + type, max);
+		set_attr("eff_" + type, max);
 		return max - val;
 	else :
-		set( "eff_" + type, val + heal);
+		set_attr( "eff_" + type, val + heal);
 		return heal;
 
 
@@ -128,7 +128,7 @@ func unconcious():
 			COMBAT_D.winner_reward(defeater, this_object());
 	if (environment(this_object())==environment(defeater)):
 		if (this_object().query("max_nuqi")):
-			this_object().set("nuqi",query("max_nuqi"));
+			this_object().set_attr("nuqi",query("max_nuqi"));
 
 	this_object().remove_all_enemy();
 	this_object().set_temp("faint_by", query_temp("last_damage_from")); 
@@ -146,8 +146,8 @@ func unconcious():
 	else :
 		this_object().disable_player(" <昏迷不醒>");
 
-	set("jing", 0);
-	set("qi", 0);
+	set_attr("jing", 0);
+	set_attr("qi", 0);
 
 	set_temp("block_msg/all", 1);
 	COMBAT_D.announce(this_object(), "unconcious");
@@ -215,12 +215,12 @@ func die():
 			killer.add_temp("bwdh_pknum",1);
 			message("channel:chat", HIC"【华山论剑】公平子："+this_object().query("name")+"不敌"+killer.query("name")+"，被迫退出华山论剑！\n"NOR,users() );
 	
-	this_object().set("eff_jing", this_object().query("max_jing"));
-	this_object().set("jing", this_object().query("max_jing"));
-	this_object().set("eff_qi", this_object().query("max_qi"));
-	this_object().set("qi", this_object().query("max_qi"));
-	this_object().set("jingli", this_object().query("max_jingli"));
-	this_object().set("neili", this_object().query("max_neili"));
+	this_object().set_attr("eff_jing", this_object().query("max_jing"));
+	this_object().set_attr("jing", this_object().query("max_jing"));
+	this_object().set_attr("eff_qi", this_object().query("max_qi"));
+	this_object().set_attr("qi", this_object().query("max_qi"));
+	this_object().set_attr("jingli", this_object().query("max_jingli"));
+	this_object().set_attr("neili", this_object().query("max_neili"));
 	this_object().remove_all_killer();
 	this_object().remove_all_enemy();
 	this_object().delete_temp("bwdh_join");
@@ -243,10 +243,10 @@ func die():
 # Clear all the conditions by normal death.
 		if ( userp(this_object()) && userp(killer) && (!environment(this_object()).query("bwdhpk")) &&	\
 			(time()-this_object().query("dietime")<13400 ||	time()-killer.query("killertime")<13400)):											\		
-			this_object().set("eff_qi",10);
-			this_object().set("eff_jing",10);
-			this_object().set("qi",10);
-			this_object().set("jing",10);
+			this_object().set_attr("eff_qi",10);
+			this_object().set_attr("eff_jing",10);
+			this_object().set_attr("qi",10);
+			this_object().set_attr("jing",10);
 			message_vision(HIY "\n天后仙子"HIC"自云中飘然而下："HIR"一日不过四。不准频繁屠杀！\n" NOR, this_object());
 			message_vision(HIG "挥起长袖，摆起一阵香风把"+this_object().name()+"刮回武庙。\n" NOR, this_object());
 			this_object().move("/d/city/wumiao");
@@ -254,22 +254,22 @@ func die():
 			return;
 
 		this_object().clear_condition();
-		this_object().set("dietime",time());
+		this_object().set_attr("dietime",time());
 		this_object().add("normal_die", 1);
 # /* 杀手本次杀人时间 */
 		if (userp(this_object())):
-			killer.set("killertime", time());
+			killer.set_attr("killertime", time());
 		set_temp("my_killer", killer.query("id"));
 		COMBAT_D.killer_reward(killer, this_object());
 	
 	else:
 		if(userp(this_object())):
 
-			this_object().set("last_die_msg","死得很离奇");
+			this_object().set_attr("last_die_msg","死得很离奇");
 			if (stringp(reason=this_object().query_temp("die_reason"))):
-				this_object().set("last_die_msg",reason);
+				this_object().set_attr("last_die_msg",reason);
 			elif (stringp(reason=this_object().query_temp("last_damage_from"))):
-				this_object().set("last_die_msg",reason+"死了");
+				this_object().set_attr("last_die_msg",reason+"死了");
 			message("channel:rumor", HIM"【谣言】"+"听说"+this_object().name()+ HIM"死了，而且死得很离奇。\n"NOR, users());
 
 			this_object().delete("last_die_by_name");
@@ -284,16 +284,16 @@ func die():
 	if( objectp(corpse = CHAR_D.make_corpse(this_object(), killer)) ):
 		corpse.move(environment());
 # 超度用的经验值
-		corpse.set("combat_exp", this_object().query("combat_exp"));
+		corpse.set_attr("combat_exp", this_object().query("combat_exp"));
 # 死者是玩家
 		if (userp(this_object())):
-			corpse.set("userp", 1);
+			corpse.set_attr("userp", 1);
 		else:
 # 死者是任务对象
 			if(this_object().query("quest")):
-				corpse.set("quest", this_object().query("quest"));
+				corpse.set_attr("quest", this_object().query("quest"));
 			if(this_object().query("owner")):
-				corpse.set("owner", this_object().query("owner"));
+				corpse.set_attr("owner", this_object().query("owner"));
 		
 	
 
@@ -305,8 +305,8 @@ func die():
 #		if (this_object().is_busy())
 #			this_object().interrupt_me();
 		this_object().remove_busy();
-		set("jing", 1);	set("eff_jing", 1);
-		set("qi", 1);	set("eff_qi", 1);
+		set_attr("jing", 1);	set_attr("eff_jing", 1);
+		set_attr("qi", 1);	set_attr("eff_qi", 1);
 		ghost = 1;
 		this_object().move(DEATH_ROOM);
 		DEATH_ROOM.start_death(this_object());
@@ -325,10 +325,10 @@ func max_water_capacity() :
 
 func reincarnate():
 	ghost = 0;
-	set("eff_jing", query("max_jing"));
-	set("eff_qi", query("max_qi"));
-	set("food",max_food_capacity());
-	set("water",max_water_capacity());
+	set_attr("eff_jing", query("max_jing"));
+	set_attr("eff_qi", query("max_qi"));
+	set_attr("food",max_food_capacity());
+	set_attr("water",max_water_capacity());
 
 func heal_up():
 	var update_flag, i;

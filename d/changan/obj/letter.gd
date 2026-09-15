@@ -3,7 +3,7 @@
 extends Item
 func create():
     set_name(YEL +"手信" +NOR, "letter");
-    set("long","""
+    set_attr("long","""
 这是一张已经发黄的草纸，上面写道...
 给我的后人：
     看完这封信，不要震惊哦，我花了毕生的精力，但是，很遗憾，
@@ -32,7 +32,7 @@ func create():
 (下面已经看不清楚了，也许是年代太久远了的缘故。)
 """
 );
-    set("unit", "张");
-    set("weight", 10);
+    set_attr("unit", "张");
+    set_attr("weight", 10);
 }
 

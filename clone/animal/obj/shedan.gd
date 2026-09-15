@@ -8,10 +8,10 @@ var cure_ob;
 func create():
 
 	set_name("毒蛇胆", ["shedan", "dan"]);
-	set("unit", "粒");
-	set("long", "这是一只绿莹莹的毒蛇胆。\n");
-	set("value", 200);
-	set("medicine", 1);
+	set_attr("unit", "粒");
+	set_attr("long", "这是一只绿莹莹的毒蛇胆。\n");
+	set_attr("value", 200);
+	set_attr("medicine", 1);
 	setup();
 
 

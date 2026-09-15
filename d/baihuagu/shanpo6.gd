@@ -8,27 +8,27 @@ extends Room
 # var __DIR__ = "/d/baihuagu/"
 
 func create():
-	set("short", GRN + "山谷中" + NOR);
-	set("long",
+	set_attr("short", GRN + "山谷中" + NOR);
+	set_attr("long",
 HIY + """这是一面山谷。由于山坡向南，阻住了山风，加之地下矿藏
 丰富，所以地气极暖，百花先放。此处架着几个木架，托着七八
 个蜂巢。但见群蜂争舞，到处都是嗡嗡声，给静谧的山谷带来了
 无限生气。山谷中高树林立，还有很多灌木，想来谷中物产极多，
 偶尔可见一两个挖掘草药的农人。\n""" + NOR);
-	set("outdoors", "baihuagu");
-	set("count", 10);
-	set("exits", {
+	set_attr("outdoors", "baihuagu");
+	set_attr("count", 10);
+	set_attr("exits", {
 		"westup" : __DIR__ + "baihuagu2",
 	});
-	set("objects", {
+	set_attr("objects", {
 		__DIR__ + "npc/yubee": 2
 	});
-	set("item_desc", {
+	set_attr("item_desc", {
 		"蜂巢" : "这是一个巨大的蜂巢，里面很多密蜂正忙着酿蜜。\n",
 	});
-	set("coor/x", -390);
-	set("coor/y", -370);
-	set("coor/z", -10);
+	set_attr("coor/x", -390);
+	set_attr("coor/y", -370);
+	set_attr("coor/z", -10);
 	setup();
 
 func _init():

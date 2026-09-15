@@ -21,30 +21,30 @@
 extends Room
 
 func create():
-	set("short",  "赛龟房");
-	set("long",
+	set_attr("short",  "赛龟房");
+	set_attr("long",
 """一排紫色的镂空檀香靠背椅沿着屋子四周放了一圈，坐着聚精会神
 的客人。中间是一雕花石座，上面放着一个长长的紫檀龟台。一位扎着
 青鬏的龟童正围着龟台转来转去。龟房南面的墙上挂着牌子(paizi)。""" 
 );
 
-	set("item_desc",{
+	set_attr("item_desc",{
         "paizi"  :  "押长寿龟：  sai cs <amount> <money>\n"+  
                     "押千年龟：  sai qn <amount> <money>\n"+  
                     "押不老龟：  sai bl <amount> <money>\n",  
     });  
-	set("objects",  {
+	set_attr("objects",  {
         __DIR__ + "npc/guitong"  :  1,
     });
-	set("exits",  {
+	set_attr("exits",  {
         "north"  :  __DIR__ + "clubup",
     });
-	set("light_up",  1);
-	set("no_fight",  1);
-	set("no_magic",  1);
-	set("coor/x", -5030);
-	set("coor/y", 1000);
-	set("coor/z", 10);
+	set_attr("light_up",  1);
+	set_attr("no_fight",  1);
+	set_attr("no_magic",  1);
+	set_attr("coor/x", -5030);
+	set_attr("coor/y", 1000);
+	set_attr("coor/z", 10);
 	setup();
 
 # func init  ()
@@ -137,19 +137,19 @@ func create():
 #     if  (!  cs_gui)
 #     {
 #         cs_gui  =  new(__DIR__+"npc/saigui");
-#         cs_gui->set("name","长寿龟");
+#         cs_gui->set_attr("name","长寿龟");
 #         cs_gui->move(room);
 #     }
 #     if  (!  qn_gui)
 #     {
 #         qn_gui  =  new(__DIR__+"npc/saigui");
-#         qn_gui->set("name","千年龟");
+#         qn_gui->set_attr("name","千年龟");
 #         qn_gui->move(room);
 #     }
 #     if  (!  bl_gui)
 #     {
 #         bl_gui  =  new(__DIR__+"npc/saigui");
-#         bl_gui->set("name","不老龟");
+#         bl_gui->set_attr("name","不老龟");
 #         bl_gui->move(room);
 #     }
 #     tell_room  (room,"青鬏龟童说：请各位大人赏押，一赢三。\n");

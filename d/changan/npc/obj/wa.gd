@@ -5,8 +5,8 @@
 extends Item
 func create():
 	set_name(HIC + "??" + NOR,"han wa");
-	set("long", "??????????\n");
-	set("unit", "?");
-	set("value", 500);
-	set("weight", 10);
+	set_attr("long", "??????????\n");
+	set_attr("unit", "?");
+	set_attr("value", 500);
+	set_attr("weight", 10);
 

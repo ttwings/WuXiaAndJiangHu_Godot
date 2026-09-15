@@ -4,14 +4,14 @@
 extends Room
 
 func create():
-	set("short",  "押牌房");
-	set("long", 
+	set_attr("short",  "押牌房");
+	set_attr("long", 
 """屋子中间放着一张白玉桌，桌后一张镶玉太师椅上坐着的就是庄家
 了。你想和他玩玩么？那么，玩完你自个之前，想来还是先看看墙上钉
 的牌子(paizi)吧。"""
 );
 
-	set("item_desc",  {"paizi"  :  """
+	set_attr("item_desc",  {"paizi"  :  """
 押牌规则：
 一，只允许一个个和庄家玩游戏。游戏名称叫二十一点。
 二，先下注，至少一两银子，最多二十两黄金。下注方法就是直接把钱给庄家。
@@ -27,22 +27,22 @@ func create():
 		\n"""  });
 	# //for  look  something.
 
-	set("exits",  
+	set_attr("exits",  
 	{
 		"north"  :  __DIR__ + "clubpoem",
 	});
 	
-	set("objects",  
+	set_attr("objects",  
 	{
 		"/d/city/npc/paitong"  :  1,
 	});
 
-	set("no_fight",  1);
-	set("no_beg",  1);
-	set("no_magic",  1);
-	set("no_clean_up",  1);
-	set("coor/x", -5030);
-	set("coor/y", 1000);
-	set("coor/z", 20);
+	set_attr("no_fight",  1);
+	set_attr("no_beg",  1);
+	set_attr("no_magic",  1);
+	set_attr("no_clean_up",  1);
+	set_attr("coor/x", -5030);
+	set_attr("coor/y", 1000);
+	set_attr("coor/z", 20);
 	setup();
 	# replace_program(ROOM);

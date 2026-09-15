@@ -7,21 +7,21 @@
 func create():
 
 	set_name("毒蛇", ["snake", "she"]);
-	set("race", "爬蛇");
-	set("age", 4);
-	set("long", "一只有着三角形脑袋的蛇，尾巴沙沙做响。\n");
-	set("attitude", "peaceful");
+	set_attr("race", "爬蛇");
+	set_attr("age", 4);
+	set_attr("long", "一只有着三角形脑袋的蛇，尾巴沙沙做响。\n");
+	set_attr("attitude", "peaceful");
 
-	set("msg_fail", "$n冲$N嘶地一吐舌头");
-	set("msg_succ", "$n嘶嘶做响，蛇头随着$N的手动了起来");
-	set("msg_trained", "$n悄无声息地游到$N的脚下不动了");
-	set("auto_follow", 0);
-	set("wildness", 9);
+	set_attr("msg_fail", "$n冲$N嘶地一吐舌头");
+	set_attr("msg_succ", "$n嘶嘶做响，蛇头随着$N的手动了起来");
+	set_attr("msg_trained", "$n悄无声息地游到$N的脚下不动了");
+	set_attr("auto_follow", 0);
+	set_attr("wildness", 9);
 
-	set("str", 26);
-	set("cor", 30);
+	set_attr("str", 26);
+	set_attr("cor", 30);
 
-	set("combat_exp", 1000);
+	set_attr("combat_exp", 1000);
 
 	set_temp("apply/attack", 15);
 	set_temp("apply/damage", 6);

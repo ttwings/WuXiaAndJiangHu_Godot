@@ -6,25 +6,25 @@ extends Npc;
 func create():
 
 	set_name("小猴子", ["monkey", "hou", "houzi"]);
-	set("race", "走兽");
-	set("age", 2 + random(3));
-	set("long", "一只机灵的小猴子，眼巴巴的看着你，大概想讨些吃的。\n");
-	set("attitude", "peaceful");
+	set_attr("race", "走兽");
+	set_attr("age", 2 + random(3));
+	set_attr("long", "一只机灵的小猴子，眼巴巴的看着你，大概想讨些吃的。\n");
+	set_attr("attitude", "peaceful");
 
-	set("limbs", ["头部", "身体", "前腿", "后腿", "尾巴"]);
-	set("verbs", ["bite", "claw"]);
+	set_attr("limbs", ["头部", "身体", "前腿", "后腿", "尾巴"]);
+	set_attr("verbs", ["bite", "claw"]);
 
 	set_skill("dodge", 10 + random(20));
 
-	set("combat_exp", 350 + random(200));
+	set_attr("combat_exp", 350 + random(200));
 	set_temp("apply/attack", 6 + random(8));
 	set_temp("apply/defense", 6 + random(4));
 	set_temp("apply/armor", 2);
 
 	setup();
 
-	set("chat_chance", 8);
-	set("chat_msg", [
+	set_attr("chat_chance", 8);
+	set_attr("chat_msg", [
 						"一只小猴子忽然跑过来，向你作了个揖。\n",
 						"一只小猴子叽叽喳喳跑了过来。\n",
 						"小猴子蹦蹦跳跳地跑开了。\n",

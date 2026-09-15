@@ -6,12 +6,12 @@ extends Npc;
 func create():
 
 	set_name("野兔", ["ye tu", "ye", "hare"]);
-	set("race", "走畜");
-	set("age", 5);
-	set("long", "一只好可爱的小野兔。\n");
-	set("attitude", "peaceful");
+	set_attr("race", "走畜");
+	set_attr("age", 5);
+	set_attr("long", "一只好可爱的小野兔。\n");
+	set_attr("attitude", "peaceful");
 
-	set("combat_exp", 50);
+	set_attr("combat_exp", 50);
 
 	set_temp("apply/attack", 2);
 	set_temp("apply/defense", 5);

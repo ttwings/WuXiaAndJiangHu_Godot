@@ -83,10 +83,10 @@ func setup_beast(ob):
 	my["unit"] = "只";
 
 	if( undefinedp(my["actions"]) ):
-		ob.set("actions", (: call_other, __FILE__, "query_action" :) );
-		ob.set("default_actions", (: call_other, __FILE__, "query_action" :) );
+		ob.set_attr("actions", (: call_other, __FILE__, "query_action" :) );
+		ob.set_attr("default_actions", (: call_other, __FILE__, "query_action" :) );
 		if( pointerp(my["verbs"]) ):
-			ob.set("default_actions", (: call_other, __FILE__, "query_action" :) );
+			ob.set_attr("default_actions", (: call_other, __FILE__, "query_action" :) );
 		else:
 			my["default_actions"] = { "action": "$N攻击$n的%s，%s\n",}
 

@@ -6,15 +6,15 @@ extends Npc;
 func create():
 {
 	set_name("老鼠", ["lao shu", "shu", "mouse"]);
-	set("race", "走兽");
-	set("age", 2);
-	set("long", "一只赃兮兮的小老鼠。\n");
-	set("attitude", "peaceful");
+	set_attr("race", "走兽");
+	set_attr("age", 2);
+	set_attr("long", "一只赃兮兮的小老鼠。\n");
+	set_attr("attitude", "peaceful");
 
 	set_weight(300);
 
-	set("combat_exp", 100);
-	set("env/wimpy", 70);
+	set_attr("combat_exp", 100);
+	set_attr("env/wimpy", 70);
 
 	set_temp("apply/attack", 5);
 	#	set_temp("apply/damage", 20);

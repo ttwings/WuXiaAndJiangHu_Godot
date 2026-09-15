@@ -6,11 +6,11 @@ func create():
 #  if (clonep())
 #    set_default_object(__FILE__);
 #  else
-	set("long", "一个用来装酒的粗磁酒瓶，能装两，三斤白酒。\n");
-	set("unit", "个");
-	set("value", 100);
-	set("max_liquid", 15);
-	set("liquid", {
+	set_attr("long", "一个用来装酒的粗磁酒瓶，能装两，三斤白酒。\n");
+	set_attr("unit", "个");
+	set_attr("value", 100);
+	set_attr("max_liquid", 15);
+	set_attr("liquid", {
         "type": "alcohol",
         "name": "老白干",
         "remaining": 15,

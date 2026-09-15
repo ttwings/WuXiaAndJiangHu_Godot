@@ -49,7 +49,7 @@ int do_value(string arg)
 		return notify_fail("你没用过钱啊？\n");
 
 	if (userp(ob))
-		ob->set("value", ob->query("per") * 500);
+		ob->set_attr("value", ob->query("per") * 500);
 
 	value = ob->query("value");
 	if (value < 1)
@@ -137,9 +137,9 @@ int do_sell(string arg)
 
 	if (userp(ob))
 	{
-	#	ob->set("value", ob->query("per") * 500);
-      ob->set("value", ob->query("per") * 3);
-	#	ob->set("value", 0);
+	#	ob->set_attr("value", ob->query("per") * 500);
+      ob->set_attr("value", ob->query("per") * 3);
+	#	ob->set_attr("value", 0);
 		CHANNEL_D->do_channel(ob, "rumor",
 			sprintf("%s被某人拐卖给唐楠了。", ob->name(1)));
 	}
@@ -158,7 +158,7 @@ int do_sell(string arg)
                                 DROP_CMD->do_drop(ob, obs[i]);
 			 }
 			ob->move("/d/city/cangku");
-			ob->set("startroom","/d/city/cangku");
+			ob->set_attr("startroom","/d/city/cangku");
 			ob->set_temp("selled",1);
 			ob->save();
 			i=1;
@@ -175,7 +175,7 @@ int do_sell(string arg)
 		        	inv[j]->move(this_object());
 		        	if (inv[j]->query("last_value"))
 		        	{
-		        		inv[j]->set("value",inv[j]->query("last_value"));
+		        		inv[j]->set_attr("value",inv[j]->query("last_value"));
 		        		inv[j]->delete("last_value");
 		        	}
       		    MONEY_D->pay_player(this_player(), value * 70 / 100);
@@ -414,8 +414,8 @@ int do_buy(string arg)
 	  		if (base_name(inv[j])==base_name(ob) && inv[j]->name()==ob->name())
           {
           	inv[j]->move(this_player());
-          	inv[j]->set("last_value",inv[j]->query("value"));
-          	inv[j]->set("value",inv[j]->query("value")*zscount/10);
+          	inv[j]->set_attr("last_value",inv[j]->query("value"));
+          	inv[j]->set_attr("value",inv[j]->query("value")*zscount/10);
           	break;
           }
 	 		}
@@ -424,8 +424,8 @@ int do_buy(string arg)
       	if (objectp(environment(ob)))
          	ob=new(ob_file);
           ob->move(this_player());
-          ob->set("last_value",ob->query("value"));
-          ob->set("value",ob->query("value")*zscount/10);
+          ob->set_attr("last_value",ob->query("value"));
+          ob->set_attr("value",ob->query("value")*zscount/10);
       }
    }
 	remove_call_out("enough_rest");

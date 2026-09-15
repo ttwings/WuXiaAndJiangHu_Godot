@@ -5,14 +5,14 @@
 extends Npc
 func create():
 	set_name("武将", "wu jiang");
-	set("gender", "男性");
-	set("age", random(10) + 30);
-	set("str", 25);
-	set("dex", 16);
-	set("long", "他站在那里，的确有说不出的威风。\n");
-	set("combat_exp", 75000);
-	set("shen_type", 1);
-	set("attitude", "peaceful");
+	set_attr("gender", "男性");
+	set_attr("age", random(10) + 30);
+	set_attr("str", 25);
+	set_attr("dex", 16);
+	set_attr("long", "他站在那里，的确有说不出的威风。\n");
+	set_attr("combat_exp", 75000);
+	set_attr("shen_type", 1);
+	set_attr("attitude", "peaceful");
 
 	set_skill("unarmed", 60);
 	set_skill("force", 60);
@@ -24,9 +24,9 @@ func create():
 	set_temp("apply/armor", 50);
 	set_temp("apply/damage", 30);
 
-	set("neili", 400); 
-	set("max_neili", 400);
-	set("jiali", 10);
+	set_attr("neili", 400); 
+	set_attr("max_neili", 400);
+	set_attr("jiali", 10);
 
 	setup();
 	# carry_object(__DIR__"obj/gangjian").wield();

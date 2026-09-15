@@ -45,7 +45,7 @@
 
 # # This is the "current" weight of an object, which is used on weight
 # # checking in move().
-# func weight() :
+# func query_total_weight() :
 # 	return weight + encumb;
 
 # func move(dest, silently:int):
@@ -76,7 +76,7 @@
 # 	# object in the bag and encumbrance checking is unessessary.
 # 	env = me;
 # 	while(env = environment(env)) if( env==ob ) break;
-# 	if( !env && (int)ob.query_encumbrance() + weight()
+# 	if( !env && (int)ob.query_encumbrance() + query_total_weight()
 # 		> (int)ob.query_max_encumbrance() )
 # 	{
 # 		if( ob==this_object() )
@@ -86,7 +86,7 @@
 # 	}
 
 # 	# Move the object and update encumbrance
-# 	w = weight();
+# 	w = query_total_weight();
 # 	if( environment() ) environment().add_encumbrance( - w);
 # 	move_object(ob);
 # 	if( !me) return 0;

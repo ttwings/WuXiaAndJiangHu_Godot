@@ -566,7 +566,7 @@ func record_rumor(obs, topic:String, event_ob):
 #     {
 #         if (! playerp(ob) || ! ob.query("out_family")) continue;
 #         if (ob.query("rumor/" + topic)) continue;
-#         ob.set("rumor/" + topic, event_ob);
+#         ob.set_attr("rumor/" + topic, event_ob);
 #         message("vision", "你掏出地图册，翻到最后面，写下了有关『" +
 #                           topic + "』的记录。\n", ob);
 #         n++;

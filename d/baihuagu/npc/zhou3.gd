@@ -8,21 +8,21 @@ extends Npc
 
 func create():
 	set_name("周伯通", { "zhou botong"};
-	set("gender", "男性");
-	set("nickname", CYN "老顽童" NOR ) ;
-	set("title", "全真教第一代弟子") ;
-	set("age", 45);
-	set("long",
+	set_attr("gender", "男性");
+	set_attr("nickname", CYN "老顽童" NOR ) ;
+	set_attr("title", "全真教第一代弟子") ;
+	set_attr("age", 45);
+	set_attr("long",
 		"他就是人称「老顽童」的周伯通。\n"
 		"他一副仙风道骨的样子，看起来好象才四十来岁。很难想象他其实已经年逾古稀了。\n"
 	);
 
-	set("combat_exp", 5000000);
-	set("shen_type", 1);
-	set("max_neili", 10000);
-	set("neili", 10000);
-# //	set("jiali", 0);
-	set("per",39);
+	set_attr("combat_exp", 5000000);
+	set_attr("shen_type", 1);
+	set_attr("max_neili", 10000);
+	set_attr("neili", 10000);
+# //	set_attr("jiali", 0);
+	set_attr("per",39);
 
 	set_skill("force", 180);
 	set_skill("xiantian-qigong", 180);    //先天气功
@@ -51,7 +51,7 @@ func create():
 	prepare_skill("cuff", "chunyang-quan");
 	prepare_skill("strike", "haotian-zhang");
 
-	set("inquiry", {
+	set_attr("inquiry", {
 		"九阴真经" : "你再提这劳什子，我就不跟你玩了。\n",
 		"瑛姑"     : "你知道她在哪儿吗？快，快告诉我。",
 		"蛇"       : "不要吓我，我最怕蛇了！\n",
@@ -86,7 +86,7 @@ func accept_object(object who, object ob):
 				who.delete("last_slp");
 				who.delete("jingzuo_time");
 				who.add("marks/mi_age",1);
-				who.set("marks/mi",0);
+				who.set_attr("marks/mi",0);
 		else:
 			message_vision( HIY"老顽童接过蜂蜜，对$N扮了个鬼脸，笑道：反正这蜜也不是你做的，不吃白不吃。\n\n"NOR,who);
 		call_out("delmi",2);

@@ -50,14 +50,14 @@ var combat_action_fly = [
 
 func create():
 	seteuid(getuid());
-	set("attitude", "heroism");
+	set_attr("attitude", "heroism");
 
 func setup_insect(ob):
 	var my;
 
 	my = ob.query_entire_dbase();
 
-	ob.set("default_actions", (: call_other, __FILE__, "query_action" :));
+	ob.set_attr("default_actions", (: call_other, __FILE__, "query_action" :));
 	
 	my["unit"] = "只";
 	
@@ -102,26 +102,26 @@ func setup_insect(ob):
 		ob.set_weight(BASE_WEIGHT + (my["str"] - 5)* 100);
 
 	if( ob.query("subrace") == "爬虫" ):
-		set("dead_message", "\n$N四脚朝天地翻了过来，死了。\n\n");
-		set("unconcious_message", "\n$N四脚朝天地翻了过来，不动了。\n\n");
-		set("revive_message", "\n$N一下翻过身，又敏捷地四处爬动起来。\n\n");
-		set("comeout_message", "唰地跃入草丛，往$d钻了出去。\n");
-		set("comein_message", "爬了过来。\n");
-		set("fleeout_message", "唰地跃入草丛，往$d钻了出去。\n");
-		set("fleein_message", "缓缓爬了过来，动作有些迟滞。\n");
+		set_attr("dead_message", "\n$N四脚朝天地翻了过来，死了。\n\n");
+		set_attr("unconcious_message", "\n$N四脚朝天地翻了过来，不动了。\n\n");
+		set_attr("revive_message", "\n$N一下翻过身，又敏捷地四处爬动起来。\n\n");
+		set_attr("comeout_message", "唰地跃入草丛，往$d钻了出去。\n");
+		set_attr("comein_message", "爬了过来。\n");
+		set_attr("fleeout_message", "唰地跃入草丛，往$d钻了出去。\n");
+		set_attr("fleein_message", "缓缓爬了过来，动作有些迟滞。\n");
 
-		set("limbs", ["头部",	"背部",	"腹部", "触角", "前腿",	"后腿", "尾巴"] );
+		set_attr("limbs", ["头部",	"背部",	"腹部", "触角", "前腿",	"后腿", "尾巴"] );
 
 	if( ob.query("subrace") == "飞虫" ):
-		set("dead_message", "\n$N掉在地上，挣扎了几下就死了。\n\n");
-		set("unconcious_message", "\n$N扑的跌在地上，昏了过去。\n\n");
-		set("revive_message", "\n$N张开翅膀扑腾了一下，又飞了起来。\n\n");
-		set("comeout_message", "嗡嗡嗡地叫着往$d飞了出去。\n");
-		set("comein_message", "嗡嗡地叫着飞了过来。\n");
-		set("fleeout_message", "嗡嗡地叫着往$d飞了出去。\n");
-		set("fleein_message", "缓缓飞了过来，动作有些迟滞。\n");
+		set_attr("dead_message", "\n$N掉在地上，挣扎了几下就死了。\n\n");
+		set_attr("unconcious_message", "\n$N扑的跌在地上，昏了过去。\n\n");
+		set_attr("revive_message", "\n$N张开翅膀扑腾了一下，又飞了起来。\n\n");
+		set_attr("comeout_message", "嗡嗡嗡地叫着往$d飞了出去。\n");
+		set_attr("comein_message", "嗡嗡地叫着飞了过来。\n");
+		set_attr("fleeout_message", "嗡嗡地叫着往$d飞了出去。\n");
+		set_attr("fleein_message", "缓缓飞了过来，动作有些迟滞。\n");
 
-		set("limbs", ["头部",	"背部",	"腹部",	"翅膀", "前腿",	"后腿", "尾巴"] );
+		set_attr("limbs", ["头部",	"背部",	"腹部",	"翅膀", "前腿",	"后腿", "尾巴"] );
 
 
 func query_action(me):

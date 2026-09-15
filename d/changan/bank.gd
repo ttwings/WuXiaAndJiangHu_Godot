@@ -7,13 +7,13 @@ extends Room
 # func reset_balance(object  me);
 
 func create():
-	set("short",  "相记钱庄");
-	set("long",  """
+	set_attr("short",  "相记钱庄");
+	set_attr("long",  """
 这是一家老字号的钱庄，相老板是山西人，这家钱庄从他的爷爷的
 爷爷的爷爷的爷爷那辈开始办起，一直传到他手里，声誉非常好，在全
 国各地都有分店。它发行的银票通行全国。钱庄的门口，挂有一块牌子
 (paizi)。""");
-	set("item_desc",  {
+	set_attr("item_desc",  {
 		"paizi":  """
 这里是钱庄，目前我们提供的服务有：
 
@@ -23,15 +23,15 @@ withdraw		取款。
 convert		  兑换钱币。
 """
 	}  );
-	set("no_fight", 1);
-	set("exits",  { 
+	set_attr("no_fight", 1);
+	set_attr("exits",  { 
 	    "north"  :  __DIR__ + "center",
 	});
-	set("objects",  {
+	set_attr("objects",  {
 		__DIR__ + "npc/tiesuanpan"  :  1,
 	});
-# //		set("outdoors",  "changan");
-	set("no_clean_up",  0);
+# //		set_attr("outdoors",  "changan");
+	set_attr("no_clean_up",  0);
 	setup();
 # }
 # /*
@@ -54,8 +54,8 @@ func reset_balance(me):
 	allowed=myexp*1000000;
 	# //each  year  can  have  100  gold,  range  100-10000.  
 	if  (me.query("balance")  >  allowed):
-		me.set("balance_old",  me.query("balance"));
-		me.set("balance",  allowed);
+		me.set_attr("balance_old",  me.query("balance"));
+		me.set_attr("balance",  allowed);
 		removed_gold  =  (me.query("balance_old")  -  me.query("balance"))/10000;
 		log_file("MONEY_RESET",  ctime(  time()  )+"：魏大人收缴了"+me.query("name")+"("+me.query("id")+")"+removed_gold+"两黄金。\n");
 		tell_object(me,  GRN+NPCNAME+"在你的耳边悄声说道："+RANK_D.query_respect(me)+"，这、这真不知怎么说是好．．．\n"NOR);

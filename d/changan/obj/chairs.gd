@@ -14,12 +14,12 @@ var suffixs  =  ["长椅","躺椅",]
 func create():
 	set_name(prefixs[random(sizeof(prefixs))]+names[random(sizeof(names))]+suffixs[random(sizeof(suffixs))], "chair");
 	set_weight(28000);
-	set("long",  "这是一把椅子。\n"  );
-	set("unit",  "把");
-	set("material",  "stone");
-	set("value",  2000);
-	set("no_sell",  1);
-	set("no_get",  1);
+	set_attr("long",  "这是一把椅子。\n"  );
+	set_attr("unit",  "把");
+	set_attr("material",  "stone");
+	set_attr("value",  2000);
+	set_attr("no_sell",  1);
+	set_attr("no_get",  1);
 	setup();
 
 func _init():

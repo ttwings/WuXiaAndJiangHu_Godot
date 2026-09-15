@@ -32,16 +32,16 @@ var combat_action = [
 
 func create():
 	setuid(getuid());
-	set("attitude", "agressive");
-	set("limbs", ["头部", "身体", "七寸", "尾巴"] );
+	set_attr("attitude", "agressive");
+	set_attr("limbs", ["头部", "身体", "七寸", "尾巴"] );
 
-	set("dead_message", "\n$N痛苦地扭动了几下，全身软软地散了开来。\n\n");
-	set("unconcious_message", "\n$N痛苦地扭了几下，不动了。\n\n");
-	set("revive_message", "\n$N身躯一弹一滚，又在地上到处游走开来。\n\n");
-	set("comeout_message", "嗖地一声，往$d钻了出去。\n");
-	set("comein_message", "蜿蜒地游了过来。\n");
-	set("fleeout_message", "嗖地一声，往$d钻了出去。\n");
-	set("fleein_message", "缓缓地游了过来，软耷耷地在地上趴着。\n");
+	set_attr("dead_message", "\n$N痛苦地扭动了几下，全身软软地散了开来。\n\n");
+	set_attr("unconcious_message", "\n$N痛苦地扭了几下，不动了。\n\n");
+	set_attr("revive_message", "\n$N身躯一弹一滚，又在地上到处游走开来。\n\n");
+	set_attr("comeout_message", "嗖地一声，往$d钻了出去。\n");
+	set_attr("comein_message", "蜿蜒地游了过来。\n");
+	set_attr("fleeout_message", "嗖地一声，往$d钻了出去。\n");
+	set_attr("fleein_message", "缓缓地游了过来，软耷耷地在地上趴着。\n");
 
 
 func setup_snake(ob):
@@ -49,7 +49,7 @@ func setup_snake(ob):
 
 	my = ob.query_entire_dbase();
 
-	ob.set("default_actions", (: call_other, __FILE__, "query_action" :));
+	ob.set_attr("default_actions", (: call_other, __FILE__, "query_action" :));
 
 	my["unit"] = "只";
 	

@@ -33,19 +33,19 @@ var combat_action = [
 
 func create():
 	seteuid(getuid());
-	set("unit", "位");
-	set("gender", "男性");
-	set("can_speak", 1);
-	set("attitude", "peaceful");
-	set("limbs", [
+	set_attr("unit", "位");
+	set_attr("gender", "男性");
+	set_attr("can_speak", 1);
+	set_attr("attitude", "peaceful");
+	set_attr("limbs", [
 		"头顶", "颈部", "胸口", "后心", "左肩", "右肩", "左臂",
 		"右臂", "左手", "右手", "两肋", "左脸", "腰间", "小腹",
 		"左腿", "右腿", "右脸", "左脚", "右脚", "左耳", "右耳"
 	] );
 
-	set("dead_message", "\n$N倒在地上，挣扎了几下就死了。\n\n");
-	set("unconcious_message", "\n$N脚下一个不稳，跌在地上昏了过去。\n\n");
-	set("revive_message", "\n$N慢慢睁开眼睛，清醒了过来。\n\n");
+	set_attr("dead_message", "\n$N倒在地上，挣扎了几下就死了。\n\n");
+	set_attr("unconcious_message", "\n$N脚下一个不稳，跌在地上昏了过去。\n\n");
+	set_attr("revive_message", "\n$N慢慢睁开眼睛，清醒了过来。\n\n");
 
 func setup_human(ob):
 	var my;
@@ -54,7 +54,7 @@ func setup_human(ob):
 
 	my = ob.query_entire_dbase();
 	# 调用文件对应的动作
-	# ob.set("default_actions", (: call_other, __FILE__, "query_action" :));
+	# ob.set_attr("default_actions", (: call_other, __FILE__, "query_action" :));
 
 	if( undefinedp(my["age"} ) :
 		my["age"] = 14;

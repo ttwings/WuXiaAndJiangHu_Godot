@@ -1,6 +1,6 @@
 extends GameObject
 
-#class_name Weapon
+class_name Weapon
 
 
 ##include <weapon.h>
@@ -64,13 +64,13 @@ const F_WHIP      =  "/inherit/weapon/_whip"
 
 #func init_axe(int damage, int flag)
 #{
-#	set("weapon_prop/damage", damage);
-#	set("flag", (int)flag | EDGED | SECONDARY);
-#	set("skill_type", "axe");
-#	set("rigidity", (int)(damage/2));
+#	set_attr("weapon_prop/damage", damage);
+#	set_attr("flag", (int)flag | EDGED | SECONDARY);
+#	set_attr("skill_type", "axe");
+#	set_attr("rigidity", (int)(damage/2));
 #	if( !query("actions") ) {
-#		set("actions", (: call_other, WEAPON_D, "query_action" :) );
-#		set("verbs", ({ "chop", "slash", "slice", "hack" }) );
+#		set_attr("actions", (: call_other, WEAPON_D, "query_action" :) );
+#		set_attr("verbs", ({ "chop", "slash", "slice", "hack" }) );
 #	}
 #}
 #
@@ -78,14 +78,14 @@ const F_WHIP      =  "/inherit/weapon/_whip"
 #
 #func init_blade(int damage, int flag)
 #{
-#	set("weapon_prop/damage", damage);
-#	set("flag", (int)flag | EDGED | SECONDARY);
-##	set("flag", 2);
-#	set("skill_type", "blade");
-#	set("rigidity", (int)(damage/3));
+#	set_attr("weapon_prop/damage", damage);
+#	set_attr("flag", (int)flag | EDGED | SECONDARY);
+##	set_attr("flag", 2);
+#	set_attr("skill_type", "blade");
+#	set_attr("rigidity", (int)(damage/3));
 #	if( !query("actions") ) {
-#		set("actions", (: call_other, WEAPON_D, "query_action" :) );
-#		set("verbs", ({ "slash", "slice", "hack" }) );
+#		set_attr("actions", (: call_other, WEAPON_D, "query_action" :) );
+#		set_attr("verbs", ({ "slash", "slice", "hack" }) );
 #	}
 #}
 #
@@ -93,14 +93,14 @@ const F_WHIP      =  "/inherit/weapon/_whip"
 #
 #func init_club(int damage, int flag)
 #{
-#	set("weapon_prop/damage", damage);
-#	set("flag", (int)flag | LONG | SECONDARY);
-##	set("flag", 1);
-#	set("skill_type", "club");
-#	set("rigidity", (int)(damage/5));
+#	set_attr("weapon_prop/damage", damage);
+#	set_attr("flag", (int)flag | LONG | SECONDARY);
+##	set_attr("flag", 1);
+#	set_attr("skill_type", "club");
+#	set_attr("rigidity", (int)(damage/5));
 #	if( !query("actions") ) {
-#		set("actions", (: call_other, WEAPON_D, "query_action" :) );
-#		set("verbs", ({ "bash", "crush", "slam" }) );
+#		set_attr("actions", (: call_other, WEAPON_D, "query_action" :) );
+#		set_attr("verbs", ({ "bash", "crush", "slam" }) );
 #	}
 #}
 #
@@ -108,14 +108,14 @@ const F_WHIP      =  "/inherit/weapon/_whip"
 #
 #func init_dagger(int damage, int flag)
 #{
-#	set("weapon_prop/damage", damage);
-#	set("flag", flag | EDGED | SECONDARY );
-##	set("flag", 0);
-#	set("skill_type", "dagger");
-#	set("rigidity", (int)(damage/4));
+#	set_attr("weapon_prop/damage", damage);
+#	set_attr("flag", flag | EDGED | SECONDARY );
+##	set_attr("flag", 0);
+#	set_attr("skill_type", "dagger");
+#	set_attr("rigidity", (int)(damage/4));
 #	if( !query("actions") ) {
-#		set("actions", (: call_other, WEAPON_D, "query_action" :) );
-#		set("verbs", ({ "slice", "pierce", "thrust" }) );
+#		set_attr("actions", (: call_other, WEAPON_D, "query_action" :) );
+#		set_attr("verbs", ({ "slice", "pierce", "thrust" }) );
 #	}
 #}
 #
@@ -123,14 +123,14 @@ const F_WHIP      =  "/inherit/weapon/_whip"
 #
 #func init_fork(int damage, int flag)
 #{
-#	set("weapon_prop/damage", damage);
-#	set("flag", (int)flag | POINTED | SECONDARY);
-##	set("flag", 1);
-#	set("skill_type", "fork");
-#	set("rigidity", (int)(damage/3));
+#	set_attr("weapon_prop/damage", damage);
+#	set_attr("flag", (int)flag | POINTED | SECONDARY);
+##	set_attr("flag", 1);
+#	set_attr("skill_type", "fork");
+#	set_attr("rigidity", (int)(damage/3));
 #	if( !query("actions") ) {
-#		set("actions", (: call_other, WEAPON_D, "query_action" :) );
-#		set("verbs", ({ "impale", "pierce", "thrust" }) );
+#		set_attr("actions", (: call_other, WEAPON_D, "query_action" :) );
+#		set_attr("verbs", ({ "impale", "pierce", "thrust" }) );
 #	}
 #}
 #
@@ -138,14 +138,14 @@ const F_WHIP      =  "/inherit/weapon/_whip"
 #
 #func init_hammer(int damage, int flag)
 #{
-#	set("weapon_prop/damage", damage);
-#	set("flag", flag | SECONDARY);
-##	set("flag", 2);
-#	set("skill_type", "hammer");
-#	set("rigidity", (int)(damage/2));
+#	set_attr("weapon_prop/damage", damage);
+#	set_attr("flag", flag | SECONDARY);
+##	set_attr("flag", 2);
+#	set_attr("skill_type", "hammer");
+#	set_attr("rigidity", (int)(damage/2));
 #	if( !query("actions") ) {
-#		set("actions", (: call_other, WEAPON_D, "query_action" :) );
-#		set("verbs", ({ "bash", "crush", "slam" }) );
+#		set_attr("actions", (: call_other, WEAPON_D, "query_action" :) );
+#		set_attr("verbs", ({ "bash", "crush", "slam" }) );
 #	}
 #}
 #
@@ -153,13 +153,13 @@ const F_WHIP      =  "/inherit/weapon/_whip"
 #
 #func init_hook(int damage, int flag)
 #{
-#	set("weapon_prop/damage", damage);
-#	set("flag", (int)flag | EDGED | SECONDARY);
-#	set("skill_type", "hook");
-#	set("rigidity", (int)(damage/4));
+#	set_attr("weapon_prop/damage", damage);
+#	set_attr("flag", (int)flag | EDGED | SECONDARY);
+#	set_attr("skill_type", "hook");
+#	set_attr("rigidity", (int)(damage/4));
 #	if( !query("actions") ) {
-#		set("actions", (: call_other, WEAPON_D, "query_action" :) );
-#		set("verbs", ({ "chop", "hack"}) );
+#		set_attr("actions", (: call_other, WEAPON_D, "query_action" :) );
+#		set_attr("verbs", ({ "chop", "hack"}) );
 #	}
 #}
 #
@@ -167,14 +167,14 @@ const F_WHIP      =  "/inherit/weapon/_whip"
 #
 #func init_spear(int damage, int flag)
 #{
-#	set("weapon_prop/damage", damage);
-#	set("flag", (int)flag | LONG | SECONDARY);
-##	set("flag", 1);
-#	set("skill_type", "spear");
-#	set("rigidity", (int)(damage/4));
+#	set_attr("weapon_prop/damage", damage);
+#	set_attr("flag", (int)flag | LONG | SECONDARY);
+##	set_attr("flag", 1);
+#	set_attr("skill_type", "spear");
+#	set_attr("rigidity", (int)(damage/4));
 #	if( !query("actions") ) {
-#		set("actions", (: call_other, WEAPON_D, "query_action" :) );
-#		set("verbs", ({ "bash", "thrust", "pierce", "impale", "crush" }) );
+#		set_attr("actions", (: call_other, WEAPON_D, "query_action" :) );
+#		set_attr("verbs", ({ "bash", "thrust", "pierce", "impale", "crush" }) );
 #	}
 #}
 #
@@ -182,14 +182,14 @@ const F_WHIP      =  "/inherit/weapon/_whip"
 #
 #func init_staff(int damage, int flag)
 #{
-#	set("weapon_prop/damage", damage);
-#	set("flag", (int)flag | LONG | SECONDARY);
-##	set("flag", 1);
-#	set("skill_type", "staff");
-#	set("rigidity", (int)(damage/3));
+#	set_attr("weapon_prop/damage", damage);
+#	set_attr("flag", (int)flag | LONG | SECONDARY);
+##	set_attr("flag", 1);
+#	set_attr("skill_type", "staff");
+#	set_attr("rigidity", (int)(damage/3));
 #	if( !query("actions") ) {
-#		set("actions", (: call_other, WEAPON_D, "query_action" :) );
-#		set("verbs", ({ "bash", "crush", "slam" }) );
+#		set_attr("actions", (: call_other, WEAPON_D, "query_action" :) );
+#		set_attr("verbs", ({ "bash", "crush", "slam" }) );
 #	}
 #}
 #
@@ -197,55 +197,55 @@ const F_WHIP      =  "/inherit/weapon/_whip"
 #
 #func init_stick(int damage, int flag)
 #{
-#	set("weapon_prop/damage", damage);
-#	set("flag", (int)flag | LONG | SECONDARY);
-##	set("flag", 1);
-#	set("skill_type", "stick");
-#	set("rigidity", (int)(damage/4));
+#	set_attr("weapon_prop/damage", damage);
+#	set_attr("flag", (int)flag | LONG | SECONDARY);
+##	set_attr("flag", 1);
+#	set_attr("skill_type", "stick");
+#	set_attr("rigidity", (int)(damage/4));
 #	if( !query("actions") ) {
-#		set("actions", (: call_other, WEAPON_D, "query_action" :) );
-#		set("verbs", ({ "bash", "crush", "slam" }) );
+#		set_attr("actions", (: call_other, WEAPON_D, "query_action" :) );
+#		set_attr("verbs", ({ "bash", "crush", "slam" }) );
 #	}
 #}
 #
 ## sword.c
 #
 func init_sword(damage:int, flag:int):
-	set("weapon_prop/damage", damage);
-#	set("flag", (int)flag | EDGED | SECONDARY);
-#	set("flag", 2);
-	set("skill_type", "sword");
-	set("rigidity", damage/4);
+	set_attr("weapon_prop/damage", damage);
+#	set_attr("flag", (int)flag | EDGED | SECONDARY);
+#	set_attr("flag", 2);
+	set_attr("skill_type", "sword");
+	set_attr("rigidity", damage/4);
 	if( !query("actions") ):
-#		set("actions", (: call_other, WEAPON_D, "query_action" :) );
-		set("verbs", ["slash", "slice", "thrust" ] );
+#		set_attr("actions", (: call_other, WEAPON_D, "query_action" :) );
+		set_attr("verbs", ["slash", "slice", "thrust" ] );
 #
 ## throwing.c
 #
 #func init_throwing(int damage, int flag)
 #{
-#	set("weapon_prop/damage", damage);
-#	set("flag", (int)flag | SECONDARY);
-##	set("flag", 8);
-#	set("skill_type", "throwing");
-#	set("rigidity", (int)(damage/6));
+#	set_attr("weapon_prop/damage", damage);
+#	set_attr("flag", (int)flag | SECONDARY);
+##	set_attr("flag", 8);
+#	set_attr("skill_type", "throwing");
+#	set_attr("rigidity", (int)(damage/6));
 #	if( !query("actions") ) {
-#		set("actions", (: call_other, WEAPON_D, "query_action" :) );
-#		set("verbs", ({ "throw" }) );
+#		set_attr("actions", (: call_other, WEAPON_D, "query_action" :) );
+#		set_attr("verbs", ({ "throw" }) );
 #	}
 #}
 #
 ## whip.c
 #
 func init_whip(damage, flag):
-	set("weapon_prop/damage", damage);
-	set("flag", flag );
-# #	set("flag", 2);
-	set("skill_type", "whip");
-	set("rigidity", damage/3);
+	set_attr("weapon_prop/damage", damage);
+	set_attr("flag", flag );
+# #	set_attr("flag", 2);
+	set_attr("skill_type", "whip");
+	set_attr("rigidity", damage/3);
 	if( !query("actions") ) :
-#		set("actions", (: call_other, WEAPON_D, "query_action" :) );
-		set("verbs", ["whip" ]);
+#		set_attr("actions", (: call_other, WEAPON_D, "query_action" :) );
+		set_attr("verbs", ["whip" ]);
 
 # func this_object():
 # 	return self
@@ -317,7 +317,7 @@ func set_desc(w_lv:int,w_or:String,w_name:String):
 			result3 = "一种庄严，温和，凛然而不可侵犯的气息让人不敢有一丝亵渎之意, 它已经返朴归真，成为真正的上古神兵。兵刃晃动，直欲" + HIC +"气冲斗牛。\n"+ NOR;
 	result4="上面用小篆刻着一行小字：\n\t"+player_name+"铸于"+make_time+"\n";
 	result=result1+result2+result3+result4;
-	weapon.set("long",result);
+	weapon.set_attr("long",result);
 
 	
 #############################  Equip ##############################	
@@ -395,7 +395,7 @@ func wield():
 		owner.reset_apply_action();
 	else:
 		owner.reset_action();
-	set("equipped", "wielded");
+	set_attr("equipped", "wielded");
 	return 1;
 # }	
 

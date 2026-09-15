@@ -6,12 +6,12 @@ extends Npc;
 func create():
 
 	set_name("斑鸠", ["ban jiu", "bird"]);
-	set("race", "飞禽");
-	set("age", 2);
-	set("long", "一只的小斑鸠。\n");
-	set("attitude", "peaceful");
+	set_attr("race", "飞禽");
+	set_attr("age", 2);
+	set_attr("long", "一只的小斑鸠。\n");
+	set_attr("attitude", "peaceful");
 
-	set("combat_exp", 100);
+	set_attr("combat_exp", 100);
 
 	set_temp("apply/attack", 2);
 	set_temp("apply/defense", 6);

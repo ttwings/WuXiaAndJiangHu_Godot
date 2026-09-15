@@ -18,27 +18,27 @@ extends Room
 # }
 
 func create():
-	set("short", "斗鸡房");
-	set("long", 
+	set_attr("short", "斗鸡房");
+	set_attr("long", 
 """斗鸡房里一左一右放着两个青竹鸡笼，一个鸡笼里关着一群红冠鸡，
 另一个鸡笼里关着一群绿尾鸡。屋子正中是七尺见方的斗鸡场，由一圈
 低低的青玉栏杆围成。一位白髯鸡仙正在张罗着斗鸡。在他的后面墙上
 有一个牌子(paizi)。""");
 
-	set("item_desc",{
+	set_attr("item_desc",{
 		"paizi" : "押红冠鸡： dou hg <amount> <money>\n押绿尾鸡： dou lw <amount> <money>\n", 
 	}); 
-	set("objects", {
+	set_attr("objects", {
 		__DIR__ + "npc/jixian" : 1,
 	});
-	set("exits", {
+	set_attr("exits", {
 		"south" : __DIR__ + "clubup",
 	});
-	set("no_ansuan", 1);
-	set("no_guard", 1);
-	set("coor/x", -5030);
-	set("coor/y", 1020);
-	set("coor/z", 10);
+	set_attr("no_ansuan", 1);
+	set_attr("no_guard", 1);
+	set_attr("coor/x", -5030);
+	set_attr("coor/y", 1020);
+	set_attr("coor/z", 10);
 	setup();
 
 # func init ()
@@ -133,10 +133,10 @@ func create():
 # 	}
 # 	tell_room (room,"白髯鸡仙从左右鸡笼里各拿出一只红冠鸡和一只绿尾鸡。\n");
 # 	hg_ji = new(__DIR__+"npc/douji");
-# 	hg_ji->set("name","红冠鸡");
+# 	hg_ji->set_attr("name","红冠鸡");
 # 	hg_ji->move(room);
 # 	lw_ji = new(__DIR__+"npc/douji");
-# 	lw_ji->set("name","绿尾鸡");
+# 	lw_ji->set_attr("name","绿尾鸡");
 # 	lw_ji->move(room);
 # 	tell_room (room,"白髯鸡仙说：好，可以押钱了，一赢二。\n");
 # 	room_status = 1;

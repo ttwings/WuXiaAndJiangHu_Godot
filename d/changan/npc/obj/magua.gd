@@ -14,11 +14,11 @@ func create():
 	# if(  clonep()  )
 	# 	set_default_object(__FILE__);
 	# else  {
-	set("long",  "一件淡青色的马褂．\n");
-   	set("unit",  "件");
-	set("value",  500);
-	set("material",  "cloth");
-	set("armor_prop/armor",  5);
+	set_attr("long",  "一件淡青色的马褂．\n");
+   	set_attr("unit",  "件");
+	set_attr("value",  500);
+	set_attr("material",  "cloth");
+	set_attr("armor_prop/armor",  5);
    	
 	setup();
 

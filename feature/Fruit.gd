@@ -12,7 +12,7 @@ func is_food():
 
 func init():
 	if (!query("decay") && userp(environment())):
-		set("decay", 1);
+		set_attr("decay", 1);
 		remove_call_out("stats");
 		call_out("stats", 280,0);
 	add_action("do_eat", "eat");
@@ -45,7 +45,7 @@ func do_eat(string arg):
 			notify_fail("吃那么多？？真贪心，小心撑死了……\n");
 		return 0;
 	add( "fruit_remaining", -1);
-	set( "value", 0);
+	set_attr( "value", 0);
 	if ( query( "fruit_remaining" ) ):
 		me.add("food" ,  query( "food_supply" ) );
 		me.add( "water" , query( "water_supply" ) );
@@ -82,7 +82,7 @@ func do_eat(string arg):
 					if (sign>0):
 						me.add("gift/hamlet/"+list[i],1);
 						me.add( list[ i ] , sign );
-						me.set( "hamlet_food/" + list[ i ], 0);
+						me.set_attr( "hamlet_food/" + list[ i ], 0);
 						tell_object( me, YEL"由于你日常的饮食习惯而造成了你天赋的改变！\n"NOR );
 
 
@@ -103,11 +103,11 @@ func do_eat(string arg):
 			core = new( "/clone/misc/core.c" );
 			core.set_name(query("core"), query("core_id") );
 			if ( query("core_unit") ):
-				core.set("unit", query("core_unit"));
+				core.set_attr("unit", query("core_unit"));
 			else :
-				core.set("unit", query("unit") );
+				core.set_attr("unit", query("unit") );
 			if ( query("core_long") ):
-				core.set("long", query("core_long") );
+				core.set_attr("long", query("core_long") );
 			core.move( environment( this_object() ) );
 		
 		remove_call_out( "stats" );
@@ -129,35 +129,35 @@ func stats( i:int ):
 
 	match ( i ):
 		0:
-			set("base_long", query("long") );
-			set("base_name", query("name") );
+			set_attr("base_long", query("long") );
+			set_attr("base_name", query("name") );
 			call_out("stats", life/4, 1);
 		1:
 			base_long = query("base_long");
-			set("long",base_long+"，上面好象有些斑点，不过还不算显眼。\n");
+			set_attr("long",base_long+"，上面好象有些斑点，不过还不算显眼。\n");
 			call_out("stats", life/4, 2);
 		2:
 			base_name = query("base_name");
 			base_long = query("base_long");
-			set("name","有点烂了的"+base_name );
-			set("long",base_long+"，可惜已经开始烂了。\n");
+			set_attr("name","有点烂了的"+base_name );
+			set_attr("long",base_long+"，可惜已经开始烂了。\n");
 			call_out("stats", life/4, 3);
 		3:
 			base_name = query("base_name");
 			base_long = query("base_long");
-			set("name", "烂" + base_name );
-			set("long",base_long +"，可惜已经烂了，散发出一股异味。\n");
+			set_attr("name", "烂" + base_name );
+			set_attr("long",base_long +"，可惜已经烂了，散发出一股异味。\n");
 			call_out("stats", life/4, 4);
 		_ :
 			if ( query("core") ):
 				core = new( "/clone/misc/core.c" );
 				core.set_name(query("core"), query("core_id"));
 				if ( query("core_unit") ):
-					core.set("unit", query("core_unit"));
+					core.set_attr("unit", query("core_unit"));
 				else:
-					core.set("unit", query("unit") );
+					core.set_attr("unit", query("unit") );
 				if ( query("core_long") ):
-					core.set("long", query("core_long") );
+					core.set_attr("long", query("core_long") );
 				if ( env = environment( this_object() ) ):
 					core.move( env );
 			tell_room( environment(this_object()), this_object().query("name")+"终于完全烂掉了。\n" );

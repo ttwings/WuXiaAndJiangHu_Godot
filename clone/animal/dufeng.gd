@@ -6,14 +6,14 @@ extends Npc;
 func create():
 
 	set_name("毒蜂", ["dufeng", "feng"]);
-	set("race", "昆虫");
-	set("subrace", "飞虫");
-	set("age", 5);
-	set("long", "这是一只毒蜂，正向你袭击。\n");
-	set("str", 50);
-	set("dex", 60);
+	set_attr("race", "昆虫");
+	set_attr("subrace", "飞虫");
+	set_attr("age", 5);
+	set_attr("long", "这是一只毒蜂，正向你袭击。\n");
+	set_attr("str", 50);
+	set_attr("dex", 60);
 
-	set("limbs", ["头部", "身体", "翅膀", "尾巴"]);
+	set_attr("limbs", ["头部", "身体", "翅膀", "尾巴"]);
 
 	set_temp("apply/attack", 50);
 	set_temp("apply/armor", 30);

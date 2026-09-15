@@ -1,6 +1,10 @@
 #extends Node
 
 class_name GameObject
+
+# 信号：消息发送（供 UI 订阅显示）
+signal message_sent(msg: String)
+
 # const color -----------------------------------
 const NOR = "[/color]"
 const BLK = "[color=#000000]"
@@ -50,7 +54,7 @@ func getuid(ob=self):
 	return ob.get_instance_id()
 	
 func setuid(uid):
-	set("uid",uid)		
+	set_attr("uid",uid)		
 
 
 func query_default_object():
@@ -62,7 +66,7 @@ func set_default_object(ob):
 	default_ob = ob;
 	ob.add("no_clean_up", 1);
 
-func set(key:String,value):
+func set_attr(key:String,value):
 	dbase[key] = value
 	
 func add(key,value):
@@ -91,12 +95,12 @@ func add_temp(prop:String, data):
 func delete(key):
 	if( !mapp(dbase) ) :
 		return 0;
-	dbase.ease(key)
+	dbase.erase(key)
 
 func delete_temp(key):
 	if( !mapp(tmp_dbase) ) :
 		return 0;
-	tmp_dbase.ease(key)
+	tmp_dbase.erase(key)
 
 func set_temp(prop:String,data):
 	if( !mapp(tmp_dbase) ):
@@ -122,7 +126,7 @@ func query_entire_dbase():
 func query_entire_temp_dbase():
 	return tmp_dbase;
 
-func set_dbase(dbase):
+func set_dbase_dict(dbase):
 	dbase = dbase
 
 func get_dbase():
@@ -139,11 +143,10 @@ func living(ob=self):
 	
 # 销毁这件物品	
 func destruct(ob=self):
-	# TODO
-	ob.set("destruct",true)
-	ob.queue_free()
-#	ob = null
-	pass	
+	ob.set_attr("destruct",true)
+	# GameObject 不是 Node，不能调用 queue_free()
+	# 标记为已销毁，由环境/管理器负责清理
+	pass
 
 
 func sizeof(array):
@@ -152,8 +155,13 @@ func sizeof(array):
 	else:
 		return -1	
 
-func this_object(ob=self):
-	return ob	
+# 返回自身（兼容 MUD 代码中的 this_object() 调用）
+func this_object():
+	return self
+
+# 返回当前玩家（兼容 MUD 代码中的 this_player() 调用）
+func this_player():
+	return self
 
 # todo	
 func environment(ob=self):
@@ -170,7 +178,7 @@ func present(name:String,to):
 	to.add("present",name)
 
 func is_character():
-	return self as Character
+	return false
 			
 func random(n:int):
 	return randi()%n
@@ -223,45 +231,54 @@ func create():
 		
 ######################################### message #######################
 func message(msg:String,frome=null,to=null):
-	print_debug(msg,frome.name(),to.name())
+	# 发送消息，通过信号通知 UI
+	message_sent.emit(msg)
 	pass
 	
 func say(msg):
-	print_debug(msg)		
-	
+	message_sent.emit(str(msg))
+		
 func command(cmd:String):
-	var array = cmd.split(" ")
-	var command = array[0]
-	var args = array.remove(0)
-	if functionp(command) :
-		evaluate(command,args)	
+	# 通过 COMMAND_D 分发命令
+	var parts = cmd.split(" ", false, 1)
+	var verb = parts[0] if parts.size() > 0 else ""
+	var arg = parts[1] if parts.size() > 1 else ""
+	if verb == "":
+		return
+	COMMAND_D.do_command(self, verb, arg)
 		
 func error(e):
 	print_debug(str(e))
 
 func notify_fail(message:String):
-	print_debug(message)
+	message_sent.emit(message)
 	return message
-	pass	
 
 # 各类信息发送
 func message_vision(message:String,me,ob=null):
-	# TODO
-#	print_debug(ob.query("name") + message)
 	var msg = message
-	var N
-	var n 
-	N = me.query("name")
-	n = ob.query("name")
+	var N = ""
+	var n = ""
+	if me and me.has_method("query"):
+		N = str(me.query("name"))
+	if ob and ob.has_method("query"):
+		n = str(ob.query("name"))
 	msg = msg.replace("$N",N)
 	msg = msg.replace("$n",n)
-	# emit_signal("message_ob_sended",msg,ob)
+	# 通知我
+	if me and me.has_method("message_sent"):
+		me.message_sent.emit(msg)
+	# 通知对方
+	if ob and ob.has_method("message_sent"):
+		ob.message_sent.emit(msg)
 	return msg
 
 func tell_object(who,msg:String):
-	#  TODO
-	who.add("msg",msg)
-	print_debug(who.name(),msg)		
+	# 向指定对象发送消息
+	if who and who.has_method("message_sent"):
+		who.message_sent.emit(msg)
+	else:
+		print_debug(msg)
 	
 ############################## Move ###########################################
 
@@ -305,7 +322,7 @@ func set_weight(w):
 
 # # This is the "current" weight of an object, which is used on weight
 # # checking in move().
-func weight() :
+func query_total_weight() :
 	return weight + encumb;
 
 func move(dest, silently=1):
@@ -342,7 +359,7 @@ func move(dest, silently=1):
 # 	# object in the bag and encumbrance checking is unessessary.
 # 	env = me;
 # 	while(env = environment(env)) if( env==ob ) break;
-# 	if( !env && (int)ob.query_encumbrance() + weight()
+# 	if( !env && (int)ob.query_encumbrance() + query_total_weight()
 # 		> (int)ob.query_max_encumbrance() )
 # 	{
 # 		if( ob==this_object() )
@@ -352,7 +369,7 @@ func move(dest, silently=1):
 # 	}
 
 	# Move the object and update encumbrance
-	w = weight();
+	w = query_total_weight();
 	if( environment() ):
 		environment().add_encumbrance( - w);
 	move_object(ob);
@@ -370,8 +387,8 @@ func set_name_cn(value1:String,value2:String):
 
 var my_id
 func set_name(name,id):
-	set("name", name);
-	set("id", id);
+	set_attr("name", name);
+	set_attr("id", id);
 	my_id = id;
 
 func name():
@@ -391,7 +408,9 @@ func find_object(ob=self):
 	return file_name(ob)
 	
 func move_object(ob=self):
-	ob.free()		
+	# 将对象移动到目标环境中
+	# GameObject 不是 Node，通过 environment 记录所在容器
+	pass
 	
 ################################ tools #############################
 func remove_call_out(func_name):

@@ -6,17 +6,17 @@ extends Npc;
 func create():
 
 	set_name("大狼狗", ["wolf dog", "dog"]);
-	set("race", "走兽");
-	set("age", 4);
-	set("long", "一只昂首挺胸，吐着长舌头的大狼狗。像是财主家里养的宠物。\n");
-	set("attitude", "peaceful");
+	set_attr("race", "走兽");
+	set_attr("age", 4);
+	set_attr("long", "一只昂首挺胸，吐着长舌头的大狼狗。像是财主家里养的宠物。\n");
+	set_attr("attitude", "peaceful");
 
-	set("str", 26);
-	set("cor", 30);
+	set_attr("str", 26);
+	set_attr("cor", 30);
 
-	set("combat_exp", 1000);
+	set_attr("combat_exp", 1000);
 
-	set("chat_msg_combat", [(
+	set_attr("chat_msg_combat", [(
 								 : this_object(), "random_move"
 								 :),
 							 "大狼狗大声吠叫：汪！汪！汪！汪！汪！汪！\n",

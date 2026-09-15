@@ -6,8 +6,8 @@ func create():
 #	if (clonep())
 #		set_default_object(__FILE__);
 #	else {
-	set("long", "又大又脆的青苹果。\n");
-	set("unit", "颗");
-	set("value", 50);
-	set("food_remaining", 4);
-	set("food_supply", 30);
+	set_attr("long", "又大又脆的青苹果。\n");
+	set_attr("unit", "颗");
+	set_attr("value", 50);
+	set_attr("food_remaining", 4);
+	set_attr("food_supply", 30);

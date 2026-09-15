@@ -13,7 +13,7 @@ func make_inventory(file:String):
 #	ob = new_ob(file);
 	ob = load(file).new()
 	ob.move(this_object());
-	ob.set("startroom", file_name(this_object()));
+	ob.set_attr("startroom", file_name(this_object()));
 	return ob;
 
 func reset():
@@ -30,7 +30,7 @@ func reset():
 	# and query_temp("objects") is
 	# ([ <object filename>: ({ob1, ob2, ...}), .... ])
 	#
-	set("no_clean_up", 0);
+	set_attr("no_clean_up", 0);
 	ob_list = query("objects");
 	if( !mapp(ob_list) ) :
 		return;

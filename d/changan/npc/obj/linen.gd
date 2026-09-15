@@ -12,8 +12,8 @@ func create():
 	# if( clonep()  )
 	# 	set_default_object(__FILE__);
 	# else {
-	set("material",  "cloth");
-	set("unit",  "  ");
-	set("value",  0);
-	set("armor_prop/armor",  1);
+	set_attr("material",  "cloth");
+	set_attr("unit",  "  ");
+	set_attr("value",  0);
+	set_attr("armor_prop/armor",  1);
 	setup();

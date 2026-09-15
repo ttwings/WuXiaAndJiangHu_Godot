@@ -7,10 +7,10 @@ func  create():
 	set  ("long",  """@LONG
 这里便是阿房宫，四下便是黄土、乱石，哪里看得出有什么宫殿？
 不远处立着块石碑(bei)。""");
-	set("exits",  {
+	set_attr("exits",  {
 		"east" :  __DIR__ + "road7",
 	});
-	set("item_desc",  {
+	set_attr("item_desc",  {
 		"bei" :  """
             始皇三十五年，使奴七十万众建造此宫
                  不念暴政苛刻，义师逐鹿。
@@ -19,8 +19,8 @@ func  create():
                 暴者必亡      仁者无敌
 """,
 	});
-	set("outdoors",  "changan");
-	set("no_clean_up",  0);
+	set_attr("outdoors",  "changan");
+	set_attr("no_clean_up",  0);
 	setup();
 	# replace_program(ROOM);
 

@@ -6,17 +6,17 @@ extends Npc;
 func create():
 
 	set_name("黄羊", ["lamb", "yang", "huang yang"]);
-	set("race", "走畜");
-	set("age", 11);
-	set("long", "一只野黄羊，正低头认真地吃着草。\n");
+	set_attr("race", "走畜");
+	set_attr("age", 11);
+	set_attr("long", "一只野黄羊，正低头认真地吃着草。\n");
 
-	set("str", 26);
-	set("cor", 30);
+	set_attr("str", 26);
+	set_attr("cor", 30);
 
-	set("combat_exp", 800);
+	set_attr("combat_exp", 800);
 
-	set("chat_chance", 6);
-	set("chat_msg", ["黄羊咩~~咩~~的叫了几声。\n"]);
+	set_attr("chat_chance", 6);
+	set_attr("chat_msg", ["黄羊咩~~咩~~的叫了几声。\n"]);
 
 	set_temp("apply/attack", 15);
 	set_temp("apply/damage", 6);

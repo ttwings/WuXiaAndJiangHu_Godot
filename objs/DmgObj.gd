@@ -19,7 +19,7 @@ func _init(dict = null):
 		return
 	var keys = dict.keys()
 	for key in keys :
-		set(key,dict[key])
+		set_attr(key,dict[key])
 
 func _ready():
 	pass # Replace with function body.

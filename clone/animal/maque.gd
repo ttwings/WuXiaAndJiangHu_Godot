@@ -6,15 +6,15 @@ extends Npc;
 func create():
 
 	set_name("麻雀", ["ma que", "que", "bird"]);
-	set("race", "飞禽");
-	set("age", 3);
-	set("long", "一只叽叽喳喳，飞来飞去的小麻雀。\n");
-	set("attitude", "peaceful");
+	set_attr("race", "飞禽");
+	set_attr("age", 3);
+	set_attr("long", "一只叽叽喳喳，飞来飞去的小麻雀。\n");
+	set_attr("attitude", "peaceful");
 
-	set("combat_exp", 100);
+	set_attr("combat_exp", 100);
 
-	set("chat_chance", 10);
-	set("chat_msg", [
+	set_attr("chat_chance", 10);
+	set_attr("chat_msg", [
 						(
 							: this_object(), "random_move"
 							:),
@@ -22,7 +22,7 @@ func create():
 						"小麻雀忽而停在墙头，忽而飞上树梢，忙碌着找食吃。\n",
 					]);
 
-	set("chat_msg_combat", [
+	set_attr("chat_msg_combat", [
 							   (
 								   : this_object(), "random_move"
 								   :),

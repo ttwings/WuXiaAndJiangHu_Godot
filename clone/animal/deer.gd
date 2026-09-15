@@ -6,15 +6,15 @@ extends Npc;
 func create():
 
 	set_name("梅花鹿", ["deer"]);
-	set("race", "走畜");
-	set("age", 5);
-	set("long", "一只漂亮的梅花鹿。\n");
-	set("attitude", "peaceful");
+	set_attr("race", "走畜");
+	set_attr("age", 5);
+	set_attr("long", "一只漂亮的梅花鹿。\n");
+	set_attr("attitude", "peaceful");
 
-	set("combat_exp", 800);
+	set_attr("combat_exp", 800);
 
-	set("chat_chance", 6);
-	set("chat_msg_combat", ["\n梅花鹿一转身，扬起鹿角朝你顶过来！\n",]);
+	set_attr("chat_chance", 6);
+	set_attr("chat_msg_combat", ["\n梅花鹿一转身，扬起鹿角朝你顶过来！\n",]);
 
 	set_temp("apply/attack", 20);
 	set_temp("apply/defense", 50);

@@ -8,16 +8,16 @@ var do_drink;
 func create():
 
 	set_name("老猴子", ["monkey", "hou", "houzi"]);
-	set("race", "走兽");
-	set("age", 200 + random(50));
-	set("long", "一只老态龙钟的老猴子，虽然动作迟缓，但丝毫不减狡诈的性子。\n");
-	set("attitude", "peaceful");
+	set_attr("race", "走兽");
+	set_attr("age", 200 + random(50));
+	set_attr("long", "一只老态龙钟的老猴子，虽然动作迟缓，但丝毫不减狡诈的性子。\n");
+	set_attr("attitude", "peaceful");
 
-	set("limbs", ["头部", "身体", "前腿", "后腿", "尾巴"]);
-	set("verbs", ["bite", "claw"]);
+	set_attr("limbs", ["头部", "身体", "前腿", "后腿", "尾巴"]);
+	set_attr("verbs", ["bite", "claw"]);
 
 	# make sure those shenlong dizis can not catch it without using tricks
-	set("combat_exp", 50000 + random(50000));
+	set_attr("combat_exp", 50000 + random(50000));
 	set_temp("apply/attack", 30 + random(20));
 	set_temp("apply/defense", 30 + random(20));
 	set_temp("apply/damage", 30 + random(20));
@@ -88,7 +88,7 @@ func do_drink(arg):
 			else:
 			
 				say("老猴子高兴得吱吱乱叫，一口全喝了下去。\n");
-				inv[i].set("liquid/remaining", 0);
+				inv[i].set_attr("liquid/remaining", 0);
 				command("drop " + inv[i].query("id"));
 				say("老猴子看起来有点力不从心，摇摇欲坠。\n");
 				set_temp("drunk", 1);
@@ -130,7 +130,7 @@ func die():
 	ob.move(environment());
 
 	if (objectp(obj = this_object().query_temp("last_damage_from"))):
-		ob.set("owner", obj.query("id"));
+		ob.set_attr("owner", obj.query("id"));
 
 	message_vision("$N惨嚎一声，死了！\n", this_object());
 	destruct(this_object());

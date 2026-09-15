@@ -65,7 +65,7 @@ func setup_beast(ob):
 
 	if( undefinedp(my["actions"]) ):
 		if( pointerp(my["verbs"]) ):
-			ob.set("default_actions", (: call_other, __FILE__, "query_action" :) );
+			ob.set_attr("default_actions", (: call_other, __FILE__, "query_action" :) );
 		else:
 			my["default_actions"] = {
 				"action": "$N攻击$n的%s，%s\n",

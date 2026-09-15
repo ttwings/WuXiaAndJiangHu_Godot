@@ -8,21 +8,21 @@ extends Room
 var FILE = null
 
 func create():
-	set("short", HIM + "百花谷内" + NOR);
-	set("long", 
+	set_attr("short", HIM + "百花谷内" + NOR);
+	set_attr("long", 
 HIG + "只见姹紫嫣红，满山锦绣，彩蝶纷飞，群蜂轻舞。纵是宇外琼地，世外桃源，也不过如此。\n" + NOR);
-	set("outdoors", "baihuagu");
-	set("exits",{ 
+	set_attr("outdoors", "baihuagu");
+	set_attr("exits",{ 
 		"out"   : __DIR__ + "huagu7",
 		"south" : __DIR__ + "baihuagu1",
 		# "north" : __FILE__,
 		# "west"  : FILE,
 		# "east"  : FILE,
 	})
-	set("objects",[]);
-	set("no_clean_up", 0);
-	set("coor/x", -430);
-	set("coor/y", -360);
-	set("coor/z", 0);
+	set_attr("objects",[]);
+	set_attr("no_clean_up", 0);
+	set_attr("coor/x", -430);
+	set_attr("coor/y", -360);
+	set_attr("coor/z", 0);
 	# setup();
 	# replace_program(ROOM);

@@ -7,9 +7,9 @@ func create():
 	# if (clonep())
 	# 	set_default_object(__FILE__);
 	# else {
-	set("long", HIM + "这是一枝娇艳的桃花。\n" + NOR);
-	set("unit", "枝");
-	set("value", 100);
+	set_attr("long", HIM + "这是一枝娇艳的桃花。\n" + NOR);
+	set_attr("unit", "枝");
+	set_attr("value", 100);
 
 # func _init():
 # 	create()	

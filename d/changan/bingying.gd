@@ -5,21 +5,21 @@
 extends Room
 
 func create():
-	set("short", "兵营");
-	set("long", """
+	set_attr("short", "兵营");
+	set_attr("long", """
 这里是长安守军驻扎地，一对官兵正在操练。你最好赶紧走开，不
 然被随便安个罪名关进大牢可不是好玩的。
 """ );
-	set("exits", {
+	set_attr("exits", {
 		"west" : __DIR__ + "northroad2",
 	});
-	set("objects", {
+	set_attr("objects", {
 		__DIR__ + "npc/wujiang" : random(2) + 1,
 		__DIR__ + "npc/bing" : random(2) + 1,
 	});
-	set("outdoors", "changan");
-	set("coor/x", -5030);
-	set("coor/y", 1010);
-	set("coor/z", 0);
+	set_attr("outdoors", "changan");
+	set_attr("coor/x", -5030);
+	set_attr("coor/y", 1010);
+	set_attr("coor/z", 0);
 	setup();
 	# replace_program(ROOM);

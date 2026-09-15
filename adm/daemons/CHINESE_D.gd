@@ -1,6 +1,7 @@
 # chinesed.c
 # by Annihilator@ES
 # modified by Xiang@XKX
+extends Node
 #class_name CHINESE_D
 # inherit F_SAVE;
 

@@ -1,4 +1,9 @@
 extends Node2D
+
+# Preload custom control scripts (avoids class_name resolution issues)
+const ActionPanel = preload("res://controls/ActionPanel.gd")
+const ActionButton = preload("res://controls/ActionButton.gd")
+
 # const color -----------------------------------
 const NOR = "[/color]"
 const BLK = "[color=#000000]"
@@ -33,12 +38,40 @@ const HBWHT = "[color=#f0fcff]"
 
 var player = Char.new()
 
-var player_save_data = gdutils.utils.json.load_json("user://save/1/player.json")
+var player_save_data = _load_player_save()
+
+func _load_player_save():
+	var path = "user://save/1/player.json"
+	if FileAccess.file_exists(path):
+		var f = FileAccess.open(path, FileAccess.READ)
+		if f:
+			var data = JSON.parse_string(f.get_as_text())
+			f.close()
+			if data and data.has("dbase"):
+				return data
+	# 默认玩家数据
+	return {
+		"dbase": {
+			"name": "玩家",
+			"id": "player",
+			"str": 20, "int": 20, "con": 20, "dex": 20,
+			"per": 20, "cps": 20, "cor": 20, "kar": 20, "spi": 20, "sta": 20, "obe": 20,
+			"qi": 100, "max_qi": 100, "eff_qi": 100,
+			"jing": 100, "max_jing": 100, "eff_jing": 100,
+			"neili": 0, "max_neili": 100,
+			"jingli": 0, "max_jingli": 100,
+			"combat_exp": 1000,
+			"potential": 0, "learned_points": 0,
+			"shen": 0, "score": 0,
+			"food": 100, "water": 100,
+			"limbs": ["头部", "胸口", "左臂", "右臂", "左腿", "右腿"],
+		}
+	}
 
 var Room_gd
 var current_room
 var rooms = {}
-var map_file = File.new()
+var map_file: FileAccess
 # 1  2  3
 # 4  5  6
 # 7  8  9 
@@ -47,11 +80,25 @@ var neighbor_rooms = {}
 var food
 var npc
 
+# 心跳计时
+var _heartbeat_timer = 0.0
+const HEARTBEAT_INTERVAL = 1.0
+
 func _ready():
 	player.dbase = player_save_data.dbase
+	player.set_temp("environment", null)
+	# 连接玩家消息信号
+	player.message_sent.connect(_on_player_message)
+	# 初始化玩家技能
+	player.set_skill("unarmed", 10)
+	player.set_skill("dodge", 10)
+	player.set_skill("parry", 10)
+	player.set_skill("force", 10)
+	player.set_skill("literate", 5)
 	
 	# 初始房间. 等角色创建登录功能完成后.这里根据角色的home 属性,设置.
 	current_room = Global.load_room("res://d/changan/shuyuan.gd")
+	player.set_temp("environment", current_room)
 	# 不同方向的房间房间太多,后期考虑精简. up 与 north  west up 和 north west等.
 	rooms.current = $Rooms/room
 	rooms.north = $Rooms/room_n
@@ -76,20 +123,24 @@ func _ready():
 	$RoomPanel/VBoxContainer/RoomName.text = "[center]" + current_room.query("short") +"[/center]"
 	$RoomPanel/VBoxContainer/Description.text  = current_room.query("long")
 	# load map
-	map_file.open("res://doc/map/changan",File.READ)
-#	print(map_file.get_as_text())
-	$RoomMessage/VBoxContainer/RichTextLabel.text = map_file.get_as_text()
-#	current_room.get_dir()
-	food = load("res://clone/food/apple.gd").new()
+	if FileAccess.file_exists("res://doc/map/changan"):
+		map_file = FileAccess.open("res://doc/map/changan", FileAccess.READ)
+		if map_file:
+			$RoomMessage/VBoxContainer/RichTextLabel.text = map_file.get_as_text()
 
-#	player = Player.new().creat_user("res://data/user/l/lijia.gd")
-	player = Char.new()
-	player.dbase = player_save_data.dbase
+	# 初始化房间对象
+	create_room_objects()
+
 	player.carry_object("/clone/food/apple")
 
-#	npc test 对话
-	npc = load("res://d/baihuagu/npc/zhou.gd").new()
-	creat_chat_panel(npc)
+	# npc test 对话
+	npc = _create_npc()
+	if npc:
+		npc.message_sent.connect(_on_npc_message)
+		creat_chat_panel(npc)
+		# 把 npc 放入房间对象列表
+		current_room.set_temp("objects", [npc])
+
 #  	链接房间按钮.
 	pressed_connect()
 
@@ -126,10 +177,15 @@ func move_to_room(direct):
 	creat_exits(current_room,neighbor_rooms)
 	$RoomPanel/VBoxContainer/RoomName.text = "[center]" + current_room.query("short") +"[/center]"
 	$RoomPanel/VBoxContainer/Description.text = current_room.query("long")
+	# 更新玩家环境
+	player.set_temp("environment", current_room)
+	player.remove_all_enemy()
 #	生成房间固定物品 如牌子类
 	create_room_items()
 #	生成房间包含对象,如物品,人物等
 	create_room_objects()
+	# 显示房间信息
+	player.message_sent.emit("你来到了" + str(current_room.query("short")) + "。\n")
 	pass
 		
 func creat_character_props(ob:Char):
@@ -183,9 +239,54 @@ func message_ob(msg,ob):
 	
 	
 func _process(delta):
-#	$RichTextLabelCharacter.bbcode_text = character_panel(me)
-#	player_status(player)
-	pass	
+	# 心跳循环：定期调用角色的 heart_beat
+	_heartbeat_timer += delta
+	if _heartbeat_timer >= HEARTBEAT_INTERVAL:
+		_heartbeat_timer = 0.0
+		# 玩家心跳
+		if player.query_temp("heart_beat"):
+			player.heart_beat()
+		# NPC 心跳
+		if npc and is_instance_valid(npc) and npc.query_temp("heart_beat"):
+			npc.heart_beat()
+
+# ----------------------------------------------------- 消息处理 -------------------------------------
+func _on_player_message(msg: String):
+	var old = $ObjectMessage/RichTextLabel.text
+	$ObjectMessage/RichTextLabel.text = old + msg
+
+func _on_npc_message(msg: String):
+	var old = $ObjectMessage/RichTextLabel.text
+	$ObjectMessage/RichTextLabel.text = old + msg
+
+# ----------------------------------------------------- NPC 创建 -------------------------------------
+func _create_npc():
+	# 尝试加载测试 NPC，失败则创建默认 NPC
+	var npc_path = "res://d/baihuagu/npc/zhou.gd"
+	if ResourceLoader.exists(npc_path):
+		var n = load(npc_path).new()
+		return n
+	# 默认 NPC
+	var n = Npc.new()
+	n.set_attr("name", "周伯通")
+	n.set_attr("id", "zhou")
+	n.set_attr("str", 30)
+	n.set_attr("int", 25)
+	n.set_attr("con", 30)
+	n.set_attr("dex", 30)
+	n.set_attr("qi", 200)
+	n.set_attr("max_qi", 200)
+	n.set_attr("eff_qi", 200)
+	n.set_attr("jing", 200)
+	n.set_attr("max_jing", 200)
+	n.set_attr("eff_jing", 200)
+	n.set_attr("combat_exp", 5000)
+	n.set_attr("limbs", ["头部", "胸口", "左臂", "右臂", "左腿", "右腿"])
+	n.set_skill("unarmed", 30)
+	n.set_skill("dodge", 30)
+	n.set_skill("parry", 30)
+	n.set_temp("environment", current_room)
+	return n
 # ----------------------------------------------------- 对话窗口 -------------------------------------
 # 根据人物信息显示基本窗口
 func creat_chat_panel(actor:Char):
@@ -263,39 +364,58 @@ func create_room_item_desc(items,key):
 func create_room_objects():
 	var room = current_room
 	var objects = room.query("objects")
-	if !objects :
-		for i in $RoomPanel/Objects.get_child_count():
-			var button = $RoomPanel/Objects.get_child(0)
-			$RoomPanel/Objects.remove_child(button)
+	# 清空旧按钮
+	for child in $RoomPanel/Objects.get_children():
+		child.queue_free()
+	if !objects:
 		return
-	for o in objects :
+	# 实例化房间对象并存入 temp
+	var ob_list = []
+	for o in objects:
+		var path = o
+		if not path.ends_with(".gd"):
+			path = o + ".gd"
+		if ResourceLoader.exists(path):
+			var ob = load(path).new()
+			ob.set_temp("environment", room)
+			ob_list.append(ob)
+	room.set_temp("objects", ob_list)
+	# 生成按钮
+	for ob in ob_list:
 		var obj_button = Button.new()
-		print_debug(o + ".gd")
-		var ob = load(o + ".gd").new()
 		obj_button.text = ob.name()
-		obj_button.custom_minimum_size = Vector2(30,30)
+		obj_button.custom_minimum_size = Vector2(120, 30)
 		obj_button.connect("pressed", Callable(self, "create_room_object_panel").bind(ob))
-		$RoomPanel/Objects.add_child(obj_button)			
+		$RoomPanel/Objects.add_child(obj_button)
 
 func create_room_object_panel(ob):
-	# print_debug(ob.name())
-#	ob as Char
-#	var ob = load("res://d/changan/npc/feng.gd").new()
-#	creat_chat_panel(ob)
 	if ob is Char:
 		creat_chat_panel(ob)
-#	TODO all object except food use only 1 panel
-#	elif ob is Food:
-#		object_panel(ob)
-#		object_panel(o)
-#		creat_chat_panel(objects[o])
+	# 为对象创建动作面板（ActionPanel）
+	_show_action_panel(ob)
+
+func _show_action_panel(ob):
+	# 使用 ObjectPanel 作为动作面板容器
+	var panel = $ObjectPanel
+	if panel == null:
+		return
+	for child in panel.get_children():
+		child.queue_free()
+	if ob == null:
+		panel.hide()
+		return
+	panel.show()
+	# 使用 ActionPanel 生成上下文按钮
+	var action_panel = ActionPanel.new()
+	action_panel.setup(player, ob)
+	panel.add_child(action_panel)
 #	包裹ItemList 生成
 func create_itemlist(ob:Char):
 	var list = $CharacterPanel/PropContainer/ItemList
 	var objs = ob.query_temp("objects")
-	for ob in objs :
+	for item in objs :
 		var item_str = ""
-		list.add(ob.name())
+		list.add(item.name())
 
 
 func _on_ChatClose_pressed():

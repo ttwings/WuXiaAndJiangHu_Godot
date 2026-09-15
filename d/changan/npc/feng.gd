@@ -5,11 +5,11 @@
 extends Npc
 func create():
 	set_name("冯从吾", "feng congwu");
-	set("long",
+	set_attr("long",
 "冯先生是当代大学者，精通儒术。\n");
-	set("gender", "男性");
-	set("age", 65);
-	set("no_get", 1);
+	set_attr("gender", "男性");
+	set_attr("age", 65);
+	set_attr("no_get", 1);
 	set_skill("literate", 300);
 
 	set_skill("unarmed", 80);
@@ -19,8 +19,8 @@ func create():
 	set_temp("apply/defense", 80);
 	set_temp("apply/damage", 20); 
 
-	set("combat_exp", 400000);
-	set("shen_type", 1);
+	set_attr("combat_exp", 400000);
+	set_attr("shen_type", 1);
 	setup();
 
 func recognize_apprentice(ob):

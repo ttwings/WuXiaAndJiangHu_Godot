@@ -21,8 +21,8 @@ var qians  =  {
 };
 
 func create():
-	set("short",  "押签房");
-	set("long",
+	set_attr("short",  "押签房");
+	set_attr("long",
 """一群人围着紫檀木大桌而坐，首席座着一位精瘦的签客，正在一本
 正经地从镶金黑盒里慢悠悠一根一根往外抽出乾坤签，码在桌面上。
 
@@ -37,7 +37,7 @@ func create():
 	匾角有一个牌子(paizi)。"""
 );
 
-	set("item_desc",{
+	set_attr("item_desc",{
 #		押大乾签：  qian dqq <amount> <money>,
 #		押大坤签：  qian dkq <amount> <money>,,
 #		押小乾签：  qian xqq <amount> <money>\n
@@ -46,18 +46,18 @@ func create():
 #		押坤签：    qian kq <amount> <money>\n\n
 #		为免破产跳楼  限押一两黄金\n""",
 		});
-	set("exits",  {
+	set_attr("exits",  {
 		"east"  :  __DIR__ + "clubup",
 		});
-	set("objects",  {
+	set_attr("objects",  {
 		__DIR__ + "npc/qianke"  :  1,
 		});
-	set("light_up",  1);
-	set("no_fight",  1);
-	set("no_beg",  1);
-	set("coor/x", -5040);
-	set("coor/y", 1010);
-	set("coor/z", 10);
+	set_attr("light_up",  1);
+	set_attr("no_fight",  1);
+	set_attr("no_beg",  1);
+	set_attr("coor/x", -5040);
+	set_attr("coor/y", 1010);
+	set_attr("coor/z", 10);
 	setup();
 
 # void  init  ()

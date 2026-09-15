@@ -8,10 +8,10 @@ func create():
 
 	set_name("老鼠肉", ["laoshu rou", "rou"]);
 	set_weight(300);
-	set("long", "一块鲜血淋漓肥的老鼠肉。\n");
-	set("unit", "块");
-	set("value", 200);
-	set("food_remaining", 4);
-	set("food_supply", 50);
+	set_attr("long", "一块鲜血淋漓肥的老鼠肉。\n");
+	set_attr("unit", "块");
+	set_attr("value", 200);
+	set_attr("food_remaining", 4);
+	set_attr("food_supply", 50);
 	
 

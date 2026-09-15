@@ -25,7 +25,7 @@ func do_eat(player):
 #	// This allows customization of drinking effect.
 #	if( query("eat_func") ) return 1;
 #
-	set("value", 0);
+	set_attr("value", 0);
 	add("food_remaining", -1);
 
 	if( query("food_remaining") == 0 ):

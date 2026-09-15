@@ -26,9 +26,9 @@ func assign_apprentice(title:String, privs:int):
 
 	if( userp(this_object()) || !query("title") ) :
 		if( family["generation"]==1 ) :
-			set("title", family["family_name"] + "开山祖师");
+			set_attr("title", family["family_name"] + "开山祖师");
 		else :
-			set("title", sprintf("%s第%s代%s", family["family_name"],
+			set_attr("title", sprintf("%s第%s代%s", family["family_name"],
 				chinese_number(family["generation"]), family["title"]));
 
 
@@ -41,7 +41,7 @@ func create_family(family_name:String, generation:int, title:String):
 	family["family_name"] = family_name;
 	family["generation"] = generation;
 
-	set("family", family);
+	set_attr("family", family);
 
 	# priv = -1 for ALL privileges.
 	assign_apprentice( title, -1 );
@@ -63,7 +63,7 @@ func recruit_apprentice(ob):
 	family["family_name"] = my_family["family_name"];
 	family["generation"] = my_family["generation"] + 1;
 	family["enter_time"] = time();
-	ob.set("family", family);
+	ob.set_attr("family", family);
 	ob.assign_apprentice("弟子", 0);
 	return 1;
 

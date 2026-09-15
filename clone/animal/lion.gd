@@ -7,25 +7,25 @@
 func create():
 
 	set_name("狮子", ["lion", "shi zi", "shi"]);
-	set("race", "走兽");
-	set("age", 25);
-	set("long", "一只黄毛长鬃的雄狮，爪牙锐利，神情威武。\n");
-	set("msg_fail", "$n冲$N呲牙吼了一声");
-	set("msg_succ", "$n一面口中向$N荷荷发威，一面向后退了半步，似乎有些怯了");
-	set("msg_trained", "$n低吼着在$N的面前伏了下来");
-	set("auto_follow", 1);
-	set("attitude", "aggressive");
+	set_attr("race", "走兽");
+	set_attr("age", 25);
+	set_attr("long", "一只黄毛长鬃的雄狮，爪牙锐利，神情威武。\n");
+	set_attr("msg_fail", "$n冲$N呲牙吼了一声");
+	set_attr("msg_succ", "$n一面口中向$N荷荷发威，一面向后退了半步，似乎有些怯了");
+	set_attr("msg_trained", "$n低吼着在$N的面前伏了下来");
+	set_attr("auto_follow", 1);
+	set_attr("attitude", "aggressive");
 
-	set("wildness", 12);
-	set("ridable", 1);
-	set("ability", 4);
+	set_attr("wildness", 12);
+	set_attr("ridable", 1);
+	set_attr("ability", 4);
 
-	set("str", 40);
-	set("con", 40);
-	set("dex", 40);
-	set("int", 10);
+	set_attr("str", 40);
+	set_attr("con", 40);
+	set_attr("dex", 40);
+	set_attr("int", 10);
 
-	set("combat_exp", 20000);
+	set_attr("combat_exp", 20000);
 
 	set_temp("apply/attack", 50);
 	set_temp("apply/damage", 70);
@@ -33,8 +33,8 @@ func create():
 
 	set_weight(150000);
 
-	set("chat_chance", 10);
-	set("chat_msg", [
+	set_attr("chat_chance", 10);
+	set_attr("chat_msg", [
 						(
 							: this_object(), "random_move"
 							:),

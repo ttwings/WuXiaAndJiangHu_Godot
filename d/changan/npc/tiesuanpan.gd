@@ -8,18 +8,18 @@ extends Npc
 
 func create():
 	set_name("铁算盘", "tie suanpan");
-	set("title",  "钱庄掌柜");
-	set("nickname",  "雁过拔毛");
-	set("gender",  "男性");
-	set("age",  54);
-	set("qi",  800);  
-	set("max_qi",  800);
-	set("jing",  200);
-	set("max_jing",  200);
-	set("combat_exp",  50000);
-	set("attitude",  "friendly");
-	set("env/wimpy",  50);
-	set("chat_chance",  10);
+	set_attr("title",  "钱庄掌柜");
+	set_attr("nickname",  "雁过拔毛");
+	set_attr("gender",  "男性");
+	set_attr("age",  54);
+	set_attr("qi",  800);  
+	set_attr("max_qi",  800);
+	set_attr("jing",  200);
+	set_attr("max_jing",  200);
+	set_attr("combat_exp",  50000);
+	set_attr("attitude",  "friendly");
+	set_attr("env/wimpy",  50);
+	set_attr("chat_chance",  10);
 	set_skill("unarmed",  60);
 	set_skill("parry",  60);
 	set_skill("dodge",  60);
@@ -51,8 +51,8 @@ func create():
 #         allowed=myexp*1000000;#each  year  can  have  100  gold,  range  100-10000.  
 #         if  (me->query("balance")  >  allowed)
 #         {
-# 	me->set("balance_old",  me->query("balance"));
-# 	me->set("balance",  allowed);
+# 	me->set_attr("balance_old",  me->query("balance"));
+# 	me->set_attr("balance",  allowed);
 # 	removed_gold  =  (me->query("balance_old")  -  me->query("balance"))/10000;
 # 	log_file("MONEY_RESET",  ctime(  time()  )+"：魏大人收缴了"+me->query("name")+"("+me->query("id")+")"+removed_gold+"两黄金。\n");
 # 	tell_object(me,  GRN+NPCNAME+"在你的耳边悄声说道："+RANK_D->query_respect(me)+
@@ -83,12 +83,12 @@ func create():
 #         ob->kill_ob(me);
 #         ob->set_leader(me);
 #         me->fight_ob(ob);
-#         set("called",  1);
+#         set_attr("called",  1);
 #         call_out("regenerate",  300);
 # }
 # int  regenerate()
 # {
-#         set("called",  0);
+#         set_attr("called",  0);
 #         return  1;
 # }
 # void init()
@@ -115,7 +115,7 @@ func create():
 #         int total = (int)this_player()->query("balance");
 #         if (!total || total < 0)
 #         {
-#                 this_player()->set("balance", 0);
+#                 this_player()->set_attr("balance", 0);
 #                 return notify_fail("您在敝商号没有存钱。\n");
 #         }
 #         write("铁算盘悄悄告诉你：您在弊商号共存有" + 

@@ -6,15 +6,15 @@ extends Npc;
 func create():
 
 	set_name("绵羊", ["mian yang", "yang", "sheep"]);
-	set("race", "走畜");
-	set("age", 6);
-	set("long", "一头温顺的小绵羊。\n");
-	set("attitude", "peaceful");
+	set_attr("race", "走畜");
+	set_attr("age", 6);
+	set_attr("long", "一头温顺的小绵羊。\n");
+	set_attr("attitude", "peaceful");
 
-	set("str", 16);
-	set("dex", 15);
+	set_attr("str", 16);
+	set_attr("dex", 15);
 
-	set("combat_exp", 100);
+	set_attr("combat_exp", 100);
 
 	set_temp("apply/attack", 8);
 	set_temp("apply/defense", 10);

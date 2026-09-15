@@ -6,16 +6,16 @@
 extends GameObject
 # var DIR = "/d/baihuagu/"
 func create():
-	set("short", RED + "百花谷7" + NOR);
-	set("long", 
+	set_attr("short", RED + "百花谷7" + NOR);
+	set_attr("long", 
 HIC + "又转了几个弯，迎面两面山壁夹峙三株大松树冲天而起，挡在山壁间。成为两道天然的屏障。\n" + NOR);
-	set("exits", 
+	set_attr("exits", 
 		{"west" : __DIR__ + "huagu6",}
 	);
-	set("no_clean_up", 0);
-	set("coor/x", -450);
-	set("coor/y", -360);
-	set("coor/z", 0);
+	set_attr("no_clean_up", 0);
+	set_attr("coor/x", -450);
+	set_attr("coor/y", -360);
+	set_attr("coor/z", 0);
 	setup();
 
 func _init():
@@ -34,7 +34,7 @@ func init():
 # 		message_vision(HIG "$N朗声喊道：老顽童，小朋友来找你玩儿啦！！！\n"NOR, this_player());
 # 		message_vision(HIY "只听见里面呵呵的笑声传来：又有人来找我玩儿了，快进快进！\n"NOR, this_player() );
 # 		call_out("close_passage", 10);
-# 		set("exits/enter", __DIR__"baihuagu");
+# 		set_attr("exits/enter", __DIR__"baihuagu");
 # 		return 1;
 # 	}
 # 	else

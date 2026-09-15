@@ -5,19 +5,19 @@ extends Npc;
 
 func create():
 	set_name("南北行掌柜", "zhanggui");
-	set("shen_type", 1);
+	set_attr("shen_type", 1);
 
-	set("gender", "男性");
-	set("age", 45);
-	set("long",
+	set_attr("gender", "男性");
+	set_attr("age", 45);
+	set_attr("long",
 	"他做了几十年的小买卖，真名反而没人知道，大家都叫他掌柜。\n");
 	set_skill("unarmed", 50);
 	set_skill("dodge", 50);
 	set_temp("apply/damage", 15);
 
-	set("combat_exp", 40000);
-	set("attitude", "friendly");
-	set("vendor_goods", [
+	set_attr("combat_exp", 40000);
+	set_attr("attitude", "friendly");
+	set_attr("vendor_goods", [
 		"/d/xingxiu/obj/fire",
 		"/d/city/npc/obj/mabudai",
 		"/d/city/npc/obj/beixin",

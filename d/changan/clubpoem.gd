@@ -26,14 +26,14 @@ extends Room
 
 
 func create  ():
-	set("short",  "乐府诗社");
-	set("long",  
+	set_attr("short",  "乐府诗社");
+	set_attr("long",  
 """高楼之上，满城繁华尽收眼底。文人骚客都喜欢在这里品茶吟诗，
 谈古论今，你瞧，不知谁在茶桌上刚刚写好一首诗(poem)。里边柜台上
 新贴了张启事(qishi)，你不由得走过去看了几眼。"""
 );
 
-	set("exits",  {
+	set_attr("exits",  {
         "down"  :  __DIR__ + "clubup",
         "west"  :  __DIR__ + "shaizi-room",
         "east"  :  __DIR__ + "puke-room",
@@ -41,16 +41,16 @@ func create  ():
         "up":  __DIR__ + "club3",
     });
 
-	set("objects",  {
+	set_attr("objects",  {
         __DIR__ + "npc/teawaiter":  1,
         __DIR__ + "npc/suanxiucai":  1,
         # //__D + IR__"npc/gongsun":  1,
         __DIR__ + "obj/tables"  :  1,
     });
 
-	set("coor/x", -5030);
-	set("coor/y", 1010);
-	set("coor/z", 20);
+	set_attr("coor/x", -5030);
+	set_attr("coor/y", 1010);
+	set_attr("coor/z", 20);
 	setup();
 
     # remove_call_out("do_test");
@@ -132,7 +132,7 @@ func create  ():
 
 # void  poem_penalty(object  me)
 # {
-#         me->set("sen",-1);
+#         me->set_attr("sen",-1);
 #         me->set_temp("poem/wrong",0);
 
 #         return;

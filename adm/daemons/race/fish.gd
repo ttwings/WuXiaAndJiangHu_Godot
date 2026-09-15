@@ -28,19 +28,19 @@ var combat_action = [
 
 func create():
 	seteuid(getuid());
-	set("attitude", "peaceful");
-	set("limbs", [
+	set_attr("attitude", "peaceful");
+	set_attr("limbs", [
 		"头部",	"腮部",	"背部",	"腹部",	
 		"前鳍",	"后鳍", "尾巴"
 	] );
 
-	set("dead_message", "\n$N摆动了几下，白白的肚子往上翻了起来。\n\n");
-	set("unconcious_message", "\n$N摆动了几下，红红的腮帮往外翻了出来。\n\n");
-	set("revive_message", "\n$N摆了几下，又在水中游了开去。\n\n");
-	set("comeout_message", "打了个水漂，往$d游了出去。\n");
-	set("comein_message", "游了过来，在水中灵活地打了个转儿。\n");
-	set("fleeout_message", "打了个水漂，往$d游了出去。\n");
-	set("fleein_message", "摇头摆尾地游了过来，白白的肚子往上翻着。\n");
+	set_attr("dead_message", "\n$N摆动了几下，白白的肚子往上翻了起来。\n\n");
+	set_attr("unconcious_message", "\n$N摆动了几下，红红的腮帮往外翻了出来。\n\n");
+	set_attr("revive_message", "\n$N摆了几下，又在水中游了开去。\n\n");
+	set_attr("comeout_message", "打了个水漂，往$d游了出去。\n");
+	set_attr("comein_message", "游了过来，在水中灵活地打了个转儿。\n");
+	set_attr("fleeout_message", "打了个水漂，往$d游了出去。\n");
+	set_attr("fleein_message", "摇头摆尾地游了过来，白白的肚子往上翻着。\n");
 
 
 func setup_fish(ob):
@@ -48,7 +48,7 @@ func setup_fish(ob):
 
 	my = ob.query_entire_dbase();
 
-	ob.set("default_actions", (: call_other, __FILE__, "query_action" :));
+	ob.set_attr("default_actions", (: call_other, __FILE__, "query_action" :));
 
 	my["unit"] = "条";
 	

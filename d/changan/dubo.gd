@@ -33,13 +33,13 @@
 extends Room
 
 func  create():
-	set("short",  "骰子房");
-	set("long", """
+	set_attr("short",  "骰子房");
+	set_attr("long", """
 屋中间摆着一张看起来相当结实的大长条桌 (table)，四周围了十
 几把靠背木椅。北面墙上有一块牌子(paizi)。"""
 );
 
-	set("item_desc",  {"paizi"  :  """
+	set_attr("item_desc",  {"paizi"  :  """
 
 赌骰子规则：
 每一轮有个庄家，输赢只跟庄家比。两粒骰子，成对为大。十点最小。
@@ -64,7 +64,7 @@ func  create():
 		\n""" });
 	# //for  look  something.
 
-	set("exits",  
+	set_attr("exits",  
 	{ 
 		# //"south"  :  __DIR__"xiaomuwu",
 		# //"north"  :  __DIR__"chufang",
@@ -74,14 +74,14 @@ func  create():
 		# //"down"  :  __DIR__"***",
 	});
 	
-	set("objects",  
+	set_attr("objects",  
 	{
 		__DIR__ + "npc/gongsun"  :  1,
 	});
-	set("no_fight",  1);
-	set("no_magic",  1);
-	set("no_clean_up",  1);
-	set("no_caishen",  1);
+	set_attr("no_fight",  1);
+	set_attr("no_magic",  1);
+	set_attr("no_clean_up",  1);
+	set_attr("no_caishen",  1);
 	setup();
 
 # func  init()

@@ -7,11 +7,11 @@ extends GameObject
 # var FILE = null
 #include <ansi.h>
 func create():
-	set("short", HIM + "百花谷内2" + NOR);
-	set("long", 
+	set_attr("short", HIM + "百花谷内2" + NOR);
+	set_attr("long", 
 HIG + "只见姹紫嫣红，满山锦绣，彩蝶纷飞，群蜂轻舞。纵是宇外琼地，世外桃源，也不过如此。山坡下一列挂着七八个木制的蜂巢另一面山山坡上盖着三间茅屋。\n"  + NOR);
-	set("outdoors", "baihuagu");
-	set("exits", {
+	set_attr("outdoors", "baihuagu");
+	set_attr("exits", {
 		"north"    : __DIR__ + "baihuagu",
 		"westup"   : __DIR__ + "shanpo1",
 		"eastdown" : __DIR__ + "shanpo2",
@@ -19,11 +19,11 @@ HIG + "只见姹紫嫣红，满山锦绣，彩蝶纷飞，群蜂轻舞。纵是�
 		"west"     : __DIR__ + "baihuagu",
 		# "east"     : FILE,
 	});
-	set("objects", []);
-	set("no_clean_up", 0);
-	set("coor/x", -400);
-	set("coor/y", -360);
-	set("coor/z", 0);
+	set_attr("objects", []);
+	set_attr("no_clean_up", 0);
+	set_attr("coor/x", -400);
+	set_attr("coor/y", -360);
+	set_attr("coor/z", 0);
 	setup();
 
 	# replace_program(ROOM);

@@ -19,7 +19,8 @@ config/icon="res://icon.png"
 
 Global="*res://Global.gd"
 CHINESE_D="*res://adm/daemons/CHINESE_D.gd"
-gdutils="*res://addons/gdutils/__init__.gd"
+COMMAND_D="*res://adm/daemons/commandd.gd"
+COMBAT_D="*res://adm/daemons/COMBAT_D.gd"
 
 [debug]
 
@@ -33,7 +34,7 @@ window/stretch/mode="2d"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/gdutils/plugin.cfg")
+enabled=PackedStringArray()
 
 [gui]
 

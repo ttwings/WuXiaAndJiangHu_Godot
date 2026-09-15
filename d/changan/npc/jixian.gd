@@ -9,21 +9,21 @@ var  room  =  0;
 
 func create():
     set_name("  ׼  ", "ji  xian");
-    set("gender",  "  ");
-    set("age",  60);
-    set("per",  30);
-    set("long",  "һλ    ׵ļ    \n");
-    set("combat_exp",  5000);
+    set_attr("gender",  "  ");
+    set_attr("age",  60);
+    set_attr("per",  30);
+    set_attr("long",  "һλ    ׵ļ    \n");
+    set_attr("combat_exp",  5000);
     set_skill("force",  50);
     set_skill("unarmed",  50);
     set_skill("dodge",  50);
     set_skill("parry",  50);
-    set("jing",  500);
-    set("max_jing",  500);
-    set("qi",  500);
-    set("max_qi",  500);
-    set("neili",  150);
-    set("max_neili",  150);
+    set_attr("jing",  500);
+    set_attr("max_jing",  500);
+    set_attr("qi",  500);
+    set_attr("max_qi",  500);
+    set_attr("neili",  150);
+    set_attr("max_neili",  150);
     setup();
     carry_object(__DIR__"obj/magua")->wear();
 

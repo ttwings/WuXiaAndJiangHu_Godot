@@ -33,19 +33,19 @@ VAR combat_action = [
 
 func create():
 	setuid(getuid());
-	set("attitude", "aggressive");
-	set("limbs", [
+	set_attr("attitude", "aggressive");
+	set_attr("limbs", [
 		"头部",	"颈部",	"胸部",	"后背",	"腹部",	
 		"前腿",	"后腿", "前爪",	"后爪", "尾巴"
 	] );
 
-	set("dead_message", "\n$N仰天惨嚎了一声，趴在地上不动了。\n\n");
-	set("unconcious_message", "\n$N低低地吼了一声，滚倒在地晕了过去。\n\n");
-	set("revive_message", "\n$N四肢慢慢动弹了一下，睁开眼醒了过来。\n\n");
-	set("comeout_message", "往$d奔了过去。\n");
-	set("comein_message", "呼地窜了出来，警惕地四周张望着。\n");
-	set("fleeout_message", "惨叫一声，往$d落荒而逃。\n");
-	set("fleein_message", "摇摇摆摆地跑了过来，伸出舌头呼呼地喘着粗气。\n");
+	set_attr("dead_message", "\n$N仰天惨嚎了一声，趴在地上不动了。\n\n");
+	set_attr("unconcious_message", "\n$N低低地吼了一声，滚倒在地晕了过去。\n\n");
+	set_attr("revive_message", "\n$N四肢慢慢动弹了一下，睁开眼醒了过来。\n\n");
+	set_attr("comeout_message", "往$d奔了过去。\n");
+	set_attr("comein_message", "呼地窜了出来，警惕地四周张望着。\n");
+	set_attr("fleeout_message", "惨叫一声，往$d落荒而逃。\n");
+	set_attr("fleein_message", "摇摇摆摆地跑了过来，伸出舌头呼呼地喘着粗气。\n");
 }
 
 func setup_beast(ob):
@@ -53,7 +53,7 @@ func setup_beast(ob):
 
 	my = ob.query_entire_dbase();
 
-	ob.set("default_actions", (: call_other, __FILE__, "query_action" :));
+	ob.set_attr("default_actions", (: call_other, __FILE__, "query_action" :));
 
 	my["unit"] = "只";
 	

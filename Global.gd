@@ -5,8 +5,12 @@ var foods
 var herbs
 var user_class
 # 全局房间字典，key为房间路径，v为实例
-
+var player = null
 var all_current_rooms = {}
+
+# 返回当前玩家对象
+func this_player():
+	return player
 	
 func load_room(path:String):
 	if all_current_rooms.has(path):
@@ -32,30 +36,30 @@ func save():
 	return save_dict
 
 func save_game():
-	var save_game = File.new()
-	save_game.open("user://savegame.save",File.WRITE)
+	var save_game = FileAccess.open("user://savegame.save", FileAccess.WRITE)
+	if save_game == null:
+		return
 	var save_nodes = get_tree().get_nodes_in_group("Persist")
 	for i in save_nodes:
 		var node_data = i.call("save")
-		save_game.store_line(JSON.new().stringify(node_data))
+		save_game.store_line(JSON.stringify(node_data))
 	save_game.close()
 	
 func load_game():
-	var save_game = File.new()
-	if not save_game.file_exists("user://savegame.save"):
+	if not FileAccess.file_exists("user://savegame.save"):
 		return
 	
+	var save_game = FileAccess.open("user://savegame.save", FileAccess.READ)
+	if save_game == null:
+		return
 	var save_nodes = get_tree().get_nodes_in_group("Persist")
 	for i in save_nodes:
 		i.queue_free()
 	
-	save_game.open("user://savegame.save",File.READ)
 	while not save_game.eof_reached():
-		var test_json_conv = JSON.new()
-		test_json_conv.parse(save_game.get_line())
-		var current_line = test_json_conv.get_data()
+		var current_line = JSON.parse_string(save_game.get_line())
 		var new_object = load(current_line["filename"]).instantiate()
-		get_node(current_line["parent"].add_child(new_object))
+		get_node(current_line["parent"]).add_child(new_object)
 		new_object.position = Vector2(current_line["pos_x"],current_line["pos_y"])
 		for i in current_line.keys():
 			if i == "filename" or i== "parent" or i == "pos_x" or i == "pos_y" :
@@ -65,24 +69,21 @@ func load_game():
 	
 # 读取JSON格式的数据文件	
 func load_data(path:String):
-	var load_data = File.new()
-	if not load_data.file_exists(path):
+	var file = FileAccess.open(path, FileAccess.READ)
+	if file == null:
 		print_debug("not exists file")
 		return
-	
-	load_data.open(path,File.READ)
 
-	var data_str = load_data.get_as_text()
-	var test_json_conv = JSON.new()
-	test_json_conv.parse(data_str)
-	var p = test_json_conv.get_data()
-	return p.result
+	var data_str = file.get_as_text()
+	file.close()
+	var p = JSON.parse_string(data_str)
+	return p
 	
 
 func dir_contents(path):
-	var dir = DirAccess.new()
-	if dir.open(path) == OK:
-		dir.list_dir_begin() # TODOGODOT4 fill missing arguments https://github.com/godotengine/godot/pull/40547
+	var dir = DirAccess.open(path)
+	if dir:
+		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while (file_name != ""):
 			if dir.current_is_dir():
@@ -96,10 +97,10 @@ func dir_contents(path):
 # 获取path目录下特定后缀suffix文件
 
 func dir_files(path,suffix):
-	var dir = DirAccess.new()
 	var files = []
-	if dir.open(path) == OK:
-		dir.list_dir_begin() # TODOGODOT4 fill missing arguments https://github.com/godotengine/godot/pull/40547
+	var dir = DirAccess.open(path)
+	if dir:
+		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while (file_name!= ""):
 			if dir.current_is_dir():
@@ -109,7 +110,6 @@ func dir_files(path,suffix):
 				print("Found file: " + file_name)
 			else:
 				pass
-				#print("Found file: " + file_name)
 			file_name = dir.get_next()
 	else:
 		print("An error ccurred when trying to access the path.")

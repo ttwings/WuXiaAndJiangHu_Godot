@@ -231,15 +231,15 @@ func reset_action():
 	if( stringp(skill) ):
 # If using a mapped skill, call the skill daemon.
 		if ( ob ):
-			set("actions", (: call_other, SKILL_D(skill), "query_action", me, ob :) );
+			set_attr("actions", (: call_other, SKILL_D(skill), "query_action", me, ob :) );
 		else:
-			set("actions", (: call_other, SKILL_D(skill), "query_action" :) );
+			set_attr("actions", (: call_other, SKILL_D(skill), "query_action" :) );
 	else :
 # Else, let weapon handle it.
 		if( ob ) :
-			set("actions", ob.query("actions",1) );
+			set_attr("actions", ob.query("actions",1) );
 		else :
-			set("actions", query("default_actions",1) );
+			set_attr("actions", query("default_actions",1) );
 
 
 # This is called in heart_beat() to perform attack action.
@@ -312,7 +312,7 @@ func do_ride_none(object me):
 # 	message_vision("$N急忙从$n上跳下迎战。\n", me, ob);
 # 	ob.move( environment(me) );
 # 	ob.delele("is_rided_by");
-# #	ob.set("xingcheng", me.query_temp_marks("zuoji/xingcheng"));
+# #	ob.set_attr("xingcheng", me.query_temp_marks("zuoji/xingcheng"));
 # 	me.delete_temp("is_riding");
 # #	me.delete_temp_marks("zuoji");
 # */

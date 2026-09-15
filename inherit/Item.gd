@@ -45,7 +45,7 @@ func set_weight(w:int):
 
 # This is the "current" weight of an object, which is used on weight
 # checking in move().
-func weight() :
+func query_total_weight() :
 	return weight + encumb;
 
 func move(dest, silently:int = 1):
@@ -88,14 +88,14 @@ func move(dest, silently:int = 1):
 		env = environment(env)
 		if( env==ob ) :
 			break;
-	if( !env && ob.query_encumbrance() + weight() > ob.query_max_encumbrance() ):
+	if( !env && ob.query_encumbrance() + query_total_weight() > ob.query_max_encumbrance() ):
 		if( ob==this_object() ):
 			return notify_fail(me.name() + "对你而言太重了。\n");
 		else:
 			return notify_fail(me.name() + "对" + ob.name() +"而言太重了。\n");
 
 	# Move the object and update encumbrance
-	w = weight();
+	w = query_total_weight();
 	if( environment() ) :
 		environment().add_encumbrance( - w);
 	move_object(ob);
@@ -117,8 +117,8 @@ func set_name_cn(value1:String,value2:String):
 
 #var my_id
 func set_name(name,id):
-	set("name", name);
-	set("id", id);
+	set_attr("name", name);
+	set_attr("id", id);
 #	dbase.name = name
 #	dbase.id = id
 	my_id = id;

@@ -72,7 +72,7 @@ func wear():
 		else:
 			applied_prop[apply[i]] += armor_prop[apply[i]];
 	owner.set_temp("apply", applied_prop);
-	set("equipped", "worn");
+	set_attr("equipped", "worn");
 	return 1;
 	
 	
@@ -133,56 +133,56 @@ func create():
 # Init armor types
 
 func init_head():
-	set("armor_type", TYPE_HEAD);
-	if( !query("armor_apply/dodge") && weight() > 3000 ):
-		set("armor_prop/dodge", - weight() / 3000 );
+	set_attr("armor_type", TYPE_HEAD);
+	if( !query("armor_apply/dodge") && query_total_weight() > 3000 ):
+		set_attr("armor_prop/dodge", - query_total_weight() / 3000 );
 
 func init_neck():
-	set("armor_type", TYPE_NECK);
-	if( !query("armor_apply/dodge")	&& weight() > 3000 ):
-		set("armor_prop/dodge", - weight() / 3000 );
+	set_attr("armor_type", TYPE_NECK);
+	if( !query("armor_apply/dodge")	&& query_total_weight() > 3000 ):
+		set_attr("armor_prop/dodge", - query_total_weight() / 3000 );
 
 func init_cloth():
-	set("armor_type", TYPE_CLOTH);
-	if( !query("armor_apply/dodge") &&	weight() > 3000 ):
-		set("armor_prop/dodge", - weight() / 3000 );
+	set_attr("armor_type", TYPE_CLOTH);
+	if( !query("armor_apply/dodge") &&	query_total_weight() > 3000 ):
+		set_attr("armor_prop/dodge", - query_total_weight() / 3000 );
 		
 func init_armor():
-	set("armor_type", TYPE_ARMOR);
-	if(!query("armor_apply/dodge") and weight() > 3000 ):
-		set("armor_prop/dodge", - weight() / 3000 );
+	set_attr("armor_type", TYPE_ARMOR);
+	if(!query("armor_apply/dodge") and query_total_weight() > 3000 ):
+		set_attr("armor_prop/dodge", - query_total_weight() / 3000 );
 	
 func init_surcoat():
-	set("armor_type", TYPE_SURCOAT);
-	if( !query("armor_apply/dodge")	&& weight() > 3000 ):
-		set("armor_prop/dodge", - weight() / 3000 );
+	set_attr("armor_type", TYPE_SURCOAT);
+	if( !query("armor_apply/dodge")	&& query_total_weight() > 3000 ):
+		set_attr("armor_prop/dodge", - query_total_weight() / 3000 );
 
 func init_wrists():
-	set("armor_type", TYPE_WAIST);
-	if( !query("armor_apply/dodge")	&&	weight() > 3000 ):
-		set("armor_prop/dodge", - weight() / 3000 );
+	set_attr("armor_type", TYPE_WAIST);
+	if( !query("armor_apply/dodge")	&&	query_total_weight() > 3000 ):
+		set_attr("armor_prop/dodge", - query_total_weight() / 3000 );
 
 func init_waist():
-	set("armor_type", TYPE_WAIST);
-	if( !query("armor_apply/dodge")	&&	weight() > 3000 ):
-		set("armor_prop/dodge", - weight() / 3000 );
+	set_attr("armor_type", TYPE_WAIST);
+	if( !query("armor_apply/dodge")	&&	query_total_weight() > 3000 ):
+		set_attr("armor_prop/dodge", - query_total_weight() / 3000 );
 		
 func init_shield():
-	set("armor_type", TYPE_SHIELD);
-	if( !query("armor_apply/dodge")	&&	weight() > 3000 ):
-		set("armor_prop/dodge", - weight() / 3000 );	
+	set_attr("armor_type", TYPE_SHIELD);
+	if( !query("armor_apply/dodge")	&&	query_total_weight() > 3000 ):
+		set_attr("armor_prop/dodge", - query_total_weight() / 3000 );	
 
 func init_finger():
-	set("armor_type", TYPE_FINGER);
-	if( !query("armor_apply/dodge") &&	weight() > 3000 ):
-		set("armor_prop/dodge", - weight() / 3000 );	
+	set_attr("armor_type", TYPE_FINGER);
+	if( !query("armor_apply/dodge") &&	query_total_weight() > 3000 ):
+		set_attr("armor_prop/dodge", - query_total_weight() / 3000 );	
 
 func init_hands():
-	set("armor_type", TYPE_HEAD);
-	if( !query("armor_apply/dodge") && weight() > 3000 ):
-		set("armor_prop/dodge", - weight() / 3000 );	
+	set_attr("armor_type", TYPE_HEAD);
+	if( !query("armor_apply/dodge") && query_total_weight() > 3000 ):
+		set_attr("armor_prop/dodge", - query_total_weight() / 3000 );	
 
 func init_boots():
-	set("armor_type", TYPE_BOOTS);
-	if( !query("armor_apply/dodge") &&	weight() > 3000 ):
-		set("armor_prop/dodge", - weight() / 3000 );	
+	set_attr("armor_type", TYPE_BOOTS);
+	if( !query("armor_apply/dodge") &&	query_total_weight() > 3000 ):
+		set_attr("armor_prop/dodge", - query_total_weight() / 3000 );	

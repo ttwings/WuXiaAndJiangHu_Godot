@@ -33,25 +33,25 @@ var combat_action = [
 
 func create():
 	setuid(getuid());
-	set("attitude", "peaceful");
-	set("limbs", [
+	set_attr("attitude", "peaceful");
+	set_attr("limbs", [
 		"头部",	"颈部",	"后背",	"腹部",	"脚爪",	"翅膀"
 	}) );
 
-	set("dead_message", "\n$N发出一声凄厉的鸣叫，从半空中跌了下来。\n\n");
-	set("unconcious_message", "\n$N从半空中砰地跌下来，晕了过去。\n\n");
-	set("revive_message", "\n$N醒过来动弹了一下，双翅一振，又飞了起来。\n\n");
-	set("comeout_message", "往$d疾飞而去。\n");
-	set("comein_message", "飞了过来。\n");
-	set("fleeout_message", "一声凄鸣，往$d疾飞而去。\n");
-	set("fleein_message", "缓缓地飞了过来，沉重地在半空中打着旋儿。\n");
+	set_attr("dead_message", "\n$N发出一声凄厉的鸣叫，从半空中跌了下来。\n\n");
+	set_attr("unconcious_message", "\n$N从半空中砰地跌下来，晕了过去。\n\n");
+	set_attr("revive_message", "\n$N醒过来动弹了一下，双翅一振，又飞了起来。\n\n");
+	set_attr("comeout_message", "往$d疾飞而去。\n");
+	set_attr("comein_message", "飞了过来。\n");
+	set_attr("fleeout_message", "一声凄鸣，往$d疾飞而去。\n");
+	set_attr("fleein_message", "缓缓地飞了过来，沉重地在半空中打着旋儿。\n");
 
 func setup_bird(ob):
 	var my;
 
 	my = ob.query_entire_dbase();
 
-	ob.set("default_actions", (: call_other, __FILE__, "query_action" :));
+	ob.set_attr("default_actions", (: call_other, __FILE__, "query_action" :));
 
 	my["unit"] = "只";
 	
@@ -104,13 +104,13 @@ func setup_bird(ob):
 		ob.set_weight(BASE_WEIGHT + (my["str"] - 5)* 1000);
 
 	if( ob.query("subrace") == "走禽" ):
-		set("dead_message", "\n$N发出一声凄厉的鸣叫，栽倒在地上死了。\n\n");
-		set("unconcious_message", "\n$N凄鸣一声栽倒在地，晕了过去。\n\n");
-		set("revive_message", "\n$N醒过来动弹了一下，双翅扑腾了几下站了起来。\n\n");
-		set("comeout_message", "往$d疾奔而去。\n");
-		set("comein_message", "跑了过来。\n");
-		set("fleeout_message", "一声凄鸣，往$d疾奔而去。\n");
-		set("fleein_message", "摇摇摆摆的跑了过来。\n");
+		set_attr("dead_message", "\n$N发出一声凄厉的鸣叫，栽倒在地上死了。\n\n");
+		set_attr("unconcious_message", "\n$N凄鸣一声栽倒在地，晕了过去。\n\n");
+		set_attr("revive_message", "\n$N醒过来动弹了一下，双翅扑腾了几下站了起来。\n\n");
+		set_attr("comeout_message", "往$d疾奔而去。\n");
+		set_attr("comein_message", "跑了过来。\n");
+		set_attr("fleeout_message", "一声凄鸣，往$d疾奔而去。\n");
+		set_attr("fleein_message", "摇摇摆摆的跑了过来。\n");
 
 
 func query_action(me):

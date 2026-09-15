@@ -5,19 +5,19 @@ extends Room
 #include <ansi.h>
 # var __DIR__ = "/d/baihuagu/"
 func create():
-	set("short", HIW + "茫茫雪地" + NOR);
-	set("long",
+	set_attr("short", HIW + "茫茫雪地" + NOR);
+	set_attr("long",
 HIW + "这里是白茫茫的一片雪地，" + NOR + "远处山峰层峦迭嶂。前面隐隐约约好象有一个山谷。阵阵花香飘过来，好象还夹杂着鸟的欢唱。\n"
 	);
-	set("outdoors", "baihuagu");
-	set("exits", {
+	set_attr("outdoors", "baihuagu");
+	set_attr("exits", {
 		"south" : __DIR__ + "out",
 		"north" : __DIR__ + "huagu1",
 	});
-	set("no_clean_up", 0);
-	set("coor/x", -450);
-	set("coor/y", -380);
-	set("coor/z", 0);
+	set_attr("no_clean_up", 0);
+	set_attr("coor/x", -450);
+	set_attr("coor/y", -380);
+	set_attr("coor/z", 0);
 	# setup();
 	# replace_program(ROOM);
 #	print_debug(__DIR__)

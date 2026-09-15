@@ -13,13 +13,13 @@ func create():
 	# if(  clonep()  )
 		set_default_object(__FILE__);
 	# else  {
-	set("long",  "一条朦朦胧胧的纱裙，闻起来还有一股淡香。\n");
-	set("unit",  "条");
-	set("value",  0);
-	set("material",  "cloth");
-	set("armor_prop/armor",  1);
-	set("armor_prop/personality",  3);
-	set("female_only",  1);
+	set_attr("long",  "一条朦朦胧胧的纱裙，闻起来还有一股淡香。\n");
+	set_attr("unit",  "条");
+	set_attr("value",  0);
+	set_attr("material",  "cloth");
+	set_attr("armor_prop/armor",  1);
+	set_attr("armor_prop/personality",  3);
+	set_attr("female_only",  1);
 	setup();
 
 # //int  query_autoload()  {  return  1;  }

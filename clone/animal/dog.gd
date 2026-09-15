@@ -7,15 +7,15 @@
 func create():
 
 	set_name("野狗", ["dog"]);
-	set("race", "走畜");
-	set("age", 3);
-	set("long", "一只浑身脏兮兮的野狗。\n");
+	set_attr("race", "走畜");
+	set_attr("age", 3);
+	set_attr("long", "一只浑身脏兮兮的野狗。\n");
 
-	set("str", 32);
-	set("dex", 36);
+	set_attr("str", 32);
+	set_attr("dex", 36);
 
-	set("chat_chance", 6);
-	set("chat_msg", [(
+	set_attr("chat_chance", 6);
+	set_attr("chat_msg", [(
 						  : this_object(), "random_move"
 						  :),
 					  "野狗用鼻子闻了闻你的脚。\n",

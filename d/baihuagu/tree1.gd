@@ -7,22 +7,22 @@ extends Room
 # var __DIR__ = "/d/baihuagu/"
 
 func create():
-	set("short", "树林");
-	set("long", """@LONG
+	set_attr("short", "树林");
+	set_attr("long", """@LONG
 丛林中一片黑暗。你瞪大眼睛，勉强看清楚了一点。一条细细
 的光线(light)透过层叠的树叶的缝中射下来，似乎预示着生的希望。
 LONG""");
-	set("outdoors", "baihuagu");
-	set("exits", { 
+	set_attr("outdoors", "baihuagu");
+	set_attr("exits", { 
 		"north": __DIR__ + "tree",  
 		"west" : __DIR__ + "tree",
 		"south": __DIR__ + "tree",
 		"east" : __DIR__ + "tree",
 	});
-	set("no_clean_up", 0);
-	set("coor/x", -450);
-	set("coor/y", -400);
-	set("coor/z", 0);
+	set_attr("no_clean_up", 0);
+	set_attr("coor/x", -450);
+	set_attr("coor/y", -400);
+	set_attr("coor/z", 0);
 	setup();
 
 func _init():

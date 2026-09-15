@@ -7,21 +7,21 @@
 func create():
 
 	set_name("竹叶青", ["zhuye qing", "snake"]);
-	set("race", "爬蛇");
-	set("age", 4);
-	set("long", "一只身体碧绿的蛇，显得特别细小。\n");
-	set("attitude", "peaceful");
+	set_attr("race", "爬蛇");
+	set_attr("age", 4);
+	set_attr("long", "一只身体碧绿的蛇，显得特别细小。\n");
+	set_attr("attitude", "peaceful");
 
-	set("msg_fail", "$n冲$N嘶地一吐舌头");
-	set("msg_succ", "$n嘶嘶做响，蛇头随着$N的手动了起来");
-	set("msg_trained", "$n悄无声息地游到$N的脚下不动了");
-	set("auto_follow", 0);
-	set("wildness", 11);
+	set_attr("msg_fail", "$n冲$N嘶地一吐舌头");
+	set_attr("msg_succ", "$n嘶嘶做响，蛇头随着$N的手动了起来");
+	set_attr("msg_trained", "$n悄无声息地游到$N的脚下不动了");
+	set_attr("auto_follow", 0);
+	set_attr("wildness", 11);
 
-	set("str", 26);
-	set("cor", 30);
+	set_attr("str", 26);
+	set_attr("cor", 30);
 
-	set("combat_exp", 3000);
+	set_attr("combat_exp", 3000);
 
 	set_temp("apply/attack", 25);
 	set_temp("apply/damage", 9);

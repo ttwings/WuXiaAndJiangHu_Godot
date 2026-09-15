@@ -7,21 +7,21 @@ extends Npc;
 func create():
 
 	set_name("小豹子", ["xiao baozi", "baozi"]);
-	set("race", "走兽");
-	set("age", 1);
-	set("long", "一只身体不大可是很结实的小豹子，它正瞪着眼睛看着你。\n");
-	set("attitude", "aggressive");
+	set_attr("race", "走兽");
+	set_attr("age", 1);
+	set_attr("long", "一只身体不大可是很结实的小豹子，它正瞪着眼睛看着你。\n");
+	set_attr("attitude", "aggressive");
 	set_weight(200000);
-	set("max_qi", 100);
-	set("max_jing", 100);
-	set("max_jingli", 100);
+	set_attr("max_qi", 100);
+	set_attr("max_jing", 100);
+	set_attr("max_jingli", 100);
 
-	set("str", 30);
-	set("con", 80);
-	set("dex", 30);
-	set("int", 10);
+	set_attr("str", 30);
+	set_attr("con", 80);
+	set_attr("dex", 30);
+	set_attr("int", 10);
 
-	set("combat_exp", 20000);
+	set_attr("combat_exp", 20000);
 
 	set_temp("apply/attack", 10);
 	set_temp("apply/damage", 10);
