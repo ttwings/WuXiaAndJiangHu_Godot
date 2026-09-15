@@ -57,7 +57,7 @@ uuid.gd::GDScript::-1::1789491099::0::1::::<>RefCounted<>::
 ::res://adm/daemons/::1789491249
 CHINESE_D.gd::GDScript::-1::1789491877::0::1::::<>Node<>::
 COLOR_D.gd::GDScript::-1::1789491099::0::1::::<>RefCounted<>::
-COMBAT_D.gd::GDScript::-1::1789491099::0::1::::<>RefCounted<>::
+COMBAT_D.gd::GDScript::-1::1789495779::0::1::::<>Node<>::
 commandd.gd::GDScript::-1::1789491784::0::1::::<>Node<>::
 inquiryd.gd::GDScript::-1::1789491099::0::1::::<>RefCounted<>::
 mapd.gd::GDScript::-1::1789491099::0::1::::<>RefCounted<>::
@@ -2788,7 +2788,7 @@ vendor.gd::GDScript::-1::1789491101::0::1::::<>RefCounted<>::
 Armor.gd::GDScript::-1::1789491101::0::1::::Armor<>GameObject<>::
 Att.gd::GDScript::-1::1789491101::0::1::::Att<>RefCounted<>::
 Base.gd::GDScript::-1::1789491101::0::1::::Base<>RefCounted<>::
-Char.gd::GDScript::-1::1789492298::0::1::::Char<>GameObject<>::
+Char.gd::GDScript::-1::1789495966::0::1::::Char<>GameObject<>::
 Equip.gd::GDScript::-1::1789491101::0::1::::Equip<>GameObject<>::
 Food.gd::GDScript::-1::1789491101::0::1::::Food<>GameObject<>::
 GameObject.gd::GDScript::-1::1789492449::0::1::::GameObject<>RefCounted<>::

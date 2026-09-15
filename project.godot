@@ -20,6 +20,7 @@ config/icon="res://icon.png"
 Global="*res://Global.gd"
 CHINESE_D="*res://adm/daemons/CHINESE_D.gd"
 COMMAND_D="*res://adm/daemons/commandd.gd"
+COMBAT_D="*res://adm/daemons/COMBAT_D.gd"
 
 [debug]
 
