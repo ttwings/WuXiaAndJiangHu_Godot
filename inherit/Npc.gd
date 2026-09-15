@@ -71,7 +71,9 @@ func random_move():
 	if( !mapp(exits) ) :
 		return 0;
 	dirs = keys(exits);
-	command("go " + dirs[random(sizeof(dirs))]);
+	if dirs.size() == 0:
+		return 0
+	command(dirs[random(dirs.size())]);
 
 
 ################################# vendor ###########################

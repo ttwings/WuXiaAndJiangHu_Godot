@@ -1669,13 +1669,48 @@ func heart_beat():
 	if living(self) and not query_temp("noliving"):
 		attack()
 
-	# NPC 聊天
+	# NPC 专属 AI
 	if not userp(self):
 		if living(self):
 			chat()
+			_npc_auto_ai()
 
 	# 恢复
 	heal_up()
+
+# NPC 自动 AI：主动攻击 + 巡逻
+func _npc_auto_ai():
+	# 已在战斗中则跳过
+	if is_fighting():
+		return
+	var env = environment(self)
+	if env == null or not env.has_method("query_temp"):
+		return
+	var objects = env.query_temp("objects")
+	if not (objects is Array):
+		return
+
+	# 1. 主动攻击：aggressive NPC 攻击房间内的玩家
+	var aggressive = int(query("aggressive"))
+	if aggressive > 0:
+		for obj in objects:
+			if is_instance_valid(obj) and obj != self and obj.has_method("userp") and obj.userp():
+				# 检查 NPC 是否能看到目标
+				if obj.has_method("visible") and not obj.visible(self):
+					continue
+				COMBAT_D.auto_fight(self, obj, "aggressive")
+				return
+
+	# 2. 巡逻：有一定概率随机移动
+	var patrol_chance = int(query("patrol_chance"))
+	if patrol_chance <= 0:
+		patrol_chance = 5  # 默认 5% 概率巡逻
+	if random(100) < patrol_chance:
+		random_move()
+
+# NPC 随机移动（默认空实现，Npc 子类重写）
+func random_move():
+	pass
 
 
 # # func visible(object ob):
