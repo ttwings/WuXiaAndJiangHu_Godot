@@ -33,12 +33,12 @@ const HBWHT = "[color=#f0fcff]"
 
 var player = Char.new()
 
-var player_save_data = gdutils.utils.json.load_json("user://save/1/player.json")
+var player_save_data = Global.load_json("user://save/1/player.json")
 
 var Room_gd
 var current_room
 var rooms = {}
-var map_file = File.new()
+var map_file
 # 1  2  3
 # 4  5  6
 # 7  8  9 
@@ -76,9 +76,10 @@ func _ready():
 	$RoomPanel/VBoxContainer/RoomName.text = "[center]" + current_room.query("short") +"[/center]"
 	$RoomPanel/VBoxContainer/Description.text  = current_room.query("long")
 	# load map
-	map_file.open("res://doc/map/changan",File.READ)
-#	print(map_file.get_as_text())
-	$RoomMessage/VBoxContainer/RichTextLabel.text = map_file.get_as_text()
+	if FileAccess.file_exists("res://doc/map/changan"):
+		map_file = FileAccess.open("res://doc/map/changan", FileAccess.READ)
+		$RoomMessage/VBoxContainer/RichTextLabel.text = map_file.get_as_text()
+		map_file.close()
 #	current_room.get_dir()
 	food = load("res://clone/food/apple.gd").new()
 
@@ -86,12 +87,56 @@ func _ready():
 	player = Char.new()
 	player.dbase = player_save_data.dbase
 	player.carry_object("/clone/food/apple")
+	# 设置玩家所在环境为当前房间，使命令系统能查找目标
+	player.set_temp("environment", current_room)
+	# 监听玩家消息信号，在消息面板显示命令执行结果
+	if player.has_signal("message_sent"):
+		player.message_sent.connect(_on_player_message)
 
 #	npc test 对话
 	npc = load("res://d/baihuagu/npc/zhou.gd").new()
+	# 将NPC加入当前房间，使命令系统能查找目标
+	current_room.set_temp("objects", npc)
 	creat_chat_panel(npc)
 #  	链接房间按钮.
 	pressed_connect()
+	# 链接底部快捷命令按钮
+	_setup_quick_actions()
+
+# 配置底部快捷命令按钮（背包/属性/武功/查看）
+func _setup_quick_actions():
+	var quick_cmds := [
+		["inventory", "背包"],
+		["score", "属性"],
+		["skills", "武功"],
+		["look", "查看"],
+	]
+	var btns = [$NinePatchRect4/VBoxContainer/ActionButton02,
+		$NinePatchRect4/VBoxContainer/ActionButton03,
+		$NinePatchRect4/VBoxContainer/ActionButton04]
+	for i in range(btns.size()):
+		if i < quick_cmds.size():
+			btns[i].text = quick_cmds[i][1]
+			btns[i].pressed.connect(_on_quick_command.bind(quick_cmds[i][0]))
+	# SaveRooms 按钮
+	$NinePatchRect4/VBoxContainer/SaveRooms.pressed.connect(_on_save_rooms)
+
+# 快捷命令按钮回调
+func _on_quick_command(verb: String):
+	if player:
+		player.command(verb)
+
+func _on_save_rooms():
+	Global.save_current_rooms()
+	$ObjectMessage/RichTextLabel.text = "房间数据已保存。"
+
+# 玩家消息回调 - 在消息面板显示命令执行结果
+func _on_player_message(msg: String):
+	var label = $ObjectMessage/RichTextLabel
+	var old = label.text
+	label.text = old + msg
+	# 自动滚动到底部
+	label.scroll_to_line(label.get_line_count())
 
 # 信号链接一次就好
 func pressed_connect():
@@ -126,6 +171,8 @@ func move_to_room(direct):
 	creat_exits(current_room,neighbor_rooms)
 	$RoomPanel/VBoxContainer/RoomName.text = "[center]" + current_room.query("short") +"[/center]"
 	$RoomPanel/VBoxContainer/Description.text = current_room.query("long")
+	# 更新玩家所在环境
+	player.set_temp("environment", current_room)
 #	生成房间固定物品 如牌子类
 	create_room_items()
 #	生成房间包含对象,如物品,人物等
@@ -284,6 +331,8 @@ func create_room_object_panel(ob):
 #	creat_chat_panel(ob)
 	if ob is Char:
 		creat_chat_panel(ob)
+		# 显示NPC动作按钮
+		_show_action_buttons(ob, $ChatMessagePanel/Actions)
 #	TODO all object except food use only 1 panel
 #	elif ob is Food:
 #		object_panel(ob)
@@ -293,9 +342,19 @@ func create_room_object_panel(ob):
 func create_itemlist(ob:Char):
 	var list = $CharacterPanel/PropContainer/ItemList
 	var objs = ob.query_temp("objects")
-	for ob in objs :
+	for item in objs :
 		var item_str = ""
-		list.add(ob.name())
+		list.add(item.name())
+
+# 为目标对象生成动作按钮（替代文字输入命令）
+func _show_action_buttons(ob, container):
+	# 清空旧按钮
+	for child in container.get_children():
+		child.queue_free()
+	# 使用 ActionPanel 生成上下文相关的动作按钮
+	var panel = ActionPanel.new()
+	panel.setup(ob, player)
+	container.add_child(panel)
 
 
 func _on_ChatClose_pressed():

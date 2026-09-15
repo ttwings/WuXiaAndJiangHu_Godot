@@ -2,6 +2,10 @@
 
 class_name GameObject
 # const color -----------------------------------
+
+# 消息信号 - 供 UI 层监听显示命令执行结果
+signal message_sent(msg: String)
+
 const NOR = "[/color]"
 const BLK = "[color=#000000]"
 const RED = "[color=#ff0000]"
@@ -62,8 +66,8 @@ func set_default_object(ob):
 	default_ob = ob;
 	ob.add("no_clean_up", 1);
 
-func set(key:String,value):
-	dbase[key] = value
+func set(key:StringName,value) -> void:
+	dbase[str(key)] = value
 	
 func add(key,value):
 
@@ -152,11 +156,15 @@ func sizeof(array):
 	else:
 		return -1	
 
-func this_object(ob=self):
+func this_object(ob = null):
+	if ob == null:
+		return self
 	return ob	
 
 # todo	
-func environment(ob=self):
+func environment(ob = null):
+	if ob == null:
+		ob = self
 	return ob.query_temp("environment")
 
 func strsrch(string1,string2):
@@ -170,15 +178,29 @@ func present(name:String,to):
 	to.add("present",name)
 
 func is_character():
-	return self as Character
+	# 通过脚本继承链判断是否为 Char（避免 Char extends GameObject 的循环依赖）
+	var s = get_script()
+	while s:
+		if s.resource_path == "res://inherit/Char.gd":
+			return true
+		s = s.get_base_script()
+	return false
+
+# MUD兼容：返回当前交互玩家（Godot中无此概念，返回null由调用方处理）
+func this_player():
+	return null
 			
 func random(n:int):
 	return randi()%n
 	
-func dir(ob = self):
+func dir(ob = null):
+	if ob == null:
+		ob = self
 	return ob.get_script().get_path().get_base_dir() + "/"	
 
-func file_name(ob = self):
+func file_name(ob = null):
+	if ob == null:
+		ob = self
 	return ob.get_script().get_path()
 	
 func arrayp(a):
@@ -230,17 +252,64 @@ func say(msg):
 	print_debug(msg)		
 	
 func command(cmd:String):
-	var array = cmd.split(" ")
-	var command = array[0]
-	var args = array.remove(0)
-	if functionp(command) :
-		evaluate(command,args)	
+	# 解析命令：动词 + 参数
+	var parts := cmd.strip_edges().split(" ", false, 1)
+	var verb := parts[0] if parts.size() > 0 else ""
+	var arg := parts[1] if parts.size() > 1 else ""
+
+	if verb == "":
+		return
+
+	# 移动命令简写：直接输入方向
+	if COMMAND_D and COMMAND_D.is_move_command(verb) and arg == "":
+		# 方向命令直接触发移动
+		_do_move(verb)
+		return
+
+	# 通过命令守护进程查找处理方法
+	var handler := ""
+	if COMMAND_D:
+		handler = COMMAND_D.find_command(verb)
+
+	if handler != "" and self.has_method(handler):
+		# 优先调用角色上定义的处理方法
+		self.call(handler, arg)
+	else:
+		# 回退：如果对象自身有同名方法，直接调用
+		if self.has_method(verb):
+			self.call(verb, arg)
+		else:
+			print_debug("command: 未找到命令处理 '%s' (参数: %s)" % [verb, arg])
+
+# 移动命令处理 - 由房间出口按钮或方向命令触发
+func _do_move(direction: String) -> void:
+	# 将简写方向转为标准方向名
+	var dir_map := {
+		"n": "north", "s": "south", "e": "east", "w": "west",
+		"nu": "north", "na": "south", "dong": "east", "xi": "west",
+		"shang": "up", "xia": "down", "jin": "in", "chu": "out",
+	}
+	var dir := dir_map.get(direction, direction)
+
+	var env = environment()
+	if env == null or not env is Room:
+		return
+	var exits = env.query("exits")
+	if exits and exits is Dictionary and exits.has(dir):
+		var dest_path: String = exits[dir]
+		var dest = Global.load_room(dest_path + ".gd") if Global else load(dest_path + ".gd").new()
+		self.move(dest)
+	else:
+		print_debug("无法向 %s 方向移动" % dir)
 		
 func error(e):
 	print_debug(str(e))
 
 func notify_fail(message:String):
 	print_debug(message)
+	# 广播失败消息，供 UI 层显示
+	if self.has_signal("message_sent"):
+		self.emit_signal("message_sent", message)
 	return message
 	pass	
 
@@ -252,20 +321,28 @@ func message_vision(message:String,me,ob=null):
 	var N
 	var n 
 	N = me.query("name")
-	n = ob.query("name")
+	n = ob.query("name") if ob else ""
 	msg = msg.replace("$N",N)
 	msg = msg.replace("$n",n)
+	# 自动向 actor 发送消息，供 UI 显示
+	tell_object(me, msg)
 	# emit_signal("message_ob_sended",msg,ob)
 	return msg
 
 func tell_object(who,msg:String):
 	#  TODO
 	who.add("msg",msg)
-	print_debug(who.name(),msg)		
+	print_debug(who.name(),msg)
+	# 广播消息，供 UI 层显示
+	if who and who.has_signal("message_sent"):
+		who.emit_signal("message_sent", msg)
+		# 同时从发送者也广播（便于统一监听）
+		if self != who and self.has_signal("message_sent"):
+			self.emit_signal("message_sent", msg)
 	
 ############################## Move ###########################################
 
-var weight = 0;
+var obj_weight = 0;
 var encumb = 0
 var max_encumb = 0;
  # func listob(object *inv);
@@ -293,20 +370,20 @@ func over_encumbrance():
 	tell_object(this_object(), "你的负荷过重了！\n");
 
 func query_weight():
-	return weight
+	return obj_weight
 
 func set_weight(w):
 	if( !environment() ) :
-		weight = w;
+		obj_weight = w;
 		return;
-	if( w!=weight ) :
-		environment().add_encumbrance( w - weight );
-	weight = w;
+	if( w!=obj_weight ) :
+		environment().add_encumbrance( w - obj_weight );
+	obj_weight = w;
 
 # # This is the "current" weight of an object, which is used on weight
 # # checking in move().
 func weight() :
-	return weight + encumb;
+	return obj_weight + encumb;
 
 func move(dest, silently=1):
 	var ob

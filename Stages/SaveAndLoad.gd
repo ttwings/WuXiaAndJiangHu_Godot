@@ -11,7 +11,7 @@ func _ready() -> void:
 func _on_Save_pressed() -> void:
 	json_data.dbase["food"] = 100
 	var id = json_data.dbase["id"]
-	gdutils.utils.json.save_json(json_data,"user://save/1/player.json")
+	Global.save_json(json_data,"user://save/1/player.json")
 	print(json_data)
 	print(path)
 	pass
@@ -19,7 +19,7 @@ func _on_Save_pressed() -> void:
 
 func _on_Load_pressed() -> void:
 #	$Panel/FileDialog.show()
-	json_data = gdutils.utils.json.load_json(path)
+	json_data = Global.load_json(path)
 	$Panel/TextEdit.text = str(json_data)
 	pass
 
@@ -28,7 +28,7 @@ func _on_FileDialog_file_selected(path: String) -> void:
 	current_path = $Panel/FileDialog.current_path
 	pool.path = current_path
 	print(current_path)
-	json_data = gdutils.utils.json.load_json(path)
+	json_data = Global.load_json(path)
 	$Panel/TextEdit.text = str(json_data)
 	pass
 

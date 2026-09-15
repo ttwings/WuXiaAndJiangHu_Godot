@@ -4,6 +4,8 @@
 #class_name CHINESE_D
 # inherit F_SAVE;
 
+extends Node
+
 #include <localtime.h>
 
 #ifndef DATA_DIR

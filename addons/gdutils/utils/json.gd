@@ -10,11 +10,11 @@
 # *Returns* `Variant`  
 # * A `Dictionary` instance for most situation
 static func load_json(json_path):
-	var file = File.new()
-	if OK == file.open(json_path, File.READ):
-		var test_json_conv = JSON.new()
-		test_json_conv.parse(file.get_as_text())
-		return test_json_conv.get_data()
+	if not FileAccess.file_exists(json_path):
+		return {}
+	var file = FileAccess.open(json_path, FileAccess.READ)
+	if file:
+		return JSON.parse_string(file.get_as_text())
 	return {}
 
 # Save dictionary into json file  
@@ -29,12 +29,12 @@ static func save_json(dict, path):
 	var err = OK
 	if dict == null or typeof(dict) != TYPE_DICTIONARY or path == null or typeof(path) != TYPE_STRING:
 		err = ERR_INVALID_PARAMETER
-	if not DirAccess.new().dir_exists(path.get_base_dir()):
-		DirAccess.new().make_dir_recursive(path.get_base_dir())
-	var f = File.new()
-	err = f.open(path, File.WRITE)
-	if OK == err:
-		f.store_string(JSON.new().stringify(dict))
+	var dir = DirAccess.open(path.get_base_dir())
+	if dir == null:
+		DirAccess.make_dir_recursive_absolute(path.get_base_dir())
+	var f = FileAccess.open(path, FileAccess.WRITE)
+	if f:
+		f.store_string(JSON.stringify(dict))
 		f.close()
 		return OK
 	else:
@@ -170,7 +170,5 @@ static func unserialize_instance(dict):
 # The same structured data cloned from inst
 static func deep_clone_instance(inst):
 	var dict = serialize_instance(inst)
-	var test_json_conv = JSON.new()
-	test_json_conv.parse(JSON.new().stringify(dict))
-	var newdict = test_json_conv.get_data()
+	var newdict = JSON.parse_string(JSON.stringify(dict))
 	return unserialize_instance(newdict)

@@ -3,7 +3,7 @@ extends Control
 
 #var player_data setget ,get_player_data
 
-var player_data = gdutils.utils.json.load_json("user://save/1/player.json")
+var player_data = Global.load_json("user://save/1/player.json")
 
 var player = Char.new()
 

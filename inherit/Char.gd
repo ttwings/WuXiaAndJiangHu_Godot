@@ -194,7 +194,7 @@ func recruit_apprentice(ob):
 	family["master_name"] = query("name");
 	family["family_name"] = my_family["family_name"];
 	family["generation"] = my_family["generation"] + 1;
-	family["enter_time"] = OS.get_time(); #  return {}
+	family["enter_time"] = Time.get_time_dict_from_system();
 	ob.set("family", family);
 	ob.assign_apprentice("弟子", 0);
 	return 1;
@@ -1969,4 +1969,288 @@ func this_object(ob=self):
 # 	return fighting	or query("fighting")
 	
 # func sizeof(a):
+
+###############################################################
+# 命令处理方法 - 由 COMMAND_D 映射动词到这些方法
+# 按钮控件通过 actor.command("动词 目标") 触发这些逻辑
+###############################################################
+
+# 查找当前环境中 id 匹配的对象
+func _find_obj_by_id(id: String):
+	# 1. 先从自身携带物品查找
+	var my_objs = query_temp("objects")
+	if my_objs:
+		var found = _match_id_in(my_objs, id)
+		if found:
+			return found
+	# 2. 再从当前环境(房间)查找
+	var env = environment()
+	if env and env.has_method("query_temp"):
+		var env_objs = env.query_temp("objects")
+		if env_objs:
+			var found2 = _match_id_in(env_objs, id)
+			if found2:
+				return found2
+	return null
+
+# 在对象集合中查找 id 匹配的对象（兼容单个对象或数组）
+func _match_id_in(objs, id: String):
+	if objs is Array:
+		for o in objs:
+			if o and o.has_method("query") and o.query("id") == id:
+				return o
+	elif objs and objs.has_method("query"):
+		if objs.query("id") == id:
+			return objs
+	return null
+
+# look - 查看目标
+func do_look(arg: String = "") -> void:
+	if arg == "":
+		# 查看当前房间
+		var env = environment()
+		if env and env.has_method("query"):
+			var short = env.query("short")
+			var long = env.query("long")
+			tell_object(self, "%s\n%s" % [short, long])
+		return
+	var ob = _find_obj_by_id(arg)
+	if ob and ob.has_method("long"):
+		tell_object(self, ob.long())
+	else:
+		notify_fail("这里没有这个东西。\n")
+
+# eat - 吃食物
+func do_eat(arg: String = "") -> void:
+	if arg == "":
+		notify_fail("你要吃什么？\n")
+		return
+	var ob = _find_obj_by_id(arg)
+	if ob == null:
+		notify_fail("你要吃什么？\n")
+		return
+	if ob.has_method("do_eat"):
+		var msg = ob.do_eat(self)
+		if msg and msg is String:
+			tell_object(self, msg)
+	else:
+		notify_fail(ob.name() + "不能吃。\n")
+
+# drink - 喝东西
+func do_drink(arg: String = "") -> void:
+	if arg == "":
+		notify_fail("你要喝什么？\n")
+		return
+	var ob = _find_obj_by_id(arg)
+	if ob == null:
+		notify_fail("你要喝什么？\n")
+		return
+	if ob.has_method("do_drink"):
+		var msg = ob.do_drink(self)
+		if msg and msg is String:
+			tell_object(self, msg)
+	else:
+		notify_fail(ob.name() + "不能喝。\n")
+
+# get - 拾取物品
+func do_get(arg: String = "") -> void:
+	if arg == "":
+		notify_fail("你要拿什么？\n")
+		return
+	var ob = _find_obj_by_id(arg)
+	if ob == null:
+		notify_fail("这里没有这个东西。\n")
+		return
+	ob.move(self)
+	message_vision("$N拿起了$n。\n", self, ob)
+
+# drop - 丢弃物品
+func do_drop(arg: String = "") -> void:
+	if arg == "":
+		notify_fail("你要丢什么？\n")
+		return
+	var ob = _find_obj_by_id(arg)
+	if ob == null:
+		notify_fail("你身上没有这个东西。\n")
+		return
+	var env = environment()
+	if env:
+		ob.move(env)
+		message_vision("$N丢下了$n。\n", self, ob)
+
+# kill - 杀死目标
+func do_kill(arg: String = "") -> void:
+	if arg == "":
+		notify_fail("你要杀谁？\n")
+		return
+	var ob = _find_obj_by_id(arg)
+	if ob == null:
+		notify_fail("这里没有这个人。\n")
+		return
+	if not (ob is Char):
+		notify_fail(ob.name() + "不是活物。\n")
+		return
+	if ob == self:
+		notify_fail("自杀？\n")
+		return
+	if has_method("kill_ob"):
+		call("kill_ob", ob)
+	else:
+		message_vision("$N对$n发动了攻击！\n", self, ob)
+
+# fight - 与目标搏斗
+func do_fight(arg: String = "") -> void:
+	if arg == "":
+		notify_fail("你要和谁搏斗？\n")
+		return
+	var ob = _find_obj_by_id(arg)
+	if ob == null:
+		notify_fail("这里没有这个人。\n")
+		return
+	if has_method("fight_ob"):
+		call("fight_ob", ob)
+	else:
+		message_vision("$N向$n发起了挑战！\n", self, ob)
+
+# ask - 询问NPC
+func do_ask(arg: String = "") -> void:
+	if arg == "":
+		notify_fail("你要问谁？\n")
+		return
+	var ob = _find_obj_by_id(arg)
+	if ob == null:
+		notify_fail("这里没有这个人。\n")
+		return
+	# 打开对话面板由 UI 层处理，这里只做消息提示
+	message_vision("$N向$n打听消息。\n", self, ob)
+
+# give - 给予物品
+func do_give(arg: String = "") -> void:
+	if arg == "":
+		notify_fail("你要给什么？\n")
+		return
+	# arg 格式可能是 "物品id 给 目标id"，简化处理
+	var parts = arg.split(" ")
+	if parts.size() < 1:
+		return
+	var ob = _find_obj_by_id(parts[0])
+	if ob == null:
+		notify_fail("你身上没有这个东西。\n")
+		return
+	message_vision("$N拿出了$n。\n", self, ob)
+
+# follow - 跟随
+func do_follow(arg: String = "") -> void:
+	if arg == "":
+		notify_fail("你要跟随谁？\n")
+		return
+	var ob = _find_obj_by_id(arg)
+	if ob == null:
+		notify_fail("这里没有这个人。\n")
+		return
+	message_vision("$N开始跟随$n。\n", self, ob)
+
+# wield - 装备武器
+func do_wield(arg: String = "") -> void:
+	if arg == "":
+		notify_fail("你要装备什么武器？\n")
+		return
+	var ob = _find_obj_by_id(arg)
+	if ob == null:
+		notify_fail("你身上没有这个东西。\n")
+		return
+	if ob.has_method("wield"):
+		ob.wield(self)
+	else:
+		message_vision("$N装备了$n。\n", self, ob)
+
+# wear - 穿戴
+func do_wear(arg: String = "") -> void:
+	if arg == "":
+		notify_fail("你要穿戴什么？\n")
+		return
+	var ob = _find_obj_by_id(arg)
+	if ob == null:
+		notify_fail("你身上没有这个东西。\n")
+		return
+	if ob.has_method("wear"):
+		ob.wear(self)
+	else:
+		message_vision("$N穿上了$n。\n", self, ob)
+
+# remove - 取下装备
+func do_remove(arg: String = "") -> void:
+	if arg == "":
+		notify_fail("你要取下什么？\n")
+		return
+	var ob = _find_obj_by_id(arg)
+	if ob == null:
+		notify_fail("你身上没有这个东西。\n")
+		return
+	if ob.has_method("unequip"):
+		ob.unequip()
+	message_vision("$N取下了$n。\n", self, ob)
+
+# perform - 施展技能
+func do_perform(arg: String = "") -> void:
+	if arg == "":
+		notify_fail("你要施展什么？\n")
+		return
+	message_vision("$N开始施展「%s」！\n" % arg, self)
+
+# exert - 运功
+func do_exert(arg: String = "") -> void:
+	if arg == "":
+		notify_fail("你要运什么功？\n")
+		return
+	message_vision("$N开始运功「%s」。\n" % arg, self)
+
+# say - 说话
+func do_say(arg: String = "") -> void:
+	if arg == "":
+		return
+	message_vision("$N说道：「%s」\n" % arg, self)
+
+# inventory - 查看背包
+func do_inventory(arg: String = "") -> void:
+	var objs = query_temp("objects")
+	if not objs or (objs is Array and objs.size() == 0):
+		tell_object(self, "你身上什么也没有。\n")
+		return
+	var msg := "你身上带着：\n"
+	if objs is Array:
+		for o in objs:
+			if o and o.has_method("name"):
+				msg += "  " + o.name() + "\n"
+	tell_object(self, msg)
+
+# score - 查看属性
+func do_score(arg: String = "") -> void:
+	var msg := "【人物属性】\n"
+	msg += "臂力: %s\n" % str(query("str"))
+	msg += "悟性: %s\n" % str(query("int"))
+	msg += "体质: %s\n" % str(query("con"))
+	msg += "身法: %s\n" % str(query("dex"))
+	msg += "容貌: %s\n" % str(query("per"))
+	msg += "福缘: %s\n" % str(query("cps"))
+	tell_object(self, msg)
+
+# skills - 查看武功
+func do_skills(arg: String = "") -> void:
+	if skills and skills is Dictionary:
+		var msg := "【已学武功】\n"
+		for k in skills.keys():
+			msg += "%s: %s\n" % [k, str(skills[k])]
+		tell_object(self, msg)
+	else:
+		tell_object(self, "你还没有学会任何武功。\n")
+
+# 通用命令分发（供按钮直接调用）
+func run_command(verb: String, target = null) -> void:
+	if target and target.has_method("query"):
+		var tid = target.query("id")
+		if tid and tid != "" and tid != 0:
+			command("%s %s" % [verb, tid])
+			return
+	command(verb)
 # 	return a.size()	
